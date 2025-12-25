@@ -23,6 +23,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="/terms.html" className="text-apty-gray hover:text-apty-coral transition-colors">
+                  Terms of Service
+                </a>
+              </li>
+              <li>
                 <a href="/delete-account.html" className="text-apty-gray hover:text-apty-coral transition-colors">
                   Delete Account
                 </a>
