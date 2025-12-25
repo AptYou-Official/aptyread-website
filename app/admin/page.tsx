@@ -2,6 +2,9 @@ import StatsCard from '@/components/admin/StatsCard';
 import { getUsers } from '@/lib/queries/users';
 import { getRevenueStats } from '@/lib/queries/payments';
 
+// Force dynamic rendering to prevent build-time execution
+export const dynamic = 'force-dynamic';
+
 export default async function AdminDashboard() {
   const users = await getUsers(100);
   const revenueStats = await getRevenueStats();

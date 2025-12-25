@@ -1,6 +1,9 @@
 import UserTable from '@/components/admin/UserTable';
 import { getUsers } from '@/lib/queries/users';
 
+// Force dynamic rendering to prevent build-time execution
+export const dynamic = 'force-dynamic';
+
 export default async function UsersPage() {
   const users = await getUsers(1000);
 

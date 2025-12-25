@@ -2,6 +2,9 @@ import PaymentChart from '@/components/admin/PaymentChart';
 import { getPurchases, getRevenueStats } from '@/lib/queries/payments';
 import StatsCard from '@/components/admin/StatsCard';
 
+// Force dynamic rendering to prevent build-time execution
+export const dynamic = 'force-dynamic';
+
 export default async function PaymentsPage() {
   const purchases = await getPurchases(100);
   const revenueStats = await getRevenueStats();
