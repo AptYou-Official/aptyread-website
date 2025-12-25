@@ -21,7 +21,7 @@ export async function getUsers(limitCount: number = 100): Promise<User[]> {
     const snapshot = await usersRef.limit(limitCount).get();
     
     const users: User[] = [];
-    snapshot.forEach((doc) => {
+    snapshot.forEach((doc: any) => {
       users.push({
         id: doc.id,
         ...doc.data(),

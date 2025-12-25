@@ -22,7 +22,7 @@ export async function getPurchases(limitCount: number = 100): Promise<Purchase[]
     const snapshot = await purchasesRef.orderBy('createdAt', 'desc').limit(limitCount).get();
     
     const purchases: Purchase[] = [];
-    snapshot.forEach((doc) => {
+    snapshot.forEach((doc: any) => {
       purchases.push({
         id: doc.id,
         ...doc.data(),
@@ -63,7 +63,7 @@ export async function getRevenueStats(startDate?: Date, endDate?: Date) {
     const revenueByLevel: Record<string, number> = {};
     const dailyRevenue: Record<string, number> = {};
     
-    snapshot.forEach((doc) => {
+    snapshot.forEach((doc: any) => {
       const data = doc.data();
       const amount = data.amount || 0;
       totalRevenue += amount;
