@@ -1,56 +1,77 @@
+'use client';
+
 const features = [
   {
     icon: "📅",
     title: "One Lesson a Day",
-    description: "Your child learns one lesson each day. 30 minutes. Then the app stops. No screen time worries.",
+    description: "30 minutes. Then it stops. No screen time battles.",
+    color: "from-apty-coral to-orange-400",
   },
   {
     icon: "🔊",
-    title: "Environmental Sounds",
-    description: "We teach phonics through sounds your child already knows. Steam makes the 'S' sound.",
+    title: "Sounds They Know",
+    description: "Steam makes 'S'. Tapping makes 'T'. Learning feels natural.",
+    color: "from-apty-cyan to-blue-400",
   },
   {
     icon: "📚",
-    title: "Sequential Learning",
-    description: "One sound at a time. One letter at a time. Nothing is skipped. Nothing is rushed.",
+    title: "No Rushing",
+    description: "One sound. One letter. One word. Master it, then move on.",
+    color: "from-apty-gold to-yellow-400",
   },
   {
     icon: "🌍",
-    title: "Built for ESL Families",
-    description: "Made for families where English is the second language. Proper pronunciation from day one.",
+    title: "ESL-Friendly",
+    description: "Proper pronunciation from day one. No bad habits to fix later.",
+    color: "from-green-400 to-emerald-500",
   },
   {
     icon: "🚫",
-    title: "No Ads, No Games",
-    description: "No ads. No games that waste time. Just steady progress, one day at a time.",
+    title: "No Distractions",
+    description: "No ads. No games. Just learning, one day at a time.",
+    color: "from-purple-400 to-pink-400",
   },
   {
     icon: "✅",
-    title: "Try It Free",
-    description: "The first 4 lessons are free. See if your child connects with how we teach.",
+    title: "Try Free First",
+    description: "4 free lessons. See if your child connects with our method.",
+    color: "from-apty-coral to-pink-400",
   },
 ];
 
 export default function Features() {
   return (
-    <section className="bg-apty-warm py-20 px-4">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl font-bold text-apty-dark text-center mb-12">
-          Why Parents Choose AptyRead
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section className="bg-white py-24 px-4">
+      <div className="container mx-auto max-w-7xl">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-bold text-apty-dark mb-4">
+            Why It Works
+          </h2>
+          <p className="text-xl text-apty-gray max-w-2xl mx-auto">
+            We built AptyRead differently. Here&apos;s what makes it special.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-lg border border-apty-coral-accent shadow-sm hover:shadow-md transition-shadow"
+              className="group relative bg-white p-8 rounded-2xl border-2 border-apty-coral-accent hover:border-apty-coral transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2"
             >
-              <div className="text-4xl mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-semibold text-apty-dark mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-apty-gray leading-relaxed">
-                {feature.description}
-              </p>
+              {/* Gradient background on hover */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`}></div>
+              
+              <div className="relative">
+                <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                  {feature.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-apty-dark mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-apty-gray leading-relaxed text-lg">
+                  {feature.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -58,4 +79,3 @@ export default function Features() {
     </section>
   );
 }
-
