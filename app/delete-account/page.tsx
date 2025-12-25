@@ -39,7 +39,7 @@ export default function DeleteAccountPage() {
                 <li>Open the AptyRead app on your device</li>
                 <li>Go to Settings</li>
                 <li>Select &quot;Account&quot; or &quot;Profile&quot;</li>
-                <li>Choose "Delete Account"</li>
+                <li>Choose &quot;Delete Account&quot;</li>
                 <li>Confirm the deletion</li>
               </ol>
               <p className="mb-4">
