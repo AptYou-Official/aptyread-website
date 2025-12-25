@@ -3,6 +3,10 @@ import { db } from '@/lib/firebase-admin';
 
 export async function verifyAdminToken(token: string): Promise<boolean> {
   try {
+    if (!auth || !db) {
+      console.warn('Firebase Admin not initialized. Cannot verify admin token.');
+      return false;
+    }
     const decodedToken = await auth.verifyIdToken(token);
     const userId = decodedToken.uid;
     
@@ -17,6 +21,10 @@ export async function verifyAdminToken(token: string): Promise<boolean> {
 
 export async function isAdminUser(userId: string): Promise<boolean> {
   try {
+    if (!db) {
+      console.warn('Firebase Admin not initialized. Cannot check admin user.');
+      return false;
+    }
     const adminDoc = await db.collection('admin_users').doc(userId).get();
     return adminDoc.exists;
   } catch (error) {
