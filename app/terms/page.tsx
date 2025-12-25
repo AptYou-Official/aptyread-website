@@ -35,7 +35,7 @@ export default function TermsPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-apty-dark mb-4">2. Acceptance of Terms</h2>
               <p className="mb-4">
-                By creating an account, downloading the App, or using any of our Services, you acknowledge that you have read, understood, and agree to be bound by these Terms, as well as our Privacy Policy and Refund Policy.
+                By creating an account, downloading the App, or using any of our Services, you acknowledge that you have read, understood, and agree to be bound by these Terms, as well as our Privacy Policy.
               </p>
               <p className="mb-4">
                 We reserve the right to modify these Terms at any time. We will notify you of significant changes by posting the updated Terms on our website and/or within the App. Your continued use of the Services after such changes constitutes your acceptance of the updated Terms.
@@ -338,14 +338,48 @@ export default function TermsPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-apty-dark mb-4">8. Refunds and Cancellations</h2>
               <p className="mb-4">
-                All purchases are subject to our <strong>Refund Policy</strong>, which is incorporated into these Terms by reference. Please review our complete Refund Policy at www.aptyread.ai/refund-policy.html.
+                All purchases are subject to the refund policy outlined below. Refunds are processed through Apple App Store or Google Play Store according to their respective policies.
               </p>
-              <p className="mb-4"><strong>Key Points:</strong></p>
+              
+              <h3 className="text-xl font-semibold text-apty-dark mb-3 mt-6">8.1 Refund Policy</h3>
+              <p className="mb-4"><strong>7-Day Money-Back Guarantee:</strong></p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
-                <li>7-day money-back guarantee from date of purchase</li>
-                <li>Refunds must be requested through Apple App Store or Google Play Store</li>
-                <li>Refund eligibility and processing are subject to app store policies</li>
-                <li>No refunds after the 7-day period or validity expiration</li>
+                <li>We offer a 7-day money-back guarantee from the date of purchase</li>
+                <li>Refunds must be requested within 7 days of purchase</li>
+                <li>After 7 days, refunds are not available except as required by applicable law</li>
+              </ul>
+              <p className="mb-4"><strong>How to Request a Refund:</strong></p>
+              <ul className="list-disc pl-6 mb-4 space-y-2">
+                <li><strong>Apple App Store:</strong> Request refunds through your Apple ID account settings or contact Apple Support</li>
+                <li><strong>Google Play Store:</strong> Request refunds through the Google Play Store app or website</li>
+                <li>We do not process refunds directly - all refund requests must go through the app store where you made the purchase</li>
+              </ul>
+              <p className="mb-4"><strong>Refund Eligibility:</strong></p>
+              <ul className="list-disc pl-6 mb-4 space-y-2">
+                <li>Refunds are subject to the app store&apos;s refund policies and procedures</li>
+                <li>App stores have their own eligibility criteria and processing times</li>
+                <li>We cannot guarantee refund approval - final decisions are made by Apple or Google</li>
+              </ul>
+              <p className="mb-4"><strong>Non-Refundable Situations:</strong></p>
+              <ul className="list-disc pl-6 mb-4 space-y-2">
+                <li>Purchases made more than 7 days ago</li>
+                <li>Course levels that have expired (validity period has ended)</li>
+                <li>Accounts that have been deleted</li>
+                <li>Refunds requested after significant course progress has been made (at app store&apos;s discretion)</li>
+              </ul>
+              <p className="mb-4"><strong>Refund Processing:</strong></p>
+              <ul className="list-disc pl-6 mb-4 space-y-2">
+                <li>Refund processing times vary by app store (typically 3-10 business days)</li>
+                <li>Refunds are credited back to the original payment method</li>
+                <li>Once a refund is processed, access to the purchased course level will be revoked</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-apty-dark mb-3 mt-6">8.2 Cancellations</h3>
+              <ul className="list-disc pl-6 mb-4 space-y-2">
+                <li>AptyRead courses are one-time purchases, not subscriptions</li>
+                <li>There are no recurring charges to cancel</li>
+                <li>If you wish to stop using a purchased course, simply stop using the App</li>
+                <li>No cancellation process is required</li>
               </ul>
             </section>
 
@@ -503,7 +537,7 @@ export default function TermsPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-apty-dark mb-4">17. Entire Agreement</h2>
               <p className="mb-4">
-                These Terms, together with our Privacy Policy and Refund Policy, constitute the entire agreement between you and AptYou Services Pvt Ltd regarding the Services and supersede all prior agreements, understandings, and communications, whether written or oral.
+                These Terms, together with our Privacy Policy, constitute the entire agreement between you and AptYou Services Pvt Ltd regarding the Services and supersede all prior agreements, understandings, and communications, whether written or oral.
               </p>
             </section>
 
