@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --apty-coral: #FF6B35;
+  --apty-cyan: #0099CC;
+  --apty-gold: #FFB300;
+  --apty-warm: #FFF9F7;
+  --apty-dark: #2D3748;
+  --apty-gray: #64748B;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--apty-dark);
+  background-color: var(--apty-warm);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
