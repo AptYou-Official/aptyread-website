@@ -38,7 +38,7 @@ export default function Testimonials() {
                 ))}
               </div>
               <p className="text-apty-gray mb-6 leading-relaxed text-lg italic">
-                "{testimonial.content}"
+                &quot;{testimonial.content}&quot;
               </p>
               <div>
                 <p className="font-semibold text-apty-dark">{testimonial.name}</p>

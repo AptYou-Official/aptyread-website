@@ -23,7 +23,7 @@ export default function DeleteAccountPage() {
               </p>
               <ul className="list-disc pl-6 mt-2 space-y-1">
                 <li>Your account information</li>
-                <li>Your child's learning progress</li>
+                <li>Your child&apos;s learning progress</li>
                 <li>Purchase history</li>
                 <li>All associated data</li>
               </ul>
@@ -38,7 +38,7 @@ export default function DeleteAccountPage() {
               <ol className="list-decimal pl-6 mb-4 space-y-2">
                 <li>Open the AptyRead app on your device</li>
                 <li>Go to Settings</li>
-                <li>Select "Account" or "Profile"</li>
+                <li>Select &quot;Account&quot; or &quot;Profile&quot;</li>
                 <li>Choose "Delete Account"</li>
                 <li>Confirm the deletion</li>
               </ol>

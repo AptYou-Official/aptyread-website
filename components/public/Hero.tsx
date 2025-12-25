@@ -9,7 +9,7 @@ export default function Hero() {
           AptyRead helps children ages 4-10 learn English phonics through sounds they hear every day. Our unique approach uses environmental sounds to teach letters - making learning natural and memorable.
         </p>
         <p className="text-lg text-apty-dark mb-10 max-w-2xl mx-auto">
-          We teach phonics through sounds your child already knows. Steam makes the 'S' sound. Tapping makes the 'T' sound.
+          We teach phonics through sounds your child already knows. Steam makes the &apos;S&apos; sound. Tapping makes the &apos;T&apos; sound.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <div className="bg-apty-coral text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-lg opacity-90 cursor-not-allowed">

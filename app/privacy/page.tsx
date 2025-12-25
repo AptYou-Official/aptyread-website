@@ -23,7 +23,7 @@ export default function PrivacyPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-apty-dark mb-4">Introduction</h2>
               <p className="mb-4">
-                At AptyRead, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your child's information when using our platform.
+                At AptyRead, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your child&apos;s information when using our platform.
               </p>
             </section>
 
@@ -45,14 +45,14 @@ export default function PrivacyPage() {
                 <li>Provide and improve our educational services</li>
                 <li>Track learning progress</li>
                 <li>Personalize the learning experience</li>
-                <li>Communicate with parents about their child's progress</li>
+                <li>Communicate with parents about their child&apos;s progress</li>
               </ul>
             </section>
 
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-apty-dark mb-4">Data Security</h2>
               <p className="mb-4">
-                We implement industry-standard security measures to protect your child's data. All data is encrypted and stored securely.
+                We implement industry-standard security measures to protect your child&apos;s data. All data is encrypted and stored securely.
               </p>
             </section>
 
@@ -60,7 +60,7 @@ export default function PrivacyPage() {
               <h2 className="text-2xl font-semibold text-apty-dark mb-4">Your Rights</h2>
               <p className="mb-4">You have the right to:</p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
-                <li>Access your child's data</li>
+                <li>Access your child&apos;s data</li>
                 <li>Request data deletion</li>
                 <li>Opt-out of data collection</li>
                 <li>Request a copy of your data</li>
