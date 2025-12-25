@@ -13,6 +13,10 @@ export interface Purchase {
 
 export async function getPurchases(limitCount: number = 100): Promise<Purchase[]> {
   try {
+    if (!db) {
+      console.warn('Firebase Admin not initialized. Returning empty purchases array.');
+      return [];
+    }
     const purchasesRef = db.collection('purchases');
     const snapshot = await purchasesRef.orderBy('createdAt', 'desc').limit(limitCount).get();
     
@@ -33,6 +37,15 @@ export async function getPurchases(limitCount: number = 100): Promise<Purchase[]
 
 export async function getRevenueStats(startDate?: Date, endDate?: Date) {
   try {
+    if (!db) {
+      console.warn('Firebase Admin not initialized. Returning empty revenue stats.');
+      return {
+        totalRevenue: 0,
+        revenueByLevel: {},
+        dailyRevenue: {},
+        purchaseCount: 0,
+      };
+    }
     let purchasesRef = db.collection('purchases').where('status', '==', 'completed');
     
     if (startDate) {

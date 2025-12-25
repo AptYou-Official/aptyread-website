@@ -12,6 +12,10 @@ export interface User {
 
 export async function getUsers(limitCount: number = 100): Promise<User[]> {
   try {
+    if (!db) {
+      console.warn('Firebase Admin not initialized. Returning empty users array.');
+      return [];
+    }
     const usersRef = db.collection('users');
     const snapshot = await usersRef.limit(limitCount).get();
     
@@ -32,6 +36,10 @@ export async function getUsers(limitCount: number = 100): Promise<User[]> {
 
 export async function getUserById(userId: string): Promise<User | null> {
   try {
+    if (!db) {
+      console.warn('Firebase Admin not initialized. Returning null.');
+      return null;
+    }
     const userDoc = await db.collection('users').doc(userId).get();
     if (!userDoc.exists) {
       return null;
