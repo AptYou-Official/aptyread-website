@@ -1,4 +1,4 @@
-import { db } from '@/lib/firebase-admin';
+import { getDb } from '@/lib/firebase-admin';
 
 export interface User {
   id: string;
@@ -12,6 +12,7 @@ export interface User {
 
 export async function getUsers(limitCount: number = 100): Promise<User[]> {
   try {
+    const db = await getDb();
     if (!db) {
       console.warn('Firebase Admin not initialized. Returning empty users array.');
       return [];
@@ -36,6 +37,7 @@ export async function getUsers(limitCount: number = 100): Promise<User[]> {
 
 export async function getUserById(userId: string): Promise<User | null> {
   try {
+    const db = await getDb();
     if (!db) {
       console.warn('Firebase Admin not initialized. Returning null.');
       return null;
@@ -53,4 +55,3 @@ export async function getUserById(userId: string): Promise<User | null> {
     return null;
   }
 }
-

@@ -1,8 +1,9 @@
-import { auth } from '@/lib/firebase-admin';
-import { db } from '@/lib/firebase-admin';
+import { getDb, getAuth } from '@/lib/firebase-admin';
 
 export async function verifyAdminToken(token: string): Promise<boolean> {
   try {
+    const auth = await getAuth();
+    const db = await getDb();
     if (!auth || !db) {
       console.warn('Firebase Admin not initialized. Cannot verify admin token.');
       return false;
@@ -21,6 +22,7 @@ export async function verifyAdminToken(token: string): Promise<boolean> {
 
 export async function isAdminUser(userId: string): Promise<boolean> {
   try {
+    const db = await getDb();
     if (!db) {
       console.warn('Firebase Admin not initialized. Cannot check admin user.');
       return false;
@@ -32,4 +34,3 @@ export async function isAdminUser(userId: string): Promise<boolean> {
     return false;
   }
 }
-

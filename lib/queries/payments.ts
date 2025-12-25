@@ -1,4 +1,4 @@
-import { db } from '@/lib/firebase-admin';
+import { getDb } from '@/lib/firebase-admin';
 
 export interface Purchase {
   id: string;
@@ -13,6 +13,7 @@ export interface Purchase {
 
 export async function getPurchases(limitCount: number = 100): Promise<Purchase[]> {
   try {
+    const db = await getDb();
     if (!db) {
       console.warn('Firebase Admin not initialized. Returning empty purchases array.');
       return [];
@@ -37,6 +38,7 @@ export async function getPurchases(limitCount: number = 100): Promise<Purchase[]
 
 export async function getRevenueStats(startDate?: Date, endDate?: Date) {
   try {
+    const db = await getDb();
     if (!db) {
       console.warn('Firebase Admin not initialized. Returning empty revenue stats.');
       return {
@@ -91,4 +93,3 @@ export async function getRevenueStats(startDate?: Date, endDate?: Date) {
     };
   }
 }
-
