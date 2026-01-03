@@ -18,6 +18,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="/faq.html" className="text-apty-gray hover:text-apty-coral transition-colors">
+                  FAQ
+                </a>
+              </li>
+              <li>
                 <a href="/privacy.html" className="text-apty-gray hover:text-apty-coral transition-colors">
                   Privacy Policy
                 </a>
