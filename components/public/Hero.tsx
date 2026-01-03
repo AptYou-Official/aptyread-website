@@ -3,8 +3,21 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="relative bg-white py-16 md:py-24 lg:py-32">
-      <div className="container mx-auto px-4 max-w-5xl">
+    <section className="relative bg-white py-16 md:py-24 lg:py-32 overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-white/90 z-10"></div>
+        <Image
+          src="/images/parent-child-reading.png"
+          alt="Parent and child reading together"
+          fill
+          className="object-cover opacity-20"
+          priority
+          quality={75}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 max-w-5xl relative z-20">
         <div className="text-center max-w-4xl mx-auto">
           {/* Main Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-apty-dark mb-6 leading-tight">
@@ -16,8 +29,14 @@ export default function Hero() {
           </h1>
 
           {/* Subheadline */}
+          <p className="text-lg md:text-xl text-apty-gray mb-6 md:mb-8 leading-relaxed max-w-3xl mx-auto">
+            Most children struggle in school because they never learned to read properly.
+          </p>
+          <p className="text-lg md:text-xl text-apty-gray mb-6 md:mb-8 leading-relaxed max-w-3xl mx-auto">
+            AptyRead fixes this from the start. <span className="font-semibold text-apty-dark">English Reading & Writing for children ages 3-10.</span>
+          </p>
           <p className="text-lg md:text-xl text-apty-gray mb-8 md:mb-10 leading-relaxed max-w-3xl mx-auto">
-            Most children struggle in school because they never learned to read properly. AptyRead fixes this from the start. Your child will read independently, with confidence, at their own pace.
+            Your child will read independently, with confidence, at their own pace.
           </p>
 
           {/* CTA Button */}
@@ -39,7 +58,7 @@ export default function Hero() {
             </div>
             <div className="flex items-center gap-2">
               <span className="text-apty-coral">✓</span>
-              <span>Level-by-level purchase</span>
+              <span>Enroll level-by-level</span>
             </div>
           </div>
 

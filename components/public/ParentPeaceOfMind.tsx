@@ -9,7 +9,7 @@ const concerns = [
   },
   {
     question: "Worried about cost?",
-    answer: "Try 4 lessons free. Pay level-by-level only. No subscriptions. Complete Level 1, then decide if you want more.",
+    answer: "Try 4 lessons free. Enroll level-by-level only. No subscriptions. Complete Level 1, then decide if you want more.",
     icon: "💰",
   },
   {

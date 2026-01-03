@@ -45,7 +45,7 @@ export default function Features() {
               },
               {
                 title: "Try Before You Commit",
-                description: "Try 4 lessons free. Then pay level-by-level. Complete Level 1, then decide. No subscriptions.",
+                description: "Try 4 lessons free. Then enroll level-by-level. Complete Level 1, then decide. No subscriptions.",
               },
             ].map((item, index) => (
               <div key={index} className="flex items-start gap-3 md:gap-4">

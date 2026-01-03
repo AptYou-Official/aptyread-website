@@ -19,7 +19,7 @@ const benefits = [
   {
     icon: "💰",
     title: "Try Before You Commit",
-    description: "Try 4 lessons free. No registration needed. Then pay level-by-level only. Complete Level 1, then decide if you want Level 2.",
+    description: "Try 4 lessons free. No registration needed. Then enroll level-by-level. Complete Level 1, then decide if you want Level 2.",
   },
   {
     icon: "🏫",
