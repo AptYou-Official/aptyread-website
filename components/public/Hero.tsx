@@ -22,9 +22,9 @@ export default function Hero() {
             </div>
 
             {/* Content - Right side on desktop, bottom on mobile */}
-            <div className="flex-1 text-center md:text-left order-1 md:order-2">
+            <div className="flex-1 text-left order-1 md:order-2">
               {/* Main Headline - Problem + Outcome */}
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-apty-dark mb-4 md:mb-6 leading-tight">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-apty-dark mb-5 md:mb-6 leading-tight">
                 Help Your Child Learn to Read
                 <br />
                 <span className="bg-gradient-to-r from-apty-coral to-apty-cyan bg-clip-text text-transparent">
@@ -33,37 +33,31 @@ export default function Hero() {
               </h1>
 
               {/* Subheadline - Simplified for mobile */}
-              <p className="text-base md:text-xl lg:text-2xl text-apty-gray mb-4 md:mb-6 leading-relaxed">
-                Most children struggle in school because they never learned to read properly.
-                <span className="hidden md:inline"><br /></span>
-                <span className="block md:inline"> </span>
-                <span className="font-semibold text-apty-dark">AptyRead fixes this from the start.</span>
-                <span className="hidden lg:inline"><br /></span>
-                <span className="block md:hidden"> </span>
-                <span className="text-sm md:text-base lg:text-lg">Your child will read independently, with confidence, at their own pace.</span>
+              <p className="text-base md:text-xl lg:text-2xl text-apty-gray mb-5 md:mb-6 leading-relaxed">
+                Most children struggle in school because they never learned to read properly. <span className="font-semibold text-apty-dark">AptyRead fixes this from the start.</span> Your child will read independently, with confidence, at their own pace.
               </p>
 
               {/* Key Differentiators - Simplified for mobile */}
-              <div className="mb-6 md:mb-8 space-y-2">
-                <div className="flex items-start gap-2 md:gap-3 text-apty-dark">
-                  <span className="text-apty-coral text-lg md:text-xl flex-shrink-0 mt-0.5">✓</span>
-                  <span className="text-base md:text-lg">One lesson a day - not rushed, not overwhelming</span>
+              <div className="mb-8 md:mb-10 space-y-3">
+                <div className="flex items-start gap-3 text-apty-dark">
+                  <span className="text-apty-coral text-xl flex-shrink-0 mt-0.5">✓</span>
+                  <span className="text-base md:text-lg leading-relaxed">One lesson a day - not rushed, not overwhelming</span>
                 </div>
-                <div className="flex items-start gap-2 md:gap-3 text-apty-dark">
-                  <span className="text-apty-coral text-lg md:text-xl flex-shrink-0 mt-0.5">✓</span>
-                  <span className="text-base md:text-lg">Structured approach that builds real reading skills</span>
+                <div className="flex items-start gap-3 text-apty-dark">
+                  <span className="text-apty-coral text-xl flex-shrink-0 mt-0.5">✓</span>
+                  <span className="text-base md:text-lg leading-relaxed">Structured approach that builds real reading skills</span>
                 </div>
               </div>
 
               {/* Primary CTA */}
-              <div className="flex flex-col gap-3 md:gap-4 justify-center md:justify-start items-stretch md:items-center">
+              <div className="flex flex-col gap-4 md:gap-4 md:flex-row md:items-center">
                 <button className="group relative w-full md:w-auto">
                   <div className="absolute -inset-1 bg-gradient-to-r from-apty-coral to-apty-cyan rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
-                  <div className="relative bg-apty-coral text-white px-6 md:px-8 py-3 md:py-4 rounded-xl text-base md:text-lg font-semibold shadow-lg transform transition duration-300 hover:scale-105 text-center">
+                  <div className="relative bg-apty-coral text-white px-8 py-4 rounded-xl text-base md:text-lg font-semibold shadow-lg transform transition duration-300 hover:scale-105 text-center">
                     Try 4 Free Lessons
                   </div>
                 </button>
-                <p className="text-apty-gray text-xs md:text-sm text-center md:text-left">
+                <p className="text-apty-gray text-sm md:text-sm text-left md:text-left">
                   No registration needed • Available soon on Google Play Store
                 </p>
               </div>

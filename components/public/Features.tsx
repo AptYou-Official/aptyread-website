@@ -1,9 +1,10 @@
 'use client';
+import Image from 'next/image';
 
 export default function Features() {
   return (
     <section className="bg-gradient-to-b from-apty-warm to-white py-16 md:py-20 px-4">
-      <div className="container mx-auto max-w-4xl">
+      <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-apty-dark mb-4">
             Real Reading for Real Life
@@ -11,6 +12,20 @@ export default function Features() {
           <p className="text-lg md:text-xl text-apty-gray max-w-3xl mx-auto">
             Your child will read books, signs, stories - real-world reading, not just screen time.
           </p>
+        </div>
+
+        {/* Real-World Reading Image */}
+        <div className="mb-12">
+          <div className="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg">
+            <Image
+              src="/images/real-world-reading.png"
+              alt="Children reading books, signs, menus, and letters in real-world situations"
+              width={1024}
+              height={1024}
+              className="w-full h-auto object-contain rounded-lg"
+              priority={false}
+            />
+          </div>
         </div>
 
         <div className="bg-white p-6 md:p-8 rounded-2xl border-2 border-apty-coral-accent shadow-sm">
