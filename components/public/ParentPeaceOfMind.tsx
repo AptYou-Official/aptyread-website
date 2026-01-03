@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 
 const concerns = [
   {
@@ -26,7 +27,7 @@ const concerns = [
 export default function ParentPeaceOfMind() {
   return (
     <section className="bg-white py-16 md:py-20 px-4">
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-apty-dark mb-4">
             Designed with Parents in Mind
@@ -36,28 +37,43 @@ export default function ParentPeaceOfMind() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {concerns.map((concern, index) => (
-            <div
-              key={index}
-              className="bg-apty-warm p-6 md:p-8 rounded-xl border border-apty-coral-accent hover:border-apty-coral transition-all"
-            >
-              <div className="flex items-start gap-4">
-                <div className="text-3xl md:text-4xl flex-shrink-0">{concern.icon}</div>
-                <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-apty-dark mb-3">
-                    {concern.question}
-                  </h3>
-                  <p className="text-apty-gray leading-relaxed text-base md:text-lg">
-                    {concern.answer}
-                  </p>
+        {/* Parent-Child Reading Image */}
+        <div className="mb-12 max-w-4xl mx-auto">
+          <div className="relative w-full rounded-2xl overflow-hidden shadow-lg">
+            <Image
+              src="/images/parent-child-reading.png"
+              alt="Parent and child reading together - showing family connection and learning"
+              width={1200}
+              height={800}
+              className="w-full h-auto object-cover"
+              priority={false}
+            />
+          </div>
+        </div>
+
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6">
+            {concerns.map((concern, index) => (
+              <div
+                key={index}
+                className="bg-apty-warm p-6 md:p-8 rounded-xl border border-apty-coral-accent hover:border-apty-coral transition-all"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl md:text-4xl flex-shrink-0">{concern.icon}</div>
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-bold text-apty-dark mb-3">
+                      {concern.question}
+                    </h3>
+                    <p className="text-apty-gray leading-relaxed text-base md:text-lg">
+                      {concern.answer}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
