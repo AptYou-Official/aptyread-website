@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AptyRead - Learn to Read English Naturally",
-  description: "AptyRead helps children ages 4-10 learn English phonics through sounds they hear every day. Our unique approach uses environmental sounds to teach letters - making learning natural and memorable.",
-  keywords: "learn to read, English reading, phonics, children education, ESL, literacy, environmental sounds",
+  title: "AptyRead - Structured Literacy Learning Platform | English Reading & Writing",
+  description: "AptyRead is a structured, sequential literacy learning platform. Currently offering English Reading & Writing course for children ages 3-10. Mastery-driven, one lesson per day. Try 4 lessons free.",
+  keywords: "English reading, learn to read English, English reading app, literacy platform, phonics, children education, ESL reading, structured literacy, mastery-based learning, English reading course, reading app for kids",
   openGraph: {
-    title: "AptyRead - Learn to Read English Naturally",
-    description: "AptyRead helps children ages 4-10 learn English phonics through sounds they hear every day.",
+    title: "AptyRead - Structured Literacy Learning Platform",
+    description: "Mastery-driven literacy learning platform. Currently offering English Reading & Writing course. Try 4 lessons free.",
     url: "https://www.aptyread.ai",
     siteName: "AptyRead",
     type: "website",

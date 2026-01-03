@@ -1,79 +1,83 @@
 'use client';
 
-const features = [
+const highlights = [
   {
-    icon: "📅",
-    title: "One Lesson a Day",
-    description: "30 minutes. Then it stops. No screen time battles.",
-    color: "from-apty-coral to-orange-400",
+    stat: "12 Topics",
+    label: "Per Letter",
+    description: "Recognition, sound, pronunciation, words, writing",
   },
   {
-    icon: "🔊",
-    title: "Sounds They Know",
-    description: "Steam makes 'S'. Tapping makes 'T'. Learning feels natural.",
-    color: "from-apty-cyan to-blue-400",
+    stat: "460+",
+    label: "Learning Activities",
+    description: "In Level 1 alone",
   },
   {
-    icon: "📚",
-    title: "No Rushing",
-    description: "One sound. One letter. One word. Master it, then move on.",
-    color: "from-apty-gold to-yellow-400",
+    stat: "70%",
+    label: "Mastery Required",
+    description: "To move forward",
   },
   {
-    icon: "🌍",
-    title: "ESL-Friendly",
-    description: "Proper pronunciation from day one. No bad habits to fix later.",
-    color: "from-green-400 to-emerald-500",
-  },
-  {
-    icon: "🚫",
-    title: "No Distractions",
-    description: "No ads. No games. Just learning, one day at a time.",
-    color: "from-purple-400 to-pink-400",
-  },
-  {
-    icon: "✅",
-    title: "Try Free First",
-    description: "4 free lessons. See if your child connects with our method.",
-    color: "from-apty-coral to-pink-400",
+    stat: "1 Lesson",
+    label: "Per Day",
+    description: "Healthy learning pace",
   },
 ];
 
 export default function Features() {
   return (
-    <section className="bg-white py-24 px-4">
-      <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold text-apty-dark mb-4">
-            Why It Works
+    <section className="bg-gradient-to-b from-white to-apty-warm py-20 px-4">
+      <div className="container mx-auto max-w-5xl">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-apty-dark mb-4">
+            Comprehensive Learning
           </h2>
-          <p className="text-xl text-apty-gray max-w-2xl mx-auto">
-            We built AptyRead differently. Here&apos;s what makes it special.
+          <p className="text-lg text-apty-gray max-w-2xl mx-auto">
+            Each letter gets 12 focused topics. Not just a game.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {highlights.map((highlight, index) => (
             <div
               key={index}
-              className="group relative bg-white p-8 rounded-2xl border-2 border-apty-coral-accent hover:border-apty-coral transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2"
+              className="text-center p-6 bg-white rounded-xl border border-apty-coral-accent"
             >
-              {/* Gradient background on hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`}></div>
-              
-              <div className="relative">
-                <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                  {feature.icon}
-                </div>
-                <h3 className="text-2xl font-bold text-apty-dark mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-apty-gray leading-relaxed text-lg">
-                  {feature.description}
-                </p>
+              <div className="text-4xl md:text-5xl font-bold text-apty-coral mb-2">
+                {highlight.stat}
+              </div>
+              <div className="text-lg font-semibold text-apty-dark mb-2">
+                {highlight.label}
+              </div>
+              <div className="text-sm text-apty-gray">
+                {highlight.description}
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Quick Learning Flow */}
+        <div className="bg-white p-8 rounded-2xl border border-apty-coral-accent">
+          <h3 className="text-2xl font-bold text-apty-dark mb-2 text-center">
+            Every Letter Lesson Includes
+          </h3>
+          <p className="text-center text-apty-gray mb-6 text-sm">
+            Apty guides your child through each step with warmth and encouragement
+          </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              "Letter recognition (big & small)",
+              "Sound production with mouth placement",
+              "AI pronunciation feedback",
+              "Word association (3 words per letter)",
+              "Writing practice (uppercase & lowercase)",
+              "Celebration & review",
+            ].map((item, index) => (
+              <div key={index} className="flex items-start gap-3">
+                <span className="text-apty-coral text-xl flex-shrink-0">✓</span>
+                <span className="text-apty-dark">{item}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

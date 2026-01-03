@@ -30,3 +30,5 @@ export default function PaymentChart({ data }: PaymentChartProps) {
   );
 }
 
+
+

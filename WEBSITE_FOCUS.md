@@ -129,3 +129,5 @@ components/public/
 - All components use the warm background (#FFF9F7) for consistency
 - Website is production-ready once screenshots are added
 
+
+
