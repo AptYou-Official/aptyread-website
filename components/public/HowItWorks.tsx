@@ -36,10 +36,10 @@ export default function HowItWorks() {
     <section className="bg-gradient-to-b from-apty-warm to-white py-20 px-4">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-apty-dark mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-apty-dark mb-4">
             Your Child&apos;s Reading Journey
           </h2>
-          <p className="text-xl text-apty-gray max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-apty-gray max-w-3xl mx-auto">
             A clear path from letters to independent reading. Each level builds on the previous one.
           </p>
         </div>
@@ -75,9 +75,9 @@ export default function HowItWorks() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-lg text-apty-gray">
-            Your child completes each level before moving forward. This ensures they actually learn, not just progress.
+        <div className="mt-10 md:mt-12 text-center">
+          <p className="text-base md:text-lg text-apty-gray max-w-2xl mx-auto">
+            Your child completes each level before moving forward. This ensures they actually learn, not just move forward quickly.
           </p>
         </div>
       </div>

@@ -4,12 +4,12 @@ import Image from 'next/image';
 export default function Hero() {
   return (
     <section className="relative bg-gradient-to-b from-apty-warm via-white to-apty-warm overflow-hidden">
-      <div className="relative container mx-auto px-4 py-16 md:py-24">
+      <div className="relative container mx-auto px-4 py-12 md:py-24">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
             {/* Apty Character - Left side on desktop, top on mobile */}
             <div className="flex-shrink-0 order-2 md:order-1">
-              <div className="relative w-56 h-56 md:w-72 md:h-72">
+              <div className="relative w-40 h-40 md:w-72 md:h-72">
                 <Image 
                   src="/images/apty-character.png" 
                   alt="Apty" 
@@ -24,7 +24,7 @@ export default function Hero() {
             {/* Content - Right side on desktop, bottom on mobile */}
             <div className="flex-1 text-center md:text-left order-1 md:order-2">
               {/* Main Headline - Problem + Outcome */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-apty-dark mb-6 leading-tight">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-apty-dark mb-4 md:mb-6 leading-tight">
                 Help Your Child Learn to Read
                 <br />
                 <span className="bg-gradient-to-r from-apty-coral to-apty-cyan bg-clip-text text-transparent">
@@ -32,40 +32,38 @@ export default function Hero() {
                 </span>
               </h1>
 
-              {/* Subheadline - The Problem + Outcome */}
-              <p className="text-xl md:text-2xl text-apty-gray mb-6 leading-relaxed">
+              {/* Subheadline - Simplified for mobile */}
+              <p className="text-base md:text-xl lg:text-2xl text-apty-gray mb-4 md:mb-6 leading-relaxed">
                 Most children struggle in school because they never learned to read properly.
-                <br />
+                <span className="hidden md:inline"><br /></span>
+                <span className="block md:inline"> </span>
                 <span className="font-semibold text-apty-dark">AptyRead fixes this from the start.</span>
-                <br />
-                <span className="text-lg">Your child will read independently, with confidence, at their own pace.</span>
+                <span className="hidden lg:inline"><br /></span>
+                <span className="block md:hidden"> </span>
+                <span className="text-sm md:text-base lg:text-lg">Your child will read independently, with confidence, at their own pace.</span>
               </p>
 
-              {/* Key Differentiators - Why This Works */}
-              <div className="mb-8 space-y-2">
-                <div className="flex items-center gap-3 text-apty-dark">
-                  <span className="text-apty-coral text-xl">✓</span>
-                  <span className="text-lg">One lesson a day - not rushed, not overwhelming</span>
+              {/* Key Differentiators - Simplified for mobile */}
+              <div className="mb-6 md:mb-8 space-y-2">
+                <div className="flex items-start gap-2 md:gap-3 text-apty-dark">
+                  <span className="text-apty-coral text-lg md:text-xl flex-shrink-0 mt-0.5">✓</span>
+                  <span className="text-base md:text-lg">One lesson a day - not rushed, not overwhelming</span>
                 </div>
-                <div className="flex items-center gap-3 text-apty-dark">
-                  <span className="text-apty-coral text-xl">✓</span>
-                  <span className="text-lg">Structured approach - letters → words → stories → independent reading</span>
-                </div>
-                <div className="flex items-center gap-3 text-apty-dark">
-                  <span className="text-apty-coral text-xl">✓</span>
-                  <span className="text-lg">English Reading & Writing for ages 3-10</span>
+                <div className="flex items-start gap-2 md:gap-3 text-apty-dark">
+                  <span className="text-apty-coral text-lg md:text-xl flex-shrink-0 mt-0.5">✓</span>
+                  <span className="text-base md:text-lg">Structured approach that builds real reading skills</span>
                 </div>
               </div>
 
               {/* Primary CTA */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center mb-8">
-                <button className="group relative">
+              <div className="flex flex-col gap-3 md:gap-4 justify-center md:justify-start items-stretch md:items-center">
+                <button className="group relative w-full md:w-auto">
                   <div className="absolute -inset-1 bg-gradient-to-r from-apty-coral to-apty-cyan rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
-                  <div className="relative bg-apty-coral text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-lg transform transition duration-300 hover:scale-105">
+                  <div className="relative bg-apty-coral text-white px-6 md:px-8 py-3 md:py-4 rounded-xl text-base md:text-lg font-semibold shadow-lg transform transition duration-300 hover:scale-105 text-center">
                     Try 4 Free Lessons
                   </div>
                 </button>
-                <p className="text-apty-gray text-sm">
+                <p className="text-apty-gray text-xs md:text-sm text-center md:text-left">
                   No registration needed • Available soon on Google Play Store
                 </p>
               </div>

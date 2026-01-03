@@ -4,44 +4,44 @@ const benefits = [
   {
     icon: "🎯",
     title: "Your Child Actually Learns",
-    description: "Structured curriculum, not random games. Every lesson builds on the previous one. Your child masters each step before moving forward.",
+    description: "Structured learning, not random games. Every lesson builds on the previous one. Your child masters each step before moving forward.",
   },
   {
     icon: "❤️",
     title: "Respects Your Child's Pace",
-    description: "One lesson per day by default (you can adjust to max 2). No pressure, no rushing. Your child learns at their natural pace.",
+    description: "One lesson per day by default (you can set it to 2 if needed). No pressure, no rushing. Your child learns at their own speed.",
   },
   {
     icon: "🔒",
-    title: "Real Progress, Not Guessing",
-    description: "Your child can't skip ahead. They must master Level 1 before accessing Level 2. This ensures they actually learn, not just guess.",
+    title: "Real Progress, Not Just Progress Bars",
+    description: "Your child must master Level 1 before accessing Level 2. This ensures they actually learn, not just move forward quickly.",
   },
   {
     icon: "💰",
-    title: "Pay Only For What You Need",
-    description: "No subscriptions. Try 4 lessons free. Then pay level-by-level. Complete Level 1 (2-4 months), then decide on Level 2.",
+    title: "Try Before You Commit",
+    description: "Try 4 lessons free. No registration needed. Then pay level-by-level only. Complete Level 1, then decide if you want Level 2.",
   },
   {
     icon: "🏫",
     title: "Classroom-Like Learning",
-    description: "Concept → Video → Activity. Apty (your friendly guide) and an AI teacher make learning warm and engaging, just like a real classroom.",
+    description: "Just like a real classroom. Apty (your friendly guide) and an AI teacher make learning warm and engaging. Concept, then practice, then you're done.",
   },
   {
     icon: "🛡️",
     title: "Child Wellbeing First",
-    description: "Designed for healthy screen time. No ads, no distractions, no binge learning. Just steady, healthy progress that respects your child.",
+    description: "Designed for healthy screen time. No ads, no distractions. One lesson, then done. Steady progress that respects your child.",
   },
 ];
 
 export default function WhyThisWorks() {
   return (
-    <section className="bg-white py-20 px-4">
+    <section className="bg-white py-16 md:py-20 px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-apty-dark mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-apty-dark mb-4">
             Why This Works for Your Child
           </h2>
-          <p className="text-xl text-apty-gray max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-apty-gray max-w-3xl mx-auto">
             We don&apos;t try to keep children inside an app. We help them become confident readers.
           </p>
         </div>
@@ -66,4 +66,3 @@ export default function WhyThisWorks() {
     </section>
   );
 }
-

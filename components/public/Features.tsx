@@ -2,44 +2,44 @@
 
 export default function Features() {
   return (
-    <section className="bg-white py-20 px-4">
+    <section className="bg-gradient-to-b from-apty-warm to-white py-16 md:py-20 px-4">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-apty-dark mb-4">
-            What Makes It Different
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-apty-dark mb-4">
+            Real Reading for Real Life
           </h2>
-          <p className="text-xl text-apty-gray max-w-3xl mx-auto">
-            Not just another reading app. A structured approach that actually works.
+          <p className="text-lg md:text-xl text-apty-gray max-w-3xl mx-auto">
+            Your child will read books, signs, stories - real-world reading, not just screen time.
           </p>
         </div>
 
-        <div className="bg-apty-warm p-8 md:p-10 rounded-2xl border border-apty-coral-accent">
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="bg-white p-6 md:p-8 rounded-2xl border-2 border-apty-coral-accent shadow-sm">
+          <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                title: "Structured, Not Random",
-                description: "Every lesson builds on the previous one. Your child follows a clear path from letters to independent reading.",
+                title: "Structured Learning",
+                description: "Every lesson builds on the previous one. Clear path from letters to independent reading.",
               },
               {
-                title: "Mastery-Based",
-                description: "Your child must master each step (70% minimum) before moving forward. No guessing, real learning.",
+                title: "Real Progress",
+                description: "Your child masters each step before moving forward. Real learning, not just progress bars.",
               },
               {
                 title: "One Lesson Per Day",
-                description: "Designed for healthy learning. One new lesson per day (you can adjust to max 2). No pressure, no rushing.",
+                description: "Healthy learning pace. One new lesson per day (you can set it to 2 if needed). No pressure.",
               },
               {
-                title: "No Subscriptions",
-                description: "Try 4 lessons free. Then pay level-by-level. Complete Level 1, then decide on Level 2. No commitments.",
+                title: "Try Before You Commit",
+                description: "Try 4 lessons free. Then pay level-by-level. Complete Level 1, then decide. No subscriptions.",
               },
             ].map((item, index) => (
-              <div key={index} className="flex items-start gap-4">
-                <span className="text-apty-coral text-2xl flex-shrink-0">✓</span>
+              <div key={index} className="flex items-start gap-3 md:gap-4">
+                <span className="text-apty-coral text-xl md:text-2xl flex-shrink-0 mt-0.5">✓</span>
                 <div>
-                  <h3 className="text-lg font-bold text-apty-dark mb-2">
+                  <h3 className="text-lg md:text-xl font-bold text-apty-dark mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-apty-gray leading-relaxed">
+                  <p className="text-apty-gray leading-relaxed text-base md:text-lg">
                     {item.description}
                   </p>
                 </div>
