@@ -6,15 +6,17 @@ export default function Hero() {
     <section className="relative bg-white py-16 md:py-24 lg:py-32 overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-white/90 z-10"></div>
-        <Image
-          src="/images/parent-child-reading.png"
-          alt="Parent and child reading together"
-          fill
-          className="object-cover opacity-20"
-          priority
-          quality={75}
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src="/images/parent-child-reading.png"
+            alt="Parent and child reading together"
+            fill
+            className="object-cover opacity-20"
+            priority
+            quality={75}
+          />
+          <div className="absolute inset-0 bg-white/90"></div>
+        </div>
       </div>
 
       <div className="container mx-auto px-4 max-w-5xl relative z-20">
