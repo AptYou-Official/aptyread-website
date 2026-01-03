@@ -1,80 +1,48 @@
 'use client';
 
-const highlights = [
-  {
-    stat: "12 Topics",
-    label: "Per Letter",
-    description: "Recognition, sound, pronunciation, words, writing",
-  },
-  {
-    stat: "460+",
-    label: "Learning Activities",
-    description: "In Level 1 alone",
-  },
-  {
-    stat: "70%",
-    label: "Mastery Required",
-    description: "To move forward",
-  },
-  {
-    stat: "1 Lesson",
-    label: "Per Day",
-    description: "Healthy learning pace",
-  },
-];
-
 export default function Features() {
   return (
-    <section className="bg-gradient-to-b from-white to-apty-warm py-20 px-4">
-      <div className="container mx-auto max-w-5xl">
+    <section className="bg-white py-20 px-4">
+      <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-apty-dark mb-4">
-            Comprehensive Learning
+            What Makes It Different
           </h2>
-          <p className="text-lg text-apty-gray max-w-2xl mx-auto">
-            Each letter gets 12 focused topics. Not just a game.
+          <p className="text-xl text-apty-gray max-w-3xl mx-auto">
+            Not just another reading app. A structured approach that actually works.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {highlights.map((highlight, index) => (
-            <div
-              key={index}
-              className="text-center p-6 bg-white rounded-xl border border-apty-coral-accent"
-            >
-              <div className="text-4xl md:text-5xl font-bold text-apty-coral mb-2">
-                {highlight.stat}
-              </div>
-              <div className="text-lg font-semibold text-apty-dark mb-2">
-                {highlight.label}
-              </div>
-              <div className="text-sm text-apty-gray">
-                {highlight.description}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Quick Learning Flow */}
-        <div className="bg-white p-8 rounded-2xl border border-apty-coral-accent">
-          <h3 className="text-2xl font-bold text-apty-dark mb-2 text-center">
-            Every Letter Lesson Includes
-          </h3>
-          <p className="text-center text-apty-gray mb-6 text-sm">
-            Apty guides your child through each step with warmth and encouragement
-          </p>
-          <div className="grid md:grid-cols-2 gap-4">
+        <div className="bg-apty-warm p-8 md:p-10 rounded-2xl border border-apty-coral-accent">
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
             {[
-              "Letter recognition (big & small)",
-              "Sound production with mouth placement",
-              "AI pronunciation feedback",
-              "Word association (3 words per letter)",
-              "Writing practice (uppercase & lowercase)",
-              "Celebration & review",
+              {
+                title: "Structured, Not Random",
+                description: "Every lesson builds on the previous one. Your child follows a clear path from letters to independent reading.",
+              },
+              {
+                title: "Mastery-Based",
+                description: "Your child must master each step (70% minimum) before moving forward. No guessing, real learning.",
+              },
+              {
+                title: "One Lesson Per Day",
+                description: "Designed for healthy learning. One new lesson per day (you can adjust to max 2). No pressure, no rushing.",
+              },
+              {
+                title: "No Subscriptions",
+                description: "Try 4 lessons free. Then pay level-by-level. Complete Level 1, then decide on Level 2. No commitments.",
+              },
             ].map((item, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <span className="text-apty-coral text-xl flex-shrink-0">✓</span>
-                <span className="text-apty-dark">{item}</span>
+              <div key={index} className="flex items-start gap-4">
+                <span className="text-apty-coral text-2xl flex-shrink-0">✓</span>
+                <div>
+                  <h3 className="text-lg font-bold text-apty-dark mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-apty-gray leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

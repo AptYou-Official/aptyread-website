@@ -28,7 +28,7 @@ const principles = [
   },
   {
     icon: "🧭",
-    title: "Ethical Monetization",
+    title: "No Subscriptions",
     description: "Try before register. Try before pay. Pay level-by-level only.",
   },
 ];

@@ -1,8 +1,8 @@
 import Header from "@/components/public/Header";
 import Hero from "@/components/public/Hero";
-import OurApproach from "@/components/public/OurApproach";
-import Features from "@/components/public/Features";
+import WhyThisWorks from "@/components/public/WhyThisWorks";
 import HowItWorks from "@/components/public/HowItWorks";
+import Features from "@/components/public/Features";
 import CTA from "@/components/public/CTA";
 import Footer from "@/components/public/Footer";
 
@@ -11,9 +11,9 @@ export default function Home() {
     <main className="min-h-screen bg-apty-warm">
       <Header />
       <Hero />
-      <OurApproach />
-      <Features />
+      <WhyThisWorks />
       <HowItWorks />
+      <Features />
       <CTA />
       <Footer />
     </main>

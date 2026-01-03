@@ -4,77 +4,81 @@ const levels = [
   {
     number: 1,
     name: "Learning Letters",
-    lessons: 46,
+    outcome: "Your child masters all letters - sounds, shapes, and writing",
+    description: "They learn each letter completely before moving forward. No guessing, no rushing.",
     timeline: "2-4 months",
-    description: "33 letter lessons + 13 reviews + 2 assessments. Master all letters before moving forward.",
   },
   {
     number: 2,
     name: "Reading Words",
-    lessons: 45,
+    outcome: "Your child reads their first words independently",
+    description: "Letters become words. Your child feels the joy of real reading - not memorization, actual reading.",
     timeline: "2-4 months",
-    description: "Letters become words. Your child reads their first words.",
   },
   {
     number: 3,
-    name: "Story Read",
-    lessons: 40,
+    name: "Reading Stories",
+    outcome: "Your child reads simple stories with understanding",
+    description: "Stories they can actually read. Not guess. Not memorize. Real reading with comprehension.",
     timeline: "2-4 months",
-    description: "Simple stories they can actually read. Not guess. Not memorize.",
   },
   {
     number: 4,
-    name: "Story Master",
-    lessons: 35,
+    name: "Independent Reading",
+    outcome: "Your child reads independently with confidence",
+    description: "This is real literacy. Your child can read and understand what they read. They&apos;re ready for school.",
     timeline: "2-4 months",
-    description: "Independent reading with understanding. This is real literacy.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="bg-white py-20 px-4">
+    <section className="bg-gradient-to-b from-apty-warm to-white py-20 px-4">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-apty-dark mb-4">
-            Four Levels. One Step at a Time.
+            Your Child&apos;s Reading Journey
           </h2>
-          <p className="text-lg text-apty-gray max-w-2xl mx-auto mb-2">
-            Complete Level 1 before accessing Level 2. Sequential unblocking ensures proper foundation.
-          </p>
-          <p className="text-sm text-apty-gray italic">
-            English Reading & Writing Course
+          <p className="text-xl text-apty-gray max-w-3xl mx-auto">
+            A clear path from letters to independent reading. Each level builds on the previous one.
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
           {levels.map((level, index) => (
             <div
               key={level.number}
-              className="bg-apty-warm p-6 rounded-xl border border-apty-coral-accent hover:border-apty-coral transition-all"
+              className="bg-white p-8 rounded-2xl border-2 border-apty-coral-accent hover:border-apty-coral transition-all shadow-sm"
             >
-              <div className="flex flex-col md:flex-row md:items-center gap-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-apty-coral to-orange-400 rounded-lg flex items-center justify-center text-2xl font-bold text-white">
+              <div className="flex flex-col md:flex-row gap-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-apty-coral to-orange-400 rounded-xl flex items-center justify-center text-3xl font-bold text-white flex-shrink-0">
                     {level.number}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-apty-dark">
+                    <h3 className="text-2xl md:text-3xl font-bold text-apty-dark mb-2">
                       {level.name}
                     </h3>
-                    <div className="flex gap-3 text-sm text-apty-gray mt-1">
-                      <span>{level.lessons} lessons</span>
-                      <span>•</span>
-                      <span>{level.timeline}</span>
-                    </div>
+                    <p className="text-lg font-semibold text-apty-coral mb-2">
+                      {level.outcome}
+                    </p>
+                    <p className="text-apty-gray leading-relaxed">
+                      {level.description}
+                    </p>
+                    <p className="text-sm text-apty-gray mt-3">
+                      Timeline: {level.timeline}
+                    </p>
                   </div>
                 </div>
-                <p className="md:ml-auto text-apty-gray flex-1">
-                  {level.description}
-                </p>
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-lg text-apty-gray">
+            Your child completes each level before moving forward. This ensures they actually learn, not just progress.
+          </p>
         </div>
       </div>
     </section>

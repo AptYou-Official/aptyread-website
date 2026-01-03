@@ -23,43 +23,50 @@ export default function Hero() {
 
             {/* Content - Right side on desktop, bottom on mobile */}
             <div className="flex-1 text-center md:text-left order-1 md:order-2">
-              {/* Main Headline */}
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-apty-dark mb-6 leading-tight">
-                Real Reading.
+              {/* Main Headline - Problem + Outcome */}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-apty-dark mb-6 leading-tight">
+                Help Your Child Learn to Read
                 <br />
                 <span className="bg-gradient-to-r from-apty-coral to-apty-cyan bg-clip-text text-transparent">
-                  Real Progress.
+                  The Right Way
                 </span>
-                <br />
-                No Pressure.
               </h1>
 
-              {/* Subheadline - Simplified */}
-              <p className="text-xl md:text-2xl text-apty-gray mb-8 leading-relaxed">
-                English Reading & Writing for ages 3-10.
+              {/* Subheadline - The Problem + Outcome */}
+              <p className="text-xl md:text-2xl text-apty-gray mb-6 leading-relaxed">
+                Most children struggle in school because they never learned to read properly.
                 <br />
-                <span className="text-lg">One lesson per day. No subscriptions. Just real learning.</span>
+                <span className="font-semibold text-apty-dark">AptyRead fixes this from the start.</span>
+                <br />
+                <span className="text-lg">Your child will read independently, with confidence, at their own pace.</span>
               </p>
+
+              {/* Key Differentiators - Why This Works */}
+              <div className="mb-8 space-y-2">
+                <div className="flex items-center gap-3 text-apty-dark">
+                  <span className="text-apty-coral text-xl">✓</span>
+                  <span className="text-lg">One lesson a day - not rushed, not overwhelming</span>
+                </div>
+                <div className="flex items-center gap-3 text-apty-dark">
+                  <span className="text-apty-coral text-xl">✓</span>
+                  <span className="text-lg">Structured approach - letters → words → stories → independent reading</span>
+                </div>
+                <div className="flex items-center gap-3 text-apty-dark">
+                  <span className="text-apty-coral text-xl">✓</span>
+                  <span className="text-lg">English Reading & Writing for ages 3-10</span>
+                </div>
+              </div>
 
               {/* Primary CTA */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center mb-8">
                 <button className="group relative">
                   <div className="absolute -inset-1 bg-gradient-to-r from-apty-coral to-apty-cyan rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
                   <div className="relative bg-apty-coral text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-lg transform transition duration-300 hover:scale-105">
-                    Try Free Lessons
+                    Try 4 Free Lessons
                   </div>
                 </button>
                 <p className="text-apty-gray text-sm">
-                  Available soon on Google Play Store
-                </p>
-              </div>
-
-              {/* Core Message */}
-              <div className="p-5 bg-white/60 backdrop-blur-sm rounded-xl border border-apty-coral-accent">
-                <p className="text-base md:text-lg text-apty-dark font-medium italic">
-                  &quot;We are not trying to keep children inside an app.
-                  <br />
-                  We are trying to help them become confident readers.&quot;
+                  No registration needed • Available soon on Google Play Store
                 </p>
               </div>
             </div>
