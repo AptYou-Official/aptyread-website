@@ -4,12 +4,6 @@ import Image from 'next/image';
 export default function Hero() {
   return (
     <section className="relative bg-gradient-to-b from-apty-warm via-white to-apty-warm overflow-hidden">
-      {/* Subtle background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-apty-coral opacity-3 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-apty-cyan opacity-3 rounded-full blur-3xl"></div>
-      </div>
-
       <div className="relative container mx-auto px-4 py-16 md:py-24">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
