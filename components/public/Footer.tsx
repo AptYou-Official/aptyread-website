@@ -6,7 +6,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold text-apty-coral mb-4">AptyRead</h3>
             <p className="text-apty-gray text-sm">
-              A structured literacy learning platform. Currently offering English Reading & Writing course for children ages 3-10.
+              A structured literacy learning platform. English Reading & Writing for children ages 3-10.
             </p>
           </div>
           <div>
