@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Hero() {
   return (
@@ -42,15 +43,40 @@ export default function Hero() {
               Your child will read independently, with confidence, at their own pace.
             </p>
 
-            {/* CTA Button */}
-            <div className="mb-8">
-              <button className="bg-apty-coral text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:bg-opacity-90">
-                Try 4 Free Lessons
-              </button>
+            {/* CTA Buttons */}
+            <div className="mb-8 flex flex-col sm:flex-row gap-4 items-center md:items-start">
+              <a
+                href="https://play.google.com/store/apps/details?id=ai.aptyread.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative w-full sm:w-auto"
+                aria-label="Download AptyRead on Google Play"
+              >
+                <div className="absolute -inset-1 bg-gradient-to-r from-apty-coral to-apty-cyan rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+                <div className="relative bg-apty-coral text-white px-8 py-4 rounded-xl text-base md:text-lg font-semibold shadow-lg transform transition duration-300 hover:scale-105 text-center">
+                  Try 4 Free Lessons
+                </div>
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=ai.aptyread.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+                aria-label="Get it on Google Play"
+              >
+                <Image
+                  src="/images/google-play-badge-large.png"
+                  alt="Get it on Google Play"
+                  width={172}
+                  height={60}
+                  className="h-12 w-auto md:h-14"
+                  priority={false}
+                />
+              </a>
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 md:gap-6 text-sm text-apty-gray mb-4">
+            <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 md:gap-6 text-sm text-apty-gray">
               <div className="flex items-center gap-2">
                 <span className="text-apty-coral">✓</span>
                 <span>No registration needed</span>
@@ -64,10 +90,6 @@ export default function Hero() {
                 <span>Enroll level-by-level</span>
               </div>
             </div>
-
-            <p className="text-apty-gray text-sm">
-              Available soon on Google Play Store
-            </p>
           </div>
         </div>
       </div>

@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-apty-coral-accent py-12 px-4">
@@ -62,14 +64,30 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="font-semibold text-apty-dark mb-4">Download</h4>
-            <p className="text-apty-gray text-sm">
-              Available soon on Google Play Store
-            </p>
+            <a
+              href="https://play.google.com/store/apps/details?id=ai.aptyread.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block hover:opacity-80 transition-opacity mb-3"
+              aria-label="Get it on Google Play"
+            >
+              <Image
+                src="/images/google-play-badge-large.png"
+                alt="Get it on Google Play"
+                width={172}
+                height={60}
+                className="h-12 w-auto"
+                priority={false}
+              />
+            </a>
           </div>
         </div>
         <div className="border-t border-apty-coral-accent pt-8 text-center">
-          <p className="text-apty-gray text-sm">
+          <p className="text-apty-gray text-sm mb-2">
             © 2025 AptYou Services Pvt Ltd. All rights reserved.
+          </p>
+          <p className="text-apty-gray text-xs">
+            Google Play and the Google Play logo are trademarks of Google LLC.
           </p>
         </div>
       </div>

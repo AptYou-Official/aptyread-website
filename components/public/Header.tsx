@@ -22,9 +22,22 @@ export default function Header() {
           <Link href="/" className="hidden sm:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base">
             Home
           </Link>
-          <span className="bg-apty-coral text-white px-4 md:px-6 py-1.5 md:py-2 rounded-lg opacity-90 font-medium text-xs md:text-sm">
-            Coming Soon
-          </span>
+          <a
+            href="https://play.google.com/store/apps/details?id=ai.aptyread.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+            aria-label="Download AptyRead on Google Play"
+          >
+            <Image
+              src="/images/google-play-badge-small.png"
+              alt="Get it on Google Play"
+              width={129}
+              height={45}
+              className="h-8 w-auto md:h-10"
+              priority
+            />
+          </a>
         </div>
       </nav>
     </header>
