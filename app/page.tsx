@@ -4,6 +4,7 @@ import WhyThisWorks from "@/components/public/WhyThisWorks";
 import HowItWorks from "@/components/public/HowItWorks";
 import Features from "@/components/public/Features";
 import ParentPeaceOfMind from "@/components/public/ParentPeaceOfMind";
+import LetterToParents from "@/components/public/LetterToParents";
 import CTA from "@/components/public/CTA";
 import Footer from "@/components/public/Footer";
 
@@ -69,6 +70,7 @@ export default function Home() {
         <HowItWorks />
         <Features />
         <ParentPeaceOfMind />
+        <LetterToParents />
         <CTA />
         <Footer />
       </main>
