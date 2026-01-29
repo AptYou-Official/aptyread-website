@@ -1,4 +1,13 @@
+import type { Metadata } from "next";
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: "Delete Account | AptyRead - Account Deletion Request",
+  description: "Delete your AptyRead account and all associated data. Learn about the deletion process, data removal, and important considerations before deleting your account.",
+  alternates: {
+    canonical: "https://www.aptyread.ai/delete-account",
+  },
+};
 
 export default function DeleteAccountPage() {
   return (
@@ -182,7 +191,7 @@ export default function DeleteAccountPage() {
                   <ul className="list-disc pl-6 space-y-1 text-sm">
                     <li><strong>No refunds</strong> will be provided after account deletion</li>
                     <li>If you have unused course validity remaining, it will be lost</li>
-                    <li>Refunds are only available within 7 days of purchase (see our <a href="/terms.html" className="text-apty-coral hover:underline">Terms of Service</a>)</li>
+                    <li>Refunds are only available within 7 days of purchase (see our <a href="/terms" className="text-apty-coral hover:underline">Terms of Service</a>)</li>
                   </ul>
                 </div>
 
@@ -340,8 +349,8 @@ export default function DeleteAccountPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-apty-dark mb-4">Related Information</h2>
               <ul className="list-disc pl-6 mb-4 space-y-2">
-                <li><a href="/terms.html" className="text-apty-coral hover:underline">Terms of Service</a> - Learn about our refund policy and terms</li>
-                <li><a href="/privacy.html" className="text-apty-coral hover:underline">Privacy Policy</a> - Understand how we protect your data</li>
+                <li><a href="/terms" className="text-apty-coral hover:underline">Terms of Service</a> - Learn about our refund policy and terms</li>
+                <li><a href="/privacy" className="text-apty-coral hover:underline">Privacy Policy</a> - Understand how we protect your data</li>
                 <li><a href="mailto:support@aptyread.ai" className="text-apty-coral hover:underline">Contact Support</a> - Get help with your account</li>
               </ul>
             </section>

@@ -20,22 +20,22 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/faq.html" className="text-apty-gray hover:text-apty-coral transition-colors">
+                <a href="/faq" className="text-apty-gray hover:text-apty-coral transition-colors">
                   FAQ
                 </a>
               </li>
               <li>
-                <a href="/privacy.html" className="text-apty-gray hover:text-apty-coral transition-colors">
+                <a href="/privacy" className="text-apty-gray hover:text-apty-coral transition-colors">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="/terms.html" className="text-apty-gray hover:text-apty-coral transition-colors">
+                <a href="/terms" className="text-apty-gray hover:text-apty-coral transition-colors">
                   Terms of Service
                 </a>
               </li>
               <li>
-                <a href="/delete-account.html" className="text-apty-gray hover:text-apty-coral transition-colors">
+                <a href="/delete-account" className="text-apty-gray hover:text-apty-coral transition-colors">
                   Delete Account
                 </a>
               </li>

@@ -1,5 +1,14 @@
+import type { Metadata } from "next";
 import Header from "@/components/public/Header";
 import Footer from "@/components/public/Footer";
+
+export const metadata: Metadata = {
+  title: "FAQ - Frequently Asked Questions | AptyRead",
+  description: "Common questions about AptyRead. Learn about getting started, pricing, learning approach, child safety, and more. English Reading & Writing for children ages 3-10.",
+  alternates: {
+    canonical: "https://www.aptyread.ai/faq",
+  },
+};
 
 export default function FAQPage() {
   return (
@@ -181,7 +190,7 @@ export default function FAQPage() {
                     What is the refund policy?
                   </h3>
                   <p className="text-apty-gray leading-relaxed">
-                    Refunds are handled through the app store where you made the purchase (Google Play Store or Apple App Store). They have their own refund policies and procedures. Generally, refunds are available within 7 days of purchase. For details, see our <a href="/terms.html" className="text-apty-coral hover:underline">Terms of Service</a>.
+                    Refunds are handled through the app store where you made the purchase (Google Play Store or Apple App Store). They have their own refund policies and procedures. Generally, refunds are available within 7 days of purchase. For details, see our <a href="/terms" className="text-apty-coral hover:underline">Terms of Service</a>.
                   </p>
                 </div>
               </div>
@@ -262,7 +271,7 @@ export default function FAQPage() {
                     Do you collect children&apos;s data?
                   </h3>
                   <p className="text-apty-gray leading-relaxed">
-                    We collect minimal information needed for the app to work: your child&apos;s name (which can be any name) and age. We don&apos;t collect unnecessary data. All data is securely stored and never shared with third parties. For complete details, see our <a href="/privacy.html" className="text-apty-coral hover:underline">Privacy Policy</a>.
+                    We collect minimal information needed for the app to work: your child&apos;s name (which can be any name) and age. We don&apos;t collect unnecessary data. All data is securely stored and never shared with third parties. For complete details, see our <a href="/privacy" className="text-apty-coral hover:underline">Privacy Policy</a>.
                   </p>
                 </div>
 
@@ -302,6 +311,7 @@ export default function FAQPage() {
     </div>
   );
 }
+
 
 
 

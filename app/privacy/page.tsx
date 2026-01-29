@@ -1,4 +1,13 @@
+import type { Metadata } from "next";
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | AptyRead - Child Privacy & Data Protection",
+  description: "AptyRead Privacy Policy. Learn how we protect children's data, comply with COPPA and GDPR, and ensure your family's privacy. Minimal data collection, no third-party sharing.",
+  alternates: {
+    canonical: "https://www.aptyread.ai/privacy",
+  },
+};
 
 export default function PrivacyPage() {
   return (
@@ -429,7 +438,7 @@ export default function PrivacyPage() {
               <p className="mb-4 font-semibold">How to Exercise:</p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
                 <li>Delete your account through the App&apos;s Settings screen or Help &amp; Support screen</li>
-                <li>Visit <a href="/delete-account.html" className="text-apty-coral hover:underline">www.aptyread.ai/delete-account.html</a></li>
+                <li>Visit <a href="/delete-account" className="text-apty-coral hover:underline">www.aptyread.ai/delete-account</a></li>
                 <li>Contact <a href="mailto:support@aptyread.ai" className="text-apty-coral hover:underline">support@aptyread.ai</a> with your deletion request</li>
               </ul>
               <p className="mb-4">
@@ -496,7 +505,7 @@ export default function PrivacyPage() {
               <p className="mb-4">You can delete your account and all associated data at any time through:</p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
                 <li><strong>In-App:</strong> Settings screen or Help &amp; Support screen within the AptyRead App</li>
-                <li><strong>Website:</strong> Account deletion page at <a href="/delete-account.html" className="text-apty-coral hover:underline">www.aptyread.ai/delete-account.html</a></li>
+                <li><strong>Website:</strong> Account deletion page at <a href="/delete-account" className="text-apty-coral hover:underline">www.aptyread.ai/delete-account</a></li>
                 <li><strong>Email:</strong> Contact <a href="mailto:support@aptyread.ai" className="text-apty-coral hover:underline">support@aptyread.ai</a> with your account deletion request</li>
               </ul>
               <p className="mb-4">Upon deletion:</p>

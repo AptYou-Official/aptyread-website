@@ -1,4 +1,13 @@
+import type { Metadata } from "next";
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: "Terms of Service | AptyRead - User Agreement & Policies",
+  description: "AptyRead Terms of Service. Learn about our refund policy, user responsibilities, course enrollment, and terms of use for our literacy learning platform.",
+  alternates: {
+    canonical: "https://www.aptyread.ai/terms",
+  },
+};
 
 export default function TermsPage() {
   return (
@@ -84,7 +93,7 @@ export default function TermsPage() {
               <p className="mb-4">You may delete your account and all associated data at any time through:</p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
                 <li><strong>In-App:</strong> Settings screen or Help &amp; Support screen within the AptyRead App</li>
-                <li><strong>Website:</strong> Account deletion page at <strong>www.aptyread.ai/delete-account.html</strong></li>
+                <li><strong>Website:</strong> Account deletion page at <strong>www.aptyread.ai/delete-account</strong></li>
                 <li><strong>Email:</strong> Contact <strong>support@aptyread.ai</strong> with your account deletion request</li>
               </ul>
               <ul className="list-disc pl-6 mb-4 space-y-2">
@@ -320,7 +329,7 @@ export default function TermsPage() {
                 <li>Do not share children&apos;s information with third parties for marketing purposes</li>
               </ul>
               <p className="mb-4">
-                For complete details on how we collect, use, and protect data, please review our <strong>Privacy Policy</strong> at <a href="/privacy.html" className="text-apty-coral hover:underline">www.aptyread.ai/privacy.html</a>.
+                For complete details on how we collect, use, and protect data, please review our <strong>Privacy Policy</strong> at <a href="/privacy" className="text-apty-coral hover:underline">www.aptyread.ai/privacy</a>.
               </p>
 
               <h3 className="text-xl font-semibold text-apty-dark mb-3 mt-6">7.3 Third-Party Services</h3>
