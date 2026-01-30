@@ -6,7 +6,10 @@ export default function Footer() {
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold text-apty-coral mb-4">AptyRead</h3>
+            <h3 className="text-xl font-bold text-apty-coral mb-2">AptyRead</h3>
+            <p className="text-sm font-semibold text-apty-gray italic mb-4">
+              From Sounds to Reading
+            </p>
             <p className="text-apty-gray text-sm">
               A structured literacy learning platform. English Reading & Writing for children ages 3-10.
             </p>
@@ -27,6 +30,11 @@ export default function Footer() {
               <li>
                 <a href="/about" className="text-apty-gray hover:text-apty-coral transition-colors">
                   About Us
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="text-apty-gray hover:text-apty-coral transition-colors">
+                  Contact Us
                 </a>
               </li>
               <li>

@@ -23,6 +23,13 @@ export default function Hero() {
 
           {/* Text Side - Right on desktop, bottom on mobile */}
           <div className="order-1 md:order-2 text-center md:text-left">
+            {/* Tagline Badge */}
+            <div className="mb-4 inline-block">
+              <span className="text-sm md:text-base font-semibold text-apty-coral bg-apty-warm px-4 py-2 rounded-full border border-apty-coral-accent">
+                From Sounds to Reading
+              </span>
+            </div>
+            
             {/* Main Headline */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-apty-dark mb-6 leading-tight">
               Help Your Child Learn to Read

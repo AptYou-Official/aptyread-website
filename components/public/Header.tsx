@@ -14,9 +14,14 @@ export default function Header() {
             className="w-8 h-8 md:w-10 md:h-10 object-contain"
             priority
           />
-          <span className="text-xl md:text-2xl font-bold text-apty-coral">
-            AptyRead
-          </span>
+          <div className="flex flex-col">
+            <span className="text-xl md:text-2xl font-bold text-apty-coral">
+              AptyRead
+            </span>
+            <span className="text-xs md:text-sm text-apty-gray italic hidden sm:block">
+              From Sounds to Reading
+            </span>
+          </div>
         </Link>
         <div className="flex gap-3 md:gap-6 items-center">
           <Link href="/" className="hidden sm:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base">
