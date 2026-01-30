@@ -6,9 +6,9 @@ export const metadata: Metadata = {
   title: "AptyRead - Structured Literacy Learning Platform | English Reading & Writing",
   description: "AptyRead is a structured, sequential literacy learning platform. English Reading & Writing for children ages 3-10. Mastery-driven, one lesson per day. Try 4 lessons free.",
   keywords: "English reading, learn to read English, English reading app, literacy platform, phonics, children education, ESL reading, structured literacy, mastery-based learning, English reading course, reading app for kids, AptyRead, aptyread.ai",
-  authors: [{ name: "AptYou Services Pvt Ltd" }],
-  creator: "AptYou Services Pvt Ltd",
-  publisher: "AptYou Services Pvt Ltd",
+  authors: [{ name: "APTYOU SERVICES PRIVATE LIMITED" }],
+  creator: "APTYOU SERVICES PRIVATE LIMITED",
+  publisher: "APTYOU SERVICES PRIVATE LIMITED",
   robots: {
     index: true,
     follow: true,

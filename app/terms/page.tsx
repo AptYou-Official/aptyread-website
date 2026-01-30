@@ -34,7 +34,7 @@ export default function TermsPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-apty-dark mb-4">1. Introduction</h2>
               <p className="mb-4">
-                Welcome to AptyRead! These Terms of Service (&quot;Terms&quot;) govern your access to and use of the AptyRead mobile application (&quot;App&quot;), website (www.aptyread.ai), and related services (collectively, the &quot;Services&quot;) provided by <strong>AptYou Services Pvt Ltd</strong> (&quot;AptyRead,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), a company registered in Kerala, India.
+                Welcome to AptyRead! These Terms of Service (&quot;Terms&quot;) govern your access to and use of the AptyRead mobile application (&quot;App&quot;), website (www.aptyread.ai), and related services (collectively, the &quot;Services&quot;) provided by <strong>APTYOU SERVICES PRIVATE LIMITED</strong> (&quot;AptyRead,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), a company registered in Kerala, India.
               </p>
               <p className="mb-4">
                 By accessing or using our Services, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our Services.
@@ -283,7 +283,7 @@ export default function TermsPage() {
                 <li>The AptyRead name, logo, and trademarks</li>
               </ul>
               <p className="mb-4">
-                are owned by <strong>AptYou Services Pvt Ltd</strong>, our licensors, or content providers and are protected by Indian and international copyright, trademark, and other intellectual property laws.
+                are owned by <strong>APTYOU SERVICES PRIVATE LIMITED</strong>, our licensors, or content providers and are protected by Indian and international copyright, trademark, and other intellectual property laws.
               </p>
 
               <h3 className="text-xl font-semibold text-apty-dark mb-3 mt-6">6.2 Limited License</h3>
@@ -423,7 +423,7 @@ export default function TermsPage() {
 
               <h3 className="text-xl font-semibold text-apty-dark mb-3 mt-6">9.4 Limitation of Liability</h3>
               <p className="mb-4 font-semibold">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:</p>
-              <p className="mb-4"><strong>AptYou Services Pvt Ltd, its directors, officers, employees, agents, and affiliates shall not be liable for:</strong></p>
+              <p className="mb-4"><strong>APTYOU SERVICES PRIVATE LIMITED, its directors, officers, employees, agents, and affiliates shall not be liable for:</strong></p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
                 <li>Any indirect, incidental, special, consequential, or punitive damages</li>
                 <li>Loss of profits, revenue, data, or use</li>
@@ -446,7 +446,7 @@ export default function TermsPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-apty-dark mb-4">10. Indemnification</h2>
               <p className="mb-4">
-                You agree to indemnify, defend, and hold harmless AptYou Services Pvt Ltd, its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, costs, or expenses (including reasonable attorneys&apos; fees) arising from:
+                You agree to indemnify, defend, and hold harmless APTYOU SERVICES PRIVATE LIMITED, its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, costs, or expenses (including reasonable attorneys&apos; fees) arising from:
               </p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
                 <li>Your use or misuse of the Services</li>
@@ -525,8 +525,9 @@ export default function TermsPage() {
               <h2 className="text-2xl font-semibold text-apty-dark mb-4">15. Contact Information</h2>
               <p className="mb-4">If you have any questions, concerns, or feedback about these Terms or our Services, please contact us:</p>
               <p className="mb-4">
-                <strong>AptYou Services Pvt Ltd</strong><br />
-                Kerala, India
+                <strong>APTYOU SERVICES PRIVATE LIMITED</strong><br />
+                15/367, Kurumbathur, Thirunavaya<br />
+                Malappuram, Kerala, India - 676301
               </p>
               <p className="mb-4"><strong>Email:</strong></p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
@@ -546,7 +547,7 @@ export default function TermsPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-apty-dark mb-4">17. Entire Agreement</h2>
               <p className="mb-4">
-                These Terms, together with our Privacy Policy, constitute the entire agreement between you and AptYou Services Pvt Ltd regarding the Services and supersede all prior agreements, understandings, and communications, whether written or oral.
+                These Terms, together with our Privacy Policy, constitute the entire agreement between you and APTYOU SERVICES PRIVATE LIMITED regarding the Services and supersede all prior agreements, understandings, and communications, whether written or oral.
               </p>
             </section>
 

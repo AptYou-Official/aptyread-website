@@ -363,7 +363,7 @@ export default function DeleteAccountPage() {
 
             <div className="mt-8 text-sm text-apty-gray text-center">
               <p><em>Last Updated: December 25, 2025</em></p>
-              <p className="mt-2"><em>AptYou Services Pvt Ltd, Kerala, India</em></p>
+              <p className="mt-2"><em>APTYOU SERVICES PRIVATE LIMITED<br />15/367, Kurumbathur, Thirunavaya, Malappuram, Kerala, India - 676301</em></p>
             </div>
           </div>
 

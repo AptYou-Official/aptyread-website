@@ -34,7 +34,7 @@ export default function PrivacyPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-apty-dark mb-4">1. Introduction</h2>
               <p className="mb-4">
-                Welcome to AptyRead! This Privacy Policy explains how <strong>AptYou Services Pvt Ltd</strong> (&quot;AptyRead,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, discloses, and protects your information and your child&apos;s information when you use our mobile application (&quot;App&quot;), website (www.aptyread.ai), and related services (collectively, the &quot;Services&quot;).
+                Welcome to AptyRead! This Privacy Policy explains how <strong>APTYOU SERVICES PRIVATE LIMITED</strong> (&quot;AptyRead,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, discloses, and protects your information and your child&apos;s information when you use our mobile application (&quot;App&quot;), website (www.aptyread.ai), and related services (collectively, the &quot;Services&quot;).
               </p>
               <p className="mb-4">
                 <strong>AptyRead is designed for young children.</strong> We are committed to protecting children&apos;s privacy and comply with applicable children&apos;s privacy laws, including the Children&apos;s Online Privacy Protection Act (COPPA) in the United States.
@@ -639,8 +639,9 @@ export default function PrivacyPage() {
                 If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your information, please contact us:
               </p>
               <p className="mb-4">
-                <strong>AptYou Services Pvt Ltd</strong><br />
-                Kerala, India
+                <strong>APTYOU SERVICES PRIVATE LIMITED</strong><br />
+                15/367, Kurumbathur, Thirunavaya<br />
+                Malappuram, Kerala, India - 676301
               </p>
               <p className="mb-4"><strong>Email:</strong></p>
               <ul className="list-disc pl-6 mb-4 space-y-2">

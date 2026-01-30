@@ -66,6 +66,29 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
+            <h4 className="font-semibold text-apty-dark mb-4 mt-6">Follow Us</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  href="https://www.instagram.com/aptyread"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-apty-gray hover:text-apty-coral transition-colors"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/@aptyread"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-apty-gray hover:text-apty-coral transition-colors"
+                >
+                  YouTube
+                </a>
+              </li>
+            </ul>
           </div>
           <div>
             <h4 className="font-semibold text-apty-dark mb-4">Download</h4>
@@ -89,7 +112,7 @@ export default function Footer() {
         </div>
         <div className="border-t border-apty-coral-accent pt-8 text-center">
           <p className="text-apty-gray text-sm mb-2">
-            © 2025 AptYou Services Pvt Ltd. All rights reserved.
+            © 2025 APTYOU SERVICES PRIVATE LIMITED. All rights reserved.
           </p>
           <p className="text-apty-gray text-xs">
             Google Play and the Google Play logo are trademarks of Google LLC.
