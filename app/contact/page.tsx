@@ -21,10 +21,10 @@ export default function ContactPage() {
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-apty-dark mb-4">
-              We're Here to Help
+              We&apos;re Here to Help
             </h1>
             <p className="text-lg md:text-xl text-apty-gray">
-              Questions? We'd love to hear from you.
+              Questions? We&apos;d love to hear from you.
             </p>
           </div>
 
@@ -33,7 +33,7 @@ export default function ContactPage() {
             {/* Introduction */}
             <section className="mb-8 text-center">
               <p className="text-base md:text-lg leading-relaxed">
-                Whether you're curious about how AptyRead works, have questions about your child's learning journey, or just want to say hello—we're here for you.
+                Whether you&apos;re curious about how AptyRead works, have questions about your child&apos;s learning journey, or just want to say hello—we&apos;re here for you.
               </p>
             </section>
 
@@ -118,7 +118,7 @@ export default function ContactPage() {
                 We aim to respond to all inquiries within <strong>24-48 hours</strong>.
               </p>
               <p className="text-apty-gray text-sm">
-                For urgent matters, please include "URGENT" in your email subject line.
+                For urgent matters, please include &quot;URGENT&quot; in your email subject line.
               </p>
             </section>
 
@@ -130,7 +130,7 @@ export default function ContactPage() {
               <ul className="list-disc pl-6 space-y-2 text-apty-gray">
                 <li>Your name and email address</li>
                 <li>A clear description of your question or concern</li>
-                <li>If it's about your account, include your email or phone number used for registration</li>
+                <li>If it&apos;s about your account, include your email or phone number used for registration</li>
                 <li>Any relevant details that might help us assist you better</li>
               </ul>
             </section>
