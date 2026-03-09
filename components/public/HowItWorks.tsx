@@ -59,11 +59,13 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="relative space-y-6">
+          {/* Timeline line (runs beside level numbers on desktop) */}
+          <div className="absolute left-[4.5rem] top-6 bottom-6 w-0.5 bg-apty-coral/25 hidden md:block" aria-hidden />
           {levels.map((level, index) => (
             <div
               key={level.number}
-              className="bg-white p-8 rounded-2xl border-2 border-apty-coral-accent hover:border-apty-coral transition-all shadow-sm"
+              className="relative bg-white p-8 rounded-2xl border-2 border-apty-coral-accent hover:border-apty-coral transition-all shadow-sm"
             >
               <div className="flex flex-col md:flex-row gap-6">
                 <div className="flex items-start gap-4 flex-1">
