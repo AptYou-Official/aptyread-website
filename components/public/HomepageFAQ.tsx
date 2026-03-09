@@ -6,27 +6,27 @@ import Link from 'next/link';
 const faqs = [
   {
     question: "My child already knows the alphabet. Which level should they start at?",
-    answer: "Knowing the alphabet means knowing the names of letters — A, B, C. But reading requires knowing the sounds — /a/, /b/, /k/. Most children who know their ABCs still need to begin at Level 1 to build the sound knowledge that makes reading possible. It's quick for children who already know some, and it ensures nothing is missing.",
+    answer: "Knowing the alphabet means knowing the names of letters (A, B, C). Reading requires knowing the sounds (/a/, /b/, /k/). Most children who know their ABCs still need to start at Level 1 to build the sound knowledge that makes reading possible. It goes quickly for kids who already know some, and it makes sure nothing is missing.",
   },
   {
     question: "My child speaks English well at home. Will this still help?",
-    answer: "Yes — and this is one of the most common situations we see. Speaking and reading are completely different skills. A child can be fluent in spoken English and still need to be taught how to read it. Speaking is learned naturally from listening. Reading must be explicitly taught. AptyRead teaches exactly that.",
+    answer: "Yes. This is one of the most common situations we see. Speaking and reading are completely different skills. A child can be fluent in spoken English and still need to be taught how to read it. Speaking is learned naturally from listening. Reading has to be taught step by step. AptyRead does exactly that.",
   },
   {
     question: "My child is a slow learner. Will they be left behind?",
-    answer: "AptyRead is designed so that no child is ever pushed forward before they're ready. Each lesson must be passed before the next one unlocks. A child can repeat a lesson as many times as they need — with no judgement, no frustration, no clock running. Slow and steady is completely fine. The destination is the same for every child.",
+    answer: "AptyRead is designed so that no child is ever pushed forward before they're ready. Each lesson must be passed before the next one unlocks. A child can repeat a lesson as many times as they need. No judgement, no frustration, no clock. Slow and steady is fine. Our aim is the same for every child.",
   },
   {
     question: "How is this different from other reading apps?",
-    answer: "Most reading apps are collections of activities — fun, but not connected into a complete journey. AptyRead is a full literacy program with 4 levels and 243 lessons in a carefully researched sequence. Every lesson builds on the last. Every level prepares for the next. There's a clear beginning, a clear path, and a clear destination: your child reading books independently.",
+    answer: "Most reading apps are collections of activities. Fun, but not connected into one journey. AptyRead is a full literacy program with 4 levels and 243 lessons in a clear sequence. Every lesson builds on the last. Every level prepares for the next. There's a clear start, a clear path, and a clear goal: to help your child work toward reading books on their own.",
   },
   {
     question: "How long does the whole program take?",
-    answer: "Most children complete one lesson in 15–25 minutes. At 3–4 lessons per week, the full program takes approximately 18–24 months — about 2 school years. But every child is different, and AptyRead moves at your child's pace, not a fixed schedule.",
+    answer: "Most children finish one lesson in 15 to 25 minutes. At 3 to 4 lessons per week, the full program takes about 18 to 24 months, or about 2 school years. Every child is different. AptyRead moves at your child's pace, not a fixed schedule.",
   },
   {
     question: "My child is 9. Is it too late to start?",
-    answer: "It's never too late. Reading can be learned at any age with the right teaching. Older children often progress faster because their language understanding is stronger. We've seen children as old as 10 and 11 complete Level 1 and 2 and transform into confident readers. The only wrong moment to start is not starting.",
+    answer: "It's never too late. Reading can be learned at any age with the right teaching. Older children often progress faster because their language understanding is stronger. We've seen children as old as 10 and 11 complete Level 1 and 2 and grow into more confident readers. The only wrong moment to start is not starting.",
   },
 ];
 

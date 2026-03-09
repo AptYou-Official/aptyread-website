@@ -13,7 +13,7 @@ const concerns = [
   },
   {
     question: "Worried it won't work?",
-    answer: "Structured, proven approach. Your child masters each step before moving forward. Real progress, real results.",
+    answer: "Structured, proven approach. Your child can master each step before moving forward. Real progress for many children.",
     icon: "✅",
   },
   {

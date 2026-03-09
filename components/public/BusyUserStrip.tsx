@@ -10,7 +10,7 @@ export default function BusyUserStrip() {
             <span className="mx-2 text-white/60">·</span>
             <span className="text-white/95">243 lessons</span>
             <span className="mx-2 text-white/60">·</span>
-            <span className="text-white/95">Try 4 free — no registration</span>
+            <span className="text-white/95">Try 4 free, no registration</span>
           </p>
           <a
             href="https://play.google.com/store/apps/details?id=ai.aptyread.app"

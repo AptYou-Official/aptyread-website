@@ -11,7 +11,7 @@ export default function Hero() {
             <div className="relative w-full rounded-2xl overflow-hidden shadow-lg">
               <Image
                 src="/images/parent-child-reading.png"
-                alt="Child and parent with books — literacy and reading at home"
+                alt="Child and parent with books, reading together at home"
                 width={1200}
                 height={800}
                 className="w-full h-auto object-cover"
@@ -38,12 +38,11 @@ export default function Hero() {
               </span>
             </h1>
 
-            {/* Hook — primary: children 3–10 */}
             <p className="text-base md:text-lg text-apty-gray mb-4 leading-relaxed font-medium">
-              A complete reading program for <span className="font-semibold text-apty-dark">children 3 to 10</span>. Whether they&apos;re just starting, know their ABCs, or already speak English — AptyRead takes them all the way to reading real books.
+              A complete reading program for <span className="font-semibold text-apty-dark">children 3 to 10</span>. Whether they&apos;re just starting, know their ABCs, or already speak English, our aim is to help your child progress to reading real books.
             </p>
             <p className="text-base md:text-lg text-apty-gray mb-6 leading-relaxed">
-              Speaking and reading are two different skills. Reading must be taught step by step. AptyRead is <span className="font-semibold text-apty-dark">strictly structured</span>: one path, 4 levels, 243 lessons. Nobody can join Level 2 or higher without the foundation — so every child builds the right base before moving on.
+              Speaking and reading are two different skills. Reading has to be taught step by step. AptyRead is <span className="font-semibold text-apty-dark">strictly structured</span>: one path, 4 levels, 243 lessons. Nobody can join Level 2 or higher without the foundation. Every child builds the right base first.
             </p>
 
             {/* CTA Buttons */}
@@ -53,7 +52,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative w-full sm:w-auto"
-                aria-label="Start your child's reading journey — AptyRead on Google Play"
+                aria-label="Start your child's reading journey, AptyRead on Google Play"
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-apty-coral to-apty-cyan rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
                 <div className="relative bg-apty-coral text-white px-8 py-4 rounded-xl text-base md:text-lg font-semibold shadow-lg transform transition duration-300 hover:scale-105 text-center">
@@ -86,7 +85,7 @@ export default function Hero() {
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-apty-coral">✓</span>
-                <span>Try 4 lessons free — no registration</span>
+                <span>Try 4 lessons free, no registration</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-apty-coral">✓</span>

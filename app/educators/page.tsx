@@ -86,7 +86,7 @@ export default function EducatorsPage() {
                 Outcomes
               </h2>
               <p className="text-base md:text-lg leading-relaxed">
-                By the end of the program, children read independently — including real published books such as <em>The Magic Finger</em> and <em>The Boxcar Children</em>. The goal is real literacy: decoding, comprehension, and a lasting love of reading.
+                Our aim by the end of the program is for children to read independently, including real published books. The goal is real literacy: decoding, comprehension, and a lasting love of reading.
               </p>
             </section>
 

@@ -13,7 +13,7 @@ export default function LetterToParents() {
             Why we built AptyRead
           </p>
           <p className="text-apty-gray leading-relaxed mb-4">
-            As creators and educators, we watched many children struggle with reading—not because they lacked ability, but because they lacked a solid foundation. <strong className="text-apty-dark">We wanted to create something different: real education, not just entertainment.</strong>
+            As creators and educators, we watched many children struggle with reading. Not because they lacked ability, but because they lacked a solid foundation. <strong className="text-apty-dark">We wanted to create something different: real education, not just entertainment.</strong>
           </p>
           <p className="text-apty-dark font-semibold mb-6">
             Our mission: No child should fall behind because they couldn&apos;t read.

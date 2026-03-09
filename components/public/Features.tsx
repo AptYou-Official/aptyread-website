@@ -10,7 +10,7 @@ export default function Features() {
             Real Reading for Real Life
           </h2>
           <p className="text-lg md:text-xl text-apty-gray max-w-3xl mx-auto">
-            Your child will read books, signs, stories - real-world reading, not just screen time.
+            The goal is for your child to read books, signs, and stories in the real world, not just on a screen.
           </p>
         </div>
 

@@ -6,7 +6,7 @@ const levels = [
     name: "Learning the Sounds",
     ages: "Ages 3–5",
     parentQuote: "My child knows the alphabet but can't read yet.",
-    description: "Before reading words, a child needs to understand that every letter makes a sound — and that words are built from those sounds. Level 1 teaches all the letter sounds in a sequence your child can master one at a time, with videos, games, and gentle practice that builds real confidence.",
+    description: "Before reading words, a child needs to understand that every letter makes a sound and that words are built from those sounds. Level 1 teaches all the letter sounds in an order your child can master, one at a time. Videos, games, and gentle practice are designed to build confidence.",
     pills: ["All 26 letter sounds", "Upper & lowercase letters", "Letter writing", "46 lessons"],
     accent: "blue",
   },
@@ -15,7 +15,7 @@ const levels = [
     name: "Reading First Words",
     ages: "Ages 5–6",
     parentQuote: "My child knows the sounds but can't put them together.",
-    description: "This is the most magical moment in a child's reading life — when letters stop being shapes and start being words. Level 2 teaches your child to blend sounds together, read real words for the first time, then short sentences and stories. By the end, they read aloud with pride.",
+    description: "This is the most magical moment in a child's reading life: letters stop being shapes and start being words. Level 2 is designed to help your child blend sounds, read real words for the first time, then short sentences and stories. For many children, by the end they read aloud with pride.",
     pills: ["First words & sentences", "Short stories", "~45 common words", "57 lessons"],
     accent: "green",
   },
@@ -24,7 +24,7 @@ const levels = [
     name: "Reading Anything",
     ages: "Ages 6–8",
     parentQuote: "My child reads simple words but struggles with longer texts.",
-    description: "English spelling has patterns — and Level 3 teaches them all. Words like cake, night, beach, bird. Your child stops sounding out letter by letter and starts reading in patterns — which is how all fluent readers read. By the end of Level 3, they can pick up a page of text and read it.",
+    description: "English spelling has patterns. Level 3 teaches them all. Words like cake, night, beach, bird. The goal is for your child to stop sounding out letter by letter and start reading in patterns, the way fluent readers read. By the end of Level 3, many children can pick up a page of text and read it.",
     pills: ["All English spelling patterns", "Paragraphs & passages", "Reading comprehension", "63 lessons"],
     accent: "orange",
   },
@@ -33,7 +33,7 @@ const levels = [
     name: "Reading Real Books",
     ages: "Ages 7–10",
     parentQuote: "My child reads but struggles with longer or harder words.",
-    description: "Level 4 is where your child becomes a true, independent reader. They learn to decode long words, understand what they read, and read real published books — including Roald Dahl's The Magic Finger and The Boxcar Children. They finish not just better at reading — but genuinely in love with books.",
+    description: "Level 4 is designed to help your child become a true, independent reader. They learn to decode long words, understand what they read, and read real published books. Our aim is for children to finish not just better at reading but genuinely in love with books.",
     pills: ["Long words decoded", "4 real books read", "Full comprehension", "77 lessons"],
     accent: "purple",
   },
@@ -52,10 +52,10 @@ export default function HowItWorks() {
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-apty-dark mb-4">
-            The 4 Levels — One Complete Journey
+            The 4 Levels: One Complete Journey
           </h2>
           <p className="text-lg md:text-xl text-apty-gray max-w-3xl mx-auto">
-            From first sound to fluent reader. Every child starts at the start; no one can join Level 2 or higher without the correct foundation.
+            From first sound to fluent reader. That&apos;s our aim. Every child starts at the start. No one can join Level 2 or higher without the correct foundation.
           </p>
         </div>
 
@@ -110,7 +110,7 @@ export default function HowItWorks() {
             Nothing unlocks until your child is truly ready. No pushing forward before mastery; no holding back once they&apos;re ready to grow. Backed by reading science.
           </p>
           <p className="text-base md:text-lg font-semibold text-apty-dark max-w-2xl mx-auto">
-            Nobody can join Level 2, 3, or 4 without the correct foundation. Without it, children cannot move on — so every child builds the right base first.
+            Nobody can join Level 2, 3, or 4 without the correct foundation. Without it, children cannot move on. Every child builds the right base first.
           </p>
         </div>
       </div>
