@@ -14,7 +14,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "AptyRead",
-    "description": "AptyRead Literacy Program — complete reading program for children ages 3-10. 4 levels, 243 lessons, from first sound to first book. For parents and educators.",
+    "description": "AptyRead — From First Sound to Fluent Reader. Complete reading program for children 3-10. 4 levels, 243 lessons; nobody can skip levels without the correct foundation.",
     "url": "https://www.aptyread.ai",
     "logo": "https://www.aptyread.ai/images/apty.png",
     "sameAs": [
@@ -51,7 +51,7 @@ export default function Home() {
       "ratingValue": "4.5",
       "ratingCount": "1"
     },
-    "description": "AptyRead Literacy Program — complete reading program, 4 levels, 243 lessons. Try 4 lessons free. For parents and educators."
+    "description": "AptyRead — From First Sound to Fluent Reader. Complete reading program for children 3-10. 4 levels, 243 lessons. Try 4 lessons free."
   };
 
   return (

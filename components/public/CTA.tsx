@@ -9,7 +9,7 @@ export default function CTA() {
           Start Your Child&apos;s Reading Journey
         </h2>
         <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-          No registration needed. Try 4 free lessons and see if the program is right for your child. For parents and educators.
+          For children 3–10. No registration needed — try 4 free lessons and see if the program is right for your child.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">

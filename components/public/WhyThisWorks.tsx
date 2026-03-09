@@ -13,8 +13,8 @@ const benefits = [
   },
   {
     icon: "🔒",
-    title: "Real Progress, Not Just Progress Bars",
-    description: "Your child must master Level 1 before accessing Level 2. This ensures they actually learn, not just move forward quickly.",
+    title: "No Skipping Levels — Foundation First",
+    description: "Nobody can join Level 2, 3, or 4 directly. Level checking isn't possible; without the correct foundation, children cannot move on. Every child builds the right base first, so the program works for everyone.",
   },
   {
     icon: "💰",

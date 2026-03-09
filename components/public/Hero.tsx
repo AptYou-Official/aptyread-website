@@ -34,16 +34,16 @@ export default function Hero() {
               From First Sound to
               <br />
               <span className="bg-gradient-to-r from-apty-coral to-apty-cyan bg-clip-text text-transparent">
-                First Book
+                Fluent Reader
               </span>
             </h1>
 
-            {/* Hook */}
+            {/* Hook — primary: children 3–10 */}
             <p className="text-base md:text-lg text-apty-gray mb-4 leading-relaxed font-medium">
-              Whether your child is just starting, knows their ABCs, or speaks English already — AptyRead takes them all the way to reading real books.
+              A complete reading program for <span className="font-semibold text-apty-dark">children 3 to 10</span>. Whether they&apos;re just starting, know their ABCs, or already speak English — AptyRead takes them all the way to reading real books.
             </p>
             <p className="text-base md:text-lg text-apty-gray mb-6 leading-relaxed">
-              Speaking English and reading English are two different skills. Reading is a trained skill — it doesn&apos;t develop naturally like speaking. AptyRead is a <span className="font-semibold text-apty-dark">complete, structured reading program</span>: 4 levels, 243 lessons, one clear path. Not a game. Not entertainment. Real literacy.
+              Speaking and reading are two different skills. Reading must be taught step by step. AptyRead is <span className="font-semibold text-apty-dark">strictly structured</span>: one path, 4 levels, 243 lessons. Nobody can join Level 2 or higher without the foundation — so every child builds the right base before moving on.
             </p>
 
             {/* CTA Buttons */}

@@ -16,7 +16,7 @@
 - **Lead with the question:** "But can they read?" — Use it in the hero or right after. It creates a moment of recognition.
 - **Speak to their doubt:** Address "knows ABCs but can't read," "speaks well but can't read," "slow learner" in copy or a short FAQ strip so they feel seen.
 - **One clear journey:** Emphasize "one path, start to finish" and "at their own pace" so they feel no pressure and no dead ends.
-- **Low risk:** Keep "Try 4 free lessons" and "no registration" prominent. Add "Find your child's level" so they know where to start.
+- **Low risk:** Keep "Try 4 free lessons" and "no registration" prominent. Everyone starts at the start; no level-checking or skipping (foundation first).
 - **Avoid character focus:** Dropping the AI girl and focusing on the *program* (lessons, levels, outcomes) keeps the tone professional and parent-trust oriented.
 
 ---
@@ -41,9 +41,22 @@
 
 ---
 
+## Audience priority
+
+- **Primary:** Children 3 to 10.
+- **Secondary:** Parents (supporting their child).
+- **Next:** Educators (recommend or use the program).
+
+**Tagline:** From First Sound to Fluent Reader (do not change).
+
+**Structure:** Nobody can join Level 2 or higher directly. Level checking is not possible. Without the correct foundation, children cannot move on — so every child builds the right base first (avoids someone joining Level 4 and saying the program isn’t effective).
+
+---
+
 ## Summary
 
 - **Concept:** Strong. Lead with "literacy program," not "app."
-- **Parents:** Connect via "But can they read?", clear journey, pace, and low-risk trial; avoid centering an AI character.
-- **Educators:** Signal inclusion (header/footer or one section), use curriculum language, and plan a dedicated educators page later.
-- **Implementation:** Hero and levels updated to your copy; Apty/AI teacher removed; educator mention added; CTAs and schema aligned to the program.
+- **Tagline:** From First Sound to Fluent Reader.
+- **Audience:** Children 3–10 first, then parents, then educators.
+- **No skipping levels:** Messaging and copy stress foundation-first; no direct entry to Level 2+.
+- **Implementation:** Hero and levels aligned to level cards (parent quotes, pills, no-skip messaging); educators page clarifies audience order and structure.

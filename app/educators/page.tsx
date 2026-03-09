@@ -23,7 +23,7 @@ export default function EducatorsPage() {
               For Educators & Schools
             </h1>
             <p className="text-xl text-apty-gray max-w-2xl mx-auto">
-              A complete literacy program you can recommend or use with your students. 4 levels, 243 lessons, backed by reading science.
+              AptyRead is for children 3–10 first. As an educator, you can recommend or use this program with your students — 4 levels, 243 lessons, backed by reading science. No skipping levels; every child builds the foundation first.
             </p>
           </div>
 

@@ -19,7 +19,7 @@ export default function Header() {
               AptyRead
             </span>
             <span className="text-xs md:text-sm text-apty-gray italic hidden sm:block">
-              Literacy Program · Parents & Educators
+              From First Sound to Fluent Reader
             </span>
           </div>
         </Link>
