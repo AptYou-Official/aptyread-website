@@ -6,10 +6,10 @@ export default function CTA() {
     <section className="bg-gradient-to-br from-apty-coral to-orange-500 py-20 px-4">
       <div className="container mx-auto max-w-3xl text-center">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-          Try It Free. See If It Works for Your Child.
+          Start Your Child&apos;s Reading Journey
         </h2>
         <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-          No registration needed. No credit card. Just 4 free lessons to see if your child connects with our approach.
+          No registration needed. Try 4 free lessons and see if the program is right for your child. For parents and educators.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">

@@ -3,31 +3,39 @@
 const levels = [
   {
     number: 1,
-    name: "Learning Letters",
-    outcome: "Your child masters all letters - sounds, shapes, and writing",
-    description: "They learn each letter completely before moving forward. No guessing, no rushing.",
-    timeline: "2-4 months",
+    name: "Learning the Sounds",
+    ages: "Ages 3–5",
+    outcome: "All 26 letter sounds, upper & lowercase, letter writing",
+    description: "Before reading words, a child needs to know that every letter makes a sound and that words are built from those sounds. Level 1 teaches letter sounds in a sequence your child can master one at a time.",
+    lessons: "46 lessons",
+    timeline: "2–4 months",
   },
   {
     number: 2,
-    name: "Reading Words",
-    outcome: "Your child reads their first words independently",
-    description: "Letters become words. Your child feels the joy of real reading - not memorization, actual reading.",
-    timeline: "2-4 months",
+    name: "Reading First Words",
+    ages: "Ages 5–6",
+    outcome: "First words & sentences, short stories, ~45 common words",
+    description: "The moment letters become words. Your child learns to blend sounds, read real words, then short sentences and stories. By the end they read aloud with pride.",
+    lessons: "57 lessons",
+    timeline: "2–4 months",
   },
   {
     number: 3,
-    name: "Reading Stories",
-    outcome: "Your child reads simple stories with understanding",
-    description: "Stories they can actually read. Not guess. Not memorize. Real reading with comprehension.",
-    timeline: "2-4 months",
+    name: "Reading Anything",
+    ages: "Ages 6–8",
+    outcome: "All English spelling patterns, paragraphs, comprehension",
+    description: "English spelling has patterns — cake, night, beach, bird. Your child stops sounding out letter by letter and starts reading in patterns, like fluent readers do.",
+    lessons: "63 lessons",
+    timeline: "2–4 months",
   },
   {
     number: 4,
-    name: "Independent Reading",
-    outcome: "Your child reads independently with confidence",
-    description: "This is real literacy. Your child can read and understand what they read. They&apos;re ready for school.",
-    timeline: "2-4 months",
+    name: "Reading Real Books",
+    ages: "Ages 7–10",
+    outcome: "Long words decoded, 4 real books read, full comprehension",
+    description: "Your child becomes an independent reader. They decode long words, understand what they read, and read real published books — including classics like The Magic Finger and The Boxcar Children.",
+    lessons: "77 lessons",
+    timeline: "2–4 months",
   },
 ];
 
@@ -37,10 +45,10 @@ export default function HowItWorks() {
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-apty-dark mb-4">
-            Your Child&apos;s Reading Journey
+            The 4 Levels — One Complete Journey
           </h2>
           <p className="text-lg md:text-xl text-apty-gray max-w-3xl mx-auto">
-            A clear path from letters to independent reading. Each level builds on the previous one.
+            From first sound to first book. Every child starts where they are and ends as a reader.
           </p>
         </div>
 
@@ -56,6 +64,7 @@ export default function HowItWorks() {
                     {level.number}
                   </div>
                   <div>
+                    <p className="text-sm font-semibold text-apty-coral mb-1">{level.ages}</p>
                     <h3 className="text-2xl md:text-3xl font-bold text-apty-dark mb-2">
                       {level.name}
                     </h3>
@@ -66,7 +75,12 @@ export default function HowItWorks() {
                       {level.description}
                     </p>
                     <p className="text-sm text-apty-gray mt-3">
-                      Timeline: {level.timeline}
+                      {level.lessons} · Timeline: {level.timeline}
+                      {index < levels.length - 1 && (
+                        <span className="block mt-2 text-apty-coral font-medium">
+                          Then your child is ready for Level {level.number + 1} →
+                        </span>
+                      )}
                     </p>
                   </div>
                 </div>
@@ -77,7 +91,7 @@ export default function HowItWorks() {
 
         <div className="mt-10 md:mt-12 text-center">
           <p className="text-base md:text-lg text-apty-gray max-w-2xl mx-auto">
-            Your child completes each level before moving forward. This ensures they actually learn, not just move forward quickly.
+            Nothing unlocks until your child is truly ready. No pushing forward before mastery; no holding back once they&apos;re ready to grow. Backed by reading science.
           </p>
         </div>
       </div>

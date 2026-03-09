@@ -19,13 +19,16 @@ export default function Header() {
               AptyRead
             </span>
             <span className="text-xs md:text-sm text-apty-gray italic hidden sm:block">
-              From Sounds to Reading
+              Literacy Program · Parents & Educators
             </span>
           </div>
         </Link>
         <div className="flex gap-3 md:gap-6 items-center">
           <Link href="/" className="hidden sm:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base">
             Home
+          </Link>
+          <Link href="/educators" className="hidden sm:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base">
+            Educators
           </Link>
           <a
             href="https://play.google.com/store/apps/details?id=ai.aptyread.app"

@@ -23,8 +23,8 @@ const benefits = [
   },
   {
     icon: "🏫",
-    title: "Classroom-Like Learning",
-    description: "Just like a real classroom. Apty (your friendly guide) and an AI teacher make learning warm and engaging. Concept, then practice, then you're done.",
+    title: "A Complete Program, Not Just an App",
+    description: "Structured like a real reading class. Concept, then practice, then done. No random games — a clear sequence that takes your child from sounds to real books.",
   },
   {
     icon: "🛡️",

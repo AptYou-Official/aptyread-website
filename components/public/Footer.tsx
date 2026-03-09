@@ -8,10 +8,10 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold text-apty-coral mb-2">AptyRead</h3>
             <p className="text-sm font-semibold text-apty-gray italic mb-4">
-              From Sounds to Reading
+              Literacy Program · For Parents & Educators
             </p>
             <p className="text-apty-gray text-sm">
-              A structured literacy learning platform. English Reading & Writing for children ages 3-10.
+              A complete reading program — 4 levels, 243 lessons — from first sound to first book. Ages 3–10.
             </p>
           </div>
           <div>
@@ -30,6 +30,11 @@ export default function Footer() {
               <li>
                 <a href="/about" className="text-apty-gray hover:text-apty-coral transition-colors">
                   About Us
+                </a>
+              </li>
+              <li>
+                <a href="/educators" className="text-apty-gray hover:text-apty-coral transition-colors">
+                  For Educators
                 </a>
               </li>
               <li>

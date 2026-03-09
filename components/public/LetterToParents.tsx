@@ -10,8 +10,11 @@ export default function LetterToParents() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-apty-dark mb-4">
               A Letter to Parents
             </h2>
-            <p className="text-lg md:text-xl text-apty-gray italic">
+            <p className="text-lg md:text-xl text-apty-gray italic mb-4">
               Why we built AptyRead
+            </p>
+            <p className="text-base md:text-lg text-apty-dark font-semibold max-w-2xl mx-auto">
+              Our mission: No child should fall behind because they couldn&apos;t read.
             </p>
           </div>
 

@@ -5,6 +5,7 @@ import HowItWorks from "@/components/public/HowItWorks";
 import Features from "@/components/public/Features";
 import ParentPeaceOfMind from "@/components/public/ParentPeaceOfMind";
 import LetterToParents from "@/components/public/LetterToParents";
+import HomepageFAQ from "@/components/public/HomepageFAQ";
 import CTA from "@/components/public/CTA";
 import Footer from "@/components/public/Footer";
 
@@ -13,7 +14,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "AptyRead",
-    "description": "Structured literacy learning platform. English Reading & Writing for children ages 3-10. Mastery-driven, one lesson per day.",
+    "description": "AptyRead Literacy Program — complete reading program for children ages 3-10. 4 levels, 243 lessons, from first sound to first book. For parents and educators.",
     "url": "https://www.aptyread.ai",
     "logo": "https://www.aptyread.ai/images/apty.png",
     "sameAs": [
@@ -50,7 +51,7 @@ export default function Home() {
       "ratingValue": "4.5",
       "ratingCount": "1"
     },
-    "description": "Structured literacy learning platform. English Reading & Writing for children ages 3-10. Mastery-driven, one lesson per day. Try 4 lessons free."
+    "description": "AptyRead Literacy Program — complete reading program, 4 levels, 243 lessons. Try 4 lessons free. For parents and educators."
   };
 
   return (
@@ -71,6 +72,7 @@ export default function Home() {
         <Features />
         <ParentPeaceOfMind />
         <LetterToParents />
+        <HomepageFAQ />
         <CTA />
         <Footer />
       </main>
