@@ -11,7 +11,7 @@ function serializePurchase(doc: any): Purchase {
       out[k] = v;
     }
   }
-  return out as Purchase;
+  return out as unknown as Purchase;
 }
 
 export interface Purchase {
