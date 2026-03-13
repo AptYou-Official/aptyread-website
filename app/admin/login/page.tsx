@@ -10,12 +10,22 @@ export default function AdminLogin() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [configMissing, setConfigMissing] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    if (!auth) setConfigMissing(true);
+  }, []);
+
+  useEffect(() => {
     const msg = searchParams.get('message');
-    if (msg === 'access_denied') setError('Access denied. You are not an admin.');
+    const uid = searchParams.get('uid');
+    if (msg === 'access_denied') {
+      setError(uid
+        ? `Access denied. Add this UID as a document ID in Firestore → admin_users: ${uid}`
+        : 'Access denied. You are not an admin.');
+    }
   }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -32,6 +42,21 @@ export default function AdminLogin() {
       setLoading(false);
     }
   };
+
+  if (configMissing) {
+    return (
+      <div className="min-h-screen bg-apty-warm flex items-center justify-center px-4">
+        <div className="bg-white p-8 rounded-lg border border-apty-coral-accent shadow-lg max-w-md w-full text-apty-dark">
+          <h1 className="text-xl font-bold text-apty-coral mb-2">Firebase not configured</h1>
+          <p className="text-sm text-apty-gray">
+            Add <code className="bg-gray-100 px-1">NEXT_PUBLIC_FIREBASE_API_KEY</code>,{' '}
+            <code className="bg-gray-100 px-1">NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN</code>, and{' '}
+            <code className="bg-gray-100 px-1">NEXT_PUBLIC_FIREBASE_PROJECT_ID</code> (and other NEXT_PUBLIC_FIREBASE_* vars) to this site&apos;s environment variables, then redeploy.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-apty-warm flex items-center justify-center px-4">

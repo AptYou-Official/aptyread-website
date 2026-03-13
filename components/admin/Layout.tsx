@@ -24,6 +24,11 @@ export default function AdminLayout({
       setLoading(false);
       return;
     }
+    if (!auth) {
+      setLoading(false);
+      router.push('/admin/login');
+      return;
+    }
 
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (!currentUser) {
@@ -41,7 +46,14 @@ export default function AdminLayout({
         });
         if (!res.ok) {
           await auth.signOut();
-          router.push('/admin/login?message=access_denied');
+          let query = 'message=access_denied';
+          if (res.status === 403) {
+            try {
+              const data = await res.json();
+              if (data.uid) query += '&uid=' + encodeURIComponent(data.uid);
+            } catch (_) {}
+          }
+          router.push('/admin/login?' + query);
           return;
         }
         setUser(currentUser);

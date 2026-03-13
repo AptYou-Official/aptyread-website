@@ -11,11 +11,17 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
+const hasClientConfig = !!(
+  firebaseConfig.apiKey &&
+  firebaseConfig.projectId &&
+  firebaseConfig.authDomain
+);
+
 let app: FirebaseApp;
 let auth: Auth;
 let db: Firestore;
 
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && hasClientConfig) {
   if (!getApps().length) {
     app = initializeApp(firebaseConfig);
   } else {
