@@ -10,16 +10,24 @@ export interface User {
   totalSpent?: number;
 }
 
+/** Recursively convert Firestore types to JSON-serializable values */
+function toSerializable(value: unknown): unknown {
+  if (value === null || value === undefined) return value;
+  if (typeof (value as any).toDate === 'function') return (value as any).toDate().toISOString();
+  if (Array.isArray(value)) return value.map(toSerializable);
+  if (typeof value === 'object' && value !== null) {
+    const out: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(value)) {
+      out[k] = toSerializable(v);
+    }
+    return out;
+  }
+  return value;
+}
+
 function serializeDoc(doc: any): User {
   const data = doc.data();
-  const out: Record<string, unknown> = { id: doc.id };
-  for (const [k, v] of Object.entries(data)) {
-    if (v && typeof (v as any).toDate === 'function') {
-      out[k] = (v as any).toDate().toISOString();
-    } else {
-      out[k] = v;
-    }
-  }
+  const out = toSerializable({ id: doc.id, ...data }) as Record<string, unknown>;
   return out as unknown as User;
 }
 

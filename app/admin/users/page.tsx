@@ -5,7 +5,12 @@ import { getUsers } from '@/lib/queries/users';
 export const dynamic = 'force-dynamic';
 
 export default async function UsersPage() {
-  const users = await getUsers(1000);
+  let users: Awaited<ReturnType<typeof getUsers>> = [];
+  try {
+    users = await getUsers(1000);
+  } catch (e) {
+    console.error('Error loading users:', e);
+  }
 
   return (
     <div className="space-y-8">
