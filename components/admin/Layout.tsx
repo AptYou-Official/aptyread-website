@@ -25,11 +25,30 @@ export default function AdminLayout({
       return;
     }
 
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (!currentUser) {
+        setUser(null);
+        setLoading(false);
         router.push('/admin/login');
+        return;
+      }
+      try {
+        const token = await currentUser.getIdToken();
+        const res = await fetch('/api/admin/verify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ idToken: token }),
+        });
+        if (!res.ok) {
+          await auth.signOut();
+          router.push('/admin/login?message=access_denied');
+          return;
+        }
+        setUser(currentUser);
+      } catch {
+        router.push('/admin/login');
+      } finally {
+        setLoading(false);
       }
     });
 

@@ -17,13 +17,16 @@ async function getFirebaseAdmin() {
 }
 
 async function initializeFirebase() {
-  // Only initialize if credentials are provided
-  const hasCredentials = 
+  const hasServiceAccount =
     process.env.FIREBASE_PROJECT_ID &&
     process.env.FIREBASE_CLIENT_EMAIL &&
     process.env.FIREBASE_PRIVATE_KEY;
 
-  if (!hasCredentials) {
+  // Need at least project ID for Application Default Credentials
+  const projectId =
+    process.env.FIREBASE_PROJECT_ID || process.env.GOOGLE_CLOUD_PROJECT;
+
+  if (!hasServiceAccount && !projectId) {
     return { db: null, auth: null };
   }
 
@@ -38,13 +41,22 @@ async function initializeFirebase() {
     const { getAuth } = await import('firebase-admin/auth');
 
     if (!getApps().length) {
-      app = initializeApp({
-        credential: cert({
-          projectId: process.env.FIREBASE_PROJECT_ID!,
-          clientEmail: process.env.FIREBASE_CLIENT_EMAIL!,
-          privateKey: process.env.FIREBASE_PRIVATE_KEY!.replace(/\\n/g, '\n'),
-        }),
-      });
+      if (hasServiceAccount) {
+        app = initializeApp({
+          credential: cert({
+            projectId: process.env.FIREBASE_PROJECT_ID!,
+            clientEmail: process.env.FIREBASE_CLIENT_EMAIL!,
+            privateKey: process.env.FIREBASE_PRIVATE_KEY!.replace(/\\n/g, '\n'),
+          }),
+        });
+      } else {
+        // Fallback: use Application Default Credentials (e.g. gcloud auth application-default login)
+        const { credential } = await import('firebase-admin/app');
+        app = initializeApp({
+          projectId,
+          credential: credential.applicationDefault(),
+        });
+      }
     } else {
       app = getApps()[0];
     }

@@ -18,6 +18,7 @@ export default function Sidebar() {
   const navItems = [
     { href: '/admin', label: 'Dashboard', icon: '📊' },
     { href: '/admin/users', label: 'Users', icon: '👥' },
+    { href: '/admin/purchases', label: 'Purchases', icon: '🛒' },
     { href: '/admin/payments', label: 'Payments', icon: '💰' },
   ];
 

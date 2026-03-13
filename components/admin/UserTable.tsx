@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 interface User {
   id: string;
@@ -71,13 +72,16 @@ export default function UserTable({ users }: UserTableProps) {
               <th className="px-6 py-3 text-left text-xs font-medium text-apty-dark uppercase tracking-wider">
                 Purchases
               </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-apty-dark uppercase tracking-wider">
+                Actions
+              </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-apty-coral-accent">
             {filteredUsers.map((user) => (
               <tr key={user.id} className="hover:bg-apty-warm">
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-apty-dark font-mono">
-                  {user.id.substring(0, 8)}...
+                  {user.id.substring(0, 12)}...
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-apty-gray">
                   {user.email || 'N/A'}
@@ -90,6 +94,9 @@ export default function UserTable({ users }: UserTableProps) {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-apty-gray">
                   {user.purchaseCount || 0}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm">
+                  <Link href={`/admin/users/${user.id}`} className="text-apty-coral hover:underline">View</Link>
                 </td>
               </tr>
             ))}

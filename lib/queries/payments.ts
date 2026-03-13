@@ -9,6 +9,25 @@ export interface Purchase {
   status: string;
   createdAt: any;
   transactionId?: string;
+  // Spec fields (optional for backward compatibility)
+  orderId?: string;
+  purchaseToken?: string;
+  levelId?: string;
+  productId?: string;
+  purchaseDate?: any;
+  expiryDate?: any;
+  price?: number;
+  updatedAt?: any;
+}
+
+export interface PurchaseFilters {
+  userId?: string;
+  orderId?: string;
+  status?: string;
+  levelId?: string;
+  level?: string;
+  startDate?: Date;
+  endDate?: Date;
 }
 
 export async function getPurchases(limitCount: number = 100): Promise<Purchase[]> {
@@ -36,6 +55,46 @@ export async function getPurchases(limitCount: number = 100): Promise<Purchase[]
   }
 }
 
+export async function getPurchasesByUserId(userId: string): Promise<Purchase[]> {
+  try {
+    const db = await getDb();
+    if (!db) return [];
+    const snapshot = await db.collection('purchases').where('userId', '==', userId).orderBy('createdAt', 'desc').get();
+    const purchases: Purchase[] = [];
+    snapshot.forEach((doc: any) => {
+      purchases.push({ id: doc.id, ...doc.data() } as Purchase);
+    });
+    return purchases;
+  } catch (error) {
+    console.error('Error fetching purchases by user:', error);
+    return [];
+  }
+}
+
+export async function getPurchasesWithFilters(filters: PurchaseFilters, limitCount: number = 200): Promise<Purchase[]> {
+  try {
+    const db = await getDb();
+    if (!db) return [];
+    let ref: any = db.collection('purchases').orderBy('createdAt', 'desc').limit(limitCount);
+    if (filters.userId) ref = db.collection('purchases').where('userId', '==', filters.userId).orderBy('createdAt', 'desc').limit(limitCount);
+    const snapshot = await ref.get();
+    let purchases: Purchase[] = [];
+    snapshot.forEach((doc: any) => {
+      purchases.push({ id: doc.id, ...doc.data() } as Purchase);
+    });
+    if (filters.orderId) purchases = purchases.filter((p) => (p.orderId || p.transactionId || p.id) === filters.orderId);
+    if (filters.status) purchases = purchases.filter((p) => p.status === filters.status);
+    if (filters.levelId) purchases = purchases.filter((p) => (p.levelId || p.level) === filters.levelId);
+    if (filters.level) purchases = purchases.filter((p) => (p.level || p.levelId) === filters.level);
+    if (filters.startDate) purchases = purchases.filter((p) => p.createdAt && p.createdAt.toDate && p.createdAt.toDate() >= filters.startDate!);
+    if (filters.endDate) purchases = purchases.filter((p) => p.createdAt && p.createdAt.toDate && p.createdAt.toDate() <= filters.endDate!);
+    return purchases;
+  } catch (error) {
+    console.error('Error fetching purchases with filters:', error);
+    return [];
+  }
+}
+
 export async function getRevenueStats(startDate?: Date, endDate?: Date) {
   try {
     const db = await getDb();
@@ -48,7 +107,7 @@ export async function getRevenueStats(startDate?: Date, endDate?: Date) {
         purchaseCount: 0,
       };
     }
-    let purchasesRef = db.collection('purchases').where('status', '==', 'completed');
+    let purchasesRef = db.collection('purchases').where('status', 'in', ['completed', 'active']);
     
     if (startDate) {
       purchasesRef = purchasesRef.where('createdAt', '>=', startDate) as any;

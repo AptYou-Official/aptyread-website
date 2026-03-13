@@ -55,3 +55,14 @@ export async function getUserById(userId: string): Promise<User | null> {
     return null;
   }
 }
+
+export async function getUserIdByEmail(email: string): Promise<string | null> {
+  try {
+    const auth = await import('@/lib/firebase-admin').then((m) => m.getAuth());
+    if (!auth) return null;
+    const userRecord = await auth.getUserByEmail(email.trim());
+    return userRecord?.uid ?? null;
+  } catch {
+    return null;
+  }
+}
