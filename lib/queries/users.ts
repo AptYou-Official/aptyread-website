@@ -10,6 +10,19 @@ export interface User {
   totalSpent?: number;
 }
 
+function serializeDoc(doc: any): User {
+  const data = doc.data();
+  const out: Record<string, unknown> = { id: doc.id };
+  for (const [k, v] of Object.entries(data)) {
+    if (v && typeof (v as any).toDate === 'function') {
+      out[k] = (v as any).toDate().toISOString();
+    } else {
+      out[k] = v;
+    }
+  }
+  return out as unknown as User;
+}
+
 export async function getUsers(limitCount: number = 100): Promise<User[]> {
   try {
     const db = await getDb();
@@ -19,15 +32,10 @@ export async function getUsers(limitCount: number = 100): Promise<User[]> {
     }
     const usersRef = db.collection('users');
     const snapshot = await usersRef.limit(limitCount).get();
-    
     const users: User[] = [];
     snapshot.forEach((doc: any) => {
-      users.push({
-        id: doc.id,
-        ...doc.data(),
-      } as User);
+      users.push(serializeDoc(doc));
     });
-    
     return users;
   } catch (error) {
     console.error('Error fetching users:', error);
@@ -46,10 +54,7 @@ export async function getUserById(userId: string): Promise<User | null> {
     if (!userDoc.exists) {
       return null;
     }
-    return {
-      id: userDoc.id,
-      ...userDoc.data(),
-    } as User;
+    return serializeDoc(userDoc);
   } catch (error) {
     console.error('Error fetching user:', error);
     return null;
