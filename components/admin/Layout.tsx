@@ -45,14 +45,18 @@ export default function AdminLayout({
           body: JSON.stringify({ idToken: token }),
         });
         if (!res.ok) {
-          await auth.signOut();
+          // Pass UID before signOut so login page can show it (server may not return it if Admin SDK failed)
           let query = 'message=access_denied';
-          if (res.status === 403) {
+          const uid = currentUser?.uid;
+          if (res.status === 403 && uid) {
+            query += '&uid=' + encodeURIComponent(uid);
+          } else if (res.status === 403) {
             try {
               const data = await res.json();
               if (data.uid) query += '&uid=' + encodeURIComponent(data.uid);
             } catch (_) {}
           }
+          await auth.signOut();
           router.push('/admin/login?' + query);
           return;
         }
