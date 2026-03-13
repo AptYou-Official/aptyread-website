@@ -134,16 +134,18 @@ export async function getRevenueStats(startDate?: Date, endDate?: Date) {
     
     snapshot.forEach((doc: any) => {
       const data = doc.data();
-      const amount = data.amount || 0;
+      const amount = data.amount ?? data.price ?? 0;
       totalRevenue += amount;
-      
-      const level = data.level || 'unknown';
+
+      const level = data.level ?? data.levelId ?? 'unknown';
       revenueByLevel[level] = (revenueByLevel[level] || 0) + amount;
-      
-      if (data.createdAt) {
-        const date = data.createdAt.toDate().toISOString().split('T')[0];
-        dailyRevenue[date] = (dailyRevenue[date] || 0) + amount;
-      }
+
+      try {
+        if (data.createdAt && typeof data.createdAt.toDate === 'function') {
+          const date = data.createdAt.toDate().toISOString().split('T')[0];
+          dailyRevenue[date] = (dailyRevenue[date] || 0) + amount;
+        }
+      } catch (_) {}
     });
     
     return {

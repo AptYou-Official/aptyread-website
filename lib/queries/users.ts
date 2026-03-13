@@ -39,11 +39,20 @@ export async function getUsers(limitCount: number = 100): Promise<User[]> {
       return [];
     }
     const usersRef = db.collection('users');
-    const snapshot = await usersRef.limit(limitCount).get();
-    const users: User[] = [];
-    snapshot.forEach((doc: any) => {
-      users.push(serializeDoc(doc));
-    });
+    let users: User[] = [];
+    try {
+      const snapshot = await usersRef.orderBy('createdAt', 'desc').limit(limitCount).get();
+      snapshot.forEach((doc: any) => users.push(serializeDoc(doc)));
+    } catch {
+      // No index or createdAt missing on some docs: fetch without orderBy, sort in memory
+      const snapshot = await usersRef.limit(limitCount).get();
+      snapshot.forEach((doc: any) => users.push(serializeDoc(doc)));
+      users.sort((a, b) => {
+        const dateA = a.createdAt ? new Date(a.createdAt as string).getTime() : 0;
+        const dateB = b.createdAt ? new Date(b.createdAt as string).getTime() : 0;
+        return dateB - dateA;
+      });
+    }
     return users;
   } catch (error) {
     console.error('Error fetching users:', error);

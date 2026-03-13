@@ -6,14 +6,17 @@ import { getRevenueStats } from '@/lib/queries/payments';
 export const dynamic = 'force-dynamic';
 
 export default async function AdminDashboard() {
-  const users = await getUsers(100);
-  const revenueStats = await getRevenueStats();
-
-  const totalUsers = users.length;
-  const totalRevenue = revenueStats.totalRevenue;
-  const totalPurchases = revenueStats.purchaseCount;
-
-  // Calculate active users (last 30 days) - placeholder
+  let totalUsers = 0;
+  let totalRevenue = 0;
+  let totalPurchases = 0;
+  try {
+    const [users, revenueStats] = await Promise.all([getUsers(100), getRevenueStats()]);
+    totalUsers = users?.length ?? 0;
+    totalRevenue = revenueStats?.totalRevenue ?? 0;
+    totalPurchases = revenueStats?.purchaseCount ?? 0;
+  } catch (e) {
+    console.error('Dashboard data error:', e);
+  }
   const activeUsers = Math.floor(totalUsers * 0.6);
 
   return (
