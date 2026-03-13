@@ -5,13 +5,13 @@ export async function verifyAdminToken(token: string): Promise<boolean> {
   return result.isAdmin;
 }
 
-export async function verifyAdminTokenWithUid(token: string): Promise<{ isAdmin: boolean; uid: string | null }> {
+export async function verifyAdminTokenWithUid(token: string): Promise<{ isAdmin: boolean; uid: string | null; debug?: string }> {
   try {
     const auth = await getAuth();
     const db = await getDb();
     if (!auth || !db) {
       console.warn('Firebase Admin not initialized. Cannot verify admin token.');
-      return { isAdmin: false, uid: null };
+      return { isAdmin: false, uid: null, debug: 'firebase_admin_not_initialized' };
     }
     const decodedToken = await auth.verifyIdToken(token);
     const userId = decodedToken.uid;
@@ -24,7 +24,7 @@ export async function verifyAdminTokenWithUid(token: string): Promise<{ isAdmin:
     return { isAdmin: adminDoc.exists, uid: userId };
   } catch (error) {
     console.error('Error verifying admin token:', error);
-    return { isAdmin: false, uid: null };
+    return { isAdmin: false, uid: null, debug: 'verify_failed' };
   }
 }
 

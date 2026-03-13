@@ -21,10 +21,17 @@ export default function AdminLogin() {
   useEffect(() => {
     const msg = searchParams.get('message');
     const uid = searchParams.get('uid');
+    const debug = searchParams.get('debug');
     if (msg === 'access_denied') {
-      setError(uid
-        ? `Access denied. Add this UID as a document ID in Firestore → admin_users: ${uid}`
-        : 'Access denied. You are not an admin.');
+      if (debug === 'firebase_admin_not_initialized') {
+        setError('Server could not connect to Firebase. Check Vercel env vars: FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY (and redeploy).');
+      } else if (debug === 'verify_failed') {
+        setError('Server failed to verify your token. Check Vercel logs and Firebase project matches.');
+      } else if (uid) {
+        setError(`Access denied. Add this UID as a document ID in Firestore → admin_users: ${uid}`);
+      } else {
+        setError('Access denied. You are not an admin.');
+      }
     }
   }, [searchParams]);
 

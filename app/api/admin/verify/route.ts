@@ -11,7 +11,7 @@ export async function POST(request: Request) {
     const result = await verifyAdminTokenWithUid(idToken);
     if (!result.isAdmin) {
       return NextResponse.json(
-        { error: 'Access denied', uid: result.uid ?? undefined },
+        { error: 'Access denied', uid: result.uid ?? undefined, debug: result.debug },
         { status: 403 }
       );
     }
