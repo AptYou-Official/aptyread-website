@@ -3,38 +3,34 @@
 const levels = [
   {
     number: 1,
-    name: "Learning the Sounds",
-    ages: "Ages 3–5",
+    name: "I am Learning Letters",
     parentQuote: "My child knows the alphabet but can't read yet.",
-    description: "Before reading words, a child needs to understand that every letter makes a sound and that words are built from those sounds. Level 1 teaches all the letter sounds in an order your child can master, one at a time. Videos, games, and gentle practice are designed to build confidence.",
+    description: "Children build sound foundations first. They learn letter sounds, letter forms, and early decoding confidence.",
     pills: ["All 26 letter sounds", "Upper & lowercase letters", "Letter writing", "46 lessons"],
     accent: "blue",
   },
   {
     number: 2,
-    name: "Reading First Words",
-    ages: "Ages 5–6",
+    name: "I Can Read!",
     parentQuote: "My child knows the sounds but can't put them together.",
-    description: "This is the most magical moment in a child's reading life: letters stop being shapes and start being words. Level 2 is designed to help your child blend sounds, read real words for the first time, then short sentences and stories. For many children, by the end they read aloud with pride.",
+    description: "Children blend sounds into words, then read sentences and short stories. This is where reading starts to click.",
     pills: ["First words & sentences", "Short stories", "~45 common words", "57 lessons"],
     accent: "green",
   },
   {
     number: 3,
-    name: "Reading Anything",
-    ages: "Ages 6–8",
+    name: "I Am Reading!",
     parentQuote: "My child reads simple words but struggles with longer texts.",
-    description: "English spelling has patterns. Level 3 teaches them all. Words like cake, night, beach, bird. The goal is for your child to stop sounding out letter by letter and start reading in patterns, the way fluent readers read. By the end of Level 3, many children can pick up a page of text and read it.",
-    pills: ["All English spelling patterns", "Paragraphs & passages", "Reading comprehension", "63 lessons"],
+    description: "Children learn key reading patterns and read longer passages with stronger fluency and comprehension.",
+    pills: ["Key spelling patterns", "Paragraph reading", "Comprehension checks", "63 lessons"],
     accent: "orange",
   },
   {
     number: 4,
-    name: "Reading Real Books",
-    ages: "Ages 7–10",
+    name: "I Am a Reader!",
     parentQuote: "My child reads but struggles with longer or harder words.",
-    description: "Level 4 is designed to help your child become a true, independent reader. They learn to decode long words, understand what they read, and read real published books. Our aim is for children to finish not just better at reading but genuinely in love with books.",
-    pills: ["Long words decoded", "4 real books read", "Full comprehension", "77 lessons"],
+    description: "Children build independent reading habits for longer texts and real books with stronger understanding.",
+    pills: ["Long-word strategies", "Real book reading", "Independent confidence", "77 lessons"],
     accent: "purple",
   },
 ];
@@ -55,7 +51,7 @@ export default function HowItWorks() {
             The 4 Levels: One Complete Journey
           </h2>
           <p className="text-lg md:text-xl text-apty-gray max-w-3xl mx-auto">
-            From first sound to fluent reader. That&apos;s our aim. Every child starts at the start. No one can join Level 2 or higher without the correct foundation.
+            From first sound to fluent reader. Every child starts at Level 1 and moves forward with the right foundation.
           </p>
         </div>
 
@@ -73,7 +69,6 @@ export default function HowItWorks() {
                     {level.number}
                   </div>
                   <div className="min-w-0">
-                    <p className="text-sm font-semibold text-apty-gray mb-1">{level.ages}</p>
                     <h3 className="text-2xl md:text-3xl font-bold text-apty-dark mb-2">
                       {level.name}
                     </h3>
@@ -107,10 +102,10 @@ export default function HowItWorks() {
 
         <div className="mt-10 md:mt-12 text-center space-y-4">
           <p className="text-base md:text-lg text-apty-gray max-w-2xl mx-auto">
-            Nothing unlocks until your child is truly ready. No pushing forward before mastery; no holding back once they&apos;re ready to grow. Backed by reading science.
+            Lessons unlock in order. Children progress when they are ready, not when a timer says so.
           </p>
           <p className="text-base md:text-lg font-semibold text-apty-dark max-w-2xl mx-auto">
-            Nobody can join Level 2, 3, or 4 without the correct foundation. Without it, children cannot move on. Every child builds the right base first.
+            No direct entry to Level 2, 3, or 4. Strong foundations come first.
           </p>
         </div>
       </div>

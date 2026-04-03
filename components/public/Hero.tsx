@@ -39,10 +39,10 @@ export default function Hero() {
             </h1>
 
             <p className="text-base md:text-lg text-apty-gray mb-4 leading-relaxed font-medium">
-              A complete reading program for <span className="font-semibold text-apty-dark">children 3 to 10</span>. Whether they&apos;re just starting, know their ABCs, or already speak English, our aim is to help your child progress to reading real books.
+              A complete literacy program for <span className="font-semibold text-apty-dark">children 3 to 10</span>. Built for beginners, designed for steady progress.
             </p>
             <p className="text-base md:text-lg text-apty-gray mb-6 leading-relaxed">
-              Speaking and reading are two different skills. Reading has to be taught step by step. AptyRead is <span className="font-semibold text-apty-dark">strictly structured</span>: one path, 4 levels, 243 lessons. Nobody can join Level 2 or higher without the foundation. Every child builds the right base first.
+              One path, 4 levels, 243 lessons. No skipping levels. Children move forward only when the foundation is ready.
             </p>
 
             {/* CTA Buttons */}
@@ -79,6 +79,10 @@ export default function Hero() {
 
             {/* Trust Indicators */}
             <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 md:gap-6 text-sm text-apty-gray">
+              <div className="flex items-center gap-2">
+                <span className="text-apty-coral">✓</span>
+                <span>2,500+ downloads</span>
+              </div>
               <div className="flex items-center gap-2">
                 <span className="text-apty-coral">✓</span>
                 <span>4 levels, 243 lessons</span>

@@ -3,23 +3,23 @@
 const benefits = [
   {
     icon: "🎯",
-    title: "Real Learning, Not Just an App",
-    description: "A complete program: 4 levels, 243 lessons. Every lesson builds on the last. Concept, then practice, then done. Real-world reading, not just screen time.",
+    title: "A Complete Literacy Program",
+    description: "4 levels, 243 lessons, one clear sequence. Each lesson builds on what your child already learned.",
   },
   {
     icon: "🔒",
-    title: "Foundation First. No Skipping Levels.",
-    description: "Nobody can join Level 2, 3, or 4 directly. Without the right foundation, children cannot move on. Every child builds the right base first.",
+    title: "Foundation First",
+    description: "Children start at Level 1 and move forward when ready. No skipping, no gaps in learning.",
   },
   {
     icon: "💰",
     title: "Try Before You Commit",
-    description: "Try 4 lessons free. No registration. Then enroll level by level. Finish Level 1, then decide if you want Level 2. No subscriptions.",
+    description: "Try 4 lessons free with no registration. Then enroll level by level, with no subscription pressure.",
   },
   {
     icon: "🛡️",
-    title: "Child Wellbeing First",
-    description: "One lesson per day. No ads, no distractions. Your child learns at their own pace, then they&apos;re done. Healthy habits, real progress.",
+    title: "Designed for Daily Practice",
+    description: "Short, focused lessons. No ads, no distractions. A routine that supports children and parents.",
   },
 ];
 
@@ -32,7 +32,7 @@ export default function WhyThisWorks() {
             Why AptyRead
           </h2>
           <p className="text-lg text-apty-gray max-w-2xl mx-auto">
-            Our aim is to help children become confident readers. We don&apos;t keep them stuck in an app.
+            Our goal is simple: help children become confident, independent readers.
           </p>
         </div>
 
