@@ -21,25 +21,22 @@ export default function DownloadHero() {
           {/* Tagline Badge */}
           <div className="mb-4 inline-block">
             <span className="text-sm md:text-base font-semibold text-apty-coral bg-apty-warm px-4 py-2 rounded-full border border-apty-coral-accent">
-              From Sounds to Reading
+              Literacy Program for Ages 3-10
             </span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-apty-dark mb-4 leading-tight">
-            Help Your Child Learn to Read
-            <br />
-            <span className="bg-gradient-to-r from-apty-coral to-apty-cyan bg-clip-text text-transparent">
-              The Right Way
-            </span>
+            From First Sound
+            <br />to Fluent Reader
           </h1>
 
           {/* Subheadline */}
           <p className="text-base md:text-lg text-apty-gray mb-2 leading-relaxed max-w-2xl mx-auto">
-            English Reading & Writing for children ages 3-10.
+            A structured 4-level English literacy program for children ages 3-10.
           </p>
           <p className="text-base md:text-lg text-apty-gray mb-8 leading-relaxed max-w-2xl mx-auto">
-            One lesson per day. Your child learns at their own pace. No subscriptions.
+            Built for beginners. Step-by-step. No random lessons.
           </p>
 
           {/* Primary CTA Button - LARGE and Prominent */}
@@ -55,6 +52,13 @@ export default function DownloadHero() {
               <div className="relative bg-apty-coral text-white px-10 py-5 rounded-xl text-xl md:text-2xl font-bold shadow-2xl transform transition duration-300 hover:scale-105 text-center">
                 Try 4 Free Lessons
               </div>
+            </a>
+
+            <a
+              href="#how-it-works"
+              className="text-apty-coral font-semibold hover:underline"
+            >
+              See How It Works
             </a>
 
             {/* Google Play Badge */}
@@ -80,15 +84,15 @@ export default function DownloadHero() {
           <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-sm md:text-base text-apty-gray mt-8">
             <div className="flex items-center gap-2">
               <span className="text-apty-coral text-lg md:text-xl font-bold">✓</span>
+              <span>2,500+ downloads</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-apty-coral text-lg md:text-xl font-bold">✓</span>
               <span>No registration needed</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-apty-coral text-lg md:text-xl font-bold">✓</span>
-              <span>One lesson per day</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-apty-coral text-lg md:text-xl font-bold">✓</span>
-              <span>No ads, no subscriptions</span>
+              <span>No ads, start free</span>
             </div>
           </div>
         </div>
