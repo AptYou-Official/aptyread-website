@@ -41,8 +41,11 @@ export default function Hero() {
             <p className="text-base md:text-lg text-apty-gray mb-4 leading-relaxed font-medium">
               A complete literacy program for <span className="font-semibold text-apty-dark">children 3 to 10</span>. Built for beginners, designed for steady progress.
             </p>
-            <p className="text-base md:text-lg text-apty-gray mb-6 leading-relaxed">
+            <p className="text-base md:text-lg text-apty-gray mb-3 leading-relaxed">
               One path, 4 levels, 243 lessons. No skipping levels. Children move forward only when the foundation is ready.
+            </p>
+            <p className="text-base md:text-lg text-apty-gray mb-6 leading-relaxed">
+              Speaking is learned naturally from listening. Reading has to be taught step by step.
             </p>
 
             {/* CTA Buttons */}

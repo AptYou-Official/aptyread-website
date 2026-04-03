@@ -29,7 +29,7 @@ const levels = [
     icon: "🎯",
     body: "Before reading words, a child needs to understand that every letter makes a sound. Level 1 builds this foundation with videos, activities, and guided practice.",
     meta: "46 lessons · 33 core lessons (about 25 min) · 11 review activities (about 10 min) · 2 final assessments",
-    lessons: "Includes 12 learning topics per core lesson and 3 activity topics in each review/final assessment.",
+    lessons: "Each core lesson has 12 guided topics. Reviews and final assessments use focused activity topics.",
     next: "Then your child is ready for Level 2.",
   },
   {
@@ -80,7 +80,7 @@ const faqs = [
   },
   {
     q: "What happens after the 4 free lessons?",
-    a: "You can continue with Level 1 at ₹1,999 + GST for 6 months validity. One payment per level. No subscriptions.",
+    a: "You can continue with Level 1 at ₹2,399 total (incl. GST) for 6 months validity. One payment per level. No subscriptions.",
   },
   {
     q: "Is this just another app with games and distractions?",
@@ -116,6 +116,7 @@ export default function IndiaLandingPage() {
               <p className="text-lg text-apty-gray mb-6">
                 Reading has to be taught step by step, sound by sound. AptyRead is a complete structured phonics program: 4 levels, 243 lessons.
               </p>
+              <p className="text-sm text-apty-gray mb-4">India pricing is shown on this page.</p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-4">
                 <a
@@ -223,7 +224,7 @@ export default function IndiaLandingPage() {
                   <tr className="border-b border-apty-coral-accent/60"><td className="px-4 py-3">Schedule</td><td className="px-4 py-3">Any time, any day</td><td className="px-4 py-3">Fixed class slots</td></tr>
                   <tr className="border-b border-apty-coral-accent/60"><td className="px-4 py-3">Revision</td><td className="px-4 py-3">Unlimited inside validity</td><td className="px-4 py-3">Usually paid again</td></tr>
                   <tr className="border-b border-apty-coral-accent/60"><td className="px-4 py-3">Distractions</td><td className="px-4 py-3">No ads, focused flow</td><td className="px-4 py-3">Varies by platform</td></tr>
-                  <tr><td className="px-4 py-3">Cost context</td><td className="px-4 py-3">₹1,999 + GST for Level 1 (6 months validity), around ₹310/month equivalent</td><td className="px-4 py-3">Often ₹300-₹600 per class hour</td></tr>
+                  <tr><td className="px-4 py-3">Cost context</td><td className="px-4 py-3">₹2,399 total (incl. GST) for Level 1, 6 months validity (about ₹400/month equivalent)</td><td className="px-4 py-3">Often ₹300-₹600 per class hour</td></tr>
                 </tbody>
               </table>
             </div>
@@ -235,12 +236,43 @@ export default function IndiaLandingPage() {
 
         <section className="py-16 px-4">
           <div className="container mx-auto max-w-5xl">
-            <h2 className="text-3xl font-bold text-apty-dark mb-8 text-center">Parent Feedback (translated)</h2>
+            <h2 className="text-3xl font-bold text-apty-dark mb-3 text-center">Why Level 1 Is Different</h2>
+            <p className="text-apty-gray text-center mb-8 max-w-3xl mx-auto">
+              These are core teaching principles of AptyRead, not testimonials.
+            </p>
             <div className="grid md:grid-cols-2 gap-5">
-              <blockquote className="bg-white p-6 rounded-xl border border-apty-coral-accent text-apty-gray">“English reading is taught through English itself. This helps reduce mother-tongue reading interference.”</blockquote>
-              <blockquote className="bg-white p-6 rounded-xl border border-apty-coral-accent text-apty-gray">“SATPIN sound sequence is taught first, not random ABC order. The structure is thoughtful and research-informed.”</blockquote>
-              <blockquote className="bg-white p-6 rounded-xl border border-apty-coral-accent text-apty-gray">“Sound first, then letter use. This is a correct foundational reading approach.”</blockquote>
-              <blockquote className="bg-white p-6 rounded-xl border border-apty-coral-accent text-apty-gray">“This is not a magic app. Daily practice and parent support matter. But the method is strong and clear.”</blockquote>
+              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+                <h3 className="font-semibold text-apty-dark mb-2">English Immersion</h3>
+                <p className="text-apty-gray">Reading is taught through English sounds, helping reduce mother-tongue reading interference.</p>
+              </div>
+              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+                <h3 className="font-semibold text-apty-dark mb-2">SATPIN Logic</h3>
+                <p className="text-apty-gray">Children learn useful early reading sounds first instead of random alphabet order.</p>
+              </div>
+              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+                <h3 className="font-semibold text-apty-dark mb-2">Sound to Letter Flow</h3>
+                <p className="text-apty-gray">Children learn sound first, then letter mapping for clearer early decoding.</p>
+              </div>
+              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+                <h3 className="font-semibold text-apty-dark mb-2">Global Pronunciation Model</h3>
+                <p className="text-apty-gray">Instruction uses a clear, consistent pronunciation model for global English learning.</p>
+              </div>
+              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+                <h3 className="font-semibold text-apty-dark mb-2">Correct Letter Formation</h3>
+                <p className="text-apty-gray">Children learn where to start and how to form each letter correctly from the beginning.</p>
+              </div>
+              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+                <h3 className="font-semibold text-apty-dark mb-2">Total Literacy Path</h3>
+                <p className="text-apty-gray">This is a complete literacy journey with connected lessons, not isolated activities.</p>
+              </div>
+              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+                <h3 className="font-semibold text-apty-dark mb-2">Digital Wellness</h3>
+                <p className="text-apty-gray">One-lesson-per-day pacing supports healthy screen habits while keeping learning consistent.</p>
+              </div>
+              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+                <h3 className="font-semibold text-apty-dark mb-2">Structured Confidence</h3>
+                <p className="text-apty-gray">Clear progression helps children learn without confusion and grow reading confidence.</p>
+              </div>
             </div>
           </div>
         </section>
@@ -263,7 +295,7 @@ export default function IndiaLandingPage() {
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Every Child Deserves to Say “I Am a Reader!”</h2>
             <p className="text-white/95 text-lg mb-8">
-              Start with 4 free lessons today. No registration. If it feels right for your child, continue with Level 1 at ₹1,999 + GST (6 months validity).
+              Start with 4 free lessons today. No registration. If it feels right for your child, continue with Level 1 at ₹2,399 total (incl. GST) for 6 months validity.
             </p>
             <a
               href={PLAY_STORE_URL}
@@ -286,7 +318,7 @@ export default function IndiaLandingPage() {
             </div>
             <div className="mt-7 grid sm:grid-cols-2 gap-3 text-left text-white/95 text-sm max-w-3xl mx-auto">
               <p>✓ Try 4 lessons free · No registration needed</p>
-              <p>✓ ₹1,999 + GST for Level 1 · No subscription</p>
+              <p>✓ ₹2,399 total (incl. GST) for Level 1 · No subscription</p>
               <p>✓ 6 months validity · One lesson per day</p>
               <p>✓ Complete a level · Then decide on the next</p>
             </div>

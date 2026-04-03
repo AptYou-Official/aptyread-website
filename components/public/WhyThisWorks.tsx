@@ -12,14 +12,14 @@ const benefits = [
     description: "Children start at Level 1 and move forward when ready. No skipping, no gaps in learning.",
   },
   {
-    icon: "💰",
+    icon: "🎁",
     title: "Try Before You Commit",
     description: "Try 4 lessons free with no registration. Then enroll level by level, with no subscription pressure.",
   },
   {
     icon: "🛡️",
-    title: "Designed for Daily Practice",
-    description: "Short, focused lessons. No ads, no distractions. A routine that supports children and parents.",
+    title: "No Ads. No Distractions.",
+    description: "Short, focused lessons with a routine that supports children and parents.",
   },
 ];
 

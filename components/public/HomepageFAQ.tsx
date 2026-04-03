@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     question: "How long does the whole program take?",
-    answer: "Most children finish one lesson in 15 to 25 minutes. At 3 to 4 lessons per week, the full program takes about 18 to 24 months, or about 2 school years. Every child is different. AptyRead moves at your child's pace, not a fixed schedule.",
+    answer: "Most children finish one lesson in 15 to 25 minutes. With regular practice, families usually see steady progress in months. The full journey time varies by each child's pace and consistency. AptyRead moves at your child's readiness, not a fixed schedule.",
   },
   {
     question: "My child is 9. Is it too late to start?",

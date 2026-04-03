@@ -5,7 +5,7 @@ const levels = [
     number: 1,
     name: "I am Learning Letters",
     parentQuote: "My child knows the alphabet but can't read yet.",
-    description: "Children build sound foundations first. They learn letter sounds, letter forms, and early decoding confidence.",
+    description: "Children build sound foundations first. They learn letter sounds, letter shapes, and how to write every letter.",
     pills: ["All 26 letter sounds", "Upper & lowercase letters", "Letter writing", "46 lessons"],
     accent: "blue",
   },
@@ -14,7 +14,7 @@ const levels = [
     name: "I Can Read!",
     parentQuote: "My child knows the sounds but can't put them together.",
     description: "Children blend sounds into words, then read sentences and short stories. This is where reading starts to click.",
-    pills: ["First words & sentences", "Short stories", "~45 common words", "57 lessons"],
+    pills: ["First words & sentences", "Short stories", "Sight words", "57 lessons"],
     accent: "green",
   },
   {
@@ -29,8 +29,8 @@ const levels = [
     number: 4,
     name: "I Am a Reader!",
     parentQuote: "My child reads but struggles with longer or harder words.",
-    description: "Children build independent reading habits for longer texts and real books with stronger understanding.",
-    pills: ["Long-word strategies", "Real book reading", "Independent confidence", "77 lessons"],
+    description: "Children read real published books chapter by chapter, independently. Long words decoded. Stories understood. A reader for life.",
+    pills: ["Long-word strategies", "4 real books read", "Independent reading", "77 lessons"],
     accent: "purple",
   },
 ];
