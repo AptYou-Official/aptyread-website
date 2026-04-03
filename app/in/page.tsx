@@ -5,20 +5,40 @@ import MinimalFooter from "@/components/public/MinimalFooter";
 
 const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=ai.aptyread.app";
 
+const ogImage = "https://www.aptyread.ai/images/apty.png";
+
 export const metadata: Metadata = {
-  title: "AptyRead - English Reading App for Indian Children | Try Free",
+  title: "AptyRead - English Reading Program for Children | India | Try Free",
   description:
-    "Help your child become a confident English reader. A structured phonics program for Indian children aged 3-10. Try 4 free lessons. No registration needed.",
+    "Help your child become a confident English reader. A structured phonics literacy program for ages 3-10. India pricing on page. Try 4 free lessons. No registration needed.",
+  keywords:
+    "AptyRead, English reading app, phonics program, learn to read, children literacy, India, structured reading, ESL reading",
   alternates: {
     canonical: "https://www.aptyread.ai/in",
   },
   openGraph: {
-    title: "AptyRead - English Reading App for Indian Children | Try Free",
+    title: "AptyRead - English Reading Program for Children | Try Free",
     description:
-      "Structured, step-by-step English reading program for Indian children ages 3-10. Try 4 free lessons.",
+      "Structured, step-by-step English reading program for ages 3-10. India pricing. Try 4 free lessons.",
     url: "https://www.aptyread.ai/in",
     siteName: "AptyRead",
     type: "website",
+    locale: "en_IN",
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: "AptyRead",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AptyRead - English Reading Program | Try Free",
+    description:
+      "Structured phonics program for ages 3-10. India pricing. Try 4 free lessons.",
+    images: [ogImage],
   },
 };
 
@@ -105,7 +125,7 @@ export default function IndiaLandingPage() {
           <div className="container mx-auto px-4 max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
             <div>
               <p className="inline-block text-sm font-semibold text-apty-coral bg-apty-warm px-4 py-2 rounded-full border border-apty-coral-accent mb-4">
-                For Indian Children · Ages 3-10
+                For Children · Ages 3-10
               </p>
               <h1 className="text-4xl md:text-5xl font-bold text-apty-dark leading-tight mb-4">
                 From &quot;I am Learning Letters&quot; to &quot;I Am a Reader!&quot;
@@ -150,18 +170,30 @@ export default function IndiaLandingPage() {
               </div>
             </div>
 
-            <div className="bg-apty-warm p-6 md:p-8 rounded-2xl border border-apty-coral-accent">
-              <h2 className="text-2xl font-bold text-apty-dark mb-4">Does this sound familiar?</h2>
-              <ul className="space-y-3 text-apty-dark">
-                <li>• My child knows the alphabet but cannot read words yet</li>
-                <li>• They can speak English but struggle to read simple sentences</li>
-                <li>• They are falling behind classmates in school</li>
-                <li>• Tuition classes have not fixed the foundation</li>
-                <li>• I do not know where to start</li>
-              </ul>
-              <p className="text-apty-gray mt-5">
-                If this feels familiar, your child does not need pressure. They need the right foundation. AptyRead builds it one step at a time.
-              </p>
+            <div className="flex flex-col gap-6">
+              <div className="relative w-full rounded-2xl overflow-hidden shadow-lg border border-apty-coral-accent/40">
+                <Image
+                  src="/images/parent-child-reading.png"
+                  alt="Child and parent with books, reading together at home"
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+              </div>
+              <div className="bg-apty-warm p-6 md:p-8 rounded-2xl border border-apty-coral-accent">
+                <h2 className="text-2xl font-bold text-apty-dark mb-4">Does this sound familiar?</h2>
+                <ul className="space-y-3 text-apty-dark">
+                  <li>• My child knows the alphabet but cannot read words yet</li>
+                  <li>• They can speak English but struggle to read simple sentences</li>
+                  <li>• They are falling behind classmates in school</li>
+                  <li>• Tuition classes have not fixed the foundation</li>
+                  <li>• I do not know where to start</li>
+                </ul>
+                <p className="text-apty-gray mt-5">
+                  If this feels familiar, your child does not need pressure. They need the right foundation. AptyRead builds it one step at a time.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -279,7 +311,7 @@ export default function IndiaLandingPage() {
 
         <section className="py-16 px-4 bg-white">
           <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold text-apty-dark mb-8 text-center">Questions Indian Parents Ask</h2>
+            <h2 className="text-3xl font-bold text-apty-dark mb-8 text-center">Frequently Asked Questions</h2>
             <div className="space-y-3">
               {faqs.map((item) => (
                 <details key={item.q} className="bg-apty-warm border border-apty-coral-accent rounded-xl p-5">
