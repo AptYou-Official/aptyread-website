@@ -10,7 +10,7 @@ const ogImage = "https://www.aptyread.ai/images/apty.png";
 export const metadata: Metadata = {
   title: "AptyRead English Literacy Program | Children | India | Try Free",
   description:
-    "Structured English literacy course for ages 3-10—4 levels, 243 lessons—in the AptyRead app. India pricing on page. Try 4 free lessons. No registration needed.",
+    "Structured English literacy course for ages 3 to 10. Four levels, 243 lessons, in the AptyRead app. India pricing on page. Try 4 free lessons. No registration needed.",
   keywords:
     "AptyRead English Literacy Program, English reading app, phonics course, learn to read, children literacy, India, structured reading, ESL reading",
   alternates: {
@@ -100,7 +100,7 @@ const faqs = [
   },
   {
     q: "Can parents and children use this without much tech knowledge?",
-    a: "Yes. You install the AptyRead app from Google Play, open a lesson, and follow the on-screen steps. Tapping play, listening, and simple taps are enough—no complicated setup.",
+    a: "Yes. You install the AptyRead app from Google Play, open a lesson, and follow the on-screen steps. Tapping play, listening, and simple taps are enough. No complicated setup.",
   },
   {
     q: "Is an internet connection required?",
@@ -112,7 +112,7 @@ const faqs = [
   },
   {
     q: "Is this just another app with games and distractions?",
-    a: "No. It is a structured literacy course—not a collection of random games. No ads. Every lesson has a clear place in the sequence.",
+    a: "No. It is a structured literacy course, not a collection of random games. No ads. Every lesson has a clear place in the sequence.",
   },
   {
     q: "My child is 8 or 9 years old. Is it too late?",
@@ -143,7 +143,7 @@ export default function IndiaLandingPage() {
               </p>
               <p className="text-lg text-apty-gray mb-6">
                 Reading has to be taught step by step, sound by sound. The{' '}
-                <span className="text-apty-dark font-semibold">AptyRead English Literacy Program</span> is a complete structured phonics course—4 levels, 243 lessons—you follow in the{' '}
+                <span className="text-apty-dark font-semibold">AptyRead English Literacy Program</span> is a complete structured phonics course with four levels and 243 lessons. You follow it in the{' '}
                 <span className="text-apty-dark font-semibold">AptyRead</span> app on Google Play.
               </p>
 
@@ -213,7 +213,7 @@ export default function IndiaLandingPage() {
               One Clear Path. Four Milestones. 243 Lessons.
             </h2>
             <p className="text-lg text-apty-gray text-center mb-10 max-w-3xl mx-auto">
-              Every child starts at Level 1 and builds upward. No skipping. No shortcuts. Just structured progress—all inside the AptyRead app.
+              Every child starts at Level 1 and builds upward. No skipping. No shortcuts. Structured progress, all inside the AptyRead app.
             </p>
 
             <div className="space-y-6 relative">
@@ -239,7 +239,7 @@ export default function IndiaLandingPage() {
 
             <div className="mt-8 bg-orange-50 border border-orange-200 rounded-xl p-5">
               <p className="font-semibold text-apty-dark">
-                Every child starts at Level 1 — I am Learning Letters.
+                Every child starts at Level 1: I am Learning Letters.
               </p>
               <p className="text-apty-gray">
                 Level 2, 3, or 4 cannot be joined directly. This structure is what makes steady progress possible.
@@ -298,7 +298,7 @@ export default function IndiaLandingPage() {
                       <span className="hidden sm:inline"> · </span>
                       <span className="block sm:inline">6 months · ~₹400/month</span>
                     </td>
-                    <td className="px-4 py-3 align-top">Often ₹300–₹600 per class hour</td>
+                    <td className="px-4 py-3 align-top">Often ₹300 to ₹600 per class hour</td>
                   </tr>
                 </tbody>
               </table>
@@ -313,7 +313,7 @@ export default function IndiaLandingPage() {
           <div className="container mx-auto max-w-5xl">
             <h2 className="text-3xl font-bold text-apty-dark mb-3 text-center">Why AptyRead English Literacy Program Is Different</h2>
             <p className="text-apty-gray text-center mb-8 max-w-3xl mx-auto">
-              How we teach reading—designed to work across all four levels.
+              How we teach reading. The same approach applies across all four levels.
             </p>
             <div className="grid md:grid-cols-2 gap-5">
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
@@ -330,7 +330,7 @@ export default function IndiaLandingPage() {
               </div>
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
                 <h3 className="font-semibold text-apty-dark mb-2">International English Pronunciation</h3>
-                <p className="text-apty-gray">Clear, consistent models help children learn a neutral international English sound—useful for school, exams, and reading aloud.</p>
+                <p className="text-apty-gray">Clear, consistent models help children learn a neutral international English sound. That supports school, exams, and reading aloud.</p>
               </div>
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
                 <h3 className="font-semibold text-apty-dark mb-2">Correct Letter Formation</h3>
@@ -338,7 +338,7 @@ export default function IndiaLandingPage() {
               </div>
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
                 <h3 className="font-semibold text-apty-dark mb-2">Total Literacy Path</h3>
-                <p className="text-apty-gray">One connected course from first sounds to chapter books—not isolated games or random worksheets.</p>
+                <p className="text-apty-gray">One connected course from first sounds to chapter books. Not isolated games or random worksheets.</p>
               </div>
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
                 <h3 className="font-semibold text-apty-dark mb-2">Digital Wellness</h3>
@@ -349,9 +349,6 @@ export default function IndiaLandingPage() {
                 <p className="text-apty-gray">Clear progression helps children learn without confusion and grow reading confidence.</p>
               </div>
             </div>
-            <p className="text-xs text-apty-gray text-center mt-8 max-w-2xl mx-auto">
-              These describe how the program is designed—not quotes from individual families.
-            </p>
           </div>
         </section>
 
