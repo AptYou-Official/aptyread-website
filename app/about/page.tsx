@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/public/Header";
 import Footer from "@/components/public/Footer";
+import PlayStoreLink from "@/components/public/PlayStoreLink";
 import Image from 'next/image';
 
 export const metadata: Metadata = {
@@ -93,20 +94,10 @@ export default function AboutPage() {
               Try 4 free lessons and see if AptyRead is right for your child.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="https://play.google.com/store/apps/details?id=ai.aptyread.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-apty-coral text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:bg-opacity-90"
-              >
+              <PlayStoreLink className="bg-apty-coral text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:bg-opacity-90">
                 Try 4 Free Lessons
-              </a>
-              <a
-                href="https://play.google.com/store/apps/details?id=ai.aptyread.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Get it on Google Play"
-              >
+              </PlayStoreLink>
+              <PlayStoreLink aria-label="Get it on Google Play">
                 <Image
                   src="/images/google-play-badge-large.png"
                   alt="Get it on Google Play"
@@ -115,7 +106,7 @@ export default function AboutPage() {
                   className="h-12 w-auto"
                   priority={false}
                 />
-              </a>
+              </PlayStoreLink>
             </div>
           </div>
         </div>

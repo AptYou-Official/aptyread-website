@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import PlayStoreLink from '@/components/public/PlayStoreLink';
 
 export default function CTA() {
   return (
@@ -13,18 +14,10 @@ export default function CTA() {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
-          <a
-            href="https://play.google.com/store/apps/details?id=ai.aptyread.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white text-apty-coral px-8 py-4 rounded-xl text-lg font-semibold shadow-xl transform transition duration-300 hover:scale-105"
-          >
+          <PlayStoreLink className="bg-white text-apty-coral px-8 py-4 rounded-xl text-lg font-semibold shadow-xl transform transition duration-300 hover:scale-105">
             Try 4 Free Lessons
-          </a>
-          <a
-            href="https://play.google.com/store/apps/details?id=ai.aptyread.app"
-            target="_blank"
-            rel="noopener noreferrer"
+          </PlayStoreLink>
+          <PlayStoreLink
             className="hover:opacity-80 transition-opacity"
             aria-label="Get it on Google Play"
           >
@@ -36,7 +29,7 @@ export default function CTA() {
               className="h-12 w-auto md:h-14"
               priority={false}
             />
-          </a>
+          </PlayStoreLink>
         </div>
 
         <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6 border border-white/30">

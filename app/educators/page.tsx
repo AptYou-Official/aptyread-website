@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/public/Header";
 import Footer from "@/components/public/Footer";
+import PlayStoreLink from "@/components/public/PlayStoreLink";
 
 export const metadata: Metadata = {
   title: "For Educators & Schools | AptyRead Literacy Program",
@@ -104,14 +105,9 @@ export default function EducatorsPage() {
                 >
                   Contact Us
                 </Link>
-                <a
-                  href="https://play.google.com/store/apps/details?id=ai.aptyread.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block border-2 border-apty-coral text-apty-coral px-6 py-3 rounded-xl font-semibold hover:bg-apty-warm transition-colors"
-                >
+                <PlayStoreLink className="inline-block border-2 border-apty-coral text-apty-coral px-6 py-3 rounded-xl font-semibold hover:bg-apty-warm transition-colors">
                   Try the Program
-                </a>
+                </PlayStoreLink>
               </div>
             </section>
           </div>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import PlayStoreLink from '@/components/public/PlayStoreLink';
 
 export default function Header() {
   return (
@@ -30,10 +31,7 @@ export default function Header() {
           <Link href="/educators" className="hidden sm:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base">
             Educators
           </Link>
-          <a
-            href="https://play.google.com/store/apps/details?id=ai.aptyread.app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <PlayStoreLink
             className="hover:opacity-80 transition-opacity"
             aria-label="Download AptyRead on Google Play"
           >
@@ -45,7 +43,7 @@ export default function Header() {
               className="h-8 w-auto md:h-10"
               priority
             />
-          </a>
+          </PlayStoreLink>
         </div>
       </nav>
     </header>

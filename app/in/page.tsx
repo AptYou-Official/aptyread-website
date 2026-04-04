@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import MinimalHeader from "@/components/public/MinimalHeader";
 import MinimalFooter from "@/components/public/MinimalFooter";
-
-const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=ai.aptyread.app";
+import PlayStoreLink from "@/components/public/PlayStoreLink";
 
 const ogImage = "https://www.aptyread.ai/images/apty.png";
 
@@ -148,20 +147,15 @@ export default function IndiaLandingPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-4">
-                <a
-                  href={PLAY_STORE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-apty-coral text-white px-6 py-4 rounded-xl font-semibold text-center hover:opacity-90"
-                >
+                <PlayStoreLink className="bg-apty-coral text-white px-6 py-4 rounded-xl font-semibold text-center hover:opacity-90">
                   Try 4 Free Lessons
-                </a>
+                </PlayStoreLink>
                 <a href="#how-it-works" className="px-6 py-4 rounded-xl font-semibold text-apty-coral border border-apty-coral text-center hover:bg-apty-warm">
                   See How It Works
                 </a>
               </div>
 
-              <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className="inline-block mb-6">
+              <PlayStoreLink className="inline-block mb-6">
                 <Image
                   src="/images/google-play-badge-large.png"
                   alt="Get it on Google Play"
@@ -169,7 +163,7 @@ export default function IndiaLandingPage() {
                   height={60}
                   className="h-12 w-auto"
                 />
-              </a>
+              </PlayStoreLink>
 
               <div className="grid sm:grid-cols-2 gap-3 text-sm text-apty-gray">
                 <p>✓ 2,500+ downloads</p>
@@ -372,16 +366,11 @@ export default function IndiaLandingPage() {
             <p className="text-white/95 text-lg mb-8">
               Start with 4 free lessons in the AptyRead app today. No registration. If it feels right for your child, continue Level 1 of the English Literacy Program at ₹2,399 total (incl. GST) for 6 months validity.
             </p>
-            <a
-              href={PLAY_STORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-white text-apty-coral px-8 py-4 rounded-xl text-lg font-semibold shadow-xl hover:opacity-90"
-            >
+            <PlayStoreLink className="inline-block bg-white text-apty-coral px-8 py-4 rounded-xl text-lg font-semibold shadow-xl hover:opacity-90">
               Download Free on Google Play
-            </a>
+            </PlayStoreLink>
             <div className="mt-5">
-              <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" className="inline-block">
+              <PlayStoreLink className="inline-block">
                 <Image
                   src="/images/google-play-badge-large.png"
                   alt="Get it on Google Play"
@@ -389,7 +378,7 @@ export default function IndiaLandingPage() {
                   height={60}
                   className="h-12 w-auto"
                 />
-              </a>
+              </PlayStoreLink>
             </div>
             <div className="mt-7 grid sm:grid-cols-2 gap-3 text-left text-white/95 text-sm max-w-3xl mx-auto">
               <p>✓ Try 4 lessons free · No registration needed</p>

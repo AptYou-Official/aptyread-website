@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import PlayStoreLink from '@/components/public/PlayStoreLink';
 
 export default function Footer() {
   return (
@@ -105,10 +106,7 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="font-semibold text-apty-dark mb-4">Download</h4>
-            <a
-              href="https://play.google.com/store/apps/details?id=ai.aptyread.app"
-              target="_blank"
-              rel="noopener noreferrer"
+            <PlayStoreLink
               className="inline-block hover:opacity-80 transition-opacity mb-3"
               aria-label="Get it on Google Play"
             >
@@ -120,7 +118,7 @@ export default function Footer() {
                 className="h-12 w-auto"
                 priority={false}
               />
-            </a>
+            </PlayStoreLink>
           </div>
         </div>
         <div className="border-t border-apty-coral-accent pt-8 text-center">

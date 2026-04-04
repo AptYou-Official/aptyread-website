@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import PlayStoreLink from '@/components/public/PlayStoreLink';
 
 export default function DownloadHero() {
   return (
@@ -41,10 +42,7 @@ export default function DownloadHero() {
 
           {/* Primary CTA Button - LARGE and Prominent */}
           <div className="mb-6 flex flex-col items-center gap-4">
-            <a
-              href="https://play.google.com/store/apps/details?id=ai.aptyread.app"
-              target="_blank"
-              rel="noopener noreferrer"
+            <PlayStoreLink
               className="group relative w-full sm:w-auto max-w-md"
               aria-label="Download AptyRead on Google Play - Try 4 Free Lessons"
             >
@@ -52,7 +50,7 @@ export default function DownloadHero() {
               <div className="relative bg-apty-coral text-white px-10 py-5 rounded-xl text-xl md:text-2xl font-bold shadow-2xl transform transition duration-300 hover:scale-105 text-center">
                 Try 4 Free Lessons
               </div>
-            </a>
+            </PlayStoreLink>
 
             <a
               href="#how-it-works"
@@ -62,10 +60,7 @@ export default function DownloadHero() {
             </a>
 
             {/* Google Play Badge */}
-            <a
-              href="https://play.google.com/store/apps/details?id=ai.aptyread.app"
-              target="_blank"
-              rel="noopener noreferrer"
+            <PlayStoreLink
               className="hover:opacity-80 transition-opacity"
               aria-label="Get it on Google Play"
             >
@@ -77,7 +72,7 @@ export default function DownloadHero() {
                 className="h-14 w-auto md:h-16"
                 priority={false}
               />
-            </a>
+            </PlayStoreLink>
           </div>
 
           {/* Trust Indicators */}
