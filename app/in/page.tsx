@@ -8,18 +8,18 @@ const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=ai.aptyrea
 const ogImage = "https://www.aptyread.ai/images/apty.png";
 
 export const metadata: Metadata = {
-  title: "AptyRead - English Reading Program for Children | India | Try Free",
+  title: "AptyRead English Literacy Program | Children | India | Try Free",
   description:
-    "Help your child become a confident English reader. A structured phonics literacy program for ages 3-10. India pricing on page. Try 4 free lessons. No registration needed.",
+    "Structured English literacy course for ages 3-10—4 levels, 243 lessons—in the AptyRead app. India pricing on page. Try 4 free lessons. No registration needed.",
   keywords:
-    "AptyRead, English reading app, phonics program, learn to read, children literacy, India, structured reading, ESL reading",
+    "AptyRead English Literacy Program, English reading app, phonics course, learn to read, children literacy, India, structured reading, ESL reading",
   alternates: {
     canonical: "https://www.aptyread.ai/in",
   },
   openGraph: {
-    title: "AptyRead - English Reading Program for Children | Try Free",
+    title: "AptyRead English Literacy Program | Try Free",
     description:
-      "Structured, step-by-step English reading program for ages 3-10. India pricing. Try 4 free lessons.",
+      "Structured English literacy course for ages 3-10 in the AptyRead app. India pricing. Try 4 free lessons.",
     url: "https://www.aptyread.ai/in",
     siteName: "AptyRead",
     type: "website",
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AptyRead - English Reading Program | Try Free",
+    title: "AptyRead English Literacy Program | Try Free",
     description:
-      "Structured phonics program for ages 3-10. India pricing. Try 4 free lessons.",
+      "Structured literacy course in the AptyRead app. India pricing. Try 4 free lessons.",
     images: [ogImage],
   },
 };
@@ -48,8 +48,8 @@ const levels = [
     name: "I am Learning Letters",
     icon: "🎯",
     body: "Before reading words, a child needs to understand that every letter makes a sound. Level 1 builds this foundation with videos, activities, and guided practice.",
-    meta: "46 lessons · 33 core lessons (about 25 min) · 11 review activities (about 10 min) · 2 final assessments",
-    lessons: "Each core lesson has 12 guided topics. Reviews and final assessments use focused activity topics.",
+    meta: "46 lessons · 12 guided topics per lesson · Sounds, letters, writing, reviews",
+    lessons: "",
     next: "Then your child is ready for Level 2.",
   },
   {
@@ -57,7 +57,7 @@ const levels = [
     name: "I Can Read!",
     icon: "📖",
     body: "This is where letters become words. Children blend sounds, read first words, then short sentences and simple stories.",
-    meta: "57 lessons · Real words, sentences, and short stories",
+    meta: "57 lessons · 10 guided topics per lesson · Words, sentences, short stories",
     lessons: "",
     next: "Then your child is ready for Level 3.",
   },
@@ -66,7 +66,7 @@ const levels = [
     name: "I Am Reading!",
     icon: "🚀",
     body: "Children learn reading patterns and apply them to longer text. Reading becomes smoother, faster, and more confident.",
-    meta: "63 lessons · Paragraphs, passages, and comprehension",
+    meta: "63 lessons · 10 guided topics per lesson · Patterns, paragraphs, comprehension",
     lessons: "",
     next: "Then your child is ready for Level 4.",
   },
@@ -75,7 +75,7 @@ const levels = [
     name: "I Am a Reader!",
     icon: "🌟",
     body: "Children read real published books chapter by chapter, decode longer words, and strengthen understanding.",
-    meta: "77 lessons · 4 real books read cover to cover",
+    meta: "77 lessons · 8 guided topics per lesson · Real books, strategies, comprehension",
     lessons: "",
     next: "",
   },
@@ -84,11 +84,11 @@ const levels = [
 const faqs = [
   {
     q: "My child studies in Malayalam or Hindi medium. Will this work?",
-    a: "Yes. AptyRead is designed for children who speak another language at home. It teaches English reading from sounds to words to connected text, step by step.",
+    a: "Yes. The AptyRead English Literacy Program is built for children who speak another language at home. It teaches English reading from sounds to words to connected text, step by step, inside the AptyRead app.",
   },
   {
     q: "My child already goes to tuition. Why are they still struggling?",
-    a: "Many classes focus on homework and exam support, not core reading foundations. AptyRead focuses on foundational phonics sequence and reading progression.",
+    a: "Many classes focus on homework and exam support, not core reading foundations. The program focuses on a foundational phonics sequence and reading progression you can practise anytime in the app.",
   },
   {
     q: "Which level should my child start at?",
@@ -99,12 +99,20 @@ const faqs = [
     a: "One lesson per day is enough. Core lessons are around 25 minutes. Review activities are around 10 minutes.",
   },
   {
+    q: "Can parents and children use this without much tech knowledge?",
+    a: "Yes. You install the AptyRead app from Google Play, open a lesson, and follow the on-screen steps. Tapping play, listening, and simple taps are enough—no complicated setup.",
+  },
+  {
+    q: "Is an internet connection required?",
+    a: "You need internet to download the app and to load lessons. A stable connection while your child learns works best, especially for audio and speech features.",
+  },
+  {
     q: "What happens after the 4 free lessons?",
-    a: "You can continue with Level 1 at ₹2,399 total (incl. GST) for 6 months validity. One payment per level. No subscriptions.",
+    a: "You can continue with Level 1 of the AptyRead English Literacy Program at ₹2,399 total (incl. GST) for 6 months validity. One payment per level. No subscriptions.",
   },
   {
     q: "Is this just another app with games and distractions?",
-    a: "No. AptyRead is a structured literacy program. No ads. No random lessons. Every lesson has a clear purpose.",
+    a: "No. It is a structured literacy course—not a collection of random games. No ads. Every lesson has a clear place in the sequence.",
   },
   {
     q: "My child is 8 or 9 years old. Is it too late?",
@@ -134,9 +142,10 @@ export default function IndiaLandingPage() {
                 Most children hear English at home or school. But speaking and reading are different skills.
               </p>
               <p className="text-lg text-apty-gray mb-6">
-                Reading has to be taught step by step, sound by sound. AptyRead is a complete structured phonics program: 4 levels, 243 lessons.
+                Reading has to be taught step by step, sound by sound. The{' '}
+                <span className="text-apty-dark font-semibold">AptyRead English Literacy Program</span> is a complete structured phonics course—4 levels, 243 lessons—you follow in the{' '}
+                <span className="text-apty-dark font-semibold">AptyRead</span> app on Google Play.
               </p>
-              <p className="text-sm text-apty-gray mb-4">India pricing is shown on this page.</p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-4">
                 <a
@@ -191,7 +200,7 @@ export default function IndiaLandingPage() {
                   <li>• I do not know where to start</li>
                 </ul>
                 <p className="text-apty-gray mt-5">
-                  If this feels familiar, your child does not need pressure. They need the right foundation. AptyRead builds it one step at a time.
+                  If this feels familiar, your child does not need pressure. They need the right foundation. The literacy program in the app builds it one step at a time.
                 </p>
               </div>
             </div>
@@ -204,7 +213,7 @@ export default function IndiaLandingPage() {
               One Clear Path. Four Milestones. 243 Lessons.
             </h2>
             <p className="text-lg text-apty-gray text-center mb-10 max-w-3xl mx-auto">
-              Every child starts at Level 1 and builds upward. No skipping. No shortcuts. Just structured progress.
+              Every child starts at Level 1 and builds upward. No skipping. No shortcuts. Just structured progress—all inside the AptyRead app.
             </p>
 
             <div className="space-y-6 relative">
@@ -241,22 +250,56 @@ export default function IndiaLandingPage() {
 
         <section className="py-16 px-4 bg-white">
           <div className="container mx-auto max-w-5xl">
-            <h2 className="text-3xl font-bold text-apty-dark mb-6 text-center">Online Class vs AptyRead</h2>
+            <h2 className="text-3xl font-bold text-apty-dark mb-6 text-center">Online Class vs AptyRead English Literacy Program</h2>
             <div className="overflow-x-auto bg-apty-warm border border-apty-coral-accent rounded-xl">
               <table className="w-full text-sm md:text-base">
                 <thead>
                   <tr className="border-b border-apty-coral-accent text-apty-dark">
                     <th className="px-4 py-3 text-left">What Parents Compare</th>
-                    <th className="px-4 py-3 text-left">AptyRead</th>
+                    <th className="px-4 py-3 text-left min-w-[10rem]">AptyRead English Literacy Program (app)</th>
                     <th className="px-4 py-3 text-left">Typical Online Class</th>
                   </tr>
                 </thead>
                 <tbody className="text-apty-gray">
-                  <tr className="border-b border-apty-coral-accent/60"><td className="px-4 py-3">Learning structure</td><td className="px-4 py-3">243 connected lessons</td><td className="px-4 py-3">Depends on teacher plan</td></tr>
-                  <tr className="border-b border-apty-coral-accent/60"><td className="px-4 py-3">Schedule</td><td className="px-4 py-3">Any time, any day</td><td className="px-4 py-3">Fixed class slots</td></tr>
-                  <tr className="border-b border-apty-coral-accent/60"><td className="px-4 py-3">Revision</td><td className="px-4 py-3">Unlimited inside validity</td><td className="px-4 py-3">Usually paid again</td></tr>
-                  <tr className="border-b border-apty-coral-accent/60"><td className="px-4 py-3">Distractions</td><td className="px-4 py-3">No ads, focused flow</td><td className="px-4 py-3">Varies by platform</td></tr>
-                  <tr><td className="px-4 py-3">Cost context</td><td className="px-4 py-3">₹2,399 total (incl. GST) for Level 1, 6 months validity (about ₹400/month equivalent)</td><td className="px-4 py-3">Often ₹300-₹600 per class hour</td></tr>
+                  <tr className="border-b border-apty-coral-accent/60">
+                    <td className="px-4 py-3 align-top">Foundation approach</td>
+                    <td className="px-4 py-3 align-top">Sound-first, structured sequence</td>
+                    <td className="px-4 py-3 align-top">Depends on teacher</td>
+                  </tr>
+                  <tr className="border-b border-apty-coral-accent/60">
+                    <td className="px-4 py-3 align-top">Learning structure</td>
+                    <td className="px-4 py-3 align-top">243 connected lessons</td>
+                    <td className="px-4 py-3 align-top">No fixed sequence guaranteed</td>
+                  </tr>
+                  <tr className="border-b border-apty-coral-accent/60">
+                    <td className="px-4 py-3 align-top">Progress tracking</td>
+                    <td className="px-4 py-3 align-top">Clear level-by-level milestones</td>
+                    <td className="px-4 py-3 align-top">Varies by teacher</td>
+                  </tr>
+                  <tr className="border-b border-apty-coral-accent/60">
+                    <td className="px-4 py-3 align-top">Schedule</td>
+                    <td className="px-4 py-3 align-top">Any time, any day</td>
+                    <td className="px-4 py-3 align-top">Fixed class slots</td>
+                  </tr>
+                  <tr className="border-b border-apty-coral-accent/60">
+                    <td className="px-4 py-3 align-top">Revision</td>
+                    <td className="px-4 py-3 align-top">Unlimited inside validity</td>
+                    <td className="px-4 py-3 align-top">Usually paid again</td>
+                  </tr>
+                  <tr className="border-b border-apty-coral-accent/60">
+                    <td className="px-4 py-3 align-top">Distractions</td>
+                    <td className="px-4 py-3 align-top">No ads, focused flow</td>
+                    <td className="px-4 py-3 align-top">Often interrupted by ads or notifications</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 align-top">Cost context</td>
+                    <td className="px-4 py-3 align-top">
+                      <span className="block sm:inline">₹2,399 for Level 1 (incl. GST)</span>
+                      <span className="hidden sm:inline"> · </span>
+                      <span className="block sm:inline">6 months · ~₹400/month</span>
+                    </td>
+                    <td className="px-4 py-3 align-top">Often ₹300–₹600 per class hour</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -268,9 +311,9 @@ export default function IndiaLandingPage() {
 
         <section className="py-16 px-4">
           <div className="container mx-auto max-w-5xl">
-            <h2 className="text-3xl font-bold text-apty-dark mb-3 text-center">Why Level 1 Is Different</h2>
+            <h2 className="text-3xl font-bold text-apty-dark mb-3 text-center">Why AptyRead English Literacy Program Is Different</h2>
             <p className="text-apty-gray text-center mb-8 max-w-3xl mx-auto">
-              These are core teaching principles of AptyRead, not testimonials.
+              How we teach reading—designed to work across all four levels.
             </p>
             <div className="grid md:grid-cols-2 gap-5">
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
@@ -286,8 +329,8 @@ export default function IndiaLandingPage() {
                 <p className="text-apty-gray">Children learn sound first, then letter mapping for clearer early decoding.</p>
               </div>
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
-                <h3 className="font-semibold text-apty-dark mb-2">Global Pronunciation Model</h3>
-                <p className="text-apty-gray">Instruction uses a clear, consistent pronunciation model for global English learning.</p>
+                <h3 className="font-semibold text-apty-dark mb-2">International English Pronunciation</h3>
+                <p className="text-apty-gray">Clear, consistent models help children learn a neutral international English sound—useful for school, exams, and reading aloud.</p>
               </div>
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
                 <h3 className="font-semibold text-apty-dark mb-2">Correct Letter Formation</h3>
@@ -295,7 +338,7 @@ export default function IndiaLandingPage() {
               </div>
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
                 <h3 className="font-semibold text-apty-dark mb-2">Total Literacy Path</h3>
-                <p className="text-apty-gray">This is a complete literacy journey with connected lessons, not isolated activities.</p>
+                <p className="text-apty-gray">One connected course from first sounds to chapter books—not isolated games or random worksheets.</p>
               </div>
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
                 <h3 className="font-semibold text-apty-dark mb-2">Digital Wellness</h3>
@@ -306,6 +349,9 @@ export default function IndiaLandingPage() {
                 <p className="text-apty-gray">Clear progression helps children learn without confusion and grow reading confidence.</p>
               </div>
             </div>
+            <p className="text-xs text-apty-gray text-center mt-8 max-w-2xl mx-auto">
+              These describe how the program is designed—not quotes from individual families.
+            </p>
           </div>
         </section>
 
@@ -327,7 +373,7 @@ export default function IndiaLandingPage() {
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Every Child Deserves to Say “I Am a Reader!”</h2>
             <p className="text-white/95 text-lg mb-8">
-              Start with 4 free lessons today. No registration. If it feels right for your child, continue with Level 1 at ₹2,399 total (incl. GST) for 6 months validity.
+              Start with 4 free lessons in the AptyRead app today. No registration. If it feels right for your child, continue Level 1 of the English Literacy Program at ₹2,399 total (incl. GST) for 6 months validity.
             </p>
             <a
               href={PLAY_STORE_URL}
