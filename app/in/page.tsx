@@ -132,26 +132,37 @@ export default function IndiaLandingPage() {
           <div className="container mx-auto px-4 max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
             <div>
               <p className="inline-block text-sm font-semibold text-apty-coral bg-apty-warm px-4 py-2 rounded-full border border-apty-coral-accent mb-4">
-                For Children · Ages 3-10
+                For children · Ages 3–10
               </p>
-              <h1 className="text-4xl md:text-5xl font-bold text-apty-dark leading-tight mb-4">
-                From &quot;I am Learning Letters&quot; to &quot;I Am a Reader!&quot;
+              <h1 className="text-4xl md:text-5xl font-bold text-apty-dark leading-tight mb-6">
+                From &quot;I Am Learning Letters&quot; to &quot;I Am a Reader!&quot;
               </h1>
-              <p className="text-lg text-apty-gray mb-3">
-                Most children hear English at home or school. But speaking and reading are different skills.
-              </p>
-              <p className="text-lg text-apty-gray mb-6">
-                Reading has to be taught step by step, sound by sound. The{' '}
-                <span className="text-apty-dark font-semibold">AptyRead English Literacy Program</span> is a complete structured phonics course with four levels and 243 lessons. You follow it in the{' '}
-                <span className="text-apty-dark font-semibold">AptyRead</span> app on Google Play.
+              <div className="text-lg text-apty-dark mb-6 space-y-2">
+                <p>Your child isn&apos;t behind.</p>
+                <p>
+                  They just haven&apos;t been taught to read{' '}
+                  <span className="font-semibold">the right way</span> yet.
+                </p>
+                <p className="font-semibold text-apty-dark">AptyRead changes that.</p>
+              </div>
+              <p className="text-sm text-apty-gray mb-6">
+                The{' '}
+                <span className="font-medium text-apty-dark">AptyRead English Literacy Program</span> is a structured phonics course with four levels and 243 lessons in the{' '}
+                <span className="font-medium text-apty-dark">AptyRead</span> app on Google Play.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 mb-4">
-                <PlayStoreLink className="bg-apty-coral text-white px-6 py-4 rounded-xl font-semibold text-center hover:opacity-90">
+              <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-4">
+                <PlayStoreLink className="inline-flex items-center justify-center gap-2 bg-apty-coral text-white px-6 py-4 rounded-xl font-semibold text-center hover:opacity-90">
+                  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
                   Try 4 Free Lessons
                 </PlayStoreLink>
-                <a href="#how-it-works" className="px-6 py-4 rounded-xl font-semibold text-apty-coral border border-apty-coral text-center hover:bg-apty-warm">
-                  See How It Works
+                <a
+                  href="#how-it-works"
+                  className="px-6 py-4 rounded-xl font-semibold text-apty-coral border border-apty-coral text-center hover:bg-apty-warm"
+                >
+                  See how it works
                 </a>
               </div>
 
@@ -165,11 +176,31 @@ export default function IndiaLandingPage() {
                 />
               </PlayStoreLink>
 
-              <div className="grid sm:grid-cols-2 gap-3 text-sm text-apty-gray">
+              <div className="grid sm:grid-cols-2 gap-3 text-sm text-apty-gray mb-8">
                 <p>✓ 2,500+ downloads</p>
                 <p>✓ No registration needed</p>
                 <p>✓ No ads. No distractions.</p>
                 <p>✓ Try free before you commit</p>
+              </div>
+
+              <div className="rounded-xl border border-apty-coral-accent bg-gradient-to-b from-white to-apty-warm/80 p-5 md:p-6 shadow-sm">
+                <p className="text-xs font-semibold tracking-wider text-apty-gray uppercase mb-3">Why now matters</p>
+                <div className="flex gap-4">
+                  <div
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-teal-100 text-apty-dark"
+                    aria-hidden
+                  >
+                    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
+                      <circle cx="12" cy="12" r="9" />
+                      <path strokeLinecap="round" d="M12 7v5l3 2" />
+                    </svg>
+                  </div>
+                  <p className="text-sm md:text-base text-apty-dark leading-relaxed">
+                    <span className="font-semibold">The reading window is open right now.</span> Children who miss a
+                    structured phonics foundation in early years often carry that gap into Class 3, 4, and beyond, where
+                    it becomes harder to close. One lesson a day is all it takes to build it properly.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -285,20 +316,35 @@ export default function IndiaLandingPage() {
                     <td className="px-4 py-3 align-top">No ads, focused flow</td>
                     <td className="px-4 py-3 align-top">Often interrupted by ads or notifications</td>
                   </tr>
+                  <tr className="border-b border-apty-coral-accent/60">
+                    <td className="px-4 py-3 align-top">Try before you pay</td>
+                    <td className="px-4 py-3 align-top">4 free lessons in the app · no registration</td>
+                    <td className="px-4 py-3 align-top">Often a short demo or paid trial; varies by teacher and centre</td>
+                  </tr>
+                  <tr className="border-b border-apty-coral-accent/60">
+                    <td className="px-4 py-3 align-top">Total learning time</td>
+                    <td className="px-4 py-3 align-top">20+ hours of structured lessons</td>
+                    <td className="px-4 py-3 align-top">Depends on classes booked</td>
+                  </tr>
                   <tr>
-                    <td className="px-4 py-3 align-top">Cost context</td>
+                    <td className="px-4 py-3 align-top">Cost for that time</td>
                     <td className="px-4 py-3 align-top">
-                      <span className="block sm:inline">₹2,399 for Level 1 (incl. GST)</span>
+                      <span className="block sm:inline">₹2,399 total (incl. GST)</span>
                       <span className="hidden sm:inline"> · </span>
-                      <span className="block sm:inline">6 months · ~₹400/month</span>
+                      <span className="block sm:inline">replay anytime · 6 months validity</span>
                     </td>
-                    <td className="px-4 py-3 align-top">Often ₹300 to ₹600 per class hour</td>
+                    <td className="px-4 py-3 align-top">
+                      <span className="block sm:inline">₹6,000 to ₹10,000+</span>
+                      <span className="hidden sm:inline"> · </span>
+                      <span className="block sm:inline">one class, one time</span>
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <p className="text-sm text-apty-gray mt-4">
-              Level 1 includes 46 lessons: 33 core letter lessons, 11 review lessons, and 2 final assessments.
+              Level 1 includes 46 lessons: 20+ hours of guided practice across 33 core lessons, 11 reviews, and 2 final
+              assessments.
             </p>
           </div>
         </section>
