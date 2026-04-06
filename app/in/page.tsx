@@ -321,15 +321,15 @@ export default function IndiaLandingPage() {
                     <td className="px-4 py-3 align-top">4 free lessons in the app · no registration</td>
                     <td className="px-4 py-3 align-top">Often a short demo or paid trial; varies by teacher and centre</td>
                   </tr>
-                  <tr className="border-b border-apty-coral-accent/60">
-                    <td className="px-4 py-3 align-top">Total learning time</td>
+                  <tr className="border-b border-apty-coral-accent/60 bg-teal-50/90 text-apty-dark">
+                    <td className="px-4 py-3 align-top font-medium">Total learning time</td>
                     <td className="px-4 py-3 align-top">20+ hours of structured lessons</td>
                     <td className="px-4 py-3 align-top">Depends on classes booked</td>
                   </tr>
-                  <tr>
-                    <td className="px-4 py-3 align-top">Cost for that time</td>
+                  <tr className="bg-teal-50/90 text-apty-dark">
+                    <td className="px-4 py-3 align-top font-medium">Cost for that time</td>
                     <td className="px-4 py-3 align-top">
-                      <span className="block sm:inline">₹2,399 total (incl. GST)</span>
+                      <span className="block sm:inline">₹2,399 for Level 1 (incl. GST)</span>
                       <span className="hidden sm:inline"> · </span>
                       <span className="block sm:inline">replay anytime · 6 months validity</span>
                     </td>
