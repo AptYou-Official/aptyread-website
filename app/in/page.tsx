@@ -95,7 +95,7 @@ const faqs = [
   },
   {
     q: "How much time should we spend daily?",
-    a: "One lesson per day is enough. Core lessons are around 25 minutes. Review activities are around 10 minutes.",
+    a: "By default, children do one new lesson per day. Parents can increase to up to two when appropriate. Core lessons are around 25 minutes and review activities are around 10 minutes. Daily consistency matters more than the length of each session.",
   },
   {
     q: "Can parents and children use this without much tech knowledge?",
@@ -382,7 +382,7 @@ export default function IndiaLandingPage() {
               </div>
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
                 <h3 className="font-semibold text-apty-dark mb-2">Digital Wellness</h3>
-                <p className="text-apty-gray">One-lesson-per-day pacing supports healthy screen habits while keeping learning consistent.</p>
+                <p className="text-apty-gray">Default pacing is one new lesson per day, and parents can raise it to a maximum of two. This supports healthy screen habits, better retention, and a routine that fits family life.</p>
               </div>
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
                 <h3 className="font-semibold text-apty-dark mb-2">Structured Confidence</h3>
