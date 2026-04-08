@@ -119,7 +119,7 @@ const faqs = [
   },
   {
     q: "How long does the full program take?",
-    a: "With regular one-lesson-per-day practice, many families complete the full journey in about 12-18 months. Pace varies by child.",
+    a: "With regular one-lesson-per-day practice, many families complete the full journey in about 12–18 months. Pace varies by child.",
   },
 ];
 
@@ -221,7 +221,7 @@ export default function GccLandingPage() {
                   <li>• My child knows the alphabet but cannot read words yet</li>
                   <li>• They can speak English but struggle to read simple sentences</li>
                   <li>• Their school is English-medium but reading at home is still a struggle</li>
-                  <li>• Tuition or tutoring has not fixed the foundation</li>
+                  <li>• Tutoring has not fixed the foundation</li>
                   <li>• I do not know where to start</li>
                 </ul>
                 <p className="text-apty-gray mt-5">
@@ -335,9 +335,9 @@ export default function GccLandingPage() {
                       <span className="block sm:inline">replay anytime · 6 months validity</span>
                     </td>
                     <td className="px-4 py-3 align-top">
-                      <span className="block sm:inline">AED 50 to 80/hour</span>
+                      <span className="block sm:inline">AED 50–80/hour</span>
                       <span className="hidden sm:inline"> · </span>
-                      <span className="block sm:inline">AED 1,000 to 1,600+ for equivalent hours</span>
+                      <span className="block sm:inline">AED 1,000–1,600+ for equivalent hours</span>
                     </td>
                   </tr>
                 </tbody>

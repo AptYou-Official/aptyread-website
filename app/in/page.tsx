@@ -119,7 +119,7 @@ const faqs = [
   },
   {
     q: "How long does the full program take?",
-    a: "With regular one-lesson-per-day practice, many families complete the full journey in about 12-18 months. Pace varies by child.",
+    a: "With regular one-lesson-per-day practice, many families complete the full journey in about 12–18 months. Pace varies by child.",
   },
 ];
 
