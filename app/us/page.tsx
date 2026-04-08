@@ -86,8 +86,8 @@ const faqs = [
     a: "Many children who struggle with reading have not received structured phonics instruction. If your child's school uses a meaning-first or whole-language approach, there may be a gap in their decoding foundation. AptyRead fills that gap, systematically, step by step, starting from the very beginning of how sounds connect to letters.",
   },
   {
-    q: "How is this different from apps like ABCmouse or Starfall?",
-    a: "Those apps are activity-based, games, songs, and exercises that children can jump in and out of. AptyRead is a structured course. Every lesson has a fixed place in a deliberate sequence. You cannot skip Level 2 to jump to Level 3, just like a child cannot read words before knowing what sounds letters make. It is the difference between a playlist and a curriculum.",
+    q: "How is AptyRead different from other reading apps?",
+    a: "Most reading apps are activity-based, games, songs, and exercises that children can jump in and out of in any order. AptyRead is a structured course. Every lesson has a fixed place in a deliberate sequence. You cannot skip Level 2 to jump to Level 3, just like a child cannot read words before knowing what sounds letters make. It is the difference between a playlist and a curriculum.",
   },
   {
     q: "My child's home language isn't English, we speak Spanish or another language at home. Will this work?",
