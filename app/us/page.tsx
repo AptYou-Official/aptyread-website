@@ -228,7 +228,7 @@ export default function UsLandingPage() {
                 </ul>
                 <p className="text-apty-gray mt-5">
                   If any of this feels familiar, your child does not need more screen time. They need the right
-                  structure. The AptyRead program builds that foundation one step at a time, no randomness, no guessing.
+                  structure. The AptyRead program builds that foundation one step at a time. No randomness, no guessing.
                 </p>
               </div>
             </div>
@@ -369,7 +369,7 @@ export default function UsLandingPage() {
               </div>
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
                 <h3 className="font-semibold text-apty-dark mb-2">SATPIN Logic</h3>
-                <p className="text-apty-gray">Children learn the most useful early reading sounds first, not random alphabet order. This is why early progress feels fast.</p>
+                <p className="text-apty-gray">Children learn the most useful early reading sounds first, not random alphabet order. This gives the sequence a clear, logical starting point.</p>
               </div>
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
                 <h3 className="font-semibold text-apty-dark mb-2">Sound to Letter Flow</h3>
@@ -389,7 +389,7 @@ export default function UsLandingPage() {
               </div>
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
                 <h3 className="font-semibold text-apty-dark mb-2">Digital Wellness</h3>
-                <p className="text-apty-gray">Default pacing is one new lesson per day, and parents can raise it to a maximum of two. This supports healthy screen habits, better retention, and a routine that fits family life.</p>
+                <p className="text-apty-gray">One lesson per day. Around 25 minutes. Structured pacing that fits into family life without turning reading into a screen marathon.</p>
               </div>
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent md:col-span-2">
                 <h3 className="font-semibold text-apty-dark mb-2">Structured Confidence</h3>
