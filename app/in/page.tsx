@@ -107,7 +107,7 @@ const faqs = [
   },
   {
     q: "What happens after the 4 free lessons?",
-    a: "You can continue with Level 1 of the AptyRead English Literacy Program at ₹2,399 total (incl. GST) for 6 months validity. One payment per level. No subscriptions.",
+    a: "You can continue with Level 1 of the AptyRead English Literacy Program at ₹1,999 till April 20 (original ₹2,399, incl. GST) for 6 months validity. One payment per level. No subscriptions.",
   },
   {
     q: "Is this just another app with games and distractions?",
@@ -181,6 +181,12 @@ export default function IndiaLandingPage() {
                 <p>✓ No registration needed</p>
                 <p>✓ No ads. No distractions.</p>
                 <p>✓ Try free before you commit</p>
+              </div>
+              <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-apty-coral-accent bg-orange-50 px-4 py-2 text-sm text-apty-dark">
+                <span className="font-semibold text-apty-coral">Summer offer:</span>
+                <span className="line-through text-apty-gray">₹2,399</span>
+                <span className="font-semibold text-apty-coral">₹1,999 till April 20</span>
+                <span>(incl. GST)</span>
               </div>
 
               <div className="rounded-xl border border-apty-coral-accent bg-gradient-to-b from-white to-apty-warm/80 p-5 md:p-6 shadow-sm">
@@ -329,7 +335,11 @@ export default function IndiaLandingPage() {
                   <tr className="bg-teal-50/90 text-apty-dark">
                     <td className="px-4 py-3 align-top font-medium">Cost for that time</td>
                     <td className="px-4 py-3 align-top">
-                      <span className="block sm:inline">₹2,399 for Level 1 (incl. GST)</span>
+                      <span className="block sm:inline">
+                        <span className="line-through text-apty-gray">₹2,399</span>{" "}
+                        <span className="font-semibold text-apty-coral">₹1,999 till April 20</span>{" "}
+                        (incl. GST) for Level 1
+                      </span>
                       <span className="hidden sm:inline"> · </span>
                       <span className="block sm:inline">replay anytime · 6 months validity</span>
                     </td>
@@ -410,7 +420,9 @@ export default function IndiaLandingPage() {
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Every Child Deserves to Say “I Am a Reader!”</h2>
             <p className="text-white/95 text-lg mb-8">
-              Start with 4 free lessons in the AptyRead app today. No registration. If it feels right for your child, continue Level 1 of the English Literacy Program at ₹2,399 total (incl. GST) for 6 months validity.
+              Start with 4 free lessons in the AptyRead app today. No registration. If it feels right for your child,
+              continue Level 1 of the English Literacy Program at ₹1,999 till April 20 (original ₹2,399, incl. GST) for
+              6 months validity.
             </p>
             <PlayStoreLink className="inline-block bg-white text-apty-coral px-8 py-4 rounded-xl text-lg font-semibold shadow-xl hover:opacity-90">
               Download Free on Google Play
@@ -428,7 +440,7 @@ export default function IndiaLandingPage() {
             </div>
             <div className="mt-7 grid sm:grid-cols-2 gap-3 text-left text-white/95 text-sm max-w-3xl mx-auto">
               <p>✓ Try 4 lessons free · No registration needed</p>
-              <p>✓ ₹2,399 total (incl. GST) for Level 1 · No subscription</p>
+              <p>✓ <span className="line-through">₹2,399</span> ₹1,999 till April 20 (incl. GST) for Level 1 · No subscription</p>
               <p>✓ 6 months validity · One lesson per day</p>
               <p>✓ Complete a level · Then decide on the next</p>
             </div>
