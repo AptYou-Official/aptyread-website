@@ -183,7 +183,7 @@ export default function IndiaLandingPage() {
                 <p>✓ Try free before you commit</p>
               </div>
               <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-apty-coral-accent bg-orange-50 px-4 py-2 text-sm text-apty-dark">
-                <span className="font-semibold text-apty-coral">Summer offer:</span>
+                <span className="font-semibold text-apty-coral">Summer offer (Level 1 only):</span>
                 <span className="line-through text-apty-gray">₹2,399</span>
                 <span className="font-semibold text-apty-coral">₹1,999 till April 20</span>
                 <span>(incl. GST)</span>
