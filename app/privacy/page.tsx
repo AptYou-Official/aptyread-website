@@ -26,7 +26,7 @@ export default function PrivacyPage() {
           
           <div className="mb-6 text-apty-gray">
             <p><strong>Effective Date:</strong> January 1, 2026</p>
-            <p><strong>Last Updated:</strong> December 25, 2025</p>
+            <p><strong>Last Updated:</strong> April 18, 2026</p>
           </div>
 
           <div className="prose prose-lg max-w-none text-apty-gray">
@@ -216,11 +216,11 @@ export default function PrivacyPage() {
                 <li>Children cannot share personal information with others</li>
                 <li>No chat, messaging, or social networking features</li>
               </ul>
-              <p className="mb-4"><strong>Parental Controls:</strong></p>
+              <p className="mb-4"><strong>Parent Account Controls:</strong></p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
-                <li>All purchases and account settings require parental authentication</li>
-                <li>Parents have full control over their child&apos;s account and data</li>
-                <li>Parents can monitor their child&apos;s progress and activity</li>
+                <li>All purchases and account settings are managed exclusively through the parent account</li>
+                <li>Parents have full visibility into their child&apos;s progress and activity through the Parent Dashboard</li>
+                <li>Parents can update settings, manage the child&apos;s profile, and request data deletion at any time</li>
               </ul>
               <p className="mb-4"><strong>Content Safety:</strong></p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
