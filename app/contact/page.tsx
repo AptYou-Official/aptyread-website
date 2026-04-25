@@ -154,8 +154,8 @@ export default function ContactPage() {
                 Try 4 Free Lessons
               </PlayStoreLink>
               <div className="flex items-center gap-3">
-                <GooglePlayBadge />
                 <AppStoreBadge />
+                <GooglePlayBadge />
               </div>
             </div>
           </div>

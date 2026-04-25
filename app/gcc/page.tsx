@@ -172,8 +172,8 @@ export default function GccLandingPage() {
               </div>
 
               <div className="mb-6 flex items-center gap-3">
-                <GooglePlayBadge />
                 <AppStoreBadge />
+                <GooglePlayBadge />
               </div>
 
               <div className="grid sm:grid-cols-2 gap-3 text-sm text-apty-gray mb-8">
@@ -420,8 +420,8 @@ export default function GccLandingPage() {
               Download Free on App Store or Google Play
             </PlayStoreLink>
             <div className="mt-5 flex items-center justify-center gap-3">
-              <GooglePlayBadge />
               <AppStoreBadge />
+              <GooglePlayBadge />
             </div>
             <div className="mt-7 grid sm:grid-cols-2 gap-3 text-left text-white/95 text-sm max-w-3xl mx-auto">
               <p>✓ Try 4 lessons free · No registration needed</p>

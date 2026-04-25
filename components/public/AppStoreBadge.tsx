@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PlayStoreLink from "@/components/public/PlayStoreLink";
 
 type Props = {
@@ -6,25 +7,24 @@ type Props = {
 };
 
 export default function AppStoreBadge({ className = "", compact = false }: Props) {
-  const iconClass = compact ? "text-base" : "text-lg";
-  const kickerClass = compact
-    ? "text-[9px] uppercase tracking-wide text-white/80"
-    : "text-[10px] uppercase tracking-wide text-white/80";
-  const titleClass = compact ? "text-xs font-semibold" : "text-sm font-semibold";
+  const badgeClass = compact ? "h-8 w-auto md:h-10" : "h-12 w-auto";
+  const badgeWidth = compact ? 120 : 162;
+  const badgeHeight = compact ? 40 : 54;
 
   return (
     <PlayStoreLink
       platform="ios"
       aria-label="Download on the App Store"
-      className={`inline-flex h-12 items-center rounded-lg bg-black text-white px-3 hover:opacity-90 transition-opacity ${className}`}
+      className={`inline-flex hover:opacity-80 transition-opacity ${className}`}
     >
-      <span className={`mr-2 leading-none ${iconClass}`} aria-hidden>
-        
-      </span>
-      <span className="flex flex-col leading-tight text-left">
-        <span className={kickerClass}>Download on the</span>
-        <span className={titleClass}>App Store</span>
-      </span>
+      <Image
+        src="/images/app-store-badge.svg"
+        alt="Download on the App Store"
+        width={badgeWidth}
+        height={badgeHeight}
+        className={badgeClass}
+        priority={false}
+      />
     </PlayStoreLink>
   );
 }
