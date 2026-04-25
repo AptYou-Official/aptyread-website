@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import MinimalHeader from "@/components/public/MinimalHeader";
 import MinimalFooter from "@/components/public/MinimalFooter";
+import AppStoreBadge from "@/components/public/AppStoreBadge";
 import PlayStoreLink from "@/components/public/PlayStoreLink";
 
 const ogImage = "https://www.aptyread.ai/images/apty.png";
@@ -169,15 +170,18 @@ export default function GccLandingPage() {
                 </a>
               </div>
 
-              <PlayStoreLink className="inline-block mb-6">
-                <Image
-                  src="/images/google-play-badge-large.png"
-                  alt="Get it on Google Play"
-                  width={172}
-                  height={60}
-                  className="h-12 w-auto"
-                />
-              </PlayStoreLink>
+              <div className="mb-6 flex items-center gap-3">
+                <PlayStoreLink className="inline-block">
+                  <Image
+                    src="/images/google-play-badge-large.png"
+                    alt="Get it on Google Play"
+                    width={172}
+                    height={60}
+                    className="h-12 w-auto"
+                  />
+                </PlayStoreLink>
+                <AppStoreBadge />
+              </div>
 
               <div className="grid sm:grid-cols-2 gap-3 text-sm text-apty-gray mb-8">
                 <p>✓ 2,500+ downloads</p>
@@ -422,7 +426,7 @@ export default function GccLandingPage() {
             >
               Download Free on App Store or Google Play
             </PlayStoreLink>
-            <div className="mt-5">
+            <div className="mt-5 flex items-center justify-center gap-3">
               <PlayStoreLink className="inline-block">
                 <Image
                   src="/images/google-play-badge-large.png"
@@ -432,6 +436,7 @@ export default function GccLandingPage() {
                   className="h-12 w-auto"
                 />
               </PlayStoreLink>
+              <AppStoreBadge />
             </div>
             <div className="mt-7 grid sm:grid-cols-2 gap-3 text-left text-white/95 text-sm max-w-3xl mx-auto">
               <p>✓ Try 4 lessons free · No registration needed</p>

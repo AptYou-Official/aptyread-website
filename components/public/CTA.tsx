@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import AppStoreBadge from '@/components/public/AppStoreBadge';
 import PlayStoreLink from '@/components/public/PlayStoreLink';
 
 export default function CTA() {
@@ -13,32 +14,29 @@ export default function CTA() {
           For children 3 to 10. No registration needed. Try 4 free lessons and see if the program is right for your child.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+        <div className="flex flex-col gap-4 justify-center items-center mb-10">
           <PlayStoreLink
             platform="auto"
             className="bg-white text-apty-coral px-8 py-4 rounded-xl text-lg font-semibold shadow-xl transform transition duration-300 hover:scale-105"
           >
             Try 4 Free Lessons
           </PlayStoreLink>
-          <PlayStoreLink
-            platform="ios"
-            className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold transition duration-300 hover:bg-white/10"
-          >
-            Download on App Store
-          </PlayStoreLink>
-          <PlayStoreLink
-            className="hover:opacity-80 transition-opacity"
-            aria-label="Get it on Google Play"
-          >
-            <Image
-              src="/images/google-play-badge-large.png"
-              alt="Get it on Google Play"
-              width={172}
-              height={60}
-              className="h-12 w-auto md:h-14"
-              priority={false}
-            />
-          </PlayStoreLink>
+          <div className="flex items-center gap-3 opacity-90">
+            <PlayStoreLink
+              className="hover:opacity-80 transition-opacity"
+              aria-label="Get it on Google Play"
+            >
+              <Image
+                src="/images/google-play-badge-large.png"
+                alt="Get it on Google Play"
+                width={172}
+                height={60}
+                className="h-12 w-auto md:h-14"
+                priority={false}
+              />
+            </PlayStoreLink>
+            <AppStoreBadge />
+          </div>
         </div>
 
         <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6 border border-white/30">

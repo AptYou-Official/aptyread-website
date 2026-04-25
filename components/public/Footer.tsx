@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import AppStoreBadge from '@/components/public/AppStoreBadge';
 import PlayStoreLink from '@/components/public/PlayStoreLink';
 
 export default function Footer() {
@@ -106,14 +107,9 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="font-semibold text-apty-dark mb-4">Download</h4>
-            <PlayStoreLink
-              platform="ios"
-              className="inline-flex items-center rounded-lg border border-apty-coral px-3 py-2 text-xs font-semibold text-apty-coral hover:bg-apty-warm transition-colors mb-3"
-              aria-label="Download on the App Store"
-            >
-              Download on App Store
-            </PlayStoreLink>
-            <br />
+            <div className="mb-3">
+              <AppStoreBadge />
+            </div>
             <PlayStoreLink
               className="inline-block hover:opacity-80 transition-opacity mb-3"
               aria-label="Get it on Google Play"

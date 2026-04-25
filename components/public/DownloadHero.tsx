@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import AppStoreBadge from '@/components/public/AppStoreBadge';
 import PlayStoreLink from '@/components/public/PlayStoreLink';
 
 export default function DownloadHero() {
@@ -63,7 +64,7 @@ export default function DownloadHero() {
               See How It Works
             </a>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 opacity-90">
               <PlayStoreLink
                 className="hover:opacity-80 transition-opacity"
                 aria-label="Get it on Google Play"
@@ -77,13 +78,7 @@ export default function DownloadHero() {
                   priority={false}
                 />
               </PlayStoreLink>
-              <PlayStoreLink
-                platform="ios"
-                className="inline-flex items-center rounded-lg border border-apty-coral px-4 py-2 text-sm font-semibold text-apty-coral hover:bg-apty-warm transition-colors"
-                aria-label="Download on App Store"
-              >
-                Download on App Store
-              </PlayStoreLink>
+              <AppStoreBadge />
             </div>
           </div>
 
