@@ -7,14 +7,15 @@ type Props = {
 };
 
 export default function GooglePlayBadge({ className = "", compact = false }: Props) {
-  const badgeClass = compact ? "h-8 w-auto md:h-10" : "h-[52px] w-auto";
-  const badgeWidth = compact ? 129 : 188;
-  const badgeHeight = compact ? 45 : 64;
+  const badgeClass = compact ? "h-8 w-auto md:h-10" : "h-12 w-auto";
+  // Official Google Play web badge proportions
+  const badgeWidth = 646;
+  const badgeHeight = 250;
 
   return (
     <PlayStoreLink className={`inline-flex hover:opacity-80 transition-opacity ${className}`} aria-label="Get it on Google Play">
       <Image
-        src={compact ? "/images/google-play-badge-small.png" : "/images/google-play-badge-large.png"}
+        src="/images/google-play-badge-official.png"
         alt="Get it on Google Play"
         width={badgeWidth}
         height={badgeHeight}
