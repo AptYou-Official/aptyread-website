@@ -53,12 +53,12 @@ export default function Hero() {
             <div className="mb-8 flex flex-col sm:flex-row gap-4 items-center md:items-start">
               <PlayStoreLink
                 className="group relative w-full sm:w-auto"
-                aria-label="Start your child's reading journey on the App Store"
-                platform="ios"
+                aria-label="Try 4 free lessons"
+                platform="auto"
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-apty-coral to-apty-cyan rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
                 <div className="relative bg-apty-coral text-white px-8 py-4 rounded-xl text-base md:text-lg font-semibold shadow-lg transform transition duration-300 hover:scale-105 text-center">
-                  Start on iPhone or iPad
+                  Try 4 Free Lessons
                 </div>
               </PlayStoreLink>
               <div className="flex items-center gap-3">

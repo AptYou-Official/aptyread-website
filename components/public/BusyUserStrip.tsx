@@ -14,7 +14,10 @@ export default function BusyUserStrip() {
             <span className="mx-2 text-white/60">·</span>
             <span className="text-white/95">Try 4 free, no registration</span>
           </p>
-          <PlayStoreLink className="flex-shrink-0 bg-apty-coral text-white px-6 py-2.5 rounded-lg text-sm md:text-base font-semibold hover:opacity-90 transition-opacity whitespace-nowrap">
+          <PlayStoreLink
+            platform="auto"
+            className="flex-shrink-0 bg-apty-coral text-white px-6 py-2.5 rounded-lg text-sm md:text-base font-semibold hover:opacity-90 transition-opacity whitespace-nowrap"
+          >
             Try 4 Free Lessons →
           </PlayStoreLink>
         </div>

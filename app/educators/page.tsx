@@ -105,7 +105,10 @@ export default function EducatorsPage() {
                 >
                   Contact Us
                 </Link>
-                <PlayStoreLink className="inline-block border-2 border-apty-coral text-apty-coral px-6 py-3 rounded-xl font-semibold hover:bg-apty-warm transition-colors">
+                <PlayStoreLink
+                  platform="auto"
+                  className="inline-block border-2 border-apty-coral text-apty-coral px-6 py-3 rounded-xl font-semibold hover:bg-apty-warm transition-colors"
+                >
                   Try the Program
                 </PlayStoreLink>
               </div>

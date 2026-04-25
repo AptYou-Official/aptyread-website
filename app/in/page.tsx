@@ -152,7 +152,10 @@ export default function IndiaLandingPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-4">
-                <PlayStoreLink className="inline-flex items-center justify-center gap-2 bg-apty-coral text-white px-6 py-4 rounded-xl font-semibold text-center hover:opacity-90">
+                <PlayStoreLink
+                  platform="auto"
+                  className="inline-flex items-center justify-center gap-2 bg-apty-coral text-white px-6 py-4 rounded-xl font-semibold text-center hover:opacity-90"
+                >
                   <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
@@ -424,7 +427,10 @@ export default function IndiaLandingPage() {
               continue Level 1 of the English Literacy Program at ₹1,999 till April 20 (original ₹2,399, incl. GST) for
               6 months validity.
             </p>
-            <PlayStoreLink className="inline-block bg-white text-apty-coral px-8 py-4 rounded-xl text-lg font-semibold shadow-xl hover:opacity-90">
+            <PlayStoreLink
+              platform="auto"
+              className="inline-block bg-white text-apty-coral px-8 py-4 rounded-xl text-lg font-semibold shadow-xl hover:opacity-90"
+            >
               Download Free on App Store or Google Play
             </PlayStoreLink>
             <div className="mt-5">
