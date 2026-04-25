@@ -9,7 +9,7 @@ const ogImage = "https://www.aptyread.ai/images/apty.png";
 export const metadata: Metadata = {
   title: "AptyRead English Literacy Program | Children | GCC | Try Free",
   description:
-    "Structured phonics-based English literacy program for children aged 3 to 10. Four levels, 243 lessons. Download free on Google Play. AED 299 for Level 1.",
+    "Structured phonics-based English literacy program for children aged 3 to 10. Four levels, 243 lessons. Download free on App Store or Google Play. AED 299 for Level 1.",
   keywords:
     "AptyRead English Literacy Program, GCC reading app, phonics course, learn to read, children literacy, UAE, Saudi, Qatar, Kuwait, Bahrain, Oman",
   alternates: {
@@ -99,7 +99,7 @@ const faqs = [
   },
   {
     q: "Can parents and children use this without much tech knowledge?",
-    a: "Yes. You install the AptyRead app from Google Play, open a lesson, and follow the on-screen steps. Tapping play, listening, and simple taps are enough. No complicated setup.",
+    a: "Yes. You install the AptyRead app from the Apple App Store or Google Play, open a lesson, and follow the on-screen steps. Tapping play, listening, and simple taps are enough. No complicated setup.",
   },
   {
     q: "Is an internet connection required?",
@@ -107,7 +107,7 @@ const faqs = [
   },
   {
     q: "What happens after the 4 free lessons?",
-    a: "You can continue with Level 1 of the AptyRead English Literacy Program at AED 299 for 6 months validity. One payment per level. No subscriptions. Google Play handles payment in your local currency.",
+    a: "You can continue with Level 1 of the AptyRead English Literacy Program at AED 299 for 6 months validity. One payment per level. No subscriptions. The App Store or Google Play handles payment in your local currency.",
   },
   {
     q: "Is this just another app with games and distractions?",
@@ -148,7 +148,7 @@ export default function GccLandingPage() {
               <p className="text-sm text-apty-gray mb-6">
                 The{" "}
                 <span className="font-medium text-apty-dark">AptyRead English Literacy Program</span> is a structured phonics course with four levels and 243 lessons in the{" "}
-                <span className="font-medium text-apty-dark">AptyRead</span> app on Google Play.
+                <span className="font-medium text-apty-dark">AptyRead</span> app on the Apple App Store and Google Play.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-4">
@@ -414,7 +414,7 @@ export default function GccLandingPage() {
               Start with 4 free lessons in the AptyRead app today. No registration. If it feels right for your child, continue Level 1 of the English Literacy Program at AED 299 for 6 months validity.
             </p>
             <PlayStoreLink className="inline-block bg-white text-apty-coral px-8 py-4 rounded-xl text-lg font-semibold shadow-xl hover:opacity-90">
-              Download Free on Google Play
+              Download Free on App Store or Google Play
             </PlayStoreLink>
             <div className="mt-5">
               <PlayStoreLink className="inline-block">
@@ -432,7 +432,7 @@ export default function GccLandingPage() {
               <p>✓ AED 299 for Level 1 · No subscription</p>
               <p>✓ 6 months validity · One lesson per day</p>
               <p>✓ Complete a level · Then decide on the next</p>
-              <p>✓ Google Play handles payment in your local currency</p>
+              <p>✓ App Store and Google Play handle payment in your local currency</p>
             </div>
           </div>
         </section>

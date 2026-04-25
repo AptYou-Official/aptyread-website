@@ -37,7 +37,7 @@ export default function FAQPage() {
                     How do I start using AptyRead?
                   </h3>
                   <p className="text-apty-gray leading-relaxed">
-                    Simply download the app from Google Play Store (available soon). You can try 4 lessons completely free, no registration needed. Just open the app and start. If you like it, you can then enroll in Level 1.
+                    Simply download the app from the Apple App Store or Google Play Store. You can try 4 lessons completely free, no registration needed. Just open the app and start. If you like it, you can then enroll in Level 1.
                   </p>
                 </div>
 

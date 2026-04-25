@@ -18,6 +18,12 @@ export default function CTA() {
             Try 4 Free Lessons
           </PlayStoreLink>
           <PlayStoreLink
+            platform="ios"
+            className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold transition duration-300 hover:bg-white/10"
+          >
+            Download on App Store
+          </PlayStoreLink>
+          <PlayStoreLink
             className="hover:opacity-80 transition-opacity"
             aria-label="Get it on Google Play"
           >

@@ -5,6 +5,8 @@ export const GOOGLE_ADS_PLAY_STORE_SEND_TO =
 
 export const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=ai.aptyread.app";
+export const APP_STORE_URL =
+  "https://apps.apple.com/us/app/aptyread-learn-to-read/id6762043318";
 
 declare global {
   interface Window {

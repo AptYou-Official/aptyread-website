@@ -9,7 +9,7 @@ const ogImage = "https://www.aptyread.ai/images/apty.png";
 export const metadata: Metadata = {
   title: "AptyRead English Literacy Program | Phonics-Based Reading for Kids | Try Free",
   description:
-    "A structured phonics program for children aged 3 to 10. Built on the Science of Reading. 4 levels, 243 lessons. Try 4 free lessons on Google Play, no registration needed.",
+    "A structured phonics program for children aged 3 to 10. Built on the Science of Reading. 4 levels, 243 lessons. Try 4 free lessons on App Store or Google Play, no registration needed.",
   keywords:
     "AptyRead English Literacy Program, phonics-based reading for kids, Science of Reading app, structured literacy, learn to read, early reading program",
   alternates: {
@@ -148,7 +148,7 @@ export default function UsLandingPage() {
               <p className="text-sm text-apty-gray mb-6">
                 The{" "}
                 <span className="font-medium text-apty-dark">AptyRead English Literacy Program</span> is a structured phonics course with four levels and 243 lessons in the{" "}
-                <span className="font-medium text-apty-dark">AptyRead</span> app on Google Play.
+                <span className="font-medium text-apty-dark">AptyRead</span> app on the Apple App Store and Google Play.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-4">
@@ -421,7 +421,7 @@ export default function UsLandingPage() {
               Level 1 of the English Literacy Program at $59, one payment, 6 months of access, no subscription.
             </p>
             <PlayStoreLink className="inline-block bg-white text-apty-coral px-8 py-4 rounded-xl text-lg font-semibold shadow-xl hover:opacity-90">
-              Download Free on Google Play
+              Download Free on App Store or Google Play
             </PlayStoreLink>
             <div className="mt-5">
               <PlayStoreLink className="inline-block">

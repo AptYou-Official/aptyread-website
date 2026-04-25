@@ -16,9 +16,16 @@ export default function DownloadCTA() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <PlayStoreLink
             className="bg-white text-apty-coral px-10 py-5 rounded-xl text-lg md:text-xl font-bold shadow-2xl transform transition duration-300 hover:scale-105 w-full sm:w-auto text-center"
+            aria-label="Download AptyRead on Apple App Store - Try 4 Free Lessons"
+            platform="ios"
+          >
+            Download on App Store
+          </PlayStoreLink>
+          <PlayStoreLink
+            className="bg-transparent border-2 border-white text-white px-10 py-5 rounded-xl text-lg md:text-xl font-bold transition duration-300 hover:bg-white/10 w-full sm:w-auto text-center"
             aria-label="Download AptyRead on Google Play - Try 4 Free Lessons"
           >
-            Download AptyRead
+            Download on Google Play
           </PlayStoreLink>
           <PlayStoreLink
             className="hover:opacity-80 transition-opacity"

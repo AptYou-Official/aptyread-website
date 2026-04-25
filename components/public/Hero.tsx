@@ -53,26 +53,36 @@ export default function Hero() {
             <div className="mb-8 flex flex-col sm:flex-row gap-4 items-center md:items-start">
               <PlayStoreLink
                 className="group relative w-full sm:w-auto"
-                aria-label="Start your child's reading journey, AptyRead on Google Play"
+                aria-label="Start your child's reading journey on the App Store"
+                platform="ios"
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-apty-coral to-apty-cyan rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
                 <div className="relative bg-apty-coral text-white px-8 py-4 rounded-xl text-base md:text-lg font-semibold shadow-lg transform transition duration-300 hover:scale-105 text-center">
-                  Start Your Child&apos;s Reading Journey
+                  Start on iPhone or iPad
                 </div>
               </PlayStoreLink>
-              <PlayStoreLink
-                className="hover:opacity-80 transition-opacity"
-                aria-label="Get it on Google Play"
-              >
-                <Image
-                  src="/images/google-play-badge-large.png"
-                  alt="Get it on Google Play"
-                  width={172}
-                  height={60}
-                  className="h-12 w-auto md:h-14"
-                  priority={false}
-                />
-              </PlayStoreLink>
+              <div className="flex items-center gap-3">
+                <PlayStoreLink
+                  className="hover:opacity-80 transition-opacity"
+                  aria-label="Get it on Google Play"
+                >
+                  <Image
+                    src="/images/google-play-badge-large.png"
+                    alt="Get it on Google Play"
+                    width={172}
+                    height={60}
+                    className="h-12 w-auto md:h-14"
+                    priority={false}
+                  />
+                </PlayStoreLink>
+                <PlayStoreLink
+                  platform="ios"
+                  className="inline-flex items-center rounded-lg border border-apty-coral px-4 py-2 text-sm font-semibold text-apty-coral hover:bg-apty-warm transition-colors"
+                  aria-label="Download on the App Store"
+                >
+                  Download on App Store
+                </PlayStoreLink>
+              </div>
             </div>
 
             {/* Trust Indicators */}

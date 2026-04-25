@@ -39,12 +39,16 @@ export default function DownloadHero() {
           <p className="text-base md:text-lg text-apty-gray mb-8 leading-relaxed max-w-2xl mx-auto">
             Built for beginners. Step-by-step. No random lessons.
           </p>
+          <p className="text-sm md:text-base text-apty-coral mb-8 font-semibold">
+            Available on the Apple App Store and Google Play.
+          </p>
 
           {/* Primary CTA Button - LARGE and Prominent */}
           <div className="mb-6 flex flex-col items-center gap-4">
             <PlayStoreLink
               className="group relative w-full sm:w-auto max-w-md"
-              aria-label="Download AptyRead on Google Play - Try 4 Free Lessons"
+              aria-label="Download AptyRead on Apple App Store - Try 4 Free Lessons"
+              platform="ios"
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-apty-coral to-apty-cyan rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
               <div className="relative bg-apty-coral text-white px-10 py-5 rounded-xl text-xl md:text-2xl font-bold shadow-2xl transform transition duration-300 hover:scale-105 text-center">
@@ -59,20 +63,28 @@ export default function DownloadHero() {
               See How It Works
             </a>
 
-            {/* Google Play Badge */}
-            <PlayStoreLink
-              className="hover:opacity-80 transition-opacity"
-              aria-label="Get it on Google Play"
-            >
-              <Image
-                src="/images/google-play-badge-large.png"
-                alt="Get it on Google Play"
-                width={172}
-                height={60}
-                className="h-14 w-auto md:h-16"
-                priority={false}
-              />
-            </PlayStoreLink>
+            <div className="flex items-center gap-3">
+              <PlayStoreLink
+                className="hover:opacity-80 transition-opacity"
+                aria-label="Get it on Google Play"
+              >
+                <Image
+                  src="/images/google-play-badge-large.png"
+                  alt="Get it on Google Play"
+                  width={172}
+                  height={60}
+                  className="h-14 w-auto md:h-16"
+                  priority={false}
+                />
+              </PlayStoreLink>
+              <PlayStoreLink
+                platform="ios"
+                className="inline-flex items-center rounded-lg border border-apty-coral px-4 py-2 text-sm font-semibold text-apty-coral hover:bg-apty-warm transition-colors"
+                aria-label="Download on App Store"
+              >
+                Download on App Store
+              </PlayStoreLink>
+            </div>
           </div>
 
           {/* Trust Indicators */}

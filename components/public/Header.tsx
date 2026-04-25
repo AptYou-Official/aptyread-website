@@ -32,6 +32,13 @@ export default function Header() {
             Educators
           </Link>
           <PlayStoreLink
+            platform="ios"
+            className="hidden md:inline-flex items-center justify-center rounded-lg border border-apty-coral text-apty-coral px-3 py-2 text-xs font-semibold hover:bg-apty-warm transition-colors"
+            aria-label="Download AptyRead on the App Store"
+          >
+            Download on App Store
+          </PlayStoreLink>
+          <PlayStoreLink
             className="hover:opacity-80 transition-opacity"
             aria-label="Download AptyRead on Google Play"
           >

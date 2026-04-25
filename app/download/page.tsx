@@ -32,7 +32,7 @@ export default function DownloadPage() {
     "@type": "SoftwareApplication",
     "name": "AptyRead",
     "applicationCategory": "EducationalApplication",
-    "operatingSystem": "Android",
+    "operatingSystem": "Android, iOS",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -40,7 +40,7 @@ export default function DownloadPage() {
       "description": "Try 4 lessons free. No registration needed.",
     },
     "description": "Structured literacy learning platform. English Reading & Writing for children ages 3-10. Mastery-driven, one lesson per day. Try 4 lessons free.",
-    "url": "https://play.google.com/store/apps/details?id=ai.aptyread.app",
+    "url": "https://www.aptyread.ai/download",
   };
 
   return (
