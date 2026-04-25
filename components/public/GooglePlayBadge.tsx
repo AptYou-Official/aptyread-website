@@ -7,16 +7,16 @@ type Props = {
 };
 
 export default function GooglePlayBadge({ className = "", compact = false }: Props) {
-  // Google official lockup has more internal padding than Apple's badge,
-  // so render it slightly taller for visual parity.
-  const badgeClass = compact ? "h-9 w-auto md:h-10" : "h-[52px] w-auto";
-  const badgeWidth = 300;
-  const badgeHeight = 70;
+  // Use official black "Get it on Google Play" badge (not lockup logo)
+  // and keep the same display-height rhythm as App Store badge.
+  const badgeClass = compact ? "h-9 w-auto md:h-11" : "h-[54px] w-auto";
+  const badgeWidth = compact ? 129 : 172;
+  const badgeHeight = compact ? 45 : 60;
 
   return (
     <PlayStoreLink className={`inline-flex hover:opacity-80 transition-opacity ${className}`} aria-label="Get it on Google Play">
       <Image
-        src="/images/google-play-badge-official.webp"
+        src={compact ? "/images/google-play-badge-small.png" : "/images/google-play-badge-large.png"}
         alt="Get it on Google Play"
         width={badgeWidth}
         height={badgeHeight}

@@ -7,9 +7,9 @@ type Props = {
 };
 
 export default function AppStoreBadge({ className = "", compact = false }: Props) {
-  const badgeClass = compact ? "h-8 w-auto md:h-10" : "h-12 w-auto";
-  const badgeWidth = compact ? 120 : 162;
-  const badgeHeight = compact ? 40 : 54;
+  const badgeClass = compact ? "h-9 w-auto md:h-11" : "h-[54px] w-auto";
+  const badgeWidth = compact ? 135 : 180;
+  const badgeHeight = compact ? 45 : 60;
 
   return (
     <PlayStoreLink
