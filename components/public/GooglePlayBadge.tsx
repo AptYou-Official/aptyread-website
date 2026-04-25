@@ -9,9 +9,9 @@ type Props = {
 export default function GooglePlayBadge({ className = "", compact = false }: Props) {
   // Use official black "Get it on Google Play" badge (not lockup logo)
   // and keep the same display-height rhythm as App Store badge.
-  const badgeClass = compact ? "h-9 w-auto md:h-11 scale-[1.15]" : "h-[54px] w-auto scale-[1.15]";
-  const badgeWidth = compact ? 129 : 172;
-  const badgeHeight = compact ? 45 : 60;
+  const badgeClass = compact ? "h-9 w-auto md:h-11" : "h-[54px] w-auto";
+  const badgeWidth = 564;
+  const badgeHeight = 168;
 
   return (
     <PlayStoreLink className={`inline-flex hover:opacity-80 transition-opacity ${className}`} aria-label="Get it on Google Play">
