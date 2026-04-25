@@ -9,7 +9,7 @@ type Props = {
 export default function GooglePlayBadge({ className = "", compact = false }: Props) {
   // Use official black "Get it on Google Play" badge (not lockup logo)
   // and keep the same display-height rhythm as App Store badge.
-  const badgeClass = compact ? "h-9 w-auto md:h-11" : "h-[54px] w-auto";
+  const badgeClass = compact ? "h-9 w-auto md:h-11 scale-[1.15]" : "h-[54px] w-auto scale-[1.15]";
   const badgeWidth = compact ? 129 : 172;
   const badgeHeight = compact ? 45 : 60;
 
