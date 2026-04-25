@@ -1,6 +1,6 @@
 'use client';
-import Image from 'next/image';
 import AppStoreBadge from '@/components/public/AppStoreBadge';
+import GooglePlayBadge from '@/components/public/GooglePlayBadge';
 import PlayStoreLink from '@/components/public/PlayStoreLink';
 
 export default function DownloadCTA() {
@@ -23,19 +23,7 @@ export default function DownloadCTA() {
             Try 4 Free Lessons
           </PlayStoreLink>
           <div className="flex items-center gap-3 opacity-90">
-            <PlayStoreLink
-              className="hover:opacity-80 transition-opacity"
-              aria-label="Get it on Google Play"
-            >
-              <Image
-                src="/images/google-play-badge-large.png"
-                alt="Get it on Google Play"
-                width={172}
-                height={60}
-                className="h-14 w-auto md:h-16"
-                priority={false}
-              />
-            </PlayStoreLink>
+            <GooglePlayBadge />
             <AppStoreBadge />
           </div>
         </div>

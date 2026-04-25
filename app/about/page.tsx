@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Header from "@/components/public/Header";
 import Footer from "@/components/public/Footer";
 import AppStoreBadge from "@/components/public/AppStoreBadge";
+import GooglePlayBadge from "@/components/public/GooglePlayBadge";
 import PlayStoreLink from "@/components/public/PlayStoreLink";
-import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: "About Us - A Letter to Parents | AptyRead",
@@ -102,16 +102,7 @@ export default function AboutPage() {
                 Try 4 Free Lessons
               </PlayStoreLink>
               <div className="flex items-center gap-3">
-                <PlayStoreLink aria-label="Get it on Google Play">
-                  <Image
-                    src="/images/google-play-badge-large.png"
-                    alt="Get it on Google Play"
-                    width={172}
-                    height={60}
-                    className="h-12 w-auto"
-                    priority={false}
-                  />
-                </PlayStoreLink>
+                <GooglePlayBadge />
                 <AppStoreBadge />
               </div>
             </div>

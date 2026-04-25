@@ -3,6 +3,7 @@ import Image from "next/image";
 import MinimalHeader from "@/components/public/MinimalHeader";
 import MinimalFooter from "@/components/public/MinimalFooter";
 import AppStoreBadge from "@/components/public/AppStoreBadge";
+import GooglePlayBadge from "@/components/public/GooglePlayBadge";
 import PlayStoreLink from "@/components/public/PlayStoreLink";
 
 const ogImage = "https://www.aptyread.ai/images/apty.png";
@@ -171,15 +172,7 @@ export default function UsLandingPage() {
               </div>
 
               <div className="mb-6 flex items-center gap-3">
-                <PlayStoreLink className="inline-block">
-                  <Image
-                    src="/images/google-play-badge-large.png"
-                    alt="Get it on Google Play"
-                    width={172}
-                    height={60}
-                    className="h-12 w-auto"
-                  />
-                </PlayStoreLink>
+                <GooglePlayBadge />
                 <AppStoreBadge />
               </div>
 
@@ -434,15 +427,7 @@ export default function UsLandingPage() {
               Download Free on App Store or Google Play
             </PlayStoreLink>
             <div className="mt-5 flex items-center justify-center gap-3">
-              <PlayStoreLink className="inline-block">
-                <Image
-                  src="/images/google-play-badge-large.png"
-                  alt="Get it on Google Play"
-                  width={172}
-                  height={60}
-                  className="h-12 w-auto"
-                />
-              </PlayStoreLink>
+              <GooglePlayBadge />
               <AppStoreBadge />
             </div>
             <div className="mt-7 grid sm:grid-cols-2 gap-3 text-left text-white/95 text-sm max-w-3xl mx-auto">

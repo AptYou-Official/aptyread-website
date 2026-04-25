@@ -1,6 +1,5 @@
-import Image from 'next/image';
 import AppStoreBadge from '@/components/public/AppStoreBadge';
-import PlayStoreLink from '@/components/public/PlayStoreLink';
+import GooglePlayBadge from '@/components/public/GooglePlayBadge';
 
 export default function Footer() {
   return (
@@ -110,19 +109,7 @@ export default function Footer() {
             <div className="mb-3">
               <AppStoreBadge />
             </div>
-            <PlayStoreLink
-              className="inline-block hover:opacity-80 transition-opacity mb-3"
-              aria-label="Get it on Google Play"
-            >
-              <Image
-                src="/images/google-play-badge-large.png"
-                alt="Get it on Google Play"
-                width={172}
-                height={60}
-                className="h-12 w-auto"
-                priority={false}
-              />
-            </PlayStoreLink>
+            <GooglePlayBadge className="mb-3" />
           </div>
         </div>
         <div className="border-t border-apty-coral-accent pt-8 text-center">
