@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import MinimalHeader from "@/components/public/MinimalHeader";
 import DownloadHero from "@/components/public/DownloadHero";
 import DownloadBenefits from "@/components/public/DownloadBenefits";
-import DownloadCTA from "@/components/public/DownloadCTA";
 import MinimalFooter from "@/components/public/MinimalFooter";
 
 export const metadata: Metadata = {
@@ -54,7 +53,6 @@ export default function DownloadPage() {
         <main className="flex-grow">
           <DownloadHero />
           <DownloadBenefits />
-          <DownloadCTA />
         </main>
         <MinimalFooter />
       </div>

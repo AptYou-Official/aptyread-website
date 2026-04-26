@@ -13,7 +13,7 @@ const benefits = [
   },
   {
     icon: "🎁",
-    title: "Try Before You Commit",
+    title: "Start Free, No Pressure",
     description: "Try 4 lessons free with no registration. Then enroll level by level, with no subscription pressure.",
   },
   {

@@ -177,7 +177,7 @@ export default function IndiaLandingPage() {
               </div>
 
               <div className="grid sm:grid-cols-2 gap-3 text-sm text-apty-gray mb-8">
-                <p>✓ 2,500+ downloads</p>
+                <p>✓ 3,500+ downloads</p>
                 <p>✓ No registration needed</p>
                 <p>✓ No ads. No distractions.</p>
                 <p>✓ Try free before you commit</p>

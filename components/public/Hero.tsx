@@ -73,7 +73,7 @@ export default function Hero() {
             <div className="flex flex-wrap justify-center md:justify-start items-center gap-4 md:gap-6 text-sm text-apty-gray">
               <div className="flex items-center gap-2">
                 <span className="text-apty-coral">✓</span>
-                <span>2,500+ downloads</span>
+                <span>3,500+ downloads</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-apty-coral">✓</span>

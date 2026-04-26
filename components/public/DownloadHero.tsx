@@ -2,7 +2,6 @@
 import Image from 'next/image';
 import AppStoreBadge from '@/components/public/AppStoreBadge';
 import GooglePlayBadge from '@/components/public/GooglePlayBadge';
-import PlayStoreLink from '@/components/public/PlayStoreLink';
 
 export default function DownloadHero() {
   return (
@@ -45,27 +44,12 @@ export default function DownloadHero() {
             Available on the Apple App Store and Google Play.
           </p>
 
-          {/* Primary CTA Button - LARGE and Prominent */}
+          {/* Store Selection */}
           <div className="mb-6 flex flex-col items-center gap-4">
-            <PlayStoreLink
-              className="group relative w-full sm:w-auto max-w-md"
-              aria-label="Try 4 free lessons"
-              platform="auto"
-            >
-              <div className="absolute -inset-1 bg-gradient-to-r from-apty-coral to-apty-cyan rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
-              <div className="relative bg-apty-coral text-white px-10 py-5 rounded-xl text-xl md:text-2xl font-bold shadow-2xl transform transition duration-300 hover:scale-105 text-center">
-                Try 4 Free Lessons
-              </div>
-            </PlayStoreLink>
-
-            <a
-              href="#how-it-works"
-              className="text-apty-coral font-semibold hover:underline"
-            >
-              See How It Works
-            </a>
-
-            <div className="flex items-center gap-3 opacity-90">
+            <p className="text-base md:text-lg font-semibold text-apty-dark">
+              Choose your device to download
+            </p>
+            <div className="flex items-center gap-3 opacity-90 flex-wrap justify-center">
               <AppStoreBadge />
               <GooglePlayBadge />
             </div>
@@ -75,7 +59,7 @@ export default function DownloadHero() {
           <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-sm md:text-base text-apty-gray mt-8">
             <div className="flex items-center gap-2">
               <span className="text-apty-coral text-lg md:text-xl font-bold">✓</span>
-              <span>2,500+ downloads</span>
+              <span>3,500+ downloads</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-apty-coral text-lg md:text-xl font-bold">✓</span>

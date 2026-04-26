@@ -68,7 +68,7 @@ export default function Footer() {
                   href="mailto:support@aptyread.ai"
                   className="text-apty-gray hover:text-apty-coral transition-colors"
                 >
-                  support@aptyread.ai
+                  Support: support@aptyread.ai
                 </a>
               </li>
               <li>
@@ -76,7 +76,7 @@ export default function Footer() {
                   href="mailto:contact@aptyread.ai"
                   className="text-apty-gray hover:text-apty-coral transition-colors"
                 >
-                  contact@aptyread.ai
+                  General: contact@aptyread.ai
                 </a>
               </li>
             </ul>
@@ -114,7 +114,7 @@ export default function Footer() {
         </div>
         <div className="border-t border-apty-coral-accent pt-8 text-center">
           <p className="text-apty-gray text-sm mb-2">
-            © 2025 APTYOU SERVICES PRIVATE LIMITED. All rights reserved.
+            © 2026 APTYOU SERVICES PRIVATE LIMITED. All rights reserved.
           </p>
           <p className="text-apty-gray text-xs">
             Google Play and the Google Play logo are trademarks of Google LLC.

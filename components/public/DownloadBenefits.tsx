@@ -148,7 +148,7 @@ export default function DownloadBenefits() {
 
         <div className="bg-white p-6 rounded-lg border border-apty-coral-accent shadow-sm mb-10">
           <h3 className="text-xl font-bold text-apty-dark mb-4">Parents Love AptyRead</h3>
-          <p className="text-apty-gray mb-4">2,500+ downloads and growing.</p>
+          <p className="text-apty-gray mb-4">3,500+ downloads and growing.</p>
           <div className="grid md:grid-cols-3 gap-4">
             <blockquote className="bg-apty-warm p-4 rounded-lg text-sm text-apty-dark">
               “The step-by-step format finally made reading easier for my child.”

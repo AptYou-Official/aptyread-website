@@ -44,7 +44,7 @@ export default function Features() {
                 description: "Healthy learning pace. One new lesson per day (you can set it to 2 if needed). No pressure.",
               },
               {
-                title: "Try Before You Commit",
+                title: "Start Free, No Pressure",
                 description: "Try 4 lessons free. Then enroll level-by-level. Complete Level 1, then decide. No subscriptions.",
               },
             ].map((item, index) => (

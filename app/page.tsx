@@ -1,6 +1,7 @@
 import Header from "@/components/public/Header";
 import Hero from "@/components/public/Hero";
 import BusyUserStrip from "@/components/public/BusyUserStrip";
+import AppShowcase from "@/components/public/AppShowcase";
 import WhyThisWorks from "@/components/public/WhyThisWorks";
 import HowItWorks from "@/components/public/HowItWorks";
 import ParentPeaceOfMind from "@/components/public/ParentPeaceOfMind";
@@ -69,6 +70,7 @@ export default function Home() {
         <Header />
         <Hero />
         <BusyUserStrip />
+        <AppShowcase />
         <WhyThisWorks />
         <HowItWorks />
         <ParentPeaceOfMind />
