@@ -40,31 +40,39 @@ const shots: { n: string; alt: string }[] = [
   },
 ];
 
-export default function AppShowcase() {
+type AppShowcaseProps = {
+  /** Use fewer shots on long ad landing pages so the page does not feel endless. */
+  maxShots?: number;
+  /** e.g. hide bottom border when another white section follows */
+  className?: string;
+};
+
+export default function AppShowcase({ maxShots = 8, className = "" }: AppShowcaseProps) {
+  const list = shots.slice(0, maxShots);
+  const isCompact = maxShots <= 4;
+
   return (
     <section
-      className="bg-white py-14 md:py-20 px-4 border-b border-apty-coral-accent/30"
+      className={`bg-white px-4 border-b border-apty-coral-accent/30 ${
+        isCompact ? "py-12 md:py-16" : "py-14 md:py-20"
+      } ${className}`.trim()}
       aria-labelledby="app-showcase-heading"
     >
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-10 max-w-2xl mx-auto">
+        <div className={`text-center max-w-2xl mx-auto ${isCompact ? "mb-8" : "mb-10"}`}>
           <h2
             id="app-showcase-heading"
-            className="text-3xl md:text-4xl font-bold text-apty-dark mb-3"
+            className="text-3xl md:text-4xl font-bold text-apty-dark"
           >
             See inside the app
           </h2>
-          <p className="text-lg text-apty-gray">
-            Real screens from the Apple App Store build—so you know what your child
-            will see before you download.
-          </p>
         </div>
 
         <div
           className="flex gap-4 md:gap-5 overflow-x-auto pb-2 md:pb-0 md:grid md:grid-cols-2 lg:grid-cols-4 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory md:snap-none"
           style={{ scrollbarGutter: "stable" }}
         >
-          {shots.map(({ n, alt }) => (
+          {list.map(({ n, alt }) => (
             <div
               key={n}
               className="flex-shrink-0 w-[min(75vw,280px)] md:w-auto snap-center"

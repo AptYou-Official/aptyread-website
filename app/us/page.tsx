@@ -5,6 +5,7 @@ import MinimalFooter from "@/components/public/MinimalFooter";
 import AppStoreBadge from "@/components/public/AppStoreBadge";
 import GooglePlayBadge from "@/components/public/GooglePlayBadge";
 import PlayStoreLink from "@/components/public/PlayStoreLink";
+import AppShowcase from "@/components/public/AppShowcase";
 
 const ogImage = "https://www.aptyread.ai/images/apty.png";
 
@@ -234,6 +235,8 @@ export default function UsLandingPage() {
             </div>
           </div>
         </section>
+
+        <AppShowcase maxShots={4} />
 
         <section id="how-it-works" className="py-16 md:py-20 px-4">
           <div className="container mx-auto max-w-5xl">
