@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import Image from "next/image";
 
 const IMG_W = 800;
@@ -98,13 +99,30 @@ export default function AppShowcase({
         </div>
 
         <div
-          className={`flex gap-4 md:gap-5 overflow-x-auto pb-2 md:pb-0 md:grid ${gridClass} -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory md:snap-none`}
-          style={{ scrollbarGutter: "stable" }}
+          className={[
+            "flex flex-nowrap gap-4 md:gap-5",
+            "overflow-x-auto overflow-y-hidden touch-pan-x overscroll-x-contain",
+            "snap-x snap-mandatory scroll-px-4 scroll-smooth pb-2 md:pb-0",
+            "md:overflow-x-visible",
+            "md:grid", gridClass, "-mx-4", "px-4", "md:mx-0", "md:px-0", "md:snap-none",
+            // subtle scrollbar on small screens; hidden on iOS is optional—thin is fine
+            "[scrollbar-width:thin] md:[scrollbar-width:auto]",
+            "[&::-webkit-scrollbar]:h-1.5 md:[&::-webkit-scrollbar]:h-0",
+            "[&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-apty-coral/25",
+          ].join(" ")}
+          style={
+            {
+              WebkitOverflowScrolling: "touch",
+              scrollbarGutter: "stable",
+            } as CSSProperties
+          }
+          role="region"
+          aria-label="App screenshots, swipe on mobile to see more"
         >
           {list.map(({ n, alt }) => (
             <div
               key={n}
-              className="flex-shrink-0 w-[min(75vw,280px)] md:w-auto snap-center"
+              className="flex-shrink-0 w-[min(78vw,300px)] md:w-auto snap-center min-w-0"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-lg border border-apty-coral-accent/40 bg-apty-warm">
                 <Image
@@ -113,13 +131,16 @@ export default function AppShowcase({
                   width={IMG_W}
                   height={IMG_H}
                   className="w-full h-auto object-contain"
-                  sizes="(max-width: 768px) 75vw, (max-width: 1024px) 40vw, 25vw"
+                  sizes="(max-width: 768px) 78vw, (max-width: 1024px) 40vw, 20vw"
                   loading="lazy"
                 />
               </div>
             </div>
           ))}
         </div>
+        <p className="md:hidden text-center text-sm text-apty-gray mt-3">
+          Swipe sideways to see all screens
+        </p>
       </div>
     </section>
   );

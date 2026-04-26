@@ -14,7 +14,7 @@ const ogImage = "https://www.aptyread.ai/images/apty.png";
 export const metadata: Metadata = {
   title: "AptyRead English Literacy Program | Children | GCC | Try Free",
   description:
-    "Structured phonics-based English literacy program for children aged 3 to 10. Four levels, 243 lessons. Download free on App Store or Google Play. AED 299 for Level 1.",
+    "Structured phonics-based English literacy program for children aged 3 to 10. Four levels, 243 lessons. Download free on the App Store or Google Play. Level 1: AED, SAR, or QAR 299 in local stores—see checkout for your price.",
   keywords:
     "AptyRead English Literacy Program, GCC reading app, phonics course, learn to read, children literacy, UAE, Saudi, Qatar, Kuwait, Bahrain, Oman",
   alternates: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AptyRead English Literacy Program | GCC | Try Free",
     description:
-      "Structured phonics-based English literacy program for children aged 3 to 10. Four levels, 243 lessons. AED 299 for Level 1.",
+      "Structured phonics-based English literacy program for children aged 3 to 10. Four levels, 243 lessons. Level 1 pricing in your local currency (AED, SAR, QAR) at checkout in the app stores.",
     url: "https://www.aptyread.ai/gcc",
     siteName: "AptyRead",
     type: "website",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AptyRead English Literacy Program | GCC | Try Free",
     description:
-      "Structured phonics-based literacy course in the AptyRead app. Four levels, 243 lessons. AED 299 for Level 1.",
+      "Structured phonics-based literacy course in the AptyRead app. Four levels, 243 lessons. Local-currency Level 1 pricing in the app stores (GCC).",
     images: [ogImage],
   },
 };
@@ -112,7 +112,7 @@ const faqs = [
   },
   {
     q: "What happens after the 4 free lessons?",
-    a: "You can continue with Level 1 of the AptyRead English Literacy Program at AED 299 for 6 months validity. One payment per level. No subscriptions. The App Store or Google Play handles payment in your local currency.",
+    a: "You can continue with Level 1 of the AptyRead English Literacy Program for 6 months per level, one payment per level, no subscriptions. In the UAE, Saudi Arabia, and Qatar, Level 1 is typically about AED 299, SAR 299, or QAR 299 in the app listing—the exact price is always in your local currency and shown at checkout in the Apple App Store or Google Play.",
   },
   {
     q: "Is this just another app with games and distractions?",
@@ -183,7 +183,17 @@ export default function GccLandingPage() {
                 <p>✓ 3,500+ downloads</p>
                 <p>✓ No registration needed</p>
                 <p>✓ No ads. No distractions.</p>
-                <p>✓ Try free before you commit</p>
+                <p>✓ Try free, no pressure</p>
+              </div>
+
+              <div className="mb-6 rounded-xl border-2 border-apty-coral/30 bg-gradient-to-b from-white to-apty-warm/90 p-4 shadow-sm">
+                <p className="text-sm font-semibold text-apty-dark">GCC pricing in your currency</p>
+                <p className="text-sm text-apty-gray mt-1">
+                  We refer to <span className="text-apty-dark font-medium">AED 299, SAR 299, and QAR 299</span> for
+                  Level 1 in the United Arab Emirates, Saudi Arabia, and Qatar. <span className="font-medium text-apty-dark">You are
+                  always charged in your own currency on checkout</span> in the Apple App Store or Google Play; the
+                  final amount shown is what you pay in your market.
+                </p>
               </div>
 
               <div className="rounded-xl border border-apty-coral-accent bg-gradient-to-b from-white to-apty-warm/80 p-5 md:p-6 shadow-sm">
@@ -335,7 +345,7 @@ export default function GccLandingPage() {
                   <tr className="bg-teal-50/90 text-apty-dark">
                     <td className="px-4 py-3 align-top font-medium">Cost for that time</td>
                     <td className="px-4 py-3 align-top">
-                      <span className="block sm:inline">AED 299 for Level 1</span>
+                      <span className="block sm:inline">AED / SAR / QAR 299 for Level 1 (UAE, Saudi, Qatar)</span>
                       <span className="hidden sm:inline"> · </span>
                       <span className="block sm:inline">replay anytime · 6 months validity</span>
                     </td>
@@ -350,7 +360,8 @@ export default function GccLandingPage() {
             </div>
             <p className="text-sm text-apty-gray mt-4">
               Level 1 includes 46 lessons: 20+ hours of guided practice across 33 core lessons, 11 reviews, and 2 final
-              assessments.
+              assessments. App Store and Google Play show the exact Level 1 price in your local currency for your
+              account region.
             </p>
           </div>
         </section>
@@ -416,7 +427,10 @@ export default function GccLandingPage() {
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Every Child Deserves to Say “I Am a Reader!”</h2>
             <p className="text-white/95 text-lg mb-8">
-              Start with 4 free lessons in the AptyRead app today. No registration. If it feels right for your child, continue Level 1 of the English Literacy Program at AED 299 for 6 months validity.
+              Start with 4 free lessons in the AptyRead app today. No registration. If it feels right for your child, continue
+              Level 1 of the English Literacy Program for 6 months—about <span className="whitespace-nowrap">AED 299</span> in
+              the UAE, <span className="whitespace-nowrap">SAR 299</span> in Saudi Arabia, or <span className="whitespace-nowrap">QAR 299</span> in Qatar.
+              The App Store or Google Play shows the exact price in <span className="font-semibold">your local currency</span> at checkout.
             </p>
             <PlayStoreLink
               platform="auto"
@@ -430,7 +444,7 @@ export default function GccLandingPage() {
             </div>
             <div className="mt-7 grid sm:grid-cols-2 gap-3 text-left text-white/95 text-sm max-w-3xl mx-auto">
               <p>✓ Try 4 lessons free · No registration needed</p>
-              <p>✓ AED 299 for Level 1 · No subscription</p>
+              <p>✓ ~AED 299 (UAE) · ~SAR 299 (Saudi) · ~QAR 299 (Qatar) · No subscription</p>
               <p>✓ 6 months validity · One lesson per day</p>
               <p>✓ Complete a level · Then decide on the next</p>
               <p>✓ App Store and Google Play handle payment in your local currency</p>

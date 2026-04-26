@@ -4,6 +4,7 @@ import type { AnchorHTMLAttributes, ReactNode } from "react";
 import {
   APP_STORE_URL,
   PLAY_STORE_URL,
+  reportAppStoreConversionThen,
   reportPlayStoreConversionThen,
 } from "@/lib/play-store-conversion";
 
@@ -59,6 +60,12 @@ export default function PlayStoreLink({
         });
         return;
       }
+      if (autoDestination === APP_STORE_URL) {
+        reportAppStoreConversionThen(() => {
+          window.location.href = autoDestination;
+        });
+        return;
+      }
       window.location.href = autoDestination;
       return;
     }
@@ -69,6 +76,14 @@ export default function PlayStoreLink({
       });
       return;
     }
+
+    if (platform === "ios") {
+      reportAppStoreConversionThen(() => {
+        window.open(targetHref, "_blank", "noopener,noreferrer");
+      });
+      return;
+    }
+
     window.open(targetHref, "_blank", "noopener,noreferrer");
   }
 

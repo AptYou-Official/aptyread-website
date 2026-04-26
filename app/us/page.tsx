@@ -183,7 +183,7 @@ export default function UsLandingPage() {
                 <p>✓ 3,500+ downloads</p>
                 <p>✓ No registration needed</p>
                 <p>✓ No ads. No distractions.</p>
-                <p>✓ Try free before you commit</p>
+                <p>✓ Try free, no pressure</p>
               </div>
 
               <div className="rounded-xl border border-apty-coral-accent bg-gradient-to-b from-white to-apty-warm/80 p-5 md:p-6 shadow-sm">

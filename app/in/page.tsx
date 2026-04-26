@@ -183,7 +183,7 @@ export default function IndiaLandingPage() {
                 <p>✓ 3,500+ downloads</p>
                 <p>✓ No registration needed</p>
                 <p>✓ No ads. No distractions.</p>
-                <p>✓ Try free before you commit</p>
+                <p>✓ Try free, no pressure</p>
               </div>
               <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-apty-coral-accent bg-orange-50 px-4 py-2 text-sm text-apty-dark">
                 <span className="font-semibold text-apty-coral">Summer offer (Level 1 only):</span>
