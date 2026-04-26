@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import MinimalHeader from "@/components/public/MinimalHeader";
 import DownloadHero from "@/components/public/DownloadHero";
 import DownloadBenefits from "@/components/public/DownloadBenefits";
-import AppShowcase from "@/components/public/AppShowcase";
+import AppShowcase, {
+  LANDING_APP_SHOWCASE_ORDER,
+} from "@/components/public/AppShowcase";
 import MinimalFooter from "@/components/public/MinimalFooter";
 
 export const metadata: Metadata = {
@@ -53,7 +55,7 @@ export default function DownloadPage() {
         <MinimalHeader />
         <main className="flex-grow">
           <DownloadHero />
-          <AppShowcase maxShots={4} />
+          <AppShowcase shotOrder={LANDING_APP_SHOWCASE_ORDER} />
           <DownloadBenefits />
         </main>
         <MinimalFooter />

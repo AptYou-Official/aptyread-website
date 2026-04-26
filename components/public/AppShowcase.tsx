@@ -36,20 +36,49 @@ const shots: { n: string; alt: string }[] = [
   },
   {
     n: "08",
-    alt: "AptyRead: a clear path through letters and lessons with a simple start",
+    alt: "AptyRead: Your Learning Path—structured letter sequence, free lessons to begin, and continue where you left off",
   },
 ];
 
+/** Order for /gcc, /us, /in, /download: core story (01–04) plus the learning-path screen (08). */
+export const LANDING_APP_SHOWCASE_ORDER = ["01", "02", "03", "04", "08"] as const;
+
 type AppShowcaseProps = {
-  /** Use fewer shots on long ad landing pages so the page does not feel endless. */
+  /** Use fewer shots on long ad landing pages so the page does not feel endless. Ignored if `shotOrder` is set. */
   maxShots?: number;
+  /**
+   * Exact shot numbers to show, in order. Use on landing pages to include e.g. 08 (learning path)
+   * without showing every intermediate marketing frame.
+   */
+  shotOrder?: readonly string[];
   /** e.g. hide bottom border when another white section follows */
   className?: string;
 };
 
-export default function AppShowcase({ maxShots = 8, className = "" }: AppShowcaseProps) {
-  const list = shots.slice(0, maxShots);
-  const isCompact = maxShots <= 4;
+function resolveShotList(
+  maxShots: number,
+  shotOrder: readonly string[] | undefined
+): { n: string; alt: string }[] {
+  if (shotOrder?.length) {
+    return shotOrder
+      .map((id) => shots.find((s) => s.n === id))
+      .filter((item): item is (typeof shots)[number] => Boolean(item));
+  }
+  return shots.slice(0, maxShots);
+}
+
+export default function AppShowcase({
+  maxShots = 8,
+  shotOrder,
+  className = "",
+}: AppShowcaseProps) {
+  const list = resolveShotList(maxShots, shotOrder);
+  const isCompact = list.length <= 5;
+
+  const gridClass =
+    list.length === 5
+      ? "md:grid-cols-2 lg:grid-cols-5"
+      : "md:grid-cols-2 lg:grid-cols-4";
 
   return (
     <section
@@ -69,7 +98,7 @@ export default function AppShowcase({ maxShots = 8, className = "" }: AppShowcas
         </div>
 
         <div
-          className="flex gap-4 md:gap-5 overflow-x-auto pb-2 md:pb-0 md:grid md:grid-cols-2 lg:grid-cols-4 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory md:snap-none"
+          className={`flex gap-4 md:gap-5 overflow-x-auto pb-2 md:pb-0 md:grid ${gridClass} -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory md:snap-none`}
           style={{ scrollbarGutter: "stable" }}
         >
           {list.map(({ n, alt }) => (

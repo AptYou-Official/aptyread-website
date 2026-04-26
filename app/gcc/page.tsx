@@ -5,7 +5,9 @@ import MinimalFooter from "@/components/public/MinimalFooter";
 import AppStoreBadge from "@/components/public/AppStoreBadge";
 import GooglePlayBadge from "@/components/public/GooglePlayBadge";
 import PlayStoreLink from "@/components/public/PlayStoreLink";
-import AppShowcase from "@/components/public/AppShowcase";
+import AppShowcase, {
+  LANDING_APP_SHOWCASE_ORDER,
+} from "@/components/public/AppShowcase";
 
 const ogImage = "https://www.aptyread.ai/images/apty.png";
 
@@ -234,7 +236,7 @@ export default function GccLandingPage() {
           </div>
         </section>
 
-        <AppShowcase maxShots={4} />
+        <AppShowcase shotOrder={LANDING_APP_SHOWCASE_ORDER} />
 
         <section id="how-it-works" className="py-16 md:py-20 px-4">
           <div className="container mx-auto max-w-5xl">
