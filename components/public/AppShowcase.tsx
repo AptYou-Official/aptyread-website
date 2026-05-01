@@ -101,7 +101,9 @@ export default function AppShowcase({
         <div
           className={[
             "flex flex-nowrap gap-4 md:gap-5",
-            "overflow-x-auto overflow-y-hidden touch-pan-x overscroll-x-contain",
+            // pan-x alone blocks vertical page scroll when touch starts on the strip;
+            // pan-x + pan-y keeps sideways carousel + normal up/down page scroll on phones.
+            "overflow-x-auto [touch-action:pan-x_pan-y] overscroll-x-contain",
             "snap-x snap-mandatory scroll-px-4 scroll-smooth pb-2 md:pb-0",
             "md:overflow-x-visible",
             "md:grid", gridClass, "-mx-4", "px-4", "md:mx-0", "md:px-0", "md:snap-none",
