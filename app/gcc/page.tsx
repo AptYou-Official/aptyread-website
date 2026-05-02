@@ -12,18 +12,18 @@ import AppShowcase, {
 const ogImage = "https://www.aptyread.ai/images/apty.png";
 
 export const metadata: Metadata = {
-  title: "AptyRead English Literacy Program | Children | GCC | Try Free",
+  title: "AptyRead | School-Ready English Reading | GCC | Try Free",
   description:
-    "Structured reading program for ages 3 to 10. Four levels and 243 lessons in the AptyRead app on the App Store and Google Play. Try four lessons free with no signup. Tap your store to download.",
+    "Is your child school ready? English reading from Day 1 — structured phonics for ages 3 to 10 in the AptyRead app. Science of Reading. Sound first. Try four lessons free, no registration.",
   keywords:
     "AptyRead English Literacy Program, GCC reading app, phonics course, learn to read, children literacy, UAE, Saudi, Qatar, Kuwait, Bahrain, Oman",
   alternates: {
     canonical: "https://www.aptyread.ai/gcc",
   },
   openGraph: {
-    title: "AptyRead English Literacy Program | GCC | Try Free",
+    title: "AptyRead | School-Ready English Reading | GCC | Try Free",
     description:
-      "Structured reading for ages 3 to 10 on iPhone, iPad, and Android. Try four lessons free. Level 1 pricing in AED, SAR, or QAR at checkout in your app store.",
+      "School-ready English reading for ages 3 to 10. Science of Reading, sound first. Try four lessons free on iPhone, iPad, and Android. Level 1 pricing in AED, SAR, or QAR at checkout.",
     url: "https://www.aptyread.ai/gcc",
     siteName: "AptyRead",
     type: "website",
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AptyRead English Literacy Program | GCC | Try Free",
+    title: "AptyRead | School-Ready Reading | GCC | Try Free",
     description:
-      "AptyRead on the App Store and Google Play. Four levels and 243 lessons. Try four free lessons. GCC-friendly pricing at checkout.",
+      "English reading the #1 skill from Day 1. Four levels, 243 lessons. Try four free lessons. GCC-friendly pricing at checkout.",
     images: [ogImage],
   },
 };
@@ -139,20 +139,29 @@ export default function GccLandingPage() {
               <p className="inline-block text-sm font-semibold text-apty-coral bg-apty-warm px-4 py-2 rounded-full border border-apty-coral-accent mb-4">
                 For children ages 3 to 10
               </p>
-              <h1 className="text-4xl md:text-5xl font-bold text-apty-dark leading-tight mb-6">
-                From &quot;I Am Learning Letters&quot; to &quot;I Am a Reader!&quot;
+              <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5">
+                <span className="text-apty-dark">Is Your Child </span>
+                <span className="text-apty-coral">School Ready?</span>
               </h1>
-              <div className="text-lg text-apty-dark mb-6 space-y-2">
-                <p>Your child isn&apos;t behind.</p>
+              <div className="text-lg md:text-xl font-semibold text-apty-dark mb-6 space-y-2 leading-snug">
+                <p>English reading is the #1 skill schools expect from Day 1.</p>
+                <p className="text-base md:text-lg font-semibold text-apty-dark">
+                  Build the right foundation — before school starts or right now.
+                </p>
+              </div>
+              <div className="text-lg text-apty-dark mb-6 space-y-4 leading-relaxed">
                 <p>
-                  Reading just needs the right sequence, not guilt or pressure.
+                  Your child isn&apos;t behind. They just haven&apos;t been taught{" "}
+                  <span className="font-semibold">the right way</span> yet.
+                </p>
+                <p>
+                  <span className="font-semibold text-apty-dark">AptyRead Literacy Program</span> teaches children aged
+                  3–10 to read English the right way — built on the{" "}
+                  <span className="font-semibold">Science of Reading</span>.{" "}
+                  <span className="text-apty-coral font-semibold">Sound first. Not A for Apple.</span>
                 </p>
                 <p className="font-semibold text-apty-dark">Download AptyRead and try four lessons on us.</p>
               </div>
-              <p className="text-sm text-apty-gray mb-6">
-                AptyRead is structured phonics in one app on the App Store and Google Play.
-                Four levels, 243 short lessons that build on each other. No signup for the preview.
-              </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-4">
                 <PlayStoreLink
@@ -168,7 +177,7 @@ export default function GccLandingPage() {
                   href="#how-it-works"
                   className="px-6 py-4 rounded-xl font-semibold text-apty-coral border border-apty-coral text-center hover:bg-apty-warm"
                 >
-                  See how the path works
+                  See how the path works ↓
                 </a>
               </div>
 
@@ -178,10 +187,10 @@ export default function GccLandingPage() {
               </div>
 
               <div className="grid sm:grid-cols-2 gap-3 text-sm text-apty-gray mb-8">
-                <p>✓ 3,500+ downloads worldwide</p>
+                <p>✓ Used by expat families across UAE, Saudi &amp; Qatar</p>
+                <p>✓ Works alongside any school curriculum — CBSE, British, IB</p>
+                <p>✓ No ads. No subscription. One-time purchase per level.</p>
                 <p>✓ Nothing to fill in until you&apos;re sold</p>
-                <p>✓ Lessons only: no ads, no fluff</p>
-                <p>✓ Quit anytime if it&apos;s not a fit</p>
               </div>
 
               <div className="rounded-xl border border-apty-coral-accent bg-gradient-to-b from-white to-apty-warm/80 p-5 md:p-6 shadow-sm">
