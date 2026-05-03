@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 /** Google Ads (gtag). Public ID; optional override via Vercel: NEXT_PUBLIC_GOOGLE_ADS_ID */
@@ -81,6 +82,7 @@ export default function RootLayout({
           </>
         ) : null}
         {children}
+        <Analytics />
       </body>
     </html>
   );
