@@ -143,13 +143,12 @@ export default function IndiaLandingPage() {
               <h1 className="text-4xl md:text-5xl font-bold text-apty-dark leading-tight mb-6">
                 From &quot;I Am Learning Letters&quot; to &quot;I Am a Reader!&quot;
               </h1>
-              <div className="text-lg text-apty-dark mb-5 space-y-2">
+              <div className="text-lg text-apty-dark mb-4 space-y-2">
                 <p>Your child isn&apos;t behind.</p>
-                <p>Reading needs the right sequence, not guilt or pressure.</p>
+                <p>They just need the right reading sequence.</p>
               </div>
               <p className="text-sm text-apty-gray mb-6">
                 Structured phonics in one app for English-medium and vernacular-medium families. Four levels, 243 lessons.
-                Try four free lessons first, then decide.
               </p>
 
               <div className="flex flex-col gap-2 mb-4">
@@ -168,6 +167,7 @@ export default function IndiaLandingPage() {
                 >
                   See how the path works
                 </a>
+                <p className="text-xs text-apty-gray text-center sm:text-left">No registration needed for 4 free lessons.</p>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-2 text-sm text-apty-gray mb-5">

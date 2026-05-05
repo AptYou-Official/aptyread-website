@@ -15,7 +15,7 @@ const ogImage = "https://www.aptyread.ai/images/apty.png";
 export const metadata: Metadata = {
   title: "AptyRead | School-Ready English Reading | GCC | Try Free",
   description:
-    "Is your child school ready? English reading from Day 1 — structured phonics for ages 3 to 10 in the AptyRead app. Science of Reading. Sound first. Try four lessons free, no registration.",
+    "Is your child school ready? English reading from Day 1 with structured phonics for ages 3 to 10 in the AptyRead app. Science of Reading. Sound first. Try four lessons free, no registration.",
   keywords:
     "AptyRead English Literacy Program, GCC reading app, phonics course, learn to read, children literacy, UAE, Saudi, Qatar, Kuwait, Bahrain, Oman",
   alternates: {
@@ -147,18 +147,15 @@ export default function GccLandingPage() {
               <div className="text-lg md:text-xl font-semibold text-apty-dark mb-4 space-y-2 leading-snug">
                 <p>English reading is the #1 skill schools expect from Day 1.</p>
                 <p className="text-base md:text-lg font-semibold text-apty-dark">
-                  Build the right foundation — before school starts or right now.
+                  Build the right foundation before school starts, or right now.
                 </p>
               </div>
-              <div className="text-lg text-apty-dark mb-5 space-y-3 leading-relaxed">
+              <div className="text-lg text-apty-dark mb-4 space-y-2 leading-relaxed">
                 <p>
-                  Your child isn&apos;t behind. They just haven&apos;t been taught{" "}
-                  <span className="font-semibold">the right way</span> yet.
+                  Your child isn&apos;t behind. They just need the right reading sequence.
                 </p>
-                <p>
-                  <span className="font-semibold text-apty-dark">AptyRead Literacy Program</span> teaches ages 3 to 10 with{" "}
-                  <span className="font-semibold">Science of Reading</span> structure.{" "}
-                  <span className="text-apty-coral font-semibold">Sound first. Not A for Apple.</span>
+                <p className="text-base">
+                  Science of Reading structure. <span className="text-apty-coral font-semibold">Sound first. Not A for Apple.</span>
                 </p>
               </div>
 
@@ -178,6 +175,7 @@ export default function GccLandingPage() {
                 >
                   See how the path works ↓
                 </a>
+                <p className="text-xs text-apty-gray text-center sm:text-left">No registration needed for 4 free lessons.</p>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-2 text-sm text-apty-gray mb-5">

@@ -143,13 +143,12 @@ export default function UsLandingPage() {
               <h1 className="text-4xl md:text-5xl font-bold text-apty-dark leading-tight mb-6">
                 From &quot;I Am Learning Letters&quot; to &quot;I Am a Reader!&quot;
               </h1>
-              <div className="text-lg text-apty-dark mb-5 space-y-2">
+              <div className="text-lg text-apty-dark mb-4 space-y-2">
                 <p>Your child isn&apos;t behind.</p>
-                <p>Reading skills need sequencing, not blame.</p>
+                <p>They just need the right reading sequence.</p>
               </div>
               <p className="text-sm text-apty-gray mb-6">
-                Built on the Science of Reading: synthetic phonics, four levels, and 243 connected lessons in one app.
-                Try four lessons free before deciding.
+                Science of Reading structure in one app. Sound first. Four levels, 243 connected lessons.
               </p>
 
               <div className="flex flex-col gap-2 mb-4">
@@ -168,6 +167,7 @@ export default function UsLandingPage() {
                 >
                   See how the path works
                 </a>
+                <p className="text-xs text-apty-gray text-center sm:text-left">No registration needed for 4 free lessons.</p>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-2 text-sm text-apty-gray mb-5">
