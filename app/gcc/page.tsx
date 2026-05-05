@@ -150,6 +150,7 @@ export default function GccLandingPage() {
                   Build the right foundation before school starts, or right now.
                 </p>
               </div>
+              <p className="text-apty-dark mb-3">From nightly reading stress to calm 20-minute progress.</p>
               <div className="text-lg text-apty-dark mb-4 space-y-2 leading-relaxed">
                 <p>
                   Your child isn&apos;t behind. They just need the right reading sequence.
@@ -173,13 +174,19 @@ export default function GccLandingPage() {
                   href="#how-it-works"
                   className="text-sm font-semibold text-apty-coral text-center sm:text-left hover:underline"
                 >
-                  See how the path works ↓
+                  See a real lesson in 60 seconds ↓
                 </a>
                 <p className="text-xs text-apty-gray text-center sm:text-left">No registration needed for 4 free lessons.</p>
               </div>
 
+              <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-apty-gray mb-2">
+                <p>✓ 3,500+ downloads</p>
+                <p>✓ 4 free lessons</p>
+                <p>✓ No registration</p>
+              </div>
+              <p className="text-xs text-apty-gray mb-5">Scroll to watch how the first lessons work.</p>
+
               <div className="grid sm:grid-cols-2 gap-2 text-sm text-apty-gray mb-5">
-                <p>✓ 3,500+ downloads worldwide</p>
                 <p>✓ Used by expat families across UAE, Saudi &amp; Qatar</p>
                 <p>✓ Works alongside CBSE, British, and IB schools</p>
                 <p>✓ No ads, no subscription pressure</p>
