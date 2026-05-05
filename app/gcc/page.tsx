@@ -148,13 +148,12 @@ export default function GccLandingPage() {
                 <p>Most children are taught letter names first.</p>
                 <p className="text-base md:text-lg font-semibold text-apty-dark">Reading starts with sounds.</p>
               </div>
-              <p className="text-apty-dark mb-3">From nightly reading stress to calm 20-minute progress.</p>
               <div className="text-lg text-apty-dark mb-4 space-y-2 leading-relaxed">
-                <p>
-                  Your child isn&apos;t behind. They just need the right reading sequence.
+                <p className="text-base">
+                  <span className="font-semibold text-apty-dark">AptyRead Literacy Program</span>. Science of Reading structure.
                 </p>
                 <p className="text-base">
-                  Science of Reading structure. <span className="text-apty-coral font-semibold">Sound first. Not A for Apple.</span>
+                  <span className="text-apty-coral font-semibold">Sound first.</span> Four levels, 243 connected lessons.
                 </p>
               </div>
 
