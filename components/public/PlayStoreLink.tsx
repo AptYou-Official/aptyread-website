@@ -1,6 +1,7 @@
 "use client";
 
 import type { AnchorHTMLAttributes, ReactNode } from "react";
+import { track } from "@vercel/analytics/react";
 import {
   APP_STORE_URL,
   PLAY_STORE_URL,
@@ -52,15 +53,25 @@ export default function PlayStoreLink({
     }
     e.preventDefault();
 
+    const trackInstallClick = (destination: string, store: "ios" | "android") => {
+      track("install_click", {
+        store,
+        destination,
+        path: window.location.pathname,
+      });
+    };
+
     if (platform === "auto") {
       const autoDestination = getAutoDestination();
       if (autoDestination === PLAY_STORE_URL) {
+        trackInstallClick(autoDestination, "android");
         reportPlayStoreConversionThen(() => {
           window.location.href = autoDestination;
         });
         return;
       }
       if (autoDestination === APP_STORE_URL) {
+        trackInstallClick(autoDestination, "ios");
         reportAppStoreConversionThen(() => {
           window.location.href = autoDestination;
         });
@@ -71,6 +82,7 @@ export default function PlayStoreLink({
     }
 
     if (platform === "android") {
+      trackInstallClick(targetHref, "android");
       reportPlayStoreConversionThen(() => {
         window.open(targetHref, "_blank", "noopener,noreferrer");
       });
@@ -78,6 +90,7 @@ export default function PlayStoreLink({
     }
 
     if (platform === "ios") {
+      trackInstallClick(targetHref, "ios");
       reportAppStoreConversionThen(() => {
         window.open(targetHref, "_blank", "noopener,noreferrer");
       });
