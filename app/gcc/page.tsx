@@ -150,7 +150,7 @@ export default function GccLandingPage() {
               </div>
               <div className="text-lg text-apty-dark mb-4 space-y-2 leading-relaxed">
                 <p className="text-base">
-                  <span className="font-semibold text-apty-dark">AptyRead Literacy Program</span>. Science of Reading structure.
+                  <span className="font-semibold text-apty-dark">AptyRead Literacy Program:</span> Science of Reading structure.
                 </p>
                 <p className="text-base">
                   <span className="text-apty-coral font-semibold">Sound first.</span> Four levels, 243 connected lessons.
@@ -176,42 +176,14 @@ export default function GccLandingPage() {
                 <p className="text-xs text-apty-gray text-center sm:text-left">No registration needed for 4 free lessons.</p>
               </div>
 
-              <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-apty-gray mb-2">
-                <p>✓ 3,500+ downloads</p>
-                <p>✓ 4 free lessons</p>
-                <p>✓ No registration</p>
-              </div>
-              <p className="text-xs text-apty-gray mb-5">Scroll to see how the first levels work.</p>
-
               <div className="grid sm:grid-cols-2 gap-2 text-sm text-apty-gray mb-5">
                 <p>✓ Used by expat families across UAE, Saudi &amp; Qatar</p>
-                <p>✓ Works alongside CBSE, British, and IB schools</p>
                 <p>✓ No ads, no subscription pressure</p>
               </div>
 
               <div className="mb-6 flex items-center gap-3">
                 <AppStoreBadge />
                 <GooglePlayBadge />
-              </div>
-
-              <div className="rounded-xl border border-apty-coral-accent bg-gradient-to-b from-white to-apty-warm/80 p-5 md:p-6 shadow-sm">
-                <p className="text-xs font-semibold tracking-wider text-apty-gray uppercase mb-3">Why start now</p>
-                <div className="flex gap-4">
-                  <div
-                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-teal-100 text-apty-dark"
-                    aria-hidden
-                  >
-                    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
-                      <circle cx="12" cy="12" r="9" />
-                      <path strokeLinecap="round" d="M12 7v5l3 2" />
-                    </svg>
-                  </div>
-                  <p className="text-sm md:text-base text-apty-dark leading-relaxed">
-                    <span className="font-semibold">Roots form early.</span> Missing strong phonics now often shows up
-                    later when school reading loads jump. Twenty minutes once a day, most days, is enough to steer things
-                    the right direction. Start with four free lessons tonight.
-                  </p>
-                </div>
               </div>
             </div>
 
@@ -245,6 +217,30 @@ export default function GccLandingPage() {
         </section>
 
         <LandingVideo />
+
+        <section className="py-10 px-4 bg-white">
+          <div className="container mx-auto max-w-5xl">
+            <div className="rounded-xl border border-apty-coral-accent bg-gradient-to-b from-white to-apty-warm/80 p-5 md:p-6 shadow-sm">
+              <p className="text-xs font-semibold tracking-wider text-apty-gray uppercase mb-3">Why start now</p>
+              <div className="flex gap-4">
+                <div
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-teal-100 text-apty-dark"
+                  aria-hidden
+                >
+                  <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
+                    <circle cx="12" cy="12" r="9" />
+                    <path strokeLinecap="round" d="M12 7v5l3 2" />
+                  </svg>
+                </div>
+                <p className="text-sm md:text-base text-apty-dark leading-relaxed">
+                  <span className="font-semibold">Roots form early.</span> Missing strong phonics now often shows up later
+                  when school reading loads jump. Twenty minutes once a day, most days, is enough to steer things the right
+                  direction. Start with four free lessons tonight.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <AppShowcase shotOrder={LANDING_APP_SHOWCASE_ORDER} />
 
@@ -462,7 +458,7 @@ export default function GccLandingPage() {
           </div>
         </section>
       </main>
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-apty-coral-accent bg-white/95 backdrop-blur md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-apty-coral-accent/70 bg-white/85 backdrop-blur md:hidden">
         <div className="container mx-auto px-4 py-2">
           <PlayStoreLink
             platform="auto"
