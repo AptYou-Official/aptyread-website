@@ -216,31 +216,7 @@ export default function GccLandingPage() {
           </div>
         </section>
 
-        <LandingVideo />
-
-        <section className="py-10 px-4 bg-white">
-          <div className="container mx-auto max-w-5xl">
-            <div className="rounded-xl border border-apty-coral-accent bg-gradient-to-b from-white to-apty-warm/80 p-5 md:p-6 shadow-sm">
-              <p className="text-xs font-semibold tracking-wider text-apty-gray uppercase mb-3">Why start now</p>
-              <div className="flex gap-4">
-                <div
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-teal-100 text-apty-dark"
-                  aria-hidden
-                >
-                  <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
-                    <circle cx="12" cy="12" r="9" />
-                    <path strokeLinecap="round" d="M12 7v5l3 2" />
-                  </svg>
-                </div>
-                <p className="text-sm md:text-base text-apty-dark leading-relaxed">
-                  <span className="font-semibold">Roots form early.</span> Missing strong phonics now often shows up later
-                  when school reading loads jump. Twenty minutes once a day, most days, is enough to steer things the right
-                  direction. Start with four free lessons tonight.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <LandingVideo subtitle="A 60-second explainer for parents." />
 
         <AppShowcase shotOrder={LANDING_APP_SHOWCASE_ORDER} />
 
