@@ -133,7 +133,7 @@ export default function GccLandingPage() {
   return (
     <div className="min-h-screen bg-apty-warm">
       <MinimalHeader />
-      <main>
+      <main className="pb-24 md:pb-0">
         <section className="bg-white py-14 md:py-20">
           <div className="container mx-auto px-4 max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
             <div>
@@ -141,14 +141,12 @@ export default function GccLandingPage() {
                 For children ages 3 to 10
               </p>
               <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5">
-                <span className="text-apty-dark">Is Your Child </span>
-                <span className="text-apty-coral">School Ready?</span>
+                <span className="text-apty-dark">Your Child Knows ABC.</span>{" "}
+                <span className="text-apty-coral">But Still Can&apos;t Read?</span>
               </h1>
               <div className="text-lg md:text-xl font-semibold text-apty-dark mb-4 space-y-2 leading-snug">
-                <p>English reading is the #1 skill schools expect from Day 1.</p>
-                <p className="text-base md:text-lg font-semibold text-apty-dark">
-                  Build the right foundation before school starts, or right now.
-                </p>
+                <p>Most children are taught letter names first.</p>
+                <p className="text-base md:text-lg font-semibold text-apty-dark">Reading starts with sounds.</p>
               </div>
               <p className="text-apty-dark mb-3">From nightly reading stress to calm 20-minute progress.</p>
               <div className="text-lg text-apty-dark mb-4 space-y-2 leading-relaxed">
@@ -174,7 +172,7 @@ export default function GccLandingPage() {
                   href="#how-it-works"
                   className="text-sm font-semibold text-apty-coral text-center sm:text-left hover:underline"
                 >
-                  See a real lesson in 60 seconds ↓
+                  See how the path works
                 </a>
                 <p className="text-xs text-apty-gray text-center sm:text-left">No registration needed for 4 free lessons.</p>
               </div>
@@ -184,7 +182,7 @@ export default function GccLandingPage() {
                 <p>✓ 4 free lessons</p>
                 <p>✓ No registration</p>
               </div>
-              <p className="text-xs text-apty-gray mb-5">Scroll to watch how the first lessons work.</p>
+              <p className="text-xs text-apty-gray mb-5">Scroll to see how the first levels work.</p>
 
               <div className="grid sm:grid-cols-2 gap-2 text-sm text-apty-gray mb-5">
                 <p>✓ Used by expat families across UAE, Saudi &amp; Qatar</p>
@@ -465,6 +463,17 @@ export default function GccLandingPage() {
           </div>
         </section>
       </main>
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-apty-coral-accent bg-white/95 backdrop-blur md:hidden">
+        <div className="container mx-auto px-4 py-2">
+          <PlayStoreLink
+            platform="auto"
+            className="inline-flex w-full items-center justify-center gap-2 bg-apty-coral text-white px-5 py-3 rounded-xl font-semibold text-center hover:opacity-90"
+          >
+            Try 4 Free Lessons
+          </PlayStoreLink>
+          <p className="mt-1 text-[11px] text-center text-apty-gray">No registration needed. Start in under a minute.</p>
+        </div>
+      </div>
       <MinimalFooter />
     </div>
   );
