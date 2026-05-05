@@ -144,27 +144,25 @@ export default function GccLandingPage() {
                 <span className="text-apty-dark">Is Your Child </span>
                 <span className="text-apty-coral">School Ready?</span>
               </h1>
-              <div className="text-lg md:text-xl font-semibold text-apty-dark mb-6 space-y-2 leading-snug">
+              <div className="text-lg md:text-xl font-semibold text-apty-dark mb-4 space-y-2 leading-snug">
                 <p>English reading is the #1 skill schools expect from Day 1.</p>
                 <p className="text-base md:text-lg font-semibold text-apty-dark">
                   Build the right foundation — before school starts or right now.
                 </p>
               </div>
-              <div className="text-lg text-apty-dark mb-6 space-y-4 leading-relaxed">
+              <div className="text-lg text-apty-dark mb-5 space-y-3 leading-relaxed">
                 <p>
                   Your child isn&apos;t behind. They just haven&apos;t been taught{" "}
                   <span className="font-semibold">the right way</span> yet.
                 </p>
                 <p>
-                  <span className="font-semibold text-apty-dark">AptyRead Literacy Program</span> teaches children aged
-                  3–10 to read English the right way — built on the{" "}
-                  <span className="font-semibold">Science of Reading</span>.{" "}
+                  <span className="font-semibold text-apty-dark">AptyRead Literacy Program</span> teaches ages 3 to 10 with{" "}
+                  <span className="font-semibold">Science of Reading</span> structure.{" "}
                   <span className="text-apty-coral font-semibold">Sound first. Not A for Apple.</span>
                 </p>
-                <p className="font-semibold text-apty-dark">Download AptyRead and try four lessons on us.</p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-4">
+              <div className="flex flex-col gap-2 mb-4">
                 <PlayStoreLink
                   platform="auto"
                   className="inline-flex items-center justify-center gap-2 bg-apty-coral text-white px-6 py-4 rounded-xl font-semibold text-center hover:opacity-90"
@@ -176,22 +174,22 @@ export default function GccLandingPage() {
                 </PlayStoreLink>
                 <a
                   href="#how-it-works"
-                  className="px-6 py-4 rounded-xl font-semibold text-apty-coral border border-apty-coral text-center hover:bg-apty-warm"
+                  className="text-sm font-semibold text-apty-coral text-center sm:text-left hover:underline"
                 >
                   See how the path works ↓
                 </a>
               </div>
 
+              <div className="grid sm:grid-cols-2 gap-2 text-sm text-apty-gray mb-5">
+                <p>✓ 3,500+ downloads worldwide</p>
+                <p>✓ Used by expat families across UAE, Saudi &amp; Qatar</p>
+                <p>✓ Works alongside CBSE, British, and IB schools</p>
+                <p>✓ No ads, no subscription pressure</p>
+              </div>
+
               <div className="mb-6 flex items-center gap-3">
                 <AppStoreBadge />
                 <GooglePlayBadge />
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-3 text-sm text-apty-gray mb-8">
-                <p>✓ Used by expat families across UAE, Saudi &amp; Qatar</p>
-                <p>✓ Works alongside any school curriculum — CBSE, British, IB</p>
-                <p>✓ No ads. No subscription. One-time purchase per level.</p>
-                <p>✓ Nothing to fill in until you&apos;re sold</p>
               </div>
 
               <div className="rounded-xl border border-apty-coral-accent bg-gradient-to-b from-white to-apty-warm/80 p-5 md:p-6 shadow-sm">

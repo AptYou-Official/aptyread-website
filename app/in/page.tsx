@@ -143,17 +143,16 @@ export default function IndiaLandingPage() {
               <h1 className="text-4xl md:text-5xl font-bold text-apty-dark leading-tight mb-6">
                 From &quot;I Am Learning Letters&quot; to &quot;I Am a Reader!&quot;
               </h1>
-              <div className="text-lg text-apty-dark mb-6 space-y-2">
+              <div className="text-lg text-apty-dark mb-5 space-y-2">
                 <p>Your child isn&apos;t behind.</p>
                 <p>Reading needs the right sequence, not guilt or pressure.</p>
-                <p className="font-semibold text-apty-dark">Download AptyRead and try four lessons on us.</p>
               </div>
               <p className="text-sm text-apty-gray mb-6">
-                Structured phonics in one app on the App Store and Google Play. Four levels, 243 short lessons that build
-                on each other. Works for English-medium and vernacular-medium families. No signup for the preview.
+                Structured phonics in one app for English-medium and vernacular-medium families. Four levels, 243 lessons.
+                Try four free lessons first, then decide.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-4">
+              <div className="flex flex-col gap-2 mb-4">
                 <PlayStoreLink
                   platform="auto"
                   className="inline-flex items-center justify-center gap-2 bg-apty-coral text-white px-6 py-4 rounded-xl font-semibold text-center hover:opacity-90"
@@ -165,22 +164,22 @@ export default function IndiaLandingPage() {
                 </PlayStoreLink>
                 <a
                   href="#how-it-works"
-                  className="px-6 py-4 rounded-xl font-semibold text-apty-coral border border-apty-coral text-center hover:bg-apty-warm"
+                  className="text-sm font-semibold text-apty-coral text-center sm:text-left hover:underline"
                 >
                   See how the path works
                 </a>
               </div>
 
+              <div className="grid sm:grid-cols-2 gap-2 text-sm text-apty-gray mb-5">
+                <p>✓ 3,500+ downloads worldwide</p>
+                <p>✓ Four free lessons, no registration</p>
+                <p>✓ Works across CBSE, British, and IB schools</p>
+                <p>✓ No ads. No subscription pressure.</p>
+              </div>
+
               <div className="mb-6 flex items-center gap-3">
                 <AppStoreBadge />
                 <GooglePlayBadge />
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-3 text-sm text-apty-gray mb-6">
-                <p>✓ 3,500+ downloads worldwide</p>
-                <p>✓ Nothing to fill in until you&apos;re sold</p>
-                <p>✓ Lessons only: no ads, no fluff</p>
-                <p>✓ Quit anytime if it&apos;s not a fit</p>
               </div>
 
               <div className="rounded-xl border border-apty-coral-accent bg-gradient-to-b from-white to-apty-warm/80 p-5 md:p-6 shadow-sm">

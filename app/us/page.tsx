@@ -143,17 +143,16 @@ export default function UsLandingPage() {
               <h1 className="text-4xl md:text-5xl font-bold text-apty-dark leading-tight mb-6">
                 From &quot;I Am Learning Letters&quot; to &quot;I Am a Reader!&quot;
               </h1>
-              <div className="text-lg text-apty-dark mb-6 space-y-2">
+              <div className="text-lg text-apty-dark mb-5 space-y-2">
                 <p>Your child isn&apos;t behind.</p>
                 <p>Reading skills need sequencing, not blame.</p>
-                <p className="font-semibold text-apty-dark">Download AptyRead and try four free lessons tonight.</p>
               </div>
               <p className="text-sm text-apty-gray mb-6">
-                Synthetic phonics, four levels, 243 tidy lessons inside one app listed on Apple and Google storefronts for
-                the US. Preview costs nothing because we want you calm before checkout.
+                Built on the Science of Reading: synthetic phonics, four levels, and 243 connected lessons in one app.
+                Try four lessons free before deciding.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:items-center mb-4">
+              <div className="flex flex-col gap-2 mb-4">
                 <PlayStoreLink
                   platform="auto"
                   className="inline-flex items-center justify-center gap-2 bg-apty-coral text-white px-6 py-4 rounded-xl font-semibold text-center hover:opacity-90"
@@ -165,22 +164,22 @@ export default function UsLandingPage() {
                 </PlayStoreLink>
                 <a
                   href="#how-it-works"
-                  className="px-6 py-4 rounded-xl font-semibold text-apty-coral border border-apty-coral text-center hover:bg-apty-warm"
+                  className="text-sm font-semibold text-apty-coral text-center sm:text-left hover:underline"
                 >
                   See how the path works
                 </a>
               </div>
 
+              <div className="grid sm:grid-cols-2 gap-2 text-sm text-apty-gray mb-5">
+                <p>✓ 3,500+ downloads worldwide</p>
+                <p>✓ Four free lessons, no signup</p>
+                <p>✓ Built on Science of Reading structure</p>
+                <p>✓ No ads. No subscription pressure.</p>
+              </div>
+
               <div className="mb-6 flex items-center gap-3">
                 <AppStoreBadge />
                 <GooglePlayBadge />
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-3 text-sm text-apty-gray mb-8">
-                <p>✓ 3,500+ downloads worldwide</p>
-                <p>✓ Skip every signup gate until Level 1</p>
-                <p>✓ Lessons stay ad-free end to end</p>
-                <p>✓ Stop after the preview if moods clash</p>
               </div>
 
               <div className="rounded-xl border border-apty-coral-accent bg-gradient-to-b from-white to-apty-warm/80 p-5 md:p-6 shadow-sm">
