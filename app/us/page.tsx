@@ -8,6 +8,7 @@ import PlayStoreLink from "@/components/public/PlayStoreLink";
 import AppShowcase, {
   LANDING_APP_SHOWCASE_ORDER,
 } from "@/components/public/AppShowcase";
+import LandingVideo from "@/components/public/LandingVideo";
 
 const ogImage = "https://www.aptyread.ai/images/apty.png";
 
@@ -231,6 +232,8 @@ export default function UsLandingPage() {
             </div>
           </div>
         </section>
+
+        <LandingVideo />
 
         <AppShowcase shotOrder={LANDING_APP_SHOWCASE_ORDER} />
 

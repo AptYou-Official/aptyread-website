@@ -1,5 +1,6 @@
 import Header from "@/components/public/Header";
 import Hero from "@/components/public/Hero";
+import LandingVideo from "@/components/public/LandingVideo";
 import BusyUserStrip from "@/components/public/BusyUserStrip";
 import AppShowcase from "@/components/public/AppShowcase";
 import WhyThisWorks from "@/components/public/WhyThisWorks";
@@ -69,6 +70,10 @@ export default function Home() {
       <main className="min-h-screen bg-apty-warm">
         <Header />
         <Hero />
+        <LandingVideo
+          title="See AptyRead In 60 Seconds"
+          subtitle="A quick parent walkthrough: why children get stuck, how the 4-level path works, and how to start free."
+        />
         <BusyUserStrip />
         <AppShowcase />
         <WhyThisWorks />
