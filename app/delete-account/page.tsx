@@ -25,7 +25,7 @@ export default function DeleteAccountPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-apty-dark mb-4">Delete Your AptyRead Account</h1>
           
           <div className="mb-6 text-apty-gray">
-            <p><strong>Last Updated:</strong> December 25, 2025</p>
+            <p><strong>Last Updated:</strong> May 20, 2026</p>
           </div>
 
           <div className="prose prose-lg max-w-none text-apty-gray">
@@ -34,6 +34,9 @@ export default function DeleteAccountPage() {
               <h2 className="text-2xl font-semibold text-apty-dark mb-4">We&apos;re Sorry to See You Go</h2>
               <p className="mb-4">
                 If you&apos;ve decided to delete your AptyRead account, we understand. This page explains how to delete your account and what happens to your data.
+              </p>
+              <p className="mb-4">
+                <strong>You can complete account deletion in the AptyRead app without emailing support.</strong>
               </p>
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-6">
                 <p className="text-apty-dark font-semibold mb-2">⚠️ Important</p>
@@ -45,46 +48,33 @@ export default function DeleteAccountPage() {
 
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-apty-dark mb-4">How to Delete Your Account</h2>
-              <p className="mb-4">You can delete your account in three ways:</p>
+              <p className="mb-4">
+                Account deletion is completed in the AptyRead app. Sign in with Google, Sign in with Apple, or email and password, then follow the steps below.
+              </p>
               
-              <h3 className="text-xl font-semibold text-apty-dark mb-3 mt-6">1. In-App (Recommended - Fastest)</h3>
-              <p className="mb-4">The easiest way to delete your account is directly from the AptyRead app:</p>
+              <h3 className="text-xl font-semibold text-apty-dark mb-3 mt-6">In the AptyRead App</h3>
+              <p className="mb-4">Delete your account directly from the app:</p>
               <ol className="list-decimal pl-6 mb-4 space-y-2">
-                <li>Open the AptyRead app</li>
+                <li>Open the AptyRead app and sign in</li>
                 <li>Go to <strong>Settings</strong> (or <strong>Help &amp; Support</strong>)</li>
                 <li>Tap <strong>&quot;Delete Account&quot;</strong></li>
-                <li>Follow the on-screen instructions</li>
-                <li>Confirm your deletion</li>
+                <li>Re-verify your identity when prompted (required for Sign in with Apple and other sign-in methods)</li>
+                <li>Follow the on-screen instructions and confirm your deletion</li>
               </ol>
-              <p className="mb-4"><strong>Why this is recommended:</strong></p>
+              <p className="mb-4"><strong>What to expect:</strong></p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
-                <li>✅ Fastest method (deletion happens immediately)</li>
-                <li>✅ Secure (uses your app authentication)</li>
-                <li>✅ Clear confirmation process</li>
-                <li>✅ You can see exactly what will be deleted</li>
+                <li>✅ Self-serve — no email or phone call required to start deletion</li>
+                <li>✅ Secure — uses your existing app sign-in</li>
+                <li>✅ Deletion begins immediately when you confirm in the app</li>
+                <li>✅ Clear confirmation so you can see what will be deleted</li>
               </ul>
 
-              <h3 className="text-xl font-semibold text-apty-dark mb-3 mt-6">2. Email Request</h3>
-              <p className="mb-4">If you cannot access the app, you can request account deletion by email:</p>
+              <h3 className="text-xl font-semibold text-apty-dark mb-3 mt-6">Cannot Use the App?</h3>
               <p className="mb-4">
-                <strong>Email:</strong> <a href="mailto:support@aptyread.ai" className="text-apty-coral hover:underline">support@aptyread.ai</a><br />
-                <strong>Subject:</strong> Delete AptyRead Account
+                If you are unable to delete your account in-app because of a lost sign-in, device issue, or other technical problem, contact{' '}
+                <a href="mailto:support@aptyread.ai" className="text-apty-coral hover:underline">support@aptyread.ai</a>{' '}
+                for assistance. Support can help you regain access or resolve technical issues so you can complete deletion in the app. Support is not a routine way to delete an account when the app is available.
               </p>
-              <p className="mb-4"><strong>Please include in your email:</strong></p>
-              <ul className="list-disc pl-6 mb-4 space-y-2">
-                <li>Your account email address or phone number</li>
-                <li>Confirmation that you want to delete your account</li>
-                <li>Any questions you have about the deletion process</li>
-              </ul>
-              <p className="mb-4"><strong>Response time:</strong> We will process your deletion request within 48 hours.</p>
-
-              <h3 className="text-xl font-semibold text-apty-dark mb-3 mt-6">3. Contact Support</h3>
-              <p className="mb-4">If you have questions or need help with account deletion:</p>
-              <p className="mb-4">
-                <strong>Email:</strong> <a href="mailto:support@aptyread.ai" className="text-apty-coral hover:underline">support@aptyread.ai</a><br />
-                <strong>Subject:</strong> Account Deletion Help
-              </p>
-              <p className="mb-4">Our support team is here to help and can guide you through the process.</p>
             </section>
 
             <section className="mb-8">
@@ -251,16 +241,9 @@ export default function DeleteAccountPage() {
               
               <h3 className="text-xl font-semibold text-apty-dark mb-3 mt-6">In-App Deletion</h3>
               <ul className="list-disc pl-6 mb-4 space-y-2">
-                <li><strong>Immediate:</strong> Account deletion begins immediately</li>
-                <li><strong>Completion:</strong> Typically within 24-48 hours</li>
-                <li><strong>Confirmation:</strong> You&apos;ll receive confirmation when deletion is complete</li>
-              </ul>
-
-              <h3 className="text-xl font-semibold text-apty-dark mb-3 mt-6">Email Request</h3>
-              <ul className="list-disc pl-6 mb-4 space-y-2">
-                <li><strong>Response:</strong> We&apos;ll acknowledge your request within 24 hours</li>
-                <li><strong>Processing:</strong> Deletion will be processed within 48 hours</li>
-                <li><strong>Confirmation:</strong> You&apos;ll receive email confirmation when deletion is complete</li>
+                <li><strong>Immediate:</strong> When you confirm in the app, account deletion starts right away</li>
+                <li><strong>Completion:</strong> Your account and associated data are removed from active systems; removal from all backups may take up to 48 hours</li>
+                <li><strong>Confirmation:</strong> You&apos;ll see confirmation in the app when deletion is initiated</li>
               </ul>
             </section>
 
@@ -284,18 +267,18 @@ export default function DeleteAccountPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-apty-dark mb-2">What if I change my mind after requesting deletion?</h3>
-                  <p className="mb-2">If you request deletion by email, contact us immediately at <a href="mailto:support@aptyread.ai" className="text-apty-coral hover:underline">support@aptyread.ai</a>. If we haven&apos;t processed your deletion yet, we may be able to cancel the request. However, once deletion is processed, it cannot be reversed.</p>
+                  <h3 className="text-lg font-semibold text-apty-dark mb-2">What if I change my mind after starting deletion?</h3>
+                  <p className="mb-2">Once you confirm deletion in the app, the process cannot be reversed. If you have not yet confirmed, simply close the flow without confirming. After deletion is processed, we cannot restore your account or data.</p>
                 </div>
 
                 <div>
                   <h3 className="text-lg font-semibold text-apty-dark mb-2">How long does it take to delete my account?</h3>
-                  <p className="mb-2">Account deletion is typically completed within 24-48 hours of your request.</p>
+                  <p className="mb-2">Deletion begins immediately when you confirm in the app. Removal from all systems, including backups, may take up to 48 hours.</p>
                 </div>
 
                 <div>
                   <h3 className="text-lg font-semibold text-apty-dark mb-2">Will you delete my data immediately?</h3>
-                  <p className="mb-2">We begin the deletion process immediately, but complete removal from all systems may take up to 48 hours.</p>
+                  <p className="mb-2">Yes — deletion starts as soon as you confirm in the app. Complete removal from all systems may take up to 48 hours.</p>
                 </div>
 
                 <div>
@@ -318,32 +301,31 @@ export default function DeleteAccountPage() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-apty-dark mb-4">Need Help?</h2>
-              <p className="mb-4">If you have questions about account deletion or need assistance:</p>
+              <h2 className="text-2xl font-semibold text-apty-dark mb-4">Ready to Delete?</h2>
+              
+              <h3 className="text-xl font-semibold text-apty-dark mb-3 mt-6">Delete in the AptyRead App</h3>
+              <ol className="list-decimal pl-6 mb-6 space-y-2">
+                <li>Open the AptyRead app and sign in</li>
+                <li>Go to Settings → Delete Account</li>
+                <li>Follow the on-screen instructions and confirm</li>
+              </ol>
+
+              <h3 className="text-xl font-semibold text-apty-dark mb-3 mt-6">Need Help?</h3>
+              <p className="mb-4">
+                If you&apos;re unable to delete your account in-app due to a technical issue, contact{' '}
+                <a href="mailto:support@aptyread.ai" className="text-apty-coral hover:underline font-semibold">support@aptyread.ai</a>{' '}
+                for assistance.
+              </p>
+            </section>
+
+            <section className="mb-8">
+              <h2 className="text-2xl font-semibold text-apty-dark mb-4">Questions About Deletion?</h2>
+              <p className="mb-4">If you have questions about what is deleted or need help using the in-app flow:</p>
               <p className="mb-4">
                 <strong>Email:</strong> <a href="mailto:support@aptyread.ai" className="text-apty-coral hover:underline">support@aptyread.ai</a><br />
                 <strong>Subject:</strong> Account Deletion Help
               </p>
               <p className="mb-4"><strong>Response Time:</strong> We aim to respond within 24 hours.</p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-apty-dark mb-4">Ready to Delete?</h2>
-              
-              <h3 className="text-xl font-semibold text-apty-dark mb-3 mt-6">Option 1: Delete in App (Recommended)</h3>
-              <ol className="list-decimal pl-6 mb-6 space-y-2">
-                <li>Open the AptyRead app</li>
-                <li>Go to Settings → Delete Account</li>
-                <li>Follow the instructions</li>
-              </ol>
-
-              <h3 className="text-xl font-semibold text-apty-dark mb-3 mt-6">Option 2: Request by Email</h3>
-              <p className="mb-4">Send an email to <a href="mailto:support@aptyread.ai" className="text-apty-coral hover:underline font-semibold">support@aptyread.ai</a> with:</p>
-              <ul className="list-disc pl-6 mb-4 space-y-2">
-                <li>Subject: &quot;Delete AptyRead Account&quot;</li>
-                <li>Your account email or phone number</li>
-                <li>Confirmation of your deletion request</li>
-              </ul>
             </section>
 
             <section className="mb-8">
@@ -362,7 +344,7 @@ export default function DeleteAccountPage() {
             </div>
 
             <div className="mt-8 text-sm text-apty-gray text-center">
-              <p><em>Last Updated: December 25, 2025</em></p>
+              <p><em>Last Updated: May 20, 2026</em></p>
               <p className="mt-2"><em>APTYOU SERVICES PRIVATE LIMITED<br />15/367, Kurumbathur, Thirunavaya, Malappuram, Kerala, India - 676301</em></p>
             </div>
           </div>
