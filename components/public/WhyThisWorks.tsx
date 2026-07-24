@@ -2,24 +2,24 @@
 
 const benefits = [
   {
-    icon: "🎯",
-    title: "A Complete Literacy Program",
-    description: "4 levels, 243 lessons, one clear sequence. Each lesson builds on what your child already learned.",
+    title: "One complete program",
+    description:
+      "Four levels. 243 lessons. Every step connects to the next. Nothing missing. Nothing rushed.",
   },
   {
-    icon: "🔒",
-    title: "Foundation First",
-    description: "Children start at Level 1 and move forward when ready. No skipping, no gaps in learning.",
+    title: "Foundation first. Always.",
+    description:
+      "A child moves forward only when the previous step is mastered. No gaps. No guessing.",
   },
   {
-    icon: "🎁",
-    title: "Start Free, No Pressure",
-    description: "Try 4 lessons free with no registration. Then enroll level by level, with no subscription pressure.",
+    title: "Start free. No pressure.",
+    description:
+      "Try 4 lessons free. No registration. No credit card. See if your child responds. Then decide.",
   },
   {
-    icon: "🛡️",
-    title: "No Ads. No Distractions.",
-    description: "Short, focused lessons with a routine that supports children and parents.",
+    title: "No ads. No distractions.",
+    description:
+      "Just your child and the lesson. Clean. Focused. Done in fifteen minutes.",
   },
 ];
 
@@ -31,18 +31,17 @@ export default function WhyThisWorks() {
           <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-3">
             Why AptyRead
           </h2>
-          <p className="text-lg text-apty-gray max-w-2xl mx-auto">
-            Our goal is simple: help children become confident, independent readers.
+          <p className="text-lg md:text-xl text-apty-gray max-w-2xl mx-auto leading-relaxed">
+            Reading has to be taught. AptyRead teaches it the right way.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {benefits.map((benefit, index) => (
+          {benefits.map((benefit) => (
             <div
-              key={index}
-              className="p-6 bg-apty-warm rounded-xl border border-apty-coral-accent hover:border-apty-coral transition-all duration-300"
+              key={benefit.title}
+              className="p-6 md:p-7 bg-apty-warm rounded-xl border border-apty-coral-accent"
             >
-              <div className="text-3xl mb-3">{benefit.icon}</div>
               <h3 className="text-xl font-bold text-apty-dark mb-2">
                 {benefit.title}
               </h3>

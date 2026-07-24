@@ -16,7 +16,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "AptyRead",
-    "description": "AptyRead — From First Sound to Fluent Reader. Complete reading program for children 3-10. 4 levels, 243 lessons; nobody can skip levels without the correct foundation.",
+    "description": "AptyRead. Every Child Reads. A complete English literacy program for children aged 3 to 10. Built on the Science of Reading. 4 levels, 243 lessons. Try 4 lessons free. No registration.",
     "url": "https://www.aptyread.ai",
     "logo": "https://www.aptyread.ai/images/apty.png",
     "sameAs": [
@@ -54,7 +54,7 @@ export default function Home() {
       "ratingValue": "4.5",
       "ratingCount": "1"
     },
-    "description": "AptyRead — From First Sound to Fluent Reader. Complete reading program for children 3-10. 4 levels, 243 lessons. Try 4 lessons free on iOS or Android."
+    "description": "AptyRead. Every Child Reads. A complete English literacy program for children aged 3 to 10. Built on the Science of Reading. 4 levels, 243 lessons. Try 4 lessons free on iOS or Android."
   };
 
   return (
@@ -71,8 +71,8 @@ export default function Home() {
         <Header />
         <Hero />
         <LandingVideo
-          title="See AptyRead In 60 Seconds"
-          subtitle="A quick parent walkthrough: why children get stuck, how the 4-level path works, and how to start free."
+          title="See AptyRead in 60 seconds."
+          subtitle="Why some children struggle to read. And what changes when the foundation is right."
         />
         <BusyUserStrip />
         <AppShowcase />

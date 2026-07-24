@@ -8,12 +8,14 @@ export default function CTA() {
     <section className="bg-gradient-to-br from-apty-coral to-orange-500 py-20 px-4">
       <div className="container mx-auto max-w-3xl text-center">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-          Start Your Child&apos;s Reading Journey
+          Every child can learn to read.
+          <br />
+          Yours can too.
         </h2>
         <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-          For children 3 to 10. No registration needed. Try 4 free lessons and see if the program is right for your child.
+          Start free today. No registration. No pressure. Just your child and their first lesson.
         </p>
-        
+
         <div className="flex flex-col gap-4 justify-center items-center mb-10">
           <PlayStoreLink
             platform="auto"
@@ -28,23 +30,15 @@ export default function CTA() {
         </div>
 
         <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6 border border-white/30">
-          <p className="text-white text-base md:text-lg mb-4 font-semibold">
-            What happens next?
+          <p className="text-white text-base md:text-lg leading-relaxed max-w-md mx-auto">
+            Four free lessons.
+            <br />
+            See how your child responds.
+            <br />
+            Then decide.
+            <br />
+            No pressure. Ever.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-white/95 text-sm md:text-base">
-            <div className="flex items-center gap-2">
-              <span className="text-lg md:text-xl">✓</span>
-              <span>Try 4 lessons free</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-lg md:text-xl">✓</span>
-              <span>See if your child enjoys it</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-lg md:text-xl">✓</span>
-              <span>Then decide if you want more</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>

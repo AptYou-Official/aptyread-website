@@ -13,10 +13,19 @@ export default function LetterToParents() {
             Why we built AptyRead
           </p>
           <p className="text-apty-gray leading-relaxed mb-4">
-            As creators and educators, we watched many children struggle with reading. Not because they lacked ability, but because they lacked a solid foundation. <strong className="text-apty-dark">We wanted to create something different: real education, not just entertainment.</strong>
+            In 2020, parents came to us with children who struggled to read English. We watched. We listened. We understood one thing clearly.
+          </p>
+          <p className="text-apty-dark font-semibold mb-4 leading-relaxed">
+            What the child gets should not depend on who happens to teach them that day.
+          </p>
+          <p className="text-apty-gray leading-relaxed mb-4">
+            That was not good enough. Every child deserves a structured, consistent, always available foundation.
+          </p>
+          <p className="text-apty-dark font-semibold mb-2">
+            So we built AptyRead.
           </p>
           <p className="text-apty-dark font-semibold mb-6">
-            Our mission: No child should fall behind because they couldn&apos;t read.
+            Our mission: Every child reads.
           </p>
           <Link
             href="/about"
@@ -29,4 +38,3 @@ export default function LetterToParents() {
     </section>
   );
 }
-

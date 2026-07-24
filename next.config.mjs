@@ -24,6 +24,7 @@ const nextConfig = {
       { source: '/aptyread-pricing-plans', destination: '/', permanent: true },
       { source: '/courses', destination: '/', permanent: true },
       { source: '/for-parents', destination: '/', permanent: true },
+      { source: '/educators', destination: '/schools', permanent: true },
       // Firebase Auth action link (single underscore) → our handler (double underscore)
       { source: '/_/auth/action', destination: '/__/auth/action', permanent: false },
     ];

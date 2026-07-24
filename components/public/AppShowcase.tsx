@@ -13,7 +13,7 @@ const shots: { n: string; alt: string }[] = [
   },
   {
     n: "02",
-    alt: "AptyRead: parent settings for a healthy pace—one or two new lessons per day",
+    alt: "AptyRead: parent settings for a healthy pace. One or two new lessons per day",
   },
   {
     n: "03",
@@ -37,7 +37,7 @@ const shots: { n: string; alt: string }[] = [
   },
   {
     n: "08",
-    alt: "AptyRead: Your Learning Path—structured letter sequence, free lessons to begin, and continue where you left off",
+    alt: "AptyRead: Your Learning Path. Structured letter sequence, free lessons to begin, and continue where you left off",
   },
 ];
 
@@ -92,10 +92,13 @@ export default function AppShowcase({
         <div className={`text-center max-w-2xl mx-auto ${isCompact ? "mb-8" : "mb-10"}`}>
           <h2
             id="app-showcase-heading"
-            className="text-3xl md:text-4xl font-bold text-apty-dark"
+            className="text-3xl md:text-4xl font-bold text-apty-dark mb-3"
           >
-            See inside the app
+            Every lesson. Every sound. Every step.
           </h2>
+          <p className="text-base md:text-lg text-apty-gray">
+            Built for children who are just beginning.
+          </p>
         </div>
 
         <div
@@ -107,7 +110,7 @@ export default function AppShowcase({
             "snap-x snap-mandatory scroll-px-4 scroll-smooth pb-2 md:pb-0",
             "md:overflow-x-visible",
             "md:grid", gridClass, "-mx-4", "px-4", "md:mx-0", "md:px-0", "md:snap-none",
-            // subtle scrollbar on small screens; hidden on iOS is optional—thin is fine
+            // subtle scrollbar on small screens; hidden on iOS is optional; thin is fine
             "[scrollbar-width:thin] md:[scrollbar-width:auto]",
             "[&::-webkit-scrollbar]:h-1.5 md:[&::-webkit-scrollbar]:h-0",
             "[&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-apty-coral/25",
@@ -142,6 +145,9 @@ export default function AppShowcase({
         </div>
         <p className="md:hidden text-center text-sm text-apty-gray mt-3">
           Swipe sideways to see all screens
+        </p>
+        <p className="text-center text-base md:text-lg text-apty-gray mt-6 md:mt-8 max-w-xl mx-auto">
+          One lesson a day. Fifteen to twenty minutes. That is all it takes.
         </p>
       </div>
     </section>

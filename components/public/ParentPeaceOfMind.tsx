@@ -2,24 +2,24 @@
 
 const concerns = [
   {
-    question: "Worried about screen time?",
-    answer: "One lesson per day. Designed for healthy habits. No pressure to use more. Your child learns, then done.",
-    icon: "⏱️",
+    question: "Screen time",
+    answer:
+      "One lesson. Fifteen minutes. Then done. AptyRead is not designed to keep your child on screen longer. It is designed to get them off screen and into books.",
   },
   {
-    question: "Worried about cost?",
-    answer: "Try 4 lessons free. Enroll level-by-level only. No subscriptions. Complete Level 1, then decide if you want more.",
-    icon: "💰",
+    question: "Cost",
+    answer:
+      "Try before you pay. Always. Four lessons free. No registration. No credit card. If it works for your child, then decide. Not before.",
   },
   {
-    question: "Worried it won't work?",
-    answer: "Structured, proven approach. Your child can master each step before moving forward. Real progress for many children.",
-    icon: "✅",
+    question: "Will it work?",
+    answer:
+      "Reading is not a talent. It is a skill. Every child who follows the program builds the foundation. The structure does the work. Your child does the learning.",
   },
   {
-    question: "Worried about pressure?",
-    answer: "Respects your child's pace. No rushing. One lesson, then done. You control how fast or slow they learn.",
-    icon: "❤️",
+    question: "Pressure",
+    answer:
+      "No rushing. No comparison. No pressure. One lesson when your child is ready. AptyRead moves when your child moves.",
   },
 ];
 
@@ -29,30 +29,25 @@ export default function ParentPeaceOfMind() {
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-3">
-            Designed with Parents in Mind
+            Built for how parents actually live
           </h2>
           <p className="text-lg text-apty-gray max-w-2xl mx-auto">
-            We understand your concerns. Here&apos;s how we address them.
+            Clear limits. Clear costs. Clear progress. No noise.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {concerns.map((concern, index) => (
+          {concerns.map((concern) => (
             <div
-              key={index}
-              className="bg-white p-6 md:p-7 rounded-xl border border-apty-coral-accent hover:border-apty-coral transition-all shadow-sm"
+              key={concern.question}
+              className="bg-white p-6 md:p-7 rounded-xl border border-apty-coral-accent shadow-sm"
             >
-              <div className="flex items-start gap-4">
-                <div className="text-3xl flex-shrink-0">{concern.icon}</div>
-                <div>
-                  <h3 className="text-xl font-bold text-apty-dark mb-2">
-                    {concern.question}
-                  </h3>
-                  <p className="text-apty-gray leading-relaxed text-base">
-                    {concern.answer}
-                  </p>
-                </div>
-              </div>
+              <h3 className="text-xl font-bold text-apty-dark mb-2">
+                {concern.question}
+              </h3>
+              <p className="text-apty-gray leading-relaxed text-base">
+                {concern.answer}
+              </p>
             </div>
           ))}
         </div>

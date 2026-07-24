@@ -21,7 +21,7 @@ export default function Header() {
               AptyRead
             </span>
             <span className="text-xs md:text-sm text-apty-gray italic hidden sm:block">
-              From First Sound to Fluent Reader
+              Every Child Reads.
             </span>
           </div>
         </Link>
@@ -29,8 +29,8 @@ export default function Header() {
           <Link href="/" className="hidden sm:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base">
             Home
           </Link>
-          <Link href="/educators" className="hidden sm:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base">
-            Educators
+          <Link href="/schools" className="hidden sm:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base">
+            For Schools
           </Link>
           <AppStoreBadge compact className="hidden md:inline-flex h-8 md:h-10" />
           <GooglePlayBadge compact />

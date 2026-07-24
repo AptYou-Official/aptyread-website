@@ -35,10 +35,19 @@ export default function AboutPage() {
             {/* Introduction */}
             <section className="mb-8">
               <p className="text-base md:text-lg leading-relaxed mb-4">
-                As creators and educators, we watched many children struggle with reading—not because they lacked the ability, but because they lacked a solid foundation.
+                In 2020, parents came to us with children who struggled to read English. We watched. We listened. We understood one thing clearly.
               </p>
               <p className="text-base md:text-lg leading-relaxed mb-4">
-                <strong className="text-apty-dark">We wanted to create something different.</strong>
+                <strong className="text-apty-dark">What the child gets should not depend on who happens to teach them that day.</strong>
+              </p>
+              <p className="text-base md:text-lg leading-relaxed mb-4">
+                That was not good enough. Every child deserves a structured, consistent, always available foundation.
+              </p>
+              <p className="text-base md:text-lg leading-relaxed mb-4">
+                <strong className="text-apty-dark">So we built AptyRead.</strong>
+              </p>
+              <p className="text-base md:text-lg leading-relaxed mb-4">
+                <strong className="text-apty-dark">Our mission: Every child reads.</strong>
               </p>
             </section>
 
@@ -81,7 +90,7 @@ export default function AboutPage() {
                 We are honored to walk this path with you.
               </p>
               <p className="text-base md:text-lg text-apty-gray">
-                — The AptyRead Team
+                The AptyRead Team
               </p>
             </section>
           </div>

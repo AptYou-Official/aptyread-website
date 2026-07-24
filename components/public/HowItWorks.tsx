@@ -5,42 +5,31 @@ const levels = [
     number: 1,
     name: "I am Learning Letters",
     parentQuote: "My child knows the alphabet but can't read yet.",
-    description: "Children build sound foundations first. They learn letter sounds, letter shapes, and how to write every letter.",
-    pills: ["All 26 letter sounds", "Upper & lowercase letters", "Letter writing", "46 lessons"],
-    accent: "blue",
+    description:
+      "Knowing the alphabet is not the same as reading. Level 1 fixes that. Every letter sound. Every letter shape. Every letter written correctly. 46 lessons. The foundation everything else is built on.",
   },
   {
     number: 2,
     name: "I Can Read!",
     parentQuote: "My child knows the sounds but can't put them together.",
-    description: "Children blend sounds into words, then read sentences and short stories. This is where reading starts to click.",
-    pills: ["First words & sentences", "Short stories", "Sight words", "57 lessons"],
-    accent: "green",
+    description:
+      "This is where reading begins. Sounds become words. Words become sentences. Sentences become stories. 57 lessons. The moment your child reads their first real word. You will both remember it.",
   },
   {
     number: 3,
     name: "I Am Reading!",
     parentQuote: "My child reads simple words but struggles with longer texts.",
-    description: "Children learn key reading patterns and read longer passages with stronger fluency and comprehension.",
-    pills: ["Key spelling patterns", "Paragraph reading", "Comprehension checks", "63 lessons"],
-    accent: "orange",
+    description:
+      "Simple words are not enough. Level 3 builds fluency. Longer words. Paragraphs. Comprehension. 63 lessons. Reading starts to feel effortless.",
   },
   {
     number: 4,
     name: "I Am a Reader!",
     parentQuote: "My child reads but struggles with longer or harder words.",
-    description: "Children read real published books chapter by chapter, independently. Long words decoded. Stories understood. A reader for life.",
-    pills: ["Long-word strategies", "4 real books read", "Independent reading", "77 lessons"],
-    accent: "purple",
+    description:
+      "Real books. Real stories. Real reading. Level 4 puts four published books in your child's hands. 77 lessons. Your child finishes as an independent reader. A reader for life.",
   },
 ];
-
-const pillColors: Record<string, string> = {
-  blue: "bg-blue-100 text-blue-800 border-blue-200",
-  green: "bg-green-100 text-green-800 border-green-200",
-  orange: "bg-orange-100 text-orange-800 border-orange-200",
-  purple: "bg-purple-100 text-purple-800 border-purple-200",
-};
 
 export default function HowItWorks() {
   return (
@@ -48,15 +37,14 @@ export default function HowItWorks() {
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-apty-dark mb-4">
-            The 4 Levels: One Complete Journey
+            Four levels. One path.
           </h2>
-          <p className="text-lg md:text-xl text-apty-gray max-w-3xl mx-auto">
-            From first sound to fluent reader. Every child starts at Level 1 and moves forward with the right foundation.
+          <p className="text-lg md:text-xl text-apty-gray max-w-3xl mx-auto leading-relaxed">
+            Every child starts at the beginning and arrives at the same destination. A reader for life.
           </p>
         </div>
 
         <div className="relative space-y-6">
-          {/* Timeline line (runs beside level numbers on desktop) */}
           <div className="absolute left-[4.5rem] top-6 bottom-6 w-0.5 bg-apty-coral/25 hidden md:block" aria-hidden />
           {levels.map((level, index) => (
             <div
@@ -78,18 +66,8 @@ export default function HowItWorks() {
                     <p className="text-apty-gray leading-relaxed mb-4">
                       {level.description}
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {level.pills.map((pill) => (
-                        <span
-                          key={pill}
-                          className={`inline-block px-3 py-1 rounded-full text-sm font-medium border ${pillColors[level.accent]}`}
-                        >
-                          {pill}
-                        </span>
-                      ))}
-                    </div>
                     {index < levels.length - 1 && (
-                      <p className="text-sm text-apty-coral font-medium mt-4">
+                      <p className="text-sm text-apty-coral font-medium mt-2">
                         Then your child is ready for Level {level.number + 1} →
                       </p>
                     )}
@@ -100,12 +78,12 @@ export default function HowItWorks() {
           ))}
         </div>
 
-        <div className="mt-10 md:mt-12 text-center space-y-4">
-          <p className="text-base md:text-lg text-apty-gray max-w-2xl mx-auto">
-            Lessons unlock in order. Children progress when they are ready, not when a timer says so.
-          </p>
+        <div className="mt-10 md:mt-12 text-center space-y-3">
           <p className="text-base md:text-lg font-semibold text-apty-dark max-w-2xl mx-auto">
-            No direct entry to Level 2, 3, or 4. Strong foundations come first.
+            No child skips ahead. No child is left behind.
+          </p>
+          <p className="text-base md:text-lg text-apty-gray max-w-2xl mx-auto">
+            Every child moves at their own pace. Every child arrives.
           </p>
         </div>
       </div>

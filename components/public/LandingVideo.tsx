@@ -44,8 +44,8 @@ function loadYoutubeApi(): Promise<void> {
 }
 
 export default function LandingVideo({
-  title = "Watch How AptyRead Builds Reading Confidence",
-  subtitle = "A 60-second walkthrough for parents: problem, method, levels, and how to start free.",
+  title = "See AptyRead in 60 seconds.",
+  subtitle = "Why some children struggle to read. And what changes when the foundation is right.",
 }: LandingVideoProps) {
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
