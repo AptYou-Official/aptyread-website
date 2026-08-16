@@ -30,7 +30,6 @@ export default function SchoolDemoForm() {
       `Email: ${data.get('email') || ''}`,
       `City and Country: ${data.get('location') || ''}`,
       `Board or Curriculum: ${data.get('board') || ''}`,
-      `Students in Early Years: ${data.get('studentCount') || ''}`,
       `Best Time to Call: ${data.get('bestTime') || ''}`,
     ];
 
@@ -139,19 +138,6 @@ export default function SchoolDemoForm() {
               </option>
             ))}
           </select>
-        </div>
-        <div>
-          <label htmlFor="studentCount" className={labelClass}>
-            Number of Students in Early Years
-          </label>
-          <input
-            id="studentCount"
-            name="studentCount"
-            type="text"
-            required
-            className={fieldClass}
-            placeholder="e.g. 120"
-          />
         </div>
       </div>
 

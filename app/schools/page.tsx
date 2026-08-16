@@ -421,6 +421,9 @@ export default function SchoolsPage() {
                 Talk to us for school rollout
               </a>
             </div>
+            <p className="mt-10 text-lg font-semibold text-apty-dark md:text-xl">
+              Every child reads. Every teacher succeeds.
+            </p>
           </div>
         </section>
 
