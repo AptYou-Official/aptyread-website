@@ -24,7 +24,6 @@ export default function SchoolDemoForm() {
       'School demo request from aptyread.ai/schools',
       '',
       `School Name: ${data.get('schoolName') || ''}`,
-      `Principal Name: ${data.get('principalName') || ''}`,
       `Your Name and Designation: ${data.get('contactName') || ''}`,
       `Phone: ${data.get('phone') || ''}`,
       `Email: ${data.get('email') || ''}`,
@@ -62,19 +61,6 @@ export default function SchoolDemoForm() {
           />
         </div>
         <div>
-          <label htmlFor="principalName" className={labelClass}>
-            Principal Name
-          </label>
-          <input
-            id="principalName"
-            name="principalName"
-            type="text"
-            required
-            className={fieldClass}
-            autoComplete="name"
-          />
-        </div>
-        <div>
           <label htmlFor="contactName" className={labelClass}>
             Your Name and Designation
           </label>
@@ -84,6 +70,7 @@ export default function SchoolDemoForm() {
             type="text"
             required
             className={fieldClass}
+            autoComplete="name"
           />
         </div>
         <div>
@@ -139,19 +126,18 @@ export default function SchoolDemoForm() {
             ))}
           </select>
         </div>
-      </div>
-
-      <div>
-        <label htmlFor="bestTime" className={labelClass}>
-          Best Time to Call
-        </label>
-        <input
-          id="bestTime"
-          name="bestTime"
-          type="text"
-          className={fieldClass}
-          placeholder="e.g. Weekday mornings"
-        />
+        <div>
+          <label htmlFor="bestTime" className={labelClass}>
+            Best Time to Call
+          </label>
+          <input
+            id="bestTime"
+            name="bestTime"
+            type="text"
+            className={fieldClass}
+            placeholder="e.g. Weekday mornings"
+          />
+        </div>
       </div>
 
       <button
