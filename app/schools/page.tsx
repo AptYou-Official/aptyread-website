@@ -87,6 +87,44 @@ const classroomSteps = [
   },
 ];
 
+const lessonFlow = [
+  {
+    step: "01",
+    title: "Watch and listen",
+    body: "Video shows the sound. A real mouth. A real sound. The whole class watches together.",
+  },
+  {
+    step: "02",
+    title: "Model and repeat",
+    body: "The teacher pauses and models the sound. The class repeats together, out loud.",
+  },
+  {
+    step: "03",
+    title: "Practice on screen",
+    body: "One child at a time comes up to try it. The rest of the class stays part of the lesson.",
+  },
+  {
+    step: "04",
+    title: "Write and check",
+    body: "Letter formation loops on screen. Children write on paper. The teacher checks.",
+  },
+];
+
+const teacherPoints = [
+  {
+    title: "No prior training needed",
+    body: "Every lesson guides the teacher on screen: what to say, model, and watch for.",
+  },
+  {
+    title: "The programme carries the expertise",
+    body: "The phonics knowledge lives in the lesson, not in the teacher's memory.",
+  },
+  {
+    title: "Confident from lesson one",
+    body: "Any teacher, in any classroom, can deliver this well from the first day.",
+  },
+];
+
 function ArrowIcon() {
   return (
     <svg
@@ -336,6 +374,82 @@ export default function SchoolsPage() {
                         {item.body}
                       </p>
                     </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#fff5f0] px-4 py-20 md:py-28">
+          <div className="container mx-auto max-w-6xl">
+            <div className="max-w-2xl">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-apty-coral">
+                How a lesson works
+              </p>
+              <h2 className="text-balance text-3xl font-bold tracking-tight text-apty-dark md:text-5xl">
+                In your classroom, on your screen.
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-apty-gray">
+                One screen. One teacher. The whole class moves through the
+                lesson together.
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              {lessonFlow.map((item) => (
+                <article
+                  key={item.step}
+                  className="rounded-3xl border border-apty-coral-accent bg-white p-7 md:p-8"
+                >
+                  <p className="text-sm font-semibold uppercase tracking-[0.14em] text-apty-coral">
+                    Step {item.step}
+                  </p>
+                  <h3 className="mt-4 text-2xl font-bold text-apty-dark">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 leading-relaxed text-apty-gray">
+                    {item.body}
+                  </p>
+                </article>
+              ))}
+            </div>
+
+            <p className="mt-10 max-w-3xl text-base font-semibold text-apty-dark md:text-lg">
+              No individual devices. Nothing to print or order. A school can
+              begin with free lessons.
+            </p>
+          </div>
+        </section>
+
+        <section className="px-4 py-20 md:py-28">
+          <div className="container mx-auto max-w-6xl">
+            <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-20">
+              <div>
+                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-apty-coral">
+                  For teachers
+                </p>
+                <h2 className="text-balance text-3xl font-bold tracking-tight text-apty-dark md:text-5xl">
+                  The teacher facilitates. AptyRead teaches.
+                </h2>
+                <p className="mt-5 text-lg leading-relaxed text-apty-gray">
+                  Teachers do not need to become phonics specialists first. The
+                  lesson carries the method.
+                </p>
+                <p className="mt-8 rounded-2xl bg-apty-dark px-6 py-5 text-base font-semibold text-white md:text-lg">
+                  The teacher leads the room. AptyRead leads the lesson.
+                </p>
+              </div>
+
+              <div className="divide-y divide-apty-border border-y border-apty-border">
+                {teacherPoints.map((item) => (
+                  <article key={item.title} className="py-7 md:py-8">
+                    <h3 className="text-xl font-bold text-apty-dark">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 leading-relaxed text-apty-gray">
+                      {item.body}
+                    </p>
                   </article>
                 ))}
               </div>
