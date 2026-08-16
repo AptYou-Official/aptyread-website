@@ -1,7 +1,14 @@
 import AppStoreBadge from '@/components/public/AppStoreBadge';
 import GooglePlayBadge from '@/components/public/GooglePlayBadge';
 
-export default function Footer() {
+const CLASSROOM_URL = 'https://classroom.aptyread.ai';
+const CLASSROOM_LOGIN_URL = 'https://classroom.aptyread.ai/#/login';
+
+type FooterProps = {
+  schoolsPage?: boolean;
+};
+
+export default function Footer({ schoolsPage = false }: FooterProps) {
   return (
     <footer className="bg-white border-t border-apty-coral-accent py-12 px-4">
       <div className="container mx-auto max-w-6xl">
@@ -12,7 +19,9 @@ export default function Footer() {
               Every Child Reads.
             </p>
             <p className="text-apty-gray text-sm">
-              A complete literacy program for children aged 3 to 10. 4 levels, 243 lessons. Parents and educators welcome.
+              {schoolsPage
+                ? 'Structured English literacy for classrooms. Teach from a digital board, laptop, or projector.'
+                : 'A complete literacy program for children aged 3 to 10. 4 levels, 243 lessons. Parents and educators welcome.'}
             </p>
           </div>
           <div>
@@ -105,23 +114,50 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-apty-dark mb-4">Download</h4>
-            <div className="mb-3">
-              <AppStoreBadge />
-            </div>
-            <GooglePlayBadge className="mb-3" />
+            {schoolsPage ? (
+              <>
+                <h4 className="font-semibold text-apty-dark mb-4">Classroom</h4>
+                <ul className="space-y-2 text-sm">
+                  <li>
+                    <a
+                      href={CLASSROOM_URL}
+                      className="text-apty-gray hover:text-apty-coral transition-colors"
+                    >
+                      Open Classroom
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={CLASSROOM_LOGIN_URL}
+                      className="text-apty-gray hover:text-apty-coral transition-colors"
+                    >
+                      School login
+                    </a>
+                  </li>
+                </ul>
+              </>
+            ) : (
+              <>
+                <h4 className="font-semibold text-apty-dark mb-4">Download</h4>
+                <div className="mb-3">
+                  <AppStoreBadge />
+                </div>
+                <GooglePlayBadge className="mb-3" />
+              </>
+            )}
           </div>
         </div>
         <div className="border-t border-apty-coral-accent pt-8 text-center">
           <p className="text-apty-gray text-sm mb-2">
             © 2026 APTYOU SERVICES PRIVATE LIMITED. All rights reserved.
           </p>
-          <p className="text-apty-gray text-xs">
-            Google Play and the Google Play logo are trademarks of Google LLC.
-          </p>
+          {!schoolsPage ? (
+            <p className="text-apty-gray text-xs">
+              Google Play and the Google Play logo are trademarks of Google LLC.
+            </p>
+          ) : null}
         </div>
       </div>
     </footer>
   );
 }
-

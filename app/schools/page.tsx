@@ -3,6 +3,7 @@ import Header from "@/components/public/Header";
 import Footer from "@/components/public/Footer";
 
 const CLASSROOM_URL = "https://classroom.aptyread.ai";
+const CLASSROOM_LOGIN_URL = "https://classroom.aptyread.ai/#/login";
 const CONTACT_EMAIL = "contact@aptyread.ai";
 
 export const metadata: Metadata = {
@@ -156,7 +157,7 @@ export default function SchoolsPage() {
                   <ArrowIcon />
                 </a>
                 <a
-                  href={CLASSROOM_URL}
+                  href={CLASSROOM_LOGIN_URL}
                   className="inline-flex items-center gap-1.5 px-2 py-2 font-semibold text-apty-dark transition-colors hover:text-apty-coral"
                 >
                   School login
@@ -477,7 +478,7 @@ export default function SchoolsPage() {
         </section>
       </main>
 
-      <Footer />
+      <Footer schoolsPage />
     </div>
   );
 }

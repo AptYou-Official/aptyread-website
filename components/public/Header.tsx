@@ -3,6 +3,9 @@ import Image from 'next/image';
 import AppStoreBadge from '@/components/public/AppStoreBadge';
 import GooglePlayBadge from '@/components/public/GooglePlayBadge';
 
+const CLASSROOM_URL = 'https://classroom.aptyread.ai';
+const CLASSROOM_LOGIN_URL = 'https://classroom.aptyread.ai/#/login';
+
 type HeaderProps = {
   schoolsPage?: boolean;
 };
@@ -39,13 +42,13 @@ export default function Header({ schoolsPage = false }: HeaderProps) {
           {schoolsPage ? (
             <>
               <a
-                href="https://classroom.aptyread.ai"
+                href={CLASSROOM_LOGIN_URL}
                 className="hidden md:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base"
               >
                 School login
               </a>
               <a
-                href="https://classroom.aptyread.ai"
+                href={CLASSROOM_URL}
                 className="inline-flex items-center justify-center rounded-full bg-apty-coral px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#e95624] md:px-5"
               >
                 Open Classroom
@@ -62,4 +65,3 @@ export default function Header({ schoolsPage = false }: HeaderProps) {
     </header>
   );
 }
-
