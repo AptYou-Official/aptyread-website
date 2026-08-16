@@ -177,8 +177,8 @@ export default function SchoolDemoForm() {
 
       <p className="text-sm text-apty-gray">
         {submitted
-          ? 'Your email app should open with the request ready to send. We respond within 24 hours.'
-          : 'We respond within 24 hours.'}
+          ? 'Your email app should open with the request ready to send.'
+          : 'Submitting opens a prepared email in your email app.'}
       </p>
     </form>
   );
