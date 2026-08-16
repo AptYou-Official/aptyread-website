@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Header from "@/components/public/Header";
 import Footer from "@/components/public/Footer";
-import SchoolDemoForm from "@/components/public/SchoolDemoForm";
 
 const CLASSROOM_URL = "https://classroom.aptyread.ai";
+const CONTACT_EMAIL = "contact@aptyread.ai";
 
 export const metadata: Metadata = {
   title: "AptyRead Classroom for Schools | Structured English Literacy",
@@ -429,39 +429,50 @@ export default function SchoolsPage() {
 
         <section
           id="request-demo"
-          className="scroll-mt-24 bg-white px-4 py-20 md:py-28"
+          className="scroll-mt-24 border-t border-apty-border bg-white px-4 py-20 md:py-28"
         >
-          <div className="container mx-auto max-w-4xl">
-            <div className="mb-10 max-w-2xl">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-apty-coral">
-                School rollout
-              </p>
-              <h2 className="text-3xl font-bold tracking-tight text-apty-dark md:text-5xl">
-                Talk to our team.
-              </h2>
-              <p className="mt-5 text-lg leading-relaxed text-apty-gray">
-                Request a walkthrough, discuss classroom licenses, or ask about
-                pricing for your country.
-              </p>
+          <div className="container mx-auto max-w-3xl text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-apty-coral">
+              School rollout
+            </p>
+            <h2 className="text-balance text-3xl font-bold tracking-tight text-apty-dark md:text-5xl">
+              Talk to our team.
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-apty-gray">
+              For country pricing, multi-classroom plans, or a guided rollout,
+              email us. For free lessons and classroom access, start in
+              Classroom.
+            </p>
+            <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="inline-flex items-center justify-center rounded-full bg-apty-coral px-7 py-3.5 font-semibold text-white transition-colors hover:bg-[#e95624]"
+              >
+                Email us
+              </a>
+              <a
+                href={CLASSROOM_URL}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-apty-coral px-7 py-3.5 font-semibold text-apty-coral transition-colors hover:bg-[#fff5f0]"
+              >
+                Start free in Classroom
+                <ArrowIcon />
+              </a>
             </div>
-            <div className="rounded-3xl border border-apty-border bg-[#fffdfb] p-6 shadow-sm md:p-10">
-              <SchoolDemoForm />
-            </div>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="mt-6 inline-block font-semibold text-apty-dark transition-colors hover:text-apty-coral"
+            >
+              {CONTACT_EMAIL}
+            </a>
           </div>
         </section>
 
         <section className="border-t border-apty-border bg-white px-4 py-10">
-          <div className="container mx-auto flex max-w-6xl flex-col justify-between gap-4 text-sm text-apty-gray sm:flex-row sm:items-center">
+          <div className="container mx-auto max-w-6xl text-sm text-apty-gray">
             <p>
               Optional home practice is also available through the AptyRead
               companion app.
             </p>
-            <a
-              href="mailto:contact@aptyread.ai"
-              className="font-semibold text-apty-coral hover:text-apty-dark"
-            >
-              contact@aptyread.ai
-            </a>
           </div>
         </section>
       </main>
