@@ -275,7 +275,7 @@ export default function SchoolsPage() {
                   <h3 className="mt-3 text-xl font-bold text-apty-dark md:text-2xl">
                     {principle.title}
                   </h3>
-                  <p className="mt-3 max-w-md leading-relaxed text-apty-gray">
+                  <p className="mt-3 max-w-md text-lg leading-relaxed text-apty-gray">
                     {principle.body}
                   </p>
                 </article>
@@ -295,7 +295,7 @@ export default function SchoolsPage() {
                   Four levels. One connected foundation.
                 </h2>
               </div>
-              <p className="max-w-sm leading-relaxed text-apty-gray">
+              <p className="max-w-sm text-lg leading-relaxed text-apty-gray">
                 Level 1 is the current classroom entry point. The full pathway
                 shows where each skill leads next.
               </p>
@@ -324,7 +324,7 @@ export default function SchoolsPage() {
                   <h3 className="mt-5 text-2xl font-bold text-apty-dark">
                     {item.title}
                   </h3>
-                  <p className="mt-3 leading-relaxed text-apty-gray">
+                  <p className="mt-3 text-lg leading-relaxed text-apty-gray">
                     {item.body}
                   </p>
                 </article>
@@ -369,7 +369,7 @@ export default function SchoolsPage() {
                       <h3 className="text-xl font-bold text-apty-dark">
                         {item.title}
                       </h3>
-                      <p className="mt-2 leading-relaxed text-apty-gray">
+                      <p className="mt-2 text-lg leading-relaxed text-apty-gray">
                         {item.body}
                       </p>
                     </div>
@@ -407,7 +407,7 @@ export default function SchoolsPage() {
                   <h3 className="mt-4 text-2xl font-bold text-apty-dark">
                     {item.title}
                   </h3>
-                  <p className="mt-3 leading-relaxed text-apty-gray">
+                  <p className="mt-3 text-lg leading-relaxed text-apty-gray">
                     {item.body}
                   </p>
                 </article>
@@ -446,7 +446,7 @@ export default function SchoolsPage() {
                     <h3 className="text-xl font-bold text-apty-dark">
                       {item.title}
                     </h3>
-                    <p className="mt-2 leading-relaxed text-apty-gray">
+                    <p className="mt-2 text-lg leading-relaxed text-apty-gray">
                       {item.body}
                     </p>
                   </article>
@@ -469,7 +469,7 @@ export default function SchoolsPage() {
                 Register your school and try the free lessons. If they work for
                 your class, upgrade a level in Classroom when you are ready.
               </p>
-              <ul className="mt-8 grid gap-4 text-white/90 sm:grid-cols-2">
+              <ul className="mt-8 grid gap-4 text-lg text-white/90 sm:grid-cols-2">
                 {[
                   "Free lessons after school registration",
                   "One classroom with unlimited students",
@@ -491,7 +491,7 @@ export default function SchoolsPage() {
               <h3 className="mt-4 text-2xl font-bold tracking-tight md:text-3xl">
                 Buy in Classroom
               </h3>
-              <p className="mt-3 leading-relaxed text-apty-gray">
+              <p className="mt-3 text-lg leading-relaxed text-apty-gray">
                 Start with free lessons. Upgrade a level in Classroom when you
                 want full access. The price is shown before you pay.
               </p>
