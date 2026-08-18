@@ -55,17 +55,17 @@ const levels = [
   {
     level: "Level 2",
     title: "First words and stories",
-    body: "CVC blending and segmenting, early word reading, high-frequency words, and short stories.",
+    body: "Children blend sounds into first words, learn common words, and read short stories.",
   },
   {
     level: "Level 3",
     title: "Stronger decoding",
-    body: "Silent-e, digraphs, vowel teams, r-controlled patterns, longer words, and comprehension.",
+    body: "Silent e, letter pairs, and vowel teams. Longer words, and reading with understanding.",
   },
   {
     level: "Level 4",
     title: "Fluency and understanding",
-    body: "Multisyllabic decoding, vocabulary strategies, and deeper reading comprehension.",
+    body: "Longer words, new vocabulary, and deeper understanding of what they read.",
   },
 ];
 
@@ -184,7 +184,7 @@ export default function SchoolsPage() {
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-relaxed text-apty-gray md:text-xl">
                 Teacher-led lessons for digital boards, classroom laptops, and
-                projectors. Built on the Science of Reading.
+                projectors. The teacher leads. The class learns together.
               </p>
               <div className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
                 <a
@@ -342,7 +342,7 @@ export default function SchoolsPage() {
                   In the classroom
                 </p>
                 <h2 className="text-balance text-3xl font-bold tracking-tight text-apty-dark md:text-5xl">
-                  Designed for teacher-led lessons.
+                  One teacher. The whole class.
                 </h2>
                 <p className="mt-5 text-lg leading-relaxed text-apty-gray">
                   No individual devices to distribute. No child accounts to
@@ -464,11 +464,11 @@ export default function SchoolsPage() {
                 Access
               </p>
               <h2 className="text-balance text-3xl font-bold tracking-tight md:text-5xl">
-                Start free. License a level when ready.
+                Start free. Buy a level when it works.
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/70">
-                Register your school to explore free lessons. Full access is
-                activated with help from our team.
+                Register your school and try the free lessons. If they work for
+                your class, upgrade a level in Classroom when you are ready.
               </p>
               <ul className="mt-8 grid gap-4 text-white/90 sm:grid-cols-2">
                 {[
@@ -487,25 +487,25 @@ export default function SchoolsPage() {
 
             <div className="rounded-3xl bg-white p-7 text-apty-dark shadow-2xl md:p-9">
               <p className="text-sm font-semibold uppercase tracking-[0.15em] text-apty-coral">
-                Pricing
+                Purchase
               </p>
               <h3 className="mt-4 text-2xl font-bold tracking-tight md:text-3xl">
-                Set by country
+                Buy in Classroom
               </h3>
               <p className="mt-3 leading-relaxed text-apty-gray">
-                Classroom licenses are priced for your region. Tell us where your
-                school is, and we will share the right plan.
+                Start with free lessons. Upgrade a level in Classroom when you
+                want full access. The price is shown before you pay.
               </p>
               <div className="my-7 border-t border-apty-border" />
-              <p className="font-semibold text-apty-dark">Ready to plan access?</p>
+              <p className="font-semibold text-apty-dark">Planning several classrooms?</p>
               <p className="mt-2 text-apty-gray">
-                We can walk through levels, classrooms, and rollout.
+                Email us for rollout help. One classroom can upgrade in the app.
               </p>
               <a
-                href="#request-demo"
+                href={CLASSROOM_URL}
                 className="mt-7 inline-flex items-center gap-2 font-semibold text-apty-coral hover:text-[#d94d1b]"
               >
-                Talk to us
+                Start free in Classroom
                 <ArrowIcon />
               </a>
             </div>
@@ -515,11 +515,11 @@ export default function SchoolsPage() {
         <section className="bg-[#fff5f0] px-4 py-20 md:py-24">
           <div className="container mx-auto max-w-5xl text-center">
             <h2 className="text-balance text-3xl font-bold tracking-tight text-apty-dark md:text-5xl">
-              Bring structured literacy to the classroom screen.
+              Bring this to your classroom screen.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-apty-gray">
-              Start with free lessons today. Speak with us when you are ready
-              to plan access across classrooms.
+              Start with free lessons today. Upgrade a level in Classroom when
+              you are ready.
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
@@ -554,9 +554,8 @@ export default function SchoolsPage() {
               Talk to our team.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-apty-gray">
-              For country pricing, multi-classroom plans, or a guided rollout,
-              email us. For free lessons and classroom access, start in
-              Classroom.
+              For multi-classroom plans or a guided rollout, email us. For free
+              lessons and purchase, start in Classroom.
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
