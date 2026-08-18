@@ -4,7 +4,6 @@ import Footer from "@/components/public/Footer";
 
 const CLASSROOM_URL = "https://classroom.aptyread.ai";
 const CLASSROOM_LOGIN_URL = "https://classroom.aptyread.ai/#/login";
-const CONTACT_EMAIL = "contact@aptyread.ai";
 
 export const metadata: Metadata = {
   title: "AptyRead Classroom for Schools | Structured English Literacy",
@@ -496,11 +495,6 @@ export default function SchoolsPage() {
                 Start with free lessons. Upgrade a level in Classroom when you
                 want full access. The price is shown before you pay.
               </p>
-              <div className="my-7 border-t border-apty-border" />
-              <p className="font-semibold text-apty-dark">Planning several classrooms?</p>
-              <p className="mt-2 text-apty-gray">
-                Email us for rollout help. One classroom can upgrade in the app.
-              </p>
               <a
                 href={CLASSROOM_URL}
                 className="mt-7 inline-flex items-center gap-2 font-semibold text-apty-coral hover:text-[#d94d1b]"
@@ -529,55 +523,10 @@ export default function SchoolsPage() {
                 Start free in Classroom
                 <ArrowIcon />
               </a>
-              <a
-                href="#request-demo"
-                className="inline-flex items-center justify-center rounded-full border border-apty-coral px-7 py-3.5 font-semibold text-apty-coral transition-colors hover:bg-white"
-              >
-                Talk to us for school rollout
-              </a>
             </div>
             <p className="mt-10 text-lg font-semibold text-apty-dark md:text-xl">
               Every child reads. Every teacher succeeds.
             </p>
-          </div>
-        </section>
-
-        <section
-          id="request-demo"
-          className="scroll-mt-24 border-t border-apty-border bg-white px-4 py-20 md:py-28"
-        >
-          <div className="container mx-auto max-w-3xl text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-apty-coral">
-              School rollout
-            </p>
-            <h2 className="text-balance text-3xl font-bold tracking-tight text-apty-dark md:text-5xl">
-              Talk to our team.
-            </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-apty-gray">
-              For multi-classroom plans or a guided rollout, email us. For free
-              lessons and purchase, start in Classroom.
-            </p>
-            <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="inline-flex items-center justify-center rounded-full bg-apty-coral px-7 py-3.5 font-semibold text-white transition-colors hover:bg-[#e95624]"
-              >
-                Email us
-              </a>
-              <a
-                href={CLASSROOM_URL}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-apty-coral px-7 py-3.5 font-semibold text-apty-coral transition-colors hover:bg-[#fff5f0]"
-              >
-                Start free in Classroom
-                <ArrowIcon />
-              </a>
-            </div>
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className="mt-6 inline-block font-semibold text-apty-dark transition-colors hover:text-apty-coral"
-            >
-              {CONTACT_EMAIL}
-            </a>
           </div>
         </section>
 
