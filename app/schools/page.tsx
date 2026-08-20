@@ -8,15 +8,21 @@ const CLASSROOM_LOGIN_URL = "https://classroom.aptyread.ai/#/login";
 export const metadata: Metadata = {
   title: "AptyRead Classroom for Schools | Structured English Literacy",
   description:
-    "Teach structured English literacy from a digital board, classroom laptop, or projector. Try free AptyRead Classroom lessons, then license a level when your school is ready.",
+    "Teach English literacy from a digital board, laptop, or projector. Teachers do not need to be phonics experts. Try the first lessons free in AptyRead Classroom.",
   alternates: {
     canonical: "https://www.aptyread.ai/schools",
   },
   openGraph: {
     title: "AptyRead Classroom for Schools",
     description:
-      "Teacher-led, structured English literacy lessons for digital boards, classroom laptops, and projectors.",
+      "Teacher-led English literacy on any digital board, laptop, or projector. No phonics training needed. Try the first lessons free.",
     url: "https://www.aptyread.ai/schools",
+  },
+  twitter: {
+    card: "summary",
+    title: "AptyRead Classroom for Schools",
+    description:
+      "Teacher-led English literacy on any digital board, laptop, or projector. No phonics training needed. Try the first lessons free.",
   },
 };
 
@@ -48,7 +54,7 @@ const levels = [
     level: "Level 1",
     label: "School entry point",
     title: "Sounds and letters",
-    body: "Letter names and sounds, long vowels, soft C and G, letter recognition, and correct letter formation.",
+    body: "Sound, letter, and letter name. Capital and small letters, how to say them, and how to write them. Long vowels and soft C and G.",
     active: true,
   },
   {
@@ -182,8 +188,8 @@ export default function SchoolsPage() {
                 English literacy, taught together.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-relaxed text-apty-gray md:text-xl">
-                Teacher-led lessons for digital boards, classroom laptops, and
-                projectors. The teacher leads. The class learns together.
+                You do not need to be a phonics expert. Teach from any digital
+                board, laptop, or projector.
               </p>
               <div className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
                 <a
@@ -202,7 +208,7 @@ export default function SchoolsPage() {
                 </a>
               </div>
               <p className="mt-5 text-sm text-apty-gray">
-                School email and password. No student accounts.
+                No tablets. No student accounts. No special hardware.
               </p>
             </div>
 
@@ -344,8 +350,8 @@ export default function SchoolsPage() {
                   One teacher. The whole class.
                 </h2>
                 <p className="mt-5 text-lg leading-relaxed text-apty-gray">
-                  No individual devices to distribute. No child accounts to
-                  manage. The teacher leads from one classroom screen.
+                  No tablets. No student accounts. No special hardware. The
+                  teacher leads from one classroom screen.
                 </p>
                 <a
                   href={CLASSROOM_URL}
@@ -432,8 +438,8 @@ export default function SchoolsPage() {
                   The teacher facilitates. AptyRead teaches.
                 </h2>
                 <p className="mt-5 text-lg leading-relaxed text-apty-gray">
-                  Teachers do not need to become phonics specialists first. The
-                  lesson carries the method.
+                  Your teachers do not need to be phonics experts. The lesson
+                  carries the method.
                 </p>
                 <p className="mt-8 rounded-2xl bg-apty-dark px-6 py-5 text-base font-semibold text-white md:text-lg">
                   The teacher leads the room. AptyRead leads the lesson.
@@ -466,12 +472,13 @@ export default function SchoolsPage() {
                 Start free. Buy a level when it works.
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/70">
-                Register your school and try the free lessons. If they work for
-                your class, upgrade a level in Classroom when you are ready.
+                Register your school and try the first sound group free. If it
+                works for your class, buy a level in Classroom when you are
+                ready.
               </p>
               <ul className="mt-8 grid gap-4 text-lg text-white/90 sm:grid-cols-2">
                 {[
-                  "Free lessons after school registration",
+                  "First sound group free: S, A, T",
                   "One classroom with unlimited students",
                   "One level per classroom license",
                   "Valid for one year from activation",
@@ -492,8 +499,8 @@ export default function SchoolsPage() {
                 Buy in Classroom
               </h3>
               <p className="mt-3 text-lg leading-relaxed text-apty-gray">
-                Start with free lessons. Upgrade a level in Classroom when you
-                want full access. The price is shown before you pay.
+                Start with S, A, T free. Buy a level in Classroom when you want
+                full access. The price is shown before you pay.
               </p>
               <a
                 href={CLASSROOM_URL}
