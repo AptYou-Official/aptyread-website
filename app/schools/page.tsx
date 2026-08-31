@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AptyRead Classroom for Schools",
     description:
-      "Children who can read English, and say it clearly. Taught together on a board, laptop, or projector. Ages 4 to 10.",
+      "Children who can read English, and say the words clearly. Taught together on a board, laptop, or projector. Ages 4 to 10.",
     url: "https://www.aptyread.ai/schools",
     siteName: "AptyRead",
     type: "website",
@@ -59,27 +59,27 @@ const lessonSteps = [
 const levels = [
   {
     number: "1",
-    name: "I Am Learning Letters",
-    body: "Sound, letter, and letter name. How to say them. How to write them.",
+    name: "Sound Foundations",
+    body: "Every letter sound, how to say it, how to write it. Before any word.",
   },
   {
     number: "2",
-    name: "I Can Read!",
-    body: "First words. Common words. Short stories.",
+    name: "First Reading",
+    body: "First words, common words, short stories. The class reads them aloud.",
   },
   {
     number: "3",
-    name: "I Can Read Big Words!",
-    body: "Silent e, letter pairs, and vowel teams. Longer words.",
+    name: "Confident Reading",
+    body: "Longer words: letter teams, blends, silent e. The class can tackle bigger words on the board.",
   },
   {
     number: "4",
-    name: "I Am Reading!",
-    body: "Paragraphs. New words. Reading with understanding.",
+    name: "Building Fluency",
+    body: "Paragraphs. New words. Reading with understanding, not just sounding out.",
   },
   {
     number: "5",
-    name: "I Am a Reader!",
+    name: "Independent Reading",
     body: "Three books. The class reads them together on the board.",
   },
 ];
@@ -118,7 +118,7 @@ export default function SchoolsPage() {
               <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-apty-dark leading-[1.08] tracking-tight mb-5">
                 Children who can read English.
                 <br />
-                And say it clearly.
+                And say the words clearly.
               </h1>
               <p className="text-lg md:text-xl text-apty-gray leading-relaxed mb-4 max-w-lg">
                 A reading program for the classroom. Ages 4 to 10. One teacher.
@@ -246,10 +246,10 @@ export default function SchoolsPage() {
         <section className="px-4 py-16 md:py-24">
           <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-3">
-              How far it goes
+              Five levels. One path.
             </h2>
             <p className="text-lg text-apty-gray max-w-2xl mb-12 leading-relaxed">
-              Five levels. One path. Every class starts at Level 1. No skipping.
+              Every class starts at Level 1. No skipping.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
               {levels.map((level) => (
@@ -296,14 +296,9 @@ export default function SchoolsPage() {
 
         <section className="bg-apty-coral py-16 md:py-20 px-4">
           <div className="container mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Every child reads.
-              <br />
-              Every teacher succeeds.
-            </h2>
-            <p className="text-lg text-white/90 mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
               Open Classroom. Start with S, A, T.
-            </p>
+            </h2>
             <a
               href={CLASSROOM_URL}
               className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-lg font-semibold text-apty-coral hover:opacity-90 transition-opacity"
