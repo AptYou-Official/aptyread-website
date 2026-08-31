@@ -5,7 +5,6 @@ import BusyUserStrip from "@/components/public/BusyUserStrip";
 import HowItWorks from "@/components/public/HowItWorks";
 import AppShowcase from "@/components/public/AppShowcase";
 import ParentPeaceOfMind from "@/components/public/ParentPeaceOfMind";
-import LetterToParents from "@/components/public/LetterToParents";
 import HomepageFAQ from "@/components/public/HomepageFAQ";
 import CTA from "@/components/public/CTA";
 import Footer from "@/components/public/Footer";
@@ -77,7 +76,6 @@ export default function Home() {
         <HowItWorks />
         <AppShowcase />
         <ParentPeaceOfMind />
-        <LetterToParents />
         <HomepageFAQ />
         <CTA />
         <Footer />

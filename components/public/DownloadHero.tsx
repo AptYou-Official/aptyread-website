@@ -5,75 +5,45 @@ import GooglePlayBadge from '@/components/public/GooglePlayBadge';
 
 export default function DownloadHero() {
   return (
-    <section className="bg-white py-12 md:py-16 lg:py-20 min-h-[80vh] flex items-center">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center">
-          {/* Logo/App Icon */}
-          <div className="mb-6 flex justify-center">
-            <Image 
-              src="/images/apty.png" 
-              alt="AptyRead" 
-              width={120} 
-              height={120}
-              className="w-24 h-24 md:w-32 md:h-32 object-contain"
-              priority
-            />
-          </div>
+    <section className="bg-white py-14 md:py-20">
+      <div className="container mx-auto px-4 max-w-2xl text-center">
+        <div className="mb-6 flex justify-center">
+          <Image
+            src="/images/apty.png"
+            alt="AptyRead"
+            width={72}
+            height={72}
+            className="h-16 w-16 md:h-[72px] md:w-[72px] object-contain"
+            priority
+          />
+        </div>
 
-          {/* Tagline Badge */}
-          <div className="mb-4 inline-block">
-            <span className="text-sm md:text-base font-semibold text-apty-coral bg-apty-warm px-4 py-2 rounded-full border border-apty-coral-accent">
-              English reading for ages 4 to 10
-            </span>
-          </div>
+        <h1 className="text-3xl md:text-5xl font-bold text-apty-dark mb-4 leading-tight">
+          Start Lesson 1.
+        </h1>
+        <p className="text-lg md:text-xl text-apty-dark mb-3 leading-relaxed">
+          First lessons are free. No account.
+        </p>
+        <p className="text-base md:text-lg text-apty-gray mb-2 leading-relaxed">
+          An English reading program for ages 4 to 10.
+        </p>
+        <p className="text-base md:text-lg text-apty-gray mb-8 leading-relaxed">
+          Five levels. 238 lessons. One path.
+        </p>
+        <p className="text-sm md:text-base text-apty-cyan font-semibold mb-10">
+          Built on the Science of Reading.
+        </p>
 
-          {/* Main Headline */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-apty-dark mb-4 leading-tight">
-            From First Sound
-            <br />to Fluent Reader
-          </h1>
-
-          {/* Subheadline */}
-          <p className="text-base md:text-lg text-apty-gray mb-2 leading-relaxed max-w-2xl mx-auto">
-            A 5-level English reading program for children ages 4 to 10.
+        <div className="flex flex-col items-center gap-4">
+          <p className="text-sm font-medium text-apty-dark">
+            iPhone, iPad, and Android
           </p>
-          <p className="text-base md:text-lg text-apty-gray mb-8 leading-relaxed max-w-2xl mx-auto">
-            Built for beginners. Step-by-step. No random lessons.
-          </p>
-          <p className="text-sm md:text-base text-apty-coral mb-8 font-semibold">
-            Available on the Apple App Store and Google Play.
-          </p>
-
-          {/* Store Selection */}
-          <div className="mb-6 flex flex-col items-center gap-4">
-            <p className="text-base md:text-lg font-semibold text-apty-dark">
-              Choose your device to download
-            </p>
-            <div className="flex items-center gap-3 opacity-90 flex-wrap justify-center">
-              <AppStoreBadge />
-              <GooglePlayBadge />
-            </div>
-          </div>
-
-          {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-sm md:text-base text-apty-gray mt-8">
-            <div className="flex items-center gap-2">
-              <span className="text-apty-coral text-lg md:text-xl font-bold">✓</span>
-              <span>3,500+ downloads</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-apty-coral text-lg md:text-xl font-bold">✓</span>
-              <span>No registration needed</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-apty-coral text-lg md:text-xl font-bold">✓</span>
-              <span>No ads, start free</span>
-            </div>
+          <div className="flex items-center justify-center gap-3 flex-wrap">
+            <AppStoreBadge />
+            <GooglePlayBadge />
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-

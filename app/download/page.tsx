@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import MinimalHeader from "@/components/public/MinimalHeader";
 import DownloadHero from "@/components/public/DownloadHero";
 import DownloadBenefits from "@/components/public/DownloadBenefits";
+import DownloadCTA from "@/components/public/DownloadCTA";
 import AppShowcase, {
   LANDING_APP_SHOWCASE_ORDER,
 } from "@/components/public/AppShowcase";
@@ -57,6 +58,7 @@ export default function DownloadPage() {
           <DownloadHero />
           <AppShowcase shotOrder={LANDING_APP_SHOWCASE_ORDER} />
           <DownloadBenefits />
+          <DownloadCTA />
         </main>
         <MinimalFooter />
       </div>

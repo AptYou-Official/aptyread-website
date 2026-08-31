@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
 import Header from "@/components/public/Header";
 import Footer from "@/components/public/Footer";
-import AppStoreBadge from "@/components/public/AppStoreBadge";
-import GooglePlayBadge from "@/components/public/GooglePlayBadge";
-import PlayStoreLink from "@/components/public/PlayStoreLink";
+import CTA from "@/components/public/CTA";
 
 export const metadata: Metadata = {
-  title: "About Us - A Letter to Parents | AptyRead",
-  description: "Learn why we built AptyRead. Our commitment to real education, healthy learning, and child safety. A structured literacy platform built by parents, for parents.",
+  title: "A Letter to Parents | AptyRead",
+  description:
+    "Why we built AptyRead. An English reading program for children aged 4 to 10. Five levels. 238 lessons. Every child reads.",
   alternates: {
     canonical: "https://www.aptyread.ai/about",
+  },
+  openGraph: {
+    title: "A Letter to Parents | AptyRead",
+    description:
+      "Why we built AptyRead. An English reading program for children aged 4 to 10. Every child reads.",
+    url: "https://www.aptyread.ai/about",
+    siteName: "AptyRead",
+    type: "website",
   },
 };
 
@@ -17,110 +24,75 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-apty-warm">
       <Header />
-      
-      <main className="container mx-auto px-4 py-12 md:py-16 max-w-4xl">
-        <div className="bg-white p-8 md:p-12 rounded-lg border border-apty-coral-accent shadow-sm">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-apty-dark mb-4">
+
+      <main>
+        <article className="px-4 py-14 md:py-20">
+          <div className="container mx-auto max-w-2xl">
+            <p className="text-sm font-semibold tracking-wide text-apty-coral mb-4">
+              AptyRead
+            </p>
+            <h1 className="text-3xl md:text-5xl font-bold text-apty-dark mb-3 leading-tight">
               A Letter to Parents
             </h1>
-            <p className="text-xl md:text-2xl text-apty-gray italic">
-              Why we built AptyRead
+            <p className="text-lg md:text-xl text-apty-gray mb-12">
+              Why we built this.
             </p>
-          </div>
 
-          {/* Main Content */}
-          <div className="prose prose-lg max-w-none text-apty-gray space-y-8">
-            {/* Introduction */}
-            <section className="mb-8">
-              <p className="text-base md:text-lg leading-relaxed mb-4">
-                In 2020, parents came to us with children who struggled to read English. We watched. We listened. We understood one thing clearly.
+            <div className="space-y-6 text-base md:text-lg text-apty-dark leading-relaxed">
+              <p>
+                In 2020, parents came to us with children who struggled to read
+                English. We watched. We listened. We understood one thing.
               </p>
-              <p className="text-base md:text-lg leading-relaxed mb-4">
-                <strong className="text-apty-dark">What the child gets should not depend on who happens to teach them that day.</strong>
-              </p>
-              <p className="text-base md:text-lg leading-relaxed mb-4">
-                That was not good enough. Every child deserves a structured, consistent, always available foundation.
-              </p>
-              <p className="text-base md:text-lg leading-relaxed mb-4">
-                <strong className="text-apty-dark">So we built AptyRead.</strong>
-              </p>
-              <p className="text-base md:text-lg leading-relaxed mb-4">
-                <strong className="text-apty-dark">Our mission: Every child reads.</strong>
-              </p>
-            </section>
 
-            {/* Our Commitment */}
-            <section className="mb-8 pb-8 border-b border-apty-coral-accent">
-              <h2 className="text-2xl md:text-3xl font-bold text-apty-dark mb-4">
-                Our Commitment to Your Child
-              </h2>
-              <p className="text-base md:text-lg leading-relaxed mb-4">
-                We believe that learning to read is a journey that requires patience and structure. That is why AptyRead is a sequential course. We don&apos;t allow skipping because we want your child to feel the genuine confidence that comes from mastering a skill before moving to the next challenge.
+              <p className="text-xl md:text-2xl font-semibold text-apty-dark leading-snug border-l-4 border-apty-coral pl-5 py-1">
+                What the child gets should not depend on who happens to teach
+                them that day.
               </p>
-            </section>
 
-            {/* Healthy Learning */}
-            <section className="mb-8 pb-8 border-b border-apty-coral-accent">
-              <h2 className="text-2xl md:text-3xl font-bold text-apty-dark mb-4">
-                Healthy Learning, Not Screen Addiction
-              </h2>
-              <p className="text-base md:text-lg leading-relaxed mb-4">
-                We are parents too. We know the worry of &quot;too much screen time.&quot; This is why we built the automatic pause into our curriculum. By limiting learning to one or two lessons a day, we protect your child&apos;s eye health and, more importantly, we give their brain the time it needs to turn a new sound into a long-term memory.
+              <p>
+                That was not good enough. Every child deserves a structured,
+                consistent, always available foundation.
               </p>
-            </section>
 
-            {/* Safe Space */}
-            <section className="mb-8 pb-8 border-b border-apty-coral-accent">
-              <h2 className="text-2xl md:text-3xl font-bold text-apty-dark mb-4">
-                A Safe Space to Grow
-              </h2>
-              <p className="text-base md:text-lg leading-relaxed mb-4">
-                You will never find an advertisement or a hidden subscription in AptyRead. We have created a focused, professional environment where your child can learn without distractions.
-              </p>
-            </section>
+              <p className="font-semibold">So we built AptyRead.</p>
 
-            {/* Closing */}
-            <section className="text-center pt-8">
-              <p className="text-lg md:text-xl text-apty-dark font-semibold mb-4">
-                Thank you for trusting us to be a part of your child&apos;s reading success.
-              </p>
-              <p className="text-lg md:text-xl text-apty-dark font-semibold mb-6">
-                We are honored to walk this path with you.
-              </p>
-              <p className="text-base md:text-lg text-apty-gray">
-                The AptyRead Team
-              </p>
-            </section>
-          </div>
+              <p className="font-semibold">Our mission: Every child reads.</p>
 
-          {/* CTA Section */}
-          <div className="mt-12 pt-8 border-t border-apty-coral-accent text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-apty-dark mb-4">
-              Ready to Start?
-            </h2>
-            <p className="text-base md:text-lg text-apty-gray mb-6">
-              Start Lesson 1 and see if AptyRead is right for your child.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <PlayStoreLink
-                platform="auto"
-                className="bg-apty-coral text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:bg-opacity-90"
-              >
-                Start Lesson 1
-              </PlayStoreLink>
-              <div className="flex items-center gap-3">
-                <AppStoreBadge />
-                <GooglePlayBadge />
-              </div>
+              <p>
+                An English reading program for ages 4 to 10. Five levels. 238
+                lessons. One path. Built on the Science of Reading.
+              </p>
+
+              <p>
+                Reading is a skill. They move to the next lesson only when they
+                are ready. No skipping. No gaps. Confidence from finishing, not
+                from being pushed.
+              </p>
+
+              <p>
+                We are parents too. You set a daily limit: 1 or 2 new lessons.
+                About fifteen minutes. Then they are done. The rest of the day
+                is theirs.
+              </p>
+
+              <p>
+                No ads. No subscription. Open the app and start Lesson 1. Buy a
+                level once, when you are ready.
+              </p>
+
+              <p>Thank you for trusting us with this.</p>
             </div>
+
+            <p className="mt-12 text-apty-dark font-semibold">
+              The AptyRead Team
+            </p>
           </div>
-        </div>
+        </article>
+
+        <CTA />
       </main>
 
       <Footer />
     </div>
   );
 }
-
