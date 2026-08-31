@@ -15,7 +15,7 @@ const ogImage = "https://www.aptyread.ai/images/apty.png";
 export const metadata: Metadata = {
   title: "AptyRead English Literacy Program | Phonics-Based Reading for Kids | Try Free",
   description:
-    "English reading program for ages 3 to 10 based on the Science of Reading. Five levels and 238 lessons in AptyRead on the App Store and Google Play. Start Lesson 1 with no signup. Tap your store.",
+    "English reading program for ages 4 to 10 based on the Science of Reading. Five levels and 238 lessons in AptyRead on the App Store and Google Play. Start Lesson 1 with no signup. Tap your store.",
   keywords:
     "AptyRead English Literacy Program, phonics-based reading for kids, Science of Reading app, structured literacy, learn to read, early reading program",
   alternates: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AptyRead English Literacy Program | Phonics-Based Reading for Kids | Try Free",
     description:
-      "Science-of-Reading-aligned English reading in one app for ages 3 to 10. Start Lesson 1. Level 1 is $59 for six months, no subscription.",
+      "Science-of-Reading-aligned English reading in one app for ages 4 to 10. Start Lesson 1. Level 1 is $59 for six months, no subscription.",
     url: "https://www.aptyread.ai/us",
     siteName: "AptyRead",
     type: "website",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AptyRead English Literacy Program | Try Free",
     description:
-      "English reading program for kids 3 to 10. Built on the Science of Reading. Start Lesson 1.",
+      "English reading program for kids 4 to 10. Built on the Science of Reading. Start Lesson 1.",
     images: [ogImage],
   },
 };
@@ -147,7 +147,7 @@ export default function UsLandingPage() {
           <div className="container mx-auto px-4 max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
             <div>
               <p className="inline-block text-sm font-semibold text-apty-coral bg-apty-warm px-4 py-2 rounded-full border border-apty-coral-accent mb-4">
-                Ages 3 to 10 · Science of Reading
+                Ages 4 to 10 · Science of Reading
               </p>
               <h1 className="text-4xl md:text-5xl font-bold text-apty-dark leading-tight mb-6">
                 From &quot;I Am Learning Letters&quot; to &quot;I Am a Reader!&quot;

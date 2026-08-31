@@ -11,14 +11,10 @@ export default function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-apty-coral-accent/70 blur-3xl"
       />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-20 left-0 h-56 w-56 rounded-full bg-apty-cyan/10 blur-3xl"
-      />
       <div className="container relative mx-auto px-4 max-w-7xl">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           <div className="order-2 md:order-1">
-            <div className="relative w-full rounded-2xl overflow-hidden shadow-lg ring-2 ring-apty-cyan/20">
+            <div className="relative w-full rounded-2xl overflow-hidden shadow-lg ring-2 ring-apty-coral/15">
               <Image
                 src="/images/parent-child-reading.png"
                 alt="Child and parent with books, reading together at home"
@@ -34,29 +30,32 @@ export default function Hero() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-apty-dark mb-4 leading-tight">
               Your child can learn to read English.
               <br />
-              <span className="bg-gradient-to-r from-apty-coral to-apty-cyan bg-clip-text text-transparent">
+              <span className="text-apty-coral">
                 Confidently. Independently.
               </span>
             </h1>
 
             <p className="text-base md:text-lg text-apty-dark mb-3 leading-relaxed">
-              An English reading program for ages 3 to 10. Five levels. 238 lessons. One path.
+              An English reading program for ages 4 to 10. Five levels. 238 lessons. One path.
             </p>
             <p className="text-sm md:text-base text-apty-cyan font-semibold mb-8">
               Built on the Science of Reading.
             </p>
 
-            <div className="mb-6 flex flex-col gap-4 items-center md:items-start">
+            <div className="mb-6 flex flex-col gap-3 items-center md:items-start">
               <PlayStoreLink
                 className="group relative w-full sm:w-auto"
                 aria-label="Start Lesson 1"
                 platform="auto"
               >
-                <div className="absolute -inset-1 bg-gradient-to-r from-apty-coral to-apty-cyan rounded-xl blur opacity-40 group-hover:opacity-60 transition duration-300"></div>
+                <div className="absolute -inset-1 bg-apty-coral rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
                 <div className="relative bg-apty-coral text-white px-8 py-4 rounded-xl text-base md:text-lg font-semibold shadow-lg transform transition duration-300 hover:scale-105 text-center">
                   Start Lesson 1
                 </div>
               </PlayStoreLink>
+              <p className="text-sm md:text-base text-apty-dark">
+                First lessons are free. No account.
+              </p>
               <div className="flex items-center gap-3 opacity-90">
                 <AppStoreBadge />
                 <GooglePlayBadge />

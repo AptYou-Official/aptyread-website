@@ -5,7 +5,7 @@ import PlayStoreLink from '@/components/public/PlayStoreLink';
 
 export default function CTA() {
   return (
-    <section className="bg-gradient-to-br from-apty-coral to-apty-cyan py-16 md:py-20 px-4">
+    <section className="bg-apty-coral py-16 md:py-20 px-4">
       <div className="container mx-auto max-w-3xl text-center">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
           Every child can learn to read.
@@ -13,7 +13,7 @@ export default function CTA() {
           Yours can too.
         </h2>
         <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-          Open the app. Start Lesson 1. No account needed.
+          First lessons are free. Open the app. No account needed.
         </p>
 
         <div className="flex flex-col gap-4 justify-center items-center">

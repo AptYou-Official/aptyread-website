@@ -4,7 +4,7 @@ import Footer from "@/components/public/Footer";
 
 export const metadata: Metadata = {
   title: "FAQ - Frequently Asked Questions | AptyRead",
-  description: "Common questions about AptyRead. Learn about getting started, pricing, learning approach, child safety, and more. English Reading & Writing for children ages 3-10.",
+  description: "Common questions about AptyRead. Learn about getting started, pricing, learning approach, child safety, and more. English Reading & Writing for children ages 4 to 10.",
   alternates: {
     canonical: "https://www.aptyread.ai/faq",
   },
@@ -55,7 +55,7 @@ export default function FAQPage() {
                     What age is AptyRead for?
                   </h3>
                   <p className="text-apty-gray leading-relaxed">
-                    AptyRead is designed for children ages 3 to 10 years old who are learning to read English. The course starts from the very beginning (learning letters) and progresses through independent reading.
+                    AptyRead is designed for children ages 4 to 10 years old who are learning to read English. The course starts from the very beginning (learning letters) and progresses through independent reading.
                   </p>
                 </div>
 

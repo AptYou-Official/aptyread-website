@@ -15,7 +15,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "AptyRead",
-    "description": "AptyRead. Every Child Reads. An English reading program for children aged 3 to 10. Built on the Science of Reading. 5 levels, 238 lessons. Start Lesson 1. No account needed.",
+    "description": "AptyRead. Every Child Reads. An English reading program for children aged 4 to 10. Built on the Science of Reading. 5 levels, 238 lessons. Start Lesson 1. No account needed.",
     "url": "https://www.aptyread.ai",
     "logo": "https://www.aptyread.ai/images/apty.png",
     "sameAs": [
@@ -33,7 +33,7 @@ export default function Home() {
     "audience": {
       "@type": "EducationalAudience",
       "educationalRole": "student",
-      "audienceType": "Children ages 3 to 10"
+      "audienceType": "Children ages 4 to 10"
     }
   };
 
@@ -53,7 +53,7 @@ export default function Home() {
       "ratingValue": "4.5",
       "ratingCount": "1"
     },
-    "description": "AptyRead. Every Child Reads. An English reading program for children aged 3 to 10. Built on the Science of Reading. 5 levels, 238 lessons. Start Lesson 1 on iOS or Android."
+    "description": "AptyRead. Every Child Reads. An English reading program for children aged 4 to 10. Built on the Science of Reading. 5 levels, 238 lessons. Start Lesson 1 on iOS or Android."
   };
 
   return (

@@ -4,7 +4,7 @@ export default function DownloadBenefits() {
   const faqs = [
     {
       q: 'What age is this for?',
-      a: 'AptyRead is designed for children ages 3 to 10.',
+      a: 'AptyRead is designed for children ages 4 to 10.',
     },
     {
       q: 'How long should my child practice daily?',

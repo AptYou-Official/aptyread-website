@@ -15,7 +15,7 @@ const ogImage = "https://www.aptyread.ai/images/apty.png";
 export const metadata: Metadata = {
   title: "AptyRead English Literacy Program | Children | India | Try Free",
   description:
-    "English reading program for ages 3 to 10. Five levels and 238 lessons in the AptyRead app on the App Store and Google Play. Start Lesson 1 with no signup. India pricing on page.",
+    "English reading program for ages 4 to 10. Five levels and 238 lessons in the AptyRead app on the App Store and Google Play. Start Lesson 1 with no signup. India pricing on page.",
   keywords:
     "AptyRead English Literacy Program, English reading app, phonics course, learn to read, children literacy, India, structured reading, ESL reading",
   alternates: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AptyRead English Literacy Program | India | Try Free",
     description:
-      "Structured reading for ages 3 to 10 on iPhone, iPad, and Android. Start Lesson 1. No account needed. Level 1 India pricing at checkout in your app store.",
+      "Structured reading for ages 4 to 10 on iPhone, iPad, and Android. Start Lesson 1. No account needed. Level 1 India pricing at checkout in your app store.",
     url: "https://www.aptyread.ai/in",
     siteName: "AptyRead",
     type: "website",
@@ -147,7 +147,7 @@ export default function IndiaLandingPage() {
           <div className="container mx-auto px-4 max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
             <div>
               <p className="inline-block text-sm font-semibold text-apty-coral bg-apty-warm px-4 py-2 rounded-full border border-apty-coral-accent mb-4">
-                For children ages 3 to 10
+                For children ages 4 to 10
               </p>
               <h1 className="text-4xl md:text-5xl font-bold text-apty-dark leading-tight mb-6">
                 From &quot;I Am Learning Letters&quot; to &quot;I Am a Reader!&quot;

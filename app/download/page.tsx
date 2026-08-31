@@ -9,14 +9,14 @@ import MinimalFooter from "@/components/public/MinimalFooter";
 
 export const metadata: Metadata = {
   title: "Download AptyRead - Start Lesson 1 | AptyRead",
-  description: "Download AptyRead free. Start Lesson 1, no account needed. English reading program for children ages 3 to 10. 5 levels, 238 lessons. No ads, no subscriptions.",
+  description: "Download AptyRead free. Start Lesson 1, no account needed. English reading program for children ages 4 to 10. 5 levels, 238 lessons. No ads, no subscriptions.",
   keywords: "download AptyRead, free reading app, children reading app, learn to read, English reading for kids",
   alternates: {
     canonical: "https://www.aptyread.ai/download",
   },
   openGraph: {
     title: "Download AptyRead - Start Lesson 1",
-    description: "Download AptyRead free. Start Lesson 1, no account needed. English reading program for children ages 3 to 10.",
+    description: "Download AptyRead free. Start Lesson 1, no account needed. English reading program for children ages 4 to 10.",
     url: "https://www.aptyread.ai/download",
     siteName: "AptyRead",
     type: "website",
@@ -41,7 +41,7 @@ export default function DownloadPage() {
       "priceCurrency": "USD",
       "description": "Start Lesson 1. No account needed.",
     },
-    "description": "English reading program for children ages 3 to 10. 5 levels, 238 lessons. Start Lesson 1. No account needed.",
+    "description": "English reading program for children ages 4 to 10. 5 levels, 238 lessons. Start Lesson 1. No account needed.",
     "url": "https://www.aptyread.ai/download",
   };
 

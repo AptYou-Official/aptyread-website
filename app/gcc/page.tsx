@@ -15,7 +15,7 @@ const ogImage = "https://www.aptyread.ai/images/apty.png";
 export const metadata: Metadata = {
   title: "AptyRead | School-Ready English Reading | GCC | Try Free",
   description:
-    "Is your child school ready? English reading from Day 1 with structured phonics for ages 3 to 10 in the AptyRead app. Science of Reading. Sound first. Start Lesson 1, no account needed.",
+    "Is your child school ready? English reading from Day 1 with structured phonics for ages 4 to 10 in the AptyRead app. Science of Reading. Sound first. Start Lesson 1, no account needed.",
   keywords:
     "AptyRead English Literacy Program, GCC reading app, phonics course, learn to read, children literacy, UAE, Saudi, Qatar, Kuwait, Bahrain, Oman",
   alternates: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AptyRead | School-Ready English Reading | GCC | Try Free",
     description:
-      "School-ready English reading for ages 3 to 10. Science of Reading, sound first. Start Lesson 1 on iPhone, iPad, and Android. Level 1 pricing in AED, SAR, or QAR at checkout.",
+      "School-ready English reading for ages 4 to 10. Science of Reading, sound first. Start Lesson 1 on iPhone, iPad, and Android. Level 1 pricing in AED, SAR, or QAR at checkout.",
     url: "https://www.aptyread.ai/gcc",
     siteName: "AptyRead",
     type: "website",
@@ -147,7 +147,7 @@ export default function GccLandingPage() {
           <div className="container mx-auto px-4 max-w-6xl grid lg:grid-cols-2 gap-10 lg:items-start">
             <div>
               <p className="inline-block text-sm font-semibold text-apty-coral bg-apty-warm px-4 py-2 rounded-full border border-apty-coral-accent mb-4">
-                For children ages 3 to 10
+                For children ages 4 to 10
               </p>
               <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5">
                 <span className="text-apty-dark">Your Child Knows ABC.</span>{" "}
