@@ -15,7 +15,7 @@ const ogImage = "https://www.aptyread.ai/images/apty.png";
 export const metadata: Metadata = {
   title: "AptyRead English Literacy Program | Phonics-Based Reading for Kids | Try Free",
   description:
-    "Structured phonics for ages 3 to 10 based on the Science of Reading. Four levels and 243 lessons in AptyRead on the App Store and Google Play. Try four lessons free with no signup. Tap your store.",
+    "English reading program for ages 3 to 10 based on the Science of Reading. Five levels and 238 lessons in AptyRead on the App Store and Google Play. Start Lesson 1 with no signup. Tap your store.",
   keywords:
     "AptyRead English Literacy Program, phonics-based reading for kids, Science of Reading app, structured literacy, learn to read, early reading program",
   alternates: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AptyRead English Literacy Program | Phonics-Based Reading for Kids | Try Free",
     description:
-      "Science-of-Reading-aligned phonics in one app for ages 3 to 10. Try four lessons free. Level 1 is $59 for six months, no subscription.",
+      "Science-of-Reading-aligned English reading in one app for ages 3 to 10. Start Lesson 1. Level 1 is $59 for six months, no subscription.",
     url: "https://www.aptyread.ai/us",
     siteName: "AptyRead",
     type: "website",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AptyRead English Literacy Program | Try Free",
     description:
-      "Structured phonics for kids 3 to 10. Built on the Science of Reading. Try four lessons free.",
+      "English reading program for kids 3 to 10. Built on the Science of Reading. Start Lesson 1.",
     images: [ogImage],
   },
 };
@@ -50,10 +50,10 @@ export const metadata: Metadata = {
 const levels = [
   {
     level: "Level 1",
-    name: "I am Learning Letters",
+    name: "I Am Learning Letters",
     icon: "🎯",
-    body: "Every letter has a sound. Level 1 builds that skill with videos, activities, and simple practice steps you do together.",
-    meta: "46 lessons, about 12 short topics each. Sounds, letters, writing, and reviews.",
+    body: "Every letter sound, before any word.",
+    meta: "",
     lessons: "",
     next: "Next up is Level 2.",
   },
@@ -61,26 +61,35 @@ const levels = [
     level: "Level 2",
     name: "I Can Read!",
     icon: "📖",
-    body: "Letters turn into words. Your child blends sounds, reads short words, then sentences and little stories.",
-    meta: "57 lessons, words and sentences plus short stories.",
+    body: "First words. First sentences. First stories.",
+    meta: "",
     lessons: "",
     next: "Next up is Level 3.",
   },
   {
     level: "Level 3",
-    name: "I Am Reading!",
+    name: "I Can Read Big Words!",
     icon: "🚀",
-    body: "We add reading patterns so longer text feels doable. Pace and confidence usually pick up together.",
-    meta: "63 lessons focused on patterns, paragraphs, and simple comprehension.",
+    body: "Letter teams. Blends. Short passages, alone.",
+    meta: "",
     lessons: "",
     next: "Next up is Level 4.",
   },
   {
     level: "Level 4",
-    name: "I Am a Reader!",
+    name: "I Am Reading!",
     icon: "🌟",
-    body: "Real books, read chapter by chapter. Your child tackles longer words with clear strategies.",
-    meta: "77 lessons, real books plus strategies.",
+    body: "Paragraphs that get smoother over time.",
+    meta: "",
+    lessons: "",
+    next: "Next up is Level 5.",
+  },
+  {
+    level: "Level 5",
+    name: "I Am a Reader!",
+    icon: "📚",
+    body: "Three real books, cover to cover.",
+    meta: "",
     lessons: "",
     next: "",
   },
@@ -112,7 +121,7 @@ const faqs = [
     a: "You need wifi or data to install and stream lessons while your child listens and watches clips.",
   },
   {
-    q: "What happens after the 4 free lessons?",
+    q: "What happens after Lesson 1?",
     a: "You can unlock Level 1 for $59, six months included, replay all you want, one upfront payment with no autopay creep.",
   },
   {
@@ -148,7 +157,7 @@ export default function UsLandingPage() {
                 <p>They just need the right reading sequence.</p>
               </div>
               <p className="text-sm text-apty-gray mb-6">
-                Science of Reading structure in one app. Sound first. Four levels, 243 connected lessons.
+                Science of Reading structure in one app. Sound first. Five levels, 238 lessons.
               </p>
 
               <div className="flex flex-col gap-2 mb-4">
@@ -159,7 +168,7 @@ export default function UsLandingPage() {
                   <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
-                  Try 4 Free Lessons
+                  Start Lesson 1
                 </PlayStoreLink>
                 <a
                   href="#how-it-works"
@@ -167,12 +176,12 @@ export default function UsLandingPage() {
                 >
                   See how the path works
                 </a>
-                <p className="text-xs text-apty-gray text-center sm:text-left">No registration needed for 4 free lessons.</p>
+                <p className="text-xs text-apty-gray text-center sm:text-left">No account needed. Start Lesson 1.</p>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-2 text-sm text-apty-gray mb-5">
                 <p>✓ 3,500+ downloads worldwide</p>
-                <p>✓ Four free lessons, no signup</p>
+                <p>✓ Start Lesson 1, no signup</p>
                 <p>✓ Built on Science of Reading structure</p>
                 <p>✓ No ads. No subscription pressure.</p>
               </div>
@@ -197,7 +206,7 @@ export default function UsLandingPage() {
                   <p className="text-sm md:text-base text-apty-dark leading-relaxed">
                     <span className="font-semibold">Nationwide NAEP snapshots still show two out of three fourth graders missing proficient reading benchmarks.</span>{" "}
                     Most gaps traced back to kindergarten through second grade pacing. Fixing decoding now hurts less than
-                    waiting for middle school. Give us four low-stress previews and judge with your eyes.
+                    waiting for middle school. Start Lesson 1 and judge with your eyes.
                   </p>
                 </div>
               </div>
@@ -224,7 +233,7 @@ export default function UsLandingPage() {
                   <li>• I want Science of Reading alignment with a clear path</li>
                 </ul>
                 <p className="text-apty-gray mt-5">
-                  If that list stings, download the preview. Four lessons show whether the tone fits your family before a
+                  If that list stings, download the app. Start Lesson 1 and see whether the tone fits your family before a
                   dollar moves.
                 </p>
               </div>
@@ -239,7 +248,7 @@ export default function UsLandingPage() {
         <section id="how-it-works" className="py-16 md:py-20 px-4">
           <div className="container mx-auto max-w-5xl">
             <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-3 text-center">
-              Four ordered levels inside one app.
+              Five ordered levels inside one app.
             </h2>
             <p className="text-lg text-apty-gray text-center mb-10 max-w-3xl mx-auto">
               Nobody leapfrogs. Two hundred forty-three lessons connect like domino tiles so pacing stays humane and predictable.
@@ -257,7 +266,9 @@ export default function UsLandingPage() {
                       <p className="text-sm font-semibold text-apty-gray mb-1">{item.level}</p>
                       <h3 className="text-2xl font-bold text-apty-dark mb-1">{item.icon} {item.name}</h3>
                       <p className="text-apty-gray mb-3">{item.body}</p>
+                      {item.meta ? (
                       <p className="text-sm text-apty-dark font-semibold mb-2">{item.meta}</p>
+                      ) : null}
                       {item.lessons ? <p className="text-sm text-apty-gray mb-3">{item.lessons}</p> : null}
                       {item.next ? <p className="text-sm text-apty-coral font-semibold">{item.next}</p> : null}
                     </div>
@@ -268,10 +279,10 @@ export default function UsLandingPage() {
 
             <div className="mt-8 bg-orange-50 border border-orange-200 rounded-xl p-5">
               <p className="font-semibold text-apty-dark">
-                Everyone begins at Level 1: &quot;I am Learning Letters&quot;.
+                Everyone begins at Level 1: &quot;I Am Learning Letters&quot;.
               </p>
               <p className="text-apty-gray">
-                You cannot skip ahead to Levels 2, 3, or 4 midstream. Locked order protects every skill block underneath.
+                You cannot skip ahead. Locked order protects every skill block underneath.
               </p>
             </div>
           </div>
@@ -297,7 +308,7 @@ export default function UsLandingPage() {
                   </tr>
                   <tr className="border-b border-apty-coral-accent/60">
                     <td className="px-4 py-3 align-top">Learning structure</td>
-                    <td className="px-4 py-3 align-top">243 connected lessons</td>
+                    <td className="px-4 py-3 align-top">238 lessons</td>
                     <td className="px-4 py-3 align-top">No fixed sequence guaranteed</td>
                   </tr>
                   <tr className="border-b border-apty-coral-accent/60">
@@ -322,7 +333,7 @@ export default function UsLandingPage() {
                   </tr>
                   <tr className="border-b border-apty-coral-accent/60">
                     <td className="px-4 py-3 align-top">Try before you pay</td>
-                    <td className="px-4 py-3 align-top">Four free lessons, zero signup friction</td>
+                    <td className="px-4 py-3 align-top">Start Lesson 1, no signup</td>
                     <td className="px-4 py-3 align-top">Almost always billed from day one</td>
                   </tr>
                   <tr className="border-b border-apty-coral-accent/60 bg-teal-50/90 text-apty-dark">
@@ -345,13 +356,13 @@ export default function UsLandingPage() {
               </table>
             </div>
             <p className="text-sm text-apty-gray mt-4">
-              Level 1 covers 46 lessons and about twenty deliberate hours inside the coursework.
+              Your App Store or Google Play receipt shows the exact amount at checkout.
             </p>
 
             <div className="mt-8 rounded-xl border-2 border-apty-coral/30 bg-gradient-to-b from-apty-warm/90 to-white p-6 shadow-sm">
               <p className="text-base font-semibold text-apty-dark mb-3">Transparent US pricing</p>
               <p className="text-base text-apty-dark leading-relaxed">
-                Four lessons stay fully free without creating an account. When you are convinced, unlock Level 1 for six
+                Start Lesson 1. No account needed. When you are convinced, unlock Level 1 for six
                 months at $59, one upfront charge, cancel nothing later because subscriptions do not exist here.
               </p>
             </div>
@@ -434,7 +445,7 @@ export default function UsLandingPage() {
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Tonight can be the first free lesson.</h2>
             <p className="text-white/95 text-lg mb-4">
-              Install on iPhone, iPad, or Android. Complete four starter lessons without an account or a card on file.
+              Install on iPhone, iPad, or Android. Start Lesson 1 without an account or a card on file.
             </p>
             <p className="text-white/95 text-base mb-8">
               Want more? Unlock Level 1 for six months at $59, one payment, no subscription or auto-renew.
@@ -450,7 +461,7 @@ export default function UsLandingPage() {
               <GooglePlayBadge />
             </div>
             <div className="mt-7 grid sm:grid-cols-2 gap-3 text-left text-white/95 text-sm max-w-3xl mx-auto">
-              <p>✓ Four free lessons, zero forms</p>
+              <p>✓ Start Lesson 1, no account needed</p>
               <p>✓ $59 Level 1, no autopay tricks</p>
               <p>✓ Six months of access included</p>
               <p>✓ Decide on Level 2 after Level 1 is done</p>

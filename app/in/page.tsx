@@ -15,7 +15,7 @@ const ogImage = "https://www.aptyread.ai/images/apty.png";
 export const metadata: Metadata = {
   title: "AptyRead English Literacy Program | Children | India | Try Free",
   description:
-    "Structured reading for ages 3 to 10. Four levels and 243 lessons in the AptyRead app on the App Store and Google Play. Try four lessons free with no signup. India pricing on page.",
+    "English reading program for ages 3 to 10. Five levels and 238 lessons in the AptyRead app on the App Store and Google Play. Start Lesson 1 with no signup. India pricing on page.",
   keywords:
     "AptyRead English Literacy Program, English reading app, phonics course, learn to read, children literacy, India, structured reading, ESL reading",
   alternates: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AptyRead English Literacy Program | India | Try Free",
     description:
-      "Structured reading for ages 3 to 10 on iPhone, iPad, and Android. Try four lessons free. Level 1 India pricing at checkout in your app store.",
+      "Structured reading for ages 3 to 10 on iPhone, iPad, and Android. Start Lesson 1. No account needed. Level 1 India pricing at checkout in your app store.",
     url: "https://www.aptyread.ai/in",
     siteName: "AptyRead",
     type: "website",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AptyRead English Literacy Program | India | Try Free",
     description:
-      "AptyRead on the App Store and Google Play. Four levels and 243 lessons. Try four free lessons. India pricing at checkout.",
+      "AptyRead on the App Store and Google Play. Five levels and 238 lessons. Start Lesson 1. India pricing at checkout.",
     images: [ogImage],
   },
 };
@@ -50,10 +50,10 @@ export const metadata: Metadata = {
 const levels = [
   {
     level: "Level 1",
-    name: "I am Learning Letters",
+    name: "I Am Learning Letters",
     icon: "🎯",
-    body: "Every letter has a sound. Level 1 builds that skill with videos, activities, and simple practice steps you do together.",
-    meta: "46 lessons, about 12 short topics each. Sounds, letters, writing, and reviews.",
+    body: "Every letter sound, before any word.",
+    meta: "",
     lessons: "",
     next: "Next up is Level 2.",
   },
@@ -61,26 +61,35 @@ const levels = [
     level: "Level 2",
     name: "I Can Read!",
     icon: "📖",
-    body: "Letters turn into words. Your child blends sounds, reads short words, then sentences and little stories.",
-    meta: "57 lessons, words and sentences plus short stories.",
+    body: "First words. First sentences. First stories.",
+    meta: "",
     lessons: "",
     next: "Next up is Level 3.",
   },
   {
     level: "Level 3",
-    name: "I Am Reading!",
+    name: "I Can Read Big Words!",
     icon: "🚀",
-    body: "We add reading patterns so longer text feels doable. Pace and confidence usually pick up together.",
-    meta: "63 lessons focused on patterns, paragraphs, and simple comprehension.",
+    body: "Letter teams. Blends. Short passages, alone.",
+    meta: "",
     lessons: "",
     next: "Next up is Level 4.",
   },
   {
     level: "Level 4",
-    name: "I Am a Reader!",
+    name: "I Am Reading!",
     icon: "🌟",
-    body: "Real books, read chapter by chapter. Your child tackles longer words with clear strategies.",
-    meta: "77 lessons, real books plus strategies.",
+    body: "Paragraphs that get smoother over time.",
+    meta: "",
+    lessons: "",
+    next: "Next up is Level 5.",
+  },
+  {
+    level: "Level 5",
+    name: "I Am a Reader!",
+    icon: "📚",
+    body: "Three real books, cover to cover.",
+    meta: "",
     lessons: "",
     next: "",
   },
@@ -112,7 +121,7 @@ const faqs = [
     a: "You need internet to install the app and load lessons. Wifi or mobile data that stays steady while you learn works best.",
   },
   {
-    q: "What happens after the 4 free lessons?",
+    q: "What happens after Lesson 1?",
     a: "You can continue with Level 1 at ₹2,399 (incl. GST) for six months validity. One payment per level. No subscriptions.",
   },
   {
@@ -148,7 +157,7 @@ export default function IndiaLandingPage() {
                 <p>They just need the right reading sequence.</p>
               </div>
               <p className="text-sm text-apty-gray mb-6">
-                Structured phonics in one app for English-medium and vernacular-medium families. Four levels, 243 lessons.
+                  <span className="text-apty-coral font-semibold">Sound first.</span> Five levels, 238 lessons.
               </p>
 
               <div className="flex flex-col gap-2 mb-4">
@@ -159,7 +168,7 @@ export default function IndiaLandingPage() {
                   <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
-                  Try 4 Free Lessons
+                  Start Lesson 1
                 </PlayStoreLink>
                 <a
                   href="#how-it-works"
@@ -167,12 +176,12 @@ export default function IndiaLandingPage() {
                 >
                   See how the path works
                 </a>
-                <p className="text-xs text-apty-gray text-center sm:text-left">No registration needed for 4 free lessons.</p>
+                <p className="text-xs text-apty-gray text-center sm:text-left">No account needed. Start Lesson 1.</p>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-2 text-sm text-apty-gray mb-5">
                 <p>✓ 3,500+ downloads worldwide</p>
-                <p>✓ Four free lessons, no registration</p>
+                <p>✓ Start Lesson 1, no registration</p>
                 <p>✓ Works across CBSE, British, and IB schools</p>
                 <p>✓ No ads. No subscription pressure.</p>
               </div>
@@ -197,7 +206,7 @@ export default function IndiaLandingPage() {
                   <p className="text-sm md:text-base text-apty-dark leading-relaxed">
                     <span className="font-semibold">Younger years matter.</span> Gaps often show louder from Class 3 and
                     4, when textbooks and exams ask for fluent decoding. Twenty minutes once a day, most days, is enough
-                    to steer things early. Start with four free lessons tonight.
+                    to steer things early. Start Lesson 1 tonight.
                   </p>
                 </div>
               </div>
@@ -239,11 +248,10 @@ export default function IndiaLandingPage() {
         <section id="how-it-works" className="py-16 md:py-20 px-4">
           <div className="container mx-auto max-w-5xl">
             <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-3 text-center">
-              Four levels you do in order.
+              Five levels you do in order.
             </h2>
             <p className="text-lg text-apty-gray text-center mb-10 max-w-3xl mx-auto">
-              Same path for every child so foundations stay intact. Two hundred forty-three lessons feels big until you see
-              that each lesson builds quietly on the one before it. Nobody skips ahead.
+              Same path for every child so foundations stay intact. 238 lessons. Each lesson builds on the one before it. Nobody skips ahead.
             </p>
 
             <div className="space-y-6 relative">
@@ -258,7 +266,9 @@ export default function IndiaLandingPage() {
                       <p className="text-sm font-semibold text-apty-gray mb-1">{item.level}</p>
                       <h3 className="text-2xl font-bold text-apty-dark mb-1">{item.icon} {item.name}</h3>
                       <p className="text-apty-gray mb-3">{item.body}</p>
+                      {item.meta ? (
                       <p className="text-sm text-apty-dark font-semibold mb-2">{item.meta}</p>
+                      ) : null}
                       {item.lessons ? <p className="text-sm text-apty-gray mb-3">{item.lessons}</p> : null}
                       {item.next ? <p className="text-sm text-apty-coral font-semibold">{item.next}</p> : null}
                     </div>
@@ -269,10 +279,10 @@ export default function IndiaLandingPage() {
 
             <div className="mt-8 bg-orange-50 border border-orange-200 rounded-xl p-5">
               <p className="font-semibold text-apty-dark">
-                Everyone begins at Level 1: &quot;I am Learning Letters&quot;.
+                Everyone begins at Level 1: &quot;I Am Learning Letters&quot;.
               </p>
               <p className="text-apty-gray">
-                You cannot skip to Level 2, 3, or 4. The sequence keeps skills honest instead of flashy shortcuts.
+                You cannot skip ahead. The sequence keeps skills honest instead of flashy shortcuts.
               </p>
             </div>
           </div>
@@ -298,7 +308,7 @@ export default function IndiaLandingPage() {
                   </tr>
                   <tr className="border-b border-apty-coral-accent/60">
                     <td className="px-4 py-3 align-top">Learning structure</td>
-                    <td className="px-4 py-3 align-top">243 connected lessons</td>
+                    <td className="px-4 py-3 align-top">238 lessons</td>
                     <td className="px-4 py-3 align-top">No fixed sequence guaranteed</td>
                   </tr>
                   <tr className="border-b border-apty-coral-accent/60">
@@ -323,7 +333,7 @@ export default function IndiaLandingPage() {
                   </tr>
                   <tr className="border-b border-apty-coral-accent/60">
                     <td className="px-4 py-3 align-top">Try before you pay</td>
-                    <td className="px-4 py-3 align-top">Four free lessons, no signup</td>
+                    <td className="px-4 py-3 align-top">Start Lesson 1, no signup</td>
                     <td className="px-4 py-3 align-top">Often a short demo or paid trial; varies by centre</td>
                   </tr>
                   <tr className="border-b border-apty-coral-accent/60 bg-teal-50/90 text-apty-dark">
@@ -346,14 +356,14 @@ export default function IndiaLandingPage() {
               </table>
             </div>
             <p className="text-sm text-apty-gray mt-4">
-              Level 1 contains 46 lessons (about twenty hours of guided work). Your App Store or Google Play receipt shows
+              Your App Store or Google Play receipt shows
               the exact amount in rupees at checkout.
             </p>
 
             <div className="mt-8 rounded-xl border-2 border-apty-coral/30 bg-gradient-to-b from-apty-warm/90 to-white p-6 shadow-sm">
               <p className="text-base font-semibold text-apty-dark mb-3">Clear India pricing</p>
               <p className="text-base text-apty-dark leading-relaxed">
-                Four lessons are completely free, no registration. Level 1 is ₹2,399 (incl. GST) for six months. One payment
+                Start Lesson 1. No account needed. Level 1 is ₹2,399 (incl. GST) for six months. One payment
                 per level. No subscription.
               </p>
             </div>
@@ -364,7 +374,7 @@ export default function IndiaLandingPage() {
           <div className="container mx-auto max-w-5xl">
             <h2 className="text-3xl font-bold text-apty-dark mb-3 text-center">Why parents pick AptyRead</h2>
             <p className="text-apty-gray text-center mb-8 max-w-3xl mx-auto">
-              Calm structure over loud gamification. Every point below shows up in all four levels.
+              Calm structure over loud gamification. Every point below shows up in all five levels.
             </p>
             <div className="grid md:grid-cols-2 gap-5">
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
@@ -427,7 +437,7 @@ export default function IndiaLandingPage() {
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Tonight can be the first free lesson.</h2>
             <p className="text-white/95 text-lg mb-4">
-              Tap below, install AptyRead, let your child try four lessons without creating an account. Phones and tablets
+              Tap below, install AptyRead, and start Lesson 1 without creating an account. Phones and tablets
               from the App Store and Google Play both work in India.
             </p>
             <p className="text-white/95 text-base mb-8">
@@ -445,7 +455,7 @@ export default function IndiaLandingPage() {
               <GooglePlayBadge />
             </div>
             <div className="mt-7 grid sm:grid-cols-2 gap-3 text-left text-white/95 text-sm max-w-3xl mx-auto">
-              <p>✓ Four free lessons, zero forms</p>
+              <p>✓ Start Lesson 1, no account needed</p>
               <p>✓ ₹2,399 Level 1 incl. GST, no renewal trap</p>
               <p>✓ Six calm months on each level</p>
               <p>✓ Finish Level 1 before you think about Level 2</p>

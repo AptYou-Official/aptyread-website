@@ -116,7 +116,7 @@ export default function LandingVideo({
   }, []);
 
   return (
-    <section className="py-10 md:py-14 px-4 bg-white">
+    <section className="py-8 md:py-12 px-4 bg-apty-warm">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-6">
           <h2 className="text-2xl md:text-3xl font-bold text-apty-dark mb-2">{title}</h2>

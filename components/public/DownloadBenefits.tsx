@@ -4,11 +4,11 @@ export default function DownloadBenefits() {
   const faqs = [
     {
       q: 'What age is this for?',
-      a: 'AptyRead is designed for children ages 3-10.',
+      a: 'AptyRead is designed for children ages 3 to 10.',
     },
     {
       q: 'How long should my child practice daily?',
-      a: 'Short, consistent daily practice works best. One lesson per day is usually enough.',
+      a: 'You set a daily limit of 1 or 2 new lessons. About fifteen minutes.',
     },
     {
       q: 'Is it suitable for beginners?',

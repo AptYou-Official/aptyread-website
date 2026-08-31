@@ -40,12 +40,12 @@ export default function Features() {
                 description: "Your child masters each step before moving forward. Real learning, not just progress bars.",
               },
               {
-                title: "One Lesson Per Day",
-                description: "Healthy learning pace. One new lesson per day (you can set it to 2 if needed). No pressure.",
+                title: "A daily limit you set",
+                description: "A daily limit you set: 1 or 2 new lessons. About fifteen minutes.",
               },
               {
-                title: "Start Free, No Pressure",
-                description: "Try 4 lessons free. Then enroll level-by-level. Complete Level 1, then decide. No subscriptions.",
+                title: "Start free. No pressure.",
+                description: "Start Lesson 1. No account needed. Then buy a level once. No subscriptions.",
               },
             ].map((item, index) => (
               <div key={index} className="flex items-start gap-3 md:gap-4">

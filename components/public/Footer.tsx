@@ -21,7 +21,7 @@ export default function Footer({ schoolsPage = false }: FooterProps) {
             <p className="text-apty-gray text-sm">
               {schoolsPage
                 ? 'Structured English literacy for classrooms. Teach from a digital board, laptop, or projector.'
-                : 'A complete literacy program for children aged 3 to 10. 4 levels, 243 lessons. Parents and educators welcome.'}
+                : 'English reading program for children aged 3 to 10. 5 levels, 238 lessons.'}
             </p>
           </div>
           <div>

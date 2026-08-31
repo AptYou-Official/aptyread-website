@@ -4,22 +4,22 @@ const concerns = [
   {
     question: "Screen time",
     answer:
-      "One lesson. Fifteen minutes. Then done. AptyRead is not designed to keep your child on screen longer. It is designed to get them off screen and into books.",
+      "You set a daily limit: 1 or 2 new lessons. About fifteen minutes. Then they are done.",
   },
   {
     question: "Cost",
     answer:
-      "Try before you pay. Always. Four lessons free. No registration. No credit card. If it works for your child, then decide. Not before.",
+      "No ads. No subscription. Open the app and start Lesson 1. No account needed. Buy a level once, when you are ready.",
   },
   {
     question: "Will it work?",
     answer:
-      "Reading is not a talent. It is a skill. Every child who follows the program builds the foundation. The structure does the work. Your child does the learning.",
+      "Reading is a skill. Built on the Science of Reading. They move forward only when ready. No skipping. No gaps.",
   },
   {
     question: "Pressure",
     answer:
-      "No rushing. No comparison. No pressure. One lesson when your child is ready. AptyRead moves when your child moves.",
+      "No rushing. No comparison. One or two new lessons when your child is ready. AptyRead waits with them.",
   },
 ];
 

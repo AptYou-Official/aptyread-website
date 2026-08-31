@@ -144,14 +144,14 @@ export default function ContactPage() {
               Ready to Start Learning?
             </h2>
             <p className="text-base md:text-lg text-apty-gray mb-6">
-              Try 4 free lessons and see if AptyRead is right for your child.
+              Start Lesson 1 and see if AptyRead is right for your child.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <PlayStoreLink
                 platform="auto"
                 className="bg-apty-coral text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:bg-opacity-90"
               >
-                Try 4 Free Lessons
+                Start Lesson 1
               </PlayStoreLink>
               <div className="flex items-center gap-3">
                 <AppStoreBadge />

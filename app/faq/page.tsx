@@ -37,7 +37,7 @@ export default function FAQPage() {
                     How do I start using AptyRead?
                   </h3>
                   <p className="text-apty-gray leading-relaxed">
-                    Simply download the app from the Apple App Store or Google Play Store. You can try 4 lessons completely free, no registration needed. Just open the app and start. If you like it, you can then enroll in Level 1.
+                    Simply download the app from the Apple App Store or Google Play Store. Open the app and start Lesson 1. No account needed. If you like it, you can then enroll in Level 1.
                   </p>
                 </div>
 
@@ -163,7 +163,7 @@ export default function FAQPage() {
                     Can I try before paying?
                   </h3>
                   <p className="text-apty-gray leading-relaxed">
-                    Absolutely! The first 4 lessons are completely free. No credit card, no registration needed to try. See if your child connects with our teaching approach, then decide if you want to enroll.
+                    Open the app and start Lesson 1. No credit card. No account needed. See if your child connects with the teaching, then decide if you want to enroll.
                   </p>
                 </div>
 
@@ -277,10 +277,10 @@ export default function FAQPage() {
 
                 <div>
                   <h3 className="text-xl font-semibold text-apty-dark mb-2">
-                    Why only one lesson per day?
+                    Why a daily lesson limit?
                   </h3>
                   <p className="text-apty-gray leading-relaxed">
-                    Research shows that children learn better with spaced learning - giving time for information to sink in. One lesson per day promotes better retention, prevents learning fatigue, and respects your child&apos;s wellbeing. We&apos;re not trying to keep children in the app - we&apos;re helping them become confident readers.
+                    You set a daily limit of 1 or 2 new lessons. About fifteen minutes. That gives time for the sound to stick, and it keeps the session short. AptyRead is not trying to keep children in the app. It is helping them become confident readers.
                   </p>
                 </div>
               </div>

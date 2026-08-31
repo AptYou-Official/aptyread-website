@@ -2,9 +2,8 @@ import Header from "@/components/public/Header";
 import Hero from "@/components/public/Hero";
 import LandingVideo from "@/components/public/LandingVideo";
 import BusyUserStrip from "@/components/public/BusyUserStrip";
-import AppShowcase from "@/components/public/AppShowcase";
-import WhyThisWorks from "@/components/public/WhyThisWorks";
 import HowItWorks from "@/components/public/HowItWorks";
+import AppShowcase from "@/components/public/AppShowcase";
 import ParentPeaceOfMind from "@/components/public/ParentPeaceOfMind";
 import LetterToParents from "@/components/public/LetterToParents";
 import HomepageFAQ from "@/components/public/HomepageFAQ";
@@ -16,7 +15,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "AptyRead",
-    "description": "AptyRead. Every Child Reads. A complete English literacy program for children aged 3 to 10. Built on the Science of Reading. 4 levels, 243 lessons. Try 4 lessons free. No registration.",
+    "description": "AptyRead. Every Child Reads. An English reading program for children aged 3 to 10. Built on the Science of Reading. 5 levels, 238 lessons. Start Lesson 1. No account needed.",
     "url": "https://www.aptyread.ai",
     "logo": "https://www.aptyread.ai/images/apty.png",
     "sameAs": [
@@ -27,14 +26,14 @@ export default function Home() {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD",
-      "description": "Try 4 lessons free. No registration needed.",
+      "description": "Start Lesson 1. No account needed.",
       "availability": "https://schema.org/InStock"
     },
     "educationalCredentialAwarded": "Reading & Writing Course",
     "audience": {
       "@type": "EducationalAudience",
       "educationalRole": "student",
-      "audienceType": "Children ages 3-10"
+      "audienceType": "Children ages 3 to 10"
     }
   };
 
@@ -54,7 +53,7 @@ export default function Home() {
       "ratingValue": "4.5",
       "ratingCount": "1"
     },
-    "description": "AptyRead. Every Child Reads. A complete English literacy program for children aged 3 to 10. Built on the Science of Reading. 4 levels, 243 lessons. Try 4 lessons free on iOS or Android."
+    "description": "AptyRead. Every Child Reads. An English reading program for children aged 3 to 10. Built on the Science of Reading. 5 levels, 238 lessons. Start Lesson 1 on iOS or Android."
   };
 
   return (
@@ -72,12 +71,11 @@ export default function Home() {
         <Hero />
         <LandingVideo
           title="See AptyRead in 60 seconds."
-          subtitle="Why some children struggle to read. And what changes when the foundation is right."
+          subtitle="The feeling of a real lesson. Then they read."
         />
         <BusyUserStrip />
-        <AppShowcase />
-        <WhyThisWorks />
         <HowItWorks />
+        <AppShowcase />
         <ParentPeaceOfMind />
         <LetterToParents />
         <HomepageFAQ />
@@ -87,6 +85,3 @@ export default function Home() {
     </>
   );
 }
-
-
-

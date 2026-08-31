@@ -4,7 +4,7 @@ const benefits = [
   {
     title: "One complete program",
     description:
-      "Four levels. 243 lessons. Every step connects to the next. Nothing missing. Nothing rushed.",
+      "Five levels. 238 lessons. Every step connects to the next. Nothing missing. Nothing rushed.",
   },
   {
     title: "Foundation first. Always.",
@@ -14,7 +14,7 @@ const benefits = [
   {
     title: "Start free. No pressure.",
     description:
-      "Try 4 lessons free. No registration. No credit card. See if your child responds. Then decide.",
+      "Open the app and start Lesson 1. No account needed. See if your child responds. Then decide.",
   },
   {
     title: "No ads. No distractions.",

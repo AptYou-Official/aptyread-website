@@ -8,23 +8,23 @@ import AppShowcase, {
 import MinimalFooter from "@/components/public/MinimalFooter";
 
 export const metadata: Metadata = {
-  title: "Download AptyRead - Try 4 Free Lessons | AptyRead",
-  description: "Download AptyRead free. Try 4 lessons, no registration needed. English Reading & Writing for children ages 3-10. One lesson per day. No ads, no subscriptions.",
+  title: "Download AptyRead - Start Lesson 1 | AptyRead",
+  description: "Download AptyRead free. Start Lesson 1, no account needed. English reading program for children ages 3 to 10. 5 levels, 238 lessons. No ads, no subscriptions.",
   keywords: "download AptyRead, free reading app, children reading app, learn to read, English reading for kids",
   alternates: {
     canonical: "https://www.aptyread.ai/download",
   },
   openGraph: {
-    title: "Download AptyRead - Try 4 Free Lessons",
-    description: "Download AptyRead free. Try 4 lessons, no registration needed. English Reading & Writing for children ages 3-10.",
+    title: "Download AptyRead - Start Lesson 1",
+    description: "Download AptyRead free. Start Lesson 1, no account needed. English reading program for children ages 3 to 10.",
     url: "https://www.aptyread.ai/download",
     siteName: "AptyRead",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Download AptyRead - Try 4 Free Lessons",
-    description: "Download AptyRead free. Try 4 lessons, no registration needed.",
+    title: "Download AptyRead - Start Lesson 1",
+    description: "Download AptyRead free. Start Lesson 1, no account needed.",
   },
 };
 
@@ -39,9 +39,9 @@ export default function DownloadPage() {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD",
-      "description": "Try 4 lessons free. No registration needed.",
+      "description": "Start Lesson 1. No account needed.",
     },
-    "description": "Structured literacy learning platform. English Reading & Writing for children ages 3-10. Mastery-driven, one lesson per day. Try 4 lessons free.",
+    "description": "English reading program for children ages 3 to 10. 5 levels, 238 lessons. Start Lesson 1. No account needed.",
     "url": "https://www.aptyread.ai/download",
   };
 

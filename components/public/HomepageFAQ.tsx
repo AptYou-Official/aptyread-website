@@ -22,12 +22,12 @@ const faqs = [
   {
     question: "How is this different from other reading apps?",
     answer:
-      "Most reading apps are collections of activities. Fun, but not one journey. AptyRead is a full literacy program. Four levels. 243 lessons. Every lesson builds on the last. Clear start. Clear path. Clear goal: your child reading books on their own.",
+      "Most reading apps are collections of activities. Fun, but not one journey. AptyRead is an English reading program. Five levels. 238 lessons. Every lesson builds on the last. Clear start. Clear path. Clear goal: your child reading books on their own.",
   },
   {
     question: "How long does the whole program take?",
     answer:
-      "Most children finish one lesson in 15 to 25 minutes. With regular practice, families usually see steady progress in months. Full journey time depends on your child's pace. AptyRead moves at readiness, not a fixed schedule.",
+      "About fifteen minutes a day. You set a daily limit of 1 or 2 new lessons. Five levels. 238 lessons. Full journey time depends on your child's pace. They move only when ready.",
   },
   {
     question: "My child is 9. Is it too late to start?",

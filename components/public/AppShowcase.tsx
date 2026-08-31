@@ -6,111 +6,89 @@ import Image from "next/image";
 const IMG_W = 800;
 const IMG_H = 1731;
 
-const shots: { n: string; alt: string }[] = [
-  {
-    n: "01",
-    alt: "AptyRead: structured 4-level course from early phonics to independent reading",
-  },
-  {
-    n: "02",
-    alt: "AptyRead: parent settings for a healthy pace. One or two new lessons per day",
-  },
+const shots: { n: string; alt: string; caption: string }[] = [
   {
     n: "03",
-    alt: "AptyRead: letter sounds taught with real-world context and short videos",
-  },
-  {
-    n: "04",
-    alt: "AptyRead: each lesson breaks skills into clear steps to build confidence",
-  },
-  {
-    n: "05",
-    alt: "AptyRead: writing practice to build letter shapes and muscle memory",
+    alt: "AptyRead: a child in Lesson 1, learning the letter S sound",
+    caption: "In the lesson. First sound.",
   },
   {
     n: "06",
-    alt: "AptyRead: progress and mastery so you can see where your child is strong",
-  },
-  {
-    n: "07",
-    alt: "AptyRead: positive milestones and stars that reward steady practice",
+    alt: "AptyRead: parent view of where the child is now",
+    caption: "A parent glance. Where they are now.",
   },
   {
     n: "08",
-    alt: "AptyRead: Your Learning Path. Structured letter sequence, free lessons to begin, and continue where you left off",
+    alt: "AptyRead: the five-level learning path",
+    caption: "Five levels. One path.",
+  },
+  {
+    n: "05",
+    alt: "AptyRead: writing practice for letter shapes",
+    caption: "Writing. The first-word moment starts here.",
   },
 ];
 
-/** Order for /gcc, /us, /in, /download: core story (01–04) plus the learning-path screen (08). */
-export const LANDING_APP_SHOWCASE_ORDER = ["01", "02", "03", "04", "08"] as const;
+const HOMEPAGE_SHOTS = ["03", "06", "08", "05"] as const;
+
+/** Four live-app screens for landing pages. */
+export const LANDING_APP_SHOWCASE_ORDER = HOMEPAGE_SHOTS;
 
 type AppShowcaseProps = {
-  /** Use fewer shots on long ad landing pages so the page does not feel endless. Ignored if `shotOrder` is set. */
   maxShots?: number;
-  /**
-   * Exact shot numbers to show, in order. Use on landing pages to include e.g. 08 (learning path)
-   * without showing every intermediate marketing frame.
-   */
   shotOrder?: readonly string[];
-  /** e.g. hide bottom border when another white section follows */
   className?: string;
 };
 
 function resolveShotList(
   maxShots: number,
   shotOrder: readonly string[] | undefined
-): { n: string; alt: string }[] {
-  if (shotOrder?.length) {
-    return shotOrder
-      .map((id) => shots.find((s) => s.n === id))
-      .filter((item): item is (typeof shots)[number] => Boolean(item));
-  }
-  return shots.slice(0, maxShots);
+): { n: string; alt: string; caption: string }[] {
+  const source = shotOrder?.length
+    ? shotOrder
+        .map((id) => shots.find((s) => s.n === id))
+        .filter((item): item is (typeof shots)[number] => Boolean(item))
+    : shots.slice(0, maxShots);
+  return source;
 }
 
 export default function AppShowcase({
-  maxShots = 8,
+  maxShots = 4,
   shotOrder,
   className = "",
 }: AppShowcaseProps) {
   const list = resolveShotList(maxShots, shotOrder);
-  const isCompact = list.length <= 5;
-
-  const gridClass =
-    list.length === 5
-      ? "md:grid-cols-2 lg:grid-cols-5"
-      : "md:grid-cols-2 lg:grid-cols-4";
 
   return (
     <section
-      className={`bg-white px-4 border-b border-apty-coral-accent/30 ${
-        isCompact ? "py-12 md:py-16" : "py-14 md:py-20"
-      } ${className}`.trim()}
+      className={`bg-white px-4 py-12 md:py-16 ${className}`.trim()}
       aria-labelledby="app-showcase-heading"
     >
       <div className="container mx-auto max-w-6xl">
-        <div className={`text-center max-w-2xl mx-auto ${isCompact ? "mb-8" : "mb-10"}`}>
+        <div className="text-center max-w-2xl mx-auto mb-8">
           <h2
             id="app-showcase-heading"
             className="text-3xl md:text-4xl font-bold text-apty-dark mb-3"
           >
-            Every lesson. Every sound. Every step.
+            See the app.
           </h2>
           <p className="text-base md:text-lg text-apty-gray">
-            Built for children who are just beginning.
+            A lesson. A glance. The path. Then writing.
           </p>
         </div>
 
         <div
           className={[
             "flex flex-nowrap gap-4 md:gap-5",
-            // pan-x alone blocks vertical page scroll when touch starts on the strip;
-            // pan-x + pan-y keeps sideways carousel + normal up/down page scroll on phones.
             "overflow-x-auto [touch-action:pan-x_pan-y] overscroll-x-contain",
             "snap-x snap-mandatory scroll-px-4 scroll-smooth pb-2 md:pb-0",
             "md:overflow-x-visible",
-            "md:grid", gridClass, "-mx-4", "px-4", "md:mx-0", "md:px-0", "md:snap-none",
-            // subtle scrollbar on small screens; hidden on iOS is optional; thin is fine
+            "md:grid md:grid-cols-4",
+            "-mx-4",
+            "px-4",
+            "md:mx-0",
+            "md:px-0",
+            "md:snap-none",
             "[scrollbar-width:thin] md:[scrollbar-width:auto]",
             "[&::-webkit-scrollbar]:h-1.5 md:[&::-webkit-scrollbar]:h-0",
             "[&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-apty-coral/25",
@@ -124,30 +102,30 @@ export default function AppShowcase({
           role="region"
           aria-label="App screenshots, swipe on mobile to see more"
         >
-          {list.map(({ n, alt }) => (
+          {list.map(({ n, alt, caption }) => (
             <div
               key={n}
               className="flex-shrink-0 w-[min(78vw,300px)] md:w-auto snap-center min-w-0"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-apty-coral-accent/40 bg-apty-warm">
+              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-apty-cyan/20 bg-apty-warm">
                 <Image
                   src={`/images/app-screenshots/${n}.webp`}
                   alt={alt}
                   width={IMG_W}
                   height={IMG_H}
                   className="w-full h-auto object-contain"
-                  sizes="(max-width: 768px) 78vw, (max-width: 1024px) 40vw, 20vw"
+                  sizes="(max-width: 768px) 78vw, 22vw"
                   loading="lazy"
                 />
               </div>
+              <p className="mt-3 text-sm md:text-base font-semibold text-apty-dark text-center">
+                {caption}
+              </p>
             </div>
           ))}
         </div>
         <p className="md:hidden text-center text-sm text-apty-gray mt-3">
           Swipe sideways to see all screens
-        </p>
-        <p className="text-center text-base md:text-lg text-apty-gray mt-6 md:mt-8 max-w-xl mx-auto">
-          One lesson a day. Fifteen to twenty minutes. That is all it takes.
         </p>
       </div>
     </section>

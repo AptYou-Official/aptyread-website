@@ -11,16 +11,16 @@ export default function DownloadCTA() {
           Give Your Child the Gift of Reading
         </h2>
         <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-          Start with 4 free lessons today.
+          Start Lesson 1 today.
         </p>
         
         <div className="flex flex-col gap-4 justify-center items-center">
           <PlayStoreLink
             className="bg-white text-apty-coral px-10 py-5 rounded-xl text-lg md:text-xl font-bold shadow-2xl transform transition duration-300 hover:scale-105 w-full sm:w-auto text-center"
-            aria-label="Try 4 free lessons"
+            aria-label="Start Lesson 1"
             platform="auto"
           >
-            Try 4 Free Lessons
+            Start Lesson 1
           </PlayStoreLink>
           <div className="flex items-center gap-3 opacity-90">
             <AppStoreBadge />

@@ -23,7 +23,7 @@ export default function DownloadHero() {
           {/* Tagline Badge */}
           <div className="mb-4 inline-block">
             <span className="text-sm md:text-base font-semibold text-apty-coral bg-apty-warm px-4 py-2 rounded-full border border-apty-coral-accent">
-              Literacy Program for Ages 3-10
+              English reading for ages 3 to 10
             </span>
           </div>
 
@@ -35,7 +35,7 @@ export default function DownloadHero() {
 
           {/* Subheadline */}
           <p className="text-base md:text-lg text-apty-gray mb-2 leading-relaxed max-w-2xl mx-auto">
-            A structured 4-level English literacy program for children ages 3-10.
+            A 5-level English reading program for children ages 3 to 10.
           </p>
           <p className="text-base md:text-lg text-apty-gray mb-8 leading-relaxed max-w-2xl mx-auto">
             Built for beginners. Step-by-step. No random lessons.

@@ -10,7 +10,7 @@ const GOOGLE_ADS_ID =
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.aptyread.ai'),
   title: "AptyRead. Every Child Reads.",
-  description: "A complete English literacy program for children aged 3 to 10. Built on the Science of Reading. 4 levels, 243 lessons. Try 4 lessons free. No registration.",
+  description: "English reading program for children aged 3 to 10. Built on the Science of Reading. 5 levels, 238 lessons. Start Lesson 1. No account needed.",
   keywords: "English reading, learn to read English, English reading app, literacy platform, phonics, children education, ESL reading, structured literacy, mastery-based learning, English reading course, reading app for kids, AptyRead, aptyread.ai",
   authors: [{ name: "APTYOU SERVICES PRIVATE LIMITED" }],
   creator: "APTYOU SERVICES PRIVATE LIMITED",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "AptyRead. Every Child Reads.",
-    description: "A complete English literacy program for children aged 3 to 10. Built on the Science of Reading. 4 levels, 243 lessons. Try 4 lessons free. No registration.",
+    description: "English reading program for children aged 3 to 10. Built on the Science of Reading. 5 levels, 238 lessons. Start Lesson 1. No account needed.",
     url: "https://www.aptyread.ai",
     siteName: "AptyRead",
     type: "website",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "AptyRead. Every Child Reads.",
-    description: "A complete English literacy program for children aged 3 to 10. Built on the Science of Reading. 4 levels, 243 lessons. Try 4 lessons free. No registration.",
+    description: "English reading program for children aged 3 to 10. Built on the Science of Reading. 5 levels, 238 lessons. Start Lesson 1. No account needed.",
     images: ["https://www.aptyread.ai/images/apty.png"],
   },
   alternates: {

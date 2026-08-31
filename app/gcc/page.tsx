@@ -15,7 +15,7 @@ const ogImage = "https://www.aptyread.ai/images/apty.png";
 export const metadata: Metadata = {
   title: "AptyRead | School-Ready English Reading | GCC | Try Free",
   description:
-    "Is your child school ready? English reading from Day 1 with structured phonics for ages 3 to 10 in the AptyRead app. Science of Reading. Sound first. Try four lessons free, no registration.",
+    "Is your child school ready? English reading from Day 1 with structured phonics for ages 3 to 10 in the AptyRead app. Science of Reading. Sound first. Start Lesson 1, no account needed.",
   keywords:
     "AptyRead English Literacy Program, GCC reading app, phonics course, learn to read, children literacy, UAE, Saudi, Qatar, Kuwait, Bahrain, Oman",
   alternates: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AptyRead | School-Ready English Reading | GCC | Try Free",
     description:
-      "School-ready English reading for ages 3 to 10. Science of Reading, sound first. Try four lessons free on iPhone, iPad, and Android. Level 1 pricing in AED, SAR, or QAR at checkout.",
+      "School-ready English reading for ages 3 to 10. Science of Reading, sound first. Start Lesson 1 on iPhone, iPad, and Android. Level 1 pricing in AED, SAR, or QAR at checkout.",
     url: "https://www.aptyread.ai/gcc",
     siteName: "AptyRead",
     type: "website",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AptyRead | School-Ready Reading | GCC | Try Free",
     description:
-      "English reading the #1 skill from Day 1. Four levels, 243 lessons. Try four free lessons. GCC-friendly pricing at checkout.",
+      "English reading the #1 skill from Day 1. Five levels, 238 lessons. Start Lesson 1. GCC-friendly pricing at checkout.",
     images: [ogImage],
   },
 };
@@ -50,10 +50,10 @@ export const metadata: Metadata = {
 const levels = [
   {
     level: "Level 1",
-    name: "I am Learning Letters",
+    name: "I Am Learning Letters",
     icon: "🎯",
-    body: "Every letter has a sound. Level 1 builds that skill with videos, activities, and simple practice steps you do together.",
-    meta: "46 lessons, about 12 short topics each. Sounds, letters, writing, and reviews.",
+    body: "Every letter sound, before any word.",
+    meta: "",
     lessons: "",
     next: "Next up is Level 2.",
   },
@@ -61,26 +61,35 @@ const levels = [
     level: "Level 2",
     name: "I Can Read!",
     icon: "📖",
-    body: "Letters turn into words. Your child blends sounds, reads short words, then sentences and little stories.",
-    meta: "57 lessons, words and sentences plus short stories.",
+    body: "First words. First sentences. First stories.",
+    meta: "",
     lessons: "",
     next: "Next up is Level 3.",
   },
   {
     level: "Level 3",
-    name: "I Am Reading!",
+    name: "I Can Read Big Words!",
     icon: "🚀",
-    body: "We add reading patterns so longer text feels doable. Pace and confidence usually pick up together.",
-    meta: "63 lessons focused on patterns, paragraphs, and simple comprehension.",
+    body: "Letter teams. Blends. Short passages, alone.",
+    meta: "",
     lessons: "",
     next: "Next up is Level 4.",
   },
   {
     level: "Level 4",
-    name: "I Am a Reader!",
+    name: "I Am Reading!",
     icon: "🌟",
-    body: "Real books, read chapter by chapter. Your child tackles longer words with clear strategies.",
-    meta: "77 lessons, real books plus strategies.",
+    body: "Paragraphs that get smoother over time.",
+    meta: "",
+    lessons: "",
+    next: "Next up is Level 5.",
+  },
+  {
+    level: "Level 5",
+    name: "I Am a Reader!",
+    icon: "📚",
+    body: "Three real books, cover to cover.",
+    meta: "",
     lessons: "",
     next: "",
   },
@@ -112,7 +121,7 @@ const faqs = [
     a: "You need internet to install the app and load lessons. Wifi or mobile data that stays steady while you learn works best.",
   },
   {
-    q: "What happens after the 4 free lessons?",
+    q: "What happens after Lesson 1?",
     a: "If you want to continue, unlock Level 1 for six months, one flat payment per level, no subscription. In the UAE, Saudi Arabia, and Qatar you usually see about AED 299, SAR 299, or QAR 299 listed. Checkout always shows the exact price for your currency in the App Store or on Google Play.",
   },
   {
@@ -153,7 +162,7 @@ export default function GccLandingPage() {
                   <span className="font-semibold text-apty-dark">AptyRead Literacy Program:</span> Science of Reading structure.
                 </p>
                 <p className="text-base">
-                  <span className="text-apty-coral font-semibold">Sound first.</span> Four levels, 243 connected lessons.
+                  <span className="text-apty-coral font-semibold">Sound first.</span> Five levels, 238 lessons.
                 </p>
               </div>
 
@@ -165,7 +174,7 @@ export default function GccLandingPage() {
                   <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
-                  Try 4 Free Lessons
+                  Start Lesson 1
                 </PlayStoreLink>
                 <a
                   href="#how-it-works"
@@ -173,7 +182,7 @@ export default function GccLandingPage() {
                 >
                   See how the path works
                 </a>
-                <p className="text-xs text-apty-gray text-center sm:text-left">No registration needed for 4 free lessons.</p>
+                <p className="text-xs text-apty-gray text-center sm:text-left">No account needed. Start Lesson 1.</p>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-2 text-sm text-apty-gray mb-5">
@@ -223,11 +232,10 @@ export default function GccLandingPage() {
         <section id="how-it-works" className="py-16 md:py-20 px-4">
           <div className="container mx-auto max-w-5xl">
             <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-3 text-center">
-              Four levels you do in order.
+              Five levels you do in order.
             </h2>
             <p className="text-lg text-apty-gray text-center mb-10 max-w-3xl mx-auto">
-              Same path for every child so foundations stay intact. Two hundred forty-three lessons feels big until you see
-              that each lesson builds quietly on the one before it. Nobody skips ahead.
+              Same path for every child so foundations stay intact. 238 lessons. Each lesson builds on the one before it. Nobody skips ahead.
             </p>
 
             <div className="space-y-6 relative">
@@ -242,7 +250,9 @@ export default function GccLandingPage() {
                       <p className="text-sm font-semibold text-apty-gray mb-1">{item.level}</p>
                       <h3 className="text-2xl font-bold text-apty-dark mb-1">{item.icon} {item.name}</h3>
                       <p className="text-apty-gray mb-3">{item.body}</p>
+                      {item.meta ? (
                       <p className="text-sm text-apty-dark font-semibold mb-2">{item.meta}</p>
+                      ) : null}
                       {item.lessons ? <p className="text-sm text-apty-gray mb-3">{item.lessons}</p> : null}
                       {item.next ? <p className="text-sm text-apty-coral font-semibold">{item.next}</p> : null}
                     </div>
@@ -253,10 +263,10 @@ export default function GccLandingPage() {
 
             <div className="mt-8 bg-orange-50 border border-orange-200 rounded-xl p-5">
               <p className="font-semibold text-apty-dark">
-                Everyone begins at Level 1: &quot;I am Learning Letters&quot;.
+                Everyone begins at Level 1: &quot;I Am Learning Letters&quot;.
               </p>
               <p className="text-apty-gray">
-                You cannot skip to Level 2, 3, or 4. The sequence keeps skills honest instead of flashy shortcuts.
+                You cannot skip ahead. The sequence keeps skills honest instead of flashy shortcuts.
               </p>
             </div>
           </div>
@@ -282,7 +292,7 @@ export default function GccLandingPage() {
                   </tr>
                   <tr className="border-b border-apty-coral-accent/60">
                     <td className="px-4 py-3 align-top">Learning structure</td>
-                    <td className="px-4 py-3 align-top">243 connected lessons</td>
+                    <td className="px-4 py-3 align-top">238 lessons</td>
                     <td className="px-4 py-3 align-top">No fixed sequence guaranteed</td>
                   </tr>
                   <tr className="border-b border-apty-coral-accent/60">
@@ -307,7 +317,7 @@ export default function GccLandingPage() {
                   </tr>
                   <tr className="border-b border-apty-coral-accent/60">
                     <td className="px-4 py-3 align-top">Try before you pay</td>
-                    <td className="px-4 py-3 align-top">Four free lessons, no signup</td>
+                    <td className="px-4 py-3 align-top">Start Lesson 1, no signup</td>
                     <td className="px-4 py-3 align-top">Usually a paid trial session</td>
                   </tr>
                   <tr className="border-b border-apty-coral-accent/60 bg-teal-50/90 text-apty-dark">
@@ -330,14 +340,14 @@ export default function GccLandingPage() {
               </table>
             </div>
             <p className="text-sm text-apty-gray mt-4">
-              Level 1 contains 46 lessons (about twenty hours of guided work). Your App Store or Google Play receipt
+              Your App Store or Google Play receipt
               shows the exact amount in your currency at checkout.
             </p>
 
             <div className="mt-8 rounded-xl border-2 border-apty-coral/30 bg-gradient-to-b from-apty-warm/90 to-white p-6 shadow-sm">
               <p className="text-base font-semibold text-apty-dark mb-3">Simple GCC pricing</p>
               <p className="text-base text-apty-dark leading-relaxed">
-                Four lessons are completely free, no registration. If you love it, Level 1 is AED 299 in the UAE, SAR 299
+              Start Lesson 1. No account needed. If you love it, Level 1 is AED 299 in the UAE, SAR 299
                 in Saudi Arabia, QAR 299 in Qatar. No subscription.
               </p>
             </div>
@@ -348,7 +358,7 @@ export default function GccLandingPage() {
           <div className="container mx-auto max-w-5xl">
             <h2 className="text-3xl font-bold text-apty-dark mb-3 text-center">Why parents pick AptyRead</h2>
             <p className="text-apty-gray text-center mb-8 max-w-3xl mx-auto">
-              Calm structure over loud gamification. Every point below shows up in all four levels.
+              Calm structure over loud gamification. Every point below shows up in all five levels.
             </p>
             <div className="grid md:grid-cols-2 gap-5">
               <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
@@ -405,7 +415,7 @@ export default function GccLandingPage() {
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Tonight can be the first free lesson.</h2>
             <p className="text-white/95 text-lg mb-4">
-              Tap below, install AptyRead, let your child try four lessons without creating an account. Phones and tablets
+              Tap below, install AptyRead, and start Lesson 1 without creating an account. Phones and tablets
               from the App Store and Google Play both work across the Gulf.
             </p>
             <p className="text-white/95 text-base mb-8">
@@ -425,7 +435,7 @@ export default function GccLandingPage() {
               <GooglePlayBadge />
             </div>
             <div className="mt-7 grid sm:grid-cols-2 gap-3 text-left text-white/95 text-sm max-w-3xl mx-auto">
-              <p>✓ Four free lessons, zero forms</p>
+              <p>✓ Start Lesson 1, no account needed</p>
               <p>✓ About AED 299 UAE, SAR 299 Saudi, QAR 299 Qatar, no renewal trap</p>
               <p>✓ Six calm months on each level</p>
               <p>✓ Finish Level 1 before you think about Level 2</p>
@@ -440,7 +450,7 @@ export default function GccLandingPage() {
             platform="auto"
             className="inline-flex w-full items-center justify-center gap-2 bg-apty-coral text-white px-5 py-3 rounded-xl font-semibold text-center hover:opacity-90"
           >
-            Try 4 Free Lessons
+            Start Lesson 1
           </PlayStoreLink>
           <p className="mt-1 text-[11px] text-center text-apty-gray">No registration needed. Start in under a minute.</p>
         </div>
