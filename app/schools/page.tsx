@@ -124,14 +124,14 @@ export default function SchoolsPage() {
                 A reading program for the classroom. Ages 4 to 10. One teacher.
                 One screen. The class says the sounds out loud.
               </p>
-              <p className="text-base text-apty-gray leading-relaxed mb-8 max-w-lg">
+              <p className="text-lg md:text-xl text-apty-gray leading-relaxed mb-8 max-w-lg">
                 That is what parents hear. That is what makes a school stand
                 out. Not another spoken-English class. Reading they can hear.
               </p>
               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <a
                   href={CLASSROOM_URL}
-                  className="inline-flex items-center justify-center rounded-xl bg-apty-coral px-6 py-3.5 text-base font-semibold text-white hover:bg-[#e95624] transition-colors"
+                  className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-apty-coral px-6 py-3.5 text-base font-semibold text-white hover:bg-[#e95624] transition-colors"
                 >
                   Start free in Classroom
                 </a>
@@ -148,11 +148,11 @@ export default function SchoolsPage() {
               <p className="text-sm text-apty-gray mb-8">
                 On the classroom screen
               </p>
-              <div className="flex items-center justify-center gap-3 md:gap-4">
+              <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4">
                 {["s", "a", "t"].map((letter, index) => (
                   <span
                     key={letter}
-                    className={`flex h-20 w-20 md:h-24 md:w-24 items-center justify-center rounded-2xl text-4xl md:text-5xl font-bold ${
+                    className={`flex h-14 w-14 sm:h-20 sm:w-20 md:h-24 md:w-24 items-center justify-center rounded-2xl text-2xl sm:text-4xl md:text-5xl font-bold ${
                       index === 0
                         ? "bg-apty-coral text-white"
                         : "bg-white text-apty-dark"
@@ -174,13 +174,13 @@ export default function SchoolsPage() {
             <h2 className="text-2xl md:text-3xl font-bold text-apty-dark mb-8">
               Will it work in your school?
             </h2>
-            <div className="grid sm:grid-cols-3 gap-8 md:gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10">
               {schoolFit.map((item) => (
                 <div key={item.title}>
                   <h3 className="text-lg font-semibold text-apty-dark mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-apty-gray leading-relaxed">{item.body}</p>
+                  <p className="text-lg text-apty-gray leading-relaxed">{item.body}</p>
                 </div>
               ))}
             </div>
@@ -197,7 +197,7 @@ export default function SchoolsPage() {
                 <h3 className="text-lg font-semibold text-apty-dark mb-2">
                   Any teacher who can run a class
                 </h3>
-                <p className="text-apty-gray leading-relaxed">
+                <p className="text-lg text-apty-gray leading-relaxed">
                   The lesson shows what to say, what to model, and what to watch
                   for. No extra teacher. No course before lesson one.
                 </p>
@@ -206,7 +206,7 @@ export default function SchoolsPage() {
                 <h3 className="text-lg font-semibold text-apty-dark mb-2">
                   Progress sits on the school login
                 </h3>
-                <p className="text-apty-gray leading-relaxed">
+                <p className="text-lg text-apty-gray leading-relaxed">
                   Parallel sections use their own logins. Children do not need
                   devices.
                 </p>
@@ -224,7 +224,7 @@ export default function SchoolsPage() {
               Open Classroom. The teacher signs in. The class watches, says the
               sound, tries it, and writes.
             </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {lessonSteps.map((step, index) => (
                 <article
                   key={step.title}
@@ -236,7 +236,7 @@ export default function SchoolsPage() {
                   <h3 className="text-xl font-semibold text-apty-dark mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-apty-gray leading-relaxed">{step.body}</p>
+                  <p className="text-lg text-apty-gray leading-relaxed">{step.body}</p>
                 </article>
               ))}
             </div>
@@ -251,7 +251,7 @@ export default function SchoolsPage() {
             <p className="text-lg text-apty-gray max-w-2xl mb-12 leading-relaxed">
               Every class starts at Level 1. No skipping.
             </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
               {levels.map((level) => (
                 <article
                   key={level.number}
@@ -263,7 +263,7 @@ export default function SchoolsPage() {
                   <h3 className="font-semibold text-apty-dark mb-2 leading-snug">
                     {level.name}
                   </h3>
-                  <p className="text-sm text-apty-gray leading-relaxed">
+                  <p className="text-lg lg:text-base text-apty-gray leading-relaxed">
                     {level.body}
                   </p>
                 </article>
@@ -281,13 +281,13 @@ export default function SchoolsPage() {
               No lab. No student devices. See it free. Buy a level when it
               works. The price is on screen before you pay.
             </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {access.map((item) => (
                 <div key={item.title}>
                   <h3 className="text-lg font-semibold text-apty-dark mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-apty-gray leading-relaxed">{item.body}</p>
+                  <p className="text-lg text-apty-gray leading-relaxed">{item.body}</p>
                 </div>
               ))}
             </div>
@@ -301,7 +301,7 @@ export default function SchoolsPage() {
             </h2>
             <a
               href={CLASSROOM_URL}
-              className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-lg font-semibold text-apty-coral hover:opacity-90 transition-opacity"
+              className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-white px-8 py-4 text-lg font-semibold text-apty-coral hover:opacity-90 transition-opacity"
             >
               Start free in Classroom
             </a>
