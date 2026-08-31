@@ -7,6 +7,7 @@ import AppShowcase, {
   LANDING_APP_SHOWCASE_ORDER,
 } from "@/components/public/AppShowcase";
 import MinimalFooter from "@/components/public/MinimalFooter";
+import { softwareApplicationJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Download AptyRead - Start Lesson 1 | AptyRead",
@@ -30,21 +31,9 @@ export const metadata: Metadata = {
 };
 
 export default function DownloadPage() {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "AptyRead",
-    "applicationCategory": "EducationalApplication",
-    "operatingSystem": "Android, iOS",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD",
-      "description": "Start Lesson 1. No account needed.",
-    },
-    "description": "English reading program for children ages 4 to 10. 5 levels, 238 lessons. Start Lesson 1. No account needed.",
-    "url": "https://www.aptyread.ai/download",
-  };
+  const structuredData = softwareApplicationJsonLd(
+    "https://www.aptyread.ai/download",
+  );
 
   return (
     <>
