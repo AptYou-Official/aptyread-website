@@ -113,7 +113,7 @@ export const homeItems: FaqItem[] = [
   {
     question: "Does it work offline?",
     answer:
-      "After a lesson is downloaded, much of it works without internet. You need a connection to get new lessons and to sync progress.",
+      "No. Lessons stream. You need a connection to watch and listen. Progress saves when you are online.",
   },
   {
     question: "Can more than one child use it?",
@@ -121,7 +121,8 @@ export const homeItems: FaqItem[] = [
   },
   {
     question: "Can we use more than one device?",
-    answer: "Yes. Same account. Progress syncs when you are online.",
+    answer:
+      "Yes. Same account. One device at a time. Progress syncs when you are online. Keep the parent sign-in to yourself. Do not share it.",
   },
   {
     question: "Is it safe?",
