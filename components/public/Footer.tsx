@@ -32,21 +32,25 @@ export default function Footer({ schoolsPage = false }: FooterProps) {
                   Home
                 </a>
               </li>
-              <li>
-                <a href="/faq" className="text-apty-gray hover:text-apty-coral transition-colors">
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a href="/about" className="text-apty-gray hover:text-apty-coral transition-colors">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="/schools" className="text-apty-gray hover:text-apty-coral transition-colors">
-                  For Schools
-                </a>
-              </li>
+              {!schoolsPage ? (
+                <>
+                  <li>
+                    <a href="/faq" className="text-apty-gray hover:text-apty-coral transition-colors">
+                      FAQ
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/about" className="text-apty-gray hover:text-apty-coral transition-colors">
+                      About Us
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/schools" className="text-apty-gray hover:text-apty-coral transition-colors">
+                      For Schools
+                    </a>
+                  </li>
+                </>
+              ) : null}
               <li>
                 <a href="/contact" className="text-apty-gray hover:text-apty-coral transition-colors">
                   Contact Us
@@ -62,11 +66,13 @@ export default function Footer({ schoolsPage = false }: FooterProps) {
                   Terms of Service
                 </a>
               </li>
-              <li>
-                <a href="/delete-account" className="text-apty-gray hover:text-apty-coral transition-colors">
-                  Delete Account
-                </a>
-              </li>
+              {!schoolsPage ? (
+                <li>
+                  <a href="/delete-account" className="text-apty-gray hover:text-apty-coral transition-colors">
+                    Delete Account
+                  </a>
+                </li>
+              ) : null}
             </ul>
           </div>
           <div>
