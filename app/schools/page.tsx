@@ -8,19 +8,53 @@ const CLASSROOM_LOGIN_URL = "https://classroom.aptyread.ai/#/login";
 export const metadata: Metadata = {
   title: "AptyRead Classroom for Schools",
   description:
-    "English reading, taught together. One teacher. One classroom screen. Five levels. No student accounts. No special hardware. First sound group free.",
+    "English reading for the classroom. Children learn to read English and say the sounds clearly. One teacher. One screen. Ages 4 to 10. First sound group free.",
   alternates: {
     canonical: "https://www.aptyread.ai/schools",
   },
   openGraph: {
     title: "AptyRead Classroom for Schools",
     description:
-      "Teacher-led English reading on a digital board, laptop, or projector. Five levels. First sound group free.",
+      "Children who can read English, and say it clearly. Taught together on a board, laptop, or projector. Ages 4 to 10.",
     url: "https://www.aptyread.ai/schools",
     siteName: "AptyRead",
     type: "website",
   },
 };
+
+const schoolFit = [
+  {
+    title: "The screen you have",
+    body: "A digital board, laptop, or projector. No tablets. No computer lab.",
+  },
+  {
+    title: "The whole class",
+    body: "No student accounts. Forty children or four. They work as one.",
+  },
+  {
+    title: "A connection",
+    body: "Lessons stream. You need the internet for the class, as you would for a video.",
+  },
+];
+
+const lessonSteps = [
+  {
+    title: "Watch",
+    body: "Video shows the sound. A real mouth. The whole class watches together.",
+  },
+  {
+    title: "Say it",
+    body: "The teacher models. The class repeats out loud. That is how the sound gets clear.",
+  },
+  {
+    title: "Try it",
+    body: "A child can come to the board. The rest stay with the lesson.",
+  },
+  {
+    title: "Write",
+    body: "Formation on screen. Children write on paper. The teacher checks.",
+  },
+];
 
 const levels = [
   {
@@ -46,26 +80,26 @@ const levels = [
   {
     number: "5",
     name: "I Am a Reader!",
-    body: "Three books, cover to cover. The class reads them together on the board.",
+    body: "Three books. The class reads them together on the board.",
   },
 ];
 
-const lessonSteps = [
+const access = [
   {
-    title: "Watch",
-    body: "Video shows the sound. A real mouth. The whole class watches together.",
+    title: "Start free",
+    body: "First sound group: S, A, T. See it with one class.",
   },
   {
-    title: "Say it",
-    body: "The teacher models. The class repeats out loud.",
+    title: "One classroom",
+    body: "The whole class. One login. No student devices.",
   },
   {
-    title: "Try it",
-    body: "A child can come to the board. The rest of the class stays with the lesson.",
+    title: "Buy a level",
+    body: "When it works. The price is shown before you pay.",
   },
   {
-    title: "Write",
-    body: "Letter formation on screen. Children write on paper. The teacher checks.",
+    title: "One year",
+    body: "One level per classroom license, from activation.",
   },
 ];
 
@@ -75,150 +109,188 @@ export default function SchoolsPage() {
       <Header schoolsPage />
 
       <main>
-        <section className="px-4 pt-16 pb-20 md:pt-24 md:pb-28">
-          <div className="container mx-auto max-w-3xl">
-            <p className="text-sm font-semibold tracking-wide text-apty-coral mb-5">
-              AptyRead Classroom
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-apty-dark leading-[1.08] tracking-tight mb-6">
-              English reading.
-              <br />
-              Taught together.
-            </h1>
-            <p className="text-lg md:text-xl text-apty-gray leading-relaxed max-w-xl mb-10">
-              One teacher. One screen already in the room. Teachers do not need
-              to be phonics experts.
-            </p>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
-              <a
-                href={CLASSROOM_URL}
-                className="inline-flex items-center justify-center rounded-xl bg-apty-coral px-6 py-3.5 text-base font-semibold text-white hover:bg-[#e95624] transition-colors"
-              >
-                Start free in Classroom
-              </a>
-              <a
-                href={CLASSROOM_LOGIN_URL}
-                className="font-semibold text-apty-dark hover:text-apty-coral transition-colors"
-              >
-                School login
-              </a>
-            </div>
-            <p className="text-sm text-apty-gray">
-              No tablets. No student accounts. No special hardware.
-            </p>
-          </div>
-        </section>
-
-        <section className="px-4 pb-20 md:pb-28">
-          <div className="container mx-auto max-w-3xl">
-            <div className="flex items-center justify-center gap-3 md:gap-4 py-10 border-y border-apty-border">
-              {["s", "a", "t"].map((letter, index) => (
-                <span
-                  key={letter}
-                  className={`flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-2xl text-3xl md:text-4xl font-bold ${
-                    index === 0
-                      ? "bg-apty-coral text-white"
-                      : "border border-apty-border text-apty-dark"
-                  }`}
+        <section className="px-4 py-14 md:py-20 lg:py-24">
+          <div className="container mx-auto max-w-6xl grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <p className="text-sm font-semibold text-apty-coral mb-4">
+                AptyRead Classroom
+              </p>
+              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-apty-dark leading-[1.08] tracking-tight mb-5">
+                Children who can read English.
+                <br />
+                And say it clearly.
+              </h1>
+              <p className="text-lg md:text-xl text-apty-gray leading-relaxed mb-4 max-w-lg">
+                A reading program for the classroom. Ages 4 to 10. One teacher.
+                One screen. The class says the sounds out loud.
+              </p>
+              <p className="text-base text-apty-gray leading-relaxed mb-8 max-w-lg">
+                That is what parents hear. That is what makes a school stand
+                out. Not another spoken-English class. Reading they can hear.
+              </p>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <a
+                  href={CLASSROOM_URL}
+                  className="inline-flex items-center justify-center rounded-xl bg-apty-coral px-6 py-3.5 text-base font-semibold text-white hover:bg-[#e95624] transition-colors"
                 >
-                  {letter}
-                </span>
-              ))}
+                  Start free in Classroom
+                </a>
+                <a
+                  href={CLASSROOM_LOGIN_URL}
+                  className="font-semibold text-apty-dark hover:text-apty-coral transition-colors"
+                >
+                  School login
+                </a>
+              </div>
             </div>
-            <p className="mt-6 text-center text-apty-gray">
-              First sound group is free. Then buy a level when it works for
-              your class.
-            </p>
+
+            <div className="rounded-3xl bg-[#f5f5f7] px-8 py-10 md:px-12 md:py-14">
+              <p className="text-sm text-apty-gray mb-8">
+                On the classroom screen
+              </p>
+              <div className="flex items-center justify-center gap-3 md:gap-4">
+                {["s", "a", "t"].map((letter, index) => (
+                  <span
+                    key={letter}
+                    className={`flex h-20 w-20 md:h-24 md:w-24 items-center justify-center rounded-2xl text-4xl md:text-5xl font-bold ${
+                      index === 0
+                        ? "bg-apty-coral text-white"
+                        : "bg-white text-apty-dark"
+                    }`}
+                  >
+                    {letter}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-10 text-center font-semibold text-apty-dark">
+                One screen. The whole class.
+              </p>
+            </div>
           </div>
         </section>
 
-        <section className="px-4 pb-20 md:pb-28">
-          <div className="container mx-auto max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-3">
-              A lesson on your board
+        <section className="border-y border-apty-border px-4 py-12 md:py-16">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-apty-dark mb-8">
+              Will it work in your school?
             </h2>
-            <p className="text-lg text-apty-gray mb-10 leading-relaxed">
-              Open Classroom on a digital board, laptop, or projector. The
-              teacher signs in. The class works as one.
+            <div className="grid sm:grid-cols-3 gap-8 md:gap-10">
+              {schoolFit.map((item) => (
+                <div key={item.title}>
+                  <h3 className="text-lg font-semibold text-apty-dark mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-apty-gray leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-4 py-16 md:py-24">
+          <div className="container mx-auto max-w-6xl grid lg:grid-cols-2 gap-10 lg:gap-20 items-start">
+            <h2 className="text-3xl md:text-4xl font-bold text-apty-dark">
+              Can your teachers take it?
+            </h2>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-lg font-semibold text-apty-dark mb-2">
+                  Any teacher who can run a class
+                </h3>
+                <p className="text-apty-gray leading-relaxed">
+                  The lesson shows what to say, what to model, and what to watch
+                  for. No extra teacher. No course before lesson one.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-apty-dark mb-2">
+                  Progress sits on the school login
+                </h3>
+                <p className="text-apty-gray leading-relaxed">
+                  Parallel sections use their own logins. Children do not need
+                  devices.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#f5f5f7] px-4 py-16 md:py-24">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-3">
+              One period on your board
+            </h2>
+            <p className="text-lg text-apty-gray max-w-2xl mb-12 leading-relaxed">
+              Open Classroom. The teacher signs in. The class watches, says the
+              sound, tries it, and writes.
             </p>
-            <ol className="space-y-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {lessonSteps.map((step, index) => (
-                <li key={step.title} className="flex gap-5">
-                  <span className="text-apty-coral font-semibold w-6 shrink-0 pt-0.5">
+                <article
+                  key={step.title}
+                  className="bg-white rounded-2xl p-6 md:p-7"
+                >
+                  <p className="text-sm font-semibold text-apty-coral mb-3">
                     {index + 1}
-                  </span>
-                  <div>
-                    <p className="font-semibold text-apty-dark text-lg">
-                      {step.title}
-                    </p>
-                    <p className="mt-1 text-apty-gray leading-relaxed">
-                      {step.body}
-                    </p>
-                  </div>
-                </li>
+                  </p>
+                  <h3 className="text-xl font-semibold text-apty-dark mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-apty-gray leading-relaxed">{step.body}</p>
+                </article>
               ))}
-            </ol>
-          </div>
-        </section>
-
-        <section className="px-4 pb-20 md:pb-28">
-          <div className="container mx-auto max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-3">
-              Five levels. One path.
-            </h2>
-            <p className="text-lg text-apty-gray mb-10 leading-relaxed">
-              Every class starts at Level 1. No skipping. Each level builds on
-              the last.
-            </p>
-            <ol className="space-y-8">
-              {levels.map((level) => (
-                <li key={level.number} className="flex gap-5">
-                  <span className="text-apty-coral font-semibold w-6 shrink-0 pt-0.5">
-                    {level.number}
-                  </span>
-                  <div>
-                    <p className="font-semibold text-apty-dark text-lg">
-                      {level.name}
-                    </p>
-                    <p className="mt-1 text-apty-gray leading-relaxed">
-                      {level.body}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        <section className="px-4 pb-20 md:pb-28">
-          <div className="container mx-auto max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-4">
-              Your teachers can start tomorrow
-            </h2>
-            <div className="space-y-4 text-lg text-apty-gray leading-relaxed">
-              <p>
-                The lesson shows what to say, what to model, and what to watch
-                for. The phonics sits in the sequence, not in a training course.
-              </p>
-              <p>
-                Progress is on the classroom login. Parallel sections use their
-                own logins. Children do not need devices.
-              </p>
             </div>
           </div>
         </section>
 
-        <section className="px-4 pb-20 md:pb-28">
-          <div className="container mx-auto max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-8">
-              Access
+        <section className="px-4 py-16 md:py-24">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-3">
+              How far it goes
             </h2>
-            <ul className="space-y-4 text-lg text-apty-dark leading-relaxed">
-              <li>First sound group free: S, A, T.</li>
-              <li>One classroom. The whole class. No student accounts.</li>
-              <li>Buy a level in Classroom. The price is shown before you pay.</li>
-              <li>One level per classroom license. Valid one year from activation.</li>
-            </ul>
+            <p className="text-lg text-apty-gray max-w-2xl mb-12 leading-relaxed">
+              Five levels. One path. Every class starts at Level 1. No skipping.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
+              {levels.map((level) => (
+                <article
+                  key={level.number}
+                  className="rounded-2xl border border-apty-border p-5 md:p-6"
+                >
+                  <p className="text-sm font-semibold text-apty-coral mb-3">
+                    {level.number}
+                  </p>
+                  <h3 className="font-semibold text-apty-dark mb-2 leading-snug">
+                    {level.name}
+                  </h3>
+                  <p className="text-sm text-apty-gray leading-relaxed">
+                    {level.body}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#f5f5f7] px-4 py-16 md:py-24">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-3">
+              Any classroom with a screen can start
+            </h2>
+            <p className="text-lg text-apty-gray max-w-2xl mb-12 leading-relaxed">
+              No lab. No student devices. See it free. Buy a level when it
+              works. The price is on screen before you pay.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {access.map((item) => (
+                <div key={item.title}>
+                  <h3 className="text-lg font-semibold text-apty-dark mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-apty-gray leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
