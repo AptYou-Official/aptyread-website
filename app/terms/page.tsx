@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import Link from 'next/link';
+import Header from "@/components/public/Header";
+import Footer from "@/components/public/Footer";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | AptyRead - User Agreement & Policies",
-  description: "AptyRead Terms of Service. Learn about our refund policy, user responsibilities, course enrollment, and terms of use for our literacy learning platform.",
+  title: "Terms of Service | AptyRead",
+  description:
+    "AptyRead terms. A parent account. Buy a level once. No subscription. Refunds through the App Store or Google Play.",
   alternates: {
     canonical: "https://www.aptyread.ai/terms",
   },
@@ -12,25 +14,55 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-apty-warm">
-      <header className="bg-white border-b border-apty-coral-accent">
-        <nav className="container mx-auto px-4 py-4">
-          <Link href="/" className="text-2xl font-bold text-apty-coral">
-            AptyRead
-          </Link>
-        </nav>
-      </header>
-      
-      <main className="container mx-auto px-4 py-12 max-w-4xl">
-        <div className="bg-white p-8 md:p-12 rounded-lg border border-apty-coral-accent shadow-sm">
-          <h1 className="text-4xl md:text-5xl font-bold text-apty-dark mb-4">Terms of Service</h1>
-          
-          <div className="mb-6 text-apty-gray">
-            <p><strong>Effective Date:</strong> January 1, 2026</p>
-            <p><strong>Last Updated:</strong> December 25, 2025</p>
-          </div>
+      <Header />
 
-          <div className="prose prose-lg max-w-none text-apty-gray">
-            
+      <main>
+        <article className="px-4 py-14 md:py-20">
+          <div className="container mx-auto max-w-3xl">
+            <p className="text-sm font-semibold tracking-wide text-apty-coral mb-4">
+              AptyRead
+            </p>
+            <h1 className="text-3xl md:text-5xl font-bold text-apty-dark mb-4 leading-tight">
+              Terms of Service
+            </h1>
+            <p className="text-apty-gray mb-10">
+              Effective 1 January 2026. Last updated 25 December 2025.
+            </p>
+
+            <section className="mb-14 pb-12 border-b border-apty-coral-accent">
+              <h2 className="text-sm font-semibold tracking-wide text-apty-coral mb-4">
+                In plain words
+              </h2>
+              <div className="space-y-4 text-base md:text-lg text-apty-dark leading-relaxed">
+                <p>
+                  A parent, 18 or older, creates the account. A child uses the
+                  app with them.
+                </p>
+                <p>
+                  Buy a level once. No subscription. The App Store or Google
+                  Play shows the price. Access lasts for the period shown when
+                  you buy.
+                </p>
+                <p>
+                  Refunds go through the store, usually within seven days of
+                  purchase.
+                </p>
+                <p>
+                  Using AptyRead means you accept these terms and our{" "}
+                  <a
+                    href="/privacy"
+                    className="text-apty-coral font-semibold hover:text-apty-dark transition-colors"
+                  >
+                    Privacy Policy
+                  </a>
+                  .
+                </p>
+                <p className="text-apty-gray">The full terms are below.</p>
+              </div>
+            </section>
+
+            <div className="prose prose-lg max-w-none text-apty-gray [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-apty-dark [&_h2]:mt-12 [&_h2]:mb-4 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-apty-dark [&_a]:text-apty-coral [&_a]:font-semibold [&_a]:no-underline hover:[&_a]:text-apty-dark [&_strong]:text-apty-dark">
+
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-apty-dark mb-4">1. Introduction</h2>
               <p className="mb-4">
@@ -579,30 +611,15 @@ export default function TermsPage() {
               </p>
             </section>
 
-            <div className="mt-12 p-6 bg-apty-warm rounded-lg border border-apty-coral-accent">
-              <p className="text-apty-dark font-semibold mb-2">
-                By using AptyRead, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
-              </p>
-              <p className="text-apty-gray">
-                Thank you for choosing AptyRead to support your child&apos;s learning journey!
-              </p>
-            </div>
-
-            <div className="mt-8 text-sm text-apty-gray text-center">
-              <em>Last Updated: December 25, 2025</em>
+            <p className="mt-16 text-sm text-apty-gray">
+              Last updated 25 December 2025.
+            </p>
             </div>
           </div>
-
-          <div className="mt-8 pt-8 border-t border-apty-coral-accent">
-            <Link
-              href="/"
-              className="text-apty-coral hover:underline"
-            >
-              ← Back to Home
-            </Link>
-          </div>
-        </div>
+        </article>
       </main>
+
+      <Footer />
     </div>
   );
 }
