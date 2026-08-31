@@ -152,9 +152,17 @@ export default function Footer({ schoolsPage = false }: FooterProps) {
             © 2026 APTYOU SERVICES PRIVATE LIMITED. All rights reserved.
           </p>
           {!schoolsPage ? (
-            <p className="text-apty-gray text-xs">
-              Google Play and the Google Play logo are trademarks of Google LLC.
-            </p>
+            <div className="text-apty-gray text-xs space-y-1 max-w-xl mx-auto">
+              <p>
+                Apple, the Apple logo, App Store, iPhone, and iPad are
+                trademarks of Apple Inc., registered in the U.S. and other
+                countries.
+              </p>
+              <p>
+                Google Play and the Google Play logo are trademarks of Google
+                LLC.
+              </p>
+            </div>
           ) : null}
         </div>
       </div>
