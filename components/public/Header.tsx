@@ -49,7 +49,7 @@ export default function Header({ schoolsPage = false }: HeaderProps) {
               </a>
               <a
                 href={CLASSROOM_URL}
-                className="inline-flex items-center justify-center rounded-full bg-apty-coral px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#e95624] md:px-5"
+                className="inline-flex items-center justify-center rounded-full border border-apty-dark px-4 py-2 text-sm font-semibold text-apty-dark transition-colors hover:border-apty-coral hover:text-apty-coral md:px-5"
               >
                 Open Classroom
               </a>

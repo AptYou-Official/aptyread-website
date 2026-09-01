@@ -291,20 +291,14 @@ export default function SchoolsPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className="bg-apty-coral py-16 md:py-20 px-4">
-          <div className="container mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-              Open Classroom. Start with S, A, T.
-            </h2>
-            <a
-              href={CLASSROOM_URL}
-              className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-white px-8 py-4 text-lg font-semibold text-apty-coral hover:opacity-90 transition-opacity"
-            >
-              Start free in Classroom
-            </a>
+            <div className="mt-12">
+              <a
+                href={CLASSROOM_URL}
+                className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-apty-coral px-8 py-4 text-lg font-semibold text-white hover:bg-[#e95624] transition-colors"
+              >
+                Start free in Classroom
+              </a>
+            </div>
           </div>
         </section>
       </main>
