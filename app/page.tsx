@@ -32,7 +32,7 @@ export default function Home() {
         <Hero />
         <LandingVideo
           title="See AptyRead in 30 seconds."
-          subtitle="Fifteen minutes. You sit with them. Then they read."
+          subtitle="The feeling of a real lesson. Then they read."
         />
         <BusyUserStrip />
         <HowItWorks />
