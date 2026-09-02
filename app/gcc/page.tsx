@@ -225,7 +225,7 @@ export default function GccLandingPage() {
           </div>
         </section>
 
-        <LandingVideo subtitle="A 60-second explainer for parents." />
+        <LandingVideo subtitle="Fifteen minutes. You sit with them. Then they read." />
 
         <AppShowcase shotOrder={LANDING_APP_SHOWCASE_ORDER} />
 

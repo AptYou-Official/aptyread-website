@@ -31,8 +31,8 @@ export default function Home() {
         <Header />
         <Hero />
         <LandingVideo
-          title="See AptyRead in 60 seconds."
-          subtitle="The feeling of a real lesson. Then they read."
+          title="See AptyRead in 30 seconds."
+          subtitle="Fifteen minutes. You sit with them. Then they read."
         />
         <BusyUserStrip />
         <HowItWorks />

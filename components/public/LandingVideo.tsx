@@ -8,7 +8,7 @@ type LandingVideoProps = {
   subtitle?: string;
 };
 
-const VIDEO_ID = "kHQhATYvmSQ";
+const VIDEO_ID = "d3O3uDjoTrc";
 const VIDEO_URL = `https://www.youtube-nocookie.com/embed/${VIDEO_ID}?rel=0&modestbranding=1&playsinline=1&enablejsapi=1`;
 
 declare global {
@@ -44,8 +44,8 @@ function loadYoutubeApi(): Promise<void> {
 }
 
 export default function LandingVideo({
-  title = "See AptyRead in 60 seconds.",
-  subtitle = "Why some children struggle to read. And what changes when the foundation is right.",
+  title = "See AptyRead in 30 seconds.",
+  subtitle = "Fifteen minutes. You sit with them. Then they read.",
 }: LandingVideoProps) {
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
@@ -128,7 +128,7 @@ export default function LandingVideo({
               ref={iframeRef}
               className="absolute inset-0 w-full h-full"
               src={VIDEO_URL}
-              title="AptyRead school readiness and literacy walkthrough"
+              title="AptyRead in 30 seconds"
               loading="lazy"
               referrerPolicy="strict-origin-when-cross-origin"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
