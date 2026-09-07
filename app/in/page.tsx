@@ -10,7 +10,7 @@ import AppShowcase, {
 } from "@/components/public/AppShowcase";
 import LandingVideo from "@/components/public/LandingVideo";
 
-const ogImage = "https://www.aptyread.ai/images/apty.png";
+const ogImage = "https://www.aptyread.ai/images/apty_with_book.png";
 
 export const metadata: Metadata = {
   title: "AptyRead English Literacy Program | Children | India | Try Free",

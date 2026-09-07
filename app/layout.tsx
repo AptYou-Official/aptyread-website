@@ -27,8 +27,11 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/images/apty.png",
-    apple: "/images/apty.png",
+    icon: [
+      { url: "/images/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/apty-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    apple: "/images/apple-touch-icon.png",
   },
   openGraph: {
     title: "AptyRead. Every Child Reads.",
@@ -39,7 +42,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "https://www.aptyread.ai/images/apty.png",
+        url: "https://www.aptyread.ai/images/apty_with_book.png",
         width: 512,
         height: 512,
         alt: "AptyRead Logo",
@@ -50,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "AptyRead. Every Child Reads.",
     description: "English reading program for children aged 4 to 10. Built on the Science of Reading. 5 levels, 238 lessons. Start Lesson 1. No account needed.",
-    images: ["https://www.aptyread.ai/images/apty.png"],
+    images: ["https://www.aptyread.ai/images/apty_with_book.png"],
   },
   alternates: {
     canonical: "https://www.aptyread.ai",

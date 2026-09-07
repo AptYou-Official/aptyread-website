@@ -9,7 +9,7 @@ export default function DownloadHero() {
       <div className="container mx-auto px-4 max-w-2xl text-center">
         <div className="mb-6 flex justify-center">
           <Image
-            src="/images/apty.png"
+            src="/images/apty-mascot.png"
             alt="AptyRead"
             width={72}
             height={72}

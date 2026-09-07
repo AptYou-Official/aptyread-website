@@ -1,7 +1,7 @@
 import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/play-store-conversion";
 
 const SITE_URL = "https://www.aptyread.ai";
-const LOGO_URL = `${SITE_URL}/images/apty.png`;
+const LOGO_URL = `${SITE_URL}/images/apty_with_book.png`;
 
 const APP_DESCRIPTION =
   "English reading program for children aged 4 to 10. Five levels, 238 lessons. Start Lesson 1. No account needed.";

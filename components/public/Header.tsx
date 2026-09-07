@@ -16,7 +16,7 @@ export default function Header({ schoolsPage = false }: HeaderProps) {
       <nav className="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity">
           <Image 
-            src="/images/apty.png" 
+            src="/images/apty-mascot.png" 
             alt="AptyRead" 
             width={40} 
             height={40}

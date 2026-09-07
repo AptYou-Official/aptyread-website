@@ -23,11 +23,11 @@ if (files.length === 0) {
 }
 
 for (const f of files) {
-  const m = f.match(/^(\d{2})_/);
+  const m = f.match(/^(\d{2})_(.+)\.png$/i);
   if (!m) continue;
-  const id = m[1];
+  const slug = m[2];
   const inputPath = path.join(inputDir, f);
-  const outPath = path.join(outDir, `${id}.webp`);
+  const outPath = path.join(outDir, `${slug}.webp`);
   const meta = await sharp(inputPath).metadata();
   await sharp(inputPath)
     .resize(800, null, { withoutEnlargement: true })
@@ -35,7 +35,7 @@ for (const f of files) {
     .toFile(outPath);
   const outStat = fs.statSync(outPath);
   console.log(
-    `${id}.webp  ${meta.width}×${meta.height} → 800×~${Math.round(
+    `${slug}.webp  ${meta.width}×${meta.height} → 800×~${Math.round(
       800 * (meta.height / meta.width)
     )}  ${(outStat.size / 1024).toFixed(0)} KB`
   );

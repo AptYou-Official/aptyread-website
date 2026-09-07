@@ -4,34 +4,35 @@ import type { CSSProperties } from "react";
 import Image from "next/image";
 
 const IMG_W = 800;
-const IMG_H = 1731;
+const IMG_H = 1422;
 
-const shots: { n: string; alt: string; caption: string }[] = [
+const shots: { n: string; alt: string }[] = [
   {
-    n: "03",
-    alt: "AptyRead: a child in Lesson 1, learning the letter S sound",
-    caption: "In the lesson. First sound.",
+    n: "guide-shows-letter",
+    alt: "AptyRead: a guide shows the letter S, then they try",
   },
   {
-    n: "06",
-    alt: "AptyRead: parent view of where the child is now",
-    caption: "A parent glance. Where they are now.",
+    n: "watch-the-mouth",
+    alt: "AptyRead: watch the mouth and say the S sound",
   },
   {
-    n: "08",
-    alt: "AptyRead: the five-level learning path",
-    caption: "Five levels. One path.",
+    n: "write-on-paper",
+    alt: "AptyRead: write the letter S on paper, watch and copy",
   },
   {
-    n: "05",
-    alt: "AptyRead: writing practice for letter shapes",
-    caption: "Writing. The first-word moment starts here.",
+    n: "letters-become-a-path",
+    alt: "AptyRead learning path: S, then A, then T",
   },
 ];
 
-const HOMEPAGE_SHOTS = ["03", "06", "08", "05"] as const;
+const HOMEPAGE_SHOTS = [
+  "guide-shows-letter",
+  "watch-the-mouth",
+  "write-on-paper",
+  "letters-become-a-path",
+] as const;
 
-/** Four live-app screens for landing pages. */
+/** Four lesson frames for parent landing pages. */
 export const LANDING_APP_SHOWCASE_ORDER = HOMEPAGE_SHOTS;
 
 type AppShowcaseProps = {
@@ -43,7 +44,7 @@ type AppShowcaseProps = {
 function resolveShotList(
   maxShots: number,
   shotOrder: readonly string[] | undefined
-): { n: string; alt: string; caption: string }[] {
+): { n: string; alt: string }[] {
   const source = shotOrder?.length
     ? shotOrder
         .map((id) => shots.find((s) => s.n === id))
@@ -73,7 +74,7 @@ export default function AppShowcase({
             See the app.
           </h2>
           <p className="text-base md:text-lg text-apty-gray">
-            A lesson. A glance. The path. Then writing.
+            Watch. Say it. Write. Then the path.
           </p>
         </div>
 
@@ -102,12 +103,12 @@ export default function AppShowcase({
           role="region"
           aria-label="App screenshots, swipe on mobile to see more"
         >
-          {list.map(({ n, alt, caption }) => (
+          {list.map(({ n, alt }) => (
             <div
               key={n}
               className="flex-shrink-0 w-[min(78vw,300px)] md:w-auto snap-center min-w-0"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-apty-cyan/20 bg-apty-warm">
+              <div className="relative overflow-hidden rounded-2xl shadow-lg bg-[#1B2A4A]">
                 <Image
                   src={`/images/app-screenshots/${n}.webp`}
                   alt={alt}
@@ -118,9 +119,6 @@ export default function AppShowcase({
                   loading="lazy"
                 />
               </div>
-              <p className="mt-3 text-sm md:text-base font-semibold text-apty-dark text-center">
-                {caption}
-              </p>
             </div>
           ))}
         </div>
