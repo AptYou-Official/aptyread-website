@@ -1,8 +1,10 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import AppStoreBadge from '@/components/public/AppStoreBadge';
 import GooglePlayBadge from '@/components/public/GooglePlayBadge';
 import PlayStoreLink from '@/components/public/PlayStoreLink';
+import { PATH_URL } from '@/lib/reading-path';
 
 export default function Hero() {
   return (
@@ -36,7 +38,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-base md:text-lg text-apty-dark mb-3 leading-relaxed">
-              An English reading program for ages 4 to 10. Five levels. 238 lessons. One path.
+              An English reading program for ages 4 to 10. Five levels. One path.
             </p>
             <p className="text-sm md:text-base text-apty-cyan font-semibold mb-8">
               Built on the Science of Reading.
@@ -53,8 +55,14 @@ export default function Hero() {
                   Start Lesson 1
                 </div>
               </PlayStoreLink>
+              <Link
+                href={PATH_URL}
+                className="text-base font-semibold text-apty-dark hover:text-apty-coral transition-colors"
+              >
+                See the Five-Level Path
+              </Link>
               <p className="text-sm md:text-base text-apty-dark">
-                First lessons are free. No account.
+                First lessons are free. No account. Every child starts at Level 1.
               </p>
               <div className="flex items-center gap-3 opacity-90">
                 <AppStoreBadge />

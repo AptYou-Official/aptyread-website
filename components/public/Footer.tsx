@@ -21,7 +21,7 @@ export default function Footer({ schoolsPage = false }: FooterProps) {
             <p className="text-apty-gray text-sm">
               {schoolsPage
                 ? 'Structured English literacy for classrooms. Teach from a digital board, laptop, or projector.'
-                : 'English reading program for children aged 4 to 10. 5 levels, 238 lessons.'}
+                : 'English reading program for children aged 4 to 10. Five levels. One path.'}
             </p>
           </div>
           <div>
@@ -34,6 +34,11 @@ export default function Footer({ schoolsPage = false }: FooterProps) {
               </li>
               {!schoolsPage ? (
                 <>
+                  <li>
+                    <a href="/reading-guide" className="text-apty-gray hover:text-apty-coral transition-colors">
+                      Reading Guide
+                    </a>
+                  </li>
                   <li>
                     <a href="/faq" className="text-apty-gray hover:text-apty-coral transition-colors">
                       FAQ

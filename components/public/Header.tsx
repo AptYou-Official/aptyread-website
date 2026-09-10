@@ -36,6 +36,11 @@ export default function Header({ schoolsPage = false }: HeaderProps) {
           <Link href="/" className="hidden sm:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base">
             Home
           </Link>
+          {!schoolsPage ? (
+            <Link href="/reading-guide" className="hidden md:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base">
+              Reading Guide
+            </Link>
+          ) : null}
           <Link href="/schools" className="hidden sm:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base">
             For Schools
           </Link>

@@ -8,14 +8,14 @@ import { allFaqItems } from "@/lib/faq-content";
 export const metadata: Metadata = {
   title: "Questions parents ask | AptyRead",
   description:
-    "Clear answers about AptyRead. Ages 4 to 10. Five levels. 238 lessons. First lessons free. No account needed.",
+    "Clear answers about AptyRead. Ages 4 to 10. Five levels. One path. First lessons free. No account needed.",
   alternates: {
     canonical: "https://www.aptyread.ai/faq",
   },
   openGraph: {
     title: "Questions parents ask | AptyRead",
     description:
-      "Clear answers about AptyRead. Ages 4 to 10. Five levels. 238 lessons. First lessons free.",
+      "Clear answers about AptyRead. Ages 4 to 10. Five levels. One path. First lessons free.",
     url: "https://www.aptyread.ai/faq",
     siteName: "AptyRead",
     type: "website",

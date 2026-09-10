@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 const levels = [
   {
     level: "Level 1",
-    name: "I Am Learning Letters",
+    name: "Sound Foundations",
     icon: "🎯",
     body: "Every letter sound, before any word.",
     meta: "",
@@ -59,7 +59,7 @@ const levels = [
   },
   {
     level: "Level 2",
-    name: "I Can Read!",
+    name: "First Reading",
     icon: "📖",
     body: "First words. First sentences. First stories.",
     meta: "",
@@ -68,7 +68,7 @@ const levels = [
   },
   {
     level: "Level 3",
-    name: "I Can Read Big Words!",
+    name: "Confident Reading",
     icon: "🚀",
     body: "Letter teams. Blends. Short passages, alone.",
     meta: "",
@@ -77,7 +77,7 @@ const levels = [
   },
   {
     level: "Level 4",
-    name: "I Am Reading!",
+    name: "Building Fluency",
     icon: "🌟",
     body: "Paragraphs that get smoother over time.",
     meta: "",
@@ -86,7 +86,7 @@ const levels = [
   },
   {
     level: "Level 5",
-    name: "I Am a Reader!",
+    name: "Independent Reading",
     icon: "📚",
     body: "Three real books, cover to cover.",
     meta: "",
@@ -150,7 +150,7 @@ export default function IndiaLandingPage() {
                 For children ages 4 to 10
               </p>
               <h1 className="text-4xl md:text-5xl font-bold text-apty-dark leading-tight mb-6">
-                From &quot;I Am Learning Letters&quot; to &quot;I Am a Reader!&quot;
+                From &quot;Sound Foundations&quot; to &quot;Independent Reading&quot;
               </h1>
               <div className="text-lg text-apty-dark mb-4 space-y-2">
                 <p>Your child isn&apos;t behind.</p>
@@ -279,7 +279,7 @@ export default function IndiaLandingPage() {
 
             <div className="mt-8 bg-orange-50 border border-orange-200 rounded-xl p-5">
               <p className="font-semibold text-apty-dark">
-                Everyone begins at Level 1: &quot;I Am Learning Letters&quot;.
+                Everyone begins at Level 1: &quot;Sound Foundations&quot;.
               </p>
               <p className="text-apty-gray">
                 You cannot skip ahead. The sequence keeps skills honest instead of flashy shortcuts.

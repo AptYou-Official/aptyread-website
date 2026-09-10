@@ -1,7 +1,9 @@
+import Link from "next/link";
+
 const levels = [
   {
     number: 1,
-    name: "I Am Learning Letters",
+    name: "Sound Foundations",
     parentQuote: "My child knows the alphabet but can't read yet.",
     description: "Every letter sound, before any word.",
     featured: false,
@@ -9,7 +11,7 @@ const levels = [
   },
   {
     number: 2,
-    name: "I Can Read!",
+    name: "First Reading",
     parentQuote: "My child knows the sounds but can't put them together.",
     description: "First words. First sentences. First stories.",
     featured: true,
@@ -17,7 +19,7 @@ const levels = [
   },
   {
     number: 3,
-    name: "I Can Read Big Words!",
+    name: "Confident Reading",
     parentQuote: "My child reads simple words but longer words are hard.",
     description: "Letter teams. Blends. Short passages, alone.",
     featured: false,
@@ -25,7 +27,7 @@ const levels = [
   },
   {
     number: 4,
-    name: "I Am Reading!",
+    name: "Building Fluency",
     parentQuote: "My child can read, but not smoothly yet.",
     description: "Paragraphs that get smoother over time.",
     featured: false,
@@ -33,7 +35,7 @@ const levels = [
   },
   {
     number: 5,
-    name: "I Am a Reader!",
+    name: "Independent Reading",
     parentQuote: "I want them to pick up a real book alone.",
     description: "Three real books, cover to cover.",
     featured: false,
@@ -114,7 +116,8 @@ export default function HowItWorks() {
             Five levels. One path.
           </h2>
           <p className="text-base md:text-lg text-apty-gray max-w-2xl mx-auto leading-relaxed">
-            They move to the next level only when ready. No skipping. No gaps.
+            Every child starts at Level 1. Each level builds on the skills
+            developed in the previous one. They move forward when ready.
           </p>
         </div>
 
@@ -132,7 +135,7 @@ export default function HowItWorks() {
               }`}
             >
               <div className="relative z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-apty-coral text-lg font-bold text-white shadow-sm md:h-12 md:w-12 md:text-xl">
-                {level.number}
+                {String(level.number).padStart(2, "0")}
               </div>
               <div
                 className={`min-w-0 flex-1 rounded-2xl ${
@@ -162,6 +165,15 @@ export default function HowItWorks() {
           ))}
           </ol>
         </div>
+
+        <p className="text-center mt-10">
+          <Link
+            href="/reading-guide/the-aptyread-path"
+            className="text-base md:text-lg font-semibold text-apty-coral hover:text-apty-dark transition-colors"
+          >
+            See the full Five-Level Path →
+          </Link>
+        </p>
       </div>
     </section>
   );

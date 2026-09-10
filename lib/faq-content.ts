@@ -16,6 +16,15 @@ export const startItems: FaqItem[] = [
       "No. Start Lesson 1 with no account. A parent account comes later, if you enroll. Your child's name and age. That is all.",
   },
   {
+    question: "Why does every child start at Level 1?",
+    answer:
+      "AptyRead is one path. Level 1 is Sound Foundations. Reading is cumulative. Everyone starts there so nothing important is missing. Children who already know some skills often move through the early lessons quickly.",
+    link: {
+      href: "/reading-guide/the-aptyread-path",
+      label: "See the Five-Level Path",
+    },
+  },
+  {
     question: "What age is this for?",
     answer:
       "Ages 4 to 10. The path starts with letter sounds and ends with reading books alone.",
@@ -30,7 +39,16 @@ export const childItems: FaqItem[] = [
   {
     question: "My child already knows the alphabet. Which level should they start at?",
     answer:
-      "Knowing A, B, C is not the same as reading. Reading needs sounds. /a/ not A. /b/ not B. Most children who know their ABCs still start at Level 1. It goes quickly. And it makes sure nothing is missing.",
+      "Level 1. Knowing A, B, C is not the same as reading. Reading needs sounds — /a/ not A, /b/ not B. Most children who know their ABCs still start at Sound Foundations. It goes quickly when the skill is firm. And it makes sure nothing is missing.",
+    link: {
+      href: "/reading-guide/reading-problems/child-knows-alphabet-but-cant-read",
+      label: "Read: alphabet but can't read",
+    },
+  },
+  {
+    question: "What if my child already knows some skills in Level 1?",
+    answer:
+      "They still start at Level 1. The early lessons confirm the foundation. If a skill is already solid, they move through it faster. The path does not ask you to pick a later level as an entry point.",
   },
   {
     question: "My child speaks English well at home. Will this still help?",
@@ -50,7 +68,7 @@ export const childItems: FaqItem[] = [
   {
     question: "How is this different from other reading apps?",
     answer:
-      "Most reading apps are collections of activities. Fun, but not one journey. AptyRead is an English reading program. Five levels. 238 lessons. Every lesson builds on the last. Clear start. Clear path. Clear goal: your child reading books on their own.",
+      "Most reading apps are collections of activities. Fun, but not one journey. AptyRead is an English reading program. Five levels. One path. Every lesson builds on the last. Clear start. Clear path. Clear goal: your child reading books on their own.",
   },
 ];
 
@@ -73,12 +91,17 @@ export const lessonItems: FaqItem[] = [
   {
     question: "Can they skip a level?",
     answer:
-      "No. Five levels. One path. They finish a level before the next one opens. No gaps.",
+      "No. The program is cumulative. Each level builds on the previous one. They finish a level before the next one opens. Skipping creates gaps.",
+  },
+  {
+    question: "How do I know when my child is ready for the next level?",
+    answer:
+      "When they finish the current level. Lessons unlock in order. You do not choose the next level. The path opens it when the work is done.",
   },
   {
     question: "How long does the whole program take?",
     answer:
-      "Fifteen minutes a day. 238 lessons. Pace is theirs. They move only when ready.",
+      "Fifteen minutes a day. Pace is theirs. They move only when ready.",
   },
 ];
 
@@ -149,9 +172,9 @@ export const allFaqItems: FaqItem[] = faqGroups.flatMap((group) => group.items);
 
 export const homepageFaqItems: FaqItem[] = [
   childItems[0],
-  childItems[1],
+  startItems[2],
   childItems[2],
-  childItems[4],
-  lessonItems[4],
   childItems[3],
+  childItems[5],
+  lessonItems[3],
 ];

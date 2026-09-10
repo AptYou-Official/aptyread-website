@@ -1,0 +1,60 @@
+"use client";
+
+import Link from "next/link";
+import PlayStoreLink from "@/components/public/PlayStoreLink";
+import { PATH_URL } from "@/lib/reading-path";
+
+type GuideCtaProps = {
+  /** Match intent: path for research, lesson for high intent. */
+  primary?: "lesson" | "path";
+  heading?: string;
+  body?: string;
+};
+
+export default function GuideCta({
+  primary = "lesson",
+  heading = "Ready to try?",
+  body = "Every child starts at Level 1. First lessons are free. No account needed.",
+}: GuideCtaProps) {
+  return (
+    <aside className="mt-14 rounded-2xl border border-apty-coral-accent bg-white p-6 md:p-8">
+      <h2 className="text-xl md:text-2xl font-bold text-apty-dark mb-2">
+        {heading}
+      </h2>
+      <p className="text-apty-gray leading-relaxed mb-6">{body}</p>
+      <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
+        {primary === "lesson" ? (
+          <>
+            <PlayStoreLink
+              platform="auto"
+              className="inline-flex items-center justify-center rounded-xl bg-apty-coral px-6 py-3 text-base font-semibold text-white hover:bg-[#e95624] transition-colors"
+            >
+              Start Lesson 1
+            </PlayStoreLink>
+            <Link
+              href={PATH_URL}
+              className="inline-flex items-center justify-center font-semibold text-apty-dark hover:text-apty-coral transition-colors"
+            >
+              See the Five-Level Path
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link
+              href={PATH_URL}
+              className="inline-flex items-center justify-center rounded-xl bg-apty-coral px-6 py-3 text-base font-semibold text-white hover:bg-[#e95624] transition-colors"
+            >
+              See the Five-Level Path
+            </Link>
+            <PlayStoreLink
+              platform="auto"
+              className="inline-flex items-center justify-center font-semibold text-apty-dark hover:text-apty-coral transition-colors"
+            >
+              Start Lesson 1
+            </PlayStoreLink>
+          </>
+        )}
+      </div>
+    </aside>
+  );
+}

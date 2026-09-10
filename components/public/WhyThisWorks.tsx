@@ -4,7 +4,7 @@ const benefits = [
   {
     title: "One complete program",
     description:
-      "Five levels. 238 lessons. Every step connects to the next. Nothing missing. Nothing rushed.",
+      "Five levels. One path. Every step connects to the next. Nothing missing. Nothing rushed.",
   },
   {
     title: "Foundation first. Always.",

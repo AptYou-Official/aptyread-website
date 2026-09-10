@@ -28,7 +28,7 @@ export default function DownloadHero() {
           An English reading program for ages 4 to 10.
         </p>
         <p className="text-base md:text-lg text-apty-gray mb-8 leading-relaxed">
-          Five levels. 238 lessons. One path.
+          Five levels. One path.
         </p>
         <p className="text-sm md:text-base text-apty-cyan font-semibold mb-10">
           Built on the Science of Reading.
