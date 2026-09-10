@@ -12,14 +12,14 @@ const canonical =
 export const metadata: Metadata = {
   title: "My Child Knows the Alphabet but Can't Read | AptyRead",
   description:
-    "Knowing A, B, C is not the same as reading. Learn why letter sounds matter, how blending works, and why every child starts with Sound Foundations.",
+    "Your child can say A, B, C but still cannot read words. That is common. Here is what is missing, what to do at home, and why reading starts with letter sounds.",
   alternates: {
     canonical,
   },
   openGraph: {
     title: "My Child Knows the Alphabet but Can't Read",
     description:
-      "Letter names are not reading. Here is what to do when your child knows the alphabet but still cannot read words.",
+      "Letter names are not reading. Here is what is missing when your child knows the alphabet but still cannot read words.",
     url: canonical,
     siteName: "AptyRead",
     type: "article",
@@ -32,7 +32,7 @@ export default function AlphabetButCantReadArticle() {
     "@type": "Article",
     headline: "My Child Knows the Alphabet but Can't Read. What Should I Do?",
     description:
-      "Knowing letter names is not the same as reading words. Why letter sounds and blending matter, and how a sequential path starts with Sound Foundations.",
+      "Your child can say A, B, C but still cannot read words. What is missing, what to do at home, and why reading starts with letter sounds.",
     dateModified: "2026-09-10",
     author: {
       "@type": "Organization",
@@ -65,125 +65,145 @@ export default function AlphabetButCantReadArticle() {
                 ]}
               />
 
-              <p className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
-                Reading Problems
-              </p>
-              <h1 className="text-3xl md:text-5xl font-bold text-apty-dark mb-5 leading-tight">
+              <h1 className="text-3xl md:text-5xl font-extrabold text-apty-dark mb-5 leading-tight tracking-tight">
                 My child knows the alphabet but can&apos;t read. What should I
                 do?
               </h1>
 
-              <div className="rounded-2xl border border-apty-cyan/20 bg-white p-5 md:p-6 mb-10">
-                <p className="text-sm font-semibold text-apty-cyan mb-2">
+              <p className="text-lg md:text-xl text-apty-gray mb-8 leading-relaxed">
+                You hear the alphabet song. They point to letters. Then you open a
+                simple word, and they freeze. That gap is real. It is also
+                fixable.
+              </p>
+
+              <div className="border-l-4 border-apty-cyan pl-5 py-1 mb-12">
+                <p className="text-base md:text-lg text-apty-dark leading-relaxed font-semibold mb-2">
                   The short answer
                 </p>
                 <p className="text-base md:text-lg text-apty-dark leading-relaxed">
-                  Teach letter sounds, not only letter names. Then teach blending
-                  those sounds into words. Knowing A, B, C is not reading. Start
-                  with foundations — even if the alphabet already feels
-                  &ldquo;done.&rdquo;
+                  Teach letter sounds, not only letter names. Then teach your
+                  child to blend those sounds into words. Knowing A, B, C is not
+                  reading yet.
                 </p>
               </div>
 
-              <div className="space-y-6 text-base md:text-lg text-apty-dark leading-relaxed">
+              <div className="space-y-10 text-base md:text-lg text-apty-dark leading-relaxed">
                 <section>
-                  <h2 className="text-2xl font-bold text-apty-dark mb-3">
-                    Knowing letter names is not the same as reading words
+                  <h2 className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-4 tracking-tight">
+                    Why knowing ABC is not the same as reading
                   </h2>
                   <p>
                     Many children can recite the alphabet and still cannot read{" "}
                     <span className="font-semibold">sat</span> or{" "}
-                    <span className="font-semibold">map</span>. That is common. It
-                    is not a failure. Letter names and reading are different
-                    skills.
+                    <span className="font-semibold">map</span>. That does not mean
+                    they are behind. It means they have learned one skill, and
+                    reading needs another.
                   </p>
                   <p className="mt-4">
                     The name of the letter is &ldquo;A.&rdquo; The sound used for
-                    reading is closer to /a/. Reading needs the sound.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-apty-dark mb-3">
-                    Why letter sounds matter
-                  </h2>
-                  <p>
-                    Written English is a code. Children crack the code when they
-                    connect letters to sounds, then put those sounds together.
-                    Without that, they guess from pictures, memorize a few words,
-                    and stall when the page gets harder.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-apty-dark mb-3">
-                    Connect sounds to letters, then blend
-                  </h2>
-                  <p>
-                    First: clear sounds for letters. Short and pure — /s/, /a/,
-                    /t/ — not &ldquo;suh,&rdquo; &ldquo;ay,&rdquo; &ldquo;tee.&rdquo;
+                    reading is closer to /a/. Names help you talk about letters.
+                    Sounds help you read.
                   </p>
                   <p className="mt-4">
-                    Next: blending. Say the sounds in order and hold them into a
-                    word: /s/ /a/ /t/ → <span className="font-semibold">sat</span>.
-                    This takes practice. It is the bridge from knowing letters to
-                    reading words.
+                    So when a parent says, &ldquo;They know the alphabet, why
+                    can&apos;t they read?&rdquo; the honest answer is: the alphabet
+                    was never the whole job.
                   </p>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-apty-dark mb-3">
-                    Try this with your child
+                  <h2 className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-4 tracking-tight">
+                    What skill is missing
                   </h2>
-                  <ol className="list-decimal pl-5 space-y-2">
-                    <li>Point to a letter. Ask for the sound, not the name.</li>
+                  <p>
+                    Written English is a code. Children crack it when they can do
+                    two things:
+                  </p>
+                  <ol className="list-decimal pl-5 space-y-3 mt-4">
                     <li>
-                      Pick three known sounds. Stretch them slowly, then say the
-                      word.
+                      <span className="font-semibold">Hear and say letter sounds</span>
+                      {" "}
+                      clearly. Short and pure: /s/, /a/, /t/. Not
+                      &ldquo;suh,&rdquo; &ldquo;ay,&rdquo; or &ldquo;tee.&rdquo;
                     </li>
                     <li>
-                      Keep it short. A few minutes of clear practice beats a long,
-                      tired session.
+                      <span className="font-semibold">Blend those sounds</span>
+                      {" "}
+                      in order until they become a word: /s/ /a/ /t/ →{" "}
+                      <span className="font-semibold">sat</span>.
                     </li>
                   </ol>
+                  <p className="mt-4">
+                    Without that, children often guess from pictures, memorize a
+                    few words, and stall when the page gets harder. The missing
+                    piece is usually not motivation. It is the sound-to-word
+                    bridge.
+                  </p>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-apty-dark mb-3">
-                    What often slows progress
+                  <h2 className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-4 tracking-tight">
+                    What you can do at home
+                  </h2>
+                  <p className="mb-4">
+                    You do not need a long program to start helping tonight.
+                  </p>
+                  <ol className="list-decimal pl-5 space-y-3">
+                    <li>
+                      Point to a letter. Ask for the{" "}
+                      <span className="font-semibold">sound</span>, not the name.
+                    </li>
+                    <li>
+                      Pick three sounds your child knows. Stretch them slowly,
+                      then say the word together.
+                    </li>
+                    <li>
+                      Keep it short. A few clear minutes beat a long, tired
+                      session.
+                    </li>
+                    <li>
+                      Sit with them. Reading this early is not a solo phone
+                      activity.
+                    </li>
+                  </ol>
+                  <p className="mt-4">
+                    If they already know some sounds, they may move quickly. That
+                    is fine. Confirm the foundation before you rush into
+                    storybooks.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-4 tracking-tight">
+                    What often slows children down
                   </h2>
                   <ul className="list-disc pl-5 space-y-2">
                     <li>Asking only for letter names</li>
                     <li>Encouraging guessing from pictures</li>
                     <li>Jumping to storybooks before sounds are firm</li>
                     <li>Long sessions that end in frustration</li>
+                    <li>Skipping ahead because the alphabet &ldquo;feels done&rdquo;</li>
                   </ul>
                 </section>
 
                 <section>
-                  <h2 className="text-2xl font-bold text-apty-dark mb-3">
-                    When to move beyond the foundations
-                  </h2>
-                  <p>
-                    When sounds are clear and simple blending is becoming
-                    automatic, first words get easier. Until then, foundations are
-                    the work. Rushing ahead looks like progress and creates gaps.
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl font-bold text-apty-dark mb-3">
-                    How AptyRead starts with Sound Foundations
+                  <h2 className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-4 tracking-tight">
+                    Why AptyRead starts at Level 1
                   </h2>
                   <p>
                     AptyRead is one path with five levels. Every child starts at
-                    Level 1 — Sound Foundations — even if they already know the
-                    alphabet. Early lessons can move quickly when a skill is
-                    already firm. The path still confirms the foundation before
-                    First Reading.
+                    Level 1: Sound Foundations. That is true even if they already
+                    know the alphabet song.
                   </p>
                   <p className="mt-4">
-                    See the full sequence on{" "}
+                    Level 1 is not a punishment for knowing letters. It confirms
+                    the sounds and prepares blending, so First Reading does not
+                    rest on gaps. Children who already have some skills often move
+                    through the early lessons quickly. The point is to leave
+                    nothing missing.
+                  </p>
+                  <p className="mt-4">
+                    If you want the full sequence from sounds to real books, read{" "}
                     <Link
                       href={PATH_URL}
                       className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
@@ -191,6 +211,17 @@ export default function AlphabetButCantReadArticle() {
                       the AptyRead Five-Level Path
                     </Link>
                     .
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-4 tracking-tight">
+                    What to do next
+                  </h2>
+                  <p>
+                    Start with sounds. Practice a little each day. When you want a
+                    structured path that does this in order, begin at Level 1.
+                    First lessons are free. No account.
                   </p>
                 </section>
               </div>
@@ -201,8 +232,8 @@ export default function AlphabetButCantReadArticle() {
 
               <GuideCta
                 primary="lesson"
-                heading="Start Level 1 — Sound Foundations"
-                body="First lessons are free. No account. Sit with them for about fifteen minutes."
+                heading="Start at Level 1"
+                body="Sound Foundations comes first. First lessons are free. No account. Sit with them for about fifteen minutes."
               />
             </div>
           </article>
