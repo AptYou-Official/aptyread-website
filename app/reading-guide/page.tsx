@@ -82,12 +82,12 @@ export default function ReadingGuidePage() {
                 href={PATH_URL}
                 className="group block rounded-2xl border border-apty-cyan/25 bg-apty-cyan-accent/40 p-6 md:p-8 hover:border-apty-cyan transition-colors"
               >
-                <p className="text-sm font-semibold tracking-wide text-apty-cyan mb-2">
-                  Five levels. One path.
-                </p>
-                <h2 className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-3 tracking-tight group-hover:text-[#007399] transition-colors">
+                <h2 className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-2 tracking-tight group-hover:text-[#007399] transition-colors">
                   The AptyRead Five-Level Path
                 </h2>
+                <p className="text-sm font-semibold tracking-wide text-apty-cyan mb-3">
+                  Five levels. One path.
+                </p>
                 <p className="text-apty-gray leading-relaxed mb-4">
                   Why every child starts at Level 1, and how the sequence works.
                 </p>
@@ -108,9 +108,9 @@ export default function ReadingGuidePage() {
                 Begin with what you see at home.
               </p>
 
-              <ul className="space-y-10">
+              <div className="space-y-10">
                 {articles.map((article) => (
-                  <li key={article.href}>
+                  <div key={article.href}>
                     <Link href={article.href} className="group block">
                       <h3 className="text-xl md:text-2xl font-bold text-apty-dark mb-2 tracking-tight group-hover:text-[#007399] transition-colors">
                         {article.title}
@@ -122,9 +122,9 @@ export default function ReadingGuidePage() {
                         Read this →
                       </span>
                     </Link>
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </section>
 
             <p className="mt-14 text-apty-gray leading-relaxed">
