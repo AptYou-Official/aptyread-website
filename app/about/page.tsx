@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/public/Header";
 import Footer from "@/components/public/Footer";
 import CTA from "@/components/public/CTA";
+import BrandWordmark from "@/components/public/BrandWordmark";
 
 export const metadata: Metadata = {
   title: "A Letter to Parents | AptyRead",
@@ -28,9 +29,11 @@ export default function AboutPage() {
       <main>
         <article className="px-4 py-14 md:py-20">
           <div className="container mx-auto max-w-2xl">
-            <p className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
-              AptyRead
-            </p>
+            <BrandWordmark
+              as="p"
+              size="sm"
+              className="tracking-wide font-semibold mb-4"
+            />
             <h1 className="text-3xl md:text-5xl font-bold text-apty-dark mb-3 leading-tight">
               A Letter to Parents
             </h1>

@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { signOut } from 'firebase/auth';
 import { auth } from '@/lib/firebase-client';
 import { useRouter } from 'next/navigation';
+import BrandWordmark from '@/components/public/BrandWordmark';
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -23,9 +24,12 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="w-64 bg-white border-r border-apty-coral-accent min-h-screen flex flex-col">
-      <div className="p-6 border-b border-apty-coral-accent">
-        <h1 className="text-2xl font-bold text-apty-dark">AptyRead Admin</h1>
+    <aside className="w-64 bg-white border-r border-apty-sky min-h-screen flex flex-col">
+      <div className="p-6 border-b border-apty-sky">
+        <h1 className="text-2xl font-bold tracking-tight">
+          <BrandWordmark className="text-2xl" />
+          <span className="text-apty-dark"> Admin</span>
+        </h1>
       </div>
       <nav className="p-4 flex-1">
         <ul className="space-y-2">

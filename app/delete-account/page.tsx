@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/public/Header";
 import Footer from "@/components/public/Footer";
+import BrandWordmark from "@/components/public/BrandWordmark";
 
 export const metadata: Metadata = {
   title: "Delete your account | AptyRead",
@@ -20,9 +21,11 @@ export default function DeleteAccountPage() {
       <main>
         <article className="px-4 py-14 md:py-20">
           <div className="container mx-auto max-w-2xl">
-            <p className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
-              AptyRead
-            </p>
+            <BrandWordmark
+              as="p"
+              size="sm"
+              className="tracking-wide font-semibold mb-4"
+            />
             <h1 className="text-3xl md:text-5xl font-bold text-apty-dark mb-3 leading-tight">
               Delete your account.
             </h1>

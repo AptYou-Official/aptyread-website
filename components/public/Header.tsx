@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import AppStoreBadge from '@/components/public/AppStoreBadge';
 import GooglePlayBadge from '@/components/public/GooglePlayBadge';
+import BrandWordmark from '@/components/public/BrandWordmark';
 
 const CLASSROOM_URL = 'https://classroom.aptyread.ai';
 const CLASSROOM_LOGIN_URL = 'https://classroom.aptyread.ai/#/login';
@@ -27,9 +28,7 @@ export default function Header({ schoolsPage = false }: HeaderProps) {
             priority
           />
           <div className="flex flex-col min-w-0">
-            <span className="text-lg sm:text-xl md:text-2xl font-bold text-apty-dark whitespace-nowrap">
-              AptyRead
-            </span>
+            <BrandWordmark size="lg" />
             <span className="text-xs md:text-sm text-apty-gray italic hidden sm:block">
               Every Child Reads.
             </span>

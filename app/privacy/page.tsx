@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/public/Header";
 import Footer from "@/components/public/Footer";
+import BrandWordmark from "@/components/public/BrandWordmark";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | AptyRead",
@@ -19,9 +20,11 @@ export default function PrivacyPage() {
       <main>
         <article className="px-4 py-14 md:py-20">
           <div className="container mx-auto max-w-3xl">
-            <p className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
-              AptyRead
-            </p>
+            <BrandWordmark
+              as="p"
+              size="sm"
+              className="tracking-wide font-semibold mb-4"
+            />
             <h1 className="text-3xl md:text-5xl font-bold text-apty-dark mb-4 leading-tight">
               Privacy Policy
             </h1>

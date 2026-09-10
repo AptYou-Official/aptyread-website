@@ -1,5 +1,6 @@
 import AppStoreBadge from '@/components/public/AppStoreBadge';
 import GooglePlayBadge from '@/components/public/GooglePlayBadge';
+import BrandWordmark from '@/components/public/BrandWordmark';
 
 const CLASSROOM_URL = 'https://classroom.aptyread.ai';
 const CLASSROOM_LOGIN_URL = 'https://classroom.aptyread.ai/#/login';
@@ -14,7 +15,9 @@ export default function Footer({ schoolsPage = false }: FooterProps) {
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold text-apty-dark mb-2">AptyRead</h3>
+            <h3 className="mb-2">
+              <BrandWordmark size="xl" />
+            </h3>
             <p className="text-sm font-semibold text-apty-gray italic mb-4">
               Every Child Reads.
             </p>
