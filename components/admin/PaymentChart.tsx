@@ -8,7 +8,7 @@ interface PaymentChartProps {
 
 export default function PaymentChart({ data }: PaymentChartProps) {
   return (
-    <div className="bg-white p-6 rounded-lg border border-apty-coral-accent shadow-sm">
+    <div className="bg-white p-6 rounded-lg border border-apty-sky shadow-sm">
       <h3 className="text-xl font-bold text-apty-dark mb-6">Revenue Trend</h3>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={data}>
@@ -20,7 +20,7 @@ export default function PaymentChart({ data }: PaymentChartProps) {
           <Line
             type="monotone"
             dataKey="revenue"
-            stroke="#FF6B35"
+            stroke="#00B8D9"
             strokeWidth={2}
             name="Revenue"
           />

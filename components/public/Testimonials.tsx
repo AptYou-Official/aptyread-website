@@ -6,7 +6,7 @@ const testimonials = [
     role: "Parent of 5-year-old",
     content: "My daughter loves learning with AptyRead. I can see her progress every day.",
     rating: 5,
-    gradient: "from-apty-coral to-orange-400",
+    gradient: "from-apty-cyan to-apty-cyan-dark",
   },
   {
     name: "Raj",
@@ -26,7 +26,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-white py-24 px-4">
+    <section className="bg-apty-cream py-24 px-4">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold text-apty-dark mb-4">
@@ -41,7 +41,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="group relative bg-white p-10 rounded-2xl border-2 border-apty-coral-accent hover:border-apty-coral shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              className="group relative bg-white p-10 rounded-2xl border-2 border-apty-sky hover:border-apty-cyan shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
               {/* Gradient accent */}
               <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${testimonial.gradient} rounded-t-2xl`}></div>
@@ -55,7 +55,7 @@ export default function Testimonials() {
                 <p className="text-apty-gray mb-8 leading-relaxed text-lg italic">
                   &quot;{testimonial.content}&quot;
                 </p>
-                <div className="pt-6 border-t border-apty-coral-accent">
+                <div className="pt-6 border-t border-apty-sky">
                   <p className="font-bold text-apty-dark text-lg">{testimonial.name}</p>
                   <p className="text-sm text-apty-gray">{testimonial.role}</p>
                 </div>

@@ -105,7 +105,7 @@ const access = [
 
 export default function SchoolsPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-apty-cream">
       <Header schoolsPage />
 
       <main>
@@ -131,13 +131,13 @@ export default function SchoolsPage() {
               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <a
                   href={CLASSROOM_URL}
-                  className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-apty-coral px-6 py-3.5 text-base font-semibold text-white hover:bg-[#e95624] transition-colors"
+                  className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-apty-cyan px-6 py-3.5 text-base font-semibold text-white hover:bg-apty-cyan-dark transition-colors"
                 >
                   Start free in Classroom
                 </a>
                 <a
                   href={CLASSROOM_LOGIN_URL}
-                  className="font-semibold text-apty-dark hover:text-apty-coral transition-colors"
+                  className="font-semibold text-apty-dark hover:text-apty-cyan transition-colors"
                 >
                   School login
                 </a>
@@ -154,7 +154,7 @@ export default function SchoolsPage() {
                     key={letter}
                     className={`flex h-14 w-14 sm:h-20 sm:w-20 md:h-24 md:w-24 items-center justify-center rounded-2xl text-2xl sm:text-4xl md:text-5xl font-bold ${
                       index === 0
-                        ? "bg-apty-coral text-white"
+                        ? "bg-apty-cyan text-white"
                         : "bg-white text-apty-dark"
                     }`}
                   >
@@ -294,7 +294,7 @@ export default function SchoolsPage() {
             <div className="mt-12">
               <a
                 href={CLASSROOM_URL}
-                className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-apty-coral px-8 py-4 text-lg font-semibold text-white hover:bg-[#e95624] transition-colors"
+                className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-apty-cyan px-8 py-4 text-lg font-semibold text-white hover:bg-apty-cyan-dark transition-colors"
               >
                 Start free in Classroom
               </a>

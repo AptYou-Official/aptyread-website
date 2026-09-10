@@ -6,7 +6,7 @@ import { PATH_URL } from '@/lib/reading-path';
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white py-10 md:py-14 lg:py-16">
+    <section className="relative overflow-hidden bg-apty-cream py-10 md:py-14 lg:py-16">
       <div className="container relative mx-auto px-4 max-w-7xl">
         <div className="grid md:grid-cols-[1.08fr_0.92fr] gap-8 md:gap-10 lg:gap-14 items-center">
           <div className="order-2 md:order-1">
@@ -27,7 +27,7 @@ export default function Hero() {
             <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold text-apty-dark mb-5 leading-[1.12] tracking-tight text-balance">
               Your child can learn to read English.
               <br />
-              <span className="text-[#007399]">
+              <span className="text-apty-dark">
                 Confidently. Independently.
               </span>
             </h1>
@@ -35,7 +35,7 @@ export default function Hero() {
             <p className="text-base md:text-lg text-apty-gray mb-2 leading-relaxed max-w-xl md:max-w-none">
               An English reading program for ages 4 to 10. Five levels. One path.
             </p>
-            <p className="text-sm md:text-base text-apty-cyan font-semibold mb-8">
+            <p className="text-sm md:text-base text-apty-gray font-semibold mb-8">
               Built on the Science of Reading.
             </p>
 
@@ -45,13 +45,13 @@ export default function Hero() {
                 aria-label="Start Lesson 1"
                 platform="auto"
               >
-                <div className="bg-apty-coral text-white px-8 py-3.5 rounded-xl text-base md:text-lg font-semibold text-center hover:bg-[#e95624] transition-colors">
+                <div className="bg-apty-cyan text-white px-8 py-3.5 rounded-xl text-base md:text-lg font-semibold text-center hover:bg-apty-cyan-dark transition-colors shadow-sm">
                   Start Lesson 1
                 </div>
               </PlayStoreLink>
               <Link
                 href={PATH_URL}
-                className="inline-flex items-center gap-1.5 text-base md:text-lg font-semibold text-[#007399] underline underline-offset-4 decoration-[#007399]/35 hover:decoration-[#007399] hover:text-apty-dark transition-colors"
+                className="inline-flex items-center gap-1.5 text-base md:text-lg font-semibold text-apty-dark underline underline-offset-4 decoration-apty-cyan/35 hover:decoration-apty-cyan hover:text-apty-dark transition-colors"
               >
                 See the Five-Level Path
                 <span aria-hidden="true">→</span>

@@ -12,7 +12,7 @@ type HeaderProps = {
 
 export default function Header({ schoolsPage = false }: HeaderProps) {
   return (
-    <header className="bg-white border-b border-apty-coral-accent sticky top-0 z-50">
+    <header className="bg-white border-b border-apty-sky sticky top-0 z-50">
       <nav className="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center gap-3">
         <Link
           href="/"
@@ -27,7 +27,7 @@ export default function Header({ schoolsPage = false }: HeaderProps) {
             priority
           />
           <div className="flex flex-col min-w-0">
-            <span className="text-lg sm:text-xl md:text-2xl font-bold text-apty-coral whitespace-nowrap">
+            <span className="text-lg sm:text-xl md:text-2xl font-bold text-apty-dark whitespace-nowrap">
               AptyRead
             </span>
             <span className="text-xs md:text-sm text-apty-gray italic hidden sm:block">
@@ -36,28 +36,28 @@ export default function Header({ schoolsPage = false }: HeaderProps) {
           </div>
         </Link>
         <div className="flex gap-3 md:gap-6 items-center shrink-0">
-          <Link href="/" className="hidden sm:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base">
+          <Link href="/" className="hidden sm:inline text-apty-dark hover:text-apty-cyan transition-colors text-sm md:text-base">
             Home
           </Link>
           {!schoolsPage ? (
-            <Link href="/reading-guide" className="hidden md:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base">
+            <Link href="/reading-guide" className="hidden md:inline text-apty-dark hover:text-apty-cyan transition-colors text-sm md:text-base">
               Reading Guide
             </Link>
           ) : null}
-          <Link href="/schools" className="hidden sm:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base">
+          <Link href="/schools" className="hidden sm:inline text-apty-dark hover:text-apty-cyan transition-colors text-sm md:text-base">
             For Schools
           </Link>
           {schoolsPage ? (
             <>
               <a
                 href={CLASSROOM_LOGIN_URL}
-                className="hidden md:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base"
+                className="hidden md:inline text-apty-dark hover:text-apty-cyan transition-colors text-sm md:text-base"
               >
                 School login
               </a>
               <a
                 href={CLASSROOM_URL}
-                className="inline-flex items-center justify-center rounded-full border border-apty-dark px-4 py-2 text-sm font-semibold text-apty-dark transition-colors hover:border-apty-coral hover:text-apty-coral md:px-5"
+                className="inline-flex items-center justify-center rounded-full border border-apty-dark px-4 py-2 text-sm font-semibold text-apty-dark transition-colors hover:border-apty-cyan hover:text-apty-cyan md:px-5"
               >
                 Open Classroom
               </a>
@@ -66,7 +66,7 @@ export default function Header({ schoolsPage = false }: HeaderProps) {
             <>
               <Link
                 href="/download"
-                className="md:hidden inline-flex items-center justify-center rounded-full border border-apty-dark px-3.5 py-1.5 text-sm font-semibold text-apty-dark hover:border-apty-coral hover:text-apty-coral transition-colors whitespace-nowrap"
+                className="md:hidden inline-flex items-center justify-center rounded-full border border-apty-dark px-3.5 py-1.5 text-sm font-semibold text-apty-dark hover:border-apty-cyan hover:text-apty-cyan transition-colors whitespace-nowrap"
               >
                 Get the app
               </Link>

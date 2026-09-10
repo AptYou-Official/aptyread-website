@@ -7,7 +7,7 @@ export default function AdminAddPurchasePage() {
   return (
     <div className="space-y-8">
       <div className="flex items-center gap-4">
-        <Link href="/admin/purchases" className="text-apty-coral hover:underline">← Purchases</Link>
+        <Link href="/admin/purchases" className="text-apty-cyan hover:underline">← Purchases</Link>
       </div>
       <div>
         <h1 className="text-3xl font-bold text-apty-dark mb-2">Add / fix purchase</h1>

@@ -76,7 +76,7 @@ function AuthActionContent() {
   if (status === 'loading') {
     return (
       <div className="min-h-screen bg-apty-warm flex items-center justify-center px-4">
-        <div className="bg-white p-8 rounded-lg border border-apty-coral-accent shadow-lg max-w-md w-full text-center">
+        <div className="bg-white p-8 rounded-lg border border-apty-sky shadow-lg max-w-md w-full text-center">
           <p className="text-apty-dark">Processing…</p>
         </div>
       </div>
@@ -86,10 +86,10 @@ function AuthActionContent() {
   if (status === 'error') {
     return (
       <div className="min-h-screen bg-apty-warm flex items-center justify-center px-4">
-        <div className="bg-white p-8 rounded-lg border border-apty-coral-accent shadow-lg max-w-md w-full text-center">
-          <h1 className="text-xl font-bold text-apty-coral mb-2">Something went wrong</h1>
+        <div className="bg-white p-8 rounded-lg border border-apty-sky shadow-lg max-w-md w-full text-center">
+          <h1 className="text-xl font-bold text-apty-cyan mb-2">Something went wrong</h1>
           <p className="text-apty-gray mb-6">{message}</p>
-          <Link href="/" className="text-apty-coral hover:underline">Back to home</Link>
+          <Link href="/" className="text-apty-cyan hover:underline">Back to home</Link>
         </div>
       </div>
     );
@@ -98,8 +98,8 @@ function AuthActionContent() {
   if (status === 'form') {
     return (
       <div className="min-h-screen bg-apty-warm flex items-center justify-center px-4">
-        <div className="bg-white p-8 rounded-lg border border-apty-coral-accent shadow-lg max-w-md w-full">
-          <h1 className="text-2xl font-bold text-apty-coral mb-2">Reset your password</h1>
+        <div className="bg-white p-8 rounded-lg border border-apty-sky shadow-lg max-w-md w-full">
+          <h1 className="text-2xl font-bold text-apty-cyan mb-2">Reset your password</h1>
           <p className="text-apty-gray mb-6">Enter your new password below.</p>
           <form onSubmit={handleResetPassword} className="space-y-4">
             <div>
@@ -130,7 +130,7 @@ function AuthActionContent() {
             <button
               type="submit"
               disabled={submitDisabled}
-              className="w-full bg-apty-coral text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 disabled:opacity-50"
+              className="w-full bg-apty-cyan text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 disabled:opacity-50"
             >
               {submitDisabled ? 'Resetting…' : 'Reset password'}
             </button>
@@ -143,10 +143,10 @@ function AuthActionContent() {
   // success (verifyEmail, recoverEmail, or after resetPassword)
   return (
     <div className="min-h-screen bg-apty-warm flex items-center justify-center px-4">
-      <div className="bg-white p-8 rounded-lg border border-apty-coral-accent shadow-lg max-w-md w-full text-center">
-        <h1 className="text-xl font-bold text-apty-coral mb-2">Done</h1>
+      <div className="bg-white p-8 rounded-lg border border-apty-sky shadow-lg max-w-md w-full text-center">
+        <h1 className="text-xl font-bold text-apty-cyan mb-2">Done</h1>
         <p className="text-apty-gray mb-6">{message}</p>
-        <Link href="/" className="inline-block bg-apty-coral text-white px-6 py-2 rounded-lg font-semibold hover:opacity-90">Back to home</Link>
+        <Link href="/" className="inline-block bg-apty-cyan text-white px-6 py-2 rounded-lg font-semibold hover:opacity-90">Back to home</Link>
       </div>
     </div>
   );

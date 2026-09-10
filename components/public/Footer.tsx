@@ -10,11 +10,11 @@ type FooterProps = {
 
 export default function Footer({ schoolsPage = false }: FooterProps) {
   return (
-    <footer className="bg-white border-t border-apty-coral-accent py-12 px-4">
+    <footer className="bg-white border-t border-apty-sky py-12 px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold text-apty-coral mb-2">AptyRead</h3>
+            <h3 className="text-xl font-bold text-apty-dark mb-2">AptyRead</h3>
             <p className="text-sm font-semibold text-apty-gray italic mb-4">
               Every Child Reads.
             </p>
@@ -28,52 +28,52 @@ export default function Footer({ schoolsPage = false }: FooterProps) {
             <h4 className="font-semibold text-apty-dark mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/" className="text-apty-gray hover:text-apty-coral transition-colors">
+                <a href="/" className="text-apty-gray hover:text-apty-cyan transition-colors">
                   Home
                 </a>
               </li>
               {!schoolsPage ? (
                 <>
                   <li>
-                    <a href="/reading-guide" className="text-apty-gray hover:text-apty-coral transition-colors">
+                    <a href="/reading-guide" className="text-apty-gray hover:text-apty-cyan transition-colors">
                       Reading Guide
                     </a>
                   </li>
                   <li>
-                    <a href="/faq" className="text-apty-gray hover:text-apty-coral transition-colors">
+                    <a href="/faq" className="text-apty-gray hover:text-apty-cyan transition-colors">
                       FAQ
                     </a>
                   </li>
                   <li>
-                    <a href="/about" className="text-apty-gray hover:text-apty-coral transition-colors">
+                    <a href="/about" className="text-apty-gray hover:text-apty-cyan transition-colors">
                       About Us
                     </a>
                   </li>
                   <li>
-                    <a href="/schools" className="text-apty-gray hover:text-apty-coral transition-colors">
+                    <a href="/schools" className="text-apty-gray hover:text-apty-cyan transition-colors">
                       For Schools
                     </a>
                   </li>
                 </>
               ) : null}
               <li>
-                <a href="/contact" className="text-apty-gray hover:text-apty-coral transition-colors">
+                <a href="/contact" className="text-apty-gray hover:text-apty-cyan transition-colors">
                   Contact Us
                 </a>
               </li>
               <li>
-                <a href="/privacy" className="text-apty-gray hover:text-apty-coral transition-colors">
+                <a href="/privacy" className="text-apty-gray hover:text-apty-cyan transition-colors">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="/terms" className="text-apty-gray hover:text-apty-coral transition-colors">
+                <a href="/terms" className="text-apty-gray hover:text-apty-cyan transition-colors">
                   Terms of Service
                 </a>
               </li>
               {!schoolsPage ? (
                 <li>
-                  <a href="/delete-account" className="text-apty-gray hover:text-apty-coral transition-colors">
+                  <a href="/delete-account" className="text-apty-gray hover:text-apty-cyan transition-colors">
                     Delete Account
                   </a>
                 </li>
@@ -86,7 +86,7 @@ export default function Footer({ schoolsPage = false }: FooterProps) {
               <li>
                 <a
                   href="mailto:support@aptyread.ai"
-                  className="text-apty-gray hover:text-apty-coral transition-colors"
+                  className="text-apty-gray hover:text-apty-cyan transition-colors"
                 >
                   Support: support@aptyread.ai
                 </a>
@@ -94,7 +94,7 @@ export default function Footer({ schoolsPage = false }: FooterProps) {
               <li>
                 <a
                   href="mailto:contact@aptyread.ai"
-                  className="text-apty-gray hover:text-apty-coral transition-colors"
+                  className="text-apty-gray hover:text-apty-cyan transition-colors"
                 >
                   General: contact@aptyread.ai
                 </a>
@@ -107,7 +107,7 @@ export default function Footer({ schoolsPage = false }: FooterProps) {
                   href="https://www.instagram.com/aptyread"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-apty-gray hover:text-apty-coral transition-colors"
+                  className="text-apty-gray hover:text-apty-cyan transition-colors"
                 >
                   Instagram
                 </a>
@@ -117,7 +117,7 @@ export default function Footer({ schoolsPage = false }: FooterProps) {
                   href="https://www.youtube.com/@aptyread"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-apty-gray hover:text-apty-coral transition-colors"
+                  className="text-apty-gray hover:text-apty-cyan transition-colors"
                 >
                   YouTube
                 </a>
@@ -132,7 +132,7 @@ export default function Footer({ schoolsPage = false }: FooterProps) {
                   <li>
                     <a
                       href={CLASSROOM_URL}
-                      className="text-apty-gray hover:text-apty-coral transition-colors"
+                      className="text-apty-gray hover:text-apty-cyan transition-colors"
                     >
                       Open Classroom
                     </a>
@@ -140,7 +140,7 @@ export default function Footer({ schoolsPage = false }: FooterProps) {
                   <li>
                     <a
                       href={CLASSROOM_LOGIN_URL}
-                      className="text-apty-gray hover:text-apty-coral transition-colors"
+                      className="text-apty-gray hover:text-apty-cyan transition-colors"
                     >
                       School login
                     </a>
@@ -158,7 +158,7 @@ export default function Footer({ schoolsPage = false }: FooterProps) {
             )}
           </div>
         </div>
-        <div className="border-t border-apty-coral-accent pt-8 text-center">
+        <div className="border-t border-apty-sky pt-8 text-center">
           <p className="text-apty-gray text-sm mb-2">
             © 2026 APTYOU SERVICES PRIVATE LIMITED. All rights reserved.
           </p>

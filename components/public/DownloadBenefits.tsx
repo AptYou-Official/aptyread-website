@@ -15,7 +15,7 @@ const facts = [
 
 export default function DownloadBenefits() {
   return (
-    <section className="bg-white py-14 md:py-16">
+    <section className="bg-apty-cream py-14 md:py-16">
       <div className="container mx-auto px-4 max-w-2xl">
         <div className="space-y-10">
           {facts.map((fact) => (

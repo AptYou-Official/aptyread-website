@@ -5,7 +5,7 @@ import GooglePlayBadge from '@/components/public/GooglePlayBadge';
 
 export default function DownloadHero() {
   return (
-    <section className="bg-white py-14 md:py-20">
+    <section className="bg-apty-cream py-14 md:py-20">
       <div className="container mx-auto px-4 max-w-2xl text-center">
         <div className="mb-6 flex justify-center">
           <Image

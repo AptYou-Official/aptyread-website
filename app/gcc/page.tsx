@@ -146,12 +146,12 @@ export default function GccLandingPage() {
         <section className="bg-white py-10 md:py-14">
           <div className="container mx-auto px-4 max-w-6xl grid lg:grid-cols-2 gap-10 lg:items-start">
             <div>
-              <p className="inline-block text-sm font-semibold text-apty-coral bg-apty-warm px-4 py-2 rounded-full border border-apty-coral-accent mb-4">
+              <p className="inline-block text-sm font-semibold text-apty-dark bg-apty-warm px-4 py-2 rounded-full border border-apty-sky mb-4">
                 For children ages 4 to 10
               </p>
               <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5">
                 <span className="text-apty-dark">Your Child Knows ABC.</span>{" "}
-                <span className="text-apty-coral">But Still Can&apos;t Read?</span>
+                <span className="text-apty-dark">But Still Can&apos;t Read?</span>
               </h1>
               <div className="text-lg md:text-xl font-semibold text-apty-dark mb-4 space-y-2 leading-snug">
                 <p>Most children are taught letter names first.</p>
@@ -162,14 +162,14 @@ export default function GccLandingPage() {
                   <span className="font-semibold text-apty-dark">AptyRead Literacy Program:</span> Science of Reading structure.
                 </p>
                 <p className="text-base">
-                  <span className="text-apty-coral font-semibold">Sound first.</span> Five levels. One path.
+                  <span className="text-apty-dark font-semibold">Sound first.</span> Five levels. One path.
                 </p>
               </div>
 
               <div className="flex flex-col gap-2 mb-4">
                 <PlayStoreLink
                   platform="auto"
-                  className="inline-flex items-center justify-center gap-2 bg-apty-coral text-white px-6 py-4 rounded-xl font-semibold text-center hover:opacity-90"
+                  className="inline-flex items-center justify-center gap-2 bg-apty-cyan text-white px-6 py-4 rounded-xl font-semibold text-center hover:opacity-90"
                 >
                   <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -178,7 +178,7 @@ export default function GccLandingPage() {
                 </PlayStoreLink>
                 <a
                   href="#how-it-works"
-                  className="text-sm font-semibold text-apty-coral text-center sm:text-left hover:underline"
+                  className="text-sm font-semibold text-apty-cyan text-center sm:text-left hover:underline"
                 >
                   See how the path works
                 </a>
@@ -197,7 +197,7 @@ export default function GccLandingPage() {
             </div>
 
             <div className="flex flex-col gap-6">
-              <div className="relative w-full rounded-2xl overflow-hidden shadow-lg border border-apty-coral-accent/40">
+              <div className="relative w-full rounded-2xl overflow-hidden shadow-lg border border-apty-sky/40">
                 <Image
                   src="/images/parent-child-reading.png"
                   alt="Parent and child smiling together, pointing at a book while reading at home"
@@ -207,7 +207,7 @@ export default function GccLandingPage() {
                   priority
                 />
               </div>
-              <div className="bg-apty-warm p-6 md:p-8 rounded-2xl border border-apty-coral-accent">
+              <div className="bg-apty-warm p-6 md:p-8 rounded-2xl border border-apty-sky">
                 <h2 className="text-2xl font-bold text-apty-dark mb-4">Does this sound familiar?</h2>
                 <ul className="space-y-3 text-apty-dark">
                   <li>• My child knows the alphabet but cannot read words yet</li>
@@ -261,7 +261,7 @@ export default function GccLandingPage() {
               ))}
             </div>
 
-            <div className="mt-8 bg-orange-50 border border-orange-200 rounded-xl p-5">
+            <div className="mt-8 bg-apty-sky border border-apty-border rounded-xl p-5">
               <p className="font-semibold text-apty-dark">
                 Everyone begins at Level 1: &quot;Sound Foundations&quot;.
               </p>
@@ -275,52 +275,52 @@ export default function GccLandingPage() {
         <section className="py-16 px-4 bg-white">
           <div className="container mx-auto max-w-5xl">
             <h2 className="text-3xl font-bold text-apty-dark mb-6 text-center">Tutor or the AptyRead app?</h2>
-            <div className="overflow-x-auto bg-apty-warm border border-apty-coral-accent rounded-xl">
+            <div className="overflow-x-auto bg-apty-warm border border-apty-sky rounded-xl">
               <table className="w-full text-sm md:text-base">
                 <thead>
-                  <tr className="border-b border-apty-coral-accent text-apty-dark">
+                  <tr className="border-b border-apty-sky text-apty-dark">
                     <th className="px-4 py-3 text-left">What Parents Compare</th>
                     <th className="px-4 py-3 text-left min-w-[10rem]">AptyRead app</th>
                     <th className="px-4 py-3 text-left">Private English Tutor</th>
                   </tr>
                 </thead>
                 <tbody className="text-apty-gray">
-                  <tr className="border-b border-apty-coral-accent/60">
+                  <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Foundation approach</td>
                     <td className="px-4 py-3 align-top">Sound-first, structured sequence</td>
                     <td className="px-4 py-3 align-top">Depends on the tutor</td>
                   </tr>
-                  <tr className="border-b border-apty-coral-accent/60">
+                  <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Learning structure</td>
                     <td className="px-4 py-3 align-top">Five levels. One path.</td>
                     <td className="px-4 py-3 align-top">No fixed sequence guaranteed</td>
                   </tr>
-                  <tr className="border-b border-apty-coral-accent/60">
+                  <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Progress tracking</td>
                     <td className="px-4 py-3 align-top">Clear level-by-level milestones</td>
                     <td className="px-4 py-3 align-top">Varies by tutor</td>
                   </tr>
-                  <tr className="border-b border-apty-coral-accent/60">
+                  <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Schedule</td>
                     <td className="px-4 py-3 align-top">Any time, any day</td>
                     <td className="px-4 py-3 align-top">Fixed session slots</td>
                   </tr>
-                  <tr className="border-b border-apty-coral-accent/60">
+                  <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Revision</td>
                     <td className="px-4 py-3 align-top">Unlimited inside validity</td>
                     <td className="px-4 py-3 align-top">Usually paid again</td>
                   </tr>
-                  <tr className="border-b border-apty-coral-accent/60">
+                  <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Distractions</td>
                     <td className="px-4 py-3 align-top">No ads, focused flow</td>
                     <td className="px-4 py-3 align-top">Often interrupted by notifications</td>
                   </tr>
-                  <tr className="border-b border-apty-coral-accent/60">
+                  <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Try before you pay</td>
                     <td className="px-4 py-3 align-top">Start Lesson 1, no signup</td>
                     <td className="px-4 py-3 align-top">Usually a paid trial session</td>
                   </tr>
-                  <tr className="border-b border-apty-coral-accent/60 bg-teal-50/90 text-apty-dark">
+                  <tr className="border-b border-apty-sky/60 bg-teal-50/90 text-apty-dark">
                     <td className="px-4 py-3 align-top font-medium">Total learning time</td>
                     <td className="px-4 py-3 align-top">20+ hours of structured lessons</td>
                     <td className="px-4 py-3 align-top">Depends on sessions booked</td>
@@ -344,7 +344,7 @@ export default function GccLandingPage() {
               shows the exact amount in your currency at checkout.
             </p>
 
-            <div className="mt-8 rounded-xl border-2 border-apty-coral/30 bg-gradient-to-b from-apty-warm/90 to-white p-6 shadow-sm">
+            <div className="mt-8 rounded-xl border-2 border-apty-cyan/30 bg-gradient-to-b from-apty-warm/90 to-white p-6 shadow-sm">
               <p className="text-base font-semibold text-apty-dark mb-3">Simple GCC pricing</p>
               <p className="text-base text-apty-dark leading-relaxed">
               Start Lesson 1. No account needed. If you love it, Level 1 is AED 299 in the UAE, SAR 299
@@ -361,35 +361,35 @@ export default function GccLandingPage() {
               Calm structure over loud gamification. Every point below shows up in all five levels.
             </p>
             <div className="grid md:grid-cols-2 gap-5">
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky">
                 <h3 className="font-semibold text-apty-dark mb-2">English immersion inside each lesson</h3>
                 <p className="text-apty-gray">Children stay in English while they practise reading, instead of juggling translation habits.</p>
               </div>
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky">
                 <h3 className="font-semibold text-apty-dark mb-2">Useful sounds first</h3>
                 <p className="text-apty-gray">We teach the early sounds that unlock real words before marching through the whole alphabet in order.</p>
               </div>
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky">
                 <h3 className="font-semibold text-apty-dark mb-2">Sound, then letter</h3>
                 <p className="text-apty-gray">Each step begins with what you hear, then maps to the symbol. That is how brains learn to decode.</p>
               </div>
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky">
                 <h3 className="font-semibold text-apty-dark mb-2">Clear international English models</h3>
                 <p className="text-apty-gray">Audio stays calm and consistent so school reading, exams, and read-aloud time feel less scary.</p>
               </div>
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky">
                 <h3 className="font-semibold text-apty-dark mb-2">Letter formation that sticks</h3>
                 <p className="text-apty-gray">Every stroke has a starting point. No mystery loops that need fixing later.</p>
               </div>
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky">
                 <h3 className="font-semibold text-apty-dark mb-2">One course, not random games</h3>
                 <p className="text-apty-gray">You follow a single thread from first sounds to published chapter books. No sticker charts that hide missing skills.</p>
               </div>
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky">
                 <h3 className="font-semibold text-apty-dark mb-2">Screen time with guardrails</h3>
                 <p className="text-apty-gray">Default plan is one fresh lesson per day. You may move to two when it feels healthy. That keeps eyes and memory happier.</p>
               </div>
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky">
                 <h3 className="font-semibold text-apty-dark mb-2">Confidence from knowing what comes next</h3>
                 <p className="text-apty-gray">Because the path is fixed, children stop guessing what parents expect each evening.</p>
               </div>
@@ -402,7 +402,7 @@ export default function GccLandingPage() {
             <h2 className="text-3xl font-bold text-apty-dark mb-8 text-center">Questions parents ask before they download</h2>
             <div className="space-y-3">
               {faqs.map((item) => (
-                <details key={item.q} className="bg-apty-warm border border-apty-coral-accent rounded-xl p-5">
+                <details key={item.q} className="bg-apty-warm border border-apty-sky rounded-xl p-5">
                   <summary className="cursor-pointer font-semibold text-apty-dark">{item.q}</summary>
                   <p className="text-apty-gray mt-3">{item.a}</p>
                 </details>
@@ -411,7 +411,7 @@ export default function GccLandingPage() {
           </div>
         </section>
 
-        <section className="py-16 px-4 bg-gradient-to-br from-apty-coral to-orange-500">
+        <section className="py-16 px-4 bg-apty-dark">
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Tonight can be the first free lesson.</h2>
             <p className="text-white/95 text-lg mb-4">
@@ -426,7 +426,7 @@ export default function GccLandingPage() {
             </p>
             <PlayStoreLink
               platform="auto"
-              className="inline-block bg-white text-apty-coral px-8 py-4 rounded-xl text-lg font-semibold shadow-xl hover:opacity-90"
+              className="inline-block bg-apty-cyan text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-xl hover:bg-apty-cyan-dark"
             >
               Get AptyRead for free
             </PlayStoreLink>
@@ -444,11 +444,11 @@ export default function GccLandingPage() {
           </div>
         </section>
       </main>
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-apty-coral-accent/70 bg-white/85 backdrop-blur md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-apty-sky/70 bg-white/85 backdrop-blur md:hidden">
         <div className="container mx-auto px-4 py-2">
           <PlayStoreLink
             platform="auto"
-            className="inline-flex w-full items-center justify-center gap-2 bg-apty-coral text-white px-5 py-3 rounded-xl font-semibold text-center hover:opacity-90"
+            className="inline-flex w-full items-center justify-center gap-2 bg-apty-cyan text-white px-5 py-3 rounded-xl font-semibold text-center hover:opacity-90"
           >
             Start Lesson 1
           </PlayStoreLink>

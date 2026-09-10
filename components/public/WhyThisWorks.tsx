@@ -25,7 +25,7 @@ const benefits = [
 
 export default function WhyThisWorks() {
   return (
-    <section className="bg-white py-14 md:py-16 px-4">
+    <section className="bg-apty-cream py-14 md:py-16 px-4">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-3">
@@ -40,7 +40,7 @@ export default function WhyThisWorks() {
           {benefits.map((benefit) => (
             <div
               key={benefit.title}
-              className="p-6 md:p-7 bg-apty-warm rounded-xl border border-apty-coral-accent"
+              className="p-6 md:p-7 bg-apty-warm rounded-xl border border-apty-sky"
             >
               <h3 className="text-xl font-bold text-apty-dark mb-2">
                 {benefit.title}

@@ -24,14 +24,14 @@ export default async function AdminUserDetailPage({ params }: { params: Promise<
   return (
     <div className="space-y-8">
       <div className="flex items-center gap-4">
-        <Link href="/admin/users" className="text-apty-coral hover:underline">← Users</Link>
+        <Link href="/admin/users" className="text-apty-cyan hover:underline">← Users</Link>
       </div>
       <div>
         <h1 className="text-3xl font-bold text-apty-dark mb-2">User detail</h1>
         <p className="text-apty-gray">Profile and purchases</p>
       </div>
 
-      <div className="bg-white p-6 rounded-lg border border-apty-coral-accent shadow-sm">
+      <div className="bg-white p-6 rounded-lg border border-apty-sky shadow-sm">
         <h2 className="text-xl font-bold text-apty-dark mb-4">Profile</h2>
         <dl className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <dt className="text-apty-gray">User ID</dt>
@@ -47,7 +47,7 @@ export default async function AdminUserDetailPage({ params }: { params: Promise<
         </dl>
       </div>
 
-      <div className="bg-white p-6 rounded-lg border border-apty-coral-accent shadow-sm">
+      <div className="bg-white p-6 rounded-lg border border-apty-sky shadow-sm">
         <h2 className="text-xl font-bold text-apty-dark mb-4">Purchases ({purchases.length})</h2>
         {purchases.length === 0 ? (
           <p className="text-apty-gray">No purchases for this user.</p>
@@ -77,7 +77,7 @@ export default async function AdminUserDetailPage({ params }: { params: Promise<
                     </td>
                     <td className="px-4 py-3 text-sm">{formatDate(p.createdAt)}</td>
                     <td className="px-4 py-3">
-                      <Link href={`/admin/purchases?orderId=${encodeURIComponent(p.orderId || p.id)}`} className="text-apty-coral text-sm hover:underline">View</Link>
+                      <Link href={`/admin/purchases?orderId=${encodeURIComponent(p.orderId || p.id)}`} className="text-apty-cyan text-sm hover:underline">View</Link>
                     </td>
                   </tr>
                 ))}

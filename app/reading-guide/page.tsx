@@ -53,7 +53,7 @@ const articles = [
 
 export default function ReadingGuidePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-apty-cream">
       <Header />
       <main>
         <article className="px-4 py-14 md:py-20">
@@ -82,7 +82,7 @@ export default function ReadingGuidePage() {
                 href={PATH_URL}
                 className="group block rounded-2xl border border-apty-cyan/25 bg-apty-cyan-accent/40 p-6 md:p-8 hover:border-apty-cyan transition-colors"
               >
-                <h2 className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-2 tracking-tight group-hover:text-[#007399] transition-colors">
+                <h2 className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-2 tracking-tight group-hover:text-apty-dark transition-colors">
                   The AptyRead Five-Level Path
                 </h2>
                 <p className="text-sm font-semibold tracking-wide text-apty-cyan mb-3">
@@ -91,7 +91,7 @@ export default function ReadingGuidePage() {
                 <p className="text-apty-gray leading-relaxed mb-4">
                   Why every child starts at Level 1, and how the sequence works.
                 </p>
-                <span className="font-semibold text-[#007399]">
+                <span className="font-semibold text-apty-dark">
                   See the Five-Level Path →
                 </span>
               </Link>
@@ -112,13 +112,13 @@ export default function ReadingGuidePage() {
                 {articles.map((article) => (
                   <div key={article.href}>
                     <Link href={article.href} className="group block">
-                      <h3 className="text-xl md:text-2xl font-bold text-apty-dark mb-2 tracking-tight group-hover:text-[#007399] transition-colors">
+                      <h3 className="text-xl md:text-2xl font-bold text-apty-dark mb-2 tracking-tight group-hover:text-apty-dark transition-colors">
                         {article.title}
                       </h3>
                       <p className="text-apty-gray leading-relaxed mb-2">
                         {article.body}
                       </p>
-                      <span className="font-semibold text-[#007399]">
+                      <span className="font-semibold text-apty-dark">
                         Read this →
                       </span>
                     </Link>

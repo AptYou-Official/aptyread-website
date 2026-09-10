@@ -146,7 +146,7 @@ export default function UsLandingPage() {
         <section className="bg-white py-14 md:py-20">
           <div className="container mx-auto px-4 max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="inline-block text-sm font-semibold text-apty-coral bg-apty-warm px-4 py-2 rounded-full border border-apty-coral-accent mb-4">
+              <p className="inline-block text-sm font-semibold text-apty-dark bg-apty-warm px-4 py-2 rounded-full border border-apty-sky mb-4">
                 Ages 4 to 10 · Science of Reading
               </p>
               <h1 className="text-4xl md:text-5xl font-bold text-apty-dark leading-tight mb-6">
@@ -163,7 +163,7 @@ export default function UsLandingPage() {
               <div className="flex flex-col gap-2 mb-4">
                 <PlayStoreLink
                   platform="auto"
-                  className="inline-flex items-center justify-center gap-2 bg-apty-coral text-white px-6 py-4 rounded-xl font-semibold text-center hover:opacity-90"
+                  className="inline-flex items-center justify-center gap-2 bg-apty-cyan text-white px-6 py-4 rounded-xl font-semibold text-center hover:opacity-90"
                 >
                   <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -172,7 +172,7 @@ export default function UsLandingPage() {
                 </PlayStoreLink>
                 <a
                   href="#how-it-works"
-                  className="text-sm font-semibold text-apty-coral text-center sm:text-left hover:underline"
+                  className="text-sm font-semibold text-apty-cyan text-center sm:text-left hover:underline"
                 >
                   See how the path works
                 </a>
@@ -191,7 +191,7 @@ export default function UsLandingPage() {
                 <GooglePlayBadge />
               </div>
 
-              <div className="rounded-xl border border-apty-coral-accent bg-gradient-to-b from-white to-apty-warm/80 p-5 md:p-6 shadow-sm">
+              <div className="rounded-xl border border-apty-sky bg-gradient-to-b from-white to-apty-warm/80 p-5 md:p-6 shadow-sm">
                 <p className="text-xs font-semibold tracking-wider text-apty-gray uppercase mb-3">Why start tonight</p>
                 <div className="flex gap-4">
                   <div
@@ -213,7 +213,7 @@ export default function UsLandingPage() {
             </div>
 
             <div className="flex flex-col gap-6">
-              <div className="relative w-full rounded-2xl overflow-hidden shadow-lg border border-apty-coral-accent/40">
+              <div className="relative w-full rounded-2xl overflow-hidden shadow-lg border border-apty-sky/40">
                 <Image
                   src="/images/parent-child-reading.png"
                   alt="Parent and child smiling together, pointing at a book while reading at home"
@@ -223,7 +223,7 @@ export default function UsLandingPage() {
                   priority
                 />
               </div>
-              <div className="bg-apty-warm p-6 md:p-8 rounded-2xl border border-apty-coral-accent">
+              <div className="bg-apty-warm p-6 md:p-8 rounded-2xl border border-apty-sky">
                 <h2 className="text-2xl font-bold text-apty-dark mb-4">Does this sound familiar?</h2>
                 <ul className="space-y-3 text-apty-dark">
                   <li>• My child knows letters but cannot sound out words yet</li>
@@ -277,7 +277,7 @@ export default function UsLandingPage() {
               ))}
             </div>
 
-            <div className="mt-8 bg-orange-50 border border-orange-200 rounded-xl p-5">
+            <div className="mt-8 bg-apty-sky border border-apty-border rounded-xl p-5">
               <p className="font-semibold text-apty-dark">
                 Everyone begins at Level 1: &quot;Sound Foundations&quot;.
               </p>
@@ -291,52 +291,52 @@ export default function UsLandingPage() {
         <section className="py-16 px-4 bg-white">
           <div className="container mx-auto max-w-5xl">
             <h2 className="text-3xl font-bold text-apty-dark mb-6 text-center">Private tutoring or this app?</h2>
-            <div className="overflow-x-auto bg-apty-warm border border-apty-coral-accent rounded-xl">
+            <div className="overflow-x-auto bg-apty-warm border border-apty-sky rounded-xl">
               <table className="w-full text-sm md:text-base">
                 <thead>
-                  <tr className="border-b border-apty-coral-accent text-apty-dark">
+                  <tr className="border-b border-apty-sky text-apty-dark">
                     <th className="px-4 py-3 text-left">What parents compare</th>
                     <th className="px-4 py-3 text-left min-w-[10rem]">AptyRead app</th>
                     <th className="px-4 py-3 text-left">Private tutoring</th>
                   </tr>
                 </thead>
                 <tbody className="text-apty-gray">
-                  <tr className="border-b border-apty-coral-accent/60">
+                  <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Foundation approach</td>
                     <td className="px-4 py-3 align-top">Sound-first, structured phonics sequence</td>
                     <td className="px-4 py-3 align-top">Depends on the tutor</td>
                   </tr>
-                  <tr className="border-b border-apty-coral-accent/60">
+                  <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Learning structure</td>
                     <td className="px-4 py-3 align-top">Five levels. One path.</td>
                     <td className="px-4 py-3 align-top">No fixed sequence guaranteed</td>
                   </tr>
-                  <tr className="border-b border-apty-coral-accent/60">
+                  <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Progress tracking</td>
                     <td className="px-4 py-3 align-top">Clear level milestones</td>
                     <td className="px-4 py-3 align-top">Varies by tutor</td>
                   </tr>
-                  <tr className="border-b border-apty-coral-accent/60">
+                  <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Schedule</td>
                     <td className="px-4 py-3 align-top">Open calendar, pajamas okay</td>
                     <td className="px-4 py-3 align-top">Weekly fixed slots</td>
                   </tr>
-                  <tr className="border-b border-apty-coral-accent/60">
+                  <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Revision</td>
                     <td className="px-4 py-3 align-top">Unlimited replays inside the window</td>
                     <td className="px-4 py-3 align-top">Often rebilled hourly</td>
                   </tr>
-                  <tr className="border-b border-apty-coral-accent/60">
+                  <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Distractions</td>
                     <td className="px-4 py-3 align-top">Pure lesson flow without ads</td>
                     <td className="px-4 py-3 align-top">Depends on tutor environment</td>
                   </tr>
-                  <tr className="border-b border-apty-coral-accent/60">
+                  <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Try before you pay</td>
                     <td className="px-4 py-3 align-top">Start Lesson 1, no signup</td>
                     <td className="px-4 py-3 align-top">Almost always billed from day one</td>
                   </tr>
-                  <tr className="border-b border-apty-coral-accent/60 bg-teal-50/90 text-apty-dark">
+                  <tr className="border-b border-apty-sky/60 bg-teal-50/90 text-apty-dark">
                     <td className="px-4 py-3 align-top font-medium">Structured learning hours</td>
                     <td className="px-4 py-3 align-top">20+ hours curated for Level 1 alone</td>
                     <td className="px-4 py-3 align-top">Depends how many hours you purchase</td>
@@ -359,7 +359,7 @@ export default function UsLandingPage() {
               Your App Store or Google Play receipt shows the exact amount at checkout.
             </p>
 
-            <div className="mt-8 rounded-xl border-2 border-apty-coral/30 bg-gradient-to-b from-apty-warm/90 to-white p-6 shadow-sm">
+            <div className="mt-8 rounded-xl border-2 border-apty-cyan/30 bg-gradient-to-b from-apty-warm/90 to-white p-6 shadow-sm">
               <p className="text-base font-semibold text-apty-dark mb-3">Transparent US pricing</p>
               <p className="text-base text-apty-dark leading-relaxed">
                 Start Lesson 1. No account needed. When you are convinced, unlock Level 1 for six
@@ -376,50 +376,50 @@ export default function UsLandingPage() {
               Structured literacy that matches reading science. The same ideas repeat across every level.
             </p>
             <div className="grid md:grid-cols-2 gap-5">
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky">
                 <h3 className="font-semibold text-apty-dark mb-2">Built on the Science of Reading</h3>
                 <p className="text-apty-gray">
                   Structured synthetic phonics in a fixed order, the approach literacy research keeps pointing to across US
                   classrooms.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky">
                 <h3 className="font-semibold text-apty-dark mb-2">English immersion inside each lesson</h3>
                 <p className="text-apty-gray">Children stay in English while they practice reading, instead of juggling translation habits.</p>
               </div>
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky">
                 <h3 className="font-semibold text-apty-dark mb-2">Useful sounds first</h3>
                 <p className="text-apty-gray">
                   Kids learn early sounds that unlock real words before marching through the whole alphabet in order.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky">
                 <h3 className="font-semibold text-apty-dark mb-2">Sound, then letter</h3>
                 <p className="text-apty-gray">Each step begins with what you hear, then maps to the letter. That is how decoding settles in.</p>
               </div>
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky">
                 <h3 className="font-semibold text-apty-dark mb-2">Clear English models</h3>
                 <p className="text-apty-gray">
                   Audio stays steady and understandable so classroom reading aloud and nightly practice feel aligned.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky">
                 <h3 className="font-semibold text-apty-dark mb-2">Letter formation that sticks</h3>
                 <p className="text-apty-gray">Kids see where each stroke begins so handwriting does not need to be rebuilt later.</p>
               </div>
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky">
                 <h3 className="font-semibold text-apty-dark mb-2">One course, not random games</h3>
                 <p className="text-apty-gray">
                   One path from first sounds to chapter books, not unrelated mini-games with no storyline.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky">
                 <h3 className="font-semibold text-apty-dark mb-2">Screen time with guardrails</h3>
                 <p className="text-apty-gray">
                   Expect one paced lesson nightly, with permission to gently raise to two when your household is ready.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-xl border border-apty-coral-accent md:col-span-2">
+              <div className="bg-white p-6 rounded-xl border border-apty-sky md:col-span-2">
                 <h3 className="font-semibold text-apty-dark mb-2">Confidence from knowing what comes next</h3>
                 <p className="text-apty-gray">Families stop guessing nightly homework rituals because lesson order stays visible.</p>
               </div>
@@ -432,7 +432,7 @@ export default function UsLandingPage() {
             <h2 className="text-3xl font-bold text-apty-dark mb-8 text-center">Questions parents ask before they download</h2>
             <div className="space-y-3">
               {faqs.map((item) => (
-                <details key={item.q} className="bg-apty-warm border border-apty-coral-accent rounded-xl p-5">
+                <details key={item.q} className="bg-apty-warm border border-apty-sky rounded-xl p-5">
                   <summary className="cursor-pointer font-semibold text-apty-dark">{item.q}</summary>
                   <p className="text-apty-gray mt-3">{item.a}</p>
                 </details>
@@ -441,7 +441,7 @@ export default function UsLandingPage() {
           </div>
         </section>
 
-        <section className="py-16 px-4 bg-gradient-to-br from-apty-coral to-orange-500">
+        <section className="py-16 px-4 bg-apty-dark">
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Tonight can be the first free lesson.</h2>
             <p className="text-white/95 text-lg mb-4">
@@ -452,7 +452,7 @@ export default function UsLandingPage() {
             </p>
             <PlayStoreLink
               platform="auto"
-              className="inline-block bg-white text-apty-coral px-8 py-4 rounded-xl text-lg font-semibold shadow-xl hover:opacity-90"
+              className="inline-block bg-apty-cyan text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-xl hover:bg-apty-cyan-dark"
             >
               Get AptyRead for free
             </PlayStoreLink>

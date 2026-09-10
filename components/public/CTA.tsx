@@ -5,7 +5,7 @@ import PlayStoreLink from '@/components/public/PlayStoreLink';
 
 export default function CTA() {
   return (
-    <section className="bg-apty-coral py-16 md:py-20 px-4">
+    <section className="bg-apty-dark py-16 md:py-20 px-4">
       <div className="container mx-auto max-w-3xl text-center">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">
           Every child can learn to read.
@@ -19,7 +19,7 @@ export default function CTA() {
         <div className="flex flex-col gap-4 justify-center items-center">
           <PlayStoreLink
             platform="auto"
-            className="bg-white text-apty-coral px-8 py-4 rounded-xl text-lg font-semibold shadow-xl transform transition duration-300 hover:scale-105"
+            className="bg-apty-cyan text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-xl transform transition duration-300 hover:bg-apty-cyan-dark hover:scale-105"
           >
             Start Lesson 1
           </PlayStoreLink>

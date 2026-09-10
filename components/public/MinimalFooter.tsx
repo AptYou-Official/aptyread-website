@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function MinimalFooter() {
   return (
-    <footer className="bg-white border-t border-apty-coral-accent py-8 px-4">
+    <footer className="bg-white border-t border-apty-sky py-8 px-4">
       <div className="container mx-auto max-w-4xl">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-apty-gray">
           <div className="text-center md:text-left">
@@ -10,16 +10,16 @@ export default function MinimalFooter() {
             <p className="text-xs">© {new Date().getFullYear()} AptyRead. All rights reserved.</p>
           </div>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            <Link href="/privacy" className="hover:text-apty-coral transition-colors">
+            <Link href="/privacy" className="hover:text-apty-cyan transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-apty-coral transition-colors">
+            <Link href="/terms" className="hover:text-apty-cyan transition-colors">
               Terms
             </Link>
-            <Link href="/contact" className="hover:text-apty-coral transition-colors">
+            <Link href="/contact" className="hover:text-apty-cyan transition-colors">
               Contact
             </Link>
-            <Link href="/" className="hover:text-apty-coral transition-colors">
+            <Link href="/" className="hover:text-apty-cyan transition-colors">
               Home
             </Link>
           </div>

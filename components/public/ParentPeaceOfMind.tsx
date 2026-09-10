@@ -25,7 +25,7 @@ const concerns = [
 
 export default function ParentPeaceOfMind() {
   return (
-    <section className="bg-white py-14 md:py-16 px-4">
+    <section className="bg-apty-cream py-14 md:py-16 px-4">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-apty-dark mb-3 tracking-tight">
@@ -40,7 +40,7 @@ export default function ParentPeaceOfMind() {
           {concerns.map((concern) => (
             <div
               key={concern.question}
-              className="bg-apty-warm p-6 md:p-7 rounded-xl border border-apty-coral-accent"
+              className="bg-apty-warm p-6 md:p-7 rounded-xl border border-apty-sky"
             >
               <h3 className="text-xl font-bold text-apty-dark mb-2">
                 {concern.question}

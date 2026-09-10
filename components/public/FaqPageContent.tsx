@@ -8,7 +8,7 @@ export default function FaqPageContent() {
     <div className="space-y-12">
       {faqGroups.map((group) => (
         <section key={group.title}>
-          <h2 className="text-sm font-semibold tracking-wide text-apty-coral mb-4">
+          <h2 className="text-sm font-semibold tracking-wide text-apty-dark mb-4">
             {group.title}
           </h2>
           <FaqAccordion items={group.items} defaultOpen={null} />

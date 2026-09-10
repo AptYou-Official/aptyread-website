@@ -45,19 +45,19 @@ export default async function PaymentsPage() {
 
       <PaymentChart data={chartData} />
 
-      <div className="bg-white p-6 rounded-lg border border-apty-coral-accent shadow-sm">
+      <div className="bg-white p-6 rounded-lg border border-apty-sky shadow-sm">
         <h2 className="text-2xl font-bold text-apty-dark mb-4">Revenue by Level</h2>
         <div className="space-y-2">
           {Object.entries(revenueByLevel).map(([level, revenue]) => (
-            <div key={level} className="flex justify-between items-center py-2 border-b border-apty-coral-accent">
+            <div key={level} className="flex justify-between items-center py-2 border-b border-apty-sky">
               <span className="text-apty-dark font-medium">Level {level}</span>
-              <span className="text-apty-coral font-semibold">${revenue.toLocaleString()}</span>
+              <span className="text-apty-cyan font-semibold">${revenue.toLocaleString()}</span>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded-lg border border-apty-coral-accent shadow-sm">
+      <div className="bg-white p-6 rounded-lg border border-apty-sky shadow-sm">
         <h2 className="text-2xl font-bold text-apty-dark mb-4">Recent Purchases</h2>
         <div className="overflow-x-auto">
           <table className="w-full">

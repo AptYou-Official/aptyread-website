@@ -9,29 +9,30 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // AptyRead Brand Colors
-        'apty-coral': '#FF6B35',        // Primary brand color / CTAs
-        'apty-cyan': {
-          DEFAULT: '#0099CC',           // Path / structure
-          dark: '#007399',              // Soft emphasis (hero accents)
-          accent: '#E6F5FA',            // Soft cyan wash
+        // AptyRead Brand Colors — calm indigo + cyan (no coral)
+        "apty-indigo": "#173A8A", // Headings, nav, important text
+        "apty-cyan": {
+          DEFAULT: "#00B8D9", // CTA / links / active
+          dark: "#0099B8", // CTA hover
+          accent: "#E6F6FB", // Soft sky wash (alias)
         },
-        'apty-gold': '#FFB300',         // Accent color
-        'apty-warm': '#FFF7F4',         // Soft coral tint for alternating sections
-        'apty-dark': '#2D3748',         // Dark text
-        'apty-gray': '#64748B',         // Gray text
-        'apty-coral-accent': '#FFE8E0', // Soft coral for borders
-        'apty-border': '#E2E8F0',       // Border gray
-        'apty-page': '#FFFFFF',         // Dominant page white
+        "apty-sky": "#E6F6FB", // Soft sections / light fills
+        "apty-cream": "#FAFAF7", // Main page background
+        "apty-dark": "#173A8A", // Primary text (deep indigo)
+        "apty-gray": "#5B6B7C", // Secondary text
+        "apty-border": "#D7E3EC", // Quiet borders
+        "apty-page": "#FAFAF7", // Page canvas
+        // Legacy aliases → new system (so existing classes keep working)
+        "apty-coral": "#00B8D9",
+        "apty-coral-accent": "#E6F6FB",
+        "apty-warm": "#E6F6FB",
+        "apty-gold": "#00B8D9",
       },
       fontFamily: {
-        sans: ['var(--font-nunito-sans)', 'system-ui', 'sans-serif'],
+        sans: ["var(--font-nunito-sans)", "system-ui", "sans-serif"],
       },
     },
   },
   plugins: [],
 };
 export default config;
-
-
-

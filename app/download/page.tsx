@@ -41,7 +41,7 @@ export default function DownloadPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="min-h-screen bg-white flex flex-col">
+      <div className="min-h-screen bg-apty-cream flex flex-col">
         <MinimalHeader />
         <main className="flex-grow">
           <DownloadHero />

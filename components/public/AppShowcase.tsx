@@ -62,7 +62,7 @@ export default function AppShowcase({
 
   return (
     <section
-      className={`bg-white px-4 py-12 md:py-16 ${className}`.trim()}
+      className={`bg-apty-cream px-4 py-12 md:py-16 ${className}`.trim()}
       aria-labelledby="app-showcase-heading"
     >
       <div className="container mx-auto max-w-6xl">

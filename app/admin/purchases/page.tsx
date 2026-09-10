@@ -29,7 +29,7 @@ export default async function AdminPurchasesPage({
         </div>
         <Link
           href="/admin/purchases/add"
-          className="bg-apty-coral text-white px-4 py-2 rounded-lg font-semibold hover:opacity-90"
+          className="bg-apty-cyan text-white px-4 py-2 rounded-lg font-semibold hover:opacity-90"
         >
           Add / fix purchase
         </Link>
@@ -37,7 +37,7 @@ export default async function AdminPurchasesPage({
 
       <PurchasesFilters />
 
-      <div className="bg-white p-6 rounded-lg border border-apty-coral-accent shadow-sm">
+      <div className="bg-white p-6 rounded-lg border border-apty-sky shadow-sm">
         <h2 className="text-xl font-bold text-apty-dark mb-4">Results ({purchases.length})</h2>
         {purchases.length === 0 ? (
           <p className="text-apty-gray">No purchases match the filters.</p>

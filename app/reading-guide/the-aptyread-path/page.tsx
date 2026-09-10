@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function AptyReadPathPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-apty-cream">
       <Header />
       <main>
         <article className="px-4 py-14 md:py-20">
@@ -38,7 +38,7 @@ export default function AptyReadPathPage() {
               ]}
             />
 
-            <p className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
+            <p className="text-sm font-semibold tracking-wide text-apty-dark mb-4">
               Five levels. One path.
             </p>
             <h1 className="text-3xl md:text-5xl font-extrabold text-apty-dark mb-5 leading-tight tracking-tight">

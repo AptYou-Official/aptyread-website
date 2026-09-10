@@ -6,7 +6,7 @@ export default function Screenshots() {
       id: 1,
       title: "Learning Letters",
       description: "Interactive letter tracing and sound discovery",
-      gradient: "from-apty-coral to-orange-400",
+      gradient: "from-apty-cyan to-apty-cyan-dark",
     },
     {
       id: 2,
@@ -40,7 +40,7 @@ export default function Screenshots() {
               key={screenshot.id}
               className="group relative"
             >
-              <div className="bg-white p-6 rounded-2xl border-2 border-apty-coral-accent hover:border-apty-coral shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="bg-white p-6 rounded-2xl border-2 border-apty-sky hover:border-apty-cyan shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                 {/* Placeholder for screenshot */}
                 <div className={`relative aspect-[9/16] bg-gradient-to-br ${screenshot.gradient} rounded-xl mb-6 flex items-center justify-center overflow-hidden`}>
                   <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>

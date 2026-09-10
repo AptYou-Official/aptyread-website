@@ -10,13 +10,13 @@ export default function NotFound() {
       <div className="flex flex-col sm:flex-row gap-4">
         <Link
           href="/"
-          className="bg-apty-coral text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-opacity text-center"
+          className="bg-apty-cyan text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-opacity text-center"
         >
           Go to homepage
         </Link>
         <Link
           href="/faq"
-          className="border-2 border-apty-coral text-apty-coral px-6 py-3 rounded-xl font-semibold hover:bg-apty-warm transition-colors text-center"
+          className="border-2 border-apty-cyan text-apty-cyan px-6 py-3 rounded-xl font-semibold hover:bg-apty-warm transition-colors text-center"
         >
           FAQ
         </Link>

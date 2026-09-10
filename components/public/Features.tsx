@@ -28,7 +28,7 @@ export default function Features() {
           </div>
         </div>
 
-        <div className="bg-white p-6 md:p-8 rounded-2xl border-2 border-apty-coral-accent shadow-sm">
+        <div className="bg-white p-6 md:p-8 rounded-2xl border-2 border-apty-sky shadow-sm">
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
@@ -49,7 +49,7 @@ export default function Features() {
               },
             ].map((item, index) => (
               <div key={index} className="flex items-start gap-3 md:gap-4">
-                <span className="text-apty-coral text-xl md:text-2xl flex-shrink-0 mt-0.5">✓</span>
+                <span className="text-apty-cyan text-xl md:text-2xl flex-shrink-0 mt-0.5">✓</span>
                 <div>
                   <h3 className="text-lg md:text-xl font-bold text-apty-dark mb-2">
                     {item.title}

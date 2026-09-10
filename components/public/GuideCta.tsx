@@ -30,14 +30,14 @@ export default function GuideCta({
           <>
             <PlayStoreLink
               platform="auto"
-              className="inline-flex items-center justify-center rounded-xl bg-apty-coral px-6 py-3 text-base font-semibold text-white hover:bg-[#e95624] transition-colors"
+              className="inline-flex items-center justify-center rounded-xl bg-apty-cyan px-6 py-3 text-base font-semibold text-white hover:bg-apty-cyan-dark transition-colors"
             >
               Start Lesson 1
             </PlayStoreLink>
             {showSecondary ? (
               <Link
                 href={PATH_URL}
-                className="inline-flex items-center justify-center font-semibold text-apty-dark hover:text-apty-coral transition-colors"
+                className="inline-flex items-center justify-center font-semibold text-apty-dark hover:text-apty-cyan transition-colors"
               >
                 See the Five-Level Path
               </Link>
@@ -47,14 +47,14 @@ export default function GuideCta({
           <>
             <Link
               href={PATH_URL}
-              className="inline-flex items-center justify-center rounded-xl bg-apty-coral px-6 py-3 text-base font-semibold text-white hover:bg-[#e95624] transition-colors"
+              className="inline-flex items-center justify-center rounded-xl bg-apty-cyan px-6 py-3 text-base font-semibold text-white hover:bg-apty-cyan-dark transition-colors"
             >
               See the Five-Level Path
             </Link>
             {showSecondary ? (
               <PlayStoreLink
                 platform="auto"
-                className="inline-flex items-center justify-center font-semibold text-apty-dark hover:text-apty-coral transition-colors"
+                className="inline-flex items-center justify-center font-semibold text-apty-dark hover:text-apty-cyan transition-colors"
               >
                 Start Lesson 1
               </PlayStoreLink>

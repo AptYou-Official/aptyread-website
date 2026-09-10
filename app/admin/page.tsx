@@ -53,7 +53,7 @@ export default async function AdminDashboard() {
         />
       </div>
 
-      <div className="bg-white p-6 rounded-lg border border-apty-coral-accent shadow-sm">
+      <div className="bg-white p-6 rounded-lg border border-apty-sky shadow-sm">
         <h2 className="text-2xl font-bold text-apty-dark mb-4">Recent Activity</h2>
         <p className="text-apty-gray">Dashboard analytics and charts will be displayed here.</p>
       </div>

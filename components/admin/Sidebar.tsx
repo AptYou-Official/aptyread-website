@@ -25,7 +25,7 @@ export default function Sidebar() {
   return (
     <aside className="w-64 bg-white border-r border-apty-coral-accent min-h-screen flex flex-col">
       <div className="p-6 border-b border-apty-coral-accent">
-        <h1 className="text-2xl font-bold text-apty-coral">AptyRead Admin</h1>
+        <h1 className="text-2xl font-bold text-apty-dark">AptyRead Admin</h1>
       </div>
       <nav className="p-4 flex-1">
         <ul className="space-y-2">

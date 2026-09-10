@@ -53,8 +53,8 @@ export default function AdminLogin() {
   if (configMissing) {
     return (
       <div className="min-h-screen bg-apty-warm flex items-center justify-center px-4">
-        <div className="bg-white p-8 rounded-lg border border-apty-coral-accent shadow-lg max-w-md w-full text-apty-dark">
-          <h1 className="text-xl font-bold text-apty-coral mb-2">Firebase not configured</h1>
+        <div className="bg-white p-8 rounded-lg border border-apty-sky shadow-lg max-w-md w-full text-apty-dark">
+          <h1 className="text-xl font-bold text-apty-cyan mb-2">Firebase not configured</h1>
           <p className="text-sm text-apty-gray">
             Add <code className="bg-gray-100 px-1">NEXT_PUBLIC_FIREBASE_API_KEY</code>,{' '}
             <code className="bg-gray-100 px-1">NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN</code>, and{' '}
@@ -67,8 +67,8 @@ export default function AdminLogin() {
 
   return (
     <div className="min-h-screen bg-apty-warm flex items-center justify-center px-4">
-      <div className="bg-white p-8 rounded-lg border border-apty-coral-accent shadow-lg max-w-md w-full">
-        <h1 className="text-3xl font-bold text-apty-coral mb-2">Admin Login</h1>
+      <div className="bg-white p-8 rounded-lg border border-apty-sky shadow-lg max-w-md w-full">
+        <h1 className="text-3xl font-bold text-apty-cyan mb-2">Admin Login</h1>
         <p className="text-apty-gray mb-6">Sign in to access the admin panel</p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -109,7 +109,7 @@ export default function AdminLogin() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-apty-coral text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors disabled:opacity-50"
+            className="w-full bg-apty-cyan text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors disabled:opacity-50"
           >
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
