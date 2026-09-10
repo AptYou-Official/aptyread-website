@@ -15,9 +15,9 @@ export default function Hero() {
             <div className="relative w-full rounded-2xl overflow-hidden border border-apty-border">
               <Image
                 src="/images/parent-child-reading.png"
-                alt="Child and parent with books, reading together at home"
-                width={1200}
-                height={800}
+                alt="Parent and child smiling together, pointing at a book while reading at home"
+                width={1672}
+                height={941}
                 className="w-full h-auto object-cover"
                 priority
               />
