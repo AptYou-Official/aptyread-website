@@ -42,7 +42,7 @@ const articles = [
 
 export default function ReadingGuidePage() {
   return (
-    <div className="min-h-screen bg-apty-warm">
+    <div className="min-h-screen bg-white">
       <Header />
       <main>
         <article className="px-4 py-14 md:py-20">

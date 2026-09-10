@@ -11,7 +11,7 @@ export default function Hero() {
     <section className="relative overflow-hidden bg-white py-10 md:py-14 lg:py-16">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-apty-coral-accent/70 blur-3xl"
+        className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-apty-coral/10 blur-3xl"
       />
       <div className="container relative mx-auto px-4 max-w-7xl">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">

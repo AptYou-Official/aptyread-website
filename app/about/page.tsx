@@ -6,14 +6,14 @@ import CTA from "@/components/public/CTA";
 export const metadata: Metadata = {
   title: "A Letter to Parents | AptyRead",
   description:
-    "Why we built AptyRead. An English reading program for children aged 4 to 10. Five levels. 238 lessons. Every child reads.",
+    "Why we built AptyRead. An English reading program for children aged 4 to 10. Five levels. One path. Every child reads.",
   alternates: {
     canonical: "https://www.aptyread.ai/about",
   },
   openGraph: {
     title: "A Letter to Parents | AptyRead",
     description:
-      "Why we built AptyRead. An English reading program for children aged 4 to 10. Every child reads.",
+      "Why we built AptyRead. An English reading program for children aged 4 to 10. Five levels. One path. Every child reads.",
     url: "https://www.aptyread.ai/about",
     siteName: "AptyRead",
     type: "website",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-apty-warm">
+    <div className="min-h-screen bg-white">
       <Header />
 
       <main>
@@ -59,8 +59,8 @@ export default function AboutPage() {
               <p className="font-semibold">Our mission: Every child reads.</p>
 
               <p>
-                An English reading program for ages 4 to 10. Five levels. 238
-                lessons. One path. Built on the Science of Reading.
+                An English reading program for ages 4 to 10. Five levels. One
+                path. Built on the Science of Reading.
               </p>
 
               <p>

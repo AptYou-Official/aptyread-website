@@ -8,7 +8,7 @@
   --apty-coral: #FF6B35;
   --apty-cyan: #0099CC;
   --apty-gold: #FFB300;
-  --apty-warm: #FFF9F7;
+  --apty-warm: #FFF7F4;
   --apty-dark: #2D3748;
   --apty-gray: #64748B;
 }
@@ -16,7 +16,7 @@
 body {
   font-family: 'Inter', system-ui, sans-serif;
   color: var(--apty-dark);
-  background-color: var(--apty-warm);
+  background-color: #ffffff;
 }
 
 @layer utilities {

@@ -27,7 +27,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppData) }}
       />
-      <main className="min-h-screen bg-apty-warm">
+      <main className="min-h-screen bg-white">
         <Header />
         <Hero />
         <LandingVideo

@@ -6,7 +6,7 @@ import { homepageFaqItems } from "@/lib/faq-content";
 
 export default function HomepageFAQ() {
   return (
-    <section className="bg-white py-16 md:py-20 px-4">
+    <section className="bg-apty-warm py-16 md:py-20 px-4">
       <div className="container mx-auto max-w-3xl">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-3">

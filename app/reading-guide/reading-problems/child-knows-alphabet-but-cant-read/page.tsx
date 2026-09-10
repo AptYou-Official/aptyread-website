@@ -52,7 +52,7 @@ export default function AlphabetButCantReadArticle() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
       />
-      <div className="min-h-screen bg-apty-warm">
+      <div className="min-h-screen bg-white">
         <Header />
         <main>
           <article className="px-4 py-14 md:py-20">

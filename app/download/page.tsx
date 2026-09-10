@@ -11,14 +11,14 @@ import { softwareApplicationJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Download AptyRead - Start Lesson 1 | AptyRead",
-  description: "Download AptyRead free. Start Lesson 1, no account needed. English reading program for children ages 4 to 10. 5 levels, 238 lessons. No ads, no subscriptions.",
+  description: "Download AptyRead free. Start Lesson 1, no account needed. English reading program for children ages 4 to 10. Five levels. One path. No ads, no subscriptions.",
   keywords: "download AptyRead, free reading app, children reading app, learn to read, English reading for kids",
   alternates: {
     canonical: "https://www.aptyread.ai/download",
   },
   openGraph: {
     title: "Download AptyRead - Start Lesson 1",
-    description: "Download AptyRead free. Start Lesson 1, no account needed. English reading program for children ages 4 to 10.",
+    description: "Download AptyRead free. Start Lesson 1, no account needed. English reading program for children ages 4 to 10. Five levels. One path.",
     url: "https://www.aptyread.ai/download",
     siteName: "AptyRead",
     type: "website",
@@ -41,7 +41,7 @@ export default function DownloadPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="min-h-screen bg-apty-warm flex flex-col">
+      <div className="min-h-screen bg-white flex flex-col">
         <MinimalHeader />
         <main className="flex-grow">
           <DownloadHero />
