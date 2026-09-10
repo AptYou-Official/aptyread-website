@@ -14,13 +14,13 @@ export const metadata: Metadata = {
 
 export default function DeleteAccountPage() {
   return (
-    <div className="min-h-screen bg-apty-warm">
+    <div className="min-h-screen bg-white">
       <Header />
 
       <main>
         <article className="px-4 py-14 md:py-20">
           <div className="container mx-auto max-w-2xl">
-            <p className="text-sm font-semibold tracking-wide text-apty-coral mb-4">
+            <p className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
               AptyRead
             </p>
             <h1 className="text-3xl md:text-5xl font-bold text-apty-dark mb-3 leading-tight">
@@ -32,7 +32,7 @@ export default function DeleteAccountPage() {
 
             <div className="space-y-12 text-base md:text-lg text-apty-dark leading-relaxed">
               <section>
-                <h2 className="text-sm font-semibold tracking-wide text-apty-coral mb-4">
+                <h2 className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
                   In the app
                 </h2>
                 <ol className="list-decimal pl-5 space-y-3">
@@ -52,7 +52,7 @@ export default function DeleteAccountPage() {
               </section>
 
               <section>
-                <h2 className="text-sm font-semibold tracking-wide text-apty-coral mb-4">
+                <h2 className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
                   What happens
                 </h2>
                 <p className="mb-4">
@@ -67,7 +67,7 @@ export default function DeleteAccountPage() {
               </section>
 
               <section>
-                <h2 className="text-sm font-semibold tracking-wide text-apty-coral mb-4">
+                <h2 className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
                   If you are not sure
                 </h2>
                 <p className="mb-4">
@@ -82,7 +82,7 @@ export default function DeleteAccountPage() {
                   If the app will not open, write to{" "}
                   <a
                     href="mailto:support@aptyread.ai"
-                    className="text-apty-coral font-semibold hover:text-apty-dark transition-colors"
+                    className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
                   >
                     support@aptyread.ai
                   </a>
@@ -93,14 +93,14 @@ export default function DeleteAccountPage() {
               <p className="text-apty-gray">
                 <Link
                   href="/privacy"
-                  className="text-apty-coral font-semibold hover:text-apty-dark transition-colors"
+                  className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
                 >
                   Privacy Policy
                 </Link>
                 {" · "}
                 <Link
                   href="/terms"
-                  className="text-apty-coral font-semibold hover:text-apty-dark transition-colors"
+                  className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
                 >
                   Terms of Service
                 </Link>

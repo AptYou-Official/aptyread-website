@@ -66,9 +66,9 @@ export default function ReadingGuidePage() {
             <section className="mb-12">
               <Link
                 href={featured.href}
-                className="block rounded-2xl border-2 border-apty-coral bg-white p-6 md:p-8 hover:shadow-md transition-shadow"
+                className="block rounded-2xl border-2 border-apty-cyan bg-white p-6 md:p-8 hover:shadow-md transition-shadow"
               >
-                <p className="text-sm font-semibold tracking-wide text-apty-coral mb-2">
+                <p className="text-sm font-semibold tracking-wide text-apty-cyan mb-2">
                   Featured
                 </p>
                 <h2 className="text-2xl md:text-3xl font-bold text-apty-dark mb-3">
@@ -77,7 +77,7 @@ export default function ReadingGuidePage() {
                 <p className="text-apty-gray leading-relaxed mb-4">
                   {featured.body}
                 </p>
-                <span className="font-semibold text-apty-coral">
+                <span className="font-semibold text-apty-cyan">
                   See the Five-Level Path →
                 </span>
               </Link>
@@ -95,9 +95,9 @@ export default function ReadingGuidePage() {
                   <li key={article.href}>
                     <Link
                       href={article.href}
-                      className="block rounded-2xl border border-apty-coral-accent bg-white p-5 md:p-6 hover:border-apty-coral transition-colors"
+                      className="block rounded-2xl border border-apty-cyan/20 bg-white p-5 md:p-6 hover:border-apty-cyan transition-colors"
                     >
-                      <p className="text-sm font-semibold text-apty-coral mb-2">
+                      <p className="text-sm font-semibold text-apty-cyan mb-2">
                         {article.category}
                       </p>
                       <h3 className="text-xl font-bold text-apty-dark mb-2">
@@ -116,7 +116,7 @@ export default function ReadingGuidePage() {
               More guide articles will follow. For buying questions, see the{" "}
               <Link
                 href="/faq"
-                className="text-apty-coral font-semibold hover:text-apty-dark transition-colors"
+                className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
               >
                 FAQ
               </Link>

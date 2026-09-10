@@ -20,7 +20,7 @@ export default function HomepageFAQ() {
         <p className="text-center mt-8">
           <Link
             href="/faq"
-            className="text-apty-coral font-semibold hover:text-apty-dark transition-colors"
+            className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
           >
             See all questions →
           </Link>

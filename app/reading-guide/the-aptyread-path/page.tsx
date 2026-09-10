@@ -38,7 +38,7 @@ export default function AptyReadPathPage() {
               ]}
             />
 
-            <p className="text-sm font-semibold tracking-wide text-apty-coral mb-4">
+            <p className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
               Five levels. One path.
             </p>
             <h1 className="text-3xl md:text-5xl font-extrabold text-apty-dark mb-5 leading-tight tracking-tight">
@@ -76,15 +76,15 @@ export default function AptyReadPathPage() {
               <ol className="relative space-y-4">
                 <div
                   aria-hidden="true"
-                  className="absolute left-5 top-3 bottom-3 w-px bg-apty-border md:left-6"
+                  className="absolute left-5 top-3 bottom-3 w-0.5 bg-apty-cyan/30 md:left-6"
                 />
                 {PATH_LEVELS.map((level) => (
                   <li key={level.id} className="relative flex gap-4 md:gap-5">
-                    <div className="relative z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-apty-coral/40 bg-apty-warm text-sm font-bold text-apty-dark md:h-12 md:w-12 md:text-base">
+                    <div className="relative z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-apty-cyan text-sm font-bold text-white shadow-sm md:h-12 md:w-12 md:text-base">
                       {level.id}
                     </div>
-                    <div className="min-w-0 flex-1 rounded-2xl border border-apty-border bg-white p-4 md:p-5">
-                      <p className="text-sm font-semibold text-apty-gray mb-1">
+                    <div className="min-w-0 flex-1 rounded-2xl border border-apty-cyan/15 bg-white p-4 md:p-5">
+                      <p className="text-sm font-semibold text-apty-cyan mb-1">
                         Level {level.number}
                       </p>
                       <h3 className="text-xl md:text-2xl font-bold text-apty-dark mb-1 tracking-tight">
@@ -150,7 +150,7 @@ export default function AptyReadPathPage() {
                 If your child knows the alphabet but still cannot read words,{" "}
                 <Link
                   href="/reading-guide/reading-problems/child-knows-alphabet-but-cant-read"
-                  className="text-apty-coral font-semibold hover:text-apty-dark transition-colors"
+                  className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
                 >
                   read this next
                 </Link>

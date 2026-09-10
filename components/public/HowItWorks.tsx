@@ -35,7 +35,7 @@ const levels = [
 
 export default function HowItWorks() {
   return (
-    <section className="bg-white py-14 md:py-20 px-4">
+    <section className="bg-apty-cyan-accent/60 py-14 md:py-20 px-4">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-10 md:mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-apty-dark mb-3 tracking-tight">
@@ -57,24 +57,24 @@ export default function HowItWorks() {
               {index < levels.length - 1 ? (
                 <span
                   aria-hidden="true"
-                  className="absolute left-[calc(50%+1.1rem)] right-[-50%] top-5 h-px bg-apty-border hidden sm:block"
+                  className="absolute left-[calc(50%+1.15rem)] right-[-50%] top-5 h-0.5 bg-apty-cyan/35 hidden sm:block"
                 />
               ) : null}
-              <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-apty-coral/40 bg-apty-warm text-sm font-bold text-apty-dark md:h-11 md:w-11 md:text-base">
+              <span className="relative z-10 flex h-11 w-11 items-center justify-center rounded-full bg-apty-cyan text-sm font-bold text-white shadow-sm md:h-12 md:w-12 md:text-base">
                 {String(level.number).padStart(2, "0")}
               </span>
-              <span className="mt-3 text-[11px] sm:text-xs md:text-sm font-semibold text-apty-dark leading-snug px-0.5">
+              <span className="mt-3 text-[11px] sm:text-xs md:text-sm font-bold text-apty-dark leading-snug px-0.5">
                 {level.name}
               </span>
             </li>
           ))}
         </ol>
 
-        <ol className="space-y-0 divide-y divide-apty-border max-w-3xl mx-auto">
+        <ol className="space-y-0 divide-y divide-apty-cyan/15 max-w-3xl mx-auto">
           {levels.map((level) => (
             <li key={level.number} className="py-5 md:py-6 first:pt-0">
               <div className="flex gap-4 md:gap-5">
-                <span className="text-sm font-bold text-apty-dark/45 tabular-nums pt-1 w-8 flex-shrink-0">
+                <span className="text-base font-bold text-apty-cyan tabular-nums pt-0.5 w-9 flex-shrink-0">
                   {String(level.number).padStart(2, "0")}
                 </span>
                 <div className="min-w-0">
@@ -96,7 +96,7 @@ export default function HowItWorks() {
         <p className="text-center mt-10 md:mt-12">
           <Link
             href="/reading-guide/the-aptyread-path"
-            className="text-base md:text-lg font-semibold text-apty-dark hover:text-apty-coral transition-colors"
+            className="text-base md:text-lg font-semibold text-apty-cyan hover:text-apty-dark transition-colors"
           >
             See the full Five-Level Path →
           </Link>

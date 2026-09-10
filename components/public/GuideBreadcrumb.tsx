@@ -17,7 +17,7 @@ export default function GuideBreadcrumb({ items }: { items: Crumb[] }) {
               {item.href && !isLast ? (
                 <Link
                   href={item.href}
-                  className="hover:text-apty-coral transition-colors"
+                  className="hover:text-apty-cyan transition-colors"
                 >
                   {item.label}
                 </Link>

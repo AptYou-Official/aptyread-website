@@ -28,7 +28,7 @@ export default function ContactPage() {
       <main>
         <article className="px-4 py-14 md:py-20">
           <div className="container mx-auto max-w-2xl">
-            <p className="text-sm font-semibold tracking-wide text-apty-coral mb-4">
+            <p className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
               AptyRead
             </p>
             <h1 className="text-3xl md:text-5xl font-bold text-apty-dark mb-3 leading-tight">
@@ -41,7 +41,7 @@ export default function ContactPage() {
               Many answers are already on the{" "}
               <Link
                 href="/faq"
-                className="text-apty-coral font-semibold hover:text-apty-dark transition-colors"
+                className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
               >
                 questions parents ask
               </Link>{" "}
@@ -50,7 +50,7 @@ export default function ContactPage() {
 
             <div className="space-y-12">
               <section>
-                <h2 className="text-sm font-semibold tracking-wide text-apty-coral mb-2">
+                <h2 className="text-sm font-semibold tracking-wide text-apty-gray mb-2">
                   Support
                 </h2>
                 <p className="text-apty-dark mb-3 leading-relaxed">
@@ -58,14 +58,14 @@ export default function ContactPage() {
                 </p>
                 <a
                   href="mailto:support@aptyread.ai"
-                  className="text-xl md:text-2xl font-semibold text-apty-coral hover:text-apty-dark transition-colors"
+                  className="text-xl md:text-2xl font-semibold text-apty-cyan-dark hover:text-apty-dark transition-colors"
                 >
                   support@aptyread.ai
                 </a>
               </section>
 
               <section>
-                <h2 className="text-sm font-semibold tracking-wide text-apty-coral mb-2">
+                <h2 className="text-sm font-semibold tracking-wide text-apty-gray mb-2">
                   Everything else
                 </h2>
                 <p className="text-apty-dark mb-3 leading-relaxed">
@@ -73,7 +73,7 @@ export default function ContactPage() {
                 </p>
                 <a
                   href="mailto:contact@aptyread.ai"
-                  className="text-xl md:text-2xl font-semibold text-apty-coral hover:text-apty-dark transition-colors"
+                  className="text-xl md:text-2xl font-semibold text-apty-cyan-dark hover:text-apty-dark transition-colors"
                 >
                   contact@aptyread.ai
                 </a>
@@ -84,7 +84,7 @@ export default function ContactPage() {
               </p>
 
               <section>
-                <h2 className="text-sm font-semibold tracking-wide text-apty-coral mb-3">
+                <h2 className="text-sm font-semibold tracking-wide text-apty-gray mb-3">
                   Follow
                 </h2>
                 <p className="flex flex-wrap gap-x-6 gap-y-2">
@@ -92,7 +92,7 @@ export default function ContactPage() {
                     href="https://www.instagram.com/aptyread"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-apty-dark font-semibold hover:text-apty-coral transition-colors"
+                    className="text-apty-dark font-semibold hover:text-apty-cyan transition-colors"
                   >
                     Instagram
                   </a>
@@ -100,7 +100,7 @@ export default function ContactPage() {
                     href="https://www.youtube.com/@aptyread"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-apty-dark font-semibold hover:text-apty-coral transition-colors"
+                    className="text-apty-dark font-semibold hover:text-apty-cyan transition-colors"
                   >
                     YouTube
                   </a>

@@ -15,7 +15,7 @@ const ogImage = "https://www.aptyread.ai/images/apty_with_book.png";
 export const metadata: Metadata = {
   title: "AptyRead English Literacy Program | Children | India | Try Free",
   description:
-    "English reading program for ages 4 to 10. Five levels and 238 lessons in the AptyRead app on the App Store and Google Play. Start Lesson 1 with no signup. India pricing on page.",
+    "English reading program for ages 4 to 10. Five levels. One path. AptyRead on the App Store and Google Play. Start Lesson 1 with no signup. India pricing on page.",
   keywords:
     "AptyRead English Literacy Program, English reading app, phonics course, learn to read, children literacy, India, structured reading, ESL reading",
   alternates: {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AptyRead English Literacy Program | India | Try Free",
     description:
-      "AptyRead on the App Store and Google Play. Five levels and 238 lessons. Start Lesson 1. India pricing at checkout.",
+      "AptyRead on the App Store and Google Play. Five levels. One path. Start Lesson 1. India pricing at checkout.",
     images: [ogImage],
   },
 };
@@ -157,7 +157,7 @@ export default function IndiaLandingPage() {
                 <p>They just need the right reading sequence.</p>
               </div>
               <p className="text-sm text-apty-gray mb-6">
-                  <span className="text-apty-coral font-semibold">Sound first.</span> Five levels, 238 lessons.
+                  <span className="text-apty-coral font-semibold">Sound first.</span> Five levels. One path.
               </p>
 
               <div className="flex flex-col gap-2 mb-4">
@@ -251,15 +251,15 @@ export default function IndiaLandingPage() {
               Five levels you do in order.
             </h2>
             <p className="text-lg text-apty-gray text-center mb-10 max-w-3xl mx-auto">
-              Same path for every child so foundations stay intact. 238 lessons. Each lesson builds on the one before it. Nobody skips ahead.
+              Same path for every child so foundations stay intact. Five levels. One path. Each level builds on the one before it. Nobody skips ahead.
             </p>
 
             <div className="space-y-6 relative">
-              <div className="absolute left-[2.25rem] top-4 bottom-4 w-0.5 bg-apty-coral/25 hidden md:block" aria-hidden />
+              <div className="absolute left-[2.25rem] top-4 bottom-4 w-0.5 bg-apty-cyan/25 hidden md:block" aria-hidden />
               {levels.map((item, idx) => (
-                <article key={item.level} className="bg-white rounded-2xl border border-apty-coral-accent p-6 md:p-8 shadow-sm">
+                <article key={item.level} className="bg-white rounded-2xl border border-apty-cyan/15 p-6 md:p-8 shadow-sm">
                   <div className="flex gap-4">
-                    <div className="w-14 h-14 rounded-xl bg-apty-coral text-white flex items-center justify-center text-2xl font-bold flex-shrink-0">
+                    <div className="w-14 h-14 rounded-xl bg-apty-cyan text-white flex items-center justify-center text-2xl font-bold flex-shrink-0">
                       {idx + 1}
                     </div>
                     <div>
@@ -270,7 +270,7 @@ export default function IndiaLandingPage() {
                       <p className="text-sm text-apty-dark font-semibold mb-2">{item.meta}</p>
                       ) : null}
                       {item.lessons ? <p className="text-sm text-apty-gray mb-3">{item.lessons}</p> : null}
-                      {item.next ? <p className="text-sm text-apty-coral font-semibold">{item.next}</p> : null}
+                      {item.next ? <p className="text-sm text-apty-cyan font-semibold">{item.next}</p> : null}
                     </div>
                   </div>
                 </article>
@@ -308,7 +308,7 @@ export default function IndiaLandingPage() {
                   </tr>
                   <tr className="border-b border-apty-coral-accent/60">
                     <td className="px-4 py-3 align-top">Learning structure</td>
-                    <td className="px-4 py-3 align-top">238 lessons</td>
+                    <td className="px-4 py-3 align-top">Five levels. One path.</td>
                     <td className="px-4 py-3 align-top">No fixed sequence guaranteed</td>
                   </tr>
                   <tr className="border-b border-apty-coral-accent/60">

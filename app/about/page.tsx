@@ -28,7 +28,7 @@ export default function AboutPage() {
       <main>
         <article className="px-4 py-14 md:py-20">
           <div className="container mx-auto max-w-2xl">
-            <p className="text-sm font-semibold tracking-wide text-apty-coral mb-4">
+            <p className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
               AptyRead
             </p>
             <h1 className="text-3xl md:text-5xl font-bold text-apty-dark mb-3 leading-tight">
@@ -44,7 +44,7 @@ export default function AboutPage() {
                 English. We watched. We listened. We understood one thing.
               </p>
 
-              <p className="text-xl md:text-2xl font-semibold text-apty-dark leading-snug border-l-4 border-apty-coral pl-5 py-1">
+              <p className="text-xl md:text-2xl font-semibold text-apty-dark leading-snug border-l-4 border-apty-cyan pl-5 py-1">
                 What the child gets should not depend on who happens to teach
                 them that day.
               </p>

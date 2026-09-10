@@ -60,7 +60,7 @@ export default function FAQPage() {
                 Still stuck?{" "}
                 <a
                   href="mailto:support@aptyread.ai"
-                  className="text-apty-coral font-semibold hover:text-apty-dark transition-colors"
+                  className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
                 >
                   support@aptyread.ai
                 </a>

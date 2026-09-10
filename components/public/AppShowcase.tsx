@@ -62,7 +62,7 @@ export default function AppShowcase({
 
   return (
     <section
-      className={`bg-apty-warm px-4 py-12 md:py-16 ${className}`.trim()}
+      className={`bg-white px-4 py-12 md:py-16 ${className}`.trim()}
       aria-labelledby="app-showcase-heading"
     >
       <div className="container mx-auto max-w-6xl">
@@ -92,7 +92,7 @@ export default function AppShowcase({
             "md:snap-none",
             "[scrollbar-width:thin] md:[scrollbar-width:auto]",
             "[&::-webkit-scrollbar]:h-1.5 md:[&::-webkit-scrollbar]:h-0",
-            "[&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-apty-coral/25",
+            "[&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-apty-cyan/25",
           ].join(" ")}
           style={
             {

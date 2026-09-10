@@ -65,7 +65,7 @@ export default function AlphabetButCantReadArticle() {
                 ]}
               />
 
-              <p className="text-sm font-semibold tracking-wide text-apty-coral mb-4">
+              <p className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
                 Reading Problems
               </p>
               <h1 className="text-3xl md:text-5xl font-bold text-apty-dark mb-5 leading-tight">
@@ -73,8 +73,8 @@ export default function AlphabetButCantReadArticle() {
                 do?
               </h1>
 
-              <div className="rounded-2xl border border-apty-coral-accent bg-white p-5 md:p-6 mb-10">
-                <p className="text-sm font-semibold text-apty-coral mb-2">
+              <div className="rounded-2xl border border-apty-cyan/20 bg-white p-5 md:p-6 mb-10">
+                <p className="text-sm font-semibold text-apty-cyan mb-2">
                   The short answer
                 </p>
                 <p className="text-base md:text-lg text-apty-dark leading-relaxed">
@@ -186,7 +186,7 @@ export default function AlphabetButCantReadArticle() {
                     See the full sequence on{" "}
                     <Link
                       href={PATH_URL}
-                      className="text-apty-coral font-semibold hover:text-apty-dark transition-colors"
+                      className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
                     >
                       the AptyRead Five-Level Path
                     </Link>

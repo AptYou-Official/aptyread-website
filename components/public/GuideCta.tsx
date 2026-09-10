@@ -20,7 +20,7 @@ export default function GuideCta({
   body = "Every child starts at Level 1. First lessons are free. No account needed.",
 }: GuideCtaProps) {
   return (
-    <aside className="mt-14 rounded-2xl border border-apty-coral-accent bg-white p-6 md:p-8">
+    <aside className="mt-14 rounded-2xl border border-apty-cyan/20 bg-white p-6 md:p-8">
       <h2 className="text-xl md:text-2xl font-bold text-apty-dark mb-2 tracking-tight">
         {heading}
       </h2>

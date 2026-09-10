@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AptyRead | School-Ready Reading | GCC | Try Free",
     description:
-      "English reading the #1 skill from Day 1. Five levels, 238 lessons. Start Lesson 1. GCC-friendly pricing at checkout.",
+      "English reading the #1 skill from Day 1. Five levels. One path. Start Lesson 1. GCC-friendly pricing at checkout.",
     images: [ogImage],
   },
 };
@@ -162,7 +162,7 @@ export default function GccLandingPage() {
                   <span className="font-semibold text-apty-dark">AptyRead Literacy Program:</span> Science of Reading structure.
                 </p>
                 <p className="text-base">
-                  <span className="text-apty-coral font-semibold">Sound first.</span> Five levels, 238 lessons.
+                  <span className="text-apty-coral font-semibold">Sound first.</span> Five levels. One path.
                 </p>
               </div>
 
@@ -235,15 +235,15 @@ export default function GccLandingPage() {
               Five levels you do in order.
             </h2>
             <p className="text-lg text-apty-gray text-center mb-10 max-w-3xl mx-auto">
-              Same path for every child so foundations stay intact. 238 lessons. Each lesson builds on the one before it. Nobody skips ahead.
+              Same path for every child so foundations stay intact. Five levels. One path. Each level builds on the one before it. Nobody skips ahead.
             </p>
 
             <div className="space-y-6 relative">
-              <div className="absolute left-[2.25rem] top-4 bottom-4 w-0.5 bg-apty-coral/25 hidden md:block" aria-hidden />
+              <div className="absolute left-[2.25rem] top-4 bottom-4 w-0.5 bg-apty-cyan/25 hidden md:block" aria-hidden />
               {levels.map((item, idx) => (
-                <article key={item.level} className="bg-white rounded-2xl border border-apty-coral-accent p-6 md:p-8 shadow-sm">
+                <article key={item.level} className="bg-white rounded-2xl border border-apty-cyan/15 p-6 md:p-8 shadow-sm">
                   <div className="flex gap-4">
-                    <div className="w-14 h-14 rounded-xl bg-apty-coral text-white flex items-center justify-center text-2xl font-bold flex-shrink-0">
+                    <div className="w-14 h-14 rounded-xl bg-apty-cyan text-white flex items-center justify-center text-2xl font-bold flex-shrink-0">
                       {idx + 1}
                     </div>
                     <div>
@@ -254,7 +254,7 @@ export default function GccLandingPage() {
                       <p className="text-sm text-apty-dark font-semibold mb-2">{item.meta}</p>
                       ) : null}
                       {item.lessons ? <p className="text-sm text-apty-gray mb-3">{item.lessons}</p> : null}
-                      {item.next ? <p className="text-sm text-apty-coral font-semibold">{item.next}</p> : null}
+                      {item.next ? <p className="text-sm text-apty-cyan font-semibold">{item.next}</p> : null}
                     </div>
                   </div>
                 </article>
@@ -292,7 +292,7 @@ export default function GccLandingPage() {
                   </tr>
                   <tr className="border-b border-apty-coral-accent/60">
                     <td className="px-4 py-3 align-top">Learning structure</td>
-                    <td className="px-4 py-3 align-top">238 lessons</td>
+                    <td className="px-4 py-3 align-top">Five levels. One path.</td>
                     <td className="px-4 py-3 align-top">No fixed sequence guaranteed</td>
                   </tr>
                   <tr className="border-b border-apty-coral-accent/60">

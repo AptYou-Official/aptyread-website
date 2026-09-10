@@ -28,13 +28,15 @@ export default function Hero() {
             <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold text-apty-dark mb-5 leading-[1.12] tracking-tight text-balance">
               Your child can learn to read English.
               <br />
-              Confidently. Independently.
+              <span className="text-[#007399]">
+                Confidently. Independently.
+              </span>
             </h1>
 
             <p className="text-base md:text-lg text-apty-gray mb-2 leading-relaxed max-w-xl md:max-w-none">
               An English reading program for ages 4 to 10. Five levels. One path.
             </p>
-            <p className="text-sm md:text-base text-apty-gray font-semibold mb-8">
+            <p className="text-sm md:text-base text-apty-cyan font-semibold mb-8">
               Built on the Science of Reading.
             </p>
 

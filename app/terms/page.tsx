@@ -13,13 +13,13 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-apty-warm">
+    <div className="min-h-screen bg-white">
       <Header />
 
       <main>
         <article className="px-4 py-14 md:py-20">
           <div className="container mx-auto max-w-3xl">
-            <p className="text-sm font-semibold tracking-wide text-apty-coral mb-4">
+            <p className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
               AptyRead
             </p>
             <h1 className="text-3xl md:text-5xl font-bold text-apty-dark mb-4 leading-tight">
@@ -29,8 +29,8 @@ export default function TermsPage() {
               Effective 1 January 2026. Last updated 31 August 2026.
             </p>
 
-            <section className="mb-14 pb-12 border-b border-apty-coral-accent">
-              <h2 className="text-sm font-semibold tracking-wide text-apty-coral mb-4">
+            <section className="mb-14 pb-12 border-b border-apty-border">
+              <h2 className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
                 In plain words
               </h2>
               <div className="space-y-4 text-base md:text-lg text-apty-dark leading-relaxed">
@@ -56,7 +56,7 @@ export default function TermsPage() {
                   Using AptyRead means you accept these terms and our{" "}
                   <a
                     href="/privacy"
-                    className="text-apty-coral font-semibold hover:text-apty-dark transition-colors"
+                    className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
                   >
                     Privacy Policy
                   </a>
@@ -66,7 +66,7 @@ export default function TermsPage() {
               </div>
             </section>
 
-            <div className="prose prose-lg max-w-none text-apty-gray [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-apty-dark [&_h2]:mt-12 [&_h2]:mb-4 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-apty-dark [&_a]:text-apty-coral [&_a]:font-semibold [&_a]:no-underline hover:[&_a]:text-apty-dark [&_strong]:text-apty-dark">
+            <div className="prose prose-lg max-w-none text-apty-gray [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-apty-dark [&_h2]:mt-12 [&_h2]:mb-4 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-apty-dark [&_a]:text-apty-cyan [&_a]:font-semibold [&_a]:no-underline hover:[&_a]:text-apty-dark [&_strong]:text-apty-dark">
               <section className="mb-8">
                 <h2>1. Who these terms cover</h2>
                 <p className="mb-4">

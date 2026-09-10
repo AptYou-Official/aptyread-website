@@ -9,9 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // AptyRead Brand Colors - EXACT COLORS
-        'apty-coral': '#FF6B35',        // Primary brand color
-        'apty-cyan': '#0099CC',         // Secondary brand color
+        // AptyRead Brand Colors
+        'apty-coral': '#FF6B35',        // Primary brand color / CTAs
+        'apty-cyan': {
+          DEFAULT: '#0099CC',           // Path / structure
+          dark: '#007399',              // Soft emphasis (hero accents)
+          accent: '#E6F5FA',            // Soft cyan wash
+        },
         'apty-gold': '#FFB300',         // Accent color
         'apty-warm': '#FFF7F4',         // Soft coral tint for alternating sections
         'apty-dark': '#2D3748',         // Dark text

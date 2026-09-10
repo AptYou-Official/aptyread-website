@@ -112,7 +112,7 @@ export default function SchoolsPage() {
         <section className="px-4 py-14 md:py-20 lg:py-24">
           <div className="container mx-auto max-w-6xl grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <p className="text-sm font-semibold text-apty-coral mb-4">
+              <p className="text-sm font-semibold text-apty-cyan mb-4">
                 AptyRead Classroom
               </p>
               <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-apty-dark leading-[1.08] tracking-tight mb-5">
@@ -230,7 +230,7 @@ export default function SchoolsPage() {
                   key={step.title}
                   className="bg-white rounded-2xl p-6 md:p-7"
                 >
-                  <p className="text-sm font-semibold text-apty-coral mb-3">
+                  <p className="text-sm font-semibold text-apty-cyan mb-3">
                     {index + 1}
                   </p>
                   <h3 className="text-xl font-semibold text-apty-dark mb-2">
@@ -257,7 +257,7 @@ export default function SchoolsPage() {
                   key={level.number}
                   className="rounded-2xl border border-apty-border p-5 md:p-6"
                 >
-                  <p className="text-sm font-semibold text-apty-coral mb-3">
+                  <p className="text-sm font-semibold text-apty-cyan mb-3">
                     {level.number}
                   </p>
                   <h3 className="font-semibold text-apty-dark mb-2 leading-snug">
