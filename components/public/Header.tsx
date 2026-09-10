@@ -61,8 +61,8 @@ export default function Header({ schoolsPage = false }: HeaderProps) {
             </>
           ) : (
             <>
-              <AppStoreBadge compact className="hidden md:inline-flex h-8 md:h-10" />
-              <GooglePlayBadge compact />
+              <AppStoreBadge compact className="inline-flex h-8 md:h-10" />
+              <GooglePlayBadge compact className="inline-flex h-8 md:h-10" />
             </>
           )}
         </div>

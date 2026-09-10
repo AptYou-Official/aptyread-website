@@ -1,8 +1,6 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import AppStoreBadge from '@/components/public/AppStoreBadge';
-import GooglePlayBadge from '@/components/public/GooglePlayBadge';
 import PlayStoreLink from '@/components/public/PlayStoreLink';
 import { PATH_URL } from '@/lib/reading-path';
 
@@ -10,7 +8,7 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-white py-10 md:py-14 lg:py-16">
       <div className="container relative mx-auto px-4 max-w-7xl">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+        <div className="grid md:grid-cols-[1.08fr_0.92fr] gap-8 md:gap-10 lg:gap-14 items-center">
           <div className="order-2 md:order-1">
             <div className="relative w-full rounded-2xl overflow-hidden border border-apty-border">
               <Image
@@ -20,6 +18,7 @@ export default function Hero() {
                 height={941}
                 className="w-full h-auto object-cover"
                 priority
+                sizes="(min-width: 768px) 52vw, 100vw"
               />
             </div>
           </div>
@@ -40,7 +39,7 @@ export default function Hero() {
               Built on the Science of Reading.
             </p>
 
-            <div className="mb-6 flex flex-col gap-3 items-center md:items-start">
+            <div className="mb-6 flex flex-col gap-3.5 items-center md:items-start">
               <PlayStoreLink
                 className="w-full sm:w-auto"
                 aria-label="Start Lesson 1"
@@ -52,22 +51,15 @@ export default function Hero() {
               </PlayStoreLink>
               <Link
                 href={PATH_URL}
-                className="text-base font-semibold text-apty-dark hover:text-apty-coral transition-colors"
+                className="inline-flex items-center gap-1.5 text-base md:text-lg font-semibold text-[#007399] underline underline-offset-4 decoration-[#007399]/35 hover:decoration-[#007399] hover:text-apty-dark transition-colors"
               >
                 See the Five-Level Path
+                <span aria-hidden="true">→</span>
               </Link>
               <p className="text-sm md:text-base text-apty-dark">
                 First lessons are free. No account. Every child starts at Level 1.
               </p>
-              <div className="flex items-center gap-3 opacity-90">
-                <AppStoreBadge />
-                <GooglePlayBadge />
-              </div>
             </div>
-
-            <p className="text-lg md:text-xl font-semibold text-apty-dark">
-              Every child reads.
-            </p>
           </div>
         </div>
       </div>
