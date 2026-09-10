@@ -57,10 +57,10 @@ export default function HowItWorks() {
               {index < levels.length - 1 ? (
                 <span
                   aria-hidden="true"
-                  className="absolute left-[calc(50%+1.1rem)] right-[-50%] top-5 h-px bg-apty-coral/35 hidden sm:block"
+                  className="absolute left-[calc(50%+1.1rem)] right-[-50%] top-5 h-px bg-apty-border hidden sm:block"
                 />
               ) : null}
-              <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-apty-coral text-sm font-bold text-white md:h-11 md:w-11 md:text-base">
+              <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-apty-coral/40 bg-apty-warm text-sm font-bold text-apty-dark md:h-11 md:w-11 md:text-base">
                 {String(level.number).padStart(2, "0")}
               </span>
               <span className="mt-3 text-[11px] sm:text-xs md:text-sm font-semibold text-apty-dark leading-snug px-0.5">
@@ -74,7 +74,7 @@ export default function HowItWorks() {
           {levels.map((level) => (
             <li key={level.number} className="py-5 md:py-6 first:pt-0">
               <div className="flex gap-4 md:gap-5">
-                <span className="text-sm font-bold text-apty-coral tabular-nums pt-1 w-8 flex-shrink-0">
+                <span className="text-sm font-bold text-apty-dark/45 tabular-nums pt-1 w-8 flex-shrink-0">
                   {String(level.number).padStart(2, "0")}
                 </span>
                 <div className="min-w-0">
@@ -96,7 +96,7 @@ export default function HowItWorks() {
         <p className="text-center mt-10 md:mt-12">
           <Link
             href="/reading-guide/the-aptyread-path"
-            className="text-base md:text-lg font-semibold text-apty-coral hover:text-apty-dark transition-colors"
+            className="text-base md:text-lg font-semibold text-apty-dark hover:text-apty-coral transition-colors"
           >
             See the full Five-Level Path →
           </Link>
