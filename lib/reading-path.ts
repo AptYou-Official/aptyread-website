@@ -42,3 +42,9 @@ export const PATH_URL = "/reading-guide/the-aptyread-path";
 export const GUIDE_URL = "/reading-guide";
 export const ALPHABET_ARTICLE_URL =
   "/reading-guide/reading-problems/child-knows-alphabet-but-cant-read";
+export const BLEND_SOUNDS_ARTICLE_URL =
+  "/reading-guide/reading-problems/how-to-teach-child-to-blend-sounds";
+export const SOUNDS_CANT_READ_WORDS_ARTICLE_URL =
+  "/reading-guide/reading-problems/knows-letter-sounds-but-cant-read-words";
+export const STRUGGLES_WITH_READING_ARTICLE_URL =
+  "/reading-guide/reading-problems/how-to-help-child-who-struggles-with-reading";

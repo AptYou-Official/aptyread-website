@@ -4,7 +4,9 @@ import Header from "@/components/public/Header";
 import Footer from "@/components/public/Footer";
 import GuideBreadcrumb from "@/components/public/GuideBreadcrumb";
 import GuideCta from "@/components/public/GuideCta";
-import { PATH_URL } from "@/lib/reading-path";
+import {
+  BLEND_SOUNDS_ARTICLE_URL,
+} from "@/lib/reading-path";
 
 const canonical =
   "https://www.aptyread.ai/reading-guide/reading-problems/child-knows-alphabet-but-cant-read";
@@ -72,8 +74,8 @@ export default function AlphabetButCantReadArticle() {
 
               <p className="text-lg md:text-xl text-apty-gray mb-8 leading-relaxed">
                 You hear the alphabet song. They point to letters. Then you open a
-                simple word, and they freeze. That gap is real. It is also
-                fixable.
+                simple word, and they freeze. That gap is real. And there is a
+                clear way to work on it.
               </p>
 
               <div className="border-l-4 border-apty-cyan pl-5 py-1 mb-12">
@@ -100,9 +102,9 @@ export default function AlphabetButCantReadArticle() {
                     reading needs another.
                   </p>
                   <p className="mt-4">
-                    The name of the letter is &ldquo;A.&rdquo; The sound used for
-                    reading is closer to /a/. Names help you talk about letters.
-                    Sounds help you read.
+                    The letter name is &ldquo;A.&rdquo; The sound used for reading
+                    is the sound we hear in words like apple. Names help you talk
+                    about letters. Sounds help you read.
                   </p>
                   <p className="mt-4">
                     So when a parent says, &ldquo;They know the alphabet, why
@@ -116,28 +118,28 @@ export default function AlphabetButCantReadArticle() {
                     What skill is missing
                   </h2>
                   <p>
-                    Written English is a code. Children crack it when they can do
-                    two things:
+                    Written English is a code. Children begin to unlock that code
+                    when they can do two things:
                   </p>
                   <ol className="list-decimal pl-5 space-y-3 mt-4">
                     <li>
-                      <span className="font-semibold">Hear and say letter sounds</span>
-                      {" "}
-                      clearly. Short and pure: /s/, /a/, /t/. Not
-                      &ldquo;suh,&rdquo; &ldquo;ay,&rdquo; or &ldquo;tee.&rdquo;
+                      <span className="font-semibold">
+                        Hear and say the sounds clearly.
+                      </span>{" "}
+                      For example: /s/, /a/, /t/ — rather than saying the letter
+                      names &ldquo;ess,&rdquo; &ldquo;ay,&rdquo; and
+                      &ldquo;tee.&rdquo;
                     </li>
                     <li>
-                      <span className="font-semibold">Blend those sounds</span>
-                      {" "}
-                      in order until they become a word: /s/ /a/ /t/ →{" "}
+                      <span className="font-semibold">Blend those sounds</span> in
+                      order until they become a word: /s/ /a/ /t/ →{" "}
                       <span className="font-semibold">sat</span>.
                     </li>
                   </ol>
                   <p className="mt-4">
                     Without that, children often guess from pictures, memorize a
                     few words, and stall when the page gets harder. The missing
-                    piece is usually not motivation. It is the sound-to-word
-                    bridge.
+                    piece is often the sound-to-word bridge, not motivation.
                   </p>
                 </section>
 
@@ -169,7 +171,15 @@ export default function AlphabetButCantReadArticle() {
                   <p className="mt-4">
                     If they already know some sounds, they may move quickly. That
                     is fine. Confirm the foundation before you rush into
-                    storybooks.
+                    storybooks. When the sounds are clearer, the next skill is
+                    blending. See{" "}
+                    <Link
+                      href={BLEND_SOUNDS_ARTICLE_URL}
+                      className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
+                    >
+                      how to teach a child to blend sounds
+                    </Link>
+                    .
                   </p>
                 </section>
 
@@ -182,7 +192,9 @@ export default function AlphabetButCantReadArticle() {
                     <li>Encouraging guessing from pictures</li>
                     <li>Jumping to storybooks before sounds are firm</li>
                     <li>Long sessions that end in frustration</li>
-                    <li>Skipping ahead because the alphabet &ldquo;feels done&rdquo;</li>
+                    <li>
+                      Skipping ahead because the alphabet &ldquo;feels done&rdquo;
+                    </li>
                   </ul>
                 </section>
 
@@ -202,27 +214,6 @@ export default function AlphabetButCantReadArticle() {
                     through the early lessons quickly. The point is to leave
                     nothing missing.
                   </p>
-                  <p className="mt-4">
-                    If you want the full sequence from sounds to real books, read{" "}
-                    <Link
-                      href={PATH_URL}
-                      className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
-                    >
-                      the AptyRead Five-Level Path
-                    </Link>
-                    .
-                  </p>
-                </section>
-
-                <section>
-                  <h2 className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-4 tracking-tight">
-                    What to do next
-                  </h2>
-                  <p>
-                    Start with sounds. Practice a little each day. When you want a
-                    structured path that does this in order, begin at Level 1.
-                    First lessons are free. No account.
-                  </p>
                 </section>
               </div>
 
@@ -233,7 +224,7 @@ export default function AlphabetButCantReadArticle() {
               <GuideCta
                 primary="lesson"
                 heading="Start at Level 1"
-                body="Sound Foundations comes first. First lessons are free. No account. Sit with them for about fifteen minutes."
+                body="Start with sounds. Practice a little each day. If you want a structured path that builds those skills in order, begin with Sound Foundations. First lessons are free. No account. Sit with them for about fifteen minutes."
               />
             </div>
           </article>

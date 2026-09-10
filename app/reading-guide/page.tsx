@@ -5,7 +5,10 @@ import Footer from "@/components/public/Footer";
 import GuideBreadcrumb from "@/components/public/GuideBreadcrumb";
 import {
   ALPHABET_ARTICLE_URL,
+  BLEND_SOUNDS_ARTICLE_URL,
   PATH_URL,
+  SOUNDS_CANT_READ_WORDS_ARTICLE_URL,
+  STRUGGLES_WITH_READING_ARTICLE_URL,
 } from "@/lib/reading-path";
 
 export const metadata: Metadata = {
@@ -24,6 +27,29 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
+
+const articles = [
+  {
+    href: ALPHABET_ARTICLE_URL,
+    title: "My child knows the alphabet but can't read. What should I do?",
+    body: "Letter names are not reading. Here is what to do next, and why Sound Foundations comes first.",
+  },
+  {
+    href: BLEND_SOUNDS_ARTICLE_URL,
+    title: "How to teach a child to blend sounds",
+    body: "Your child may know the sounds. The next step is putting them together into words.",
+  },
+  {
+    href: SOUNDS_CANT_READ_WORDS_ARTICLE_URL,
+    title: "My child knows letter sounds but can't read words. Why?",
+    body: "Knowing the sounds separately is not the same as reading the word. Here is how to tell what to practice next.",
+  },
+  {
+    href: STRUGGLES_WITH_READING_ARTICLE_URL,
+    title: "How to help a child who struggles with reading",
+    body: "Start with the skill your child needs next, not a harder book. A clear way to decide what to practice.",
+  },
+];
 
 export default function ReadingGuidePage() {
   return (
@@ -82,20 +108,23 @@ export default function ReadingGuidePage() {
                 Begin with what you see at home.
               </p>
 
-              <Link
-                href={ALPHABET_ARTICLE_URL}
-                className="group block"
-              >
-                <h3 className="text-xl md:text-2xl font-bold text-apty-dark mb-2 tracking-tight group-hover:text-[#007399] transition-colors">
-                  My child knows the alphabet but can&apos;t read. What should I
-                  do?
-                </h3>
-                <p className="text-apty-gray leading-relaxed mb-2">
-                  Letter names are not reading. Here is what to do next, and why
-                  Sound Foundations comes first.
-                </p>
-                <span className="font-semibold text-[#007399]">Read this →</span>
-              </Link>
+              <ul className="space-y-10">
+                {articles.map((article) => (
+                  <li key={article.href}>
+                    <Link href={article.href} className="group block">
+                      <h3 className="text-xl md:text-2xl font-bold text-apty-dark mb-2 tracking-tight group-hover:text-[#007399] transition-colors">
+                        {article.title}
+                      </h3>
+                      <p className="text-apty-gray leading-relaxed mb-2">
+                        {article.body}
+                      </p>
+                      <span className="font-semibold text-[#007399]">
+                        Read this →
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </section>
 
             <p className="mt-14 text-apty-gray leading-relaxed">
