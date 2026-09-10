@@ -13,18 +13,21 @@ type HeaderProps = {
 export default function Header({ schoolsPage = false }: HeaderProps) {
   return (
     <header className="bg-white border-b border-apty-coral-accent sticky top-0 z-50">
-      <nav className="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity">
-          <Image 
-            src="/images/apty-mascot.png" 
-            alt="AptyRead" 
-            width={40} 
+      <nav className="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center gap-3">
+        <Link
+          href="/"
+          className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity shrink-0 min-w-0"
+        >
+          <Image
+            src="/images/apty-mascot.png"
+            alt="AptyRead"
+            width={40}
             height={40}
-            className="w-8 h-8 md:w-10 md:h-10 object-contain"
+            className="w-8 h-8 md:w-10 md:h-10 object-contain shrink-0"
             priority
           />
-          <div className="flex flex-col">
-            <span className="text-xl md:text-2xl font-bold text-apty-coral">
+          <div className="flex flex-col min-w-0">
+            <span className="text-lg sm:text-xl md:text-2xl font-bold text-apty-coral whitespace-nowrap">
               AptyRead
             </span>
             <span className="text-xs md:text-sm text-apty-gray italic hidden sm:block">
@@ -32,7 +35,7 @@ export default function Header({ schoolsPage = false }: HeaderProps) {
             </span>
           </div>
         </Link>
-        <div className="flex gap-3 md:gap-6 items-center">
+        <div className="flex gap-3 md:gap-6 items-center shrink-0">
           <Link href="/" className="hidden sm:inline text-apty-dark hover:text-apty-coral transition-colors text-sm md:text-base">
             Home
           </Link>
@@ -61,8 +64,16 @@ export default function Header({ schoolsPage = false }: HeaderProps) {
             </>
           ) : (
             <>
-              <AppStoreBadge compact className="inline-flex h-8 md:h-10" />
-              <GooglePlayBadge compact className="inline-flex h-8 md:h-10" />
+              <Link
+                href="/download"
+                className="md:hidden inline-flex items-center justify-center rounded-full border border-apty-dark px-3.5 py-1.5 text-sm font-semibold text-apty-dark hover:border-apty-coral hover:text-apty-coral transition-colors whitespace-nowrap"
+              >
+                Get the app
+              </Link>
+              <div className="hidden md:flex items-center gap-3">
+                <AppStoreBadge compact className="inline-flex h-10" />
+                <GooglePlayBadge compact className="inline-flex h-10" />
+              </div>
             </>
           )}
         </div>
