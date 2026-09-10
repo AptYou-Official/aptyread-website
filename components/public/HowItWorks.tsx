@@ -38,7 +38,7 @@ export default function HowItWorks() {
     <section className="bg-white py-14 md:py-20 px-4">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-10 md:mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-3">
+          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-apty-dark mb-3 tracking-tight">
             Five levels. One path.
           </h2>
           <p className="text-base md:text-lg text-apty-gray max-w-2xl mx-auto leading-relaxed">
@@ -78,13 +78,13 @@ export default function HowItWorks() {
                   {String(level.number).padStart(2, "0")}
                 </span>
                 <div className="min-w-0">
-                  <h3 className="text-lg md:text-xl font-bold text-apty-dark mb-1">
+                  <h3 className="text-lg md:text-xl font-bold text-apty-dark mb-1 tracking-tight">
                     {level.name}
                   </h3>
-                  <p className="text-sm md:text-base text-apty-dark/80 mb-1.5 leading-relaxed">
+                  <p className="text-sm md:text-base text-apty-gray mb-1.5 leading-relaxed">
                     &ldquo;{level.parentQuote}&rdquo;
                   </p>
-                  <p className="text-apty-gray leading-relaxed">
+                  <p className="text-apty-dark/80 leading-relaxed">
                     {level.description}
                   </p>
                 </div>

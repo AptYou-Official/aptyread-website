@@ -21,7 +21,7 @@ const config: Config = {
         'apty-page': '#FFFFFF',         // Dominant page white
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-nunito-sans)', 'system-ui', 'sans-serif'],
       },
     },
   },

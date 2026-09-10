@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
+
+const nunitoSans = Nunito_Sans({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-nunito-sans",
+});
 
 /** Google Ads (gtag). Public ID; optional override via Vercel: NEXT_PUBLIC_GOOGLE_ADS_ID */
 const GOOGLE_ADS_ID =
@@ -67,8 +75,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
+    <html lang="en" className={nunitoSans.variable}>
+      <body className={`${nunitoSans.className} antialiased`}>
         {GOOGLE_ADS_ID ? (
           <>
             <Script
@@ -91,4 +99,3 @@ export default function RootLayout({
     </html>
   );
 }
-

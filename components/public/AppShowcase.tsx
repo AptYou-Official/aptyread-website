@@ -69,7 +69,7 @@ export default function AppShowcase({
         <div className="text-center max-w-2xl mx-auto mb-8">
           <h2
             id="app-showcase-heading"
-            className="text-3xl md:text-4xl font-bold text-apty-dark mb-3"
+            className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-apty-dark mb-3 tracking-tight"
           >
             See the app.
           </h2>

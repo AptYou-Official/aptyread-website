@@ -7,7 +7,7 @@ export default function CTA() {
   return (
     <section className="bg-apty-coral py-16 md:py-20 px-4">
       <div className="container mx-auto max-w-3xl text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">
           Every child can learn to read.
           <br />
           Yours can too.

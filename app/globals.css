@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 :root {
   --apty-coral: #FF6B35;
   --apty-cyan: #0099CC;
@@ -14,9 +12,17 @@
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
   color: var(--apty-dark);
   background-color: #ffffff;
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 @layer utilities {
@@ -24,6 +30,3 @@ body {
     text-wrap: balance;
   }
 }
-
-
-

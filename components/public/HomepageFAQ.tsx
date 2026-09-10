@@ -9,7 +9,7 @@ export default function HomepageFAQ() {
     <section className="bg-apty-warm py-16 md:py-20 px-4">
       <div className="container mx-auto max-w-3xl">
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-apty-dark mb-3">
+          <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-apty-dark mb-3 tracking-tight">
             Questions parents ask
           </h2>
           <p className="text-lg text-apty-gray">Clear answers. No fluff.</p>

@@ -9,10 +9,6 @@ import { PATH_URL } from '@/lib/reading-path';
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-white py-10 md:py-14 lg:py-16">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-apty-coral/10 blur-3xl"
-      />
       <div className="container relative mx-auto px-4 max-w-7xl">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           <div className="order-2 md:order-1">
@@ -29,7 +25,7 @@ export default function Hero() {
           </div>
 
           <div className="order-1 md:order-2 text-center md:text-left">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-apty-dark mb-4 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold text-apty-dark mb-5 leading-[1.12] tracking-tight text-balance">
               Your child can learn to read English.
               <br />
               <span className="text-apty-coral">
@@ -37,7 +33,7 @@ export default function Hero() {
               </span>
             </h1>
 
-            <p className="text-base md:text-lg text-apty-dark mb-3 leading-relaxed">
+            <p className="text-base md:text-lg text-apty-gray mb-2 leading-relaxed max-w-xl md:max-w-none">
               An English reading program for ages 4 to 10. Five levels. One path.
             </p>
             <p className="text-sm md:text-base text-apty-cyan font-semibold mb-8">
