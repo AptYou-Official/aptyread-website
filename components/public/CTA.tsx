@@ -19,7 +19,7 @@ export default function CTA() {
         <div className="flex flex-col gap-4 justify-center items-center">
           <PlayStoreLink
             platform="auto"
-            className="bg-apty-cyan text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-xl transform transition duration-300 hover:bg-apty-cyan-dark hover:scale-105"
+            className="apty-primary-button text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-xl transform transition duration-300 hover:scale-105"
           >
             Start Lesson 1
           </PlayStoreLink>

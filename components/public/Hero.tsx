@@ -97,7 +97,7 @@ export default function Hero() {
                 aria-label="Start Lesson 1"
                 platform="auto"
               >
-                <div className="bg-apty-cyan text-white px-8 py-3.5 rounded-xl text-base md:text-lg font-semibold text-center hover:bg-apty-cyan-dark transition-colors shadow-sm">
+                <div className="apty-primary-button text-white px-8 py-3.5 rounded-xl text-base md:text-lg font-semibold text-center transition-colors shadow-sm">
                   Start Lesson 1
                 </div>
               </PlayStoreLink>

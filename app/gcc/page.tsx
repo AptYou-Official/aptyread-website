@@ -169,7 +169,7 @@ export default function GccLandingPage() {
               <div className="flex flex-col gap-2 mb-4">
                 <PlayStoreLink
                   platform="auto"
-                  className="inline-flex items-center justify-center gap-2 bg-apty-cyan text-white px-6 py-4 rounded-xl font-semibold text-center hover:opacity-90"
+                  className="inline-flex items-center justify-center gap-2 apty-primary-button text-white px-6 py-4 rounded-xl font-semibold text-center"
                 >
                   <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -426,7 +426,7 @@ export default function GccLandingPage() {
             </p>
             <PlayStoreLink
               platform="auto"
-              className="inline-block bg-apty-cyan text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-xl hover:bg-apty-cyan-dark"
+              className="inline-block apty-primary-button text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-xl"
             >
               Get AptyRead for free
             </PlayStoreLink>
@@ -448,7 +448,7 @@ export default function GccLandingPage() {
         <div className="container mx-auto px-4 py-2">
           <PlayStoreLink
             platform="auto"
-            className="inline-flex w-full items-center justify-center gap-2 bg-apty-cyan text-white px-5 py-3 rounded-xl font-semibold text-center hover:opacity-90"
+            className="inline-flex w-full items-center justify-center gap-2 apty-primary-button text-white px-5 py-3 rounded-xl font-semibold text-center"
           >
             Start Lesson 1
           </PlayStoreLink>

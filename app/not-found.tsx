@@ -10,7 +10,7 @@ export default function NotFound() {
       <div className="flex flex-col sm:flex-row gap-4">
         <Link
           href="/"
-          className="bg-apty-cyan text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-opacity text-center"
+          className="apty-primary-button text-white px-6 py-3 rounded-xl font-semibold transition-opacity text-center"
         >
           Go to homepage
         </Link>

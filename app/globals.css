@@ -6,6 +6,8 @@
   --apty-indigo: #173A8A;
   --apty-cyan: #00B8D9;
   --apty-cyan-dark: #0099B8;
+  --apty-button: #007F96;
+  --apty-button-hover: #006B80;
   --apty-sky: #E6F6FB;
   --apty-cream: #FAFAF7;
   --apty-dark: #173A8A;
@@ -13,6 +15,15 @@
   /* Legacy aliases */
   --apty-coral: #00B8D9;
   --apty-warm: #E6F6FB;
+}
+
+.apty-primary-button {
+  background-color: var(--apty-button);
+  color: #ffffff;
+}
+
+.apty-primary-button:hover {
+  background-color: var(--apty-button-hover);
 }
 
 body {

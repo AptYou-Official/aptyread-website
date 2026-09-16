@@ -30,7 +30,7 @@ export default function GuideCta({
           <>
             <PlayStoreLink
               platform="auto"
-              className="inline-flex items-center justify-center rounded-xl bg-apty-cyan px-6 py-3 text-base font-semibold text-white hover:bg-apty-cyan-dark transition-colors"
+              className="inline-flex items-center justify-center rounded-xl apty-primary-button px-6 py-3 text-base font-semibold text-white transition-colors"
             >
               Start Lesson 1
             </PlayStoreLink>
@@ -47,7 +47,7 @@ export default function GuideCta({
           <>
             <Link
               href={PATH_URL}
-              className="inline-flex items-center justify-center rounded-xl bg-apty-cyan px-6 py-3 text-base font-semibold text-white hover:bg-apty-cyan-dark transition-colors"
+              className="inline-flex items-center justify-center rounded-xl apty-primary-button px-6 py-3 text-base font-semibold text-white transition-colors"
             >
               See the Five-Level Path
             </Link>

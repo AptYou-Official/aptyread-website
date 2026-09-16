@@ -12,7 +12,7 @@ const config: Config = {
         // AptyRead Brand Colors — calm indigo + cyan (no coral)
         "apty-indigo": "#173A8A", // Headings, nav, important text
         "apty-cyan": {
-          DEFAULT: "#00B8D9", // CTA / links / active
+          DEFAULT: "#00B8D9", // Brand accents / links / active
           dark: "#0099B8", // CTA hover
           accent: "#E6F6FB", // Soft sky wash (alias)
         },

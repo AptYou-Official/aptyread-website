@@ -1,0 +1,9 @@
+# Schools hero image
+
+Generated with the built-in image generation tool.
+Asset: `public/images/aptyread-classroom-illustration.png`
+This is an illustrative scene, not a photograph of a customer school or an actual product screenshot.
+
+## Generation prompt
+
+Use case: ads-marketing. Create one polished landscape 3:2 editorial illustration for the AptyRead schools website hero. A warm, believable contemporary primary classroom that feels welcoming to families and educators in India and Gulf countries. Clearly illustrated with soft painterly dimensional detail, not a documentary photograph. Six children aged 5–7 of varied South Asian and Arab appearances, boys and girls wearing simple light-blue school shirts, seated at wooden desks with paper and pencils. At front a large landscape digital classroom screen clearly shows the exact brand text "AptyRead" (Apty in deep indigo, Read in cyan), small "Classroom", and a big uppercase A with three clear formation strokes on ruled paper, a hand-and-pencil instructional video demonstration on screen. No complex interface, no invented assessment scores. One female teacher in modest teal long-sleeved tunic and trousers stands beside a child's desk, gently looking at the child's handwritten A and facilitating practice, not lecturing or writing on board. Other children watch the shared screen or practise A on paper. Composition: three-quarter view from side/back of room so screen and teacher helping a child are both clearly visible, screen unobscured and legible, natural realistic proportions, anatomically sound hands. Calm cream walls, soft daylight, restrained cyan and indigo accents, friendly school atmosphere. No individual tablets, phones, microphones, flags, country landmarks, school logos, claims, watermark, or extra text. Inclusive region-neutral environment, no costume stereotypes. The visual must immediately communicate: video teaches, children write on paper, teacher checks.

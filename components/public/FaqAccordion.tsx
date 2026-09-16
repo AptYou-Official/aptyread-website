@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import Link from "next/link";
 import type { FaqItem } from "@/lib/faq-content";
 
@@ -14,6 +14,7 @@ export default function FaqAccordion({
   defaultOpen = 0,
 }: FaqAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(defaultOpen);
+  const accordionId = useId();
 
   return (
     <div className="space-y-2">
@@ -27,6 +28,7 @@ export default function FaqAccordion({
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
             className="w-full px-5 py-4 md:px-6 md:py-5 text-left flex justify-between items-center gap-4 hover:bg-apty-cyan-accent/50 transition-colors"
             aria-expanded={openIndex === index}
+            aria-controls={`${accordionId}-answer-${index}`}
           >
             <span className="font-semibold text-apty-dark text-base md:text-lg pr-4">
               {faq.question}
@@ -40,8 +42,7 @@ export default function FaqAccordion({
               ↓
             </span>
           </button>
-          {openIndex === index && (
-            <div className="px-5 pb-4 md:px-6 md:pb-5 pt-0">
+            <div id={`${accordionId}-answer-${index}`} hidden={openIndex !== index} className="px-5 pb-4 md:px-6 md:pb-5 pt-0">
               <p className="text-apty-gray leading-relaxed text-base md:text-lg border-t border-apty-cyan/15 pt-4">
                 {faq.answer}
                 {faq.link ? (
@@ -58,7 +59,6 @@ export default function FaqAccordion({
                 ) : null}
               </p>
             </div>
-          )}
         </div>
       ))}
     </div>
