@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/public/Header";
 import Footer from "@/components/public/Footer";
 import CTA from "@/components/public/CTA";
+import { socialImage, socialImageUrl } from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
   title: "Write to us | AptyRead",
@@ -17,6 +18,13 @@ export const metadata: Metadata = {
     url: "https://www.aptyread.ai/contact",
     siteName: "AptyRead",
     type: "website",
+    images: [socialImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Write to us | AptyRead",
+    description: "Support for the AptyRead app, or a general note.",
+    images: [socialImageUrl],
   },
 };
 

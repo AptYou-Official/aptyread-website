@@ -39,7 +39,7 @@ export default function Header({ schoolsPage = false }: HeaderProps) {
             Home
           </Link>
           {!schoolsPage ? (
-            <Link href="/reading-guide" className="hidden md:inline text-apty-dark hover:text-apty-cyan transition-colors text-sm md:text-base">
+            <Link href="/reading-guide" className="hidden sm:inline text-apty-dark hover:text-apty-cyan transition-colors text-sm md:text-base">
               Reading Guide
             </Link>
           ) : null}
@@ -63,6 +63,12 @@ export default function Header({ schoolsPage = false }: HeaderProps) {
             </>
           ) : (
             <>
+              <Link
+                href="/reading-guide"
+                className="sm:hidden text-sm font-semibold text-apty-dark hover:text-apty-cyan transition-colors"
+              >
+                Guide
+              </Link>
               <Link
                 href="/download"
                 className="md:hidden inline-flex items-center justify-center rounded-full border border-apty-dark px-3.5 py-1.5 text-sm font-semibold text-apty-dark hover:border-apty-cyan hover:text-apty-cyan transition-colors whitespace-nowrap"

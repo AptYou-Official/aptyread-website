@@ -47,8 +47,8 @@ export default function HowItWorks() {
             Five levels. One path.
           </h2>
           <p className="text-base md:text-lg text-apty-gray max-w-2xl mx-auto leading-relaxed">
-            Every child starts at Level 1. Each level builds on the skills
-            developed in the previous one. They move forward when ready.
+            Every child starts at Level 1. Topics and lessons unlock in order.
+            Each level builds on the skills developed in the previous one.
           </p>
         </div>
 

@@ -10,6 +10,7 @@ import {
   PATH_URL,
   SOUNDS_CANT_READ_WORDS_ARTICLE_URL,
 } from "@/lib/reading-path";
+import { socialImage, socialImageUrl } from "@/lib/site-metadata";
 
 const canonical =
   "https://www.aptyread.ai/reading-guide/reading-problems/how-to-help-child-who-struggles-with-reading";
@@ -28,6 +29,14 @@ export const metadata: Metadata = {
     url: canonical,
     siteName: "AptyRead",
     type: "article",
+    images: [socialImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Help a Child Who Struggles With Reading | AptyRead",
+    description:
+      "Clear steps for parents when a child is struggling to read.",
+    images: [socialImageUrl],
   },
 };
 

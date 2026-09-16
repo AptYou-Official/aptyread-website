@@ -4,6 +4,7 @@ import Footer from "@/components/public/Footer";
 import CTA from "@/components/public/CTA";
 import FaqPageContent from "@/components/public/FaqPageContent";
 import { allFaqItems } from "@/lib/faq-content";
+import { socialImage, socialImageUrl } from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
   title: "Questions parents ask | AptyRead",
@@ -19,6 +20,14 @@ export const metadata: Metadata = {
     url: "https://www.aptyread.ai/faq",
     siteName: "AptyRead",
     type: "website",
+    images: [socialImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Questions parents ask | AptyRead",
+    description:
+      "Clear answers about AptyRead's English reading program for children.",
+    images: [socialImageUrl],
   },
 };
 

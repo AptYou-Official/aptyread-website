@@ -6,10 +6,13 @@ import GuideBreadcrumb from "@/components/public/GuideBreadcrumb";
 import {
   ALPHABET_ARTICLE_URL,
   BLEND_SOUNDS_ARTICLE_URL,
+  LETTER_SOUNDS_ARTICLE_URL,
   PATH_URL,
+  SENTENCES_ARTICLE_URL,
   SOUNDS_CANT_READ_WORDS_ARTICLE_URL,
   STRUGGLES_WITH_READING_ARTICLE_URL,
 } from "@/lib/reading-path";
+import { socialImage, socialImageUrl } from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
   title: "Reading Guide for Parents | AptyRead",
@@ -25,6 +28,14 @@ export const metadata: Metadata = {
     url: "https://www.aptyread.ai/reading-guide",
     siteName: "AptyRead",
     type: "website",
+    images: [socialImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Reading Guide for Parents | AptyRead",
+    description:
+      "Practical guidance for helping children learn to read English.",
+    images: [socialImageUrl],
   },
 };
 
@@ -40,6 +51,11 @@ const articles = [
     body: "Your child may know the sounds. The next step is putting them together into words.",
   },
   {
+    href: LETTER_SOUNDS_ARTICLE_URL,
+    title: "How to teach letter sounds at home",
+    body: "A calm, practical way to introduce letter sounds before asking a child to read words.",
+  },
+  {
     href: SOUNDS_CANT_READ_WORDS_ARTICLE_URL,
     title: "My child knows letter sounds but can't read words. Why?",
     body: "Knowing the sounds separately is not the same as reading the word. Here is how to tell what to practice next.",
@@ -48,6 +64,11 @@ const articles = [
     href: STRUGGLES_WITH_READING_ARTICLE_URL,
     title: "How to help a child who struggles with reading",
     body: "Start with the skill your child needs next, not a harder book. A clear way to decide what to practice.",
+  },
+  {
+    href: SENTENCES_ARTICLE_URL,
+    title: "My child can read words but struggles with sentences. What next?",
+    body: "Reading words is an important step. Here is how to help a child begin reading sentences with more ease.",
   },
 ];
 

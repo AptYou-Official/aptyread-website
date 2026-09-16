@@ -5,6 +5,7 @@ import Footer from "@/components/public/Footer";
 import GuideBreadcrumb from "@/components/public/GuideBreadcrumb";
 import GuideCta from "@/components/public/GuideCta";
 import { ALPHABET_ARTICLE_URL, SOUNDS_CANT_READ_WORDS_ARTICLE_URL } from "@/lib/reading-path";
+import { socialImage, socialImageUrl } from "@/lib/site-metadata";
 
 const canonical =
   "https://www.aptyread.ai/reading-guide/reading-problems/how-to-teach-child-to-blend-sounds";
@@ -23,6 +24,14 @@ export const metadata: Metadata = {
     url: canonical,
     siteName: "AptyRead",
     type: "article",
+    images: [socialImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Teach a Child to Blend Sounds | AptyRead",
+    description:
+      "Simple steps for helping a child turn letter sounds into words.",
+    images: [socialImageUrl],
   },
 };
 

@@ -7,6 +7,7 @@ import GuideCta from "@/components/public/GuideCta";
 import {
   BLEND_SOUNDS_ARTICLE_URL,
 } from "@/lib/reading-path";
+import { socialImage, socialImageUrl } from "@/lib/site-metadata";
 
 const canonical =
   "https://www.aptyread.ai/reading-guide/reading-problems/child-knows-alphabet-but-cant-read";
@@ -25,6 +26,14 @@ export const metadata: Metadata = {
     url: canonical,
     siteName: "AptyRead",
     type: "article",
+    images: [socialImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "My child knows the alphabet but can't read | AptyRead",
+    description:
+      "What to do next when a child knows letter names but cannot yet read words.",
+    images: [socialImageUrl],
   },
 };
 

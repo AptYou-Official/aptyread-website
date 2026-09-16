@@ -108,8 +108,8 @@ export default function Hero() {
                 See the Five-Level Path
                 <span aria-hidden="true">→</span>
               </Link>
-              <p className="text-sm md:text-base text-apty-dark">
-                First lessons are free. No account. Every child starts at Level 1.
+              <p className="text-sm md:text-base text-apty-dark max-w-xl">
+                First lessons are free. Every child starts at Level 1. Price and validity appear in the app before you buy.
               </p>
             </div>
           </div>

@@ -109,7 +109,7 @@ export const costItems: FaqItem[] = [
   {
     question: "How much does it cost?",
     answer:
-      "No subscription. Buy a level once, when you are ready. The App Store or Google Play shows the price for your country.",
+      "No subscription. Buy one level at a time when your child is ready to continue. The app shows the price and validity for your country before you buy.",
   },
   {
     question: "Can I try before I pay?",

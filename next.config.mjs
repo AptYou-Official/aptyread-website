@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: false,
-  images: {
-    domains: ['localhost'],
-  },
   async redirects() {
     return [
       // Legacy .html
@@ -32,4 +29,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-

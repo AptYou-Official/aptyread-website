@@ -8,6 +8,7 @@ import AppShowcase, {
 } from "@/components/public/AppShowcase";
 import MinimalFooter from "@/components/public/MinimalFooter";
 import { softwareApplicationJsonLd } from "@/lib/schema";
+import { socialImage, socialImageUrl } from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
   title: "Download AptyRead - Start Lesson 1 | AptyRead",
@@ -22,11 +23,13 @@ export const metadata: Metadata = {
     url: "https://www.aptyread.ai/download",
     siteName: "AptyRead",
     type: "website",
+    images: [socialImage],
   },
   twitter: {
     card: "summary_large_image",
     title: "Download AptyRead - Start Lesson 1",
     description: "Download AptyRead free. Start Lesson 1, no account needed.",
+    images: [socialImageUrl],
   },
 };
 

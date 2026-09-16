@@ -5,6 +5,7 @@ import Footer from "@/components/public/Footer";
 import GuideBreadcrumb from "@/components/public/GuideBreadcrumb";
 import GuideCta from "@/components/public/GuideCta";
 import { PATH_LEVELS } from "@/lib/reading-path";
+import { socialImage, socialImageUrl } from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
   title: "The AptyRead Five-Level Path | AptyRead",
@@ -20,6 +21,14 @@ export const metadata: Metadata = {
     url: "https://www.aptyread.ai/reading-guide/the-aptyread-path",
     siteName: "AptyRead",
     type: "website",
+    images: [socialImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The AptyRead Five-Level Path",
+    description:
+      "Five levels. One structured English reading path for children aged 4 to 10.",
+    images: [socialImageUrl],
   },
 };
 

@@ -13,18 +13,19 @@ import LandingVideo from "@/components/public/LandingVideo";
 const ogImage = "https://www.aptyread.ai/images/apty_with_book.png";
 
 export const metadata: Metadata = {
-  title: "AptyRead | School-Ready English Reading | GCC | Try Free",
+  title: "AptyRead English Reading Program for Children | GCC | Try Free",
   description:
-    "Is your child school ready? English reading from Day 1 with structured phonics for ages 4 to 10 in the AptyRead app. Science of Reading. Sound first. Start Lesson 1, no account needed.",
+    "English reading for ages 4 to 10 in the AptyRead app. Structured phonics. Sound first. Start Lesson 1, no account needed.",
+  robots: { index: false, follow: true },
   keywords:
     "AptyRead English Literacy Program, GCC reading app, phonics course, learn to read, children literacy, UAE, Saudi, Qatar, Kuwait, Bahrain, Oman",
   alternates: {
     canonical: "https://www.aptyread.ai/gcc",
   },
   openGraph: {
-    title: "AptyRead | School-Ready English Reading | GCC | Try Free",
+    title: "AptyRead English Reading Program for Children | GCC | Try Free",
     description:
-      "School-ready English reading for ages 4 to 10. Science of Reading, sound first. Start Lesson 1 on iPhone, iPad, and Android. Level 1 pricing in AED, SAR, or QAR at checkout.",
+      "English reading for ages 4 to 10. Structured phonics, sound first. Start Lesson 1 on iPhone, iPad, and Android.",
     url: "https://www.aptyread.ai/gcc",
     siteName: "AptyRead",
     type: "website",
@@ -40,9 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AptyRead | School-Ready Reading | GCC | Try Free",
+    title: "AptyRead English Reading Program for Children | GCC | Try Free",
     description:
-      "English reading the #1 skill from Day 1. Five levels. One path. Start Lesson 1. GCC-friendly pricing at checkout.",
+      "English reading for ages 4 to 10. Five levels. One path. Start Lesson 1.",
     images: [ogImage],
   },
 };
@@ -110,7 +111,7 @@ const faqs = [
   },
   {
     q: "How much time should we spend daily?",
-    a: "One new lesson per day is the default. You may move up to two when it feels right. Main lessons land near 25 minutes, reviews near 10. Small daily reps beat marathon sessions.",
+    a: "One or two new lessons a day is enough. A typical sitting is about fifteen minutes. Small daily practice beats marathon sessions.",
   },
   {
     q: "Can parents and children use this without much tech knowledge?",
@@ -122,7 +123,7 @@ const faqs = [
   },
   {
     q: "What happens after Lesson 1?",
-    a: "If you want to continue, unlock Level 1 for six months, one flat payment per level, no subscription. In the UAE, Saudi Arabia, and Qatar you usually see about AED 299, SAR 299, or QAR 299 listed. Checkout always shows the exact price for your currency in the App Store or on Google Play.",
+    a: "After the free lessons, the app shows the current price before you buy. Levels are one-time purchases, not subscriptions.",
   },
   {
     q: "Is this just another app with games and distractions?",
@@ -307,8 +308,8 @@ export default function GccLandingPage() {
                   </tr>
                   <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Revision</td>
-                    <td className="px-4 py-3 align-top">Unlimited inside validity</td>
-                    <td className="px-4 py-3 align-top">Usually paid again</td>
+                    <td className="px-4 py-3 align-top">Review lessons when needed</td>
+                    <td className="px-4 py-3 align-top">Varies by provider</td>
                   </tr>
                   <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Distractions</td>
@@ -326,29 +327,21 @@ export default function GccLandingPage() {
                     <td className="px-4 py-3 align-top">Depends on sessions booked</td>
                   </tr>
                   <tr className="bg-teal-50/90 text-apty-dark">
-                    <td className="px-4 py-3 align-top font-medium">Cost for that time</td>
-                    <td className="px-4 py-3 align-top">
-                      <span className="block sm:inline">AED, SAR, or QAR 299 for Level 1 (UAE, Saudi, Qatar).</span>{" "}
-                      <span className="block sm:inline">Replay anytime, six months access.</span>
-                    </td>
-                    <td className="px-4 py-3 align-top">
-                      <span className="block sm:inline">Often AED 50 to 80 per hour,</span>{" "}
-                      <span className="block sm:inline">roughly AED 1,000 to 1,600+ for similar hours.</span>
-                    </td>
+                    <td className="px-4 py-3 align-top font-medium">Before you buy</td>
+                    <td className="px-4 py-3 align-top">Try Lesson 1 free. The app shows the price before purchase.</td>
+                    <td className="px-4 py-3 align-top">Ask the provider about its terms.</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <p className="text-sm text-apty-gray mt-4">
-              Your App Store or Google Play receipt
-              shows the exact amount in your currency at checkout.
+              The App Store or Google Play shows the current price before purchase.
             </p>
 
             <div className="mt-8 rounded-xl border-2 border-apty-cyan/30 bg-gradient-to-b from-apty-warm/90 to-white p-6 shadow-sm">
-              <p className="text-base font-semibold text-apty-dark mb-3">Simple GCC pricing</p>
+              <p className="text-base font-semibold text-apty-dark mb-3">Try before you decide</p>
               <p className="text-base text-apty-dark leading-relaxed">
-              Start Lesson 1. No account needed. If you love it, Level 1 is AED 299 in the UAE, SAR 299
-                in Saudi Arabia, QAR 299 in Qatar. No subscription.
+              Start Lesson 1 with no account. If AptyRead is right for your child, the app shows the current price before you purchase a level.
               </p>
             </div>
           </div>
@@ -419,10 +412,7 @@ export default function GccLandingPage() {
               from the App Store and Google Play both work across the Gulf.
             </p>
             <p className="text-white/95 text-base mb-8">
-              Loving it? Unlock Level 1 for six months (about <span className="whitespace-nowrap">AED 299</span> in the
-              UAE, <span className="whitespace-nowrap">SAR 299</span> in Saudi Arabia, or{" "}
-              <span className="whitespace-nowrap">QAR 299</span> in Qatar). Checkout shows the real price in your wallet
-              currency.
+              After the free lessons, the app shows the current price before you purchase a level.
             </p>
             <PlayStoreLink
               platform="auto"
@@ -436,10 +426,10 @@ export default function GccLandingPage() {
             </div>
             <div className="mt-7 grid sm:grid-cols-2 gap-3 text-left text-white/95 text-sm max-w-3xl mx-auto">
               <p>✓ Start Lesson 1, no account needed</p>
-              <p>✓ About AED 299 UAE, SAR 299 Saudi, QAR 299 Qatar, no renewal trap</p>
-              <p>✓ Six calm months on each level</p>
+              <p>✓ Current price shown before purchase</p>
+              <p>✓ One-time level purchases, no subscription</p>
               <p>✓ Finish Level 1 before you think about Level 2</p>
-              <p>✓ Apple and Google charge you in the currency your account already uses</p>
+              <p>✓ Available on the App Store and Google Play</p>
             </div>
           </div>
         </section>

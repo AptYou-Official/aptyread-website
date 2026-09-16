@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import { Nunito_Sans } from "next/font/google";
+import { socialImage, socialImageUrl } from "@/lib/site-metadata";
 import "./globals.css";
 
 const nunitoSans = Nunito_Sans({
@@ -49,20 +50,13 @@ export const metadata: Metadata = {
     siteName: "AptyRead",
     type: "website",
     locale: "en_US",
-    images: [
-      {
-        url: "https://www.aptyread.ai/images/apty_with_book.png",
-        width: 512,
-        height: 512,
-        alt: "AptyRead Logo",
-      },
-    ],
+    images: [socialImage],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "AptyRead. Every Child Reads.",
     description: "English reading program for children aged 4 to 10. Built on the Science of Reading. Five levels. One path. Start Lesson 1. No account needed.",
-    images: ["https://www.aptyread.ai/images/apty_with_book.png"],
+    images: [socialImageUrl],
   },
   alternates: {
     canonical: "https://www.aptyread.ai",

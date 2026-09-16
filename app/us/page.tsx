@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   title: "AptyRead English Literacy Program | Phonics-Based Reading for Kids | Try Free",
   description:
     "English reading program for ages 4 to 10 based on the Science of Reading. Five levels. One path. AptyRead on the App Store and Google Play. Start Lesson 1 with no signup. Tap your store.",
+  robots: { index: false, follow: true },
   keywords:
     "AptyRead English Literacy Program, phonics-based reading for kids, Science of Reading app, structured literacy, learn to read, early reading program",
   alternates: {
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AptyRead English Literacy Program | Phonics-Based Reading for Kids | Try Free",
     description:
-      "Science-of-Reading-aligned English reading in one app for ages 4 to 10. Start Lesson 1. Level 1 is $59 for six months, no subscription.",
+      "Science-of-Reading-aligned English reading in one app for ages 4 to 10. Start Lesson 1 with no account needed.",
     url: "https://www.aptyread.ai/us",
     siteName: "AptyRead",
     type: "website",
@@ -114,7 +115,7 @@ const faqs = [
   },
   {
     q: "How much time does this take each day?",
-    a: "Default is one fresh lesson daily. Bump to two when it feels sensible. Roughly 25 minutes on core nights, lighter on review nights. Consistency beats marathon nights.",
+    a: "One or two new lessons a day is enough. A typical sitting is about fifteen minutes. Small daily practice beats marathon sessions.",
   },
   {
     q: "Is an internet connection required?",
@@ -122,7 +123,7 @@ const faqs = [
   },
   {
     q: "What happens after Lesson 1?",
-    a: "You can unlock Level 1 for $59, six months included, replay all you want, one upfront payment with no autopay creep.",
+    a: "After the free lessons, the app shows the current price before you buy. Levels are one-time purchases, not subscriptions.",
   },
   {
     q: "Is this just another educational app with games and badges?",
@@ -180,7 +181,6 @@ export default function UsLandingPage() {
               </div>
 
               <div className="grid sm:grid-cols-2 gap-2 text-sm text-apty-gray mb-5">
-                <p>✓ 3,500+ downloads worldwide</p>
                 <p>✓ Start Lesson 1, no signup</p>
                 <p>✓ Built on Science of Reading structure</p>
                 <p>✓ No ads. No subscription pressure.</p>
@@ -323,8 +323,8 @@ export default function UsLandingPage() {
                   </tr>
                   <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Revision</td>
-                    <td className="px-4 py-3 align-top">Unlimited replays inside the window</td>
-                    <td className="px-4 py-3 align-top">Often rebilled hourly</td>
+                    <td className="px-4 py-3 align-top">Review lessons when needed</td>
+                    <td className="px-4 py-3 align-top">Varies by provider</td>
                   </tr>
                   <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Distractions</td>
@@ -342,28 +342,21 @@ export default function UsLandingPage() {
                     <td className="px-4 py-3 align-top">Depends how many hours you purchase</td>
                   </tr>
                   <tr className="bg-teal-50/90 text-apty-dark">
-                    <td className="px-4 py-3 align-top font-medium">Cost for similar time</td>
-                    <td className="px-4 py-3 align-top">
-                      <span className="block sm:inline">$59 for Level 1.</span>{" "}
-                      <span className="block sm:inline">Replay anytime inside six rolling months.</span>
-                    </td>
-                    <td className="px-4 py-3 align-top">
-                      <span className="block sm:inline">Roughly $40 to $75 per hour,</span>{" "}
-                      <span className="block sm:inline">meaning $800 to $1,500+ for stacks of tutoring blocks.</span>
-                    </td>
+                    <td className="px-4 py-3 align-top font-medium">Before you buy</td>
+                    <td className="px-4 py-3 align-top">Try Lesson 1 free. The app shows the price before purchase.</td>
+                    <td className="px-4 py-3 align-top">Ask the provider about its terms.</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <p className="text-sm text-apty-gray mt-4">
-              Your App Store or Google Play receipt shows the exact amount at checkout.
+              The App Store or Google Play shows the current price before purchase.
             </p>
 
             <div className="mt-8 rounded-xl border-2 border-apty-cyan/30 bg-gradient-to-b from-apty-warm/90 to-white p-6 shadow-sm">
-              <p className="text-base font-semibold text-apty-dark mb-3">Transparent US pricing</p>
+              <p className="text-base font-semibold text-apty-dark mb-3">Try before you decide</p>
               <p className="text-base text-apty-dark leading-relaxed">
-                Start Lesson 1. No account needed. When you are convinced, unlock Level 1 for six
-                months at $59, one upfront charge, cancel nothing later because subscriptions do not exist here.
+                Start Lesson 1 with no account. If AptyRead is right for your child, the app shows the current price before you purchase a level.
               </p>
             </div>
           </div>
@@ -448,7 +441,7 @@ export default function UsLandingPage() {
               Install on iPhone, iPad, or Android. Start Lesson 1 without an account or a card on file.
             </p>
             <p className="text-white/95 text-base mb-8">
-              Want more? Unlock Level 1 for six months at $59, one payment, no subscription or auto-renew.
+              After the free lessons, the app shows the current price before you purchase a level.
             </p>
             <PlayStoreLink
               platform="auto"
@@ -462,8 +455,8 @@ export default function UsLandingPage() {
             </div>
             <div className="mt-7 grid sm:grid-cols-2 gap-3 text-left text-white/95 text-sm max-w-3xl mx-auto">
               <p>✓ Start Lesson 1, no account needed</p>
-              <p>✓ $59 Level 1, no autopay tricks</p>
-              <p>✓ Six months of access included</p>
+              <p>✓ Current price shown before purchase</p>
+              <p>✓ One-time level purchases, no subscription</p>
               <p>✓ Decide on Level 2 after Level 1 is done</p>
             </div>
           </div>

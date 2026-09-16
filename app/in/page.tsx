@@ -15,7 +15,8 @@ const ogImage = "https://www.aptyread.ai/images/apty_with_book.png";
 export const metadata: Metadata = {
   title: "AptyRead English Literacy Program | Children | India | Try Free",
   description:
-    "English reading program for ages 4 to 10. Five levels. One path. AptyRead on the App Store and Google Play. Start Lesson 1 with no signup. India pricing on page.",
+    "English reading program for ages 4 to 10. Five levels. One path. AptyRead on the App Store and Google Play. Start Lesson 1 with no signup.",
+  robots: { index: false, follow: true },
   keywords:
     "AptyRead English Literacy Program, English reading app, phonics course, learn to read, children literacy, India, structured reading, ESL reading",
   alternates: {
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AptyRead English Literacy Program | India | Try Free",
     description:
-      "Structured reading for ages 4 to 10 on iPhone, iPad, and Android. Start Lesson 1. No account needed. Level 1 India pricing at checkout in your app store.",
+      "Structured reading for ages 4 to 10 on iPhone, iPad, and Android. Start Lesson 1. No account needed.",
     url: "https://www.aptyread.ai/in",
     siteName: "AptyRead",
     type: "website",
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AptyRead English Literacy Program | India | Try Free",
     description:
-      "AptyRead on the App Store and Google Play. Five levels. One path. Start Lesson 1. India pricing at checkout.",
+      "AptyRead on the App Store and Google Play. Five levels. One path. Start Lesson 1.",
     images: [ogImage],
   },
 };
@@ -110,7 +111,7 @@ const faqs = [
   },
   {
     q: "How much time should we spend daily?",
-    a: "One new lesson per day is the default. You may move up to two when it feels right. Main lessons land near 25 minutes, reviews near 10. Small daily reps beat marathon sessions.",
+    a: "One or two new lessons a day is enough. A typical sitting is about fifteen minutes. Small daily practice beats marathon sessions.",
   },
   {
     q: "Can parents and children use this without much tech knowledge?",
@@ -122,7 +123,7 @@ const faqs = [
   },
   {
     q: "What happens after Lesson 1?",
-    a: "You can continue with Level 1 at ₹2,399 (incl. GST) for six months validity. One payment per level. No subscriptions.",
+    a: "After the free lessons, the app shows the current price before you buy. Levels are one-time purchases, not subscriptions.",
   },
   {
     q: "Is this just another app with games and distractions?",
@@ -180,7 +181,6 @@ export default function IndiaLandingPage() {
               </div>
 
               <div className="grid sm:grid-cols-2 gap-2 text-sm text-apty-gray mb-5">
-                <p>✓ 3,500+ downloads worldwide</p>
                 <p>✓ Start Lesson 1, no registration</p>
                 <p>✓ Works across CBSE, British, and IB schools</p>
                 <p>✓ No ads. No subscription pressure.</p>
@@ -323,8 +323,8 @@ export default function IndiaLandingPage() {
                   </tr>
                   <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Revision</td>
-                    <td className="px-4 py-3 align-top">Unlimited inside validity</td>
-                    <td className="px-4 py-3 align-top">Usually paid again</td>
+                    <td className="px-4 py-3 align-top">Review lessons when needed</td>
+                    <td className="px-4 py-3 align-top">Varies by provider</td>
                   </tr>
                   <tr className="border-b border-apty-sky/60">
                     <td className="px-4 py-3 align-top">Distractions</td>
@@ -342,29 +342,21 @@ export default function IndiaLandingPage() {
                     <td className="px-4 py-3 align-top">Depends on classes booked</td>
                   </tr>
                   <tr className="bg-teal-50/90 text-apty-dark">
-                    <td className="px-4 py-3 align-top font-medium">Cost for that time</td>
-                    <td className="px-4 py-3 align-top">
-                      <span className="block sm:inline font-semibold text-apty-cyan">₹2,399 (incl. GST) for Level 1.</span>{" "}
-                      <span className="block sm:inline">Replay anytime, six months access.</span>
-                    </td>
-                    <td className="px-4 py-3 align-top">
-                      <span className="block sm:inline">Roughly ₹6,000 to ₹10,000+</span>{" "}
-                      <span className="block sm:inline">for a short course stretch, billed again if you repeat.</span>
-                    </td>
+                    <td className="px-4 py-3 align-top font-medium">Before you buy</td>
+                    <td className="px-4 py-3 align-top">Try Lesson 1 free. The app shows the price before purchase.</td>
+                    <td className="px-4 py-3 align-top">Ask the provider about its terms.</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <p className="text-sm text-apty-gray mt-4">
-              Your App Store or Google Play receipt shows
-              the exact amount in rupees at checkout.
+              The App Store or Google Play shows the current price before purchase.
             </p>
 
             <div className="mt-8 rounded-xl border-2 border-apty-cyan/30 bg-gradient-to-b from-apty-warm/90 to-white p-6 shadow-sm">
-              <p className="text-base font-semibold text-apty-dark mb-3">Clear India pricing</p>
+              <p className="text-base font-semibold text-apty-dark mb-3">Try before you decide</p>
               <p className="text-base text-apty-dark leading-relaxed">
-                Start Lesson 1. No account needed. Level 1 is ₹2,399 (incl. GST) for six months. One payment
-                per level. No subscription.
+                Start Lesson 1 with no account. If AptyRead is right for your child, the app shows the current price before you purchase a level.
               </p>
             </div>
           </div>
@@ -441,8 +433,7 @@ export default function IndiaLandingPage() {
               from the App Store and Google Play both work in India.
             </p>
             <p className="text-white/95 text-base mb-8">
-              Loving it? Unlock Level 1 for six months at <span className="whitespace-nowrap">₹2,399</span> (incl. GST).
-              Checkout shows the exact price in rupees when you purchase.
+              After the free lessons, the app shows the current price before you purchase a level.
             </p>
             <PlayStoreLink
               platform="auto"
@@ -456,10 +447,10 @@ export default function IndiaLandingPage() {
             </div>
             <div className="mt-7 grid sm:grid-cols-2 gap-3 text-left text-white/95 text-sm max-w-3xl mx-auto">
               <p>✓ Start Lesson 1, no account needed</p>
-              <p>✓ ₹2,399 Level 1 incl. GST, no renewal trap</p>
-              <p>✓ Six calm months on each level</p>
+              <p>✓ Current price shown before purchase</p>
+              <p>✓ One-time level purchases, no subscription</p>
               <p>✓ Finish Level 1 before you think about Level 2</p>
-              <p className="sm:col-span-2">✓ Apple and Google charge you in the currency your Indian account uses</p>
+              <p className="sm:col-span-2">✓ Available on the App Store and Google Play</p>
             </div>
           </div>
         </section>

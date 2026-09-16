@@ -8,6 +8,7 @@ import {
   ALPHABET_ARTICLE_URL,
   BLEND_SOUNDS_ARTICLE_URL,
 } from "@/lib/reading-path";
+import { socialImage, socialImageUrl } from "@/lib/site-metadata";
 
 const canonical =
   "https://www.aptyread.ai/reading-guide/reading-problems/knows-letter-sounds-but-cant-read-words";
@@ -26,6 +27,14 @@ export const metadata: Metadata = {
     url: canonical,
     siteName: "AptyRead",
     type: "article",
+    images: [socialImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "My Child Knows Letter Sounds but Can't Read Words | AptyRead",
+    description:
+      "What to practice when a child knows letter sounds but cannot yet read words.",
+    images: [socialImageUrl],
   },
 };
 

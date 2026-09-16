@@ -3,6 +3,7 @@ import Header from "@/components/public/Header";
 import Footer from "@/components/public/Footer";
 import CTA from "@/components/public/CTA";
 import BrandWordmark from "@/components/public/BrandWordmark";
+import { socialImage, socialImageUrl } from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
   title: "A Letter to Parents | AptyRead",
@@ -18,6 +19,14 @@ export const metadata: Metadata = {
     url: "https://www.aptyread.ai/about",
     siteName: "AptyRead",
     type: "website",
+    images: [socialImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "A Letter to Parents | AptyRead",
+    description:
+      "Why we built AptyRead, an English reading program for children aged 4 to 10.",
+    images: [socialImageUrl],
   },
 };
 
