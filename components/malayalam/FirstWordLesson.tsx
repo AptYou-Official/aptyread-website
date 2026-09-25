@@ -157,8 +157,8 @@ export default function FirstWordLesson() {
           {!selected && attempt?.revealed && <span lang="ml">നമുക്ക് ഒരുമിച്ച് നോക്കാം.</span>}
         </div>
         <div className="ml-lesson-audio">
-          <button className="ml-lesson-soft ml-picture-control ml-listen-control" onClick={replay} aria-label="Listen again"><Icon name="replay-sound" size={38} /><span lang="ml">വീണ്ടും കേൾക്കാം</span></button>
-          {checkedStep && <button className="ml-lesson-soft ml-picture-control ml-help-control" onClick={help} aria-label="Show me help"><Image src="/images/apty-mascot.png" alt="" width={52} height={52} /><span lang="ml">കാണിച്ചുതരൂ</span></button>}
+          <button className="ml-lesson-soft ml-picture-control ml-listen-control" onClick={replay} aria-label="Listen again"><span className="ml-control-disc"><Icon name="replay-sound" size={34} /></span><span lang="ml">വീണ്ടും കേൾക്കാം</span></button>
+          {checkedStep && <button className="ml-lesson-soft ml-picture-control ml-help-control" onClick={help} aria-label="Show me help"><span className="ml-control-disc"><Image src="/images/apty-mascot.png" alt="" width={46} height={46} /></span><span lang="ml">കാണിച്ചുതരൂ</span></button>}
         </div>
         <div className="ml-lesson-audio-status" role="status">
           {audio.status === 'error' ? <><span lang="ml">ശബ്ദം കേൾക്കാനായില്ല.</span><button className="ml-lesson-soft ml-picture-control" onClick={audio.retry} aria-label="Retry lesson audio"><Icon name="replay-sound" size={32} /><span lang="ml">വീണ്ടും ശ്രമിക്കാം</span></button></> : audio.status === 'loading' ? <span lang="ml">ഒരു നിമിഷം…</span> : !inputReady && audio.muted ? <span lang="ml">കേൾക്കാൻ ശബ്ദം ഓണാക്കൂ.</span> : null}
