@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Script from "next/script";
-import { Analytics } from "@vercel/analytics/react";
+import SiteMeasurement from "@/components/SiteMeasurement";
 import { Nunito_Sans } from "next/font/google";
 import { socialImage, socialImageUrl } from "@/lib/site-metadata";
 import "./globals.css";
@@ -11,10 +10,6 @@ const nunitoSans = Nunito_Sans({
   display: "swap",
   variable: "--font-nunito-sans",
 });
-
-/** Google Ads (gtag). Public ID; optional override via Vercel: NEXT_PUBLIC_GOOGLE_ADS_ID */
-const GOOGLE_ADS_ID =
-  process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "AW-17901074775";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.aptyread.ai'),
@@ -71,24 +66,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={nunitoSans.variable}>
       <body className={`${nunitoSans.className} antialiased`}>
-        {GOOGLE_ADS_ID ? (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-ads-gtag" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GOOGLE_ADS_ID}');
-              `}
-            </Script>
-          </>
-        ) : null}
         {children}
-        <Analytics />
+        <SiteMeasurement />
       </body>
     </html>
   );
