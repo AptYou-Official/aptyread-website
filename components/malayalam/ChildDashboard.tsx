@@ -7,6 +7,7 @@ import InstallApp from './InstallApp';
 import ConnectionNotice from './ConnectionNotice';
 import useLessonAudio from './useLessonAudio';
 import { previewAudio, joiningAudio } from '@/lib/malayalam-audio';
+import { FIRST_LESSON_KEY, readFirstLesson } from '@/lib/malayalam-first-lesson';
 
 const STORAGE_KEY = 'apty.malayalam.preview.v1';
 const episodes = [
@@ -25,6 +26,7 @@ function validPosition(value: unknown): value is Position {
 export default function ChildDashboard() {
   const [position, setPosition] = useState<Position>({ episode: 0, step: 0 });
   const [hasSaved, setHasSaved] = useState(false);
+  const [hasLessonProgress, setHasLessonProgress] = useState(false);
   const [ready, setReady] = useState(false);
   const [storageAvailable, setStorageAvailable] = useState(true);
   const [tab, setTab] = useState<'path' | 'words'>('path');
@@ -44,6 +46,7 @@ export default function ChildDashboard() {
 
   useEffect(() => {
     try {
+      setHasLessonProgress(readFirstLesson(localStorage.getItem(FIRST_LESSON_KEY)).visited.length > 0);
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         // A malformed preview record should not disable otherwise working storage.
@@ -103,13 +106,11 @@ export default function ChildDashboard() {
         <ConnectionNotice />
         <section className="ml-dash-welcome"><div><span className="ml-eyebrow">A LITTLE ADVENTURE WITH APTY</span><h1 lang="ml">നമുക്ക് വായിക്കാം!</h1><p>Little steps. Lovely discoveries.</p></div><div className="ml-welcome-sun"><Icon name="sun" size={42} /></div></section>
         {tab === 'path' ? <>
-          <section className="ml-ready-lesson"><div><span className="ml-mini-label">NEW · FIRST READING LESSON</span><h2 lang="ml">ഒരു വാക്ക് പഠിക്കാം</h2><p>Listen, notice, build and choose. Stop whenever you like.</p></div><a className="ml-btn" href="/malayalam/learn/first-word"><span lang="ml">പഠിക്കാം</span><Icon name="arrow" /></a></section>
-          <section className="ml-next-card" aria-labelledby="next-title"><div className="ml-next-copy"><span className="ml-mini-label">LEVEL 1 · FIRST WORDS</span><h2 id="next-title" lang="ml">{hasSaved ? 'വീണ്ടും നോക്കാം!' : 'ആദ്യ ചുവട്'}</h2><p>{hasSaved ? 'Your preview is right where you left it.' : 'Meet a letter. Discover a word.'}</p><button className="ml-btn ml-btn-large" onClick={() => start()} disabled={!ready}><span lang="ml">{hasSaved ? 'തുടരാം' : 'തുടങ്ങാം'}</span><Icon name="arrow" /></button><small>{hasSaved ? `Continue preview ${position.episode + 1}` : 'Start the first preview'}</small></div><div className="ml-next-art"><span className="ml-floating-letter" lang="ml">{episode.forms[position.step]}</span><Image src="/images/apty-mascot.png" width={260} height={260} alt="Apty is ready to explore with you" priority /><span className="ml-next-spark">✦</span></div></section>
-          <section className="ml-lesson-section"><div className="ml-dash-section-title"><div><h2 lang="ml">വാക്കുകൾ വായിക്കാം</h2><p>Your first three word previews</p></div><span>01 / 05 <small>levels planned</small></span></div><ol className="ml-lesson-cards">{episodes.map((item, index) => <li key={item.title} className={`ml-lesson-card ml-card-${item.colour}`}><div className="ml-card-top"><span className="ml-card-number">0{index + 1}</span><Icon name={item.icon} size={25} /></div><span className="ml-card-word" lang="ml">{item.title}</span><div className="ml-card-bottom"><div><h3>{item.description}</h3><p>{index === 0 ? 'റ + ത' : index === 1 ? 'Meet ല' : 'Meet മ'}</p></div><button disabled={!ready} onClick={() => start(index)} aria-label={`Open preview ${index + 1}: ${item.title}`}><Icon name="arrow" /></button></div></li>)}</ol></section>
+          <section className="ml-next-card" aria-labelledby="next-title"><div className="ml-next-copy"><span className="ml-mini-label">LEVEL 1 · FIRST READING LESSON</span><h2 id="next-title" lang="ml">{hasLessonProgress ? 'തുടർന്ന് പഠിക്കാം!' : 'ഒരു വാക്ക് പഠിക്കാം'}</h2><p>{hasLessonProgress ? 'Pick up where you stopped.' : 'Listen. Discover. Make your first word.'}</p><a className="ml-btn ml-btn-large" href="/malayalam/learn/first-word"><span lang="ml">{hasLessonProgress ? 'തുടരാം' : 'തുടങ്ങാം'}</span><Icon name="arrow" /></a></div><div className="ml-next-art"><span className="ml-floating-letter" lang="ml">റ</span><Image src="/images/apty-mascot.png" width={260} height={260} alt="Apty is ready to explore with you" priority /><span className="ml-next-spark">✦</span></div></section>
           <section className="ml-gentle-note"><span><Icon name="leaf" size={27} /></span><div><h3>Your pace is a good pace.</h3><p>Explore a little. Take a break. Your place will be here.</p></div></section>
-        </> : <section className="ml-word-corner"><span className="ml-eyebrow">WORDS TO EXPLORE</span><h2 lang="ml">വാക്കുകളുടെ ലോകം</h2><p>Revisit a preview. These are words to meet, not a record of words mastered.</p><div className="ml-word-grid">{episodes.map((item, index) => <button key={item.title} onClick={() => start(index)} disabled={!ready}>{index === 2 ? <HillScene small /> : <Icon name={item.icon} size={44} />}<span lang="ml">{item.title}</span><small>Open preview <span aria-hidden="true">↗</span></small></button>)}</div></section>}
-        <details className="ml-grownup-note"><summary>About this preview <span aria-hidden="true">+</span></summary><p>This audio preview includes recorded letter models, word joining and spoken matching directions. Formation videos, writing guides and the complete lesson activities are still being developed. Guided matching is practice, not an independent reading assessment.</p><p>{storageAvailable ? 'Only your last preview position is saved in this browser. No account is needed, and it does not sync to other devices.' : 'Browser storage is unavailable. You can keep exploring, but your place may not be saved after leaving.'}</p></details>
-        <InstallApp />
+        </> : <section className="ml-word-corner"><span className="ml-eyebrow">WORDS TO EXPLORE</span><h2 lang="ml">വാക്കുകളുടെ ലോകം</h2><p>Revisit a preview. These are words to meet, not a record of words mastered.</p><div className="ml-word-grid">{episodes.map((item, index) => <button key={item.title} onClick={() => start(hasSaved && index === position.episode ? undefined : index)} aria-label={`Open preview ${index + 1}: ${item.title}`} disabled={!ready}>{index === 2 ? <HillScene small /> : <Icon name={item.icon} size={44} />}<span lang="ml">{item.title}</span><small>{hasSaved && index === position.episode ? 'Continue preview' : 'Open preview'} <span aria-hidden="true">↗</span></small></button>)}</div></section>}
+        <details className="ml-grownup-note"><summary>About this preview <span aria-hidden="true">+</span></summary><p>This audio preview includes recorded letter models, word joining and spoken matching directions. Formation videos, writing guides and the complete lesson activities are still being developed. Guided matching is practice, not an independent reading assessment.</p><p>{storageAvailable ? 'Your lesson progress and last preview position are saved in this browser. No account is needed, and it does not sync to other devices.' : 'Browser storage is unavailable. You can keep exploring, but your place may not be saved after leaving.'}</p></details>
+        <details className="ml-grownup-note"><summary>Add to your device <span aria-hidden="true">+</span></summary><InstallApp /></details>
         {!storageAvailable && <p className="ml-storage-note" role="status">Your place is kept for this visit only.</p>}
       </main>
     </div>

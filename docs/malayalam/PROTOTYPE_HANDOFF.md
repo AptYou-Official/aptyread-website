@@ -7,12 +7,14 @@ Implemented 25 September 2026 in the existing AptyRead Next.js website. Prepared
 | Route | Experience |
 | --- | --- |
 | `/malayalam` | Parent-facing programme homepage using the current indigo, cyan and cream brand, existing Apty mascot, a first-word illustration, five planned levels, FAQs and dashboard entry buttons |
-| `/malayalam/dashboard` | Child-facing start/continue card, three selectable word previews, word corner and an optional preview-information disclosure |
+| `/malayalam/dashboard` | One main Start/Continue card for the first reading lesson; three older audio previews live only in Word corner |
 | `/malayalam/learn/first-word` | First reading lesson prototype: meaning, forms, choices, joining, explicit tile submission, picture meaning and exact resume |
 
 Both routes carry `noindex, nofollow` during development and are intentionally absent from the public sitemap and existing website navigation. These settings do not provide access control: after deployment, anyone with a page URL can open the preview.
 
 ## Working interactions
+
+The dashboard has one primary lesson action. Its Start/Continue label reads the first-lesson record, independently of old preview progress. Word corner retains the three audio previews and resumes the last preview position when that same word is selected. The installation helper sits inside the optional "Add to your device" disclosure. This replaces the two competing lesson/preview hero cards and removes duplicate preview tiles from My path.
 
 The new first-reading-lesson entry on the dashboard opens a separate child-led route with ten states. It saves a versioned position, partial tile construction, displayed choice order, first response, one optional supported retry, help and actual audio start/end events under `apty.malayalam.CL1-E01.v1`. The recent event log is capped at 300 entries. It sends no learner events to a server. The previous preview key is retained separately and is never treated as completed lesson prerequisites.
 

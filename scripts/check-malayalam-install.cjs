@@ -45,6 +45,7 @@ fs.mkdirSync(out, { recursive: true });
     const installability = await cdp.send('Page.getInstallabilityErrors');
     // Headless browser engagement/install-promotion policies can differ; record
     // native diagnostics separately from deterministic configuration checks.
+    await page.getByText('Add to your device', { exact: false }).click();
     await page.getByRole('button', { name: 'Add to home screen', exact: true }).click();
     await page.locator('.ml-install-dialog[open]').waitFor();
     await page.screenshot({ path: path.join(out, 'install-help-mobile.png') });
@@ -73,19 +74,22 @@ fs.mkdirSync(out, { recursive: true });
 
     await context.setOffline(true);
     await page.locator('.ml-connection-notice').waitFor();
-    await page.getByRole('button', { name: 'തുടങ്ങാം', exact: true }).click();
+    await page.getByRole('button', { name: /വാക്കുകൾ/ }).click();
+    await page.getByRole('button', { name: 'Open preview 1: തറ', exact: true }).click();
     await page.getByRole('button', { name: 'Next', exact: true }).click();
     await page.getByRole('button', { name: 'Stop here', exact: true }).click();
     await context.setOffline(false);
     await page.locator('.ml-connection-notice').waitFor({ state: 'hidden' });
     await page.reload({ waitUntil: 'networkidle' });
-    await page.getByRole('button', { name: 'തുടരാം', exact: true }).click();
+    await page.getByRole('button', { name: /വാക്കുകൾ/ }).click();
+    await page.getByRole('button', { name: 'Open preview 1: തറ', exact: true }).click();
     assert.equal(await page.locator('.ml-model-letter').innerText(), 'ത');
     await page.keyboard.press('Escape');
 
     const ios = await browser.newContext({ viewport: { width: 390, height: 844 }, userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1' });
     const iosPage = await ios.newPage();
     await iosPage.goto(base + '/malayalam/dashboard', { waitUntil: 'networkidle' });
+    await iosPage.getByText('Add to your device', { exact: false }).click();
     await iosPage.getByRole('button', { name: 'Add to home screen', exact: true }).click();
     assert.match(await iosPage.locator('.ml-install-dialog').innerText(), /Open this page in Safari/);
     await iosPage.screenshot({ path: path.join(out, 'install-ios-guidance.png') });

@@ -37,7 +37,7 @@ async function mockMedia(context) {
     const end = () => page.evaluate(() => window.__end());
     const step = () => page.locator('[data-step]').getAttribute('data-step');
     await page.goto(base + '/malayalam/dashboard');
-    await page.getByRole('link', { name: 'പഠിക്കാം', exact: true }).click();
+    await page.getByRole('link', { name: 'തുടങ്ങാം', exact: true }).click();
     await page.getByRole('button', { name: 'Start first lesson', exact: true }).click();
     assert.equal(await step(), 'meaning');
     await page.screenshot({ path: `${output}/first-lesson-meaning-mobile.png`, fullPage: true });

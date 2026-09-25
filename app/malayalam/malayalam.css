@@ -2022,9 +2022,6 @@
   line-height: 1.7;
 }
 .ml-app :is(button, a) { touch-action: manipulation; }
-.ml-ready-lesson { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:25px; background:#fff; border:2px solid #badad6; border-radius:22px; margin-bottom:24px; }
-.ml-ready-lesson h2 { font-size:25px; margin:8px 0; }
-.ml-ready-lesson p { font-size:13px; margin:0; }
 .ml-first-lesson { min-height:100dvh; background:radial-gradient(ellipse at top,#eaf5f1,transparent 65%),#fafaf7; }
 .ml-lesson-header { max-width:1080px; margin:auto; display:flex; justify-content:space-between; align-items:center; gap:16px; padding:22px 28px; }
 .ml-lesson-exit { display:flex; align-items:center; gap:9px; padding:12px; min-height:48px; font-size:13px; }
@@ -2071,9 +2068,6 @@
 .ml-lesson-footer { display:flex; justify-content:space-between; align-items:center; gap:16px; border-top:1px solid #e3ece8; padding-top:20px; }
 .ml-lesson-footer a { display:flex; align-items:center; gap:8px; min-height:48px; font-size:13px; }
 @media(max-width:600px) {
-  .ml-ready-lesson { padding:20px; flex-wrap:wrap; }
-  .ml-ready-lesson h2 { font-size:23px; }
-  .ml-ready-lesson p { font-size:12px; }
   .ml-lesson-header { padding:12px 14px; }
   .ml-lesson-header .ml-wordmark { font-size:17px; }
   .ml-lesson-header .ml-brand img { width:32px; height:32px; }
