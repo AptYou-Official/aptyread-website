@@ -8,10 +8,17 @@ Implemented 25 September 2026 in the existing AptyRead Next.js website. Prepared
 | --- | --- |
 | `/malayalam` | Parent-facing programme homepage using the current indigo, cyan and cream brand, existing Apty mascot, a first-word illustration, five planned levels, FAQs and dashboard entry buttons |
 | `/malayalam/dashboard` | Child-facing start/continue card, three selectable word previews, word corner and an optional preview-information disclosure |
+| `/malayalam/learn/first-word` | First reading lesson prototype: meaning, forms, choices, joining, explicit tile submission, picture meaning and exact resume |
 
 Both routes carry `noindex, nofollow` during development and are intentionally absent from the public sitemap and existing website navigation. These settings do not provide access control: after deployment, anyone with a page URL can open the preview.
 
 ## Working interactions
+
+The new first-reading-lesson entry on the dashboard opens a separate child-led route with ten states. It saves a versioned position, partial tile construction, displayed choice order, first response, one optional supported retry, help and actual audio start/end events under `apty.malayalam.CL1-E01.v1`. The recent event log is capped at 300 entries. It sends no learner events to a server. The previous preview key is retained separately and is never treated as completed lesson prerequisites.
+
+`lib/malayalam-first-lesson.ts` declares the lesson states and record validation. `FirstWordLesson.tsx` supplies the reading activities. `LessonScenes.tsx` contains the new floor and whole-head illustrations for review. The form and word models are intentionally revealed during teaching. A18 must finish before the sound-to-print choice is enabled; W01 must finish before the listening-supported meaning choice is enabled. An unavailable recording does not become an incorrect response; children can replay or continue without a submitted answer. Wrong answers preserve the first response and offer a model plus one supported retry. Reaching the final screen is `reachedEnd`, not mastery.
+
+The reading flow uses static printed forms and the recorded joining model; it does not claim to deliver a formation video or an approved handwriting movement. Writing and tracing are pending those assets. The revised delivery plan is in `LEVEL_1_REVISED_DELIVERY_PLAN.md`; it reconciles the old word inventory and flags new phrase candidates for educator review rather than bulk production.
 
 The dashboard opens three lightweight previews for തറ, തല and മല. Letter slides show a static form with an explicit formation-video placeholder. The final slide offers a visible-model tile match, feedback, retry and an unrestricted return to the dashboard. These slides demonstrate interface behaviour; they do not implement the full three-episode curriculum specification.
 
@@ -43,8 +50,10 @@ The browser check uses Playwright and a local Chromium-family browser. Set `PLAY
 
 `scripts/check-malayalam-audio.cjs` exercises audio cancellation, queues, mute, feedback, blocked playback, missing-file retry and mobile layout with a controlled media double. A separate real-media pass verifies that Bunny recordings decode, play and advance in the browser. This does not validate pronunciation or playback on every physical device; review those with the actual child-facing experience.
 
+`scripts/check-malayalam-first-lesson.cjs` checks the new route, first-response preservation, limited supported retries, explicit submission/undo, partial-build resume, audio-input readiness, skipping without credit, corrupted/blocked storage, responsive layouts and the measurement boundary. Set `PREVIEW_URL` to the active server; this script defaults to port 3101. Its controlled audio test checks activity logic; use the shared real-media suite and physical-device review for playback.
+
 ## Next implementation slice
 
-Replace these intentionally small previews with the reviewed activities in `CHILD_LED_OPENING_THREE_LESSONS.md`, using a reusable activity player and explicit content IDs. Extend the existing audio support and add reviewed illustrations, formation paths and video assets as they become ready. The current prototype does not include tracing, handwriting evaluation, independent-reading checks, payments or a full learner backend.
+Review the first reading flow and its exact pictures/audio; add its approved writing assets when available. Extend the activity and persistence patterns to E02 retrieval before replay, then E03, as specified in `CHILD_LED_OPENING_THREE_LESSONS.md`. The earlier small previews remain useful for quick audio checks. The current prototype does not include tracing, handwriting evaluation, independent-reading checks, payments or a full learner backend.
 
 Review the parent-facing copy and dashboard with the founder first. Before evaluating children learning independently, supply the exact spoken guidance and teaching models for that slice. Keep help exposure and practice separate from observed performance, as defined in `CHILD_LED_LEARNING_SPEC.md`.

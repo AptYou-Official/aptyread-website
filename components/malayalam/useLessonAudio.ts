@@ -3,12 +3,15 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { malayalamAudioUrl, type MalayalamAudioId } from '@/lib/malayalam-audio';
 
+type PlaybackObserver = { onStart?: (clip: MalayalamAudioId) => void; onEnd?: (clip: MalayalamAudioId) => void; onError?: (clip: MalayalamAudioId) => void };
+
 export default function useLessonAudio() {
   const element = useRef<HTMLAudioElement | null>(null);
   const generation = useRef(0);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const mutedRef = useRef(false);
   const last = useRef<MalayalamAudioId[]>([]);
+  const lastObserver = useRef<PlaybackObserver>({});
   const [muted, setMuted] = useState(false);
   const [status, setStatus] = useState<'idle' | 'loading' | 'playing' | 'error'>('idle');
 
@@ -27,15 +30,18 @@ export default function useLessonAudio() {
 
   const stop = useCallback(() => { cancel(); setStatus('idle'); }, [cancel]);
 
-  const play = useCallback((clips: MalayalamAudioId[]) => {
+  const play = useCallback((clips: MalayalamAudioId[], observer: PlaybackObserver = {}) => {
     cancel();
     last.current = clips;
+    lastObserver.current = observer;
     if (mutedRef.current || clips.length === 0) { setStatus('idle'); return; }
     const token = generation.current;
+    let activeClip = clips[0];
     // Reuse one media element; the first play is called directly by a tap.
     const audio = element.current || (element.current = new Audio());
     const fail = () => {
       if (token !== generation.current) return;
+      observer.onError?.(activeClip);
       cancel();
       setStatus('error');
     };
@@ -43,13 +49,20 @@ export default function useLessonAudio() {
       if (token !== generation.current) return;
       if (timer.current) clearTimeout(timer.current);
       if (index === clips.length) { setStatus('idle'); return; }
+      activeClip = clips[index];
       setStatus('loading');
-      audio.onended = () => playAt(index + 1);
+      let announced = false;
+      audio.onended = () => {
+        if (token !== generation.current) return;
+        observer.onEnd?.(clips[index]);
+        playAt(index + 1);
+      };
       audio.onerror = fail;
       audio.onplaying = () => {
         if (token !== generation.current) return;
         if (timer.current) clearTimeout(timer.current);
         setStatus('playing');
+        if (!announced) { announced = true; observer.onStart?.(clips[index]); }
       };
       audio.onwaiting = () => {
         if (token !== generation.current) return;
@@ -69,7 +82,7 @@ export default function useLessonAudio() {
     setMuted(mutedRef.current);
     stop();
   }, [stop]);
-  const retry = useCallback(() => play(last.current), [play]);
+  const retry = useCallback(() => play(last.current, lastObserver.current), [play]);
 
   useEffect(() => {
     const hide = () => { if (document.hidden) stop(); };
