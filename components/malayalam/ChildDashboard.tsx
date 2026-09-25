@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { HillScene, Icon, MalayalamBrand } from './Shared';
+import InstallApp from './InstallApp';
+import ConnectionNotice from './ConnectionNotice';
 
 const STORAGE_KEY = 'apty.malayalam.preview.v1';
 const episodes = [
@@ -86,6 +88,7 @@ export default function ChildDashboard() {
     <div className="ml-dashboard-body">
       <header className="ml-dash-header"><a href="/malayalam" className="ml-mobile-brand">Apty<span>Malayalam</span></a><span className="ml-dash-breadcrumb">MY LEARNING SPACE <span>/</span> MALAYALAM</span><span className="ml-preview-badge"><span /> Early preview</span></header>
       <main id="child-main" className="ml-dash-main">
+        <ConnectionNotice />
         <section className="ml-dash-welcome"><div><span className="ml-eyebrow">A LITTLE ADVENTURE WITH APTY</span><h1 lang="ml">നമുക്ക് വായിക്കാം!</h1><p>Little steps. Lovely discoveries.</p></div><div className="ml-welcome-sun"><Icon name="sun" size={42} /></div></section>
         {tab === 'path' ? <>
           <section className="ml-next-card" aria-labelledby="next-title"><div className="ml-next-copy"><span className="ml-mini-label">LEVEL 1 · FIRST WORDS</span><h2 id="next-title" lang="ml">{hasSaved ? 'വീണ്ടും നോക്കാം!' : 'ആദ്യ ചുവട്'}</h2><p>{hasSaved ? 'Your preview is right where you left it.' : 'Meet a letter. Discover a word.'}</p><button className="ml-btn ml-btn-large" onClick={() => start()} disabled={!ready}><span lang="ml">{hasSaved ? 'തുടരാം' : 'തുടങ്ങാം'}</span><Icon name="arrow" /></button><small>{hasSaved ? `Continue preview ${position.episode + 1}` : 'Start the first preview'}</small></div><div className="ml-next-art"><span className="ml-floating-letter" lang="ml">{episode.forms[position.step]}</span><Image src="/images/apty-mascot.png" width={260} height={260} alt="Apty is ready to explore with you" priority /><span className="ml-next-spark">✦</span></div></section>
@@ -93,6 +96,7 @@ export default function ChildDashboard() {
           <section className="ml-gentle-note"><span><Icon name="leaf" size={27} /></span><div><h3>Your pace is a good pace.</h3><p>Explore a little. Take a break. Your place will be here.</p></div></section>
         </> : <section className="ml-word-corner"><span className="ml-eyebrow">WORDS TO EXPLORE</span><h2 lang="ml">വാക്കുകളുടെ ലോകം</h2><p>Revisit a preview. These are words to meet, not a record of words mastered.</p><div className="ml-word-grid">{episodes.map((item, index) => <button key={item.title} onClick={() => start(index)} disabled={!ready}>{index === 2 ? <HillScene small /> : <Icon name={item.icon} size={44} />}<span lang="ml">{item.title}</span><small>Open preview <span aria-hidden="true">↗</span></small></button>)}</div></section>}
         <details className="ml-grownup-note"><summary>About this preview <span aria-hidden="true">+</span></summary><p>This is an interface preview. The three word previews have video placeholders; spoken instructions and approved writing guides are still to come. Preview visits are not reading assessments. Children will need the completed guidance before we can evaluate solo learning.</p><p>{storageAvailable ? 'Only your last preview position is saved in this browser. No account is needed, and it does not sync to other devices.' : 'Browser storage is unavailable. You can keep exploring, but your place may not be saved after leaving.'}</p></details>
+        <InstallApp />
         {!storageAvailable && <p className="ml-storage-note" role="status">Your place is kept for this visit only.</p>}
       </main>
     </div>

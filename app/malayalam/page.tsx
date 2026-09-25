@@ -1,13 +1,15 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { HillScene, Icon, MalayalamBrand } from '@/components/malayalam/Shared';
+import InstallApp from '@/components/malayalam/InstallApp';
+import { malayalamSocialImage } from '@/lib/malayalam-metadata';
 
 export const metadata: Metadata = {
   title: 'AptyMalayalam — Little steps. A world of words.',
   description: 'Discover a child-led Malayalam literacy programme for Malayalam-speaking beginners, around age five and up. Explore the early learning preview.',
   alternates: { canonical: 'https://www.aptyread.ai/malayalam' },
-  openGraph: { title: 'AptyMalayalam — Little steps. A world of words.', description: 'From familiar spoken words to reading Malayalam. Explore our early preview.', url: 'https://www.aptyread.ai/malayalam' },
-  twitter: { title: 'AptyMalayalam', description: 'Little steps. A world of Malayalam words.' },
+  openGraph: { title: 'AptyMalayalam — Little steps. A world of words.', description: 'From familiar spoken words to reading Malayalam. Explore our early preview.', url: 'https://www.aptyread.ai/malayalam', siteName: 'AptyMalayalam by AptyRead', type: 'website', images: [malayalamSocialImage] },
+  twitter: { card: 'summary_large_image', title: 'AptyMalayalam', description: 'Little steps. A world of Malayalam words.', images: [malayalamSocialImage.url] },
   robots: { index: false, follow: false },
 };
 
@@ -81,6 +83,7 @@ export default function MalayalamHome() {
 
       <section className="ml-last-cta ml-container"><div><span className="ml-eyebrow">LET CURIOSITY TAKE THE FIRST STEP</span><h2>A little word.<br />A whole new world.</h2><p>Come and see the beginning of AptyMalayalam.</p><a className="ml-btn ml-btn-large" href="/malayalam/dashboard">Try the learning preview <Icon name="arrow" /></a><small>No sign-up. No download. Just a first look.</small></div><Image src="/images/apty-mascot.png" width={240} height={240} alt="Apty welcomes you to explore" /></section>
     </main>
+    <div className="ml-install-section ml-container"><InstallApp /></div>
     <footer className="ml-footer ml-container"><MalayalamBrand /><p>A little closer to the language they call home.</p><nav aria-label="Footer"><a href="/">AptyRead</a><a href="/privacy">Privacy</a><a href="/contact">Contact</a></nav></footer>
   </>;
 }

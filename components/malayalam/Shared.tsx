@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export function Icon({ name, size = 24 }: { name: 'arrow' | 'play' | 'book' | 'home' | 'sound' | 'pencil' | 'close' | 'check' | 'sun' | 'leaf' | 'floor' | 'head' | 'hill'; size?: number }) {
+export function Icon({ name, size = 24 }: { name: 'arrow' | 'play' | 'book' | 'home' | 'sound' | 'pencil' | 'close' | 'check' | 'sun' | 'leaf' | 'floor' | 'head' | 'hill' | 'install'; size?: number }) {
   const paths = {
     arrow: <><path d="M5 12h14M13 6l6 6-6 6" /></>,
     play: <path d="m9 5 11 7-11 7V5Z" />,
@@ -15,6 +15,7 @@ export function Icon({ name, size = 24 }: { name: 'arrow' | 'play' | 'book' | 'h
     floor: <><path d="m6 6-4 14h20L18 6H6ZM4 13h16M10 6l-1 14M14 6l1 14" /></>,
     head: <><path d="M5 10C5 0 19 0 19 10c4-1 3 5 0 5-1 9-13 9-14 0-3 0-4-6 0-5Z" /><path d="M8 11h.1M16 11h.1M9 16q3 3 6 0M5 8q5 0 6-4 2 4 8 4" /></>,
     hill: <><path d="m2 21 8-13 4 5 3-9 5 17H2ZM14 13l3 2 3-2" /></>,
+    install: <><rect x="5" y="2" width="14" height="20" rx="3" /><path d="M12 6v9m-4-4 4 4 4-4M10 19h4" /></>,
   };
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>;
 }

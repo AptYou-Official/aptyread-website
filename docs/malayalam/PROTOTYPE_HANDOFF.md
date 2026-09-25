@@ -17,6 +17,8 @@ The dashboard opens three lightweight previews for തറ, തല and മല. Le
 
 The last preview and slide are stored under `apty.malayalam.preview.v1` in browser local storage. Closing, stopping and returning preserve that position. No account, name, recording, remote learner record or cross-device synchronization is implemented. A visit does not imply lesson completion or mastery. Tile attempts are transient and unscored; an interrupted tile construction restarts on return to its slide.
 
+Installation support and Malayalam-specific sharing cards were added in a follow-up. See `SHARING_IMAGE_AND_INSTALLATION.md` for the manifest, platform guidance, scope, image provenance and verification boundaries. Installed launch goes directly to the dashboard; this remains an online preview without offline cold launch.
+
 Missing or invalid storage returns to a fresh preview. If storage is blocked, the experience remains usable for the current visit and explains that it cannot retain the position. Future accounts and multiple learners on a shared device will require an explicit learner model; this prototype has one anonymous browser position.
 
 The native preview dialog supports Escape, an explicit close button, focus containment and returning focus to its trigger. Mobile navigation sits at the bottom; desktop navigation is on the left. Malayalam text uses a locally served Next.js font asset generated from Noto Sans Malayalam during build. No browser request to Google Fonts is required.

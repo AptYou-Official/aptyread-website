@@ -51,7 +51,7 @@ fs.mkdirSync(out, { recursive: true });
     await page.getByRole('button', { name: 'Back to my path', exact: true }).click();
     for (const i of [2, 3]) {
       await page.getByRole('button', { name: new RegExp(`Open preview ${i}:`) }).click();
-      assert.match(await page.locator('dialog header').innerText(), new RegExp(`WORD PREVIEW ${i}`));
+      assert.match(await page.locator('.ml-preview-dialog header').innerText(), new RegExp(`WORD PREVIEW ${i}`));
       await page.getByRole('button', { name: 'Close preview and save position' }).click();
     }
     await page.getByRole('button', { name: 'വാക്കുകൾ Word corner', exact: true }).click();

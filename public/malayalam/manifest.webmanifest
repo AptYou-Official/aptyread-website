@@ -1,0 +1,19 @@
+{
+  "id": "/malayalam",
+  "name": "AptyMalayalam",
+  "short_name": "AptyMalayalam",
+  "description": "Little steps. A world of Malayalam words. Explore the AptyMalayalam learning preview.",
+  "lang": "en",
+  "start_url": "/malayalam/dashboard",
+  "scope": "/malayalam",
+  "display": "standalone",
+  "background_color": "#FAFAF7",
+  "theme_color": "#FAFAF7",
+  "prefer_related_applications": false,
+  "categories": ["education", "kids"],
+  "icons": [
+    { "src": "/malayalam/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/malayalam/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/malayalam/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
