@@ -40,6 +40,14 @@ async function mockMedia(context) {
     await page.getByRole('link', { name: 'തുടങ്ങാം', exact: true }).click();
     await page.getByRole('button', { name: 'Start first lesson', exact: true }).click();
     assert.equal(await step(), 'meaning');
+    assert.equal(await page.getByRole('button', { name: 'Mute lesson sound', exact: true }).isVisible(), false);
+    await page.getByLabel('Lesson settings', { exact: true }).click();
+    await page.getByRole('button', { name: 'Mute lesson sound', exact: true }).click();
+    assert.equal(await page.evaluate(() => window.__audio.paused), true);
+    await page.keyboard.press('Escape');
+    assert.equal(await page.getByRole('button', { name: 'Turn lesson sound on', exact: true }).isVisible(), false);
+    await page.getByRole('button', { name: 'Listen again', exact: true }).click();
+    assert.equal(await page.evaluate(() => window.__audio.paused), false, 'A deliberate Listen tap restores sound');
     await page.screenshot({ path: `${output}/first-lesson-meaning-mobile.png`, fullPage: true });
     await end(); await next();
     assert.equal(await step(), 'ra');
@@ -92,9 +100,17 @@ async function mockMedia(context) {
     await end();
     await page.getByRole('button', { name: 'Listen again', exact: true }).click();
     assert.equal(await page.evaluate(() => window.__clips.at(-1)), 'A20.mp3', 'Replay is neutral once the intended word input is heard');
+    assert.equal(await page.locator('.ml-lesson-audio button').count(), 2);
+    await page.getByRole('button', { name: 'Show me help', exact: true }).click();
+    assert.equal((await read()).attempts['meaning-choice'].helped, true);
+    assert.equal(await page.locator('.ml-revealed-choice').count(), 1, 'Apty reveals the actual activity model');
     for (const width of [320, 390, 768, 1280]) {
       await page.setViewportSize({ width, height: 900 });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+      for (const name of ['Listen again', 'Show me help', 'Continue lesson']) {
+        const bounds = await page.getByRole('button', { name, exact: true }).boundingBox();
+        assert.ok(bounds.width >= 48 && bounds.height >= 48, `${name} has a large touch target`);
+      }
       if (width === 390 || width === 1280) await page.screenshot({ path: `${output}/first-lesson-choice-${width}.png`, fullPage: true });
     }
     await page.getByRole('button', { name: 'Choose the head picture', exact: true }).click();
@@ -124,7 +140,7 @@ async function mockMedia(context) {
     assert.equal(await bp.locator('[data-step]').getAttribute('data-step'), 'ra');
     assert.match(await bp.locator('.ml-storage-note').textContent(), /this visit only/);
     await blocked.close();
-    const report = { result: 'passed', checks: ['dashboard entry', '10 reading states', 'first responses preserved', 'one optional supported retry', 'exact partial tile resume', 'explicit tile submit and undo', 'audio failure is not incorrect', 'intended audio input before choices', 'neutral repeat after word input', 'no forced correct-answer gate', 'skip does not award correctness', 'no mastery from finish', 'corrupt and blocked storage', 'no A25 request', 'no marketing requests', 'responsive 320/390/768/1280'] };
+    const report = { result: 'passed', checks: ['dashboard entry', '10 reading states', 'sound settings disclosure and Escape', 'Listen restores muted audio', 'Apty Help reveals model and records support', 'large touch targets', 'first responses preserved', 'one optional supported retry', 'exact partial tile resume', 'explicit tile submit and undo', 'audio failure is not incorrect', 'intended audio input before choices', 'neutral repeat after word input', 'no forced correct-answer gate', 'skip does not award correctness', 'no mastery from finish', 'corrupt and blocked storage', 'no A25 request', 'no marketing requests', 'responsive 320/390/768/1280'] };
     fs.writeFileSync(`${output}/first-lesson-checks.json`, JSON.stringify(report, null, 2));
     console.log(JSON.stringify(report));
   } finally { await browser.close(); }

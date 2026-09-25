@@ -15,6 +15,7 @@ export default function FirstWordLesson() {
   const [ready, setReady] = useState(false);
   const [running, setRunning] = useState(false);
   const [storageAvailable, setStorageAvailable] = useState(true);
+  const settings = useRef<HTMLDetailsElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
   const audio = useLessonAudio();
   const step = firstLessonSteps.find(s => s.id === record.step)!;
@@ -56,6 +57,7 @@ export default function FirstWordLesson() {
   }
   function enter(id: StepId) {
     audio.stop();
+    if (settings.current) settings.current.open = false;
     const r = current.current;
     const next = firstLessonSteps.find(s => s.id === id)!;
     persist({ ...r, step: id, visited: Array.from(new Set([...r.visited, id])), attempts: { ...r.attempts, [id]: r.attempts[id] || newAttempt(id) }, reachedEnd: r.reachedEnd || id === 'finish' });
@@ -69,6 +71,12 @@ export default function FirstWordLesson() {
     if (stepIndex < firstLessonSteps.length - 1) enter(firstLessonSteps[stepIndex + 1].id);
   }
   function exit() { audio.stop(); log('stop', 'position_saved'); }
+  function replay() {
+    // A deliberate Listen tap restores sound; merely opening settings does not.
+    if (audio.muted) audio.toggleMute();
+    log('instruction_replay');
+    speak(step.id === 'meaning-choice' && attempt?.inputHeard ? ['A20'] : step.audio);
+  }
   function help() {
     updateAttempt(a => ({ ...a, helped: true, revealed: true }));
     log('help', 'answer_model');
@@ -101,7 +109,13 @@ export default function FirstWordLesson() {
   const selected = attempt?.selected !== null && attempt?.selected !== undefined;
 
   return <div className="ml-first-lesson">
-    <header className="ml-lesson-header"><MalayalamBrand compact /><a href="/malayalam/dashboard" onClick={exit} className="ml-lesson-exit" aria-label="Stop lesson and save"><Icon name="home" size={21} /><span lang="ml">ഇവിടെ നിർത്താം</span></a></header>
+    <header className="ml-lesson-header"><MalayalamBrand compact /><div className="ml-lesson-header-actions">
+      <a href="/malayalam/dashboard" onClick={exit} className="ml-lesson-exit ml-picture-control" aria-label="Stop lesson and save"><Icon name="home" size={28} /><span lang="ml">എന്റെ വഴി</span></a>
+      <details ref={settings} className="ml-lesson-settings" onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) event.currentTarget.open = false; }} onKeyDown={event => { if (event.key === 'Escape') { event.currentTarget.open = false; event.currentTarget.querySelector('summary')?.focus(); } }}>
+        <summary aria-label="Lesson settings"><Icon name={audio.muted ? 'muted' : 'settings'} size={25} /></summary>
+        <div className="ml-lesson-settings-panel"><button className="ml-lesson-soft" onClick={audio.toggleMute} aria-pressed={audio.muted} aria-label={audio.muted ? 'Turn lesson sound on' : 'Mute lesson sound'}><Icon name={audio.muted ? 'muted' : 'sound'} /><span lang="ml">{audio.muted ? 'ശബ്ദം ഓണാക്കാം' : 'ശബ്ദം ഓഫ് ചെയ്യാം'}</span></button></div>
+      </details>
+    </div></header>
     <main className="ml-lesson-main">
       <ConnectionNotice />
       {!running ? <section className="ml-lesson-start">
@@ -109,7 +123,7 @@ export default function FirstWordLesson() {
         <Image src="/images/apty-mascot.png" alt="" width={170} height={170} priority />
         <h1 lang="ml">നമുക്ക് തുടങ്ങാം!</h1>
         <p>A little listening. A little reading. Your own pace.</p>
-        <button className="ml-btn ml-btn-large" disabled={!ready} onClick={() => enter(current.current.step)} aria-label="Start first lesson"><span lang="ml">{record.visited.length ? 'തുടരാം' : 'തുടങ്ങാം'}</span><Icon name="arrow" /></button>
+        <button className="ml-btn ml-btn-large ml-picture-control ml-lesson-forward" disabled={!ready} onClick={() => enter(current.current.step)} aria-label="Start first lesson"><span lang="ml">{record.visited.length ? 'തുടരാം' : 'തുടങ്ങാം'}</span><Icon name="arrow" size={38} /></button>
         <details className="ml-lesson-info"><summary>About this lesson</summary><p>This is the first reading lesson in development. It includes meaning, letter models, choices and guided word building. Handwriting videos and tracing await approved movement models. Reaching the end records a visit, not mastery. Observations are saved only in this browser; no child name, microphone or parent score is required.</p></details>
       </section> : <section className="ml-lesson-panel" data-step={step.id}>
         <div className="ml-lesson-progress" aria-label={`Activity ${stepIndex + 1} of ${firstLessonSteps.length}`}><span style={{ width: `${(stepIndex + 1) / firstLessonSteps.length * 100}%` }} /></div>
@@ -135,23 +149,22 @@ export default function FirstWordLesson() {
             <span className="ml-choice-reference" lang="ml">തറ</span>
             <div className="ml-word-slots" lang="ml" aria-label={`Your word: ${attempt?.built.join('') || 'empty'}`}>{[0, 1].map(i => <span key={i}>{attempt?.built[i] || '·'}</span>)}</div>
             <div className="ml-choice-tiles">{attempt?.options.map(tile => <button key={tile} lang="ml" aria-label={`Add ${tile}`} disabled={selected || attempt.built.length === 2} onClick={() => addTile(tile)}>{tile}</button>)}</div>
-            <div className="ml-build-actions"><button className="ml-lesson-soft" aria-label="Undo last letter" disabled={selected || !attempt?.built.length} onClick={() => { updateAttempt(a => ({ ...a, built: a.built.slice(0, -1) })); speak(['U06']); }}><span aria-hidden="true">↶</span><span lang="ml">മാറ്റാം</span></button><button className="ml-btn" aria-label="Check my word" disabled={selected || attempt?.built.length !== 2} onClick={() => answer(attempt!.built.join(''))}><Icon name="check" /><span lang="ml">തയ്യാറായി</span></button></div>
+            <div className="ml-build-actions"><button className="ml-lesson-soft ml-picture-control" aria-label="Undo last letter" disabled={selected || !attempt?.built.length} onClick={() => { updateAttempt(a => ({ ...a, built: a.built.slice(0, -1) })); speak(['U06']); }}><Icon name="retry" size={28} /><span lang="ml">മാറ്റാം</span></button><button className="ml-btn ml-picture-control" aria-label="Check my word" disabled={selected || attempt?.built.length !== 2} onClick={() => answer(attempt!.built.join(''))}><Icon name="check" size={32} /><span lang="ml">തയ്യാറായി</span></button></div>
           </div>}
         </div>
         <div className="ml-lesson-feedback" role="status">
-          {selected && result && <><span lang="ml">{result.correct ? 'ശരി.' : 'നമുക്ക് ഒരുമിച്ച് നോക്കാം.'}</span>{!result.correct && !attempt?.retryUsed && <button onClick={retryChoice} className="ml-lesson-soft" aria-label="Try once more"><span lang="ml">ഒന്നുകൂടി നോക്കാം</span><Icon name="arrow" size={18} /></button>}</>}
+          {selected && result && <><span lang="ml">{result.correct ? 'ശരി.' : 'നമുക്ക് ഒരുമിച്ച് നോക്കാം.'}</span>{!result.correct && !attempt?.retryUsed && <button onClick={retryChoice} className="ml-lesson-soft ml-picture-control" aria-label="Try once more"><Icon name="retry" size={28} /><span lang="ml">ഒന്നുകൂടി നോക്കാം</span></button>}</>}
           {!selected && attempt?.revealed && <span lang="ml">നമുക്ക് ഒരുമിച്ച് നോക്കാം.</span>}
         </div>
         <div className="ml-lesson-audio">
-          <button className="ml-lesson-soft" disabled={audio.muted} onClick={() => { log('instruction_replay'); speak(step.id === 'meaning-choice' && attempt?.inputHeard ? ['A20'] : step.audio); }} aria-label="Listen again"><Icon name="sound" /><span lang="ml">വീണ്ടും കേൾക്കാം</span></button>
-          {checkedStep && <button className="ml-lesson-soft" disabled={audio.muted} onClick={help} aria-label="Show me help"><Icon name="play" /><span lang="ml">കാണിച്ചുതരൂ</span></button>}
-          <button className="ml-lesson-soft ml-sound-toggle" onClick={audio.toggleMute} aria-pressed={audio.muted} aria-label={audio.muted ? 'Turn lesson sound on' : 'Mute lesson sound'}><Icon name="sound" /><span lang="ml">{audio.muted ? 'ഓൺ' : 'ഓഫ്'}</span></button>
+          <button className="ml-lesson-soft ml-picture-control ml-listen-control" onClick={replay} aria-label="Listen again"><Icon name="replay-sound" size={38} /><span lang="ml">വീണ്ടും കേൾക്കാം</span></button>
+          {checkedStep && <button className="ml-lesson-soft ml-picture-control ml-help-control" onClick={help} aria-label="Show me help"><Image src="/images/apty-mascot.png" alt="" width={52} height={52} /><span lang="ml">കാണിച്ചുതരൂ</span></button>}
         </div>
         <div className="ml-lesson-audio-status" role="status">
-          {audio.status === 'error' ? <><span lang="ml">ശബ്ദം കേൾക്കാനായില്ല.</span><button className="ml-lesson-soft" onClick={audio.retry} aria-label="Retry lesson audio"><Icon name="play" /><span lang="ml">വീണ്ടും ശ്രമിക്കാം</span></button></> : audio.status === 'loading' ? <span lang="ml">ഒരു നിമിഷം…</span> : !inputReady && audio.muted ? <span lang="ml">കേൾക്കാൻ ശബ്ദം ഓണാക്കൂ.</span> : null}
+          {audio.status === 'error' ? <><span lang="ml">ശബ്ദം കേൾക്കാനായില്ല.</span><button className="ml-lesson-soft ml-picture-control" onClick={audio.retry} aria-label="Retry lesson audio"><Icon name="replay-sound" size={32} /><span lang="ml">വീണ്ടും ശ്രമിക്കാം</span></button></> : audio.status === 'loading' ? <span lang="ml">ഒരു നിമിഷം…</span> : !inputReady && audio.muted ? <span lang="ml">കേൾക്കാൻ ശബ്ദം ഓണാക്കൂ.</span> : null}
         </div>
-        <footer className="ml-lesson-footer"><a href="/malayalam/dashboard" onClick={exit} className="ml-text-button" aria-label="Save and return to my path"><Icon name="home" size={20} /><span lang="ml">എന്റെ വഴി</span></a>
-          {step.id !== 'finish' ? <button className="ml-btn" onClick={advance} aria-label="Continue lesson"><span lang="ml">തുടരാം</span><Icon name="arrow" /></button> : <button className="ml-btn" aria-label="Explore the lesson again" onClick={() => { const events = current.current.events; persist({ ...freshFirstLesson(), events }); log('restart', 'new_practice_visit'); enter('meaning'); }}><span lang="ml">വീണ്ടും നോക്കാം</span><Icon name="arrow" /></button>}
+        <footer className="ml-lesson-footer"><a href="/malayalam/dashboard" onClick={exit} className="ml-text-button ml-picture-control" aria-label="Save and return to my path"><Icon name="home" size={28} /><span lang="ml">എന്റെ വഴി</span></a>
+          {step.id !== 'finish' ? <button className="ml-btn ml-picture-control ml-lesson-forward" onClick={advance} aria-label="Continue lesson"><Icon name="arrow" size={38} /><span lang="ml">തുടരാം</span></button> : <button className="ml-btn ml-picture-control ml-lesson-forward" aria-label="Explore the lesson again" onClick={() => { const events = current.current.events; persist({ ...freshFirstLesson(), events }); log('restart', 'new_practice_visit'); enter('meaning'); }}><Icon name="retry" size={38} /><span lang="ml">വീണ്ടും നോക്കാം</span></button>}
         </footer>
       </section>}
       {!storageAvailable && <p className="ml-storage-note" role="status">Your place is kept for this visit only. Browser storage is unavailable.</p>}

@@ -12,6 +12,14 @@ This is a reading prototype for founder and educator review. Its custom floor/he
 
 ## Units and production batches
 
+### Familiar controls, varied activity
+
+Keep Listen (speaker/replay), Help (Apty), Home and Continue (arrow) consistent across future full lessons. Large pictures carry the action; short Malayalam captions and accessible names remain. Sound settings sit outside the activity controls. In E01, tapping Listen deliberately restores muted sound; Help can reveal its visual model while muted. Existing instructional recordings remain in use. A first-use spoken introduction explaining the icons still needs a reviewed recording; do not substitute unrelated audio or claim that it is already implemented.
+
+Do not clone E01's ten screens for every new word. Select activities for the learning objective and the child's prior exposure: E01 establishes meaning and introduces matching/building; E02 should begin with a brief retrieval opportunity before modelling, then introduce ല and തല with a meaningful picture task; E03 can use a small scene and word construction after introducing മ and മല. Later review can alternate word-to-picture, sound-to-print, construction and short connected reading once the prerequisites are taught. Writing joins only when its approved assets are ready. These are authoring directions, not additional shipped lessons.
+
+Balance familiar practice with one new demand at a time. Vary the scene, task and meaningful response, while keeping controls predictable. Avoid timers, decorative rewards that interrupt reading, or random activity order that breaks teaching prerequisites. Observe whether children initiate the next action, use Help and remain engaged; adjust repetitions from those observations rather than assuming that novelty improves learning.
+
 | Unit retained | Revised batch | Content and dependencies | Readiness |
 | --- | --- | --- | --- |
 | ആദ്യ ചുവടുകൾ / My First Reading Steps | A: CL1-E01 | റ, ത -> തറ. Meaning, teaching, matching, construction and supported meaning. | Reading flow implemented; review illustrations/audio; add approved writing assets. |

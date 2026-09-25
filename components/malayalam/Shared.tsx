@@ -1,12 +1,16 @@
 import Image from 'next/image';
 
-export function Icon({ name, size = 24 }: { name: 'arrow' | 'play' | 'book' | 'home' | 'sound' | 'pencil' | 'close' | 'check' | 'sun' | 'leaf' | 'floor' | 'head' | 'hill' | 'install'; size?: number }) {
+export function Icon({ name, size = 24 }: { name: 'arrow' | 'play' | 'book' | 'home' | 'sound' | 'replay-sound' | 'muted' | 'settings' | 'retry' | 'pencil' | 'close' | 'check' | 'sun' | 'leaf' | 'floor' | 'head' | 'hill' | 'install'; size?: number }) {
   const paths = {
     arrow: <><path d="M5 12h14M13 6l6 6-6 6" /></>,
     play: <path d="m9 5 11 7-11 7V5Z" />,
     book: <><path d="M12 5v16M12 6C8 3 4 3 2 4v15c4-1 7 0 10 2 3-2 6-3 10-2V4c-2-1-6-1-10 2Z" /></>,
     home: <><path d="m3 10 9-7 9 7v11h-7v-7h-4v7H3V10Z" /></>,
     sound: <><path d="m11 4-6 5H2v6h3l6 5V4ZM15 8c3 2 3 6 0 8M18 4c6 5 6 11 0 16" /></>,
+    'replay-sound': <><path d="m9 5-4 4H2v6h3l4 4V5ZM12 9q3 3 0 6M16 4a8 8 0 1 1-2 16M16 1v4h4" /></>,
+    muted: <><path d="m11 4-6 5H2v6h3l6 5V4ZM16 9l6 6M22 9l-6 6" /></>,
+    settings: <><path d="M4 7h16M4 17h16" /><circle cx="9" cy="7" r="3" fill="currentColor" /><circle cx="16" cy="17" r="3" fill="currentColor" /></>,
+    retry: <><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6" /></>,
     pencil: <><path d="m4 16-1 5 5-1L20 8l-4-4L4 16ZM13 7l4 4" /></>,
     close: <path d="m6 6 12 12M6 18l12-12" />,
     check: <path d="m4 12 5 5L20 6" />,
