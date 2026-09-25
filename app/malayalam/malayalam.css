@@ -2022,6 +2022,38 @@
   line-height: 1.7;
 }
 .ml-app :is(button, a) { touch-action: manipulation; }
+.ml-audio-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+.ml-audio-controls button, .ml-audio-status button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 46px;
+  padding: 9px 12px;
+  border: 1px solid #cbdedc;
+  border-radius: 12px;
+  background: white;
+  color: #173a8a;
+  font-size: 12px;
+}
+.ml-audio-controls button[aria-pressed=true] { background: #e4efef; }
+.ml-audio-status {
+  min-height: 26px;
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #586a7e;
+  font-size: 12px;
+}
 @media (max-width: 760px) {
   .ml-sidebar {
     height: calc(74px + env(safe-area-inset-bottom));

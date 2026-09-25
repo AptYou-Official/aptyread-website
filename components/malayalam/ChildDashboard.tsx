@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from 'react';
 import { HillScene, Icon, MalayalamBrand } from './Shared';
 import InstallApp from './InstallApp';
 import ConnectionNotice from './ConnectionNotice';
+import useLessonAudio from './useLessonAudio';
+import { previewAudio, joiningAudio } from '@/lib/malayalam-audio';
 
 const STORAGE_KEY = 'apty.malayalam.preview.v1';
 const episodes = [
@@ -33,6 +35,12 @@ export default function ChildDashboard() {
   const trigger = useRef<HTMLElement | null>(null);
   const episode = episodes[position.episode];
   const isWord = position.step === episode.forms.length - 1;
+  const audio = useLessonAudio();
+
+  function speakPreview(next: Position) {
+    const item = episodes[next.episode];
+    audio.play(previewAudio(next.episode, item.forms[next.step], next.step === item.forms.length - 1));
+  }
 
   useEffect(() => {
     try {
@@ -64,10 +72,13 @@ export default function ChildDashboard() {
   }
   function start(index?: number) {
     trigger.current = document.activeElement as HTMLElement;
-    save(index === undefined ? position : { episode: index, step: 0 });
+    const next = index === undefined ? position : { episode: index, step: 0 };
+    save(next);
     setOpen(true);
+    speakPreview(next);
   }
   function finish() {
+    audio.stop();
     setOpen(false);
     trigger.current?.focus();
   }
@@ -76,6 +87,7 @@ export default function ChildDashboard() {
     const next = [...built, tile];
     setBuilt(next);
     setFeedback(next.length === 2 ? (next.join('') === episode.title ? 'You matched the word.' : 'Take another look at the model. You can try again.') : '');
+    if (next.length === 2) audio.play(next.join('') === episode.title ? ['A06'] : ['A08', joiningAudio[position.episode]]);
   }
 
   return <div className="ml-dashboard">
@@ -95,15 +107,24 @@ export default function ChildDashboard() {
           <section className="ml-lesson-section"><div className="ml-dash-section-title"><div><h2 lang="ml">വാക്കുകൾ വായിക്കാം</h2><p>Your first three word previews</p></div><span>01 / 05 <small>levels planned</small></span></div><ol className="ml-lesson-cards">{episodes.map((item, index) => <li key={item.title} className={`ml-lesson-card ml-card-${item.colour}`}><div className="ml-card-top"><span className="ml-card-number">0{index + 1}</span><Icon name={item.icon} size={25} /></div><span className="ml-card-word" lang="ml">{item.title}</span><div className="ml-card-bottom"><div><h3>{item.description}</h3><p>{index === 0 ? 'റ + ത' : index === 1 ? 'Meet ല' : 'Meet മ'}</p></div><button disabled={!ready} onClick={() => start(index)} aria-label={`Open preview ${index + 1}: ${item.title}`}><Icon name="arrow" /></button></div></li>)}</ol></section>
           <section className="ml-gentle-note"><span><Icon name="leaf" size={27} /></span><div><h3>Your pace is a good pace.</h3><p>Explore a little. Take a break. Your place will be here.</p></div></section>
         </> : <section className="ml-word-corner"><span className="ml-eyebrow">WORDS TO EXPLORE</span><h2 lang="ml">വാക്കുകളുടെ ലോകം</h2><p>Revisit a preview. These are words to meet, not a record of words mastered.</p><div className="ml-word-grid">{episodes.map((item, index) => <button key={item.title} onClick={() => start(index)} disabled={!ready}>{index === 2 ? <HillScene small /> : <Icon name={item.icon} size={44} />}<span lang="ml">{item.title}</span><small>Open preview <span aria-hidden="true">↗</span></small></button>)}</div></section>}
-        <details className="ml-grownup-note"><summary>About this preview <span aria-hidden="true">+</span></summary><p>This is an interface preview. The three word previews have video placeholders; spoken instructions and approved writing guides are still to come. Preview visits are not reading assessments. Children will need the completed guidance before we can evaluate solo learning.</p><p>{storageAvailable ? 'Only your last preview position is saved in this browser. No account is needed, and it does not sync to other devices.' : 'Browser storage is unavailable. You can keep exploring, but your place may not be saved after leaving.'}</p></details>
+        <details className="ml-grownup-note"><summary>About this preview <span aria-hidden="true">+</span></summary><p>This audio preview includes recorded letter models, word joining and spoken matching directions. Formation videos, writing guides and the complete lesson activities are still being developed. Guided matching is practice, not an independent reading assessment.</p><p>{storageAvailable ? 'Only your last preview position is saved in this browser. No account is needed, and it does not sync to other devices.' : 'Browser storage is unavailable. You can keep exploring, but your place may not be saved after leaving.'}</p></details>
         <InstallApp />
         {!storageAvailable && <p className="ml-storage-note" role="status">Your place is kept for this visit only.</p>}
       </main>
     </div>
     <dialog ref={dialog} className="ml-preview-dialog" aria-labelledby="preview-title" onCancel={(event) => { event.preventDefault(); finish(); }} onClick={event => { if (event.target === dialog.current) finish(); }}>
       <div className="ml-dialog-inner"><header><span className="ml-mini-label">WORD PREVIEW {position.episode + 1} · {position.step + 1} / {episode.forms.length}</span><button className="ml-icon-button" onClick={finish} aria-label="Close preview and save position"><Icon name="close" /></button></header><h2 id="preview-title">{isWord ? 'Put the letters together' : 'Meet a Malayalam letter'}</h2>
-      {!isWord ? <div className="ml-video-placeholder"><span className="ml-model-letter" lang="ml">{episode.forms[position.step]}</span><div><Icon name="play" size={18} /><span>Formation video coming soon</span></div></div> : <div className="ml-word-activity"><span className="ml-model-word" lang="ml">{episode.title}</span><p>Match the word above.</p><div className="ml-word-slots" aria-label={`Your word: ${built.join('') || 'empty'}`} lang="ml">{[0, 1].map(i => <span key={i}>{built[i] || <span aria-hidden="true">·</span>}</span>)}</div><div className="ml-choice-tiles">{[...episode.tiles].reverse().map(tile => <button key={tile} onClick={() => chooseTile(tile)} disabled={built.length === 2} aria-label={`Add ${tile}`} lang="ml">{tile}</button>)}<button className="ml-clear-tiles" onClick={() => { setBuilt([]); setFeedback(''); }}>Try again</button></div><p className="ml-feedback" role="status">{feedback}</p></div>}
-      <p className="ml-dialog-note">Preview only · Spoken guidance and teaching recordings are still being prepared.</p><footer><button className="ml-text-button" onClick={finish}>Stop here</button><button className="ml-btn" onClick={() => isWord ? finish() : save({ ...position, step: position.step + 1 })}>{isWord ? 'Back to my path' : 'Next'}<Icon name="arrow" size={20} /></button></footer></div>
+      {!isWord ? <div className="ml-video-placeholder"><span className="ml-model-letter" lang="ml">{episode.forms[position.step]}</span><div><Icon name="play" size={18} /><span>Formation video coming soon</span></div></div> : <div className="ml-word-activity"><span className="ml-model-word" lang="ml">{episode.title}</span><p>Match the word above.</p><div className="ml-word-slots" aria-label={`Your word: ${built.join('') || 'empty'}`} lang="ml">{[0, 1].map(i => <span key={i}>{built[i] || <span aria-hidden="true">·</span>}</span>)}</div><div className="ml-choice-tiles">{[...episode.tiles].reverse().map(tile => <button key={tile} onClick={() => chooseTile(tile)} disabled={built.length === 2} aria-label={`Add ${tile}`} lang="ml">{tile}</button>)}<button className="ml-clear-tiles" onClick={() => { setBuilt([]); setFeedback(''); audio.play(['U05']); }}>Try again</button></div><p className="ml-feedback" role="status">{feedback}</p></div>}
+      <div className="ml-audio-controls" aria-label="Audio controls">
+        <button onClick={() => speakPreview(position)} disabled={audio.muted} aria-label="Listen to the model again"><Icon name="sound" size={20} /><span lang="ml">വീണ്ടും കേൾക്കാം</span></button>
+        {isWord && <button onClick={() => audio.play(['U05'])} disabled={audio.muted} aria-label="Repeat the instruction"><Icon name="play" size={18} /><span lang="ml">എന്ത് ചെയ്യണം?</span></button>}
+        <button onClick={audio.toggleMute} aria-pressed={audio.muted} aria-label={audio.muted ? 'Turn sound on' : 'Mute sound'}><Icon name="sound" size={18} /><span lang="ml">{audio.muted ? 'ശബ്ദം ഓണാക്കാം' : 'ശബ്ദം ഓഫ്'}</span></button>
+        {!audio.muted && (audio.status === 'playing' || audio.status === 'loading') && <button onClick={audio.stop} aria-label="Stop audio"><Icon name="close" size={18} /><span lang="ml">നിർത്താം</span></button>}
+      </div>
+      <div className="ml-audio-status" role="status" aria-live="polite">
+        {audio.status === 'error' ? <><span lang="ml">ശബ്ദം കേൾക്കാനായില്ല.</span><button onClick={audio.retry} aria-label="Retry audio"><Icon name="play" size={18} /><span lang="ml">വീണ്ടും ശ്രമിക്കാം</span></button></> : audio.status === 'loading' ? <span lang="ml">ഒരു നിമിഷം…</span> : null}
+      </div>
+      <p className="ml-dialog-note">Audio preview · Writing videos and the full lesson activities are coming next.</p><footer><button className="ml-text-button" onClick={finish}>Stop here</button><button className="ml-btn" onClick={() => { if (isWord) { finish(); } else { const next = { ...position, step: position.step + 1 }; save(next); speakPreview(next); } }}>{isWord ? 'Back to my path' : 'Next'}<Icon name="arrow" size={20} /></button></footer></div>
     </dialog>
   </div>;
 }

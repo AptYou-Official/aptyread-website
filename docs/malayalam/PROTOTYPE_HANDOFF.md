@@ -15,6 +15,12 @@ Both routes carry `noindex, nofollow` during development and are intentionally a
 
 The dashboard opens three lightweight previews for തറ, തല and മല. Letter slides show a static form with an explicit formation-video placeholder. The final slide offers a visible-model tile match, feedback, retry and an unrestricted return to the dashboard. These slides demonstrate interface behaviour; they do not implement the full three-episode curriculum specification.
 
+Recorded Bunny audio is now connected to these previews. Opening a form plays its F01-F04 model followed by A16. The word slide plays A19, its J01-J03 joining model and U05. Instruction replay plays only U05; model replay intentionally reveals the model. Correct guided tile matching plays A06; an incorrect sequence plays A08 and the joining model. This remains visible-model practice, not an independent assessment. Writing narration is not played over a missing formation video.
+
+`lib/malayalam-audio.ts` maps the exact uppercase uploaded names to `https://aptyread-cdn.b-cdn.net/malayalam/level1/` and `malayalam/shared/`. A25 is not used by the current preview and can be uploaded later. Public playback needs no API key. Existing v1-style filenames in the studio planning documents are superseded by these actual uploaded names for this preview.
+
+One reusable media element plays each sequence. New actions cancel earlier playback; close, navigation away, mute and hidden tabs stop it. Unmuting does not automatically resume; use model replay. Loading stalls and playback failures expose a retry control, preserve the activity, and never trigger incorrect-answer feedback. Only the position is persisted; mute and playback state are per visit. The audio is online-only.
+
 The last preview and slide are stored under `apty.malayalam.preview.v1` in browser local storage. Closing, stopping and returning preserve that position. No account, name, recording, remote learner record or cross-device synchronization is implemented. A visit does not imply lesson completion or mastery. Tile attempts are transient and unscored; an interrupted tile construction restarts on return to its slide.
 
 Installation support and Malayalam-specific sharing cards were added in a follow-up. See `SHARING_IMAGE_AND_INSTALLATION.md` for the manifest, platform guidance, scope, image provenance and verification boundaries. Installed launch goes directly to the dashboard; this remains an online preview without offline cold launch.
@@ -35,8 +41,10 @@ All links into and out of the Malayalam area use full document navigation. Prese
 
 The browser check uses Playwright and a local Chromium-family browser. Set `PLAYWRIGHT_MODULE` to the available Playwright module, `EDGE_PATH` if needed, and `PREVIEW_URL` to the running preview (default `http://localhost:3100`). Then run `node scripts/check-malayalam-preview.cjs`. Existing `next lint`, TypeScript and `next build` checks cover compilation; browser checks do not validate pedagogical effectiveness.
 
+`scripts/check-malayalam-audio.cjs` exercises audio cancellation, queues, mute, feedback, blocked playback, missing-file retry and mobile layout with a controlled media double. A separate real-media pass verifies that Bunny recordings decode, play and advance in the browser. This does not validate pronunciation or playback on every physical device; review those with the actual child-facing experience.
+
 ## Next implementation slice
 
-Replace these intentionally small previews with the reviewed activities in `CHILD_LED_OPENING_THREE_LESSONS.md`, using a reusable activity player and explicit content IDs. Add reviewed spoken guidance, illustrations, formation paths and video assets as they become ready. The current prototype does not include audio, tracing, handwriting evaluation, independent-reading checks, payments or a full learner backend.
+Replace these intentionally small previews with the reviewed activities in `CHILD_LED_OPENING_THREE_LESSONS.md`, using a reusable activity player and explicit content IDs. Extend the existing audio support and add reviewed illustrations, formation paths and video assets as they become ready. The current prototype does not include tracing, handwriting evaluation, independent-reading checks, payments or a full learner backend.
 
 Review the parent-facing copy and dashboard with the founder first. Before evaluating children learning independently, supply the exact spoken guidance and teaching models for that slice. Keep help exposure and practice separate from observed performance, as defined in `CHILD_LED_LEARNING_SPEC.md`.

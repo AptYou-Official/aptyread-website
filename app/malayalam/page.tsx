@@ -36,7 +36,7 @@ export default function MalayalamHome() {
           <p>Bring the Malayalam your child speaks into the words they can read. One sound, one word, one little discovery at a time.</p>
           <a className="ml-btn ml-btn-large" href="/malayalam/dashboard">Explore AptyMalayalam <Icon name="arrow" size={21} /></a>
           <div className="ml-hero-note"><span><Icon name="check" size={16} /> No sign-up</span><span><Icon name="check" size={16} /> Learn at their pace</span></div>
-          <p className="ml-preview-note">An early preview for curious families. Lessons and recordings are being developed.</p>
+          <p className="ml-preview-note">An early preview for curious families. Try recorded letter sounds and word joining. Full lessons are being developed.</p>
         </div>
         <div className="ml-hero-art" aria-label="A preview of Malayalam letters becoming a word">
           <div className="ml-art-ring" /><span className="ml-art-spark ml-spark-one">✦</span><span className="ml-art-spark ml-spark-two">✧</span>
@@ -75,8 +75,8 @@ export default function MalayalamHome() {
         {[
           ['Who is AptyMalayalam for?', 'The programme is being designed for children who already speak or understand Malayalam and are beginning to read it, often around age five. Older beginners can explore the same foundations. It is not a course for learning spoken Malayalam from scratch.'],
           ['Does my child need to know the alphabet first?', 'No. The proposed opening introduces a few selected forms and joins them into words. It does not require memorising the whole alphabetical sequence before beginning to read.'],
-          ['Will I need to sit beside my child?', 'An adult is welcome, but the learning experience is being designed for children to navigate with spoken guidance and demonstrations. This early interface preview does not yet include those recordings, so it cannot yet demonstrate independent learning.'],
-          ['What can we try today?', 'You can explore the child dashboard and three opening lesson previews. Formation videos and spoken guidance are placeholders. The full programme is still in development; this preview does not assess your child’s reading.'],
+          ['Will I need to sit beside my child?', 'An adult is welcome, but the learning experience is being designed for children to navigate with spoken guidance and demonstrations. The current preview includes recorded letter models and matching directions. The complete lesson flow and writing demonstrations are still being developed, so independent learning has not yet been evaluated.'],
+          ['What can we try today?', 'You can explore the child dashboard and three opening lesson previews. Recorded letter models, word joining and matching directions are available. Formation videos are still placeholders. The full programme is still in development; this preview does not assess your child’s reading.'],
           ['Do we need to download an app or create an account?', 'No download or sign-up is needed for this preview. Your last preview position is saved in this browser when storage is available. It does not sync across devices.'],
         ].map(([q, a]) => <details key={q}><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}
       </div></section>
