@@ -43,6 +43,7 @@ export default function Header({ schoolsPage = false }: HeaderProps) {
               Reading Guide
             </Link>
           ) : null}
+          {!schoolsPage && <a href="/english" className="hidden lg:inline text-sm font-semibold text-apty-dark hover:text-apty-cyan transition-colors whitespace-nowrap">Learn online</a>}
           <Link href="/schools" className="hidden sm:inline text-apty-dark hover:text-apty-cyan transition-colors text-sm md:text-base">
             For Schools
           </Link>
