@@ -25,7 +25,7 @@ There is no introductory instructions page, microphone permission, voice recordi
 
 ## Media and narration
 
-The app uses the exact supplied CDN URLs in `englishSoundPracticeVideos` in `lib/english-curriculum.ts`. All three sources are square H.264/AAC MP4s. They fit the existing circular frame without additional zoom or source edits.
+The app uses `https://aptyread-cdn.b-cdn.net/english/level1/videos/letter-sound-video-clips/sound-{letter}.mp4` for s, a and t, connected through the shared folder constant in `englishSoundPracticeVideos` in `lib/english-curriculum.ts`. These replace the earlier per-letter/topic URLs as of 28 September 2026. All three sources are square H.264/AAC MP4s. They fit the existing circular frame without additional zoom or source edits.
 
 | Sound | Source size | Dimensions | Approx. duration | Local 320-square poster |
 | --- | ---: | --- | ---: | ---: |

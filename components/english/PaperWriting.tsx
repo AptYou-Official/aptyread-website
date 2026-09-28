@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { englishPaperWritingVideos } from '@/lib/english-curriculum';
+import { englishPaperWritingVideos, type Letter, type WritingLetter } from '@/lib/english-curriculum';
 import { createPaperWriting, initialPaperWriting } from '@/lib/english-paper-writing';
 import { narrationCue } from '@/lib/english-narration';
 import AchievementStars from './AchievementStars';
@@ -10,10 +10,10 @@ import LearningCompanion from './LearningCompanion';
 import useEnglishAudio from './useEnglishAudio';
 import Icon from './Icons';
 
-export default function PaperWriting({ uppercase, suspended, onBack, onComplete }: {
-  uppercase: boolean; suspended: boolean; onBack: () => void; onComplete: () => void;
+export default function PaperWriting({ letter: baseLetter, uppercase, suspended, onBack, onComplete }: {
+  letter: Letter; uppercase: boolean; suspended: boolean; onBack: () => void; onComplete: () => void;
 }) {
-  const letter = uppercase ? 'S' : 's';
+  const letter = (uppercase ? baseLetter.toUpperCase() : baseLetter) as WritingLetter;
   const source = englishPaperWritingVideos[letter];
   const audio = useEnglishAudio();
   const { sequence, stop } = audio;
@@ -25,7 +25,7 @@ export default function PaperWriting({ uppercase, suspended, onBack, onComplete 
   const complete = phase === 'complete';
 
   useEffect(() => {
-    const session = createPaperWriting(uppercase, {
+    const session = createPaperWriting(letter, {
       say: id => sequence([narrationCue(id)]),
       play: () => {
         const player = video.current;
@@ -41,7 +41,7 @@ export default function PaperWriting({ uppercase, suspended, onBack, onComplete 
     const leaving = () => session.pause();
     document.addEventListener('visibilitychange', hidden); window.addEventListener('pagehide', leaving);
     return () => { session.dispose(); controller.current = null; document.removeEventListener('visibilitychange', hidden); window.removeEventListener('pagehide', leaving); };
-  }, [uppercase, sequence, stop]);
+  }, [letter, sequence, stop]);
   useEffect(() => { if (suspended) controller.current?.pause(); }, [suspended]);
   useEffect(() => { if (complete) heading.current?.focus({ preventScroll: true }); }, [complete]);
   const title = complete ? 'Lovely writing!' : phase === 'ready' ? 'Ready to write?' : phase === 'paused' ? 'Ready when you are.' : phase === 'between' ? 'A lovely try!' : phase === 'blocked' ? 'Let’s try together.' : phase === 'try' ? covered ? 'One on your own.' : 'Your turn.' : 'Watch.';
@@ -53,9 +53,9 @@ export default function PaperWriting({ uppercase, suspended, onBack, onComplete 
       <div className="en-paper-experience">
         {complete ? <div className="en-paper-keepsake"><AchievementStars count={3} /><div className="en-written-letter"><strong>{letter}</strong><span><Icon name="pencil" size={25} /></span></div></div> : <>
           <div className={`en-paper-model ${covered ? 'is-covered' : ''}`}>
-            <video ref={video} src={source.src} poster={source.poster} muted playsInline preload="none" aria-label={`A hand showing how to write ${uppercase ? 'capital S' : 'lowercase s'}`} hidden={covered || pictureOnly}
+            <video ref={video} src={source.src} poster={source.poster} muted playsInline preload="none" aria-label={`A hand showing how to write ${uppercase ? 'capital' : 'lowercase'} ${letter}`} hidden={covered || pictureOnly}
               onEnded={() => controller.current?.videoEnded()} onPlaying={() => controller.current?.videoPlaying()} onWaiting={() => controller.current?.videoWaiting()} onError={() => controller.current?.failed()} />
-            {pictureOnly && !covered && <Image src={source.poster} alt={`Finished ${uppercase ? 'capital S' : 'lowercase s'} on writing lines`} width={480} height={480} unoptimized />}
+            {pictureOnly && !covered && <Image src={source.poster} alt={`Finished ${uppercase ? 'capital' : 'lowercase'} ${letter} on writing lines`} width={480} height={480} unoptimized />}
             {covered && <div className="en-paper-own"><Icon name="pencil" size={49} /><span>Your paper. Your pencil.</span></div>}
             {['ready', 'paused', 'blocked'].includes(phase) && <button className="en-paper-play" aria-label={phase === 'paused' ? 'Resume writing practice' : 'Play writing video'} onClick={() => phase === 'paused' ? controller.current?.resume() : void controller.current?.watch(phase === 'blocked')}><Icon name="play" size={29} /></button>}
           </div>

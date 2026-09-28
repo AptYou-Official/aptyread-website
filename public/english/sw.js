@@ -1,9 +1,9 @@
 /* Only the English learning app is controlled by this worker. Marketing,
    admin pages, APIs and third-party media are deliberately never cached. */
-const CACHE = 'apty-english-v28-friendly-home';
+const CACHE = 'apty-english-v33-word-discovery';
 const PREFIX = 'apty-english-';
-const PAGES = ['/english/dashboard', '/english/learn/first-words', '/english/learn/explore-s', '/english/learn/explore-a', '/english/learn/explore-t'];
-const ASSETS = ['/english/offline.html', '/english/manifest.webmanifest', '/images/apty-mascot.png', '/english/media/s-practice-v1.webp', '/english/media/a-practice-v1.webp', '/english/media/t-practice-v1.webp', '/english/media/write-big-s-v1.webp', '/english/media/write-small-s-v1.webp', '/english/media/s-sound.mp3', '/english/media/a-sound.mp3', '/english/media/t-sound.mp3', '/english/icons/icon-192.png', '/english/icons/icon-512.png', '/english/icons/apple-touch-icon.png', '/english/icons/icon-maskable-512.png', '/english/fonts/Andika-OFL.txt'];
+const PAGES = ['/english/dashboard', '/english/learn/first-words', '/english/learn/explore-s', '/english/learn/explore-a', '/english/learn/explore-t', '/english/learn/more-words'];
+const ASSETS = ['/english/media/p-sound.mp3', '/english/media/i-sound.mp3', '/english/media/n-sound.mp3', '/english/media/p-practice-v1.webp', '/english/media/i-practice-v1.webp', '/english/media/n-practice-v1.webp', '/english/offline.html', '/english/manifest.webmanifest', '/images/apty-mascot.png', '/english/media/s-practice-v1.webp', '/english/media/a-practice-v1.webp', '/english/media/t-practice-v1.webp', '/english/media/write-big-s-v1.webp', '/english/media/write-small-s-v1.webp', '/english/media/write-big-a-v1.webp', '/english/media/write-small-a-v1.webp', '/english/media/write-big-t-v1.webp', '/english/media/write-small-t-v1.webp', '/english/media/s-sound.mp3', '/english/media/a-sound.mp3', '/english/media/t-sound.mp3', '/english/icons/icon-192.png', '/english/icons/icon-512.png', '/english/icons/apple-touch-icon.png', '/english/icons/icon-maskable-512.png', '/english/fonts/Andika-OFL.txt'];
 
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
@@ -71,7 +71,7 @@ self.addEventListener('fetch', event => {
       }
     })());
   } else if (url.pathname.startsWith('/_next/static/') || url.pathname.startsWith('/english/media/') || url.pathname.startsWith('/english/icons/') || url.pathname === '/images/apty-mascot.png') {
-    // The three small MP3 files are complete files; browsers may ask for ranges.
+    // The bundled phoneme MP3 files are complete files; browsers may ask for ranges.
     event.respondWith((async () => {
       const whole = await cachedAsset(new Request(request.url));
       const range = request.headers.get('range');

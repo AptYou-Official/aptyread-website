@@ -11,7 +11,7 @@ const { freshGuidedWord, guidedWordPrompt, placeGuidedLetter, tryReadingWord } =
 const { emptyProgress, readEnglishProgress } = require('../lib/english-progress.ts');
 const { englishPronunciationVideos } = require('../lib/english-curriculum.ts');
 
-for (const word of ['at', 'sat']) {
+for (const word of ['at', 'sat', 'pin', 'sit']) {
   let saved = freshGuidedWord();
   assert.deepEqual(guidedWordPrompt(word, '', true).map(c => c.id), [`build-intro-${word}`, 'build-tap', `sound-${word[0]}`]);
   assert.equal(placeGuidedLetter(word, saved, 't'), saved, 'A future letter cannot change the ordered word');
@@ -41,7 +41,7 @@ let progress = emptyProgress();
 provider.useEnglish = () => ({ progress, update() {} });
 const WordBuilder = require('../components/english/WordBuilder.tsx').default;
 const render = word => renderToStaticMarkup(React.createElement(WordBuilder, { word, onComplete() {} }));
-for (const word of ['at', 'sat']) {
+for (const word of ['at', 'sat', 'pin', 'sit']) {
   progress = emptyProgress();
   const originalVideo = englishPronunciationVideos[word];
   let html = render(word);
@@ -83,7 +83,7 @@ async function checkOpeningEffects() {
   };
   const tick = () => new Promise(resolve => setTimeout(resolve, 10));
   try {
-    for (const word of ['at', 'sat']) {
+    for (const word of ['at', 'sat', 'pin', 'sit']) {
       played.length = 0;
       const setup = mount(word);
       const rehearsalCleanup = setup(); rehearsalCleanup();

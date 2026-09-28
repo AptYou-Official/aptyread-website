@@ -1,3 +1,5 @@
+import type { WritingLetter } from './english-curriculum';
+
 export type PaperWritingState = {
   phase: 'ready' | 'prompt' | 'watch' | 'try' | 'between' | 'paused' | 'blocked' | 'complete';
   turns: number; watched: boolean; covered: boolean; pictureOnly: boolean; notice: string;
@@ -13,7 +15,7 @@ type Media = {
 };
 
 // Watching models the movement. Only the child's explicit try earns a star.
-export function createPaperWriting(uppercase: boolean, media: Media) {
+export function createPaperWriting(letter: WritingLetter, media: Media) {
   let state = { ...initialPaperWriting };
   let generation = 0;
   let disposed = false;
@@ -24,7 +26,7 @@ export function createPaperWriting(uppercase: boolean, media: Media) {
   };
   const valid = (token: number) => !disposed && token === generation;
   function interrupt() { generation++; clearTimeout(timeout); media.stop(); return generation; }
-  const instruction = () => state.turns === 2 && state.covered ? 'paper-own-turn' : `paper-write-${uppercase ? 'big' : 'small'}-s`;
+  const instruction = () => state.turns === 2 && state.covered ? 'paper-own-turn' : `paper-write-${letter === letter.toUpperCase() ? 'big' : 'small'}-${letter.toLowerCase()}`;
   function failed() {
     if (disposed || !['watch', 'prompt'].includes(state.phase)) return;
     interrupt(); change({ phase: 'blocked', notice: 'Try again, or use the picture.' });

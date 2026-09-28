@@ -1,5 +1,6 @@
 import { englishLessons, englishVideos } from './english-curriculum';
-import { FirstWordsAction, FirstWordsProgress, freshFirstWords, nextFirstWords, readFirstWords } from './english-review';
+import { FirstWordsAction, FirstWordsProgress, freshFirstWords, nextFirstWords, readFirstWords, ReviewPair } from './english-review';
+import { APPLICATION_ID, ApplicationAction, ApplicationProgress, freshApplication, nextApplication, readApplication } from './english-application';
 
 export const ENGLISH_PROGRESS_KEY = 'apty.english.progress.v1';
 export type WordProgress = { stage: number; built: string; reads: number; answers: Record<string, boolean[]>; started?: boolean; mode?: 'guided' | 'independent'; journeyVersion?: 2 };
@@ -10,6 +11,9 @@ export type EnglishProgress = {
   completed: string[];
   words: Record<string, WordProgress>;
   firstWords?: FirstWordsProgress;
+  moreWords?: FirstWordsProgress;
+  application?: ApplicationProgress;
+  audioIntroductions?: string[];
   lastLesson: string;
 };
 export function emptyProgress(): EnglishProgress {
@@ -35,16 +39,27 @@ export function englishAccess(progress: EnglishProgress) {
 export function completeEnglishActivity(progress: EnglishProgress, activityId: string): EnglishProgress {
   const item = learningPath.find(entry => entry.activity.id === activityId);
   if (!item || !englishAccess(progress).activities.has(activityId)) return progress;
-  if (item.activity.kind === 'video' && !englishVideos[activityId]) return progress;
-  if (item.activity.kind === 'review' && progress.firstWords?.stage !== 6) return progress;
+  if (item.activity.kind === 'video' && !englishVideos[activityId] && !item.activity.audioIntroduction) return progress;
+  if (item.activity.kind === 'review' && (activityId === 'more-little-words' ? progress.moreWords : progress.firstWords)?.stage !== 6) return progress;
+  if (item.activity.kind === 'apply' && readApplication(progress.application)?.step !== 10) return progress;
+  if (item.activity.audioIntroduction && !englishVideos[activityId]) progress = { ...progress, audioIntroductions: [...new Set([...(progress.audioIntroductions || []), activityId])] };
   return { ...progress, completed: [...new Set([...progress.completed, activityId])] };
 }
 
-export function updateFirstWords(progress: EnglishProgress, action: FirstWordsAction): EnglishProgress {
-  if (!englishAccess(progress).activities.has('our-first-words')) return progress;
-  const firstWords = nextFirstWords(progress.firstWords || freshFirstWords(), action);
-  const next = { ...progress, firstWords };
-  return firstWords.stage === 6 ? completeEnglishActivity(next, 'our-first-words') : next;
+export function updateFirstWords(progress: EnglishProgress, action: FirstWordsAction, pair: ReviewPair = 'first'): EnglishProgress {
+  const id = pair === 'first' ? 'our-first-words' : 'more-little-words';
+  const key = pair === 'first' ? 'firstWords' : 'moreWords';
+  if (!englishAccess(progress).activities.has(id)) return progress;
+  const review = nextFirstWords(progress[key] || freshFirstWords(), action, pair);
+  const next = { ...progress, [key]: review };
+  return review.stage === 6 ? completeEnglishActivity(next, id) : next;
+}
+
+export function updateApplication(progress: EnglishProgress, action: ApplicationAction): EnglishProgress {
+  if (!englishAccess(progress).activities.has(APPLICATION_ID)) return progress;
+  const application = nextApplication(progress.application || freshApplication(), action);
+  const next = { ...progress, application };
+  return application.step === 10 ? completeEnglishActivity(next, APPLICATION_ID) : next;
 }
 
 // Unlocked topics can be revisited without losing completion. Completed words
@@ -66,7 +81,11 @@ export function enterEnglishActivity(progress: EnglishProgress, lessonId: string
     delete words[word];
   }
   const next = { ...progress, words, current: { ...progress.current, [lessonId]: step }, lastLesson: lessonId };
-  if (requested >= 0 && lesson.activities[step].kind === 'review' && next.firstWords?.stage === 6) delete next.firstWords;
+  if (requested >= 0 && lesson.activities[step].kind === 'apply' && next.application?.step === 10) delete next.application;
+  if (requested >= 0 && lesson.activities[step].kind === 'review') {
+    const key = lesson.id === 'more-words' ? 'moreWords' : 'firstWords';
+    if (next[key]?.stage === 6) delete next[key];
+  }
   return next;
 }
 
@@ -84,7 +103,7 @@ export function readEnglishProgress(raw: string | null): EnglishProgress {
     const ids = new Set(englishLessons.flatMap(l => l.activities.map(a => a.id)));
     clean.completed = Array.isArray(value.completed) ? [...new Set<string>(value.completed.filter((id: unknown) => typeof id === 'string' && ids.has(id)))] : [];
     if (englishLessons.some(l => l.id === value.lastLesson)) clean.lastLesson = value.lastLesson;
-    for (const word of ['at', 'sat']) {
+    for (const word of ['at', 'sat', 'pin', 'sit']) {
       const record = value.words?.[word];
       const maxStage = wordFinishStage(word);
       if (!record || !Number.isInteger(record.stage) || record.stage < 0 || record.stage > maxStage || typeof record.built !== 'string' || !word.startsWith(record.built) || !Number.isInteger(record.reads) || record.reads < 0 || record.reads > 2) continue;
@@ -104,6 +123,11 @@ export function readEnglishProgress(raw: string | null): EnglishProgress {
     }
     const firstWords = readFirstWords(value.firstWords);
     if (firstWords) clean.firstWords = firstWords;
+    const moreWords = readFirstWords(value.moreWords, 'more');
+    if (moreWords) clean.moreWords = moreWords;
+    const application = readApplication(value.application);
+    if (application) clean.application = application;
+    if (Array.isArray(value.audioIntroductions)) clean.audioIntroductions = [...new Set<string>(value.audioIntroductions.filter((id: unknown) => typeof id === 'string' && learningPath.some(item => item.activity.id === id && item.activity.audioIntroduction)))];
     return clean;
   } catch { return clean; }
 }

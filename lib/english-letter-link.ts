@@ -7,8 +7,8 @@ export type LetterLinkState = {
   highlight: Letter | null; misses: number; assisted: boolean;
   feedback: '' | 'retry' | 'help'; notice: string;
 };
-export const linkLetters: Record<Letter, Letter[]> = { s: ['s'], a: ['s', 'a'], t: ['s', 'a', 't'] };
-const targets = { s: ['s'], a: ['a', 's', 'a'], t: ['t', 's', 'a', 't'] } as const;
+export const linkLetters: Record<Letter, Letter[]> = { s: ['s'], a: ['s', 'a'], t: ['s', 'a', 't'], p: ['s', 'a', 't', 'p'], i: ['s', 'a', 't', 'p', 'i'], n: ['s', 'a', 't', 'p', 'i', 'n'] };
+const targets = { s: ['s'], a: ['a', 's', 'a'], t: ['t', 's', 'a', 't'], p: ['p', 's', 't', 'p'], i: ['i', 'a', 'p', 'i'], n: ['n', 'i', 't', 'n'] } as const;
 
 // Stars track the main practice steps. Help and extra revisits never change
 // the goal or take away a star that the child has already earned.
@@ -26,10 +26,16 @@ function round(target: Letter, known: Letter[], random: () => number, revisit = 
     const j = Math.floor(random() * (i + 1));
     [options[i], options[j]] = [options[j], options[i]];
   }
-  return { target, options, revisit };
+  // A six-letter history need not mean six choices at once. Rotate distractors
+  // from taught letters, always keeping exactly one target among three tiles.
+  const choices = options.length <= 3 ? options : [target, ...options.filter(value => value !== target).slice(0, 2)];
+  if (options.length > 3) for (let i = choices.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1)); [choices[i], choices[j]] = [choices[j], choices[i]];
+  }
+  return { target, options: choices, revisit };
 }
 export function initialLetterLink(letter: Letter): LetterLinkState {
-  return { phase: letter === 's' ? 'touch' : 'choose', rounds: targets[letter].map(target => ({ target, options: [...linkLetters[letter]], revisit: false })), index: 0, heard: false, busy: false, highlight: null, misses: 0, assisted: false, feedback: '', notice: '' };
+  return { phase: letter === 's' ? 'touch' : 'choose', rounds: targets[letter].map(target => linkLetters[letter].length <= 3 ? { target, options: [...linkLetters[letter]], revisit: false } : round(target, linkLetters[letter], () => 0.5)), index: 0, heard: false, busy: false, highlight: null, misses: 0, assisted: false, feedback: '', notice: '' };
 }
 
 type Media = {

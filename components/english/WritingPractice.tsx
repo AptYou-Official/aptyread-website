@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import type { Activity } from '@/lib/english-curriculum';
+import type { Activity, WritingLetter } from '@/lib/english-curriculum';
 import LearningCompanion from './LearningCompanion';
 import TracePad from './TracePad';
 import PaperWriting from './PaperWriting';
@@ -15,12 +15,13 @@ export default function WritingPractice({ activity, suspended = false, onComplet
   const audio = useEnglishAudio();
   const { sequence, stop } = audio;
   const uppercase = !!activity.uppercase;
-  const letter = uppercase ? 'S' : 's';
+  const baseLetter = activity.letter || 's';
+  const letter = (uppercase ? baseLetter.toUpperCase() : baseLetter) as WritingLetter;
   const heading = useRef<HTMLHeadingElement>(null);
   const suspendedRef = useRef(suspended);
   suspendedRef.current = suspended;
   const opening = useRef<ReturnType<typeof setTimeout>>();
-  const instruction = `Let’s write ${uppercase ? 'big S' : 'small s'}. Start at the dot.`;
+  const instruction = `Let’s write ${uppercase ? 'big' : 'small'} ${letter}. Start at the dot.`;
   function quiet() { clearTimeout(opening.current); stop(); }
   function directions() { quiet(); void sequence([{ id: `instruction-${activity.id}`, narration: instruction, optional: true }]); }
   function changeMode(next: typeof mode) { quiet(); setMode(next); }
@@ -39,12 +40,12 @@ export default function WritingPractice({ activity, suspended = false, onComplet
     return () => document.removeEventListener('visibilitychange', hidden);
   }, [stop]);
 
-  if (mode === 'paper') return <PaperWriting uppercase={uppercase} suspended={suspended} onBack={() => changeMode('choose')} onComplete={onComplete} />;
+  if (mode === 'paper') return <PaperWriting letter={baseLetter} uppercase={uppercase} suspended={suspended} onBack={() => changeMode('choose')} onComplete={onComplete} />;
   return <div className={`en-guided-word en-letter-studio en-writing-practice is-${mode}`}>
     <div className="en-writing-stage">
       <LearningCompanion title={mode === 'trace' ? `Let’s write ${letter}.` : mode === 'invite' ? 'Lovely tracing!' : 'Let’s make our mark.'} speaking={audio.playing} headingRef={heading} reaction={mode} />
       {mode === 'trace' ? <div className="en-writing-trace">
-        <TracePad letter={letter} onComplete={() => changeMode('invite')} onListen={audio.playing ? quiet : directions} speaking={audio.playing} needsListen={audio.blocked} showPaperAlternative={false} />
+        <TracePad letter={letter} suspended={suspended} onComplete={() => changeMode('invite')} onListen={audio.playing ? quiet : directions} speaking={audio.playing} needsListen={audio.blocked} showPaperAlternative={false} />
         <button className="en-text-button en-writing-switch" onClick={() => changeMode('paper')}><Icon name="pencil" size={18} /> Write on paper</button>
       </div> : <div className={`en-writing-choices ${mode === 'invite' ? 'is-invitation' : ''}`}>
         {mode === 'choose' && <button className="en-writing-choice" onClick={() => changeMode('trace')}><span className="en-writing-choice-art is-tracing" aria-hidden="true"><strong>{letter}</strong><Icon name="hand" size={27} /></span><span>Trace on screen</span></button>}

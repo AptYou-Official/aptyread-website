@@ -1,23 +1,39 @@
 # AptyRead CDN media structure
 
-Revised recommendation — 27 September 2026. This replaces the earlier folder-per-topic proposal. It documents the agreed direction without uploading, moving or renaming existing media. Runtime URLs remain unchanged.
+## Shared activity video folders — 28 September 2026
 
-## Use three CDN folders per language
+The uploaded letter clips now use two shared folders under `english/level1/videos/`. The app connects s/a/t sound practice and all six S/s/A/a/T/t paper-writing models to these folders. Main teaching videos remain in Bunny Stream. Other uploaded letters will be connected when their lessons are authored.
+
+This replaces the earlier per-topic video paths and the proposed general video folder for letter activities. Existing pronunciation clips are not relocated. Audio and image locations below remain recommendations for future uploads. No files were uploaded, moved or renamed by this app update.
+
+## Current video folders and proposed audio/image folders
 
 Base URL: `https://aptyread-cdn.b-cdn.net/`
 
 ```text
 english/
-  audio/
-  images/
-  videos/
+  level1/
+    videos/
+      letter-sound-video-clips/
+        sound-s.mp4
+        sound-a.mp4
+        sound-t.mp4
+      letter-writing-video-clips/
+        draw-big-s.mp4
+        draw-small-s.mp4
+        draw-big-a.mp4
+        draw-small-a.mp4
+        draw-big-t.mp4
+        draw-small-t.mp4
+  audio/   (proposed studio narration)
+  images/  (proposed content illustrations)
 ```
 
 The same convention can be used for future Malayalam uploads under `malayalam/`. Existing Malayalam media does not need to move.
 
-Keep levels, lessons and topics in the app's curriculum and identify them in filenames. Separate folders for every level, lesson and topic are unnecessary for the current collection. Files shared across lessons stay in the same media folders and are uploaded once.
+Keep the lesson/topic relationships in the app's curriculum. Separate folders for every lesson and topic are unnecessary. Reuse each letter clip across lessons by its existing URL; the level1 folder does not restrict where the app can use it.
 
-Main teaching videos remain in Bunny Stream. The CDN `videos/` folder is for short activity or pronunciation clips. Posters belong in `images/`.
+Use `sound-{letter}.mp4` for the familiar basic sound, and explicit names such as `sound-long-a.mp4` or `sound-soft-c.mp4` for additional correspondences. Paper models use `draw-big-{letter}.mp4` and `draw-small-{letter}.mp4`. Preserve these uploaded filenames. A replacement can use a `-v2` suffix rather than silently overwriting a published clip.
 
 ## Keep phonemes with the app
 
@@ -78,7 +94,9 @@ The alphabetical `l01-lesson-id-topic-id` prefix helps find related files in Bun
 | Core icons, font and mascot needed offline | Bundled with the app |
 | Studio narration, word audio and feedback | Bunny CDN `english/audio/` |
 | Content illustrations and video posters | Bunny CDN `english/images/` |
-| Short pronunciation/activity clips | Bunny CDN `english/videos/` |
+| Letter sound activity clips | Bunny CDN `english/level1/videos/letter-sound-video-clips/` |
+| Letter writing activity clips | Bunny CDN `english/level1/videos/letter-writing-video-clips/` |
+| Short word-pronunciation clips | Existing connected URLs; `english/videos/` remains a proposed destination |
 | Main lesson videos | Bunny Stream |
 | Studio WAV masters and editing projects | Separate production archive and backup |
 
@@ -86,7 +104,7 @@ CDN audio may be cached separately if lesson downloads are introduced later. The
 
 ## App connections and recording IDs
 
-`englishMedia`, `englishPronunciationVideos` and `englishVideos` in `lib/english-curriculum.ts` connect stable IDs to URLs or Bunny Stream IDs. File location does not affect the structured learning path. Scripts are in `lib/english-narration.ts`; confirm which cues are active before recording, because some earlier variants remain in that file.
+`englishMedia`, `englishSoundPracticeVideos`, `englishPaperWritingVideos`, `englishPronunciationVideos` and `englishVideos` in `lib/english-curriculum.ts` connect stable IDs to URLs or Bunny Stream IDs. The sound/writing maps each share one folder constant. File location does not affect the structured learning path. Scripts are in `lib/english-narration.ts`; confirm which cues are active before recording, because some earlier variants remain in that file.
 
 Both `build-intro-at` and `build-intro-sat` can point to the same shared introduction recording. Both `build-tap` and `build-next-tap` can point to the same “Now tap” file. The app then plays the separate real phoneme. A future complete studio prompt must be connected deliberately so the phoneme is not repeated twice.
 

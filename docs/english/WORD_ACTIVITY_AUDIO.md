@@ -1,5 +1,7 @@
 # Word activity narration and studio handover
 
+**Current studio order (28 September 2026):** use the [four-lesson recording pack](studio/README.md) for deduplicated filenames and the complete current TTS list. The table below is the earlier word-activity cue reference, not an additional recording order.
+
 The guided `at` and `sat` activities use recorded phonemes and device TTS for English instructions, whole words, questions and encouragement. All spoken copy is in `lib/english-narration.ts`. Keep each recording ID stable so progress and activity code do not need to change when recordings arrive.
 
 ## Connect a studio recording

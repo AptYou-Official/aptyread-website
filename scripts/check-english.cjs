@@ -14,14 +14,15 @@ const { readEnglishProgress, emptyProgress, enterEnglishActivity, englishAccess,
 
 async function main() {
   assert.equal(englishLevels.length, 5);
-  assert.deepEqual(englishLessons.map(l => l.activities.length), [12, 6, 6, 6]);
+  assert.deepEqual(englishLessons.map(l => l.activities.length), [12, 6, 6, 6, 13]);
   const ids = englishLessons.flatMap(l => l.activities.map(a => a.id));
-  assert.equal(new Set(ids).size, 30);
-  assert.equal(Object.values(englishVideos).length, 6);
+  assert.equal(new Set(ids).size, 43);
+  assert.equal(Object.values(englishVideos).length, 12);
+  for (const activity of englishLessons.flatMap(lesson => lesson.activities).filter(activity => activity.kind === 'video')) assert.ok(englishVideos[activity.id] || activity.audioIntroduction, `Teaching video or explicit temporary audio introduction: ${activity.id}`);
   for (const value of Object.values(englishVideos)) assert.notEqual(value.landscape, value.portrait);
-  for (const activity of englishLessons[0].activities.filter(item => item.kind === 'sound')) {
+  for (const activity of englishLessons.flatMap(lesson => lesson.activities).filter(item => item.kind === 'sound')) {
     const clip = englishSoundPracticeVideos[activity.letter];
-    assert.ok(clip.src.endsWith(`/letter-${activity.letter}/activity-topics/sound-practice/video/sound-${activity.letter}.mp4`), 'Each sound practice uses its matching mouth model');
+    assert.equal(clip.src, `https://aptyread-cdn.b-cdn.net/english/level1/videos/letter-sound-video-clips/sound-${activity.letter}.mp4`, 'Each sound practice uses its matching mouth model in the shared folder');
     assert.ok(fs.existsSync(path.join(__dirname, '../public', clip.poster)), 'Every practice model has a local poster');
     assert.ok(fs.existsSync(path.join(__dirname, '../public', englishMedia[`sound-${activity.letter}`])), 'Each practice has its own recorded phoneme fallback');
   }
@@ -67,7 +68,19 @@ async function main() {
   }
   assert.equal(lessonTwo.completed.length, 18, 'Both opening lessons can now be completed');
   assert.equal(englishAccess(lessonTwo).next.activity.id, 'meet-a-cases');
-  assert.equal(completeEnglishActivity(lessonTwo, 'meet-a-cases'), lessonTwo, 'An unconnected Lesson 3 video still cannot unlock the next topic');
+  const savedVideo = englishVideos['meet-a-cases'];
+  delete englishVideos['meet-a-cases'];
+  assert.equal(completeEnglishActivity(lessonTwo, 'meet-a-cases'), lessonTwo, 'An unavailable video cannot unlock the next topic');
+  englishVideos['meet-a-cases'] = savedVideo;
+  let openingSequence = lessonTwo;
+  for (const lesson of englishLessons.slice(2, 4)) {
+    for (const activity of lesson.activities) {
+      assert.equal(englishAccess(openingSequence).next.activity.id, activity.id, 'A and T retain sequential topic unlocking');
+      openingSequence = completeEnglishActivity(openingSequence, activity.id);
+    }
+  }
+  assert.equal(openingSequence.completed.length, 30, 'All four opening lessons can be completed');
+  assert.equal(englishAccess(openingSequence).next.activity.id, 'meet-p');
   assert.equal(completeEnglishActivity(sequence, 'meet-s').completed.length, 12, 'Revision cannot inflate completion');
   assert.equal(enterEnglishActivity(sequence, 'first-words', 'meet-a').current['first-words'], 3, 'Reached topics remain open for revision');
   const satReady = { ...restored, completed: englishLessons[0].activities.slice(0, 10).map(item => item.id), current: { 'first-words': 0 } };
@@ -87,9 +100,9 @@ async function main() {
   assert.equal(englishAccess(later).lessons.has('explore-t'), false);
   const allDone = { ...initial, completed: ids };
   assert.equal(englishAccess(allDone).next, null);
-  assert.equal(englishAccess(allDone).activities.size, 30);
+  assert.equal(englishAccess(allDone).activities.size, 43);
   assert.equal('mastered' in restored, false);
-  for (const letter of ['s', 'a', 't']) assert.ok(fs.statSync(path.join('public/english/media', `${letter}-sound.mp3`)).size > 1000);
+  for (const letter of ['s', 'a', 't', 'p', 'i', 'n']) assert.ok(fs.statSync(path.join('public/english/media', `${letter}-sound.mp3`)).size > 1000);
   if (process.argv.includes('--model-only')) { console.log('Sequential unlocking, locked links, revision, resume and replay checks passed.'); return; }
 
   const manifestResponse = await fetch(base + '/english/manifest.webmanifest');
@@ -149,7 +162,7 @@ async function main() {
     handlers.fetch({ request: { url: base + url, method: 'GET', mode, headers: new Headers(headers) }, respondWith: p => { response = p; } });
     return response;
   }
-  for (const url of ['/english/dashboard', '/english/learn/first-words?activity=build-sat', '/english/learn/explore-s', '/english/learn/explore-a', '/english/learn/explore-t']) {
+  for (const url of ['/english/dashboard', '/english/learn/first-words?activity=build-sat', '/english/learn/explore-s', '/english/learn/explore-a', '/english/learn/explore-t', '/english/learn/more-words']) {
     const response = await request(url); assert.equal(response.status, 200); assert.match(await response.text(), /AptyRead/);
   }
   const fallback = await request('/english/not-saved'); assert.match(await fallback.text(), /A little pause/);
@@ -168,6 +181,6 @@ async function main() {
   const audio = await request('/english/media/s-sound.mp3', 'cors', { Range: 'bytes=0-99' });
   assert.equal(audio.status, 206); assert.equal((await audio.arrayBuffer()).byteLength, 100);
   const invalid = await request('/english/media/s-sound.mp3', 'cors', { Range: 'bytes=999999-' }); assert.equal(invalid.status, 416);
-  console.log(JSON.stringify({ result: 'passed', cachedResources: cached.size, checks: ['30 curriculum steps', 'sequential topic and lesson unlocking', 'locked routes and placeholders', 'revision, resume and replay', 'portrait and landscape IDs', 'partial-word resume', 'corrupt progress recovery', 'duplicate completion protection', 'word-state validation', 'recorded phoneme assets', 'manifest and worker headers', 'production offline package with fonts/scripts/styles', 'offline lesson routes and fallback', 'cache isolation', 'RSC exclusion', 'audio byte ranges'] }, null, 2));
+  console.log(JSON.stringify({ result: 'passed', cachedResources: cached.size, checks: ['43 curriculum steps', 'sequential topic and lesson unlocking', 'locked routes and placeholders', 'revision, resume and replay', 'portrait and landscape IDs', 'partial-word resume', 'corrupt progress recovery', 'duplicate completion protection', 'word-state validation', 'recorded phoneme assets', 'manifest and worker headers', 'production offline package with fonts/scripts/styles', 'offline lesson routes and fallback', 'cache isolation', 'RSC exclusion', 'audio byte ranges'] }, null, 2));
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });

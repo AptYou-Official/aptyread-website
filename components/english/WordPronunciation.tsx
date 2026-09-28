@@ -2,11 +2,11 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { BUNNY_LIBRARY, WordPronunciationVideo } from '@/lib/english-curriculum';
+import { BUNNY_LIBRARY, WordPronunciationVideo, PronunciationWord } from '@/lib/english-curriculum';
 import Icon from './Icons';
 
 export default function WordPronunciation({ word, video, open, onOpen, onClose }: {
-  word: 'at' | 'sat'; video: WordPronunciationVideo; open: boolean; onOpen: () => void; onClose: () => void;
+  word: PronunciationWord; video: WordPronunciationVideo; open: boolean; onOpen: () => void; onClose: () => void;
 }) {
   const [failed, setFailed] = useState(false);
   const [playing, setPlaying] = useState(false);

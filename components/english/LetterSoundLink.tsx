@@ -64,7 +64,7 @@ export default function LetterSoundLink({ letter, suspended = false, onComplete 
       <LearningCompanion title={title} speaking={audio.playing} headingRef={heading} reaction={`${state.index}-${state.phase}`} />
       {complete ? <div className="en-link-keepsake">
         <AchievementStars count={reward.total} />
-        <div className="en-link-keepsake-letters" aria-label={`Letters practised: ${linkLetters[letter].join(', ')}`}>{linkLetters[letter].map(value => <span key={value}>{value}</span>)}</div>
+        <div className={`en-link-keepsake-letters ${linkLetters[letter].length > 3 ? 'is-growing' : ''}`} aria-label={`Letters explored: ${linkLetters[letter].join(', ')}`}>{linkLetters[letter].map(value => <span key={value}>{value}</span>)}</div>
       </div> : <div className="en-link-experience">
         {guided ? <button className={`en-link-single ${state.highlight === 's' ? 'is-sounding' : ''}`} disabled={state.busy || !state.heard} onClick={state.phase === 'touch' ? touch : listen} aria-label={state.phase === 'touch' ? 'Touch s and try its sound' : 'Hear the s sound again'}>
           <strong>s</strong><span><Icon name={state.phase === 'touch' ? 'hand' : 'sound'} size={25} /></span>

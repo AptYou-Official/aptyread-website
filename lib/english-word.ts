@@ -1,7 +1,8 @@
 import type { WordProgress } from './english-progress';
 import { EnglishAudioCue, narrationCue } from './english-narration';
+import type { ReadingWord } from './english-curriculum';
 
-export type FirstReadingWord = 'at' | 'sat';
+export type FirstReadingWord = ReadingWord;
 export const freshGuidedWord = (): WordProgress => ({ stage: 0, built: '', reads: 0, answers: {}, started: true, mode: 'guided', journeyVersion: 2 });
 export const wordSound = (letter: string): EnglishAudioCue => ({ id: `sound-${letter}` });
 

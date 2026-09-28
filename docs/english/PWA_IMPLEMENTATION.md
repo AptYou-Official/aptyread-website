@@ -5,10 +5,10 @@ The English learning space lives at `/english/dashboard` under the existing webs
 ## First release implemented
 
 - Five named levels, with Levels 2–5 clearly marked as coming later.
-- The four opening lessons, containing 30 steps in the supplied sequence.
+- The four opening lessons plus Lesson 5 (P, I, N), containing 43 topics. See LESSON_FIVE.md for the 13 new topics and temporary main-video introductions.
 - Structured sequential access: only Lesson 1, Topic 1 starts unlocked. Completing each topic unlocks the next; finishing a lesson unlocks the following lesson. Reached topics remain available for revision through the lesson cards, player menu and word garden. Locked direct URLs show a return to the next available topic. Unfinished words resume and completed words can be replayed without losing completion. Levels 2–5 remain unavailable until their curriculum is supplied.
 - Bunny Stream introductions for s, a and t, choosing portrait on narrow portrait screens and landscape otherwise. Playback keeps the selected recording if the device rotates.
-- Actual s, a and t phoneme recordings copied from the supplied native-app assets. Letter names are never synthesized as substitute phonemes.
+- Actual s, a, t, p, i and n phoneme recordings copied from the supplied native-app assets. Letter names are never synthesized as substitute phonemes.
 - Sound practice, letter finding, uppercase/lowercase recognition, and finger/pointer writing practice with a paper alternative.
 - Guided `at` and `sat` word building opens directly with ordered letters, a highlighted next letter and box, recorded sound prompts, a synchronized blending animation, two self-paced reading tries, optional parent prompts and five celebration stars. All attempts and replays use the same guided path. The `sat` story shows Sam moving from standing to sitting, followed by two meaning-picture choices.
 - Minimal word-activity screens use off-white, indigo and cyan. On phones, the speaker and main action stay in a fixed bottom bar with safe-area padding; optional parent notes can scroll without covering the action. The current topic is named in the player header.
@@ -25,12 +25,7 @@ The English learning space lives at `/english/dashboard` under the existing webs
 
 Edit `lib/english-curriculum.ts` to connect content. Bunny library `619329` is used. `englishVideos` maps an activity ID to its landscape and portrait video IDs; only public IDs belong here, never account/API keys.
 
-All six teaching topics in Lessons 1 and 2 are connected, with separate portrait and landscape videos. The remaining six video slots in Explore A and Explore T are intentional placeholders. They cannot be skipped or marked complete to unlock the following topic; the sequence waits until those videos are connected. Video completion currently uses the learner’s “I watched and tried” confirmation after opening the player, rather than automatic playback-duration verification. The remaining slots are:
-
-| Lesson | Activity IDs needing videos |
-| --- | --- |
-| Explore A | `meet-a-cases`, `watch-a-capital`, `watch-a-lowercase` |
-| Explore T | `meet-t-cases`, `watch-t-capital`, `watch-t-lowercase` |
+All twelve teaching topics across the four opening lessons are connected, each with portrait and landscape recordings. Explore A and Explore T use the supplied Stream IDs and share the writing choices from Explore S. See [EXPLORE_A_T.md](EXPLORE_A_T.md) for the complete mapping and new pencil clips. Video completion uses the learner’s “I watched and tried” confirmation after opening the player, rather than playback-duration verification. Missing future videos remain unavailable and cannot be marked complete.
 
 Add studio recordings to `englishMedia` using HTTPS URLs or `/english/media/...` files. Existing keys include `sound-s`, `sound-a`, `sound-t`, `word-at`, `word-sat`, `story-sat`, `question-mat`, and `question-bench`. The complete word-activity recording script and stable IDs are in `lib/english-narration.ts` and `docs/english/WORD_ACTIVITY_AUDIO.md`; `try-again` supports the earlier letter activities. Missing whole-word/instruction recordings fall back to device speech; missing phoneme recordings do not.
 
@@ -50,12 +45,12 @@ For releases changing offline files, increment `CACHE` in `public/english/sw.js`
 
 Use `npm run lint`, `npx tsc --noEmit`, and `npm run build`. Use `npm start -- -p 3100` to preview the production build, including its service worker. The focused checks in `scripts/check-english.cjs` validate curriculum, durable progress and worker cache boundaries against the production preview; run with `node scripts/check-english.cjs`. Run `node scripts/check-english-audio.cjs` for instruction/phoneme ordering, cancellation, CDN priority, missing voice handling and guidance-mode resume. Run `node scripts/check-english-review.cjs` for the at journey migration, every review transition and reload, incorrect-answer retries, both reading orders and Lesson 2 unlocking.
 
-Before public launch, check the actual installed experience on iPhone/Safari and Android/Chrome, confirm Bunny’s allowed-domain configuration, review phoneme pronunciation and letter-formation models, connect the remaining six videos, and conduct a supervised child usability review. Add authentication and server progress only when the intended parent/account flow is agreed. Do not treat five-star completion or self-reported reading tries as speech recognition or assessment.
+Before public launch, check the actual installed experience on iPhone/Safari and Android/Chrome, confirm Bunny’s allowed-domain configuration, review phoneme pronunciation and the connected letter-formation models, and conduct a supervised child usability review. Add authentication and server progress only when the intended parent/account flow is agreed. Do not treat five-star completion or self-reported reading tries as speech recognition or assessment.
 
 ## Next development steps
 
 1. Review the working opening lessons on real phones and tablets, including video controls, sound clarity, writing size and one-handed navigation.
-2. Replace device narration with reviewed studio clips and finish the formation/case videos.
+2. Replace device narration with reviewed studio clips and review the connected formation/case videos.
 3. Agree the remaining Level 1 scope before adding subsequent lessons. Keep decoding vocabulary restricted to what has actually been taught, with spoken support for longer language.
 4. Design parent accounts, optional cross-device progress and any subscription rules. Keep payment and account administration outside the child’s lesson flow.
 5. Run a small family pilot, then publish the app under the main website once content and device checks are complete.

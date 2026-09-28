@@ -10,10 +10,10 @@ Module._resolveFilename = function (name, ...rest) { return resolve.call(this, n
 const { createPaperWriting } = require('../lib/english-paper-writing.ts');
 const { englishLessons, englishPaperWritingVideos } = require('../lib/english-curriculum.ts');
 const tick = () => new Promise(resolve => setImmediate(resolve));
-function setup(uppercase = true) {
+function setup(letter = 'S') {
   const events = [], pending = [];
   let defer = false, blocked = false, narration = true;
-  const session = createPaperWriting(uppercase, {
+  const session = createPaperWriting(letter, {
     say: id => { events.push(id); return defer ? new Promise(resolve => pending.push(resolve)) : Promise.resolve(narration); },
     play: async () => { events.push('video'); if (blocked) throw Error('Playback blocked'); },
     stop: () => events.push('stop'), changed: () => {},
@@ -21,15 +21,15 @@ function setup(uppercase = true) {
   return { session, events, pending, defer: () => { defer = true; }, block: () => { blocked = true; }, noVoice: () => { narration = false; } };
 }
 async function main() {
-  for (const uppercase of [true, false]) {
-    const t = setup(uppercase), s = t.session;
+  for (const letter of ['S', 's', 'A', 'a', 'T', 't']) {
+    const t = setup(letter), s = t.session;
     s.finishTry(); assert.equal(s.snapshot().turns, 0, 'Cannot earn a star before a model');
     await s.watch();
     assert.ok(t.events.indexOf('paper-watch') < t.events.indexOf('video'), 'Watch precedes the silent model');
     assert.equal(s.snapshot().phase, 'watch');
     s.videoPlaying(); s.tryNow(); assert.equal(s.snapshot().phase, 'watch', 'First model is shown completely');
     s.videoEnded(); assert.equal(s.snapshot().phase, 'try');
-    assert.equal(t.events.at(-1), uppercase ? 'paper-write-big-s' : 'paper-write-small-s');
+    assert.equal(t.events.at(-1), `paper-write-${letter === letter.toUpperCase() ? 'big' : 'small'}-${letter.toLowerCase()}`, 'Each letter and case gets its own writing instruction');
     assert.equal(s.snapshot().turns, 0, 'Watching earns no star');
     s.showModel(); await tick(); s.videoPlaying(); s.videoEnded();
     assert.equal(s.snapshot().turns, 0, 'Replay earns no star');
@@ -69,18 +69,28 @@ async function main() {
   const React = require('react'), { renderToStaticMarkup } = require('react-dom/server');
   const WritingPractice = require('../components/english/WritingPractice.tsx').default;
   const PaperWriting = require('../components/english/PaperWriting.tsx').default;
-  const lesson = englishLessons.find(l => l.id === 'explore-s');
+  const TracePad = require('../components/english/TracePad.tsx').default;
+  const guides = require('../lib/english-tracing.json');
+  for (const lesson of englishLessons.filter(l => l.id.startsWith('explore-'))) {
   assert.equal(lesson.activities.length, 6, 'Paper is an option within the same sequential topic');
   for (const activity of lesson.activities.filter(a => a.kind === 'write')) {
     const html = renderToStaticMarkup(React.createElement(WritingPractice, { activity, onComplete() {} }));
     assert.ok(html.includes('Trace on screen') && html.includes('Write on paper'));
-    const paper = renderToStaticMarkup(React.createElement(PaperWriting, { uppercase: !!activity.uppercase, suspended: false, onBack() {}, onComplete() {} }));
-    const clip = englishPaperWritingVideos[activity.uppercase ? 'S' : 's'];
+    const letter = activity.uppercase ? activity.letter.toUpperCase() : activity.letter;
+    assert.ok(html.includes(`<strong>${letter}</strong>`), 'Both writing choices show the correct letter');
+    const paper = renderToStaticMarkup(React.createElement(PaperWriting, { letter: activity.letter, uppercase: !!activity.uppercase, suspended: false, onBack() {}, onComplete() {} }));
+    const clip = englishPaperWritingVideos[letter];
+    assert.equal(clip.src, `https://aptyread-cdn.b-cdn.net/english/level1/videos/letter-writing-video-clips/draw-${activity.uppercase ? 'big' : 'small'}-${activity.letter}.mp4`, 'Every paper model uses the shared writing folder');
     assert.ok(paper.includes(clip.src)); assert.ok(paper.includes('preload="none"') && paper.includes('muted=""'));
     assert.ok(paper.includes('0 of 3 practice stars earned'));
     assert.ok(!paper.includes('I tried it</button>'), 'The initial dock invites watching rather than instant completion');
     assert.ok(fs.existsSync(path.join(__dirname, '../public', clip.poster)));
+    const trace = renderToStaticMarkup(React.createElement(TracePad, { letter, onComplete() {}, onListen() {} }));
+    assert.ok(trace.includes(guides[letter].path), 'All six letters have real tracing paths, not a text fallback');
+    assert.equal(guides[letter].path.match(/M/g).length, { S: 1, s: 1, A: 3, a: 2, T: 2, t: 2 }[letter], 'Pen lifts are retained for the sequential demonstration');
+    assert.ok(paper.includes(`how to write ${activity.uppercase ? 'capital' : 'lowercase'} ${letter}`));
   }
-  console.log('Passed: both letter clips, narration order, replay/try reward rules, three tries, optional recall help, pause/resume, stale events, unavailable video/voice, picture fallback and preserved six-topic structure.');
+  }
+  console.log('Passed: all six letter/case models and instructions, tracing paths and pen lifts, narration order, three-try rewards, pause/resume, stale events, media fallback and the six-topic lesson structure.');
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });

@@ -2,12 +2,13 @@
 
 import { CSSProperties, useCallback, useEffect, useRef, useState } from 'react';
 import { completeEnglishActivity, WordProgress, wordFinishStage } from '@/lib/english-progress';
-import { englishPronunciationVideos } from '@/lib/english-curriculum';
+import { englishPronunciationVideos, ReadingWord } from '@/lib/english-curriculum';
 import { englishNarration, narrationCue } from '@/lib/english-narration';
 import { freshGuidedWord, guidedWordPrompt, placeGuidedLetter, tryReadingWord, wordSound } from '@/lib/english-word';
 import { useEnglish } from './EnglishProvider';
 import useEnglishAudio from './useEnglishAudio';
 import StoryScene from './StoryScene';
+import PinScene from './PinScene';
 import AtScene from './AtScene';
 import WordPronunciation from './WordPronunciation';
 import WordCelebration from './WordCelebration';
@@ -15,7 +16,7 @@ import LearningCompanion from './LearningCompanion';
 import ActivityJourney from './ActivityJourney';
 import Icon from './Icons';
 
-export default function WordBuilder({ word, onComplete }: { word: 'at' | 'sat'; onComplete: () => void }) {
+export default function WordBuilder({ word, onComplete }: { word: ReadingWord; onComplete: () => void }) {
   const { progress, update } = useEnglish();
   const saved = progress.words[word] || freshGuidedWord();
   const [feedback, setFeedback] = useState('');
@@ -46,7 +47,7 @@ export default function WordBuilder({ word, onComplete }: { word: 'at' | 'sat'; 
   const journeyStep = phase === 0 ? 0 : phase === 1 ? 1 : phase < finishStage ? 2 : 3;
   const headline = phase === 0 ? nextLetter ? `Tap ${nextLetter}` : 'Put them together.'
     : phase === 1 ? blending ? 'Our word.' : saved.reads === 0 ? 'Say it.' : saved.reads === 1 ? 'One more time.' : 'Well done!'
-    : phase === 2 ? 'Watch Sam.' : phase < finishStage ? 'Which picture?' : 'We made a word!';
+    : phase === 2 ? word === 'pin' ? 'Look closely.' : 'Watch Sam.' : phase < finishStage ? 'Which picture?' : 'We made a word!';
 
   useEffect(() => {
     if (previousPhase.current !== phase) {
@@ -181,7 +182,7 @@ export default function WordBuilder({ word, onComplete }: { word: 'at' | 'sat'; 
       </div>
     </> : phase === 2 ? <>
       <div className={`en-meaning-studio ${word === 'at' ? 'en-at-meaning' : ''}`}><span className="en-meaning-word">{word}</span>
-      <button className="en-story-frame en-story-replay" onClick={playStory} aria-label={`Watch again: ${word === 'at' ? 'Sam is at the door' : 'Sam sat on the mat'}`}>{word === 'at' ? <AtScene key={storyRun} story /> : <StoryScene key={storyRun} story />}<span className="en-scene-replay-label"><Icon name="redo" size={17} /> Again</span></button>
+      <button className="en-story-frame en-story-replay" onClick={playStory} aria-label={`Watch again: ${englishNarration[`story-${word}`]}`}>{word === 'pin' ? <PinScene key={storyRun} story /> : word === 'at' ? <AtScene key={storyRun} story /> : <StoryScene key={storyRun} story />}<span className="en-scene-replay-label"><Icon name="redo" size={17} /> Again</span></button>
       </div>
     </> : phase < finishStage && word === 'sat' ? <>
       <span className="en-meaning-word">sat</span>
@@ -194,7 +195,7 @@ export default function WordBuilder({ word, onComplete }: { word: 'at' | 'sat'; 
       <button className={`en-dock-audio ${audio.playing ? 'is-playing' : ''}`} aria-label={audio.playing ? 'Stop listening' : phase === 2 ? 'Play the story again' : 'Hear the instructions'} onClick={audio.playing ? stop : directions}><Icon name={audio.playing ? 'close' : 'sound'} size={23} /></button>
       {phase === 0 ? audio.blocked ? <button className="en-button" onClick={directions}><Icon name="sound" size={20} /> Tap to listen</button> : <button className="en-button" disabled={saved.built !== word} onClick={() => void blend()}>Put sounds together <Icon name="arrow" size={20} /></button> :
         phase === 1 ? <>{saved.reads < 2 ? <button className="en-button" disabled={blending} onClick={read}>{saved.reads === 0 ? 'I tried it' : 'I tried again'} <Icon name="check" size={20} /></button> : <button className="en-button" onClick={next}>See what it means <Icon name="arrow" size={20} /></button>}</> :
-        phase === 2 ? <button className="en-button" onClick={next}>{word === 'at' ? 'I explored it!' : 'Let’s find a picture'} <Icon name="arrow" size={20} /></button> :
+        phase === 2 ? <button className="en-button" onClick={next}>{word !== 'sat' ? 'I explored it!' : 'Let’s find a picture'} <Icon name="arrow" size={20} /></button> :
         phase < finishStage ? rightAnswer ? <button className="en-button" onClick={next}>{phase === 3 ? 'One more picture' : 'I did it!'} <Icon name="arrow" size={20} /></button> : <p>Tap the picture. Take your time.</p> :
         <button className="en-button en-next-topic" onClick={() => { stop(); onComplete(); }}>Next topic <span className="en-cta-arrow"><Icon name="arrow" size={23} /></span></button>}
     </div>
@@ -202,7 +203,7 @@ export default function WordBuilder({ word, onComplete }: { word: 'at' | 'sat'; 
       {phase === 0 && <button className="en-text-button" disabled={!saved.built.length} onClick={undo}><Icon name="back" size={17} /> Undo</button>}
       <p>We build from left to right. Let your child tap each highlighted letter and hear its sound. There is no need to guess the word.</p>
       {phase === 1 && <p>Wait for your child’s attempt. {pronunciation ? 'After the first try, Watch and say offers an optional model. Use the video controls to replay, then let your child try again.' : 'You can listen to the word or its sounds together, then let your child try again.'} Take as much time as you need.</p>}
-      {phase === 2 && <p>{word === 'at' ? '“Where is Sam?” Point to the door: “Sam is at the door.”' : '“What changed when Sam sat down?” Try sitting down together.'} You can talk in your home language.</p>}
+      {phase === 2 && <p>{word === 'pin' ? 'Point to the pin in the picture. Talk about its shape and what it is used for.' : word === 'sit' ? 'Try the spoken instruction together: “Sit on the mat.”' : word === 'at' ? '“Where is Sam?” Point to the door: “Sam is at the door.”' : '“What changed when Sam sat down?” Try sitting down together.'} You can talk in your home language.</p>}
       <p><strong>Spoken words:</strong> {caption}</p>
     </details>
   </div>;

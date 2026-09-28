@@ -11,7 +11,7 @@ export default function LessonCard({ lesson, index, onOpen }: { lesson: EnglishL
   const completed = lesson.activities.filter(item => access.completed.has(item.id)).length;
   const done = completed === lesson.activities.length;
   const unlocked = ready && access.lessons.has(lesson.id);
-  const upcoming = lesson.activities.some(item => item.kind === 'video' && !englishVideos[item.id]);
+  const upcoming = lesson.activities.some(item => item.kind === 'video' && !englishVideos[item.id] && !item.audioIntroduction);
   const current = access.next?.lessonId === lesson.id && !upcoming;
   return <button className={`en-hub-lesson ${current ? 'is-current' : ''} ${done ? 'is-done' : ''} ${!unlocked || upcoming ? 'is-later' : ''}`}
     onClick={onOpen} disabled={!ready} aria-label={`View topics in ${lesson.title}${done ? ', completed' : upcoming ? ', coming soon' : !unlocked ? ', locked' : ''}`}>

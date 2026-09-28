@@ -9,7 +9,7 @@ const resolve = Module._resolveFilename;
 Module._resolveFilename = function (name, ...rest) { return resolve.call(this, name.startsWith('@/') ? path.join(__dirname, '..', name.slice(2)) : name, ...rest); };
 const React = require('react');
 const { renderToStaticMarkup } = require('react-dom/server');
-const { englishLessons } = require('../lib/english-curriculum.ts');
+const { englishLessons, englishVideos } = require('../lib/english-curriculum.ts');
 const { emptyProgress } = require('../lib/english-progress.ts');
 let state = { progress: emptyProgress(), ready: true, offline: true, storageAvailable: true };
 require('../components/english/EnglishProvider.tsx').useEnglish = () => state;
@@ -33,10 +33,20 @@ assert.equal(links(render(Topics, { lesson: englishLessons[1] })).length, 0, 'Pr
 
 state.progress = { ...emptyProgress(), completed: englishLessons.slice(0, 2).flatMap(l => l.activities.map(a => a.id)) };
 assert.equal(links(render(Topics, { lesson: englishLessons[1] })).length, 6);
-assert.equal(links(render(Topics, { lesson: englishLessons[2] })).length, 0, 'The available but unconnected video is not an active navigation target');
+assert.deepEqual(links(render(Topics, { lesson: englishLessons[2] })), ['/english/learn/explore-a?activity=meet-a-cases'], 'Explore A now starts at its connected video');
+assert.ok(links(render(Dashboard)).includes('/english/learn/explore-a?activity=meet-a-cases'));
+assert.equal(links(render(Topics, { lesson: englishLessons[3] })).length, 0, 'Explore T stays locked until Explore A is complete');
+const savedVideo = englishVideos['meet-a-cases'];
+delete englishVideos['meet-a-cases'];
+assert.equal(links(render(Topics, { lesson: englishLessons[2] })).length, 0, 'A future missing video remains unavailable');
 const waiting = render(Dashboard);
 assert.ok(waiting.includes('Practise again') && waiting.includes('Explore A is coming soon'));
 assert.ok(!links(waiting).some(link => link.includes('explore-a')), 'The featured action offers useful revision while new content is being prepared');
+englishVideos['meet-a-cases'] = savedVideo;
+state.progress = { ...emptyProgress(), completed: englishLessons.slice(0, 3).flatMap(l => l.activities.map(a => a.id)) };
+assert.ok(links(render(Dashboard)).includes('/english/learn/explore-t?activity=meet-t-cases'), 'Finishing A continues directly into T');
+state.progress = { ...emptyProgress(), completed: englishLessons.flatMap(l => l.activities.map(a => a.id)) };
+assert.ok(render(Dashboard).includes('Practise again'), 'Finishing the opening sequence offers revision');
 
 const inPlayer = render(Topics, { lesson: englishLessons[1], currentId: 'write-s-capital', onSelect() {} });
 assert.equal((inPlayer.match(/aria-current="step"/g) || []).length, 1, 'The player marks exactly one current topic');
