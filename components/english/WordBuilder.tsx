@@ -199,7 +199,7 @@ export default function WordBuilder({ word, onComplete, nextTopic }: { word: Rea
         phase < finishStage ? rightAnswer ? <button className="en-button" onClick={next}>{phase === 3 ? 'One more picture' : 'I did it!'} <Icon name="arrow" size={20} /></button> : <p>Tap the picture. Take your time.</p> :
         <button className="en-button en-next-topic" onClick={() => { stop(); onComplete(); }}><span className="en-next-topic-copy"><small>Next topic</small><strong>{nextTopic || 'Keep going'}</strong></span><span className="en-cta-arrow"><Icon name="arrow" size={23} /></span></button>}
     </div>
-    <details className="en-word-support" onKeyDown={event => { if (event.key === 'Escape') { event.currentTarget.open = false; event.currentTarget.querySelector('summary')?.focus(); } }}><summary aria-label="For grown-ups"><Icon name="grownups" size={18} /><span>For grown-ups</span></summary>
+    <details className="en-word-support" translate="yes" onKeyDown={event => { if (event.key === 'Escape') { event.currentTarget.open = false; event.currentTarget.querySelector('summary')?.focus(); } }}><summary aria-label="For grown-ups"><Icon name="grownups" size={18} /><span>For grown-ups</span></summary>
       <p>The learning path is Build → Read → Explore → Celebrate. The child sees only the current step so the next action stays clear.</p>
       {phase === 0 && <button className="en-text-button" disabled={!saved.built.length} onClick={undo}><Icon name="back" size={17} /> Undo</button>}
       <p>We build from left to right. Let your child tap each highlighted letter and hear its sound. There is no need to guess the word.</p>

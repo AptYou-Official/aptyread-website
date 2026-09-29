@@ -86,7 +86,7 @@ export default function PaperWriting({ letter: baseLetter, uppercase, suspended,
         : phase === 'watch' ? <button className="en-button" disabled={!state.watched} onClick={() => controller.current?.tryNow()}>{state.watched ? 'Try it' : 'Watching…'} <Icon name="pencil" size={22} /></button>
         : <button className="en-button" disabled={phase === 'prompt'} onClick={() => void controller.current?.watch(phase === 'blocked')}><Icon name="play" size={22} />{phase === 'prompt' ? 'Watch…' : phase === 'blocked' ? 'Try video again' : 'Watch'}</button>}
     </div>
-    <details className="en-word-support en-paper-parent" onToggle={event => { if (event.currentTarget.open) controller.current?.pause(); }} onKeyDown={event => { if (event.key === 'Escape') { event.currentTarget.open = false; event.currentTarget.querySelector('summary')?.focus(); } }}>
+    <details className="en-word-support en-paper-parent" translate="yes" onToggle={event => { if (event.currentTarget.open) controller.current?.pause(); }} onKeyDown={event => { if (event.key === 'Escape') { event.currentTarget.open = false; event.currentTarget.querySelector('summary')?.focus(); } }}>
       <summary aria-label="For grown-ups"><Icon name="grownups" size={18} /><span>For grown-ups</span></summary>
       <p>Have paper and a pencil ready. Watch together, then let your child write one letter at their own pace. Help them find a comfortable hold. You can talk in your home language.</p>
       <p>One completed attempt is enough to continue. Try again is always available for extra pencil practice, but there is no score and no handwriting accuracy test.</p>

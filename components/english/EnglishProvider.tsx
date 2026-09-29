@@ -25,7 +25,29 @@ export default function EnglishProvider({ children }: { children: React.ReactNod
     window.addEventListener('online', connection); window.addEventListener('offline', connection);
     // Development hot-reload assets must never be stored for offline use.
     if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/english/sw.js', { scope: '/english/', updateViaCache: 'none' }).catch(() => { /* Installation is optional; online learning still works. */ });
+      let reloading = false;
+      let registration: ServiceWorkerRegistration | null = null;
+      const activateWaiting = () => registration?.waiting?.postMessage({ type: 'SKIP_WAITING' });
+      const refreshForUpdate = () => {
+        if (reloading) return;
+        reloading = true;
+        window.location.reload();
+      };
+      const onUpdateFound = () => {
+        const worker = registration?.installing;
+        if (!worker) return;
+        worker.addEventListener('statechange', () => {
+          if (worker.state === 'installed' && navigator.serviceWorker.controller) activateWaiting();
+        });
+      };
+      navigator.serviceWorker.addEventListener('controllerchange', refreshForUpdate);
+      void navigator.serviceWorker.register('/english/sw.js', { scope: '/english/', updateViaCache: 'none' }).then(nextRegistration => {
+        registration = nextRegistration;
+        registration.addEventListener('updatefound', onUpdateFound);
+        activateWaiting();
+        return registration.update();
+      }).then(activateWaiting).catch(() => { /* Installation is optional; online learning still works. */ });
+      window.addEventListener('pagehide', () => navigator.serviceWorker.removeEventListener('controllerchange', refreshForUpdate), { once: true });
     }
     const sync = (event: StorageEvent) => {
       if (event.key !== ENGLISH_PROGRESS_KEY) return;

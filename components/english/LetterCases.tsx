@@ -76,7 +76,7 @@ export default function LetterCases({ letter, suspended = false, onComplete }: {
       {canContinue ? <button className={`en-button ${complete ? 'en-next-topic' : ''}`} disabled={state.busy} onClick={complete ? () => { quiet(); onComplete(); } : next}>{complete ? 'Next topic' : 'Next'}<Icon name="arrow" size={23} /></button>
         : <div className="en-link-action-cue" role="status"><Icon name={state.busy ? 'sound' : 'hand'} size={23} /><span>{state.busy ? 'Listen…' : 'Tap a letter'}</span></div>}
     </div>
-    <details className="en-word-support en-link-parent" onToggle={event => { if (event.currentTarget.open) quiet(); }} onKeyDown={event => { if (event.key === 'Escape') { event.currentTarget.open = false; event.currentTarget.querySelector('summary')?.focus(); } }}>
+    <details className="en-word-support en-link-parent" translate="yes" onToggle={event => { if (event.currentTarget.open) quiet(); }} onKeyDown={event => { if (event.key === 'Escape') { event.currentTarget.open = false; event.currentTarget.querySelector('summary')?.focus(); } }}>
       <summary aria-label="For grown-ups"><Icon name="grownups" size={18} /><span>For grown-ups</span></summary>
       <p>This activity helps your child notice the two forms of one letter: big {pair[0]} and small {letter}. The child finds each form among familiar letters.</p>
       <p>The speaker is optional. It plays the letter sound for reinforcement; the child is not asked to identify a sound here. A correct tap also plays the sound as feedback.</p>

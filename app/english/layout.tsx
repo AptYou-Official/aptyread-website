@@ -26,5 +26,5 @@ export const metadata: Metadata = {
 };
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, viewportFit: 'cover', themeColor: '#FAFAF7' };
 export default function EnglishLayout({ children }: { children: React.ReactNode }) {
-  return <div className={`en-app ${andika.variable}`}><EnglishProvider>{children}</EnglishProvider></div>;
+  return <div className={`en-app ${andika.variable}`} translate="no"><EnglishProvider>{children}</EnglishProvider></div>;
 }

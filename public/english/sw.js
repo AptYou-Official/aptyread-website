@@ -1,6 +1,6 @@
 /* Only the English learning app is controlled by this worker. Marketing,
    admin pages, APIs and third-party media are deliberately never cached. */
-const CACHE = 'apty-english-v35-lesson-overview';
+const CACHE = 'apty-english-v36-mobile-readability';
 const PREFIX = 'apty-english-';
 const PAGES = ['/english/dashboard', '/english/lesson/first-words', '/english/lesson/explore-s', '/english/lesson/explore-a', '/english/lesson/explore-t', '/english/lesson/more-words', '/english/lesson/explore-p', '/english/lesson/explore-i', '/english/lesson/explore-n', '/english/learn/first-words', '/english/learn/explore-s', '/english/learn/explore-a', '/english/learn/explore-t', '/english/learn/more-words', '/english/learn/explore-p', '/english/learn/explore-i', '/english/learn/explore-n'];
 const ASSETS = ['/english/media/write-big-p-v1.webp', '/english/media/write-small-p-v1.webp', '/english/media/write-big-i-v1.webp', '/english/media/write-small-i-v1.webp', '/english/media/write-big-n-v1.webp', '/english/media/write-small-n-v1.webp', '/english/media/p-sound.mp3', '/english/media/i-sound.mp3', '/english/media/n-sound.mp3', '/english/media/p-practice-v1.webp', '/english/media/i-practice-v1.webp', '/english/media/n-practice-v1.webp', '/english/offline.html', '/english/manifest.webmanifest', '/images/apty-mascot.png', '/english/media/s-practice-v1.webp', '/english/media/a-practice-v1.webp', '/english/media/t-practice-v1.webp', '/english/media/write-big-s-v1.webp', '/english/media/write-small-s-v1.webp', '/english/media/write-big-a-v1.webp', '/english/media/write-small-a-v1.webp', '/english/media/write-big-t-v1.webp', '/english/media/write-small-t-v1.webp', '/english/media/s-sound.mp3', '/english/media/a-sound.mp3', '/english/media/t-sound.mp3', '/english/icons/icon-192.png', '/english/icons/icon-512.png', '/english/icons/apple-touch-icon.png', '/english/icons/icon-maskable-512.png', '/english/fonts/Andika-OFL.txt'];
@@ -32,8 +32,11 @@ self.addEventListener('install', event => {
       }
     }
     await cache.addAll([...fonts]);
-    // A replacement waits until the old app closes, avoiding mixed builds.
+    // The client activates this fully-cached replacement once it is ready.
   })());
+});
+self.addEventListener('message', event => {
+  if (event.data?.type === 'SKIP_WAITING') void self.skipWaiting();
 });
 self.addEventListener('activate', event => {
   event.waitUntil((async () => {

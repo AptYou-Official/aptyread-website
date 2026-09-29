@@ -45,7 +45,7 @@ export default function LetterIntroduction({ letter, suspended, onComplete }: {
       {heard ? <button className="en-button en-next-topic" onClick={() => { quiet(); onComplete(); }}>Next topic <Icon name="arrow" size={21} /></button>
         : <button className="en-button" disabled={playing} onClick={() => void listen()}><Icon name="sound" size={23} /> Listen with me</button>}
     </div>
-    <details className="en-word-support" onToggle={event => { if (event.currentTarget.open) quiet(); }}>
+    <details className="en-word-support" translate="yes" onToggle={event => { if (event.currentTarget.open) quiet(); }}>
       <summary aria-label="For grown-ups"><Icon name="grownups" size={18} /><span>For grown-ups</span></summary>
       <p>This guided introduction models the recorded sound and gives your child a turn. The next topic shows the mouth movement. Progress records an audio introduction, not a watched video or verified sound knowledge.</p>
     </details>

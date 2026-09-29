@@ -25,7 +25,7 @@ export default function PwaInstall() {
   }
   return <>
     <button className="en-install-button" onClick={install} disabled={installed}><Icon name={installed ? 'check' : 'download'} size={19} />{installed ? 'Added to your home' : 'Add to home screen'}</button>
-    <dialog ref={help} className="en-dialog" aria-labelledby="en-install-title" onClick={e => { if (e.target === e.currentTarget) help.current?.close(); }}>
+    <dialog ref={help} className="en-dialog" translate="yes" aria-labelledby="en-install-title" onClick={e => { if (e.target === e.currentTarget) help.current?.close(); }}>
       <button className="en-icon-button en-dialog-close" onClick={() => help.current?.close()} aria-label="Close install instructions"><Icon name="close" /></button>
       <div className="en-dialog-icon"><Icon name="download" size={32} /></div><h2 id="en-install-title">A little reading, one tap away.</h2>
       <p>Add AptyRead to your home screen to open your learning space like an app.</p>

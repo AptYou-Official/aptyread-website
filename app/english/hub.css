@@ -38,6 +38,34 @@ body:has(.en-hub-sheet[open]){overflow:hidden}
   .en-hub-sheet{width:100%;max-width:100%;max-height:94dvh;margin:auto 0 0;border-radius:28px 28px 0 0;border-width:1px 0 0}.en-sheet-heading{padding:25px 21px 19px}.en-sheet-heading h2{font-size:25px!important}.en-sheet-heading .en-hub-kicker{font-size:8px;letter-spacing:1.2px}.en-sheet-heading .en-icon-button{width:41px;height:41px;min-height:41px}.en-sheet-scroll{padding:19px 17px 22px}.en-sheet-progress{margin-top:14px;gap:10px}.en-sheet-progress small{font-size:10px}.en-sheet-footer{padding:14px 20px calc(18px + env(safe-area-inset-bottom))}.en-sheet-footer p{font-size:11px}.en-sheet-footer .en-hub-cta{min-height:55px}.en-topic-group h3{font-size:12px;margin-left:12px}.en-route-topic{gap:11px;padding:12px;min-height:73px;border-radius:16px}.en-route-copy strong{font-size:14px}.en-route-copy small{font-size:10px}.en-route-marker{width:32px;height:32px}.en-route-type{width:21px}.en-topic-group+.en-topic-group{margin-top:21px}.en-hub-level-map li>button,.en-hub-level-map li>div{padding:17px 15px;gap:15px;min-height:91px}.en-hub-level-map strong{font-size:14px}.en-hub-level-number{width:40px;height:44px;font-size:21px}
 }
 @media(max-width:360px){.en-hub-header{padding-left:17px;padding-right:17px}.en-hub-mobile-brand>span{font-size:24px}.en-hub-main{padding-left:15px;padding-right:15px}.en-hub-greeting h1{font-size:28px}.en-hub-feature-copy{padding-left:19px;width:65%}.en-hub-feature h2{font-size:24px;min-height:60px}.en-hub-feature .en-hub-kicker{font-size:6.7px}.en-hub-feature .en-hub-cta{font-size:17px!important;padding-left:11px;gap:5px}.en-hub-feature .en-hub-cta>span{width:25px;height:25px}.en-hub-feature-art{right:10px;width:40%;bottom:41px}.en-hub-feature-art img{width:136px;height:159px}.en-hub-letter-cloud{top:-4px;gap:3px}.en-hub-letter-cloud span{width:24px;height:30px;font-size:21px}.en-hub-orbit{width:140px;height:140px}.en-hub-feature p{font-size:10px}.en-hub-lesson{gap:14px;padding:16px 14px}.en-hub-cover{width:57px;height:72px}.en-hub-lesson-copy>strong{font-size:16px}.en-hub-lesson-status{font-size:10px}.en-hub-lesson-arrow{width:25px}.en-route-copy strong{font-size:13px}.en-route-topic{padding:11px 10px;gap:9px}.en-route-type{width:17px}.en-sheet-heading{padding-left:18px;padding-right:18px}.en-sheet-heading h2{font-size:23px!important}}
+
+/* Mobile readability: keep support text legible and give the fixed navigation a clear app-like edge. */
+@media(max-width:700px){
+  .en-hub-main{padding-bottom:calc(112px + env(safe-area-inset-bottom))}
+  .en-hub-language{font-size:12px}
+  .en-hub-feature .en-hub-kicker{font-size:8.5px;letter-spacing:1px}
+  .en-hub-feature p{font-size:13px;line-height:1.5}
+  .en-hub-feature-progress small{font-size:11px}
+  .en-hub-section-heading .en-hub-kicker{font-size:9px}
+  .en-hub-section-heading>button{font-size:13px}
+  .en-hub-lesson-copy .en-hub-kicker{font-size:9.5px}
+  .en-hub-lesson-status{font-size:13px}
+  .en-hub-mobile-nav{justify-content:stretch;padding:10px 9px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid #d3e3e8;box-shadow:0 -8px 24px rgba(23,58,138,.1);backdrop-filter:none;isolation:isolate}
+  .en-hub-mobile-nav button{flex:1;min-width:0;min-height:56px;gap:5px;color:#6b8295}
+  .en-hub-mobile-nav button>span{width:48px;height:32px}
+  .en-hub-mobile-nav button b{font-size:11px}
+  .en-hub-mobile-nav button[aria-current]>span{background:#d4f0f3;box-shadow:inset 0 0 0 1px #b8e4e9}
+  .en-hub-mobile-nav button:focus-visible{outline:3px solid var(--en-ink);outline-offset:3px}
+  .en-route-copy small{font-size:12px}
+  .en-sheet-progress small{font-size:11.5px}
+  .en-sheet-footer p{font-size:13px;line-height:1.6}
+}
+@media(max-width:360px){
+  .en-hub-feature .en-hub-kicker{font-size:8px}
+  .en-hub-feature p{font-size:12px}
+  .en-hub-lesson-status{font-size:12px}
+  .en-hub-lesson-copy .en-hub-kicker{font-size:9px}
+}
 @media(max-height:480px) and (orientation:landscape){.en-hub-sheet{max-height:96dvh}.en-sheet-heading{padding:13px 20px}.en-sheet-heading h2{font-size:21px!important;margin-top:4px}.en-sheet-progress{margin-top:8px}.en-sheet-scroll{padding:13px 20px}.en-sheet-footer{padding:10px 20px}.en-sheet-footer .en-hub-cta{min-height:48px}.en-sheet-footer p{min-height:27px}.en-route-topic{min-height:62px;padding:9px 12px}}
 @media(prefers-reduced-motion:reduce){.en-hub-sheet[open]{animation:none}.en-hub-cta,.en-hub-lesson,.en-route-topic{transition:none}.en-hub-cta:hover:not(:disabled),.en-hub-lesson:hover:not(:disabled),.en-route-topic:not(.is-locked):hover{transform:none}}
 

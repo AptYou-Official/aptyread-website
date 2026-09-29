@@ -983,3 +983,32 @@
 @media(prefers-reduced-motion:reduce){.en-sticker-badge,.en-sticker-apty,.en-sticker-spark,.en-sticker-confetti i{animation:none}.en-sticker-confetti{display:none}}
 .en-sticker-garden{margin:42px auto 0;padding:28px 22px 30px;border:1px solid #D4E8EC;border-radius:30px;background:linear-gradient(145deg,#FFFFFF,#F2FAF8);box-shadow:0 7px 0 #DCEDEF;text-align:center}.en-sticker-garden>h2{margin:7px 0 4px;color:var(--en-ink);font-size:25px}.en-sticker-garden>p{margin:0;color:var(--en-muted);font-size:13px}.en-sticker-garden-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:17px 13px;margin:25px auto 3px;max-width:620px}.en-sticker-garden-grid .en-sticker-token:nth-child(3n){transform:rotate(-2deg) translateY(3px)}.en-sticker-garden-grid .en-sticker-token:nth-child(4n){transform:rotate(3deg) translateY(-2px)}
 @media(max-width:700px){.en-sticker-garden{margin-top:30px;padding:23px 13px 25px;border-radius:25px}.en-sticker-garden>h2{font-size:22px}.en-sticker-garden>p{font-size:12px}.en-sticker-garden-grid{gap:15px 9px;margin-top:21px}.en-sticker-garden-grid .en-sticker-token{width:78px;height:92px;border-radius:20px}.en-sticker-garden-grid .en-sticker-token strong{max-width:68px;font-size:26px}.en-sticker-garden-grid .en-sticker-token>span{max-width:68px;font-size:8px}}
+
+/* Mobile readability: parent guidance and action labels should remain comfortable at phone size. */
+@media(max-width:700px){
+  .en-app .en-fine{font-size:13px}
+  .en-app .en-button{font-size:15px}
+  .en-app .en-text-button{font-size:14px}
+  .en-app .en-word-support{font-size:15px;line-height:1.65}
+  .en-app .en-word-support p{font-size:15px;line-height:1.65}
+  .en-app .en-word-support summary{font-size:14px}
+  .en-app .en-help-language{font-size:14px}
+  .en-app .en-help-language select{font-size:14px}
+  .en-app .en-sentence-word{font-size:24px;min-height:48px}
+  .en-app .en-sentence-note{font-size:13px}
+  .en-app .en-sentence-prompt{font-size:14px}
+  .en-app .en-sentence-found{font-size:13px}
+  .en-app .en-sentence-hear{font-size:13px}
+  .en-app .en-sentence-action-cue{font-size:17px}
+  .en-app .en-video-status{font-size:13px}
+  .en-app .en-next-topic-copy small{font-size:10px}
+  .en-app .en-next-topic-copy strong{font-size:16px}
+  .en-app .en-install-button{font-size:13px!important}
+}
+@media(max-width:380px){
+  .en-app .en-sentence-word{font-size:22px;min-height:46px;padding:6px 8px}
+  .en-app .en-sentence-action-cue{font-size:16px}
+  .en-app .en-video-status{font-size:12px}
+  .en-app .en-next-topic-copy small{font-size:9px}
+  .en-app .en-next-topic-copy strong{font-size:14px}
+}

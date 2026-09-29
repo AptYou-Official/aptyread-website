@@ -111,6 +111,6 @@ export default function TracePad({ letter, onComplete, onListen, speaking = fals
     </svg>
     {guidance && <div className="en-trace-guidance" role="status"><Icon name="hand" size={18} /><span>{guidance === 'start' ? 'Start at the dot.' : 'Follow the dots.'}</span></div>}
     <div className="en-word-dock en-trace-actions" aria-label="Your next action"><button className="en-trace-clear" aria-label="Clear my marks" disabled={!strokes.length && !demoRun} onClick={() => { setStrokes([]); setDemoRun(0); }}><Icon name="redo" size={19} /><span>Clear</span></button><button className="en-button" onClick={onComplete}>Done <Icon name="check" size={19} /></button></div>
-    {showPaperAlternative && <details className="en-trace-help"><summary>Practise on paper</summary><p>You can write on paper, too. Tap Done when you are ready. This is free practice without scoring.</p></details>}
+    {showPaperAlternative && <details className="en-trace-help" translate="yes"><summary>Practise on paper</summary><p>You can write on paper, too. Tap Done when you are ready. This is free practice without scoring.</p></details>}
   </div>;
 }
