@@ -97,7 +97,29 @@ export const englishMedia: Record<string, string | undefined> = {
   'word-at': undefined, 'word-sat': undefined,
   'story-sat': undefined, 'question-mat': undefined, 'question-bench': undefined,
 };
-export function mediaFor(id: string) { return englishMedia[id]; }
+
+// Recorded narration lives in Bunny's level-specific audio folders. The
+// filename convention is intentional: adding a new letter's matching files
+// wires it automatically without another per-letter map entry.
+const ENGLISH_AUDIO = 'https://aptyread-cdn.b-cdn.net/english/level1/audio';
+function recordedNarrationFor(id: string) {
+  const shared: Record<string, string> = {
+    'practice-watch': 'watch-v1.mp3',
+    'practice-watch-again': 'watch-again-v1.mp3',
+    'paper-watch': 'watch-v1.mp3',
+    'paper-watch-again': 'watch-again-v1.mp3',
+  };
+  if (shared[id]) return `${ENGLISH_AUDIO}/shared/${shared[id]}`;
+  const trace = /^instruction-write-([a-z])-([a-z]+)$/i.exec(id);
+  if (trace && (trace[2] === 'capital' || trace[2] === 'lowercase')) {
+    const size = trace[2] === 'capital' ? 'big' : 'small';
+    return `${ENGLISH_AUDIO}/writing/trace-${size}-${trace[1].toLowerCase()}-v1.mp3`;
+  }
+  const writing = /^(paper-write|writing-success)-(big|small)-([a-z])$/i.exec(id);
+  if (writing) return `${ENGLISH_AUDIO}/writing/${writing[1]}-${writing[2].toLowerCase()}-${writing[3].toLowerCase()}-v1.mp3`;
+  return undefined;
+}
+export function mediaFor(id: string) { return englishMedia[id] ?? recordedNarrationFor(id); }
 
 const SOUND_CLIPS = 'https://aptyread-cdn.b-cdn.net/english/level1/videos/letter-sound-video-clips';
 export const englishSoundPracticeVideos: Record<Letter, { src: string; poster: string }> = {

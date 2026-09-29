@@ -26,6 +26,7 @@ export default function PaperWriting({ letter: baseLetter, uppercase, suspended,
   const complete = phase === 'complete';
   const caseLabel = `${uppercase ? 'big' : 'small'} ${letter}`;
   const displayLabel = `${uppercase ? 'Big' : 'Small'} ${letter}`;
+  const successAudioId = `writing-success-${uppercase ? 'big' : 'small'}-${baseLetter.toLowerCase()}`;
 
   useEffect(() => {
     const session = createPaperWriting(letter, {
@@ -49,10 +50,10 @@ export default function PaperWriting({ letter: baseLetter, uppercase, suspended,
   useEffect(() => {
     if (complete && !previousComplete.current) {
       heading.current?.focus({ preventScroll: true });
-      void sequence([{ id: 'writing-success', narration: `Nice try! You practised ${displayLabel}.`, optional: true }, { id: 'sound-practice-complete' }]);
+      void sequence([{ id: successAudioId, narration: `Nice try! You practised ${displayLabel}.`, optional: true }, { id: 'sound-practice-complete' }]);
     }
     previousComplete.current = complete;
-  }, [complete, displayLabel, sequence]);
+  }, [complete, displayLabel, sequence, successAudioId]);
   const title = complete ? 'Nice try!' : phase === 'ready' ? `Write ${caseLabel}.` : phase === 'paused' ? 'Ready when you are.' : phase === 'blocked' ? 'Let’s try together.' : phase === 'try' ? covered ? 'One on your own.' : 'Your turn.' : 'Watch.';
   function leave(action: () => void) { controller.current?.pause(); action(); }
 

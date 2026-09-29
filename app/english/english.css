@@ -1012,3 +1012,43 @@
   .en-app .en-next-topic-copy small{font-size:9px}
   .en-app .en-next-topic-copy strong{font-size:14px}
 }
+
+/* Tracing is the main task: on phones, give the child a wide, tall finger canvas. */
+@media(max-width:700px){
+  .en-writing-practice.is-trace{position:relative}
+  .en-writing-practice.is-trace .en-writing-stage{display:block}
+  .en-writing-practice.is-trace .en-word-companion{min-height:54px;gap:0;margin:0 0 10px}
+  .en-writing-practice.is-trace .en-companion-portrait{display:none}
+  .en-writing-practice.is-trace .en-companion-bubble{width:100%;max-width:none;min-height:54px;padding:11px 55px 11px 17px;border-radius:18px;box-shadow:0 4px 0 #D9EAEF70}
+  .en-writing-practice.is-trace .en-companion-bubble h1{font-size:24px;text-align:center}
+  .en-writing-practice.is-trace .en-writing-parent{position:absolute;top:5px;right:3px;margin:0;z-index:12}
+  .en-writing-practice.is-trace .en-trace{width:100%;max-width:none}
+  .en-writing-practice.is-trace .en-trace-toolbar{min-height:44px;margin:0 0 9px;gap:8px;font-size:15px}
+  .en-writing-practice.is-trace .en-trace-toolbar>span{flex:1;text-align:center}
+  .en-writing-practice.is-trace .en-trace-demo-button{font-size:14px;padding:8px 11px}
+  .en-writing-practice.is-trace .en-trace-pad{width:100%;min-height:220px;border-radius:24px;box-shadow:0 6px 0 #DCECEF,0 12px 24px #173A8A08}
+  .en-writing-practice.is-trace .en-writing-switch{margin:7px auto 0;font-size:14px;min-height:44px}
+}
+@media(max-width:380px){
+  .en-writing-practice.is-trace .en-companion-bubble h1{font-size:22px}
+  .en-writing-practice.is-trace .en-trace-toolbar{font-size:14px}
+  .en-writing-practice.is-trace .en-trace-pad{min-height:215px}
+}
+
+/* Give the dashboard's current lesson a quiet, premium lift without turning it into a floating ad. */
+.en-hero-card{
+  background:linear-gradient(135deg,#F0FBFC 0%,#E3F7F8 100%);
+  box-shadow:0 12px 28px rgba(23,58,138,.08),0 3px 6px rgba(23,58,138,.05);
+}
+.en-hero-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border:1px solid rgba(255,255,255,.72);
+  border-radius:inherit;
+  pointer-events:none;
+  z-index:0;
+}
+@media(max-width:700px){
+  .en-hero-card{box-shadow:0 8px 20px rgba(23,58,138,.07),0 2px 5px rgba(23,58,138,.045)}
+}

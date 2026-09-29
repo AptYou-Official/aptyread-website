@@ -24,16 +24,17 @@ export default function WritingPractice({ activity, suspended = false, onComplet
   const opening = useRef<ReturnType<typeof setTimeout>>();
   const caseLabel = `${uppercase ? 'big' : 'small'} ${letter}`;
   const displayLabel = `${uppercase ? 'Big' : 'Small'} ${letter}`;
+  const successAudioId = `writing-success-${uppercase ? 'big' : 'small'}-${baseLetter.toLowerCase()}`;
   const instruction = `Let’s write ${caseLabel}. Start at the dot.`;
   function quiet() { clearTimeout(opening.current); stop(); }
   function directions() { quiet(); void sequence([{ id: `instruction-${activity.id}`, narration: instruction, optional: true }]); }
   function changeMode(next: typeof mode) { quiet(); setMode(next); }
   useEffect(() => {
     if (mode === 'trace' && !suspendedRef.current && !document.hidden) opening.current = setTimeout(() => { if (!suspendedRef.current && !document.hidden) void sequence([{ id: `instruction-${activity.id}`, narration: instruction, optional: true }]); }, 0);
-    if (mode === 'invite' && !suspendedRef.current && !document.hidden) opening.current = setTimeout(() => { if (!suspendedRef.current && !document.hidden) void sequence([{ id: 'writing-success', narration: `Nice try! You practised ${displayLabel}.`, optional: true }, { id: 'sound-practice-complete' }]); }, 0);
+    if (mode === 'invite' && !suspendedRef.current && !document.hidden) opening.current = setTimeout(() => { if (!suspendedRef.current && !document.hidden) void sequence([{ id: successAudioId, narration: `Nice try! You practised ${displayLabel}.`, optional: true }, { id: 'sound-practice-complete' }]); }, 0);
     return () => { clearTimeout(opening.current); stop(); };
     // Entering a tracing mode speaks once; closing a menu does not restart it.
-  }, [mode, activity.id, displayLabel, instruction, sequence, stop]);
+  }, [mode, activity.id, displayLabel, instruction, sequence, stop, successAudioId]);
   useEffect(() => { if (suspended) { clearTimeout(opening.current); stop(); } }, [suspended, stop]);
   useEffect(() => { heading.current?.focus({ preventScroll: true }); }, [mode]);
   useEffect(() => {
