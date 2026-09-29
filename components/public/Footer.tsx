@@ -38,6 +38,11 @@ export default function Footer({ schoolsPage = false }: FooterProps) {
               {!schoolsPage ? (
                 <>
                   <li>
+                    <a href="/english" className="text-apty-gray hover:text-apty-cyan transition-colors">
+                      Learn English online
+                    </a>
+                  </li>
+                  <li>
                     <a href="/reading-guide" className="text-apty-gray hover:text-apty-cyan transition-colors">
                       Reading Guide
                     </a>

@@ -1,0 +1,1825 @@
+{
+  "date": "2026-09-28",
+  "scope": "Current four English lessons: 30 topics. Reachable TTS only.",
+  "status": "Recording brief; files have not been recorded, uploaded or connected.",
+  "proposed_cdn_folder": "english/audio/",
+  "counts": {
+    "unique_recordings": 59,
+    "active_cue_ids": 66,
+    "retired_dictionary_cues": 9,
+    "topics": 30,
+    "video_topics": 12
+  },
+  "items": [
+    {
+      "filename": "shared-watch-v1.mp3",
+      "text": "Watch.",
+      "cue_ids": [
+        "paper-watch",
+        "practice-watch"
+      ],
+      "delivery": "A short, friendly invitation to watch the model.",
+      "number": 1,
+      "cdn_path": "english/audio/shared-watch-v1.mp3",
+      "lessons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "topics": [
+        "1.02",
+        "1.05",
+        "1.08",
+        "2.04",
+        "2.06",
+        "3.04",
+        "3.06",
+        "4.04",
+        "4.06"
+      ],
+      "section": "Watch, listen and take a turn"
+    },
+    {
+      "filename": "shared-watch-again-v1.mp3",
+      "text": "Watch again.",
+      "cue_ids": [
+        "paper-watch-again",
+        "practice-watch-again"
+      ],
+      "delivery": "Same friendly voice; an invitation to replay.",
+      "number": 2,
+      "cdn_path": "english/audio/shared-watch-again-v1.mp3",
+      "lessons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "topics": [
+        "1.02",
+        "1.05",
+        "1.08",
+        "2.04",
+        "2.06",
+        "3.04",
+        "3.06",
+        "4.04",
+        "4.06"
+      ],
+      "section": "Watch, listen and take a turn"
+    },
+    {
+      "filename": "shared-listen-v1.mp3",
+      "text": "Listen.",
+      "cue_ids": [
+        "link-listen",
+        "practice-listen"
+      ],
+      "delivery": "A clear listening cue. Also used if a practice video cannot play.",
+      "number": 3,
+      "cdn_path": "english/audio/shared-listen-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.02",
+        "1.03",
+        "1.05",
+        "1.08"
+      ],
+      "section": "Watch, listen and take a turn"
+    },
+    {
+      "filename": "shared-now-you-try-v1.mp3",
+      "text": "Now you try.",
+      "cue_ids": [
+        "practice-now-try"
+      ],
+      "delivery": "Warmly hand the turn to the child.",
+      "number": 4,
+      "cdn_path": "english/audio/shared-now-you-try-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.02",
+        "1.05",
+        "1.08"
+      ],
+      "section": "Watch, listen and take a turn"
+    },
+    {
+      "filename": "shared-your-turn-v1.mp3",
+      "text": "Your turn.",
+      "cue_ids": [
+        "link-your-turn",
+        "practice-your-turn"
+      ],
+      "delivery": "Calm, inviting. The app waits for the child.",
+      "number": 5,
+      "cdn_path": "english/audio/shared-your-turn-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.02",
+        "1.03",
+        "1.05",
+        "1.08"
+      ],
+      "section": "Watch, listen and take a turn"
+    },
+    {
+      "filename": "shared-listen-find-it-v1.mp3",
+      "text": "Listen. Find it.",
+      "cue_ids": [
+        "link-find"
+      ],
+      "delivery": "Brief pause after Listen. The app then plays a separate phoneme.",
+      "number": 6,
+      "cdn_path": "english/audio/shared-listen-find-it-v1.mp3",
+      "lessons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "topics": [
+        "1.06",
+        "1.09",
+        "2.02",
+        "3.02",
+        "4.02"
+      ],
+      "section": "Watch, listen and take a turn"
+    },
+    {
+      "filename": "shared-find-it-v1.mp3",
+      "text": "Find it.",
+      "cue_ids": [
+        "link-find-it"
+      ],
+      "delivery": "An action cue after the child has heard the sound.",
+      "number": 7,
+      "cdn_path": "english/audio/shared-find-it-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.06",
+        "1.09"
+      ],
+      "section": "Watch, listen and take a turn"
+    },
+    {
+      "filename": "shared-tap-and-say-v1.mp3",
+      "text": "Tap and say.",
+      "cue_ids": [
+        "link-touch"
+      ],
+      "delivery": "Friendly and clear; no extra letter name or sound.",
+      "number": 8,
+      "cdn_path": "english/audio/shared-tap-and-say-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.03"
+      ],
+      "section": "Watch, listen and take a turn"
+    },
+    {
+      "filename": "shared-listen-again-v1.mp3",
+      "text": "Listen again.",
+      "cue_ids": [
+        "link-retry"
+      ],
+      "delivery": "A gentle retry cue; no disappointment or correction sound.",
+      "number": 9,
+      "cdn_path": "english/audio/shared-listen-again-v1.mp3",
+      "lessons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "topics": [
+        "1.06",
+        "1.09",
+        "2.02",
+        "3.02",
+        "4.02"
+      ],
+      "section": "Feedback and help"
+    },
+    {
+      "filename": "shared-lets-listen-together-v1.mp3",
+      "text": "Let’s listen together.",
+      "cue_ids": [
+        "link-help"
+      ],
+      "delivery": "Reassuring, as though helping a friend.",
+      "number": 10,
+      "cdn_path": "english/audio/shared-lets-listen-together-v1.mp3",
+      "lessons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "topics": [
+        "1.06",
+        "1.09",
+        "2.02",
+        "3.02",
+        "4.02"
+      ],
+      "section": "Feedback and help"
+    },
+    {
+      "filename": "shared-you-found-it-v1.mp3",
+      "text": "You found it!",
+      "cue_ids": [
+        "meaning-correct"
+      ],
+      "delivery": "A small, sincere celebration; keep the energy natural.",
+      "number": 11,
+      "cdn_path": "english/audio/shared-you-found-it-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.11"
+      ],
+      "section": "Feedback and help"
+    },
+    {
+      "filename": "shared-who-sat-down-v1.mp3",
+      "text": "Who sat down?",
+      "cue_ids": [
+        "meaning-retry"
+      ],
+      "delivery": "A curious question that helps the child look again.",
+      "number": 12,
+      "cdn_path": "english/audio/shared-who-sat-down-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.11"
+      ],
+      "section": "Feedback and help"
+    },
+    {
+      "filename": "shared-try-again-v1.mp3",
+      "text": "Try again.",
+      "cue_ids": [
+        "review-retry"
+      ],
+      "delivery": "Kind and encouraging. Avoid sounding like a failed test.",
+      "number": 13,
+      "cdn_path": "english/audio/shared-try-again-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.12"
+      ],
+      "section": "Feedback and help"
+    },
+    {
+      "filename": "shared-you-found-at-v1.mp3",
+      "text": "You found at!",
+      "cue_ids": [
+        "review-correct-at"
+      ],
+      "delivery": "Gentle delight. Say at as the whole word.",
+      "number": 14,
+      "cdn_path": "english/audio/shared-you-found-at-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.12"
+      ],
+      "section": "Feedback and help"
+    },
+    {
+      "filename": "shared-you-found-sat-v1.mp3",
+      "text": "You found sat!",
+      "cue_ids": [
+        "review-correct-sat"
+      ],
+      "delivery": "Gentle delight. Say sat as the whole word.",
+      "number": 15,
+      "cdn_path": "english/audio/shared-you-found-sat-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.12"
+      ],
+      "section": "Feedback and help"
+    },
+    {
+      "filename": "shared-lets-make-a-word-together-v1.mp3",
+      "text": "Let’s make a word together.",
+      "cue_ids": [
+        "build-intro-at",
+        "build-intro-sat"
+      ],
+      "delivery": "A warm invitation. One file serves both at and sat.",
+      "number": 16,
+      "cdn_path": "english/audio/shared-lets-make-a-word-together-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.10",
+        "1.11"
+      ],
+      "section": "Build and read a word"
+    },
+    {
+      "filename": "shared-now-tap-v1.mp3",
+      "text": "Now tap",
+      "cue_ids": [
+        "build-tap",
+        "build-next-tap"
+      ],
+      "delivery": "Say only Now tap. Leave an open ending. The app appends the recorded phoneme; do not add a letter name or sound.",
+      "number": 17,
+      "cdn_path": "english/audio/shared-now-tap-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.10",
+        "1.11"
+      ],
+      "section": "Build and read a word"
+    },
+    {
+      "filename": "shared-put-the-sounds-together-v1.mp3",
+      "text": "Put the sounds together.",
+      "cue_ids": [
+        "build-ready"
+      ],
+      "delivery": "A clear action cue, with a little anticipation.",
+      "number": 18,
+      "cdn_path": "english/audio/shared-put-the-sounds-together-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.10",
+        "1.11"
+      ],
+      "section": "Build and read a word"
+    },
+    {
+      "filename": "shared-word-at-v1.mp3",
+      "text": "at",
+      "cue_ids": [
+        "word-at"
+      ],
+      "delivery": "One clear whole word. Use the short a sound; do not spell it or add a vowel after t.",
+      "number": 19,
+      "cdn_path": "english/audio/shared-word-at-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.10",
+        "1.12"
+      ],
+      "section": "Build and read a word"
+    },
+    {
+      "filename": "shared-word-sat-v1.mp3",
+      "text": "sat",
+      "cue_ids": [
+        "word-sat"
+      ],
+      "delivery": "One clear whole word, with the same short a as at. No added vowel after t.",
+      "number": 20,
+      "cdn_path": "english/audio/shared-word-sat-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.11",
+        "1.12"
+      ],
+      "section": "Build and read a word"
+    },
+    {
+      "filename": "shared-say-at-v1.mp3",
+      "text": "Say at.",
+      "cue_ids": [
+        "say-at"
+      ],
+      "delivery": "Invitation to imitate. Say at naturally as one word.",
+      "number": 21,
+      "cdn_path": "english/audio/shared-say-at-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.10"
+      ],
+      "section": "Build and read a word"
+    },
+    {
+      "filename": "shared-say-sat-v1.mp3",
+      "text": "Say sat.",
+      "cue_ids": [
+        "say-sat"
+      ],
+      "delivery": "Invitation to imitate. Say sat naturally as one word.",
+      "number": 22,
+      "cdn_path": "english/audio/shared-say-sat-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.11"
+      ],
+      "section": "Build and read a word"
+    },
+    {
+      "filename": "shared-say-at-one-more-time-v1.mp3",
+      "text": "Say at one more time.",
+      "cue_ids": [
+        "say-again-at"
+      ],
+      "delivery": "Friendly encouragement; no urgency.",
+      "number": 23,
+      "cdn_path": "english/audio/shared-say-at-one-more-time-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.10"
+      ],
+      "section": "Build and read a word"
+    },
+    {
+      "filename": "shared-say-sat-one-more-time-v1.mp3",
+      "text": "Say sat one more time.",
+      "cue_ids": [
+        "say-again-sat"
+      ],
+      "delivery": "Friendly encouragement; no urgency.",
+      "number": 24,
+      "cdn_path": "english/audio/shared-say-sat-one-more-time-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.11"
+      ],
+      "section": "Build and read a word"
+    },
+    {
+      "filename": "shared-lets-see-what-it-means-v1.mp3",
+      "text": "Let’s see what it means.",
+      "cue_ids": [
+        "read-done-sat",
+        "read-done-at"
+      ],
+      "delivery": "Curious, inviting. One file serves both words.",
+      "number": 25,
+      "cdn_path": "english/audio/shared-lets-see-what-it-means-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.10",
+        "1.11"
+      ],
+      "section": "Build and read a word"
+    },
+    {
+      "filename": "l01-first-words-build-at-story-v1.mp3",
+      "text": "Sam is at the door.",
+      "cue_ids": [
+        "story-at"
+      ],
+      "delivery": "A short story sentence. Say Sam as a name.",
+      "number": 26,
+      "cdn_path": "english/audio/l01-first-words-build-at-story-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.10"
+      ],
+      "section": "Meaning and word celebrations"
+    },
+    {
+      "filename": "l01-first-words-build-sat-story-v1.mp3",
+      "text": "Sam sat on the mat.",
+      "cue_ids": [
+        "story-sat"
+      ],
+      "delivery": "A short story sentence. Make the action clear without overacting.",
+      "number": 27,
+      "cdn_path": "english/audio/l01-first-words-build-sat-story-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.11"
+      ],
+      "section": "Meaning and word celebrations"
+    },
+    {
+      "filename": "l01-first-words-build-sat-question-mat-v1.mp3",
+      "text": "Sam sat on the mat. Tap the picture.",
+      "cue_ids": [
+        "question-mat"
+      ],
+      "delivery": "A short pause before Tap the picture. Record the whole line as one file.",
+      "number": 28,
+      "cdn_path": "english/audio/l01-first-words-build-sat-question-mat-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.11"
+      ],
+      "section": "Meaning and word celebrations"
+    },
+    {
+      "filename": "l01-first-words-build-sat-question-bench-v1.mp3",
+      "text": "Sam sat on the bench. Tap the picture.",
+      "cue_ids": [
+        "question-bench"
+      ],
+      "delivery": "A short pause before Tap the picture. Record the whole line as one file.",
+      "number": 29,
+      "cdn_path": "english/audio/l01-first-words-build-sat-question-bench-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.11"
+      ],
+      "section": "Meaning and word celebrations"
+    },
+    {
+      "filename": "shared-you-made-at-well-done-v1.mp3",
+      "text": "You made at. Well done!",
+      "cue_ids": [
+        "celebrate-at"
+      ],
+      "delivery": "Warm appreciation for completing the activity.",
+      "number": 30,
+      "cdn_path": "english/audio/shared-you-made-at-well-done-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.10"
+      ],
+      "section": "Meaning and word celebrations"
+    },
+    {
+      "filename": "shared-you-made-sat-well-done-v1.mp3",
+      "text": "You made sat. Well done!",
+      "cue_ids": [
+        "celebrate-sat"
+      ],
+      "delivery": "Match the energy and pace of the at celebration.",
+      "number": 31,
+      "cdn_path": "english/audio/shared-you-made-sat-well-done-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.11"
+      ],
+      "section": "Meaning and word celebrations"
+    },
+    {
+      "filename": "l01-first-words-our-first-words-intro-v1.mp3",
+      "text": "Let’s play with our first words.",
+      "cue_ids": [
+        "review-intro"
+      ],
+      "delivery": "Playful togetherness, with natural energy.",
+      "number": 32,
+      "cdn_path": "english/audio/l01-first-words-our-first-words-intro-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.12"
+      ],
+      "section": "Our First Words review"
+    },
+    {
+      "filename": "shared-tap-each-word-to-listen-v1.mp3",
+      "text": "Tap each word to listen.",
+      "cue_ids": [
+        "review-listen"
+      ],
+      "delivery": "A simple action cue. Do not add either target word.",
+      "number": 33,
+      "cdn_path": "english/audio/shared-tap-each-word-to-listen-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.12"
+      ],
+      "section": "Our First Words review"
+    },
+    {
+      "filename": "l01-first-words-our-first-words-find-at-v1.mp3",
+      "text": "Sam is at the door. Find at.",
+      "cue_ids": [
+        "review-find-at"
+      ],
+      "delivery": "A short pause before Find at. One complete clip.",
+      "number": 34,
+      "cdn_path": "english/audio/l01-first-words-our-first-words-find-at-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.12"
+      ],
+      "section": "Our First Words review"
+    },
+    {
+      "filename": "l01-first-words-our-first-words-find-sat-v1.mp3",
+      "text": "Sam sat on the mat. Find sat.",
+      "cue_ids": [
+        "review-find-sat"
+      ],
+      "delivery": "A short pause before Find sat. One complete clip.",
+      "number": 35,
+      "cdn_path": "english/audio/l01-first-words-our-first-words-find-sat-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.12"
+      ],
+      "section": "Our First Words review"
+    },
+    {
+      "filename": "shared-your-turn-to-read-v1.mp3",
+      "text": "Your turn to read.",
+      "cue_ids": [
+        "review-read"
+      ],
+      "delivery": "Do not add at or sat. The child tries the displayed word.",
+      "number": 36,
+      "cdn_path": "english/audio/shared-your-turn-to-read-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.12"
+      ],
+      "section": "Our First Words review"
+    },
+    {
+      "filename": "shared-read-this-word-v1.mp3",
+      "text": "Read this word.",
+      "cue_ids": [
+        "review-read-next"
+      ],
+      "delivery": "Do not name the answer or add an example.",
+      "number": 37,
+      "cdn_path": "english/audio/shared-read-this-word-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.12"
+      ],
+      "section": "Our First Words review"
+    },
+    {
+      "filename": "shared-two-words-well-done-v1.mp3",
+      "text": "Two words. Well done!",
+      "cue_ids": [
+        "review-finish"
+      ],
+      "delivery": "A warm, slightly brighter finish; no added star count.",
+      "number": 38,
+      "cdn_path": "english/audio/shared-two-words-well-done-v1.mp3",
+      "lessons": [
+        1
+      ],
+      "topics": [
+        "1.12"
+      ],
+      "section": "Our First Words review"
+    },
+    {
+      "filename": "shared-tap-big-s-v1.mp3",
+      "text": "Tap big S.",
+      "cue_ids": [
+        "cases-big-s"
+      ],
+      "delivery": "Say the letter name ess. Big identifies the capital form.",
+      "number": 39,
+      "cdn_path": "english/audio/shared-tap-big-s-v1.mp3",
+      "lessons": [
+        2
+      ],
+      "topics": [
+        "2.02"
+      ],
+      "section": "Big and small letters"
+    },
+    {
+      "filename": "shared-now-tap-small-s-v1.mp3",
+      "text": "Now tap small s.",
+      "cue_ids": [
+        "cases-small-s"
+      ],
+      "delivery": "Say the letter name ess. Small identifies the lowercase form.",
+      "number": 40,
+      "cdn_path": "english/audio/shared-now-tap-small-s-v1.mp3",
+      "lessons": [
+        2
+      ],
+      "topics": [
+        "2.02"
+      ],
+      "section": "Big and small letters"
+    },
+    {
+      "filename": "shared-tap-big-a-v1.mp3",
+      "text": "Tap big A.",
+      "cue_ids": [
+        "cases-big-a"
+      ],
+      "delivery": "Say the letter name ay. Big identifies the capital form.",
+      "number": 41,
+      "cdn_path": "english/audio/shared-tap-big-a-v1.mp3",
+      "lessons": [
+        3
+      ],
+      "topics": [
+        "3.02"
+      ],
+      "section": "Big and small letters"
+    },
+    {
+      "filename": "shared-now-tap-small-a-v1.mp3",
+      "text": "Now tap small a.",
+      "cue_ids": [
+        "cases-small-a"
+      ],
+      "delivery": "Say the letter name ay. Small identifies the lowercase form.",
+      "number": 42,
+      "cdn_path": "english/audio/shared-now-tap-small-a-v1.mp3",
+      "lessons": [
+        3
+      ],
+      "topics": [
+        "3.02"
+      ],
+      "section": "Big and small letters"
+    },
+    {
+      "filename": "shared-tap-big-t-v1.mp3",
+      "text": "Tap big T.",
+      "cue_ids": [
+        "cases-big-t"
+      ],
+      "delivery": "Say the letter name tee. Big identifies the capital form.",
+      "number": 43,
+      "cdn_path": "english/audio/shared-tap-big-t-v1.mp3",
+      "lessons": [
+        4
+      ],
+      "topics": [
+        "4.02"
+      ],
+      "section": "Big and small letters"
+    },
+    {
+      "filename": "shared-now-tap-small-t-v1.mp3",
+      "text": "Now tap small t.",
+      "cue_ids": [
+        "cases-small-t"
+      ],
+      "delivery": "Say the letter name tee. Small identifies the lowercase form.",
+      "number": 44,
+      "cdn_path": "english/audio/shared-now-tap-small-t-v1.mp3",
+      "lessons": [
+        4
+      ],
+      "topics": [
+        "4.02"
+      ],
+      "section": "Big and small letters"
+    },
+    {
+      "filename": "shared-same-letter-same-sound-v1.mp3",
+      "text": "Same letter. Same sound.",
+      "cue_ids": [
+        "cases-same-sound"
+      ],
+      "delivery": "A brief pause between sentences. Do not add a phoneme.",
+      "number": 45,
+      "cdn_path": "english/audio/shared-same-letter-same-sound-v1.mp3",
+      "lessons": [
+        2,
+        3,
+        4
+      ],
+      "topics": [
+        "2.02",
+        "3.02",
+        "4.02"
+      ],
+      "section": "Big and small letters"
+    },
+    {
+      "filename": "shared-trace-big-s-v1.mp3",
+      "text": "Let’s write big S. Start at the dot.",
+      "cue_ids": [
+        "instruction-write-s-capital"
+      ],
+      "delivery": "Say the letter name ess. Pause briefly before Start at the dot.",
+      "number": 46,
+      "cdn_path": "english/audio/shared-trace-big-s-v1.mp3",
+      "lessons": [
+        2
+      ],
+      "topics": [
+        "2.04"
+      ],
+      "section": "Trace on screen"
+    },
+    {
+      "filename": "shared-trace-small-s-v1.mp3",
+      "text": "Let’s write small s. Start at the dot.",
+      "cue_ids": [
+        "instruction-write-s-lowercase"
+      ],
+      "delivery": "Say the letter name ess. Pause briefly before Start at the dot.",
+      "number": 47,
+      "cdn_path": "english/audio/shared-trace-small-s-v1.mp3",
+      "lessons": [
+        2
+      ],
+      "topics": [
+        "2.06"
+      ],
+      "section": "Trace on screen"
+    },
+    {
+      "filename": "shared-trace-big-a-v1.mp3",
+      "text": "Let’s write big A. Start at the dot.",
+      "cue_ids": [
+        "instruction-write-a-capital"
+      ],
+      "delivery": "Say the letter name ay. Pause briefly before Start at the dot.",
+      "number": 48,
+      "cdn_path": "english/audio/shared-trace-big-a-v1.mp3",
+      "lessons": [
+        3
+      ],
+      "topics": [
+        "3.04"
+      ],
+      "section": "Trace on screen"
+    },
+    {
+      "filename": "shared-trace-small-a-v1.mp3",
+      "text": "Let’s write small a. Start at the dot.",
+      "cue_ids": [
+        "instruction-write-a-lowercase"
+      ],
+      "delivery": "Say the letter name ay. Pause briefly before Start at the dot.",
+      "number": 49,
+      "cdn_path": "english/audio/shared-trace-small-a-v1.mp3",
+      "lessons": [
+        3
+      ],
+      "topics": [
+        "3.06"
+      ],
+      "section": "Trace on screen"
+    },
+    {
+      "filename": "shared-trace-big-t-v1.mp3",
+      "text": "Let’s write big T. Start at the dot.",
+      "cue_ids": [
+        "instruction-write-t-capital"
+      ],
+      "delivery": "Say the letter name tee. Pause briefly before Start at the dot.",
+      "number": 50,
+      "cdn_path": "english/audio/shared-trace-big-t-v1.mp3",
+      "lessons": [
+        4
+      ],
+      "topics": [
+        "4.04"
+      ],
+      "section": "Trace on screen"
+    },
+    {
+      "filename": "shared-trace-small-t-v1.mp3",
+      "text": "Let’s write small t. Start at the dot.",
+      "cue_ids": [
+        "instruction-write-t-lowercase"
+      ],
+      "delivery": "Say the letter name tee. Pause briefly before Start at the dot.",
+      "number": 51,
+      "cdn_path": "english/audio/shared-trace-small-t-v1.mp3",
+      "lessons": [
+        4
+      ],
+      "topics": [
+        "4.06"
+      ],
+      "section": "Trace on screen"
+    },
+    {
+      "filename": "shared-write-big-s-v1.mp3",
+      "text": "Your turn. Write big S.",
+      "cue_ids": [
+        "paper-write-big-s"
+      ],
+      "delivery": "Say the letter name ess. A brief pause after Your turn.",
+      "number": 52,
+      "cdn_path": "english/audio/shared-write-big-s-v1.mp3",
+      "lessons": [
+        2
+      ],
+      "topics": [
+        "2.04"
+      ],
+      "section": "Write on paper"
+    },
+    {
+      "filename": "shared-write-small-s-v1.mp3",
+      "text": "Your turn. Write small s.",
+      "cue_ids": [
+        "paper-write-small-s"
+      ],
+      "delivery": "Say the letter name ess. A brief pause after Your turn.",
+      "number": 53,
+      "cdn_path": "english/audio/shared-write-small-s-v1.mp3",
+      "lessons": [
+        2
+      ],
+      "topics": [
+        "2.06"
+      ],
+      "section": "Write on paper"
+    },
+    {
+      "filename": "shared-write-big-a-v1.mp3",
+      "text": "Your turn. Write big A.",
+      "cue_ids": [
+        "paper-write-big-a"
+      ],
+      "delivery": "Say the letter name ay. A brief pause after Your turn.",
+      "number": 54,
+      "cdn_path": "english/audio/shared-write-big-a-v1.mp3",
+      "lessons": [
+        3
+      ],
+      "topics": [
+        "3.04"
+      ],
+      "section": "Write on paper"
+    },
+    {
+      "filename": "shared-write-small-a-v1.mp3",
+      "text": "Your turn. Write small a.",
+      "cue_ids": [
+        "paper-write-small-a"
+      ],
+      "delivery": "Say the letter name ay. A brief pause after Your turn.",
+      "number": 55,
+      "cdn_path": "english/audio/shared-write-small-a-v1.mp3",
+      "lessons": [
+        3
+      ],
+      "topics": [
+        "3.06"
+      ],
+      "section": "Write on paper"
+    },
+    {
+      "filename": "shared-write-big-t-v1.mp3",
+      "text": "Your turn. Write big T.",
+      "cue_ids": [
+        "paper-write-big-t"
+      ],
+      "delivery": "Say the letter name tee. A brief pause after Your turn.",
+      "number": 56,
+      "cdn_path": "english/audio/shared-write-big-t-v1.mp3",
+      "lessons": [
+        4
+      ],
+      "topics": [
+        "4.04"
+      ],
+      "section": "Write on paper"
+    },
+    {
+      "filename": "shared-write-small-t-v1.mp3",
+      "text": "Your turn. Write small t.",
+      "cue_ids": [
+        "paper-write-small-t"
+      ],
+      "delivery": "Say the letter name tee. A brief pause after Your turn.",
+      "number": 57,
+      "cdn_path": "english/audio/shared-write-small-t-v1.mp3",
+      "lessons": [
+        4
+      ],
+      "topics": [
+        "4.06"
+      ],
+      "section": "Write on paper"
+    },
+    {
+      "filename": "shared-lets-try-one-more-v1.mp3",
+      "text": "Let’s try one more.",
+      "cue_ids": [
+        "paper-one-more"
+      ],
+      "delivery": "Encourage the second paper attempt. Do not add a letter name.",
+      "number": 58,
+      "cdn_path": "english/audio/shared-lets-try-one-more-v1.mp3",
+      "lessons": [
+        2,
+        3,
+        4
+      ],
+      "topics": [
+        "2.04",
+        "2.06",
+        "3.04",
+        "3.06",
+        "4.04",
+        "4.06"
+      ],
+      "section": "Write on paper"
+    },
+    {
+      "filename": "shared-try-one-on-your-own-v1.mp3",
+      "text": "Try one on your own.",
+      "cue_ids": [
+        "paper-own-turn"
+      ],
+      "delivery": "Calm encouragement for the attempt with the model covered.",
+      "number": 59,
+      "cdn_path": "english/audio/shared-try-one-on-your-own-v1.mp3",
+      "lessons": [
+        2,
+        3,
+        4
+      ],
+      "topics": [
+        "2.04",
+        "2.06",
+        "3.04",
+        "3.06",
+        "4.04",
+        "4.06"
+      ],
+      "section": "Write on paper"
+    }
+  ],
+  "topics": [
+    {
+      "lesson": 1,
+      "topic": 1,
+      "id": "meet-s",
+      "title": "Meet s",
+      "cue_ids": [],
+      "existing_media": "Bunny Stream teaching video; embedded audio retained.",
+      "recording_numbers": [],
+      "filenames": []
+    },
+    {
+      "lesson": 1,
+      "topic": 2,
+      "id": "practice-s",
+      "title": "Practice the s Sound",
+      "cue_ids": [
+        "practice-watch",
+        "practice-watch-again",
+        "practice-now-try",
+        "practice-your-turn",
+        "practice-listen"
+      ],
+      "existing_media": "Existing sound-s.mp4 mouth model and bundled phoneme.",
+      "recording_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "filenames": [
+        "shared-watch-v1.mp3",
+        "shared-watch-again-v1.mp3",
+        "shared-listen-v1.mp3",
+        "shared-now-you-try-v1.mp3",
+        "shared-your-turn-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 1,
+      "topic": 3,
+      "id": "find-s",
+      "title": "Touch and Say s",
+      "cue_ids": [
+        "link-listen",
+        "link-touch",
+        "link-your-turn"
+      ],
+      "existing_media": "Bundled phonemes also model the sound and confirm a correct choice.",
+      "recording_numbers": [
+        3,
+        5,
+        8
+      ],
+      "filenames": [
+        "shared-listen-v1.mp3",
+        "shared-your-turn-v1.mp3",
+        "shared-tap-and-say-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 1,
+      "topic": 4,
+      "id": "meet-a",
+      "title": "Meet the A Sound",
+      "cue_ids": [],
+      "existing_media": "Bunny Stream teaching video; embedded audio retained.",
+      "recording_numbers": [],
+      "filenames": []
+    },
+    {
+      "lesson": 1,
+      "topic": 5,
+      "id": "practice-a",
+      "title": "Practice the a Sound",
+      "cue_ids": [
+        "practice-watch",
+        "practice-watch-again",
+        "practice-now-try",
+        "practice-your-turn",
+        "practice-listen"
+      ],
+      "existing_media": "Existing sound-a.mp4 mouth model and bundled phoneme.",
+      "recording_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "filenames": [
+        "shared-watch-v1.mp3",
+        "shared-watch-again-v1.mp3",
+        "shared-listen-v1.mp3",
+        "shared-now-you-try-v1.mp3",
+        "shared-your-turn-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 1,
+      "topic": 6,
+      "id": "find-a",
+      "title": "Listen and Find",
+      "cue_ids": [
+        "link-find",
+        "link-find-it",
+        "link-retry",
+        "link-help"
+      ],
+      "existing_media": "Bundled phonemes also model the sound and confirm a correct choice.",
+      "recording_numbers": [
+        6,
+        7,
+        9,
+        10
+      ],
+      "filenames": [
+        "shared-listen-find-it-v1.mp3",
+        "shared-find-it-v1.mp3",
+        "shared-listen-again-v1.mp3",
+        "shared-lets-listen-together-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 1,
+      "topic": 7,
+      "id": "meet-t",
+      "title": "Meet the T Sound",
+      "cue_ids": [],
+      "existing_media": "Bunny Stream teaching video; embedded audio retained.",
+      "recording_numbers": [],
+      "filenames": []
+    },
+    {
+      "lesson": 1,
+      "topic": 8,
+      "id": "practice-t",
+      "title": "Practice the t Sound",
+      "cue_ids": [
+        "practice-watch",
+        "practice-watch-again",
+        "practice-now-try",
+        "practice-your-turn",
+        "practice-listen"
+      ],
+      "existing_media": "Existing sound-t.mp4 mouth model and bundled phoneme.",
+      "recording_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "filenames": [
+        "shared-watch-v1.mp3",
+        "shared-watch-again-v1.mp3",
+        "shared-listen-v1.mp3",
+        "shared-now-you-try-v1.mp3",
+        "shared-your-turn-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 1,
+      "topic": 9,
+      "id": "find-t",
+      "title": "Our Three Sounds",
+      "cue_ids": [
+        "link-find",
+        "link-find-it",
+        "link-retry",
+        "link-help"
+      ],
+      "existing_media": "Bundled phonemes also model the sound and confirm a correct choice.",
+      "recording_numbers": [
+        6,
+        7,
+        9,
+        10
+      ],
+      "filenames": [
+        "shared-listen-find-it-v1.mp3",
+        "shared-find-it-v1.mp3",
+        "shared-listen-again-v1.mp3",
+        "shared-lets-listen-together-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 1,
+      "topic": 10,
+      "id": "build-at",
+      "title": "Make and Read at",
+      "cue_ids": [
+        "build-intro-at",
+        "build-tap",
+        "build-next-tap",
+        "build-ready",
+        "word-at",
+        "say-at",
+        "say-again-at",
+        "read-done-at",
+        "story-at",
+        "celebrate-at"
+      ],
+      "existing_media": "Bundled phonemes plus the existing at pronunciation video.",
+      "recording_numbers": [
+        16,
+        17,
+        18,
+        19,
+        21,
+        23,
+        25,
+        26,
+        30
+      ],
+      "filenames": [
+        "shared-lets-make-a-word-together-v1.mp3",
+        "shared-now-tap-v1.mp3",
+        "shared-put-the-sounds-together-v1.mp3",
+        "shared-word-at-v1.mp3",
+        "shared-say-at-v1.mp3",
+        "shared-say-at-one-more-time-v1.mp3",
+        "shared-lets-see-what-it-means-v1.mp3",
+        "l01-first-words-build-at-story-v1.mp3",
+        "shared-you-made-at-well-done-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 1,
+      "topic": 11,
+      "id": "build-sat",
+      "title": "Make and Read sat",
+      "cue_ids": [
+        "build-intro-sat",
+        "build-tap",
+        "build-next-tap",
+        "build-ready",
+        "word-sat",
+        "say-sat",
+        "say-again-sat",
+        "read-done-sat",
+        "story-sat",
+        "celebrate-sat",
+        "question-mat",
+        "question-bench",
+        "meaning-correct",
+        "meaning-retry"
+      ],
+      "existing_media": "Bundled phonemes plus the existing sat pronunciation video.",
+      "recording_numbers": [
+        11,
+        12,
+        16,
+        17,
+        18,
+        20,
+        22,
+        24,
+        25,
+        27,
+        28,
+        29,
+        31
+      ],
+      "filenames": [
+        "shared-you-found-it-v1.mp3",
+        "shared-who-sat-down-v1.mp3",
+        "shared-lets-make-a-word-together-v1.mp3",
+        "shared-now-tap-v1.mp3",
+        "shared-put-the-sounds-together-v1.mp3",
+        "shared-word-sat-v1.mp3",
+        "shared-say-sat-v1.mp3",
+        "shared-say-sat-one-more-time-v1.mp3",
+        "shared-lets-see-what-it-means-v1.mp3",
+        "l01-first-words-build-sat-story-v1.mp3",
+        "l01-first-words-build-sat-question-mat-v1.mp3",
+        "l01-first-words-build-sat-question-bench-v1.mp3",
+        "shared-you-made-sat-well-done-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 1,
+      "topic": 12,
+      "id": "our-first-words",
+      "title": "Our First Words",
+      "cue_ids": [
+        "review-intro",
+        "review-listen",
+        "review-find-at",
+        "review-find-sat",
+        "review-correct-at",
+        "review-correct-sat",
+        "review-retry",
+        "review-read",
+        "review-read-next",
+        "review-finish",
+        "word-at",
+        "word-sat"
+      ],
+      "existing_media": "",
+      "recording_numbers": [
+        13,
+        14,
+        15,
+        19,
+        20,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "filenames": [
+        "shared-try-again-v1.mp3",
+        "shared-you-found-at-v1.mp3",
+        "shared-you-found-sat-v1.mp3",
+        "shared-word-at-v1.mp3",
+        "shared-word-sat-v1.mp3",
+        "l01-first-words-our-first-words-intro-v1.mp3",
+        "shared-tap-each-word-to-listen-v1.mp3",
+        "l01-first-words-our-first-words-find-at-v1.mp3",
+        "l01-first-words-our-first-words-find-sat-v1.mp3",
+        "shared-your-turn-to-read-v1.mp3",
+        "shared-read-this-word-v1.mp3",
+        "shared-two-words-well-done-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 2,
+      "topic": 1,
+      "id": "meet-s-cases",
+      "title": "Big S and Small s",
+      "cue_ids": [],
+      "existing_media": "Bunny Stream teaching video; embedded audio retained.",
+      "recording_numbers": [],
+      "filenames": []
+    },
+    {
+      "lesson": 2,
+      "topic": 2,
+      "id": "find-s-cases",
+      "title": "Find S and s",
+      "cue_ids": [
+        "cases-big-s",
+        "cases-small-s",
+        "cases-same-sound",
+        "link-find",
+        "link-retry",
+        "link-help"
+      ],
+      "existing_media": "Bundled s/a/t phonemes are reused for listening and correct-answer confirmation.",
+      "recording_numbers": [
+        6,
+        9,
+        10,
+        39,
+        40,
+        45
+      ],
+      "filenames": [
+        "shared-listen-find-it-v1.mp3",
+        "shared-listen-again-v1.mp3",
+        "shared-lets-listen-together-v1.mp3",
+        "shared-tap-big-s-v1.mp3",
+        "shared-now-tap-small-s-v1.mp3",
+        "shared-same-letter-same-sound-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 2,
+      "topic": 3,
+      "id": "watch-s-capital",
+      "title": "Write Capital S",
+      "cue_ids": [],
+      "existing_media": "Bunny Stream teaching video; embedded audio retained.",
+      "recording_numbers": [],
+      "filenames": []
+    },
+    {
+      "lesson": 2,
+      "topic": 4,
+      "id": "write-s-capital",
+      "title": "My Capital S",
+      "cue_ids": [
+        "instruction-write-s-capital",
+        "paper-watch",
+        "paper-watch-again",
+        "paper-write-big-s",
+        "paper-one-more",
+        "paper-own-turn"
+      ],
+      "existing_media": "On-screen tracing and paper practice share this topic. Paper-writing clip stays muted.",
+      "recording_numbers": [
+        1,
+        2,
+        46,
+        52,
+        58,
+        59
+      ],
+      "filenames": [
+        "shared-watch-v1.mp3",
+        "shared-watch-again-v1.mp3",
+        "shared-trace-big-s-v1.mp3",
+        "shared-write-big-s-v1.mp3",
+        "shared-lets-try-one-more-v1.mp3",
+        "shared-try-one-on-your-own-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 2,
+      "topic": 5,
+      "id": "watch-s-lowercase",
+      "title": "Write Lowercase s",
+      "cue_ids": [],
+      "existing_media": "Bunny Stream teaching video; embedded audio retained.",
+      "recording_numbers": [],
+      "filenames": []
+    },
+    {
+      "lesson": 2,
+      "topic": 6,
+      "id": "write-s-lowercase",
+      "title": "My Lowercase s",
+      "cue_ids": [
+        "instruction-write-s-lowercase",
+        "paper-watch",
+        "paper-watch-again",
+        "paper-write-small-s",
+        "paper-one-more",
+        "paper-own-turn"
+      ],
+      "existing_media": "On-screen tracing and paper practice share this topic. Paper-writing clip stays muted.",
+      "recording_numbers": [
+        1,
+        2,
+        47,
+        53,
+        58,
+        59
+      ],
+      "filenames": [
+        "shared-watch-v1.mp3",
+        "shared-watch-again-v1.mp3",
+        "shared-trace-small-s-v1.mp3",
+        "shared-write-small-s-v1.mp3",
+        "shared-lets-try-one-more-v1.mp3",
+        "shared-try-one-on-your-own-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 3,
+      "topic": 1,
+      "id": "meet-a-cases",
+      "title": "Big A and Small a",
+      "cue_ids": [],
+      "existing_media": "Bunny Stream teaching video; embedded audio retained.",
+      "recording_numbers": [],
+      "filenames": []
+    },
+    {
+      "lesson": 3,
+      "topic": 2,
+      "id": "find-a-cases",
+      "title": "Find A and a",
+      "cue_ids": [
+        "cases-big-a",
+        "cases-small-a",
+        "cases-same-sound",
+        "link-find",
+        "link-retry",
+        "link-help"
+      ],
+      "existing_media": "Bundled s/a/t phonemes are reused for listening and correct-answer confirmation.",
+      "recording_numbers": [
+        6,
+        9,
+        10,
+        41,
+        42,
+        45
+      ],
+      "filenames": [
+        "shared-listen-find-it-v1.mp3",
+        "shared-listen-again-v1.mp3",
+        "shared-lets-listen-together-v1.mp3",
+        "shared-tap-big-a-v1.mp3",
+        "shared-now-tap-small-a-v1.mp3",
+        "shared-same-letter-same-sound-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 3,
+      "topic": 3,
+      "id": "watch-a-capital",
+      "title": "Write Capital A",
+      "cue_ids": [],
+      "existing_media": "Bunny Stream teaching video; embedded audio retained.",
+      "recording_numbers": [],
+      "filenames": []
+    },
+    {
+      "lesson": 3,
+      "topic": 4,
+      "id": "write-a-capital",
+      "title": "My Capital A",
+      "cue_ids": [
+        "instruction-write-a-capital",
+        "paper-watch",
+        "paper-watch-again",
+        "paper-write-big-a",
+        "paper-one-more",
+        "paper-own-turn"
+      ],
+      "existing_media": "On-screen tracing and paper practice share this topic. Paper-writing clip stays muted.",
+      "recording_numbers": [
+        1,
+        2,
+        48,
+        54,
+        58,
+        59
+      ],
+      "filenames": [
+        "shared-watch-v1.mp3",
+        "shared-watch-again-v1.mp3",
+        "shared-trace-big-a-v1.mp3",
+        "shared-write-big-a-v1.mp3",
+        "shared-lets-try-one-more-v1.mp3",
+        "shared-try-one-on-your-own-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 3,
+      "topic": 5,
+      "id": "watch-a-lowercase",
+      "title": "Write Lowercase a",
+      "cue_ids": [],
+      "existing_media": "Bunny Stream teaching video; embedded audio retained.",
+      "recording_numbers": [],
+      "filenames": []
+    },
+    {
+      "lesson": 3,
+      "topic": 6,
+      "id": "write-a-lowercase",
+      "title": "My Lowercase a",
+      "cue_ids": [
+        "instruction-write-a-lowercase",
+        "paper-watch",
+        "paper-watch-again",
+        "paper-write-small-a",
+        "paper-one-more",
+        "paper-own-turn"
+      ],
+      "existing_media": "On-screen tracing and paper practice share this topic. Paper-writing clip stays muted.",
+      "recording_numbers": [
+        1,
+        2,
+        49,
+        55,
+        58,
+        59
+      ],
+      "filenames": [
+        "shared-watch-v1.mp3",
+        "shared-watch-again-v1.mp3",
+        "shared-trace-small-a-v1.mp3",
+        "shared-write-small-a-v1.mp3",
+        "shared-lets-try-one-more-v1.mp3",
+        "shared-try-one-on-your-own-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 4,
+      "topic": 1,
+      "id": "meet-t-cases",
+      "title": "Big T and Small t",
+      "cue_ids": [],
+      "existing_media": "Bunny Stream teaching video; embedded audio retained.",
+      "recording_numbers": [],
+      "filenames": []
+    },
+    {
+      "lesson": 4,
+      "topic": 2,
+      "id": "find-t-cases",
+      "title": "Find T and t",
+      "cue_ids": [
+        "cases-big-t",
+        "cases-small-t",
+        "cases-same-sound",
+        "link-find",
+        "link-retry",
+        "link-help"
+      ],
+      "existing_media": "Bundled s/a/t phonemes are reused for listening and correct-answer confirmation.",
+      "recording_numbers": [
+        6,
+        9,
+        10,
+        43,
+        44,
+        45
+      ],
+      "filenames": [
+        "shared-listen-find-it-v1.mp3",
+        "shared-listen-again-v1.mp3",
+        "shared-lets-listen-together-v1.mp3",
+        "shared-tap-big-t-v1.mp3",
+        "shared-now-tap-small-t-v1.mp3",
+        "shared-same-letter-same-sound-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 4,
+      "topic": 3,
+      "id": "watch-t-capital",
+      "title": "Write Capital T",
+      "cue_ids": [],
+      "existing_media": "Bunny Stream teaching video; embedded audio retained.",
+      "recording_numbers": [],
+      "filenames": []
+    },
+    {
+      "lesson": 4,
+      "topic": 4,
+      "id": "write-t-capital",
+      "title": "My Capital T",
+      "cue_ids": [
+        "instruction-write-t-capital",
+        "paper-watch",
+        "paper-watch-again",
+        "paper-write-big-t",
+        "paper-one-more",
+        "paper-own-turn"
+      ],
+      "existing_media": "On-screen tracing and paper practice share this topic. Paper-writing clip stays muted.",
+      "recording_numbers": [
+        1,
+        2,
+        50,
+        56,
+        58,
+        59
+      ],
+      "filenames": [
+        "shared-watch-v1.mp3",
+        "shared-watch-again-v1.mp3",
+        "shared-trace-big-t-v1.mp3",
+        "shared-write-big-t-v1.mp3",
+        "shared-lets-try-one-more-v1.mp3",
+        "shared-try-one-on-your-own-v1.mp3"
+      ]
+    },
+    {
+      "lesson": 4,
+      "topic": 5,
+      "id": "watch-t-lowercase",
+      "title": "Write Lowercase t",
+      "cue_ids": [],
+      "existing_media": "Bunny Stream teaching video; embedded audio retained.",
+      "recording_numbers": [],
+      "filenames": []
+    },
+    {
+      "lesson": 4,
+      "topic": 6,
+      "id": "write-t-lowercase",
+      "title": "My Lowercase t",
+      "cue_ids": [
+        "instruction-write-t-lowercase",
+        "paper-watch",
+        "paper-watch-again",
+        "paper-write-small-t",
+        "paper-one-more",
+        "paper-own-turn"
+      ],
+      "existing_media": "On-screen tracing and paper practice share this topic. Paper-writing clip stays muted.",
+      "recording_numbers": [
+        1,
+        2,
+        51,
+        57,
+        58,
+        59
+      ],
+      "filenames": [
+        "shared-watch-v1.mp3",
+        "shared-watch-again-v1.mp3",
+        "shared-trace-small-t-v1.mp3",
+        "shared-write-small-t-v1.mp3",
+        "shared-lets-try-one-more-v1.mp3",
+        "shared-try-one-on-your-own-v1.mp3"
+      ]
+    }
+  ],
+  "excluded_retired_cues": {
+    "build-find": "Find this sound.",
+    "build-next": "Now find this sound.",
+    "build-retry": "Try this sound.",
+    "build-hint": "Tap this letter.",
+    "build-own-at": "Can you make at?",
+    "build-own-sat": "Can you make sat?",
+    "read-turn": "Your turn. Try reading it.",
+    "read-again": "Let’s read it once more.",
+    "read-watch": "Watch and say it with me. Then try again."
+  },
+  "source_sha256": {
+    "lib/english-narration.ts": "9425fc06af5367a6f94fc630d41087f3ab71549ebca758a5ed27bb74e989d4fd",
+    "lib/english-curriculum.ts": "7585eae13097e3da18ef313a2dd58d40bfc8fc5f41c48693baf472f97a9791c9",
+    "components/english/LessonPlayer.tsx": "f3ffb3ba373fd0dd4aa1bc5f96a3ff18468583bab59bb9d0ec164087152b5f79",
+    "components/english/WritingPractice.tsx": "bb1f965eb7dc96324f55a37323013a831b0899ee93cdf7a03680a9232e7fe3b6",
+    "components/english/WordBuilder.tsx": "4270670ef83163cade15e38a809eef9e72baf2d58705e5eab73409f09fec3206",
+    "components/english/FirstWordsReview.tsx": "d08b1e98e0f5c2cdd3667745848ee3dd0d44beb4ef213aeeaf6378dbfa100a8c",
+    "lib/english-word.ts": "370d3655272e39f38fb4729ce0646f7db88818954f32d5e4ef04c2f4ff51a689",
+    "lib/english-letter-link.ts": "fd48b882cc308804df069dae4f29fd233bf0147e72f1374a6b2944f3ac57e8b2",
+    "lib/english-letter-cases.ts": "d20de0127c39c3cb3a3ef62c16c73a9d7796115666cc227e6a6650e976f0891d",
+    "lib/english-sound-practice.ts": "4f1677520c1217a2414d0cde3d1ac4a292bdcde8410a5f8fcf7ded93f03a5b56",
+    "lib/english-paper-writing.ts": "bfc91941742613ed6aaa0d7717960992887818d98973872d8db5666aa7eece3b"
+  }
+}

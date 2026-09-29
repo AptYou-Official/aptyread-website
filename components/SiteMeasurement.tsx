@@ -10,7 +10,7 @@ export default function SiteMeasurement() {
   const pathname = usePathname();
   // Programme entry links use a full document navigation so previously loaded
   // marketing scripts cannot remain active inside the learning preview.
-  if (!pathname || /^\/(malayalam|hindi)(\/|$)/.test(pathname)) return null;
+  if (!pathname || /^\/(english|malayalam|hindi)(\/|$)/.test(pathname)) return null;
 
   return <>
     {GOOGLE_ADS_ID && <>
