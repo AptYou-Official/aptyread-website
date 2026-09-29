@@ -2,12 +2,13 @@
 
 import { useEffect, useRef, useState } from 'react';
 import type { Letter } from '@/lib/english-curriculum';
-import { createLetterLink, initialLetterLink, letterLinkReward, linkLetters } from '@/lib/english-letter-link';
+import { createLetterLink, initialLetterLink, letterLinkReward } from '@/lib/english-letter-link';
 import { narrationCue } from '@/lib/english-narration';
 import useEnglishAudio from './useEnglishAudio';
 import LearningCompanion from './LearningCompanion';
 import AchievementStars from './AchievementStars';
 import ActivitySticker from './ActivitySticker';
+import ParentHelp from './ParentHelp';
 import Icon from './Icons';
 
 export default function LetterSoundLink({ letter, suspended = false, onComplete, nextTopic }: { letter: Letter; suspended?: boolean; onComplete: () => void; nextTopic?: string }) {
@@ -87,12 +88,6 @@ export default function LetterSoundLink({ letter, suspended = false, onComplete,
         : guided ? <button className="en-button" disabled={state.busy} onClick={state.phase === 'touch' ? touch : () => controller.current?.next()}><Icon name={state.phase === 'touch' ? 'hand' : 'check'} size={23} />{state.phase === 'touch' ? 'Tap and say' : 'I tried it'}</button>
         : <div className="en-link-action-cue" role="status"><Icon name="hand" size={24} /><span>Tap one</span></div>}
     </div>
-    <details className="en-word-support en-link-parent" translate="yes" onToggle={event => { if (event.currentTarget.open) quiet(); }} onKeyDown={event => { if (event.key === 'Escape') { event.currentTarget.open = false; event.currentTarget.querySelector('summary')?.focus(); } }}>
-      <summary aria-label="For grown-ups"><Icon name="grownups" size={18} /><span>For grown-ups</span></summary>
-      <p>{guided ? 'Only s has been taught. Listen together, touch the letter, then give your child time to try its sound. I tried it celebrates participation; this is guided practice, not a recognition test.' : `Only ${linkLetters[letter].join(', ')} appear here. Listen to the sound, then let your child choose. The letter positions are mixed between turns and stay still while your child thinks.`}</p>
-      <p>{guided ? 'Tapping the letter again replays the real sound. The app does not record or assess your child’s voice.' : 'Help me, or two incorrect choices, demonstrates the matching letter with its sound. A helped connection returns later without a highlight. There is at most one extra revisit per letter; completion celebrates practice, not mastery.'}</p>
-      <p>Take all the time you need. Pause and talk in your home language. All letter sounds use the bundled recordings; only the short instructions use a device voice.</p>
-      <p>The sound-link sticker celebrates the main practice steps. Help and extra tries never take progress away. Reading activities have their own word and sentence stickers.</p>
-    </details>
+    <ParentHelp kind="find" className="en-link-parent" onOpen={quiet} />
   </div>;
 }

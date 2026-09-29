@@ -12,6 +12,7 @@ import ApplicationScene from './ApplicationScene';
 import LearningCompanion from './LearningCompanion';
 import WordPronunciation from './WordPronunciation';
 import WordCelebration from './WordCelebration';
+import ParentHelp from './ParentHelp';
 import Icon from './Icons';
 
 export default function MoreWords({ suspended = false, onComplete }: { suspended?: boolean; onComplete: () => void }) {
@@ -146,11 +147,6 @@ export default function MoreWords({ suspended = false, onComplete }: { suspended
       <button className={`en-dock-audio ${audio.playing ? 'is-playing' : ''}`} aria-label={audio.playing || working ? 'Stop listening' : 'Hear the instructions'} onClick={audio.playing || working ? halt : directions}><Icon name={audio.playing || working ? 'close' : 'sound'} size={23} /></button>
       {done ? <button className="en-button en-next-topic" onClick={() => { halt(); onComplete(); }}>Finish lesson <Icon name="arrow" size={23} /></button> : phase === 3 && !full ? <button className="en-button" onClick={() => void listenToBuild()}><Icon name="sound" size={20} /> {trial.heard ? 'Listen again' : 'Hear the word'}</button> : <button className="en-button" onClick={next} disabled={suspended}>{phase === 0 || phase === 4 ? 'I tried it' : phase === 1 ? 'I tried again' : phase === 2 ? 'Let’s make it' : 'Read my word'}<Icon name={phase <= 1 || phase === 4 ? 'check' : 'arrow'} size={21} /></button>}
     </div>
-    <details className="en-word-support" translate="yes" onToggle={event => { if (event.currentTarget.open) halt(); }} onKeyDown={event => { if (event.key === 'Escape') { event.currentTarget.open = false; event.currentTarget.querySelector('summary')?.focus(); } }}>
-      <summary aria-label="For grown-ups"><Icon name="grownups" size={18} /><span>For grown-ups</span></summary>
-      <p><strong>Familiar sounds, new words.</strong> This time, your child can try reading before hearing a model or seeing a picture. Then they explore the meaning and build the word from its sounds.</p>
-      <p>Help is always available. After a second mix-up, we offer the next sound. Talk in your home language and pause whenever you like.</p>
-      <p>The word-garden sticker appreciates their effort. “I tried it” records a turn, not verified reading or pronunciation. We remember help used separately.</p>
-    </details>
+    <ParentHelp kind="application" onOpen={halt} />
   </div>;
 }

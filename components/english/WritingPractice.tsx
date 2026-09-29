@@ -6,6 +6,7 @@ import LearningCompanion from './LearningCompanion';
 import TracePad from './TracePad';
 import PaperWriting from './PaperWriting';
 import WritingCelebration from './WritingCelebration';
+import ParentHelp from './ParentHelp';
 import useEnglishAudio from './useEnglishAudio';
 import Icon from './Icons';
 
@@ -57,7 +58,7 @@ export default function WritingPractice({ activity, suspended = false, onComplet
         {mode === 'invite' && <p>Or try with a pencil.</p>}
       </div>}
     </div>
-    {mode === 'trace' && <details className="en-word-support en-writing-parent" translate="yes"><summary aria-label="For grown-ups"><Icon name="grownups" size={18} /><span>For grown-ups</span></summary><p>This is gentle tracing practice, not a handwriting test. Apty may remind your child to start at the dot or follow the dots. There is no score, and one completed practice is enough.</p><p>For pencil practice, choose Write on paper. Encourage a relaxed grip and let your child try at their own pace.</p></details>}
+    {mode === 'trace' && <ParentHelp kind="trace" className="en-writing-parent" />}
     {mode !== 'choose' && <button className="en-text-button en-writing-back" onClick={() => changeMode('choose')}><Icon name="back" size={17} /> Practice choices</button>}
     {mode !== 'trace' && <div className="en-word-dock en-writing-choice-dock" aria-label="Your next action">{mode === 'invite'
       ? <button className="en-button en-next-topic" onClick={() => { quiet(); onComplete(); }}>Next topic <span className="en-cta-arrow"><Icon name="arrow" size={23} /></span></button>

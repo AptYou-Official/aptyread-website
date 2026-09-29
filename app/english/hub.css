@@ -90,3 +90,47 @@ body:has(.en-hub-sheet[open]){overflow:hidden}
 @media(max-width:700px){
   .en-overview-header{display:grid;grid-template-columns:auto 1fr;gap:10px 14px;min-height:0;padding:16px 20px calc(18px + env(safe-area-inset-top));align-items:start}.en-overview-back{font-size:0;min-height:42px;width:42px;justify-content:center;border:1px solid #e0e9ef;border-radius:50%;background:#f9fbfc}.en-overview-heading{grid-column:2;grid-row:1}.en-overview-heading h1{font-size:24px}.en-overview-heading .en-hub-kicker{font-size:8px;letter-spacing:1.1px}.en-overview-progress{gap:9px;margin-top:8px}.en-overview-progress small{font-size:10px}.en-overview-header>.en-hub-language{grid-column:2;grid-row:2;align-self:auto;margin:0;font-size:10px}.en-overview-main{padding:20px 16px calc(35px + env(safe-area-inset-bottom))}.en-overview-continue{display:block;padding:22px 20px;border-radius:22px}.en-overview-continue h2{font-size:23px;margin-top:8px}.en-overview-continue p{font-size:12px}.en-overview-continue .en-hub-cta{max-width:none;margin-top:19px}.en-overview-secondary,.en-overview-state{margin-top:17px}.en-overview-topics{margin-top:24px;padding:21px 13px 23px;border-radius:22px}.en-overview-section-heading{margin:0 5px 17px}.en-overview-section-heading h2{font-size:21px}.en-overview-section-heading>span{font-size:11px}.en-topic-key{gap:5px;padding:8px;margin-bottom:18px}.en-topic-key>span{font-size:9px;padding:5px 6px}.en-route-topic.is-next{border-left-width:4px}.en-route-topic.is-done{border-left-width:3px}
 }
+
+/* Child-first learning path hierarchy: readable topic names, generous targets,
+   and status colours that can be understood at a glance. */
+.en-overview-heading h1{font-size:32px;letter-spacing:-.2px}
+.en-overview-section-heading h2{font-size:26px}
+.en-topic-key{gap:9px;padding:11px 13px;border-radius:16px;background:#F8FCFC}
+.en-topic-key>span{min-height:34px;padding:7px 10px;border-radius:11px;font-size:11px;line-height:1.25}
+.en-topic-group h3{font-size:15px;line-height:1.4;letter-spacing:.1px;margin-bottom:11px}
+.en-topic-group ol{gap:9px}
+.en-route-topic{min-height:86px;padding:15px 17px;gap:15px;border-radius:19px;box-shadow:0 3px 0 #E5EFF1}
+.en-route-topic.is-done{background:#F9FFFE;box-shadow:0 3px 0 #E1F0EF}
+.en-route-topic.is-next,.en-route-topic.is-selected{box-shadow:inset 0 0 0 1px #D2F1F5,0 5px 0 #CBE9ED,0 9px 18px #173A8A0A}
+.en-route-marker{width:39px;height:39px;font-size:14px}
+.en-route-copy strong{font-size:17px;line-height:1.3}
+.en-route-copy small{font-size:12px;line-height:1.45;margin-top:5px}
+.en-route-type{width:30px}
+
+/* Lesson cards keep the active lesson inviting while future lessons stay quiet. */
+.en-hub-lesson{min-height:126px}
+.en-hub-lesson-copy>strong{font-size:19px;line-height:1.3}
+.en-hub-lesson-status{font-size:13px;line-height:1.45}
+.en-hub-lesson-copy .en-hub-kicker{font-size:9px}
+
+@media(max-width:700px){
+  .en-overview-heading h1{font-size:27px}
+  .en-overview-section-heading h2{font-size:23px}
+  .en-topic-key{gap:6px;padding:9px;margin-bottom:18px}
+  .en-topic-key>span{min-height:32px;padding:7px 8px;font-size:10px}
+  .en-topic-group h3{font-size:14px;margin-left:10px}
+  .en-route-topic{min-height:84px;padding:14px 12px;gap:12px;border-radius:18px}
+  .en-route-marker{width:38px;height:38px}
+  .en-route-copy strong{font-size:17px}
+  .en-route-copy small{font-size:12px}
+  .en-route-type{width:27px}
+  .en-hub-lesson{min-height:116px}
+  .en-hub-lesson-copy>strong{font-size:19px}
+  .en-hub-lesson-status{font-size:13px}
+}
+@media(max-width:380px){
+  .en-route-topic{padding-left:10px;padding-right:10px;gap:10px}
+  .en-route-copy strong{font-size:16px}
+  .en-route-copy small{font-size:11px}
+  .en-hub-lesson-copy>strong{font-size:17px}
+}

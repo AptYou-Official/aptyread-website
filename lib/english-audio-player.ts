@@ -26,18 +26,11 @@ export function createEnglishAudioPlayer(resolveMedia: (id: string) => string | 
       cancelClip = () => finish(false);
       const fail = (message: string) => { if (!settled) { notice = message; finish(false); } };
       const needsTap = () => { if (!settled) { blocked = true; fail('Tap the speaker to listen.'); } };
-      const src = resolveMedia(cue.id);
-      if (src) {
-        const recording = new Audio(src);
-        cleanup = () => { recording.onended = null; recording.onerror = null; recording.pause(); recording.removeAttribute('src'); recording.load(); };
-        recording.onended = () => finish(true);
-        recording.onerror = () => fail('The recording could not play. Tap Listen to try again.');
-        void recording.play().catch((error: unknown) => {
-          if (settled) return;
-          if (error && typeof error === 'object' && 'name' in error && error.name === 'NotAllowedError') needsTap();
-          else fail('The recording could not play. Tap Listen to try again.');
-        });
-      } else if (cue.narration && typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      const startSpeech = () => {
+        if (!(cue.narration && typeof window !== 'undefined' && 'speechSynthesis' in window)) {
+          fail(cue.narration ? 'This device has no spoken voice. Read the prompt together.' : 'This sound is not available. Tap Listen to try again.');
+          return;
+        }
         const speech = new SpeechSynthesisUtterance(cue.narration);
         speech.lang = 'en-US'; speech.rate = 0.85; speech.pitch = 1;
         // Read the current list for every cue: many browsers load it lazily.
@@ -54,8 +47,27 @@ export function createEnglishAudioPlayer(resolveMedia: (id: string) => string | 
           if (error && typeof error === 'object' && 'name' in error && error.name === 'NotAllowedError') needsTap();
           else fail('The device voice could not play. Read the prompt together.');
         }
+      };
+      const src = resolveMedia(cue.id);
+      if (src) {
+        const recording = new Audio(src);
+        const recordingCleanup = () => { recording.onended = null; recording.onerror = null; recording.pause(); recording.removeAttribute('src'); recording.load(); };
+        cleanup = recordingCleanup;
+        recording.onended = () => finish(true);
+        recording.onerror = () => {
+          if (settled) return;
+          // A future CDN file may be referenced before it is uploaded. Keep the
+          // activity usable with the same device voice until that file exists.
+          recordingCleanup();
+          startSpeech();
+        };
+        void recording.play().catch((error: unknown) => {
+          if (settled) return;
+          if (error && typeof error === 'object' && 'name' in error && error.name === 'NotAllowedError') needsTap();
+          else fail('The recording could not play. Tap Listen to try again.');
+        });
       } else {
-        fail(cue.narration ? 'This device has no spoken voice. Read the prompt together.' : 'This sound is not available. Tap Listen to try again.');
+        startSpeech();
       }
     });
   }

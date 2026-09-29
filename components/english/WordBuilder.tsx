@@ -13,6 +13,7 @@ import AtScene from './AtScene';
 import WordPronunciation from './WordPronunciation';
 import WordCelebration from './WordCelebration';
 import LearningCompanion from './LearningCompanion';
+import ParentHelp from './ParentHelp';
 import ActivityJourney from './ActivityJourney';
 import Icon from './Icons';
 
@@ -153,11 +154,6 @@ export default function WordBuilder({ word, onComplete, nextTopic }: { word: Rea
     setFeedback(correct ? 'You found it!' : 'Who sat down?');
     void audio.play(correct ? 'meaning-correct' : 'meaning-retry');
   }
-  const caption = phase === 0 ? saved.built === word ? englishNarration['build-ready'] : `${!saved.built ? englishNarration[`build-intro-${word}`] + ' ' : ''}Now tap /${nextLetter}/. (Recorded sound.)`
-    : phase === 1 ? englishNarration[readingPrompt]
-    : phase === 2 ? englishNarration[`story-${word}`]
-    : phase < finishStage ? englishNarration[`question-${question}`] : englishNarration[`celebrate-${word}`];
-
   return <div className="en-word-activity en-guided-word" data-word-stage={phase} data-word-mode="guided">
     <ActivityJourney step={journeyStep} />
     <section key={phase} className={`en-word-stage ${phase === finishStage ? 'is-celebrating' : ''}`} aria-label={headline}>
@@ -199,13 +195,8 @@ export default function WordBuilder({ word, onComplete, nextTopic }: { word: Rea
         phase < finishStage ? rightAnswer ? <button className="en-button" onClick={next}>{phase === 3 ? 'One more picture' : 'I did it!'} <Icon name="arrow" size={20} /></button> : <p>Tap the picture. Take your time.</p> :
         <button className="en-button en-next-topic" onClick={() => { stop(); onComplete(); }}><span className="en-next-topic-copy"><small>Next topic</small><strong>{nextTopic || 'Keep going'}</strong></span><span className="en-cta-arrow"><Icon name="arrow" size={23} /></span></button>}
     </div>
-    <details className="en-word-support" translate="yes" onKeyDown={event => { if (event.key === 'Escape') { event.currentTarget.open = false; event.currentTarget.querySelector('summary')?.focus(); } }}><summary aria-label="For grown-ups"><Icon name="grownups" size={18} /><span>For grown-ups</span></summary>
-      <p>The learning path is Build → Read → Explore → Celebrate. The child sees only the current step so the next action stays clear.</p>
+    <ParentHelp kind="word">
       {phase === 0 && <button className="en-text-button" disabled={!saved.built.length} onClick={undo}><Icon name="back" size={17} /> Undo</button>}
-      <p>We build from left to right. Let your child tap each highlighted letter and hear its sound. There is no need to guess the word.</p>
-      {phase === 1 && <p>Wait for your child’s attempt. {pronunciation ? 'After the first try, Watch and say offers an optional model. Use the video controls to replay, then let your child try again.' : 'You can listen to the word or its sounds together, then let your child try again.'} Take as much time as you need.</p>}
-      {phase === 2 && <p>{word === 'pin' ? 'Point to the pin in the picture. Talk about its shape and what it is used for.' : word === 'sit' ? 'Try the spoken instruction together: “Sit on the mat.”' : word === 'at' ? '“Where is Sam?” Point to the door: “Sam is at the door.”' : '“What changed when Sam sat down?” Try sitting down together.'} You can talk in your home language.</p>}
-      <p><strong>Spoken words:</strong> {caption}</p>
-    </details>
+    </ParentHelp>
   </div>;
 }

@@ -8,6 +8,7 @@ import useEnglishAudio from './useEnglishAudio';
 import LearningCompanion from './LearningCompanion';
 import AchievementStars from './AchievementStars';
 import ActivitySticker from './ActivitySticker';
+import ParentHelp from './ParentHelp';
 import Icon from './Icons';
 
 export default function SoundPractice({ letter, suspended = false, onComplete, nextTopic }: { letter: Letter; suspended?: boolean; onComplete: () => void; nextTopic?: string }) {
@@ -157,11 +158,8 @@ export default function SoundPractice({ letter, suspended = false, onComplete, n
       {!holding && phase === 'prompt' && <><button className="en-dock-audio" aria-label="Pause practice" onClick={() => session.current?.pause()}><Icon name="pause" /></button><button className="en-button" onClick={() => void session.current?.watch(true)}><Icon name="play" size={22} />{audioOnly ? 'Listen' : 'Watch'}</button></>}
       {!holding && !canTry && !complete && !['between', 'paused', 'prompt'].includes(phase) && <button className="en-button" onClick={() => void session.current?.watch(true)}><Icon name="play" size={22} />{audioOnly ? 'Listen' : 'Watch'}</button>}
     </div>
-    <details className="en-word-support en-sound-parent" translate="yes" onToggle={event => { if (event.currentTarget.open) session.current?.pause(); }} onKeyDown={event => { if (event.key === 'Escape') { event.currentTarget.open = false; event.currentTarget.querySelector('summary')?.focus(); } }}><summary aria-label="For grown-ups"><Icon name="grownups" size={18} /><span>For grown-ups</span></summary>
-      <p>When Apty says “Your turn,” your child taps the hand button and makes the sound. The app gives a short turn, then offers one more tap. Watching or hearing the model again is always optional.</p>
-      <p>Each finished turn helps your child practise. The sticker celebrates participation; the app does not listen, record or judge pronunciation. Pause for conversation in your home language whenever helpful.</p>
-      <p>When the video cannot play, Hear the sound instead uses the recorded phoneme. Apty gives the spoken cue, then the hand button starts the child’s turn.</p>
+    <ParentHelp kind="sound" className="en-sound-parent" onOpen={() => session.current?.pause()}>
       {complete && <button className="en-text-button" onClick={() => session.current?.restart()}><Icon name="redo" size={17} /> Practise again</button>}
-    </details>
+    </ParentHelp>
   </div>;
 }

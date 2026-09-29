@@ -102,14 +102,69 @@ export const englishMedia: Record<string, string | undefined> = {
 // filename convention is intentional: adding a new letter's matching files
 // wires it automatically without another per-letter map entry.
 const ENGLISH_AUDIO = 'https://aptyread-cdn.b-cdn.net/english/level1/audio';
+const SHARED_AUDIO: Record<string, string> = {
+  // The same short cue is intentionally reused wherever the child's action is
+  // the same. This keeps the voice warm and makes the CDN easy to maintain.
+  'link-listen': 'listen-v1.mp3',
+  'link-find': 'listen-find-it-v1.mp3',
+  'link-find-it': 'find-it-v1.mp3',
+  'link-retry': 'listen-again-v1.mp3',
+  'link-help': 'lets-listen-together-v1.mp3',
+  'link-your-turn': 'your-turn-v1.mp3',
+  'practice-listen': 'listen-v1.mp3',
+  'practice-now-try': 'now-you-try-v1.mp3',
+  'practice-your-turn': 'your-turn-v1.mp3',
+  'practice-one-more': 'one-more-v1.mp3',
+  'intro-listen': 'lets-listen-together-v1.mp3',
+  'intro-try': 'now-you-try-v1.mp3',
+  'build-intro-at': 'lets-make-a-word-together-v1.mp3',
+  'build-intro-sat': 'lets-make-a-word-together-v1.mp3',
+  'build-tap': 'now-tap-v1.mp3',
+  'build-next-tap': 'now-tap-v1.mp3',
+  'build-ready': 'put-the-sounds-together-v1.mp3',
+  'read-done-at': 'lets-see-what-it-means-v1.mp3',
+  'read-done-sat': 'lets-see-what-it-means-v1.mp3',
+  'meaning-correct': 'you-found-it-v1.mp3',
+  'sentence-retry': 'listen-again-v1.mp3',
+  'discover-retry': 'listen-again-v1.mp3',
+  'practice-watch': 'watch-v1.mp3',
+  'practice-watch-again': 'watch-again-v1.mp3',
+  'paper-watch': 'watch-v1.mp3',
+  'paper-watch-again': 'watch-again-v1.mp3',
+};
+
+const LESSON_1_AUDIO: Record<string, string> = {
+  'word-at': 'word-at-v1.mp3',
+  'word-sat': 'word-sat-v1.mp3',
+  'say-at': 'say-at-v1.mp3',
+  'say-sat': 'say-sat-v1.mp3',
+  'say-again-at': 'say-again-at-v1.mp3',
+  'say-again-sat': 'say-again-sat-v1.mp3',
+  'sentence-intro': 'sentence-intro-v1.mp3',
+  'sentence-sat': 'sentence-sat-v1.mp3',
+  'sentence-at': 'sentence-at-v1.mp3',
+  'sentence-find-sat': 'sentence-find-sat-v1.mp3',
+  'sentence-find-at': 'sentence-find-at-v1.mp3',
+  'sentence-correct-sat': 'sentence-correct-sat-v1.mp3',
+  'sentence-correct-at': 'sentence-correct-at-v1.mp3',
+  'story-sat': 'story-sat-v1.mp3',
+  'question-mat': 'question-mat-v1.mp3',
+  'question-bench': 'question-bench-v1.mp3',
+  'meaning-retry': 'who-sat-down-v1.mp3',
+  'celebrate-at': 'you-made-at-v1.mp3',
+  'celebrate-sat': 'you-made-sat-v1.mp3',
+};
+
 function recordedNarrationFor(id: string) {
-  const shared: Record<string, string> = {
-    'practice-watch': 'watch-v1.mp3',
-    'practice-watch-again': 'watch-again-v1.mp3',
-    'paper-watch': 'watch-v1.mp3',
-    'paper-watch-again': 'watch-again-v1.mp3',
-  };
-  if (shared[id]) return `${ENGLISH_AUDIO}/shared/${shared[id]}`;
+  if (SHARED_AUDIO[id]) return `${ENGLISH_AUDIO}/shared/${SHARED_AUDIO[id]}`;
+  if (LESSON_1_AUDIO[id]) return `${ENGLISH_AUDIO}/lesson1/${LESSON_1_AUDIO[id]}`;
+
+  // Case prompts are deliberately data-driven: adding cases-find-big-p-v1.mp3
+  // (or another future letter) to /letters wires it without a code change.
+  const cases = /^cases-(?:find-)?(big|small)-([a-z])$/i.exec(id);
+  if (cases) return `${ENGLISH_AUDIO}/letters/cases-find-${cases[1].toLowerCase()}-${cases[2].toLowerCase()}-v1.mp3`;
+  if (id === 'cases-retry') return `${ENGLISH_AUDIO}/letters/cases-retry-v1.mp3`;
+
   const trace = /^instruction-write-([a-z])-([a-z]+)$/i.exec(id);
   if (trace && (trace[2] === 'capital' || trace[2] === 'lowercase')) {
     const size = trace[2] === 'capital' ? 'big' : 'small';

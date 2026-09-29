@@ -3,13 +3,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { englishNarration, narrationCue } from '@/lib/english-narration';
 import { freshSentenceReview, SentenceTarget } from '@/lib/english-sentence-review';
-import { parentHelpLanguages, sentenceParentHelp } from '@/lib/english-parent-help';
-import { updateParentHelpLanguage, updateSentenceReview } from '@/lib/english-progress';
+import { updateSentenceReview } from '@/lib/english-progress';
 import { useEnglish } from './EnglishProvider';
 import useEnglishAudio from './useEnglishAudio';
 import ActivityJourney from './ActivityJourney';
 import LearningCompanion from './LearningCompanion';
 import WordCelebration from './WordCelebration';
+import ParentHelp from './ParentHelp';
 import Icon from './Icons';
 
 const sentences = [
@@ -24,8 +24,6 @@ function targetForStep(step: number): SentenceTarget | null {
 export default function SentenceReview({ finishLabel = 'Finish lesson', onComplete }: { finishLabel?: string; onComplete: () => void }) {
   const { progress, update } = useEnglish();
   const saved = progress.sentenceReview || freshSentenceReview();
-  const helpLanguage = progress.parentHelpLanguage || 'en';
-  const help = sentenceParentHelp[helpLanguage];
   const step = saved.step;
   const target = targetForStep(step);
   const audio = useEnglishAudio();
@@ -125,12 +123,6 @@ export default function SentenceReview({ finishLabel = 'Finish lesson', onComple
     <div className="en-word-dock" aria-label="Your next action">
       {step === 0 ? <button className="en-button" onClick={start}><Icon name="sound" size={20} /> Listen <Icon name="arrow" size={20} /></button> : step < 3 ? audio.playing ? <div className="en-sentence-action-cue is-listening" role="status"><Icon name="sound" size={23} /><span>Listen…</span></div> : <div className="en-sentence-action-cue" role="status"><Icon name="hand" size={23} /><span>Tap one</span></div> : <button className="en-button en-next-topic" onClick={() => { stop(); onComplete(); }}>{finishLabel} <span className="en-cta-arrow"><Icon name="arrow" size={23} /></span></button>}
     </div>
-    <details className="en-word-support" translate="yes" onKeyDown={event => { if (event.key === 'Escape') { event.currentTarget.open = false; event.currentTarget.querySelector('summary')?.focus(); } }}><summary aria-label="For grown-ups"><Icon name="grownups" size={18} /><span>For grown-ups</span></summary>
-      <div className="en-help-language"><label htmlFor="sentence-help-language">Help language</label><select id="sentence-help-language" value={helpLanguage} onChange={event => update(p => updateParentHelpLanguage(p, event.target.value as typeof helpLanguage))}>{parentHelpLanguages.map(language => <option key={language.id} value={language.id}>{language.label}</option>)}</select></div>
-      <p>{help.instructions}</p>
-      <p>{help.reassurance}</p>
-      <p>The other words help your child hear the whole sentence. They do not need to read every word yet.</p>
-      <p><strong>{help.label}:</strong> {englishNarration[promptId]}</p>
-    </details>
+    <ParentHelp kind="sentence" promptText={englishNarration[promptId]} />
   </div>;
 }

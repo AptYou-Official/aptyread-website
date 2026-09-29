@@ -1035,6 +1035,72 @@
   .en-writing-practice.is-trace .en-trace-pad{min-height:215px}
 }
 
+/* Parent guidance should be discoverable without competing with the child's task. */
+.en-parent-help{top:-9px;right:0;width:max-content;max-width:100%;z-index:20}
+.en-parent-help summary{width:max-content;min-height:48px;padding:8px 11px;gap:7px;border-radius:999px;background:#FFFFFFE8;border-color:#BFDDE5;color:var(--en-action);box-shadow:0 4px 0 #D7EBEF,0 7px 15px #173A8A0B;font-size:12px;font-weight:700}
+.en-word-support.en-parent-help:not([open]) summary>span{display:inline-flex;align-items:center}
+.en-parent-help summary>span:first-child{width:28px;height:28px;justify-content:center;border-radius:50%;background:#E2F6F8;color:var(--en-action)}
+.en-parent-help summary small{display:inline-block;color:var(--en-muted);font:600 10px var(--font-andika),sans-serif}
+.en-parent-help summary>svg:last-child{color:var(--en-muted);transition:transform .18s ease}
+.en-parent-help[open]{width:min(390px,calc(100vw - 28px));border-radius:20px}
+.en-parent-help[open] summary{width:100%;justify-content:flex-start;padding:10px 13px;margin-bottom:10px;border-radius:19px 19px 0 0;background:#F7FCFD;box-shadow:none}
+.en-parent-help[open] summary>svg:last-child{display:none}
+.en-parent-help[open] summary:after{margin-left:auto}
+.en-parent-help[open] .en-help-language{margin-left:14px;margin-right:14px}
+.en-parent-help[open] p{padding-left:16px;padding-right:16px}
+.en-parent-help:not([open]) summary:active{transform:translateY(2px);box-shadow:0 2px 0 #D7EBEF}
+@media(max-width:700px){
+  .en-parent-help{top:-7px}
+  .en-parent-help summary{min-height:46px;padding:7px 10px;font-size:12px}
+  .en-parent-help summary small{font-size:9px}
+  .en-parent-help[open]{width:min(390px,calc(100vw - 24px))}
+}
+
+/* Child-facing activity scale: the prompt and the choice should be the first
+   things a 4–7 year old can see and touch. */
+.en-guided-player .en-player-title strong{font-size:16px;line-height:1.25}
+.en-guided-player .en-player-title span{font-size:10px}
+.en-guided-player .en-player-main h1{font-size:36px}
+.en-guided-word:not(.en-writing-practice) .en-companion-bubble h1{font-size:32px}
+.en-guided-word .en-activity-instruction{font-size:17px;line-height:1.5}
+.en-sentence-word{font-size:30px}
+.en-link-choice{min-width:116px;min-height:136px}
+.en-link-choice>span:first-child{font-size:86px}
+.en-link-action-cue{min-height:60px;font-size:19px}
+.en-word-dock>.en-button{min-height:60px}
+
+@media(max-width:700px){
+  .en-guided-player .en-player-title strong{font-size:14px}
+  .en-guided-player .en-player-title span{font-size:9px}
+  .en-guided-player .en-player-main h1{font-size:30px}
+  .en-guided-word:not(.en-writing-practice) .en-companion-bubble h1{font-size:29px}
+  .en-guided-word .en-activity-instruction{font-size:15px}
+  .en-sentence-word{font-size:26px;min-height:53px;padding:7px 10px}
+  .en-link-choice{width:88px;min-width:88px;height:108px;min-height:108px;border-radius:23px}
+  .en-link-choice>span:first-child{font-size:70px}
+  .en-link-action-cue{min-height:58px;font-size:17px}
+  .en-word-dock>.en-button{min-height:58px}
+}
+@media(max-width:380px){
+  .en-guided-player .en-player-title strong{font-size:13px}
+  .en-guided-player .en-player-title span{font-size:8px}
+  .en-guided-player .en-player-main h1{font-size:27px}
+  .en-guided-word:not(.en-writing-practice) .en-companion-bubble h1{font-size:26px}
+  .en-sentence-word{font-size:24px;min-height:49px;padding:6px 8px}
+  .en-link-choice{width:82px;min-width:82px;height:102px;min-height:102px}
+  .en-link-choice>span:first-child{font-size:65px}
+}
+
+/* Native-feeling touch feedback without making the learning surface jump. */
+.en-guided-player button:not(:disabled),.en-guided-player a{ -webkit-tap-highlight-color:transparent }
+.en-guided-player .en-icon-button:active:not(:disabled),
+.en-guided-player .en-step-menu:active:not(:disabled),
+.en-guided-player .en-dock-audio:active:not(:disabled),
+.en-guided-player .en-text-button:active:not(:disabled){transform:translateY(2px)}
+.en-guided-player .en-sentence-word:focus-visible,
+.en-guided-player .en-link-choice:focus-visible,
+.en-guided-player .en-letter-tile:focus-visible{outline:3px solid #00A9BD;outline-offset:4px}
+
 /* Give the dashboard's current lesson a quiet, premium lift without turning it into a floating ad. */
 .en-hero-card{
   background:linear-gradient(135deg,#F0FBFC 0%,#E3F7F8 100%);

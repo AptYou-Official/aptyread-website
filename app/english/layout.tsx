@@ -20,7 +20,14 @@ export const metadata: Metadata = {
   applicationName: 'AptyRead English',
   manifest: '/english/manifest.webmanifest',
   appleWebApp: { capable: true, title: 'AptyRead', statusBarStyle: 'default' },
-  icons: { icon: '/english/icons/icon-192.png', apple: '/english/icons/apple-touch-icon.png' },
+  icons: {
+    icon: [
+      { url: '/english/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/english/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    shortcut: [{ url: '/english/icons/icon-192.png', sizes: '192x192', type: 'image/png' }],
+    apple: [{ url: '/english/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
   robots: { index: false, follow: false },
   alternates: { canonical: 'https://www.aptyread.ai/english' },
 };
