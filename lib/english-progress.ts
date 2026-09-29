@@ -1,5 +1,7 @@
 import { englishLessons, englishVideos } from './english-curriculum';
 import { FirstWordsAction, FirstWordsProgress, freshFirstWords, nextFirstWords, readFirstWords, ReviewPair } from './english-review';
+import { freshSentenceReview, nextSentenceReview, readSentenceReview, SentenceReviewAction, SentenceReviewProgress } from './english-sentence-review';
+import { ParentHelpLanguage } from './english-parent-help';
 import { APPLICATION_ID, ApplicationAction, ApplicationProgress, freshApplication, nextApplication, readApplication } from './english-application';
 
 export const ENGLISH_PROGRESS_KEY = 'apty.english.progress.v1';
@@ -12,8 +14,11 @@ export type EnglishProgress = {
   words: Record<string, WordProgress>;
   firstWords?: FirstWordsProgress;
   moreWords?: FirstWordsProgress;
+  sentenceReview?: SentenceReviewProgress;
+  parentHelpLanguage?: ParentHelpLanguage;
   application?: ApplicationProgress;
   audioIntroductions?: string[];
+  practicePreviews?: string[];
   lastLesson: string;
 };
 export function emptyProgress(): EnglishProgress {
@@ -39,10 +44,16 @@ export function englishAccess(progress: EnglishProgress) {
 export function completeEnglishActivity(progress: EnglishProgress, activityId: string): EnglishProgress {
   const item = learningPath.find(entry => entry.activity.id === activityId);
   if (!item || !englishAccess(progress).activities.has(activityId)) return progress;
-  if (item.activity.kind === 'video' && !englishVideos[activityId] && !item.activity.audioIntroduction) return progress;
-  if (item.activity.kind === 'review' && (activityId === 'more-little-words' ? progress.moreWords : progress.firstWords)?.stage !== 6) return progress;
+  if (item.activity.kind === 'video' && !englishVideos[activityId] && !item.activity.audioIntroduction && !item.activity.practicePreview) return progress;
+  if (item.activity.kind === 'review') {
+    const complete = activityId === 'more-little-words'
+      ? progress.moreWords?.stage === 6
+      : progress.sentenceReview?.step === 3 || progress.firstWords?.stage === 6;
+    if (!complete) return progress;
+  }
   if (item.activity.kind === 'apply' && readApplication(progress.application)?.step !== 10) return progress;
   if (item.activity.audioIntroduction && !englishVideos[activityId]) progress = { ...progress, audioIntroductions: [...new Set([...(progress.audioIntroductions || []), activityId])] };
+  if (item.activity.practicePreview && !englishVideos[activityId]) progress = { ...progress, practicePreviews: [...new Set([...(progress.practicePreviews || []), activityId])] };
   return { ...progress, completed: [...new Set([...progress.completed, activityId])] };
 }
 
@@ -53,6 +64,18 @@ export function updateFirstWords(progress: EnglishProgress, action: FirstWordsAc
   const review = nextFirstWords(progress[key] || freshFirstWords(), action, pair);
   const next = { ...progress, [key]: review };
   return review.stage === 6 ? completeEnglishActivity(next, id) : next;
+}
+
+export function updateSentenceReview(progress: EnglishProgress, action: SentenceReviewAction): EnglishProgress {
+  const id = 'our-first-words';
+  if (!englishAccess(progress).activities.has(id)) return progress;
+  const review = nextSentenceReview(progress.sentenceReview || freshSentenceReview(), action);
+  const next = { ...progress, sentenceReview: review };
+  return review.step === 3 ? completeEnglishActivity(next, id) : next;
+}
+
+export function updateParentHelpLanguage(progress: EnglishProgress, language: ParentHelpLanguage): EnglishProgress {
+  return { ...progress, parentHelpLanguage: language };
 }
 
 export function updateApplication(progress: EnglishProgress, action: ApplicationAction): EnglishProgress {
@@ -85,6 +108,7 @@ export function enterEnglishActivity(progress: EnglishProgress, lessonId: string
   if (requested >= 0 && lesson.activities[step].kind === 'review') {
     const key = lesson.id === 'more-words' ? 'moreWords' : 'firstWords';
     if (next[key]?.stage === 6) delete next[key];
+    if (lesson.id === 'first-words' && next.sentenceReview?.step === 3) delete next.sentenceReview;
   }
   return next;
 }
@@ -96,9 +120,14 @@ export function readEnglishProgress(raw: string | null): EnglishProgress {
   try {
     const value = JSON.parse(raw);
     if (!value || value.version !== 1) return clean;
+    // The former single-letter `find-s` topic was removed because it repeated
+    // Practice s. Shift only records that prove they came from that older
+    // sequence; new progress must not have its current index shifted.
+    const removedFindS = Array.isArray(value.completed) && value.completed.includes('find-s');
     for (const lesson of englishLessons) {
       const step = value.current?.[lesson.id];
-      if (Number.isInteger(step) && step >= 0 && step < lesson.activities.length) clean.current[lesson.id] = step;
+      const migratedStep = lesson.id === 'first-words' && removedFindS && step > 2 ? step - 1 : step;
+      if (Number.isInteger(migratedStep) && migratedStep >= 0 && migratedStep < lesson.activities.length) clean.current[lesson.id] = migratedStep;
     }
     const ids = new Set(englishLessons.flatMap(l => l.activities.map(a => a.id)));
     clean.completed = Array.isArray(value.completed) ? [...new Set<string>(value.completed.filter((id: unknown) => typeof id === 'string' && ids.has(id)))] : [];
@@ -125,9 +154,13 @@ export function readEnglishProgress(raw: string | null): EnglishProgress {
     if (firstWords) clean.firstWords = firstWords;
     const moreWords = readFirstWords(value.moreWords, 'more');
     if (moreWords) clean.moreWords = moreWords;
+    const sentenceReview = readSentenceReview(value.sentenceReview);
+    if (sentenceReview) clean.sentenceReview = sentenceReview;
+    if (value.parentHelpLanguage === 'en' || value.parentHelpLanguage === 'ml' || value.parentHelpLanguage === 'hi') clean.parentHelpLanguage = value.parentHelpLanguage;
     const application = readApplication(value.application);
     if (application) clean.application = application;
     if (Array.isArray(value.audioIntroductions)) clean.audioIntroductions = [...new Set<string>(value.audioIntroductions.filter((id: unknown) => typeof id === 'string' && learningPath.some(item => item.activity.id === id && item.activity.audioIntroduction)))];
+    if (Array.isArray(value.practicePreviews)) clean.practicePreviews = [...new Set<string>(value.practicePreviews.filter((id: unknown) => typeof id === 'string' && clean.completed.includes(id) && learningPath.some(item => item.activity.id === id && item.activity.practicePreview)))];
     return clean;
   } catch { return clean; }
 }

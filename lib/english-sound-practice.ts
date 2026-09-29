@@ -1,6 +1,8 @@
 export type SoundPracticePhase = 'ready' | 'prompt' | 'watch' | 'try' | 'holding' | 'between' | 'complete' | 'paused' | 'blocked';
 export type SoundPracticeState = { phase: SoundPracticePhase; turns: number; audioOnly: boolean; looping: boolean; notice: string };
 export const initialSoundPractice: SoundPracticeState = { phase: 'ready', turns: 0, audioOnly: false, looping: false, notice: '' };
+const MAX_TURNS = 2;
+const TURN_LENGTH = 2600;
 
 type Dependencies = {
   say: (id: string) => Promise<boolean>;
@@ -11,8 +13,8 @@ type Dependencies = {
   changed: (state: SoundPracticeState) => void;
 };
 
-// The controller owns media turn-taking. Completing a hold records participation,
-// never speech accuracy or a minimum speaking duration.
+// The controller owns media turn-taking. Completing a tap-started turn records
+// participation, never speech accuracy or a minimum speaking duration.
 export function createSoundPracticeSession(media: Dependencies) {
   let state = { ...initialSoundPractice };
   let generation = 0;
@@ -40,11 +42,11 @@ export function createSoundPracticeSession(media: Dependencies) {
     if (!direct) {
       const ok = await media.say(state.turns ? 'practice-your-turn' : 'practice-now-try');
       if (disposed || token !== generation) return;
-      if (!ok) change({ notice: 'Hold the button and say the sound.' });
+      if (!ok) change({ notice: 'Tap the hand and make the sound.' });
     }
     if (state.audioOnly) return;
-    // Repeat the mouth model only after the instruction. Native looping does
-    // not replay narration or complete a turn: only the child's release does.
+    // Repeat the mouth model after the instruction so the child can tap when
+    // ready. The tap starts a short turn; it never claims to judge speech.
     change({ looping: true });
     timeout = setTimeout(failed, 15000);
     try {
@@ -86,8 +88,17 @@ export function createSoundPracticeSession(media: Dependencies) {
   }
   function endHold() {
     if (disposed || state.phase !== 'holding') return;
-    const turns = Math.min(3, state.turns + 1);
-    change({ turns, phase: turns === 3 ? 'complete' : 'between', notice: '' });
+    clearTimeout(timeout);
+    timeout = undefined;
+    const turns = Math.min(MAX_TURNS, state.turns + 1);
+    change({ turns, phase: turns === MAX_TURNS ? 'complete' : 'between', notice: '' });
+  }
+  function startTurn() {
+    if (disposed || !['watch', 'try', 'between'].includes(state.phase)) return false;
+    interrupt();
+    change({ phase: 'holding', notice: '' });
+    timeout = setTimeout(endHold, TURN_LENGTH);
+    return true;
   }
   function cancelHold() {
     if (!disposed && state.phase === 'holding') { interrupt(); change({ phase: 'try' }); }
@@ -100,7 +111,7 @@ export function createSoundPracticeSession(media: Dependencies) {
     if (active) change({ phase: 'paused', notice: '' });
   }
   return {
-    watch, beginHold, endHold, cancelHold, pause,
+    watch, beginHold, endHold, startTurn, cancelHold, pause,
     snapshot: () => state,
     videoEnded: () => { if (state.phase === 'watch' && !state.audioOnly) void yourTurn(); },
     videoFailed: () => { if (!state.audioOnly) failed(); },

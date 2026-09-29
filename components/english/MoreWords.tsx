@@ -150,7 +150,7 @@ export default function MoreWords({ suspended = false, onComplete }: { suspended
       <summary aria-label="For grown-ups"><Icon name="grownups" size={18} /><span>For grown-ups</span></summary>
       <p><strong>Familiar sounds, new words.</strong> This time, your child can try reading before hearing a model or seeing a picture. Then they explore the meaning and build the word from its sounds.</p>
       <p>Help is always available. After a second mix-up, we offer the next sound. Talk in your home language and pause whenever you like.</p>
-      <p>The five stars appreciate their effort. “I tried it” records a turn, not verified reading or pronunciation. We remember help used separately.</p>
+      <p>The word-garden sticker appreciates their effort. “I tried it” records a turn, not verified reading or pronunciation. We remember help used separately.</p>
     </details>
   </div>;
 }

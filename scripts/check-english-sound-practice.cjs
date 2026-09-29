@@ -1,4 +1,4 @@
-/* Media handoffs are controlled so stale callbacks and interrupted holds are testable. */
+/* Media handoffs are controlled so stale callbacks and tap-started turns are testable. */
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const ts = require('typescript');
@@ -57,7 +57,7 @@ async function main() {
   await s.watch(true); s.videoEnded(); t.pending.shift()(true); await tick();
   assert.equal(s.snapshot().looping, true);
   s.beginHold(); s.endHold(); s.endHold();
-  assert.equal(s.snapshot().phase, 'complete'); assert.equal(s.snapshot().turns, 3);
+  assert.equal(s.snapshot().phase, 'complete'); assert.equal(s.snapshot().turns, 2);
   s.dispose();
 
   const looped = setup(), l = looped.session;
@@ -126,6 +126,6 @@ async function main() {
   paused.pending.shift()(true); await run;
   assert.equal(paused.events.includes('play-video'), false, 'A late prompt cannot restart a paused page');
   paused.session.dispose();
-  console.log('Passed: single model then narrated turn then continuous loop, quiet holds, child-paced three turns, pause/resume, stale callbacks, blocked loop recovery, recorded-phoneme fallback and disposal.');
+  console.log('Passed: single model then narrated turn then tap-started two-turn practice, pause/resume, stale callbacks, blocked loop recovery, recorded-phoneme fallback and disposal.');
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });

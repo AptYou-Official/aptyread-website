@@ -1,7 +1,7 @@
 import type { WritingLetter } from './english-curriculum';
 
 export type PaperWritingState = {
-  phase: 'ready' | 'prompt' | 'watch' | 'try' | 'between' | 'paused' | 'blocked' | 'complete';
+  phase: 'ready' | 'prompt' | 'watch' | 'try' | 'paused' | 'blocked' | 'complete';
   turns: number; watched: boolean; covered: boolean; pictureOnly: boolean; notice: string;
 };
 export const initialPaperWriting: PaperWritingState = {
@@ -26,13 +26,13 @@ export function createPaperWriting(letter: WritingLetter, media: Media) {
   };
   const valid = (token: number) => !disposed && token === generation;
   function interrupt() { generation++; clearTimeout(timeout); media.stop(); return generation; }
-  const instruction = () => state.turns === 2 && state.covered ? 'paper-own-turn' : `paper-write-${letter === letter.toUpperCase() ? 'big' : 'small'}-${letter.toLowerCase()}`;
+  const instruction = () => `paper-write-${letter === letter.toUpperCase() ? 'big' : 'small'}-${letter.toLowerCase()}`;
   function failed() {
     if (disposed || !['watch', 'prompt'].includes(state.phase)) return;
     interrupt(); change({ phase: 'blocked', notice: 'Try again, or use the picture.' });
   }
   async function watch(direct = false) {
-    if (disposed || ['complete', 'between'].includes(state.phase)) return;
+    if (disposed || state.phase === 'complete') return;
     const replay = state.watched;
     const token = interrupt();
     change({ phase: 'prompt', covered: false, pictureOnly: false, notice: '' });
@@ -67,12 +67,11 @@ export function createPaperWriting(letter: WritingLetter, media: Media) {
     if (disposed || state.phase !== 'try' || !state.watched) return;
     interrupt();
     const turns = state.turns + 1;
-    change({ turns, phase: turns === 3 ? 'complete' : 'between', notice: '' });
+    change({ turns, phase: 'complete', notice: '' });
   }
-  function nextTry() {
-    if (disposed || state.phase !== 'between') return;
-    interrupt(); change({ phase: 'try', covered: state.turns === 2, notice: '' });
-    void media.say(state.turns === 2 ? 'paper-own-turn' : 'paper-one-more');
+  function tryAgain() {
+    if (disposed || state.phase !== 'complete') return;
+    interrupt(); change({ phase: 'ready', watched: false, covered: false, pictureOnly: false, notice: '' });
   }
   function showModel() {
     if (disposed || state.phase !== 'try') return;
@@ -97,7 +96,7 @@ export function createPaperWriting(letter: WritingLetter, media: Media) {
   }
   return {
     watch, tryNow, videoEnded, videoPlaying, videoWaiting, failed, usePicture,
-    finishTry, nextTry, showModel, pause, resume, repeatInstruction,
+    finishTry, tryAgain, showModel, pause, resume, repeatInstruction,
     snapshot: () => state,
     dispose: () => { disposed = true; interrupt(); },
   };

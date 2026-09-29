@@ -1,24 +1,25 @@
 # Letter–sound connections in Lesson 1
 
-The three former Find activities now have separate purposes. Their existing IDs stay unchanged, so saved topic completion and sequential unlocking remain compatible.
+Lesson 1 keeps two letter–sound connection activities. The former single-letter `find-s` topic was retired because it repeated Practice the s Sound. The remaining activity IDs stay unchanged, so their saved completion and sequential unlocking remain compatible.
 
 | Topic | ID | Title | Learning interaction |
 | --- | --- | --- | --- |
-| 3 | find-s | Touch and Say s | Hear the recorded /s/ alongside one large lowercase s, touch it to replay, then try saying its sound. |
-| 6 | find-a | Listen and Find | Three listening choices: a, s, a. Only s and a are offered. |
-| 9 | find-t | Our Three Sounds | Four listening choices: t, s, a, t. Only s, a and t are offered. |
+| 5 | find-a | Listen and Find | Three listening choices: a, s, a. Only s and a are offered. |
+| 8 | find-t | Our Three Sounds | Four listening choices: t, s, a, t. Only s, a and t are offered. |
 
 ## Child's experience
 
-The guided s activity is participation practice, not a recognition test. After the initial model, the child touches the letter to hear it again. The separate Your turn stage offers an I tried it button; no microphone is requested and pronunciation is not judged.
+Practice the s Sound is participation practice, not a recognition test. It gives one model, then two tap-started child turns; no microphone is requested and pronunciation is not judged.
 
 The two listening activities play a recorded phoneme before enabling the letter choices. Neither the title nor the question prints the target letter. Cards have the same style; their order is shuffled for each turn and remains stable during listening, help and retry. Shuffles are independent, so an order can occasionally repeat by chance. Capital forms are reserved for later Explore lessons.
+
+When the sound is ready, the companion gives the short visual cue “Tap.” and the action dock shows a hand with “Tap one”. This keeps the next action obvious for a child who is not yet reading fluently. The dock replay control is only shown before the first sound; after that, replay remains available on the speaker beside the choices without competing with the choice action.
 
 A correct choice pairs the letter with the sound again and shows a check. Continue starts the next turn; there is no automatic advance. Wrong choices do not flash red, lose points or move the cards. The first incorrect choice gives Listen again and repeats the sound. Two incorrect choices, or Help me, briefly highlight the matching letter while its sound plays. The highlight clears before the next choice.
 
 A helped letter returns later without a highlight. If an already-scheduled later turn is completed without help, it satisfies that revisit. Otherwise an extra turn is appended. There is at most one extra revisit for each taught letter, so help never creates an endless sequence. This is practice, not a mastery gate or pronunciation assessment.
 
-Stars fill as the main steps finish: two for Touch and Say s (touch, then self-reported try), three for Listen and Find, and four for Our Three Sounds. A helped match earns the same star. Listening again, incorrect choices and extra revisits neither add nor remove stars, and the goal never grows. The completion artwork shows the same two, three or four stars. Each mouth-model sound practice has three stars for its three completed tries. The reading activities at, sat and Our First Words retain a separate five-star celebration for finishing the journey, without a score or accuracy claim.
+Stars fill as the main steps finish: three for Listen and Find, and four for Our Three Sounds. A helped match earns the same star. Listening again, incorrect choices and extra revisits neither add nor remove stars, and the goal never grows. The completion artwork shows the same three or four stars. Each mouth-model sound practice has two stars for its two completed turns. The reading activities at, sat and Our First Words retain a separate five-star celebration for finishing the journey, without a score or accuracy claim.
 
 ## Media and access
 
@@ -34,8 +35,6 @@ Stars fill as the main steps finish: two for Touch and Say s (touch, then self-r
 | link-listen | Listen. |
 | link-find | Listen. Find it. |
 | link-find-it | Find it. (after a first manual listen) |
-| link-touch | Tap and say. |
-| link-your-turn | Your turn. |
 | link-retry | Listen again. |
 | link-help | Let's listen together. |
 

@@ -8,7 +8,7 @@ const { englishNarration } = require('../lib/english-narration.ts');
 const { freshFirstWords, nextFirstWords, readFirstWords, reviewReadingWord } = require('../lib/english-review.ts');
 const { emptyProgress, readEnglishProgress, enterEnglishActivity, updateFirstWords, englishAccess, completeEnglishActivity } = require('../lib/english-progress.ts');
 
-const beforeReview = { ...emptyProgress(), completed: englishLessons[0].activities.slice(0, 11).map(a => a.id) };
+const beforeReview = { ...emptyProgress(), completed: englishLessons[0].activities.slice(0, -1).map(a => a.id) };
 assert.equal(updateFirstWords(emptyProgress(), { type: 'start', questionOrders: [true, false], readAtFirst: true }).firstWords, undefined, 'A locked review cannot start');
 assert.equal(completeEnglishActivity(beforeReview, 'our-first-words'), beforeReview, 'Listening alone cannot finish the lesson');
 
@@ -41,7 +41,7 @@ for (const readAtFirst of [true, false]) {
   act({ type: 'read' });
   assert.equal(progress.firstWords.stage, 6);
   assert.equal(englishAccess(progress).lessons.has('explore-s'), true);
-  assert.equal(progress.completed.length, 12);
+   assert.equal(progress.completed.length, 11);
   const replay = enterEnglishActivity(progress, 'first-words', 'our-first-words');
   assert.equal(replay.firstWords, undefined, 'A completed review opens ready to replay');
   assert.deepEqual(replay.completed, progress.completed, 'Replay preserves completed topics and lessons');

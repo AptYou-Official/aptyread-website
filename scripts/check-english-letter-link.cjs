@@ -144,14 +144,15 @@ async function main() {
     assert.ok(final.includes(`${count} stars for completed practice`));
   }
   const SoundPractice = require('../components/english/SoundPractice.tsx').default;
-  assert.ok(renderToStaticMarkup(React.createElement(SoundPractice, { letter: 's', onComplete() {} })).includes('0 of 3 practice stars earned'));
+  assert.ok(renderToStaticMarkup(React.createElement(SoundPractice, { letter: 's', onComplete() {} })).includes('0 of 2 practice stars earned'));
   const WordCelebration = require('../components/english/WordCelebration.tsx').default;
   for (const word of ['at', 'sat', 'first-words']) {
     const html = renderToStaticMarkup(React.createElement(WordCelebration, { word, headingRef: { current: null }, onReplay() {} }));
-    assert.ok(html.includes('Five celebration stars'));
-    assert.equal((html.match(/class="is-earned"/g) || []).length, 5, 'Every reading completion keeps five appreciation stars');
+    assert.ok(html.includes('APTY STICKER'));
+    assert.ok(!html.includes('Five celebration stars'));
+    assert.equal((html.match(/class="is-earned"/g) || []).length, 0, 'Reading completion uses a sticker instead of reward stars');
     assert.ok(!html.includes('of 5'), 'Reading celebration is not a five-out-of-five score');
   }
-  console.log('Passed: guided/listening flows, audio gating, bounded help and revisit, stable 2/3/4 practice rewards, sound-practice stars, five-star reading celebrations, recovery and rendered controls.');
+  console.log('Passed: guided/listening flows, audio gating, bounded help and revisit, stable practice progress, activity stickers, recovery and rendered controls.');
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });

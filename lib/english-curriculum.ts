@@ -8,13 +8,13 @@ export const englishLevels = [
   { title: 'Independent Reading', description: 'A whole world of stories to explore.', forms: 'Aa', colour: 'gold' },
 ] as const;
 
-export type ExploreLetter = 's' | 'a' | 't';
-export type Letter = ExploreLetter | 'p' | 'i' | 'n';
+export type ExploreLetter = 's' | 'a' | 't' | 'p' | 'i' | 'n';
+export type Letter = ExploreLetter;
 export type WritingLetter = ExploreLetter | Uppercase<ExploreLetter>;
 export type ReadingWord = 'at' | 'sat' | 'pin' | 'sit';
 export type ApplicationWord = 'pan' | 'tap';
 export type PronunciationWord = ReadingWord | ApplicationWord;
-export const isExploreLetter = (letter: Letter): letter is ExploreLetter => letter === 's' || letter === 'a' || letter === 't';
+export const isExploreLetter = (letter: Letter): letter is ExploreLetter => ['s', 'a', 't', 'p', 'i', 'n'].includes(letter);
 export type Activity = {
   id: string;
   title: string;
@@ -25,21 +25,23 @@ export type Activity = {
   // Only these explicitly authored introductions offer recorded-sound practice
   // while their teaching video is pending. Other missing videos stay blocked.
   audioIntroduction?: boolean;
+  // An authored preview leads into guided practice, not a watched-video claim.
+  practicePreview?: boolean;
 };
 export type EnglishLesson = { id: string; title: string; description: string; forms: string; colour: string; activities: Activity[] };
 
-function explore(letter: ExploreLetter): EnglishLesson {
+function explore(letter: ExploreLetter, practicePreview = false): EnglishLesson {
   const big = letter.toUpperCase();
   return {
     id: `explore-${letter}`, title: `Explore ${big}`, description: 'Meet its shapes. Make your mark.', forms: `${big}${letter}`,
-    colour: letter === 's' ? 'peach' : letter === 'a' ? 'lavender' : 'blue',
+    colour: letter === 's' || letter === 'p' ? 'peach' : letter === 'a' || letter === 'i' ? 'lavender' : 'blue',
     activities: [
-      { id: `meet-${letter}-cases`, title: `Big ${big} and Small ${letter}`, kind: 'video', letter },
+      { id: `meet-${letter}-cases`, title: `Big ${big} and Small ${letter}`, kind: 'video', letter, practicePreview },
       { id: `find-${letter}-cases`, title: `Find ${big} and ${letter}`, kind: 'cases', letter },
-      { id: `watch-${letter}-capital`, title: `Write Capital ${big}`, kind: 'video', letter, uppercase: true },
-      { id: `write-${letter}-capital`, title: `My Capital ${big}`, kind: 'write', letter, uppercase: true },
-      { id: `watch-${letter}-lowercase`, title: `Write Lowercase ${letter}`, kind: 'video', letter },
-      { id: `write-${letter}-lowercase`, title: `My Lowercase ${letter}`, kind: 'write', letter },
+      { id: `watch-${letter}-capital`, title: `Write Big ${big}`, kind: 'video', letter, uppercase: true, practicePreview },
+      { id: `write-${letter}-capital`, title: `My Big ${big}`, kind: 'write', letter, uppercase: true },
+      { id: `watch-${letter}-lowercase`, title: `Write Small ${letter}`, kind: 'video', letter, practicePreview },
+      { id: `write-${letter}-lowercase`, title: `My Small ${letter}`, kind: 'write', letter },
     ],
   };
 }
@@ -50,7 +52,6 @@ export const englishLessons: EnglishLesson[] = [
     activities: [
       { id: 'meet-s', title: 'Meet s', kind: 'video', letter: 's' },
       { id: 'practice-s', title: 'Practice the s Sound', kind: 'sound', letter: 's' },
-      { id: 'find-s', title: 'Touch and Say s', kind: 'find', letter: 's' },
       { id: 'meet-a', title: 'Meet the A Sound', kind: 'video', letter: 'a' },
       { id: 'practice-a', title: 'Practice the a Sound', kind: 'sound', letter: 'a' },
       { id: 'find-a', title: 'Listen and Find', kind: 'find', letter: 'a' },
@@ -81,6 +82,7 @@ export const englishLessons: EnglishLesson[] = [
       { id: 'more-words-with-apty', title: 'More Words with Apty', kind: 'apply' },
     ],
   },
+  explore('p', true), explore('i', true), explore('n', true),
 ];
 
 // Add approved, public media URLs here. Never use speech synthesis for isolated
@@ -90,6 +92,8 @@ export const englishMedia: Record<string, string | undefined> = {
   ...Object.fromEntries(Object.keys(englishNarration).map(id => [id, undefined])),
   'sound-s': '/english/media/s-sound.mp3', 'sound-a': '/english/media/a-sound.mp3', 'sound-t': '/english/media/t-sound.mp3',
   'sound-p': '/english/media/p-sound.mp3', 'sound-i': '/english/media/i-sound.mp3', 'sound-n': '/english/media/n-sound.mp3',
+  'sound-practice-star': '/english/media/star-fill.mp3',
+  'sound-practice-complete': '/english/media/achievement-celebration.mp3',
   'word-at': undefined, 'word-sat': undefined,
   'story-sat': undefined, 'question-mat': undefined, 'question-bench': undefined,
 };
@@ -129,6 +133,12 @@ export const englishPaperWritingVideos: Record<WritingLetter, { src: string; pos
   a: { src: `${WRITING_CLIPS}/draw-small-a.mp4`, poster: '/english/media/write-small-a-v1.webp' },
   T: { src: `${WRITING_CLIPS}/draw-big-t.mp4`, poster: '/english/media/write-big-t-v1.webp' },
   t: { src: `${WRITING_CLIPS}/draw-small-t.mp4`, poster: '/english/media/write-small-t-v1.webp' },
+  P: { src: `${WRITING_CLIPS}/draw-big-p.mp4`, poster: '/english/media/write-big-p-v1.webp' },
+  p: { src: `${WRITING_CLIPS}/draw-small-p.mp4`, poster: '/english/media/write-small-p-v1.webp' },
+  I: { src: `${WRITING_CLIPS}/draw-big-i.mp4`, poster: '/english/media/write-big-i-v1.webp' },
+  i: { src: `${WRITING_CLIPS}/draw-small-i.mp4`, poster: '/english/media/write-small-i-v1.webp' },
+  N: { src: `${WRITING_CLIPS}/draw-big-n.mp4`, poster: '/english/media/write-big-n-v1.webp' },
+  n: { src: `${WRITING_CLIPS}/draw-small-n.mp4`, poster: '/english/media/write-small-n-v1.webp' },
 };
 
 // Optional whole-word mouth-movement models, revealed after the first reading
@@ -157,4 +167,10 @@ export const englishVideos: Record<string, { landscape: string; portrait: string
   'meet-a': { landscape: '9536091f-2211-4faf-b3e7-ffcec9d8bdc6', portrait: '9575f978-c9e0-460c-a93e-7c7598a87d30' },
   'meet-t': { landscape: 'd2b24f3e-547d-4e4a-89ed-d4b5dabd14cb', portrait: 'e8f78faf-8c6f-4c38-bac1-253ac6924a8e' },
 };
+// Only lessons whose authored teaching videos are complete are exposed in the
+// public learning path. Unfinished lessons remain available to the team by
+// their internal routes, but are not advertised to children or parents.
+export function isEnglishLessonPublished(lesson: EnglishLesson) {
+  return lesson.activities.every(activity => activity.kind !== 'video' || !!englishVideos[activity.id]);
+}
 export const BUNNY_LIBRARY = '619329';

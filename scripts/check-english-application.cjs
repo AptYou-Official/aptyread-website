@@ -11,7 +11,7 @@ const { APPLICATION_ID, freshApplication, nextApplication, readApplication } = r
 const { englishLessons, englishPronunciationVideos } = require('../lib/english-curriculum.ts');
 const { emptyProgress, updateApplication, completeEnglishActivity, enterEnglishActivity, englishAccess, readEnglishProgress } = require('../lib/english-progress.ts');
 const { englishNarration } = require('../lib/english-narration.ts');
-let progress = { ...emptyProgress(), completed: englishLessons.flatMap(l => l.activities.map(a => a.id)).filter(id => id !== APPLICATION_ID) };
+let progress = { ...emptyProgress(), completed: englishLessons.slice(0, 5).flatMap(l => l.activities.map(a => a.id)).filter(id => id !== APPLICATION_ID) };
 assert.equal(progress.completed.length, 42);
 assert.equal(englishAccess(progress).next.activity.id, APPLICATION_ID);
 const locked = emptyProgress(); assert.equal(updateApplication(locked, { type: 'tried' }), locked);
@@ -40,7 +40,7 @@ for (const word of ['pan', 'tap']) {
   assert.ok(!progress.completed.includes(APPLICATION_ID), 'Building alone cannot complete a reading activity');
   act({ type: 'read-back' });
 }
-assert.equal(progress.completed.length, 43); assert.equal(englishAccess(progress).next, null);
+assert.equal(progress.completed.length, 43); assert.equal(englishAccess(progress).next.activity.id, 'meet-p-cases');
 assert.equal(progress.application.words.pan.readingHelp, false);
 assert.equal(progress.application.words.tap.readingHelp, true);
 assert.equal(progress.application.words.tap.spellingHelp, true);

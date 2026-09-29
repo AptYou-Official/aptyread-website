@@ -55,10 +55,10 @@ for (const word of ['at', 'sat', 'pin', 'sit']) {
   assert.ok(!render(word).includes('en-word-model-open'), 'The child gets the first reading try before the video model');
   progress.words[word].reads = 1;
   html = render(word);
-  assert.ok(html.includes('Watch and say') && html.includes('I tried again'));
+  assert.ok(html.includes('Watch and say') && html.includes('Tap to read again'));
   assert.ok(!html.includes('<video') && !html.includes('<iframe'), 'A reading try does not auto-play or load the optional clip');
   progress.words[word].reads = 2;
-  assert.ok(render(word).includes('See what it means'), 'Two tries can proceed without watching a video');
+  assert.ok(render(word).includes('Next'), 'Two tries can proceed without watching a video');
   englishPronunciationVideos[word] = originalVideo;
 }
 // Run the component's real mount effects with isolated media and document stubs.

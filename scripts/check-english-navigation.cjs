@@ -20,12 +20,12 @@ const links = html => [...html.matchAll(/href="([^"]*\/learn\/[^" ]*)"/g)].map(m
 
 let topics = render(Topics, { lesson: englishLessons[0] });
 assert.deepEqual(links(topics), ['/english/learn/first-words?activity=meet-s'], 'Only the first topic opens for a new reader');
-assert.equal((topics.match(/aria-disabled="true"/g) || []).length, 11);
+assert.equal((topics.match(/aria-disabled="true"/g) || []).length, 10);
 assert.ok(links(render(Dashboard)).includes('/english/learn/first-words?activity=meet-s'));
 
-state.progress = { ...emptyProgress(), completed: englishLessons[0].activities.slice(0, 9).map(a => a.id) };
+state.progress = { ...emptyProgress(), completed: englishLessons[0].activities.slice(0, 8).map(a => a.id) };
 topics = render(Topics, { lesson: englishLessons[0] });
-assert.equal(links(topics).length, 10, 'Previously reached topics remain available for replay');
+assert.equal(links(topics).length, 9, 'Previously reached topics remain available for replay');
 assert.ok(links(topics).some(link => link.endsWith('activity=build-at')));
 assert.ok(!links(topics).some(link => link.endsWith('activity=build-sat')), 'The next word stays locked');
 assert.ok(links(render(Dashboard)).some(link => link.endsWith('activity=build-at')), 'Continue opens the exact next topic');
@@ -40,8 +40,9 @@ const savedVideo = englishVideos['meet-a-cases'];
 delete englishVideos['meet-a-cases'];
 assert.equal(links(render(Topics, { lesson: englishLessons[2] })).length, 0, 'A future missing video remains unavailable');
 const waiting = render(Dashboard);
-assert.ok(waiting.includes('Practise again') && waiting.includes('Explore A is coming soon'));
-assert.ok(!links(waiting).some(link => link.includes('explore-a')), 'The featured action offers useful revision while new content is being prepared');
+assert.ok(waiting.includes('Practise again'));
+assert.ok(!waiting.toLowerCase().includes('coming soon'), 'Unfinished material is not advertised to learners');
+assert.ok(!links(waiting).some(link => link.includes('explore-a')), 'The featured action offers useful revision when the next lesson is not published');
 englishVideos['meet-a-cases'] = savedVideo;
 state.progress = { ...emptyProgress(), completed: englishLessons.slice(0, 3).flatMap(l => l.activities.map(a => a.id)) };
 assert.ok(links(render(Dashboard)).includes('/english/learn/explore-t?activity=meet-t-cases'), 'Finishing A continues directly into T');
