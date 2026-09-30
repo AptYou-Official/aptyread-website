@@ -19,7 +19,6 @@ export default function FirstWordsReview({ pair = 'first', finishLabel = 'Finish
   const { progress, update } = useEnglish();
   const saved = (pair === 'first' ? progress.firstWords : progress.moreWords) || freshFirstWords();
   const words = reviewWords[pair];
-  const intro = pair === 'first' ? 'review-intro' : 'more-review-intro';
   const stage = saved.stage;
   const audio = useEnglishAudio();
   const [feedback, setFeedback] = useState('');
@@ -33,9 +32,9 @@ export default function FirstWordsReview({ pair = 'first', finishLabel = 'Finish
   const matched = saved.matched.includes(target);
   const questionAtFirst = saved.questionOrders[stage === 2 ? 0 : 1];
   const readingWord = reviewReadingWord(saved, pair);
-  const promptId = stage === 0 ? intro : stage === 1 ? 'review-listen' : stage === 2 || stage === 3 ? `review-find-${target}` : stage === 4 ? 'review-read' : stage === 5 ? 'review-read-next' : 'review-finish';
+  const promptId = stage <= 1 ? 'review-listen' : stage === 2 || stage === 3 ? `review-find-${target}` : stage === 4 ? 'review-read' : stage === 5 ? 'review-read-next' : 'review-finish';
   const journey = stage <= 1 ? 0 : stage <= 3 ? 1 : stage <= 5 ? 2 : 3;
-  const headline = stage <= 1 ? saved.heard.length === 2 ? 'Two little words!' : 'Tap a word.' : stage <= 3 ? matched ? 'You found it!' : feedback || 'Which word?' : 'Your turn to read.';
+  const headline = stage <= 1 ? saved.heard.length === 2 ? 'Two little words!' : 'Tap a word.' : stage <= 3 ? matched ? 'You found it!' : feedback || 'Find the word.' : 'Read it.';
 
   useEffect(() => {
     if (previousStage.current !== stage) {
@@ -52,18 +51,18 @@ export default function FirstWordsReview({ pair = 'first', finishLabel = 'Finish
     const visible = () => {
       if (document.hidden) return;
       clearTimeout(timer);
-      timer = setTimeout(() => { if (!document.hidden) { cancel(); void sequence([narrationCue(intro)]); } }, 0);
+      timer = setTimeout(() => { if (!document.hidden) { cancel(); void sequence([narrationCue('review-listen')]); } }, 0);
     };
     cancelOpening.current = cancel;
     document.addEventListener('visibilitychange', visible); visible();
     return cancel;
-  }, [sequence, intro]);
+  }, [sequence]);
 
   function stop() { cancelOpening.current(); audio.stop(); }
   function startAction() { return { type: 'start' as const, questionOrders: [Math.random() < .5, Math.random() < .5] as [boolean, boolean], readAtFirst: Math.random() < .5 }; }
   function replay() {
     stop(); update(p => updateFirstWords(p, startAction(), pair));
-    void audio.play(intro);
+    void audio.play('review-listen');
   }
   function hear(word: FirstWord) {
     cancelOpening.current();
@@ -88,7 +87,7 @@ export default function FirstWordsReview({ pair = 'first', finishLabel = 'Finish
   }
   function directions() { stop(); void audio.play(promptId); }
 
-  return <div className="en-word-activity en-guided-word en-first-words en-review-studio" data-review-stage={stage}>
+  return <div className="en-word-activity en-guided-word en-first-words en-review-studio" data-review-stage={stage} data-action={stage <= 1 ? 'listen' : stage <= 3 ? 'find' : stage <= 5 ? 'read' : 'continue'}>
     <ActivityJourney step={journey} review />
     <section key={stage === 0 ? 1 : stage} className={`en-word-stage ${stage === 6 ? 'is-celebrating' : ''}`}>
       {stage < 6 && <LearningCompanion title={headline} speaking={audio.playing} headingRef={heading} reaction={`${saved.heard.length}-${saved.matched.length}-${saved.read.length}`} />}
@@ -112,7 +111,7 @@ export default function FirstWordsReview({ pair = 'first', finishLabel = 'Finish
     {audio.notice && !audio.blocked && <p className="en-audio-note" role="status">{audio.notice}</p>}
     <div className="en-word-dock" aria-label="Your next action">
       <button className={`en-dock-audio ${audio.playing ? 'is-playing' : ''}`} aria-label={audio.playing ? 'Stop listening' : 'Hear the instructions'} onClick={audio.playing ? stop : directions}><Icon name={audio.playing ? 'close' : 'sound'} size={23} /></button>
-      {stage <= 1 ? audio.blocked ? <button className="en-button" onClick={directions}><Icon name="sound" size={20} /> Tap to listen</button> : <button className="en-button" disabled={saved.heard.length !== 2} onClick={next}>{saved.heard.length === 2 ? 'Let’s explore' : 'Listen to both words'} <Icon name={saved.heard.length === 2 ? 'arrow' : 'sound'} size={21} /></button> : stage <= 3 ? matched ? <button className="en-button" onClick={next}>{stage === 2 ? 'One more' : 'My turn to read'} <Icon name="arrow" size={21} /></button> : <p>Tap the matching word.</p> : stage <= 5 ? <button className="en-button" onClick={triedReading}>I tried it <Icon name="check" size={21} /></button> : <button className="en-button en-next-topic" onClick={() => { stop(); onComplete(); }}>{finishLabel} <span className="en-cta-arrow"><Icon name="arrow" size={23} /></span></button>}
+      {stage <= 1 ? saved.heard.length === 2 ? <button className="en-button" onClick={next}>Next <Icon name="arrow" size={21} /></button> : audio.blocked ? <button className="en-button" onClick={() => hear(words.find(word => !saved.heard.includes(word)) || words[0])}><Icon name="sound" size={20} /> Listen</button> : <div className="en-action-prompt" role="status"><span className="en-action-symbol"><Icon name="hand" size={25} /></span><span>Tap a word</span></div> : stage <= 3 ? matched ? <button className="en-button" onClick={next}>Next <Icon name="arrow" size={21} /></button> : <div className="en-action-prompt" role="status"><span className="en-action-symbol"><Icon name="hand" size={25} /></span><span>Tap a word</span></div> : stage <= 5 ? <button className="en-button" onClick={triedReading}>I tried it <Icon name="check" size={21} /></button> : <button className="en-button en-next-topic" onClick={() => { stop(); onComplete(); }}>{finishLabel} <span className="en-cta-arrow"><Icon name="arrow" size={23} /></span></button>}
     </div>
     <ParentHelp kind="review" promptText={englishNarration[promptId]} onOpen={stop} />
   </div>;

@@ -6,6 +6,8 @@ import './hub.css';
 import './child-hub.css';
 import './lesson-journey.css';
 import './child-activities.css';
+import './programme.css';
+import './handwriting.css';
 
 const andika = localFont({
   src: [

@@ -35,7 +35,7 @@ export default function MoreWords({ suspended = false, onComplete }: { suspended
   const model = englishPronunciationVideos[word];
   const busy = working || suspended;
   const full = trial.built === word;
-  const headline = done ? '' : phase === 0 ? 'Try this word.' : phase === 1 ? 'Let’s say it.' : phase === 2 ? 'See what it means.' : phase === 3 ? full ? 'You made it!' : feedback || 'Listen. Make the word.' : 'Read your word.';
+  const headline = done ? '' : phase === 0 ? 'Read it.' : phase === 1 ? 'Say it.' : phase === 2 ? 'Look.' : phase === 3 ? full ? 'You made it!' : feedback || (trial.heard && !working ? 'Make the word.' : 'Listen.') : 'Read it.';
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -69,9 +69,9 @@ export default function MoreWords({ suspended = false, onComplete }: { suspended
     if (token !== run.current || document.hidden) return false;
     setWorking(false); return played;
   }
-  async function listenToBuild(intro = false) {
+  async function listenToBuild() {
     halt(); const token = run.current; setWorking(true); setFeedback('');
-    let played = await sequence([...(intro ? [narrationCue('discover-build')] : []), requiredWord()]);
+    let played = await sequence([requiredWord()]);
     if (token !== run.current || document.hidden) return;
     if (!played) {
       // Recorded sounds keep the task usable if the device has no spoken voice.
@@ -85,11 +85,11 @@ export default function MoreWords({ suspended = false, onComplete }: { suspended
   }
   function helpReading() {
     if (phase === 0) save({ type: 'read-help' });
-    void speak([narrationCue('discover-help'), ...sounds(), requiredWord()]);
+    void speak([...sounds(), requiredWord()]);
   }
   function helpBuilding() {
     save({ type: 'build-help' }); setHint(word[trial.built.length]);
-    void speak([narrationCue('discover-build-help'), { id: `sound-${word[trial.built.length]}` }]);
+    void speak([{ id: `sound-${word[trial.built.length]}` }]);
   }
   function choose(letter: string) {
     if (busy || !trial.heard || full) return;
@@ -99,16 +99,16 @@ export default function MoreWords({ suspended = false, onComplete }: { suspended
     } else {
       setFeedback('Let’s try again.');
       if (trial.misses >= 1) helpBuilding();
-      else void speak([narrationCue('discover-retry'), requiredWord()]);
+      else void speak([requiredWord()]);
     }
   }
   function next() {
     halt(); setHint(null);
     if (phase === 0) { save({ type: 'tried' }); void speak([requiredWord()]); }
     if (phase === 1) { save({ type: 'model-tried' }); void speak([narrationCue(`story-${word}`)]); }
-    if (phase === 2) { save({ type: 'meaning-next' }); void listenToBuild(true); }
+    if (phase === 2) { save({ type: 'meaning-next' }); void listenToBuild(); }
     if (phase === 3) { save({ type: 'read-built' }); void speak([narrationCue('discover-read-back')]); }
-    if (phase === 4) { save({ type: 'read-back' }); void speak(word === 'pan' ? [narrationCue('discover-next'), narrationCue('discover-read')] : [narrationCue('discover-finish')]); }
+    if (phase === 4) { save({ type: 'read-back' }); void speak(word === 'pan' ? [narrationCue('discover-read')] : [narrationCue('discover-finish')]); }
   }
   function directions() {
     if (phase === 3 && !done) { void listenToBuild(); return; }
@@ -118,7 +118,7 @@ export default function MoreWords({ suspended = false, onComplete }: { suspended
     halt(); update(p => enterEnglishActivity(p, 'more-words', APPLICATION_ID));
     void speak([narrationCue('discover-read')]);
   }
-  return <div className="en-word-activity en-guided-word en-review-studio en-word-discovery" data-discovery-step={saved.step}>
+  return <div className="en-word-activity en-guided-word en-review-studio en-word-discovery" data-discovery-step={saved.step} data-action={done ? 'continue' : phase === 0 || phase === 4 ? 'read' : phase === 1 ? 'say' : phase === 2 ? 'look' : trial.heard && !working ? 'make' : 'listen'}>
     <ActivityJourney step={done ? 3 : phase <= 1 ? 0 : phase === 2 ? 1 : 2} application />
     <section className={`en-word-stage ${done ? 'is-celebrating' : ''}`}>
       {!done && <>
@@ -145,7 +145,7 @@ export default function MoreWords({ suspended = false, onComplete }: { suspended
     {audio.notice && !audio.blocked && <p className="en-audio-note" role="status">{audio.notice}</p>}
     <div className="en-word-dock" aria-label="Your next action">
       <button className={`en-dock-audio ${audio.playing ? 'is-playing' : ''}`} aria-label={audio.playing || working ? 'Stop listening' : 'Hear the instructions'} onClick={audio.playing || working ? halt : directions}><Icon name={audio.playing || working ? 'close' : 'sound'} size={23} /></button>
-      {done ? <button className="en-button en-next-topic" onClick={() => { halt(); onComplete(); }}>Finish lesson <Icon name="arrow" size={23} /></button> : phase === 3 && !full ? <button className="en-button" onClick={() => void listenToBuild()}><Icon name="sound" size={20} /> {trial.heard ? 'Listen again' : 'Hear the word'}</button> : <button className="en-button" onClick={next} disabled={suspended}>{phase === 0 || phase === 4 ? 'I tried it' : phase === 1 ? 'I tried again' : phase === 2 ? 'Let’s make it' : 'Read my word'}<Icon name={phase <= 1 || phase === 4 ? 'check' : 'arrow'} size={21} /></button>}
+      {done ? <button className="en-button en-next-topic" onClick={() => { halt(); onComplete(); }}>Finish lesson <Icon name="arrow" size={23} /></button> : phase === 3 && !full ? !trial.heard ? <button className="en-button" disabled={suspended} onClick={() => void listenToBuild()}><Icon name="sound" size={20} /> Listen</button> : <div className="en-action-prompt" role="status"><span className="en-action-symbol"><Icon name={working ? 'sound' : 'hand'} size={25} /></span><span>{working ? 'Listen' : 'Tap a letter'}</span></div> : <button className="en-button" onClick={next} disabled={suspended}>{phase === 0 || phase === 4 ? 'I tried it' : phase === 1 ? 'I tried again' : phase === 2 ? 'Make it' : 'Read it'}<Icon name={phase <= 1 || phase === 4 ? 'check' : 'arrow'} size={21} /></button>}
     </div>
     <ParentHelp kind="application" onOpen={halt} />
   </div>;

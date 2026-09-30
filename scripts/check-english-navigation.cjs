@@ -1,4 +1,4 @@
-/* Navigation must preserve the learning frontier and never route into absent media. */
+/* Render/navigation contracts for the complete Level 1 prototype. */
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -10,146 +10,177 @@ Module._resolveFilename = function (name, ...rest) { return resolve.call(this, n
 const React = require('react');
 const { renderToStaticMarkup } = require('react-dom/server');
 const { englishLessons, englishVideos } = require('../lib/english-curriculum.ts');
-const { emptyProgress } = require('../lib/english-progress.ts');
-let state = { progress: emptyProgress(), ready: true, offline: true, storageAvailable: true, update() { throw new Error('Browsing topics must not change learner progress'); } };
+const { emptyProgress, englishAccess } = require('../lib/english-progress.ts');
+const { getProgrammeActivity, programmePracticeWords } = require('../lib/english-programme.ts');
+let state = { progress: emptyProgress(), ready: true, offline: true, storageAvailable: true, preview: false, update() { throw new Error('Browsing must not change learner progress'); } };
 require('../components/english/EnglishProvider.tsx').useEnglish = () => state;
-const Topics = require('../components/english/LessonTopics.tsx').default;
+const { default: Topics, getLessonTopicGroups } = require('../components/english/LessonTopics.tsx');
 const Dashboard = require('../components/english/Dashboard.tsx').default;
 const Overview = require('../components/english/LessonOverview.tsx').default;
 const Journey = require('../components/english/LessonJourney.tsx').default;
-const render = (component, props) => renderToStaticMarkup(React.createElement(component, props));
-const links = html => [...html.matchAll(/href="([^"]*\/learn\/[^" ]*)"/g)].map(match => match[1]);
-
-// Server-to-client props are serialized copies, not the curriculum's objects.
-const firstOverview = render(Overview, { lesson: JSON.parse(JSON.stringify(englishLessons[0])) });
-assert.ok(firstOverview.includes('LEVEL 1 · LESSON 1'), 'A serialized lesson keeps its number');
-const thirdOverview = render(Overview, { lesson: JSON.parse(JSON.stringify(englishLessons[2])) });
-assert.ok(thirdOverview.includes('First, play Lesson 2.'), 'Locked previews name the correct prerequisite');
-
-let topics = render(Topics, { lesson: englishLessons[0] });
-assert.deepEqual(links(topics), ['/english/learn/first-words?activity=meet-s'], 'Only the first topic opens for a new reader');
-assert.equal((topics.match(/aria-disabled="true"/g) || []).length, 10);
-assert.ok(links(render(Dashboard)).includes('/english/learn/first-words?activity=meet-s'));
-
-state.progress = { ...emptyProgress(), completed: englishLessons[0].activities.slice(0, 8).map(a => a.id) };
-topics = render(Topics, { lesson: englishLessons[0] });
-assert.equal(links(topics).length, 9, 'Previously reached topics remain available for replay');
-assert.ok(links(topics).some(link => link.endsWith('activity=build-at')));
-assert.ok(!links(topics).some(link => link.endsWith('activity=build-sat')), 'The next word stays locked');
-assert.ok(links(render(Dashboard)).some(link => link.endsWith('activity=build-at')), 'Continue opens the exact next topic');
-assert.equal(links(render(Topics, { lesson: englishLessons[1] })).length, 0, 'Previewing a locked lesson never unlocks it');
-
-state.progress = { ...emptyProgress(), completed: englishLessons.slice(0, 2).flatMap(l => l.activities.map(a => a.id)) };
-assert.equal(links(render(Topics, { lesson: englishLessons[1] })).length, 6);
-assert.deepEqual(links(render(Topics, { lesson: englishLessons[2] })), ['/english/learn/explore-a?activity=meet-a-cases'], 'Explore A now starts at its connected video');
-assert.ok(links(render(Dashboard)).includes('/english/learn/explore-a?activity=meet-a-cases'));
-assert.equal(links(render(Topics, { lesson: englishLessons[3] })).length, 0, 'Explore T stays locked until Explore A is complete');
-const savedVideo = englishVideos['meet-a-cases'];
-delete englishVideos['meet-a-cases'];
-assert.equal(links(render(Topics, { lesson: englishLessons[2] })).length, 0, 'A future missing video remains unavailable');
-const waiting = render(Dashboard);
-assert.ok(waiting.includes('Play again'));
-assert.ok(!waiting.toLowerCase().includes('coming soon'), 'Unfinished material is not advertised to learners');
-assert.ok(!links(waiting).some(link => link.includes('explore-a')), 'The featured action offers useful revision when the next lesson is not published');
-englishVideos['meet-a-cases'] = savedVideo;
-state.progress = { ...emptyProgress(), completed: englishLessons.slice(0, 3).flatMap(l => l.activities.map(a => a.id)) };
-assert.ok(links(render(Dashboard)).includes('/english/learn/explore-t?activity=meet-t-cases'), 'Finishing A continues directly into T');
-state.progress = { ...emptyProgress(), completed: englishLessons.flatMap(l => l.activities.map(a => a.id)) };
-assert.ok(render(Dashboard).includes('Play again'), 'Finishing the opening sequence offers revision');
-
-const inPlayer = render(Topics, { lesson: englishLessons[1], currentId: 'write-s-capital', onSelect() {} });
-assert.equal((inPlayer.match(/aria-current="step"/g) || []).length, 1, 'The player marks exactly one current topic');
-assert.equal((inPlayer.match(/<button /g) || []).length, 6, 'The in-lesson menu uses the same reached-topic rules');
-state.ready = false;
-assert.equal(links(render(Topics, { lesson: englishLessons[0] })).length, 0, 'No topic can be launched while stored progress is loading');
-
-// The compact journey is a different view of exactly the same first-lesson sequence.
-const first = englishLessons[0];
-const groupBounds = [[0, 2], [2, 5], [5, 8], [8, 11]];
+const Garden = require('../components/english/WordGarden.tsx').default;
+const Parent = require('../components/english/ParentProgramme.tsx').default;
+const render = (component, props = {}) => renderToStaticMarkup(React.createElement(component, props));
+const links = html => [...html.matchAll(/href="([^"]*\/learn\/[^" ]*)"/g)].map(match => match[1].replaceAll('&amp;', '&'));
 const topicIds = html => [...html.matchAll(/data-topic-id="([^"]+)"/g)].map(match => match[1]);
-const topicHref = activity => `/english/learn/first-words?activity=${activity.id}`;
+const core = englishLessons.filter(lesson => !lesson.supplemental);
+const mainPath = core.flatMap(lesson => lesson.activities.map(activity => ({ lesson, activity })));
+const first = core[0];
+const coreIds = mainPath.map(item => item.activity.id);
+const topicHref = (lesson, activity) => `/english/learn/${lesson.id}?activity=${activity.id}`;
+const firstOverview = render(Overview, { lesson: JSON.parse(JSON.stringify(first)) });
+assert.ok(firstOverview.includes('LEVEL 1 · LESSON 1'), 'Serialized lessons retain their core number');
+assert.deepEqual(links(render(Topics, { lesson: first })), [topicHref(first, first.activities[0])]);
+assert.equal((render(Topics, { lesson: first }).match(/aria-disabled="true"/g) || []).length, first.activities.length - 1);
+assert.ok(links(render(Dashboard)).includes(topicHref(first, first.activities[0])));
+assert.equal((render(Dashboard).match(/class="en-hub-lesson /g) || []).length, Math.min(3, core.length), 'New children see only three nearby lesson cards');
+assert.equal(links(render(Garden)).length, 0, 'Future words and books are not revealed by the empty garden');
+
+for (const lesson of englishLessons) {
+  const groups = getLessonTopicGroups(lesson);
+  assert.ok(groups.every(group => group.end > group.start && group.end - group.start <= 3), `${lesson.id}: small nonempty activity groups`);
+  assert.deepEqual(groups.flatMap(group => lesson.activities.slice(group.start, group.end).map(activity => activity.id)), lesson.activities.map(activity => activity.id), `${lesson.id}: groups cover every authored activity once in order`);
+}
+
 function journeyParts(html) {
   const [panel, all] = html.split('<details class="en-journey-all">');
-  assert.ok(all, 'The complete activity list remains available in a closed comparison disclosure');
-  const stops = panel.match(/<ol class="en-journey-stops"[\s\S]*?<\/ol>/)?.[0];
+  assert.ok(all, 'The full list is still available as an optional disclosure');
+  const stops = panel.match(/<ol[^>]*class="en-journey-stops"[\s\S]*?<\/ol>/)?.[0];
   assert.ok(stops);
   return { panel, all, stops };
 }
-state.ready = true;
+const groups = getLessonTopicGroups(first);
 for (let frontier = 0; frontier <= first.activities.length; frontier++) {
   state.progress = { ...emptyProgress(), completed: first.activities.slice(0, frontier).map(activity => activity.id) };
-  const snapshot = structuredClone(state.progress);
+  const before = structuredClone(state.progress);
   const { panel, all, stops } = journeyParts(render(Journey, { lesson: first }));
-  const currentGroup = frontier === 11 ? 3 : groupBounds.findIndex(([start, end]) => frontier >= start && frontier < end);
-  const [start, end] = groupBounds[currentGroup];
-  assert.deepEqual(topicIds(panel), first.activities.slice(start, end).map(activity => activity.id), `Frontier ${frontier} shows only its 2–3 nearby activities`);
-  assert.deepEqual(links(panel), first.activities.slice(start, Math.min(end, frontier + 1)).map(topicHref), 'The panel opens completed topics and the exact next topic only');
-  assert.deepEqual(topicIds(all), first.activities.map(activity => activity.id), 'All activities retains the complete authored sequence');
-  assert.deepEqual(links(all), links(render(Topics, { lesson: first })), 'The comparison list retains the original access and replay rules');
-  assert.equal((stops.match(/<li /g) || []).length, 4, 'The overview has four ordered picture stops');
-  assert.equal((stops.match(/<button /g) || []).length, currentGroup + 1, 'Future stops are informational, not launch controls');
-  assert.equal((stops.match(/aria-current="step"/g) || []).length, frontier < 11 ? 1 : 0, 'Only the true learning frontier is marked current');
-  assert.equal((stops.match(/aria-pressed="true"/g) || []).length, 1, 'The visible panel has a separate selection state');
-  assert.deepEqual(state.progress, snapshot, 'Rendering either view does not write completion or resume state');
+  const groupIndex = frontier === first.activities.length ? groups.length - 1 : groups.findIndex(group => frontier >= group.start && frontier < group.end);
+  const { start, end } = groups[groupIndex];
+  assert.deepEqual(topicIds(panel), first.activities.slice(start, end).map(activity => activity.id));
+  assert.deepEqual(links(panel), first.activities.slice(start, Math.min(end, frontier + 1)).map(activity => topicHref(first, activity)), `Frontier ${frontier}: only reached activities can launch`);
+  assert.deepEqual(topicIds(all), first.activities.map(activity => activity.id));
+  assert.deepEqual(links(all), links(render(Topics, { lesson: first })));
+  assert.equal((stops.match(/aria-current="step"/g) || []).length, frontier < first.activities.length ? 1 : 0);
+  assert.deepEqual(state.progress, before, 'Rendering preserves progress');
 }
 
-state.progress = { ...emptyProgress(), completed: ['meet-s', 'build-sat'] };
-let compact = journeyParts(render(Journey, { lesson: first }));
-assert.equal((compact.stops.match(/<button /g) || []).length, 1, 'A completion beyond a gap cannot unlock a future stop');
-assert.deepEqual(links(compact.panel), first.activities.slice(0, 2).map(topicHref));
-assert.match(render(Overview, { lesson: first }), /aria-label="1 of 11 topics completed"/, 'Overview progress and journey use the same contiguous completion frontier');
-state.ready = false;
-compact = journeyParts(render(Journey, { lesson: first }));
-assert.equal(links(compact.panel + compact.all).length, 0, 'Loading saved progress does not expose launch links');
-assert.equal((compact.stops.match(/<button /g) || []).length, 0);
-assert.equal((compact.stops.match(/aria-current="step"/g) || []).length, 0);
-state.ready = true;
-state.progress = { ...emptyProgress(), completed: ['meet-s', 'practice-s'] };
-const meetAVideo = englishVideos['meet-a'];
-try {
-  delete englishVideos['meet-a'];
-  compact = journeyParts(render(Journey, { lesson: first }));
-  assert.deepEqual(topicIds(compact.panel), ['meet-a', 'practice-a', 'find-a']);
-  assert.equal(links(compact.panel).length, 0, 'A missing next video cannot launch or unlock its later activities');
-} finally { englishVideos['meet-a'] = meetAVideo; }
-
-// Exercise the actual selection handlers with isolated local hooks. Browser QA
-// still covers focus, layout and native details interaction.
-function elements(node, predicate) {
-  const found = [];
-  React.Children.forEach(node, child => {
-    if (!React.isValidElement(child)) return;
-    if (predicate(child)) found.push(child);
-    found.push(...elements(child.props.children, predicate));
-  });
-  return found;
-}
-let chosenGroup = null, generatedId = 0;
-function journeyTree() {
-  const originalState = React.useState, originalId = React.useId;
-  React.useState = () => [chosenGroup, next => { chosenGroup = next; }];
-  React.useId = () => `journey-test-${generatedId++}`;
-  try { return Journey({ lesson: first }); }
-  finally { React.useState = originalState; React.useId = originalId; }
-}
-state.progress = { ...emptyProgress(), completed: first.activities.slice(0, 8).map(activity => activity.id) };
-const beforeSelection = structuredClone(state.progress);
-const replayStop = elements(journeyTree(), element => element.type === 'button' && element.props['aria-label'] === 'Meet a, completed. Show activities')[0];
-assert.ok(replayStop);
-replayStop.props.onClick();
-compact = journeyParts(renderToStaticMarkup(journeyTree()));
-assert.deepEqual(topicIds(compact.panel), ['meet-a', 'practice-a', 'find-a'], 'Selecting a completed stop exposes its replay cards');
-assert.match(compact.stops, /aria-label="Our first words, you are here. Show activities" aria-current="step" aria-pressed="false"/, 'Revisiting an earlier panel does not move the learning frontier');
-assert.deepEqual(state.progress, beforeSelection, 'Changing the selected panel never changes learner progress');
-state.progress = emptyProgress();
-compact = journeyParts(renderToStaticMarkup(journeyTree()));
-assert.deepEqual(topicIds(compact.panel), ['meet-s', 'practice-s'], 'A retained selection falls back safely if that group is no longer reached');
+const buildIndex = first.activities.findIndex(activity => activity.id === 'build-at');
+state.progress = { ...emptyProgress(), completed: first.activities.slice(0, buildIndex).map(activity => activity.id) };
+assert.ok(links(render(Dashboard)).includes('/english/learn/first-words?activity=build-at'), 'Primary action resumes the exact activity');
+assert.ok(!links(render(Topics, { lesson: first })).some(href => href.endsWith('activity=build-sat')));
+assert.equal(links(render(Topics, { lesson: core[1] })).length, 0, 'Later core content does not open across a gap');
 
 state.progress = { ...emptyProgress(), completed: first.activities.map(activity => activity.id) };
+assert.ok(links(render(Dashboard)).includes(topicHref(core[1], core[1].activities[0])), 'Optional formation does not delay the next core lesson');
+const exploreS = englishLessons.find(lesson => lesson.id === 'explore-s');
+assert.equal(links(render(Topics, { lesson: exploreS })).length, exploreS.activities.length, 'Introduced letters expose their optional practice');
+assert.ok(render(Overview, { lesson: exploreS }).includes('LEVEL 1 · LETTER PRACTICE'));
+const savedVideo = englishVideos['meet-s-cases'];
+try {
+  delete englishVideos['meet-s-cases'];
+  assert.equal(links(render(Topics, { lesson: exploreS })).length, exploreS.activities.length, 'Authored placeholder practice is playable when a video is absent');
+} finally { englishVideos['meet-s-cases'] = savedVideo; }
+
+const garden = render(Garden);
+assert.ok(garden.includes('<strong>at</strong>') && garden.includes('<strong>sat</strong>'));
+assert.ok(!garden.includes('<strong>pin</strong>') && !garden.includes('<strong>pan</strong>'), 'Unlearned words stay out of the garden');
+for (const href of links(garden)) {
+  const url = new URL(href, 'https://test.local');
+  assert.ok(englishAccess(state.progress).completed.has(url.searchParams.get('activity')), 'Garden replay links point only to completed sources');
+}
+
+state.ready = false;
+assert.equal(links(render(Topics, { lesson: first })).length, 0);
+assert.equal(links(render(Garden)).length, 0);
+assert.equal((journeyParts(render(Journey, { lesson: first })).stops.match(/<button /g) || []).length, 0);
+state.ready = true;
+state.progress = { ...emptyProgress(), completed: ['meet-s', 'build-sat'] };
+assert.deepEqual(links(render(Topics, { lesson: first })), first.activities.slice(0, 2).map(activity => topicHref(first, activity)), 'Out-of-order saved completion cannot open a gap');
+
+state.progress = { ...emptyProgress(), completed: coreIds };
+const terminal = render(Dashboard);
+assert.ok(terminal.includes('Play again'));
+assert.equal(englishAccess(state.progress).next, null);
+assert.ok(!links(terminal).some(href => /level-[2-5]/.test(href)), 'Completion never routes into unauthored future stages');
+const last = core.at(-1);
+assert.ok(links(render(Overview, { lesson: last })).includes(topicHref(last, last.activities[0])), 'Replay explicitly starts at the first activity instead of a stale terminal resume state');
+assert.ok(render(Garden).includes('Books we explored'), 'Completed books have replay destinations');
+
+const authored = core.flatMap(lesson => lesson.activities).find(activity => getProgrammeActivity(activity.id) && programmePracticeWords(activity.id).length);
+state.progress.evidence = [
+  { activityId: authored.id, taskId: 'one', skillId: 'meaning', outcome: 'independent', at: '2026-09-30T09:00:00.000Z' },
+  { activityId: authored.id, taskId: 'one', skillId: 'meaning', outcome: 'supported', at: '2026-09-29T09:00:00.000Z' },
+  { activityId: authored.id, taskId: 'two', skillId: 'encode', outcome: 'supported', at: '2026-09-30T09:00:00.000Z' },
+];
+const parentBefore = structuredClone(state.progress);
+const parent = render(Parent, { onShowLevels() {} });
+assert.match(parent, /<strong>1<\/strong><h2>Independent on-screen tasks/);
+assert.match(parent, /<strong>1<\/strong><h2>Tasks with support/);
+assert.ok(parent.includes('Completed does not mean mastered.'));
+assert.ok(parent.includes('An option for another day'));
+const previews = links(parent).filter(href => new URL(href, 'https://test.local').searchParams.get('preview') === '1');
+assert.equal(previews.length, englishLessons.reduce((count, lesson) => count + lesson.activities.length, 0), 'Every authored activity has an adult preview');
+for (const href of previews) {
+  const url = new URL(href, 'https://test.local');
+  const lesson = englishLessons.find(item => url.pathname === `/english/learn/${item.id}`);
+  assert.ok(lesson?.activities.some(activity => activity.id === url.searchParams.get('activity')), 'Each parent preview resolves to its own authored lesson/activity');
+}
+assert.deepEqual(state.progress, parentBefore, 'Inspecting or rendering the full programme never changes child records');
+
+// An unfinished letter invitation resumes only at the exact place left open.
+state.progress = {
+  ...emptyProgress(), completed: first.activities.slice(0, 2).map(activity => activity.id),
+  current: { [first.id]: 1 }, lastLesson: first.id,
+  formationOffers: { 'practice-s': { status: 'pending', forms: [] } },
+};
+assert.equal(links(render(Dashboard))[0], topicHref(first, first.activities[1]), 'Home resumes the pending letter invitation before the next reading activity');
+assert.equal(links(render(Overview, { lesson: first }))[0], topicHref(first, first.activities[1]), 'Lesson overview resumes the same invitation');
+assert.deepEqual(topicIds(journeyParts(render(Journey, { lesson: first })).panel), first.activities.slice(0, 2).map(activity => activity.id), 'The current journey stop stays with its pending invitation');
+assert.ok(render(Dashboard).includes('Make s too'));
+state.progress.current[first.id] = 2;
+assert.equal(links(render(Dashboard))[0], topicHref(first, first.activities[2]), 'An old pending invitation does not pull a child back after changing activity');
+assert.equal(links(render(Overview, { lesson: first }))[0], topicHref(first, first.activities[2]));
+state.progress.current[first.id] = 1;
+state.progress.lastLesson = core[1].id;
+assert.equal(links(render(Dashboard))[0], topicHref(first, first.activities[2]), 'An invitation in a different last-visited lesson does not replace the next reading step');
+
+state.progress = { ...parentBefore, formationOffers: {
+  'practice-s': { status: 'later', forms: [] },
+  'find-a': { status: 'pending', forms: ['a'] },
+  'find-t': { status: 'practised', forms: ['t', 'T'] },
+} };
+const formationParent = render(Parent, { onShowLevels() {} });
+assert.match(formationParent, /<strong>2<\/strong><h2>Letter invitations practised/, 'A pending replay retains prior practice; Later with no forms adds none');
+const formationDetails = formationParent.match(/<details class="en-parent-formation-record"[\s\S]*?<\/details>/)?.[0];
+assert.ok(formationDetails?.includes('<strong>a</strong>') && formationDetails.includes('<strong>t · T</strong>'));
+assert.ok(!formationDetails.includes('<strong>s</strong>'), 'Deferred invitations are not represented as practised forms');
+assert.ok(formationParent.includes('not independent sentence reading'));
+assert.deepEqual(getLessonTopicGroups(first).map(group => group.title), ['Meet s', 'Meet a', 'Meet t', 'Make and read', 'Our turn']);
+
+const makerCount = html => (html.match(/aria-label="Sticker: Letter maker"/g) || []).length;
+state.progress = { ...emptyProgress(), completed: [...first.activities.slice(0, 2).map(activity => activity.id), 'meet-s-cases', 'find-s-cases'], formationOffers: { 'practice-s': { status: 'later', forms: [] } } };
+assert.equal(makerCount(render(Garden)), 0, 'Explore videos, case matching and Later with no forms cannot earn a writing sticker');
+assert.ok(render(Parent, { onShowLevels() {} }).includes('2 / 6 activities completed'), 'Optional activity counts describe completion, not written forms');
+assert.ok(!render(Parent, { onShowLevels() {} }).includes('activities practised'));
+state.progress.formationOffers['practice-s'] = { status: 'pending', forms: ['s', 'S'] };
+assert.equal(makerCount(render(Garden)), 1, 'A pending invitation with actual prior forms earns one writing participation sticker');
+assert.deepEqual(state.progress.completed, [...first.activities.slice(0, 2).map(activity => activity.id), 'meet-s-cases', 'find-s-cases'], 'A form-backed badge does not add activity completion');
+state.progress.completed.push('write-s-lowercase');
+assert.equal(makerCount(render(Garden)), 2, 'A separately completed writing activity earns its own participation sticker');
+const cIndex = mainPath.findIndex(item => item.activity.id === 'cme-meet-c');
+state.progress = { ...emptyProgress(), completed: [...mainPath.slice(0, cIndex + 1).map(item => item.activity.id), 'forms-c'] };
+assert.equal(makerCount(render(Garden)), 1, 'A generic formation activity completed through the writing guard earns a maker sticker');
+state.progress = parentBefore;
+
+// Verify group selections preserve original lesson indices without mounting an app.
+function elements(node, predicate) {
+  const found = [];
+  React.Children.forEach(node, child => { if (!React.isValidElement(child)) return; if (predicate(child)) found.push(child); found.push(...elements(child.props.children, predicate)); });
+  return found;
+}
 const selectedIndices = [];
-const groupTree = Topics({ lesson: first, groupIndex: 1, showHeading: false, onSelect: index => selectedIndices.push(index) });
+const groupIndex = Math.min(1, groups.length - 1);
+const groupTree = Topics({ lesson: first, groupIndex, showHeading: false, onSelect: index => selectedIndices.push(index) });
 elements(groupTree, element => element.type === 'button').forEach(button => button.props.onClick());
-assert.deepEqual(selectedIndices, [2, 3, 4], 'Grouped in-player navigation passes original lesson indices');
-assert.ok(render(Overview, { lesson: first }).includes('en-lesson-journey'));
-assert.ok(!render(Overview, { lesson: englishLessons[1] }).includes('en-lesson-journey'), 'The prototype remains scoped to the first lesson');
-console.log('Passed: exact continuation/replay/access, every first-lesson journey boundary, compact future stops, full-list parity, local panel selection without progress changes, loading/missing-media safety and original grouped indices.');
+assert.deepEqual(selectedIndices, Array.from({ length: groups[groupIndex].end - groups[groupIndex].start }, (_, offset) => groups[groupIndex].start + offset));
+console.log(`Passed: ${englishLessons.length} lesson group coverage, every first-lesson frontier, child access, optional practice, media placeholders, completed-only word/book garden, terminal replay, ${previews.length} valid adult previews, distinct latest-task evidence counts, pending invitation resume and actual formation practice counts.`);

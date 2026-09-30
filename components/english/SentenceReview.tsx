@@ -28,11 +28,8 @@ export default function SentenceReview({ finishLabel = 'Finish lesson', onComple
   const target = targetForStep(step);
   const audio = useEnglishAudio();
   const heading = useRef<HTMLHeadingElement>(null);
-  const opening = useRef(step === 0);
-  const cancelOpening = useRef(() => {});
   const previousStep = useRef(step);
   const [feedback, setFeedback] = useState('');
-  const { sequence } = audio;
 
   useEffect(() => {
     if (previousStep.current !== step) {
@@ -43,22 +40,7 @@ export default function SentenceReview({ finishLabel = 'Finish lesson', onComple
     previousStep.current = step;
   }, [step]);
 
-  useEffect(() => {
-    if (!opening.current || step !== 0) return;
-    let timer: ReturnType<typeof setTimeout>;
-    const cancel = () => { clearTimeout(timer); document.removeEventListener('visibilitychange', visible); };
-    const visible = () => {
-      if (document.hidden) return;
-      clearTimeout(timer);
-      timer = setTimeout(() => { if (!document.hidden) { cancel(); void sequence([narrationCue('sentence-intro')]); } }, 0);
-    };
-    cancelOpening.current = cancel;
-    document.addEventListener('visibilitychange', visible);
-    visible();
-    return cancel;
-  }, [sequence, step]);
-
-  function stop() { cancelOpening.current(); audio.stop(); }
+  function stop() { audio.stop(); }
 
   function speakSentence(id: 'sat' | 'at') {
     stop();
@@ -67,7 +49,6 @@ export default function SentenceReview({ finishLabel = 'Finish lesson', onComple
 
   function start() {
     stop();
-    opening.current = false;
     update(p => updateSentenceReview(p, { type: 'start' }));
     void audio.sequence([narrationCue('sentence-sat'), narrationCue('sentence-find-sat')]);
   }
@@ -76,30 +57,30 @@ export default function SentenceReview({ finishLabel = 'Finish lesson', onComple
     if (!target || audio.playing) return;
     if (sentenceId !== target || word !== target) {
       setFeedback('Listen again.');
-      void audio.sequence([narrationCue('sentence-retry'), narrationCue(`sentence-find-${target}`)]);
+      void audio.sequence([narrationCue(`sentence-find-${target}`)]);
       return;
     }
     stop();
     update(p => updateSentenceReview(p, { type: 'find', word: target }));
     if (target === 'sat') {
-      void audio.sequence([narrationCue('sentence-correct-sat'), narrationCue('sound-practice-star'), narrationCue('sentence-at'), narrationCue('sentence-find-at')]);
+      // The check mark confirms the match. Keep the next sentence and its
+      // single find instruction, without a spoken transition before them.
+      void audio.sequence([narrationCue('sound-practice-star'), narrationCue('sentence-at'), narrationCue('sentence-find-at')]);
     } else {
-      void audio.sequence([narrationCue('sentence-correct-at'), narrationCue('sound-practice-star'), narrationCue('sound-practice-complete')]);
+      void audio.sequence([narrationCue('sound-practice-complete')]);
     }
   }
 
   function replay() {
     stop();
-    opening.current = false;
     update(p => ({ ...p, sentenceReview: freshSentenceReview() }));
-    void audio.play('sentence-intro');
   }
 
-  const headline = step === 0 ? 'Listen.' : step === 1 ? 'Find sat.' : step === 2 ? 'Find at.' : 'You found both!';
+  const headline = step === 0 || (step < 3 && audio.playing) ? 'Listen.' : step === 1 ? 'Find sat.' : step === 2 ? 'Find at.' : 'You found both!';
   const promptId = step === 0 ? 'sentence-intro' : target ? `sentence-find-${target}` : 'sentence-finish';
   const journey = step === 0 ? 0 : step === 1 ? 1 : step === 2 ? 2 : 3;
 
-  return <div className="en-word-activity en-guided-word en-first-words en-review-studio en-sentence-review" data-sentence-step={step}>
+  return <div className="en-word-activity en-guided-word en-first-words en-review-studio en-sentence-review" data-sentence-step={step} data-action={step === 0 || audio.playing ? 'listen' : step < 3 ? 'find' : 'continue'}>
     <ActivityJourney step={journey} sentence />
     <section key={step} className={`en-word-stage ${step === 3 ? 'is-celebrating' : ''}`}>
       {step < 3 && <LearningCompanion title={headline} speaking={audio.playing} headingRef={heading} reaction={`${step}-${saved.found.join('-')}-${feedback}`} />}

@@ -36,7 +36,7 @@ export default function WordBuilder({ word, onComplete, nextTopic }: { word: Rea
   const audio = useEnglishAudio();
   const phase = saved.stage;
   // Capture the entry state once. A new letter must not replay the introduction.
-  const openingCues = useRef(phase === 0 ? guidedWordPrompt(word, saved.built, !saved.built) : null);
+  const openingCues = useRef(phase === 0 ? guidedWordPrompt(word, saved.built) : null);
   const cancelOpening = useRef(() => {});
   const { sequence } = audio;
   const finishStage = wordFinishStage(word);
@@ -45,11 +45,11 @@ export default function WordBuilder({ word, onComplete, nextTopic }: { word: Rea
   const rightAnswer = saved.answers[question]?.at(-1) === true;
   const pronunciation = englishPronunciationVideos[word];
   const showModel = phase === 1 && saved.reads >= 1 && !!pronunciation;
-  const readingPrompt = saved.reads === 2 ? `read-done-${word}` : saved.reads === 1 ? `say-again-${word}` : `say-${word}`;
+  const readingPrompt = saved.reads === 2 ? `read-done-${word}` : saved.reads === 1 ? 'read-again' : 'read-turn';
   const journeyStep = phase === 0 ? 0 : phase === 1 ? 1 : phase < finishStage ? 2 : 3;
   const headline = phase === 0 ? nextLetter ? `Tap ${nextLetter}` : 'Put them together.'
-    : phase === 1 ? blending ? 'Listen.' : saved.reads === 0 ? 'Your turn.' : saved.reads === 1 ? 'One more.' : 'Well done!'
-    : phase === 2 ? word === 'pin' ? 'Look closely.' : 'Watch Sam.' : phase < finishStage ? 'Which picture?' : 'We made a word!';
+    : phase === 1 ? blending ? 'Listen.' : saved.reads < 2 ? 'Read it.' : 'You tried it!'
+    : phase === 2 ? 'Look.' : phase < finishStage ? 'Find the picture.' : 'We made a word!';
 
   useEffect(() => {
     if (previousPhase.current !== phase) {
@@ -90,7 +90,7 @@ export default function WordBuilder({ word, onComplete, nextTopic }: { word: Rea
   function directions() {
     stop();
     setHintRun(value => value + 1);
-    if (phase === 0) void audio.sequence(guidedWordPrompt(word, saved.built, !saved.built));
+    if (phase === 0) void audio.sequence(guidedWordPrompt(word, saved.built));
     else if (phase === 1) void audio.play(readingPrompt);
     else if (phase === 2) playStory();
     else if (phase < finishStage) void audio.play(`question-${question}`);
@@ -109,8 +109,9 @@ export default function WordBuilder({ word, onComplete, nextTopic }: { word: Rea
       '--flight-x': `${destination.left - source.left}px`, '--flight-y': `${destination.top - source.top}px`,
     } as CSSProperties });
     save(placed); setFeedback('');
-    // The tapped sound confirms the action; then guide the next visible letter.
-    void audio.sequence([wordSound(letter), ...guidedWordPrompt(word, placed.built)]);
+    // One sound confirms the child's tap. The next letter is already shown by
+    // the hand and empty slot; its spoken prompt remains available on request.
+    void audio.sequence([wordSound(letter)]);
   }
   function undo() {
     if (phase !== 0 || !saved.built) return;
@@ -123,7 +124,7 @@ export default function WordBuilder({ word, onComplete, nextTopic }: { word: Rea
     stop(); setFlight(null);
     const run = ++blendRun.current;
     save({ stage: 1 }); setFeedback(''); setBlending(true); setBlendIndex(0);
-    await audio.sequence([...word.split('').map(wordSound), narrationCue(`word-${word}`), narrationCue(`say-${word}`)], index => {
+    await audio.sequence([...word.split('').map(wordSound), narrationCue(`word-${word}`)], index => {
       if (blendRun.current === run) setBlendIndex(index);
     });
     if (blendRun.current === run) { setBlending(false); setBlendIndex(-1); }
@@ -132,7 +133,7 @@ export default function WordBuilder({ word, onComplete, nextTopic }: { word: Rea
     if (blending || phase !== 1 || saved.reads >= 2) return;
     stop();
     update(p => ({ ...p, words: { ...p.words, [word]: tryReadingWord(p.words[word] || freshGuidedWord()) } }));
-    void audio.play(saved.reads === 0 ? `say-again-${word}` : `read-done-${word}`);
+    if (saved.reads === 0) void audio.play('read-again');
   }
   function playStory() {
     closeVideo(); setStoryRun(old => old + 1);
@@ -156,7 +157,7 @@ export default function WordBuilder({ word, onComplete, nextTopic }: { word: Rea
     setFeedback(correct ? 'You found it!' : 'Who sat down?');
     void audio.play(correct ? 'meaning-correct' : 'meaning-retry');
   }
-  return <div className="en-word-activity en-guided-word" data-word-stage={phase} data-word-mode="guided">
+  return <div className="en-word-activity en-guided-word" data-word-stage={phase} data-word-mode="guided" data-action={phase === 0 ? 'make' : phase === 1 ? blending ? 'listen' : 'read' : phase < finishStage ? 'look' : 'continue'}>
     <ActivityJourney step={journeyStep} />
     <section key={phase} className={`en-word-stage ${phase === finishStage ? 'is-celebrating' : ''}`} aria-label={headline}>
     {phase !== finishStage && <LearningCompanion title={feedback || headline} speaking={audio.playing} headingRef={title} reaction={`${saved.built}-${saved.reads}-${feedback}`} />}
@@ -185,16 +186,16 @@ export default function WordBuilder({ word, onComplete, nextTopic }: { word: Rea
     </> : phase < finishStage && word === 'sat' ? <>
       <span className="en-meaning-word">sat</span>
       <div className="en-picture-choices">{(phase === 3 ? [false, true] : [true, false]).map((sitting, index) => <button key={String(sitting)} aria-label={`Picture ${index + 1}: Sam ${sitting ? 'sitting' : 'standing'} ${sitting ? 'on' : 'by'} the ${question}`} disabled={rightAnswer} onClick={() => choose(sitting)} className={rightAnswer && sitting ? 'is-correct' : ''}><StoryScene place={question} sitting={sitting} /><span>{rightAnswer && sitting ? <Icon name="check" size={21} /> : index + 1}</span></button>)}</div>
-    </> : <WordCelebration word={word} headingRef={title} onReplay={() => { stop(); save(freshGuidedWord()); setFeedback(''); void audio.sequence(guidedWordPrompt(word, '', true)); }} />}
+    </> : <WordCelebration word={word} headingRef={title} onReplay={() => { stop(); save(freshGuidedWord()); setFeedback(''); void audio.sequence(guidedWordPrompt(word, '')); }} />}
     <p className="en-sr-only" role="status">{feedback}</p>
     </section>
     {audio.notice && !(audio.blocked && phase === 0) && <p className="en-audio-note" role="status">{audio.notice}</p>}
     <div className="en-word-dock" aria-label="Your next action">
       <button className={`en-dock-audio ${audio.playing ? 'is-playing' : ''}`} aria-label={audio.playing ? 'Stop listening' : phase === 2 ? 'Play the story again' : 'Hear the instructions'} onClick={audio.playing ? stop : directions}><Icon name={audio.playing ? 'pause' : 'sound'} size={26} /><small>{audio.playing ? 'Stop' : 'Listen'}</small></button>
       {phase === 0 ? nextLetter ? <div className="en-build-next-action" role="status"><Icon name="hand" size={26} /><span>Tap <strong>{nextLetter}</strong></span></div> : <button className="en-button en-word-build-cta" disabled={audio.playing} onClick={() => void blend()} aria-label={`Hear ${word} together`}><Icon name="sound" size={25} /><strong>{word}</strong><Icon name="arrow" size={20} /></button> :
-        phase === 1 ? <>{saved.reads < 2 ? <button className="en-button en-word-read-cta" disabled={blending || audio.playing} onClick={read} aria-label={`${saved.reads === 0 ? 'Tap to read' : 'Tap to read again'} ${word}`}><Icon name="hand" size={27} /><strong>{word}</strong><span className="en-word-read-dots" aria-hidden="true">{saved.reads === 0 ? '○ ○' : '● ○'}</span></button> : <button className="en-button" onClick={next}>Next <Icon name="arrow" size={20} /></button>}</> :
+        phase === 1 ? <>{saved.reads < 2 ? <button className="en-button en-word-read-cta" disabled={blending || audio.playing} onClick={read} aria-label={`I tried reading ${word}`}><Icon name="check" size={27} /><span>I tried it</span><span className="en-word-read-dots" aria-hidden="true">{saved.reads === 0 ? '○ ○' : '● ○'}</span></button> : <button className="en-button" onClick={next}>Next <Icon name="arrow" size={20} /></button>}</> :
         phase === 2 ? <button className="en-button" onClick={next}>{word !== 'sat' ? 'Next' : 'Let’s find a picture'} <Icon name="arrow" size={20} /></button> :
-        phase < finishStage ? rightAnswer ? <button className="en-button" onClick={next}>{phase === 3 ? 'One more picture' : 'I did it!'} <Icon name="arrow" size={20} /></button> : <p>Tap the picture. Take your time.</p> :
+        phase < finishStage ? rightAnswer ? <button className="en-button" onClick={next}>Next <Icon name="arrow" size={20} /></button> : <div className="en-action-prompt" role="status"><span className="en-action-symbol"><Icon name="hand" size={25} /></span><span>Tap a picture</span></div> :
         <button className="en-button en-next-topic" onClick={() => { stop(); onComplete(); }}><span className="en-next-topic-copy"><small>Next topic</small><strong>{nextTopic || 'Keep going'}</strong></span><span className="en-cta-arrow"><Icon name="arrow" size={23} /></span></button>}
     </div>
     <ParentHelp kind="word" onOpen={stop}>

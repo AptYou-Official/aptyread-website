@@ -11,8 +11,10 @@ const { APPLICATION_ID, freshApplication, nextApplication, readApplication } = r
 const { englishLessons, englishPronunciationVideos } = require('../lib/english-curriculum.ts');
 const { emptyProgress, updateApplication, completeEnglishActivity, enterEnglishActivity, englishAccess, readEnglishProgress } = require('../lib/english-progress.ts');
 const { englishNarration } = require('../lib/english-narration.ts');
-let progress = { ...emptyProgress(), completed: englishLessons.slice(0, 5).flatMap(l => l.activities.map(a => a.id)).filter(id => id !== APPLICATION_ID) };
-assert.equal(progress.completed.length, 41);
+const readingPath = englishLessons.filter(l => !l.supplemental).flatMap(l => l.activities.map(a => a.id));
+let progress = { ...emptyProgress(), completed: readingPath.slice(0, readingPath.indexOf(APPLICATION_ID)) };
+const priorCount = progress.completed.length;
+assert.equal(priorCount, 27);
 assert.equal(englishAccess(progress).next.activity.id, APPLICATION_ID);
 const locked = emptyProgress(); assert.equal(updateApplication(locked, { type: 'tried' }), locked);
 assert.equal(completeEnglishActivity(progress, APPLICATION_ID), progress);
@@ -40,7 +42,7 @@ for (const word of ['pan', 'tap']) {
   assert.ok(!progress.completed.includes(APPLICATION_ID), 'Building alone cannot complete a reading activity');
   act({ type: 'read-back' });
 }
-assert.equal(progress.completed.length, 42); assert.equal(englishAccess(progress).next.activity.id, 'meet-p-cases');
+assert.equal(progress.completed.length, priorCount + 1); assert.equal(englishAccess(progress).next.activity.id, 'pin-use-words');
 assert.equal(progress.application.words.pan.readingHelp, false);
 assert.equal(progress.application.words.tap.readingHelp, true);
 assert.equal(progress.application.words.tap.spellingHelp, true);
@@ -108,4 +110,4 @@ async function checkOpening() {
     global.document = originalDocument; global.window = originalWindow;
   }
 }
-checkOpening().then(() => console.log('Passed: 42-topic progression, reading and spelling gates, recovery/undo/reload, separate help records, state validation, replay preservation, picture/answer hiding, optional clip timing, Strict Mode entry and leave cancellation.')).catch(error => { console.error(error); process.exitCode = 1; });
+checkOpening().then(() => console.log('Passed: reading-route application progression, reading and spelling gates, recovery/undo/reload, separate help records, state validation, replay preservation, picture/answer hiding, optional clip timing, Strict Mode entry and leave cancellation.')).catch(error => { console.error(error); process.exitCode = 1; });

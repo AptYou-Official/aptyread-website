@@ -1,4 +1,4 @@
-/* Four small stops keep the first lesson visible without an eleven-lock map. */
+/* Short activity groups keep a growing programme within a child's view. */
 .en-lesson-journey { max-width: 850px; margin: 0 auto; }
 .en-journey-landscape {
   position: relative;
@@ -22,7 +22,9 @@
 .en-journey-stop.is-chosen:not(.is-current) .en-journey-stone { outline: 3px solid #367258; outline-offset: 4px; }
 .en-journey-stop > button:hover .en-journey-stone { outline: 3px solid #367258; outline-offset: 4px; }
 .en-journey-stop > button:focus-visible { outline: 3px solid #173a8a; outline-offset: 5px; border-radius: 20px; }
-.en-journey-stop-caption { font-size: 14px; line-height: 1.35; font-weight: 700; min-height: 20px; }
+.en-journey-stop-caption { font-size: 14px; line-height: 1.35; font-weight: 700; min-height: 20px; padding: 0 4px; }
+.en-journey-stop-caption small { display: block; margin-top: 5px; font-size: 11px; font-weight: 500; color: #657767; }
+.en-journey-stop.is-current .en-journey-stop-caption small { color: #5c4214; font-weight: 700; }
 .en-journey-stop.is-current .en-journey-stop-caption { color: #5c4214; }
 .en-journey-apty { position: absolute; z-index: 1; top: -5px; left: calc(50% - 33px); width: 66px; height: 77px; object-fit: contain; pointer-events: none; }
 .en-journey-stop:nth-child(even) .en-journey-apty { top: -39px; }
@@ -39,6 +41,8 @@
 .en-journey-activities .en-route-topic.is-next { border-color: #4d8269; border-width: 2px; background: #f2fff6; }
 .en-journey-activities .en-route-topic.is-next .en-route-type { width: 48px; height: 48px; background: #173a8a; color: #fff; }
 .en-journey-activities .en-route-topic.is-locked { background: #fafbf7; box-shadow: none; }
+.en-journey-pause-note { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 20px 0 0; font-size: 13px; line-height: 1.5; color: #597060 !important; text-align: center; }
+.en-journey-pause-note svg { flex-shrink: 0; }
 .en-journey-all { margin-top: 25px; }
 .en-journey-all > summary { display: flex; align-items: center; gap: 11px; width: fit-content; min-height: 56px; padding: 12px 16px; border-radius: 17px; color: #476153; cursor: pointer; font-size: 16px; font-weight: 700; list-style: none; }
 .en-journey-all > summary::-webkit-details-marker { display: none; }
@@ -46,15 +50,25 @@
 .en-journey-all > summary:focus-visible { outline: 3px solid #173a8a; outline-offset: 2px; }
 .en-journey-all[open] > summary > svg:last-child { transform: rotate(90deg); }
 .en-journey-all-content { padding: 18px 0 10px; }
+.en-journey-stops { position: relative; grid-template-columns: repeat(var(--stop-count, 4), minmax(100px, 1fr)); overflow-x: auto; scrollbar-width: thin; scroll-snap-type: x proximity; padding-top: 8px; }
+.en-journey-stop { scroll-snap-align: center; }
+.is-flexible-journey .en-journey-trail { display: none; }
+.is-flexible-journey .en-journey-stop:nth-child(even) { padding-top: 61px; }
+.is-flexible-journey .en-journey-stop:nth-child(even) .en-journey-apty { top: -5px; }
+.en-journey-scroll-hint { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 4px 0 12px; font-size: 12px; color: #49644d !important; }
 @media (max-width: 700px) {
   .en-journey-landscape { padding: 32px 0 2px; border-radius: 24px 24px 0 0; }
   .en-journey-trail { left: 0; width: 100%; }
+  .en-journey-stops { grid-template-columns: repeat(var(--stop-count, 4), minmax(78px, 1fr)); }
+  .is-flexible-journey .en-journey-stop:nth-child(even) { padding-top: 68px; }
+  .is-flexible-journey .en-journey-stop:nth-child(even) .en-journey-apty { top: 2px; }
   .en-journey-stone { width: 64px; height: 70px; border-radius: 24px; font-size: 48px; }
   .en-journey-stop { padding-top: 68px; }
   .en-journey-stop:nth-child(even) { padding-top: 34px; }
   .en-journey-stop > button,
   .en-journey-stop > div { gap: 13px; padding-bottom: 21px; }
   .en-journey-stop-caption { font-size: 11px; }
+  .en-journey-stop-caption small { font-size: 10px; }
   .en-journey-apty { top: 2px; }
   .en-journey-stop:nth-child(even) .en-journey-apty { top: -32px; }
   .en-journey-activities { padding: 20px 12px; border-radius: 0 0 24px 24px; }

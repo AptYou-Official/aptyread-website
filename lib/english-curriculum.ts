@@ -1,4 +1,6 @@
-import { englishNarration } from './english-narration';
+import { englishNarration, revisedNarrationIds } from './english-narration';
+import { programmeLessons, programmeOpeningActivities, type ProgrammeActivity } from './english-programme';
+import { programmeMedia } from './english-programme-media';
 
 export const englishLevels = [
   { title: 'Sounds into First Words', description: 'Little sounds. A wonderful beginning.', forms: 's a t', colour: 'mint' },
@@ -18,7 +20,7 @@ export const isExploreLetter = (letter: Letter): letter is ExploreLetter => ['s'
 export type Activity = {
   id: string;
   title: string;
-  kind: 'video' | 'sound' | 'find' | 'cases' | 'write' | 'word' | 'review' | 'apply';
+  kind: 'video' | 'sound' | 'find' | 'cases' | 'write' | 'word' | 'review' | 'apply' | 'practice' | 'formation';
   letter?: Letter;
   uppercase?: boolean;
   word?: ReadingWord;
@@ -27,14 +29,16 @@ export type Activity = {
   audioIntroduction?: boolean;
   // An authored preview leads into guided practice, not a watched-video claim.
   practicePreview?: boolean;
+  practiceLetter?: string;
 };
-export type EnglishLesson = { id: string; title: string; description: string; forms: string; colour: string; activities: Activity[] };
+export type EnglishLesson = { id: string; title: string; description: string; forms: string; colour: string; activities: Activity[]; supplemental?: boolean; requiredLetter?: string; objective?: string };
 
 function explore(letter: ExploreLetter, practicePreview = false): EnglishLesson {
   const big = letter.toUpperCase();
   return {
     id: `explore-${letter}`, title: `Explore ${big}`, description: 'Meet its shapes. Make your mark.', forms: `${big}${letter}`,
     colour: letter === 's' || letter === 'p' ? 'peach' : letter === 'a' || letter === 'i' ? 'lavender' : 'blue',
+    supplemental: true, requiredLetter: letter,
     activities: [
       { id: `meet-${letter}-cases`, title: `Big ${big} and Small ${letter}`, kind: 'video', letter, practicePreview },
       { id: `find-${letter}-cases`, title: `Find ${big} and ${letter}`, kind: 'cases', letter },
@@ -46,21 +50,21 @@ function explore(letter: ExploreLetter, practicePreview = false): EnglishLesson 
   };
 }
 
-export const englishLessons: EnglishLesson[] = [
+const openingLessons: EnglishLesson[] = [
   {
     id: 'first-words', title: 'S, A, T — Our First Words', description: 'Hear a sound. Build a word. Find its meaning.', forms: 's a t', colour: 'mint',
     activities: [
       { id: 'meet-s', title: 'Meet s', kind: 'video', letter: 's' },
       { id: 'practice-s', title: 'Practice the s Sound', kind: 'sound', letter: 's' },
-      { id: 'meet-a', title: 'Meet the A Sound', kind: 'video', letter: 'a' },
+      { id: 'meet-a', title: 'Meet a', kind: 'video', letter: 'a' },
       { id: 'practice-a', title: 'Practice the a Sound', kind: 'sound', letter: 'a' },
       { id: 'find-a', title: 'Listen and Find', kind: 'find', letter: 'a' },
-      { id: 'meet-t', title: 'Meet the T Sound', kind: 'video', letter: 't' },
+      { id: 'meet-t', title: 'Meet t', kind: 'video', letter: 't' },
       { id: 'practice-t', title: 'Practice the t Sound', kind: 'sound', letter: 't' },
       { id: 'find-t', title: 'Our Three Sounds', kind: 'find', letter: 't' },
       { id: 'build-at', title: 'Make and Read at', kind: 'word', word: 'at' },
       { id: 'build-sat', title: 'Make and Read sat', kind: 'word', word: 'sat' },
-      { id: 'our-first-words', title: 'Our First Words', kind: 'review' },
+      { id: 'our-first-words', title: 'Find our words', kind: 'review' },
     ],
   },
   explore('s'), explore('a'), explore('t'),
@@ -85,10 +89,34 @@ export const englishLessons: EnglishLesson[] = [
   explore('p', true), explore('i', true), explore('n', true),
 ];
 
+const practiceActivity = (activity: ProgrammeActivity): Activity => ({ id: activity.id, title: activity.title, kind: 'practice' });
+function withOpeningPractice(lesson: EnglishLesson): EnglishLesson {
+  const extras = programmeOpeningActivities[lesson.id as keyof typeof programmeOpeningActivities] || [];
+  return { ...lesson, activities: [
+    ...extras.filter(item => item.afterActivityId === null).map(practiceActivity),
+    ...lesson.activities.flatMap(activity => [activity, ...extras.filter(item => item.afterActivityId === activity.id).map(practiceActivity)]),
+    ...extras.filter(item => item.afterActivityId === undefined).map(practiceActivity),
+  ] };
+}
+
+// Reading is the main route. Letter formation remains available alongside it;
+// eighteen handwriting screens no longer delay the child's next new words.
+export const englishLessons: EnglishLesson[] = [
+  ...openingLessons.filter(lesson => !lesson.supplemental).map(withOpeningPractice),
+  ...programmeLessons.map(lesson => ({ ...lesson, objective: lesson.description, activities: lesson.activities.map(practiceActivity) })),
+  ...openingLessons.filter(lesson => lesson.supplemental),
+  ...[...'cmehrgd kolfbujwvyz'.replace(/ /g, '')].map(letter => ({
+    id: `explore-${letter}`, title: `Explore ${letter.toUpperCase()}`, description: 'Match its shapes. Draw it your way.',
+    forms: `${letter.toUpperCase()}${letter}`, colour: 'peach', supplemental: true, requiredLetter: letter,
+    activities: [{ id: `forms-${letter}`, title: `Big ${letter.toUpperCase()} and small ${letter}`, kind: 'formation' as const, practiceLetter: letter }],
+  })),
+];
+
 // Add approved, public media URLs here. Never use speech synthesis for isolated
 // phonemes: it can pronounce letter names or add a misleading vowel sound.
 // Local media belongs in public/english/media; hosted URLs must use HTTPS.
 export const englishMedia: Record<string, string | undefined> = {
+  ...Object.fromEntries([...'satpincmehrgdkolfbujwvyz'].map(letter => [`sound-${letter}`, `/english/media/${letter}-sound.mp3`])),
   ...Object.fromEntries(Object.keys(englishNarration).map(id => [id, undefined])),
   'sound-s': '/english/media/s-sound.mp3', 'sound-a': '/english/media/a-sound.mp3', 'sound-t': '/english/media/t-sound.mp3',
   'sound-p': '/english/media/p-sound.mp3', 'sound-i': '/english/media/i-sound.mp3', 'sound-n': '/english/media/n-sound.mp3',
@@ -174,7 +202,11 @@ function recordedNarrationFor(id: string) {
   if (writing) return `${ENGLISH_AUDIO}/writing/${writing[1]}-${writing[2].toLowerCase()}-${writing[3].toLowerCase()}-v1.mp3`;
   return undefined;
 }
-export function mediaFor(id: string) { return englishMedia[id] ?? recordedNarrationFor(id); }
+export function mediaFor(id: string) {
+  // Revised directions use their shorter device-voice script until an exact
+  // replacement is explicitly registered. Never silently play the old wording.
+  return programmeMedia[id] ?? englishMedia[id] ?? (revisedNarrationIds.some(cue => cue === id) ? undefined : recordedNarrationFor(id));
+}
 
 const SOUND_CLIPS = 'https://aptyread-cdn.b-cdn.net/english/level1/videos/letter-sound-video-clips';
 export const englishSoundPracticeVideos: Record<Letter, { src: string; poster: string }> = {
@@ -244,10 +276,9 @@ export const englishVideos: Record<string, { landscape: string; portrait: string
   'meet-a': { landscape: '9536091f-2211-4faf-b3e7-ffcec9d8bdc6', portrait: '9575f978-c9e0-460c-a93e-7c7598a87d30' },
   'meet-t': { landscape: 'd2b24f3e-547d-4e4a-89ed-d4b5dabd14cb', portrait: 'e8f78faf-8c6f-4c38-bac1-253ac6924a8e' },
 };
-// Only lessons whose authored teaching videos are complete are exposed in the
-// public learning path. Unfinished lessons remain available to the team by
-// their internal routes, but are not advertised to children or parents.
+// This release is a complete learning prototype. Authored sound/model fallbacks
+// and labelled video placeholders make every listed lesson playable.
 export function isEnglishLessonPublished(lesson: EnglishLesson) {
-  return lesson.activities.every(activity => activity.kind !== 'video' || !!englishVideos[activity.id]);
+  return lesson.activities.length > 0;
 }
 export const BUNNY_LIBRARY = '619329';

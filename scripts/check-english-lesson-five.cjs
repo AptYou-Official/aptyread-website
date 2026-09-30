@@ -4,26 +4,37 @@ const fs = require('node:fs');
 const ts = require('typescript');
 require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileModule(fs.readFileSync(filename, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 } }).outputText, filename);
 const { englishLessons, englishVideos, englishMedia, englishSoundPracticeVideos } = require('../lib/english-curriculum.ts');
-const { emptyProgress, englishAccess, completeEnglishActivity, readEnglishProgress, updateFirstWords, enterEnglishActivity } = require('../lib/english-progress.ts');
+const { emptyProgress, englishAccess, completeEnglishActivity, readEnglishProgress, updateFirstWords, enterEnglishActivity, updateProgramme } = require('../lib/english-progress.ts');
+const { getProgrammeActivity } = require('../lib/english-programme.ts');
+const { programmeSteps, freshProgrammeState, isProgrammeStepReady } = require('../lib/english-programme-progress.ts');
 const { createLetterLink, initialLetterLink, linkLetters, letterLinkReward } = require('../lib/english-letter-link.ts');
 const { freshGuidedWord, placeGuidedLetter, guidedWordPrompt, tryReadingWord } = require('../lib/english-word.ts');
 const { readFirstWords, reviewReadingWord } = require('../lib/english-review.ts');
 const { englishNarration } = require('../lib/english-narration.ts');
-const lesson = englishLessons[4];
-const prior = englishLessons.slice(0, 4).flatMap(l => l.activities.map(a => a.id));
+const lesson = englishLessons.find(l => l.id === 'more-words');
+const prior = englishLessons[0].activities.map(a => a.id);
 const opening = { ...emptyProgress(), completed: prior };
 const oldReview = { stage: 6, heard: ['at', 'sat'], matched: ['at', 'sat'], read: ['at', 'sat'], questionOrders: [true, false], readAtFirst: true };
 
 async function main() {
   assert.equal(lesson.id, 'more-words');
-  assert.equal(lesson.activities.length, 13);
-  assert.equal(prior.length, 29, 'The first four lessons contain 29 topics after duplicate find-s removal');
-  assert.equal(englishAccess(opening).next.activity.id, 'meet-p');
+  assert.equal(lesson.activities.length, 17);
+  assert.equal(prior.length, 12, 'PIN follows the integrated SAT lesson without compulsory formation topics');
+  assert.equal(englishAccess(opening).next.activity.id, 'pin-remember-sat');
   assert.equal(englishAccess({ ...opening, completed: prior.slice(0, -1) }).lessons.has(lesson.id), false);
   let progress = opening;
-  for (const item of lesson.activities.slice(0, 11)) {
+  for (const item of lesson.activities.slice(0, lesson.activities.findIndex(a => a.id === 'more-little-words'))) {
     assert.equal(englishAccess(progress).next.activity.id, item.id);
-    progress = completeEnglishActivity(progress, item.id);
+    if (item.kind === 'practice') {
+      assert.equal(completeEnglishActivity(progress, item.id), progress);
+      const steps = programmeSteps(getProgrammeActivity(item.id));
+      for (let turns = 0; !progress.programme?.[item.id]?.complete; turns++) {
+        assert.ok(turns < 100);
+        const state = progress.programme?.[item.id] || freshProgrammeState(steps[0]), step = steps[state.task];
+        const action = isProgrammeStepReady(step, state) ? { type: 'next' } : !state.heard && ['sound', 'build'].includes(step.kind) ? { type: 'heard' } : state.phase === 0 ? { type: 'continue' } : { type: 'choose', value: step.kind === 'sound' ? step.letter : step.kind === 'build' ? step.word[state.built.length] : step.answer };
+        progress = updateProgramme(progress, item.id, action, '2026-09-30T12:00:00Z');
+      }
+    } else progress = completeEnglishActivity(progress, item.id);
     assert.deepEqual(readEnglishProgress(JSON.stringify(progress)), progress);
   }
   assert.deepEqual(progress.audioIntroductions, ['meet-p', 'meet-i', 'meet-n']);
@@ -85,8 +96,8 @@ async function main() {
     act({ type: 'choose', word: 'sit' }); act({ type: 'next' });
     const first = reviewReadingWord(p.moreWords, 'more');
     act({ type: 'read' }); assert.notEqual(reviewReadingWord(p.moreWords, 'more'), first);
-    assert.equal(p.completed.length, 40);
-    act({ type: 'read' }); assert.equal(p.completed.length, 41);
+    assert.equal(p.completed.length, 26);
+    act({ type: 'read' }); assert.equal(p.completed.length, 27);
     assert.equal(englishAccess(p).next.activity.id, 'more-words-with-apty');
     assert.equal(readFirstWords(p.moreWords), undefined, 'Review pairs cannot be substituted');
     const replay = enterEnglishActivity(p, lesson.id, 'more-little-words');
@@ -94,6 +105,6 @@ async function main() {
     assert.deepEqual(replay.completed, p.completed);
   }
   for (const id of ['review-read', 'review-read-next']) assert.doesNotMatch(englishNarration[id], /\b(pin|sit)\b/i);
-  console.log('Passed: Lesson 5 sequence, explicit audio-introduction provenance, six real sound assets, three-choice taught-only rounds/retries, pin/sit builds and reload, independent review storage/gates/orders/replay, 41 completed topics unlock new-word application.');
+  console.log('Passed: integrated PIN sequence, explicit audio-introduction provenance, six real sound assets, three-choice taught-only rounds/retries, pin/sit builds and reload, separate review storage/gates/orders/replay, 27 completed core topics unlock word application.');
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });

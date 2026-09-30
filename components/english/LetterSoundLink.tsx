@@ -61,7 +61,7 @@ export default function LetterSoundLink({ letter, suspended = false, onComplete,
   const title = complete ? 'Sound link!' : matched ? 'You found it!' : guided ? state.phase === 'say' ? 'Your turn.' : state.heard ? 'Tap and say.' : 'Listen.' : state.feedback === 'help' && state.busy ? 'Listen with me.' : state.feedback === 'retry' && state.busy ? 'Listen again.' : !state.heard ? 'Listen.' : 'Tap.';
   const reward = letterLinkReward(letter, state);
 
-  return <div className={`en-guided-word en-letter-link ${guided ? 'is-guided' : ''} ${complete ? 'is-complete' : ''}`}>
+  return <div className={`en-guided-word en-letter-link ${guided ? 'is-guided' : ''} ${complete ? 'is-complete' : ''}`} data-action={complete || matched ? 'continue' : !state.heard || state.busy ? 'listen' : guided && state.phase === 'say' ? 'say' : 'find'}>
     <div className="en-link-stage">
       <LearningCompanion title={title} speaking={audio.playing} headingRef={heading} reaction={`${state.index}-${state.phase}`} />
       {complete ? <ActivitySticker kind="link" title="Sound link!" detail={guided ? `You tried the ${letter} sound.` : `You matched the ${letter} sound.`} sticker={`${letter} ↔`} /> : <div className="en-link-experience">

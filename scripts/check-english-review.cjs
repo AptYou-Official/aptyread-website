@@ -8,7 +8,7 @@ const { englishNarration } = require('../lib/english-narration.ts');
 const { freshFirstWords, nextFirstWords, readFirstWords, reviewReadingWord } = require('../lib/english-review.ts');
 const { emptyProgress, readEnglishProgress, enterEnglishActivity, updateFirstWords, englishAccess, completeEnglishActivity } = require('../lib/english-progress.ts');
 
-const beforeReview = { ...emptyProgress(), completed: englishLessons[0].activities.slice(0, -1).map(a => a.id) };
+const beforeReview = { ...emptyProgress(), completed: englishLessons[0].activities.slice(0, englishLessons[0].activities.findIndex(a => a.id === 'our-first-words')).map(a => a.id) };
 assert.equal(updateFirstWords(emptyProgress(), { type: 'start', questionOrders: [true, false], readAtFirst: true }).firstWords, undefined, 'A locked review cannot start');
 assert.equal(completeEnglishActivity(beforeReview, 'our-first-words'), beforeReview, 'Listening alone cannot finish the lesson');
 
@@ -32,15 +32,15 @@ for (const readAtFirst of [true, false]) {
   assert.equal(progress.firstWords.stage, 3);
   act({ type: 'choose', word: 'sat' }); act({ type: 'next' });
   assert.equal(progress.firstWords.stage, 4);
-  assert.equal(englishAccess(progress).lessons.has('explore-s'), false, 'Matching both words does not unlock the next lesson');
+  assert.equal(englishAccess(progress).activities.has('sat-use-words'), false, 'Matching both words does not unlock the next reading activity');
   const first = reviewReadingWord(progress.firstWords);
   act({ type: 'read' });
   assert.notEqual(reviewReadingWord(progress.firstWords), first, 'Each word gets its own reading turn');
   assert.equal(progress.firstWords.stage, 5);
-  assert.equal(englishAccess(progress).lessons.has('explore-s'), false);
+  assert.equal(englishAccess(progress).activities.has('sat-use-words'), false);
   act({ type: 'read' });
   assert.equal(progress.firstWords.stage, 6);
-  assert.equal(englishAccess(progress).lessons.has('explore-s'), true);
+  assert.equal(englishAccess(progress).activities.has('sat-use-words'), true);
    assert.equal(progress.completed.length, 11);
   const replay = enterEnglishActivity(progress, 'first-words', 'our-first-words');
   assert.equal(replay.firstWords, undefined, 'A completed review opens ready to replay');

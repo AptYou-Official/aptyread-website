@@ -1,18 +1,20 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Script from 'next/script';
 import { Activity, BUNNY_LIBRARY, englishVideos } from '@/lib/english-curriculum';
 import Icon from './Icons';
 import LetterIntroduction from './LetterIntroduction';
 import ExplorePreview from './ExplorePreview';
 import ActivitySticker from './ActivitySticker';
+import { useEnglish } from './EnglishProvider';
 
-type BunnyPlayer = { on: (event: string, callback: () => void) => void; off?: (event: string, callback: () => void) => void; destroy?: () => void };
+type BunnyPlayer = { on: (event: string, callback: () => void) => void; pause?: () => void; off?: (event: string, callback: () => void) => void; destroy?: () => void };
 type PlayerJs = { Player: new (target: HTMLIFrameElement) => BunnyPlayer };
 
 export default function LessonVideo({ activity, suspended = false, onComplete, nextTopic }: { activity: Activity; suspended?: boolean; onComplete: () => void; nextTopic?: string }) {
   const video = englishVideos[activity.id];
+  const { preview } = useEnglish();
   const [portrait, setPortrait] = useState(false);
   const [layoutReady, setLayoutReady] = useState(false);
   const [started, setStarted] = useState(false);
@@ -35,15 +37,10 @@ export default function LessonVideo({ activity, suspended = false, onComplete, n
 
   useEffect(() => () => { if (loadingTimer.current) clearTimeout(loadingTimer.current); }, []);
 
-  useEffect(() => {
-    if (!video || !layoutReady || started) return;
-    start();
-  }, [layoutReady, portrait, started, video]);
-
   // Keep the selected recording stable during playback (rotation must not restart it).
   const isPortrait = started ? selected === video?.portrait : portrait;
 
-  function start() {
+  const start = useCallback(() => {
     if (!video) return;
     if (loadingTimer.current) clearTimeout(loadingTimer.current);
     setSelected(portrait ? video.portrait : video.landscape);
@@ -53,7 +50,12 @@ export default function LessonVideo({ activity, suspended = false, onComplete, n
     setVideoAttempt(value => value + 1);
     setStarted(true);
     loadingTimer.current = setTimeout(() => setVideoSlow(true), 6000);
-  }
+  }, [video, portrait]);
+
+  useEffect(() => {
+    if (video && layoutReady && !started) start();
+  }, [layoutReady, started, video, start]);
+  useEffect(() => { if (suspended) player.current?.pause?.(); }, [suspended]);
 
   function loaded() {
     if (loadingTimer.current) clearTimeout(loadingTimer.current);
@@ -115,6 +117,7 @@ export default function LessonVideo({ activity, suspended = false, onComplete, n
         )}
       </div>
       {ended && <><ActivitySticker kind="video" compact title="Apty explorer!" detail="You watched and explored." sticker={activity.letter ? activity.letter.toUpperCase() : '▶'} /><div className="en-word-dock en-video-dock" aria-label="Your next action"><button className="en-button en-video-next" onClick={onComplete}><span className="en-next-topic-copy"><small>Next topic</small><strong>{nextTopic || 'Keep going'}</strong></span><span className="en-cta-arrow"><Icon name="arrow" size={23} /></span></button></div></>}
-    </> : <div className="en-video-placeholder"><span>{activity.uppercase ? activity.letter?.toUpperCase() : activity.id.includes('cases') ? `${activity.letter?.toUpperCase()}${activity.letter}` : activity.letter}</span><Icon name="lock" size={29} /><h2>This topic is locked.</h2><p>Choose an available topic from the lesson menu.</p></div>}
+      {preview && !ended && <div className="en-word-dock"><button className="en-button" onClick={onComplete}>Continue preview <Icon name="arrow" /></button></div>}
+    </> : <div className="en-video-placeholder"><span>{activity.uppercase ? activity.letter?.toUpperCase() : activity.id.includes('cases') ? `${activity.letter?.toUpperCase()}${activity.letter}` : activity.letter}</span><Icon name="play" size={29} /><h2>Video placeholder</h2><p>Let’s continue to the practice.</p><button className="en-button" onClick={onComplete}>Done <Icon name="arrow" /></button></div>}
   </div>;
 }

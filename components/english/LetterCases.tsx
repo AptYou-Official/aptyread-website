@@ -58,7 +58,7 @@ export default function LetterCases({ letter, suspended = false, onComplete }: {
   const title = complete ? 'Letter finder!' : matched ? 'You found it!' : state.retry ? 'Try again.' : `Find ${letterLabel(current.target)}.`;
   const canContinue = complete || matched;
 
-  return <div className={`en-guided-word en-letter-link en-letter-cases ${complete ? 'is-complete' : ''}`}>
+  return <div className={`en-guided-word en-letter-link en-letter-cases ${complete ? 'is-complete' : ''}`} data-action={canContinue ? 'continue' : state.busy ? 'listen' : 'find'}>
     <div className="en-link-stage">
       <LearningCompanion title={title} speaking={audio.playing} headingRef={heading} reaction={`${state.index}-${state.phase}-${state.retry}`} />
       {complete ? <ActivitySticker kind="finder" title="Letter finder!" detail={`You found Big ${pair[0]} and Small ${letter}.`} sticker={`${pair[0]} ${letter}`} /> : <div className="en-link-experience en-cases-visual">

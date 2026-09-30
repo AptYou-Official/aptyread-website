@@ -1,10 +1,11 @@
 'use client';
 
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
-import { ENGLISH_PROGRESS_KEY, emptyProgress, EnglishProgress, readEnglishProgress } from '@/lib/english-progress';
+import { ENGLISH_PROGRESS_KEY, emptyProgress, EnglishProgress, readEnglishProgress, createEnglishPreviewProgress } from '@/lib/english-progress';
 
 type Context = {
   progress: EnglishProgress; ready: boolean; storageAvailable: boolean; offline: boolean;
+  preview: boolean;
   update: (change: (previous: EnglishProgress) => EnglishProgress) => void;
 };
 const EnglishContext = createContext<Context | null>(null);
@@ -61,5 +62,13 @@ export default function EnglishProvider({ children }: { children: React.ReactNod
     try { localStorage.setItem(ENGLISH_PROGRESS_KEY, JSON.stringify(next)); setStorageAvailable(true); }
     catch { setStorageAvailable(false); }
   }, []);
-  return <EnglishContext.Provider value={{ progress, update, ready, storageAvailable, offline }}>{children}</EnglishContext.Provider>;
+  return <EnglishContext.Provider value={{ progress, update, ready, storageAvailable, offline, preview: false }}>{children}</EnglishContext.Provider>;
+}
+
+// Adult exploration has its own in-memory state. It never reads, writes, resets,
+// or synchronizes the child's localStorage record.
+export function EnglishPreviewProvider({ children }: { children: React.ReactNode }) {
+  const [progress, setProgress] = useState<EnglishProgress>(createEnglishPreviewProgress);
+  const update = useCallback((change: (previous: EnglishProgress) => EnglishProgress) => setProgress(change), []);
+  return <EnglishContext.Provider value={{ progress, update, ready: true, storageAvailable: true, offline: false, preview: true }}>{children}</EnglishContext.Provider>;
 }

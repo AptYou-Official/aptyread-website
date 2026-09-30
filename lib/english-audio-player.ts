@@ -19,9 +19,12 @@ export function createEnglishAudioPlayer(resolveMedia: (id: string) => string | 
     return new Promise(resolve => {
       let settled = false;
       let cleanup = () => {};
+      // Some installed voices neither finish nor report an error. Recover to
+      // the readable prompt instead of leaving a required Listen step stuck.
+      const timeout = setTimeout(() => fail('The voice took too long. Tap Listen again, or read the prompt together.'), Math.max(15000, Math.min(90000, (cue.narration?.length || 0) * 110 + 8000)));
       const finish = (ok: boolean) => {
         if (settled) return;
-        settled = true; cleanup(); cancelClip = undefined; resolve(ok);
+        settled = true; clearTimeout(timeout); cleanup(); cancelClip = undefined; resolve(ok);
       };
       cancelClip = () => finish(false);
       const fail = (message: string) => { if (!settled) { notice = message; finish(false); } };

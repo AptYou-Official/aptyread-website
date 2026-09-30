@@ -10,13 +10,27 @@ require.extensions['.ts'] = (module, filename) => {
   module._compile(ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 } }).outputText, filename);
 };
 const { englishLessons, englishLevels, englishVideos, englishSoundPracticeVideos, englishMedia } = require('../lib/english-curriculum.ts');
-const { readEnglishProgress, emptyProgress, enterEnglishActivity, englishAccess, completeEnglishActivity } = require('../lib/english-progress.ts');
+const { readEnglishProgress, emptyProgress, enterEnglishActivity, englishAccess, completeEnglishActivity, updateProgramme } = require('../lib/english-progress.ts');
+const { getProgrammeActivity } = require('../lib/english-programme.ts');
+const { programmeSteps, programmeBookPreparation, freshProgrammeState, isProgrammeStepReady } = require('../lib/english-programme-progress.ts');
+
+function finishPractice(progress, id) {
+  const steps = programmeSteps(getProgrammeActivity(id));
+  for (let turns = 0; !progress.programme?.[id]?.complete; turns++) {
+    assert.ok(turns < 100);
+    const state = progress.programme?.[id] || freshProgrammeState(steps[0]), step = steps[state.task];
+    const action = isProgrammeStepReady(step, state) ? { type: 'next' } : !state.heard && ['sound', 'build', 'listen', 'book-cover'].includes(step.kind) ? { type: 'heard' } : step.kind === 'book-cover' && state.bookPrep < programmeBookPreparation(step).length - 1 ? { type: 'prepare-next' } : state.phase === 0 || step.kind === 'book-cover' || step.kind === 'page' && !step.question ? { type: 'continue' } : { type: 'choose', value: step.kind === 'sound' ? step.letter : step.kind === 'build' ? step.word[state.built.length] : step.answer };
+    progress = updateProgramme(progress, id, action, '2026-09-30T12:00:00Z');
+  }
+  return progress;
+}
 
 async function main() {
   assert.equal(englishLevels.length, 5);
-  assert.deepEqual(englishLessons.map(l => l.activities.length), [11, 6, 6, 6, 13, 6, 6, 6]);
+  assert.deepEqual(englishLessons.filter(l => !l.supplemental).map(l => l.activities.length), [12, 17, 3, 5, 5, 5, 5, 5, 5, 3]);
+  assert.equal(englishLessons.filter(l => l.supplemental).length, 24);
   const ids = englishLessons.flatMap(l => l.activities.map(a => a.id));
-  assert.equal(new Set(ids).size, 60);
+  assert.equal(new Set(ids).size, 119);
   assert.equal(ids.includes('find-s'), false, 'The duplicate Touch and Say s topic is removed');
   assert.equal(Object.values(englishVideos).length, 12);
   for (const activity of englishLessons.flatMap(lesson => lesson.activities).filter(activity => activity.kind === 'video')) assert.ok(englishVideos[activity.id] || activity.audioIntroduction || activity.practicePreview, `Teaching video or explicit temporary audio introduction: ${activity.id}`);
@@ -53,39 +67,28 @@ async function main() {
   for (let index = 0; index < englishLessons[0].activities.length; index++) {
     const activity = englishLessons[0].activities[index];
     assert.equal(englishAccess(sequence).next.activity.id, activity.id);
-    assert.equal(englishAccess(sequence).lessons.has('explore-s'), false, 'The next lesson stays locked until the last topic');
+    assert.equal(englishAccess(sequence).lessons.has('explore-s'), index > 0, 'Optional forms open after their sound introduction');
     if (activity.kind === 'review') {
       assert.equal(completeEnglishActivity(sequence, activity.id), sequence, 'The new review cannot complete before its reading turns');
       sequence = { ...sequence, firstWords: { stage: 6, heard: ['at', 'sat'], matched: ['at', 'sat'], read: ['at', 'sat'], questionOrders: [true, false], readAtFirst: true } };
     }
-    sequence = completeEnglishActivity(sequence, activity.id);
+    sequence = activity.kind === 'practice' ? finishPractice(sequence, activity.id) : completeEnglishActivity(sequence, activity.id);
     assert.equal(sequence.completed.length, index + 1, 'One completion unlocks one new topic');
   }
-  assert.equal(englishAccess(sequence).next.activity.id, 'meet-s-cases');
-  assert.equal(englishAccess(sequence).lessons.has('explore-s'), true, 'Completing Lesson 1 unlocks Lesson 2');
-  assert.equal(englishAccess(sequence).lessons.has('explore-a'), false);
-  assert.equal(englishAccess(sequence).activities.has('find-s-cases'), false);
-  let lessonTwo = sequence;
-  for (const activity of englishLessons[1].activities) {
-    assert.equal(englishAccess(lessonTwo).next.activity.id, activity.id, 'Lesson 2 opens one topic at a time');
-    lessonTwo = completeEnglishActivity(lessonTwo, activity.id);
-  }
-  assert.equal(lessonTwo.completed.length, 17, 'Both opening lessons can now be completed');
-  assert.equal(englishAccess(lessonTwo).next.activity.id, 'meet-a-cases');
-  const savedVideo = englishVideos['meet-a-cases'];
-  delete englishVideos['meet-a-cases'];
-  assert.equal(completeEnglishActivity(lessonTwo, 'meet-a-cases'), lessonTwo, 'An unavailable video cannot unlock the next topic');
-  englishVideos['meet-a-cases'] = savedVideo;
-  let openingSequence = lessonTwo;
-  for (const lesson of englishLessons.slice(2, 4)) {
+  assert.equal(englishAccess(sequence).next.activity.id, 'pin-remember-sat');
+  assert.equal(englishAccess(sequence).lessons.has('explore-s'), true);
+  assert.equal(englishAccess(sequence).lessons.has('explore-a'), true);
+  assert.equal(englishAccess(sequence).activities.has('find-s-cases'), true);
+  let withFormation = sequence;
+  for (const lesson of englishLessons.filter(l => ['explore-s', 'explore-a', 'explore-t'].includes(l.id))) {
     for (const activity of lesson.activities) {
-      assert.equal(englishAccess(openingSequence).next.activity.id, activity.id, 'A and T retain sequential topic unlocking');
-      openingSequence = completeEnglishActivity(openingSequence, activity.id);
+      assert.ok(englishAccess(withFormation).activities.has(activity.id));
+      withFormation = completeEnglishActivity(withFormation, activity.id);
+      assert.equal(englishAccess(withFormation).next.activity.id, 'pin-remember-sat', 'Formation never changes the reading frontier');
     }
   }
-  assert.equal(openingSequence.completed.length, 29, 'All four opening lessons can be completed');
-  assert.equal(englishAccess(openingSequence).next.activity.id, 'meet-p');
-  assert.equal(completeEnglishActivity(sequence, 'meet-s').completed.length, 11, 'Revision cannot inflate completion');
+  assert.equal(withFormation.completed.length, 30, 'The legacy 18 formation topics remain usable alongside 12 core opening topics');
+  assert.equal(completeEnglishActivity(sequence, 'meet-s').completed.length, 12, 'Revision cannot inflate completion');
   assert.equal(enterEnglishActivity(sequence, 'first-words', 'meet-a').current['first-words'], 2, 'Reached topics remain open for revision');
   const satReady = { ...restored, completed: englishLessons[0].activities.slice(0, 10).map(item => item.id), current: { 'first-words': 0 } };
   const direct = enterEnglishActivity(satReady, 'first-words', 'build-sat');
@@ -100,11 +103,11 @@ async function main() {
   assert.equal(enterEnglishActivity(completedWord, 'first-words').words.sat, finished, 'Ordinary continue retains the saved stage');
   assert.equal(enterEnglishActivity(completedWord, 'first-words', 'invalid-topic').words.sat, finished, 'Invalid topic falls back to resume');
   const later = { ...sequence, completed: englishLessons.slice(0, 2).flatMap(lesson => lesson.activities.map(item => item.id)) };
-  assert.equal(englishAccess(later).next.activity.id, 'meet-a-cases', 'The same sequence applies across later lessons');
-  assert.equal(englishAccess(later).lessons.has('explore-t'), false);
+  assert.equal(englishAccess(later).next.activity.id, 'first-book-story', 'The reading route leads directly to connected print');
+  assert.equal(englishAccess(later).lessons.has('explore-t'), true);
   const allDone = { ...initial, completed: ids };
   assert.equal(englishAccess(allDone).next, null);
-  assert.equal(englishAccess(allDone).activities.size, 60);
+  assert.equal(englishAccess(allDone).activities.size, 119);
   assert.equal('mastered' in restored, false);
   for (const letter of ['s', 'a', 't', 'p', 'i', 'n']) assert.ok(fs.statSync(path.join('public/english/media', `${letter}-sound.mp3`)).size > 1000);
   if (process.argv.includes('--model-only')) { console.log('Sequential unlocking, locked links, revision, resume and replay checks passed.'); return; }
@@ -119,7 +122,7 @@ async function main() {
   const dashboard = await (await fetch(base + '/english/dashboard')).text();
   assert.ok(!dashboard.includes('href="/english/learn/first-words?activity=build-sat"'), 'The initial dashboard has no locked sat link');
   assert.ok(!dashboard.includes('href="/english/learn/explore-s"'), 'The initial dashboard has no locked lesson link');
-  assert.match(dashboard, /View topics/);
+  assert.match(dashboard, /See my lesson|View topics/);
 
 
   let offline = false;
@@ -185,6 +188,6 @@ async function main() {
   const audio = await request('/english/media/s-sound.mp3', 'cors', { Range: 'bytes=0-99' });
   assert.equal(audio.status, 206); assert.equal((await audio.arrayBuffer()).byteLength, 100);
   const invalid = await request('/english/media/s-sound.mp3', 'cors', { Range: 'bytes=999999-' }); assert.equal(invalid.status, 416);
-  console.log(JSON.stringify({ result: 'passed', cachedResources: cached.size, checks: ['60 curriculum steps', 'sequential topic and lesson unlocking', 'locked routes and placeholders', 'revision, resume and replay', 'portrait and landscape IDs', 'partial-word resume', 'corrupt progress recovery', 'duplicate completion protection', 'word-state validation', 'recorded phoneme assets', 'manifest and worker headers', 'production offline package with fonts/scripts/styles', 'offline lesson routes and fallback', 'cache isolation', 'RSC exclusion', 'audio byte ranges'] }, null, 2));
+  console.log(JSON.stringify({ result: 'passed', cachedResources: cached.size, checks: ['65 reading steps and 54 optional formation steps', 'sequential reading and independent formation access', 'locked routes and placeholders', 'revision, resume and replay', 'portrait and landscape IDs', 'partial-word resume', 'corrupt progress recovery', 'duplicate completion protection', 'word-state validation', 'recorded phoneme assets', 'manifest and worker headers', 'production offline package with fonts/scripts/styles', 'offline lesson routes and fallback', 'cache isolation', 'RSC exclusion', 'audio byte ranges'] }, null, 2));
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });

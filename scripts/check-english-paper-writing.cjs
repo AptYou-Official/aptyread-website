@@ -67,11 +67,12 @@ async function main() {
     const source = fs.readFileSync(path.join(__dirname, '../components/english', sourceFile), 'utf8');
     assert.ok(!source.includes('You made ${displayLabel}!'), `${sourceFile} must not promise accurate formation`);
   }
-  for (const lesson of englishLessons.filter(l => l.id.startsWith('explore-'))) {
-    assert.equal(lesson.activities.length, 6, 'Paper remains an option within the same sequential topic');
+  for (const lesson of englishLessons.filter(l => l.activities.some(a => a.kind === 'write'))) {
+    assert.equal(lesson.activities.length, 6, 'The six legacy formation topics retain both writing pathways');
+    assert.equal(lesson.supplemental, true, 'Formation does not gate the reading route');
     for (const activity of lesson.activities.filter(a => a.kind === 'write')) {
       const html = renderToStaticMarkup(React.createElement(WritingPractice, { activity, onComplete() {} }));
-      assert.ok(html.includes('Trace on screen') && html.includes('Write on paper'));
+      assert.ok(html.includes('Draw here') && html.includes('Write on paper'));
       const letter = activity.uppercase ? activity.letter.toUpperCase() : activity.letter;
       assert.ok(html.includes(`<strong>${letter}</strong>`), 'Both writing choices show the correct letter');
       const paper = renderToStaticMarkup(React.createElement(PaperWriting, { letter: activity.letter, uppercase: !!activity.uppercase, suspended: false, onBack() {}, onComplete() {} }));

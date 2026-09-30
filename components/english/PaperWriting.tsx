@@ -27,7 +27,6 @@ export default function PaperWriting({ letter: baseLetter, uppercase, suspended,
   const complete = phase === 'complete';
   const caseLabel = `${uppercase ? 'big' : 'small'} ${letter}`;
   const displayLabel = `${uppercase ? 'Big' : 'Small'} ${letter}`;
-  const successAudioId = `writing-success-${uppercase ? 'big' : 'small'}-${baseLetter.toLowerCase()}`;
 
   useEffect(() => {
     const session = createPaperWriting(letter, {
@@ -51,14 +50,14 @@ export default function PaperWriting({ letter: baseLetter, uppercase, suspended,
   useEffect(() => {
     if (complete && !previousComplete.current) {
       heading.current?.focus({ preventScroll: true });
-      void sequence([{ id: successAudioId, narration: `Nice try! You practised ${displayLabel}.`, optional: true }, { id: 'sound-practice-complete' }]);
+      void sequence([{ id: 'sound-practice-complete' }]);
     }
     previousComplete.current = complete;
-  }, [complete, displayLabel, sequence, successAudioId]);
-  const title = complete ? 'Nice try!' : phase === 'ready' ? `Write ${caseLabel}.` : phase === 'paused' ? 'Ready when you are.' : phase === 'blocked' ? 'Let’s try together.' : phase === 'try' ? covered ? 'One on your own.' : 'Your turn.' : 'Watch.';
+  }, [complete, sequence]);
+  const title = complete ? 'Nice try!' : phase === 'paused' ? 'Ready?' : phase === 'blocked' ? 'Try again.' : phase === 'try' ? `Write ${caseLabel}.` : 'Watch the hand.';
   function leave(action: () => void) { controller.current?.pause(); action(); }
 
-  return <div className={`en-guided-word en-paper-writing ${complete ? 'is-complete' : ''}`}>
+  return <div className={`en-guided-word en-paper-writing ${complete ? 'is-complete' : ''}`} data-action={complete ? 'continue' : phase === 'try' ? 'draw' : 'watch'}>
     <div className="en-paper-stage">
       <LearningCompanion title={title} speaking={audio.playing} headingRef={heading} reaction={`${turns}-${phase}`} />
       <div className="en-paper-experience">
@@ -68,12 +67,12 @@ export default function PaperWriting({ letter: baseLetter, uppercase, suspended,
               onEnded={() => controller.current?.videoEnded()} onPlaying={() => controller.current?.videoPlaying()} onWaiting={() => controller.current?.videoWaiting()} onError={() => controller.current?.failed()} />
             {pictureOnly && !covered && <Image src={source.poster} alt={`Finished ${uppercase ? 'capital' : 'lowercase'} ${letter} on writing lines`} width={480} height={480} unoptimized />}
             {covered && <div className="en-paper-own"><Icon name="pencil" size={49} /><span>Your paper. Your pencil.</span></div>}
-            {['ready', 'paused', 'blocked'].includes(phase) && <button className="en-paper-play" aria-label={phase === 'paused' ? 'Resume writing practice' : 'Play writing video'} onClick={() => phase === 'paused' ? controller.current?.resume() : void controller.current?.watch(phase === 'blocked')}><Icon name="play" size={29} /></button>}
+            {['ready', 'paused', 'blocked'].includes(phase) && <button className="en-paper-play" aria-label={phase === 'paused' ? 'Resume writing practice' : 'Play writing video'} onClick={() => phase === 'paused' ? controller.current?.resume() : void controller.current?.watch(true)}><Icon name="play" size={29} /></button>}
           </div>
           <div className="en-paper-tools">
-            {phase === 'try' ? <button className="en-text-button" onClick={() => controller.current?.showModel()}><Icon name={covered ? 'play' : 'redo'} size={19} />{covered ? 'Show me' : pictureOnly ? 'Look again' : 'Watch again'}</button>
+            {phase === 'try' ? <button className="en-text-button" onClick={() => pictureOnly ? controller.current?.showModel() : void controller.current?.watch(true)}><Icon name={covered ? 'play' : 'redo'} size={19} />{covered ? 'Show me' : pictureOnly ? 'Look again' : 'Watch again'}</button>
               : phase === 'blocked' ? <button className="en-text-button" onClick={() => controller.current?.usePicture()}>Show the picture <Icon name="arrow" size={18} /></button>
-              : <span>{phase === 'ready' ? 'Watch. Then write on your paper.' : phase === 'watch' || phase === 'prompt' ? 'Watch the pencil move.' : ''}</span>}
+              : null}
           </div>
         </>}
       </div>
@@ -83,10 +82,10 @@ export default function PaperWriting({ letter: baseLetter, uppercase, suspended,
     <div className="en-word-dock en-paper-dock" aria-label="Your next action">
       {['try', 'watch', 'prompt'].includes(phase) && <button className="en-dock-audio" aria-label={phase !== 'try' || audio.playing ? 'Pause writing practice' : 'Hear the instructions'} onClick={() => phase !== 'try' || audio.playing ? controller.current?.pause() : controller.current?.repeatInstruction()}><Icon name={phase !== 'try' || audio.playing ? 'pause' : 'sound'} size={23} /></button>}
       {complete ? <><button className="en-text-button en-writing-again" onClick={() => controller.current?.tryAgain()}><Icon name="redo" size={19} /> Try again</button><button className="en-button en-next-topic" onClick={() => leave(onComplete)}>Next topic <span className="en-cta-arrow"><Icon name="arrow" size={23} /></span></button></>
-        : phase === 'try' ? <button className="en-button" onClick={() => controller.current?.finishTry()}><Icon name="check" size={22} /> Done</button>
+        : phase === 'try' ? <button className="en-button" onClick={() => controller.current?.finishTry()}><Icon name="check" size={22} /> I tried it</button>
         : phase === 'paused' ? <button className="en-button" onClick={() => controller.current?.resume()}>Continue <Icon name="play" size={22} /></button>
         : phase === 'watch' ? <button className="en-button" disabled={!state.watched} onClick={() => controller.current?.tryNow()}>{state.watched ? 'Try it' : 'Watching…'} <Icon name="pencil" size={22} /></button>
-        : <button className="en-button" disabled={phase === 'prompt'} onClick={() => void controller.current?.watch(phase === 'blocked')}><Icon name="play" size={22} />{phase === 'prompt' ? 'Watch…' : phase === 'blocked' ? 'Try video again' : 'Watch'}</button>}
+        : <button className="en-button" disabled={phase === 'prompt'} onClick={() => void controller.current?.watch(true)}><Icon name="play" size={22} />{phase === 'prompt' ? 'Watch…' : phase === 'blocked' ? 'Try video again' : 'Watch'}</button>}
     </div>
     <ParentHelp kind="paper" className="en-paper-parent" onOpen={() => controller.current?.pause()} />
   </div>;

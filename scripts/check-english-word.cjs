@@ -66,7 +66,7 @@ for (const word of ['at', 'sat', 'pin', 'sit']) {
   assert.ok(!render(word).includes('en-tap-demonstration'), 'Reading turns do not inherit the guided letter cue');
   progress.words[word].reads = 1;
   html = render(word);
-  assert.ok(html.includes('Watch and say') && html.includes('Tap to read again'));
+  assert.ok(html.includes('Watch and say') && html.includes(`I tried reading ${word}`));
   assert.ok(!html.includes('<video') && !html.includes('<iframe'), 'A reading try does not auto-play or load the optional clip');
   progress.words[word].reads = 2;
   assert.ok(render(word).includes('Next'), 'Two tries can proceed without watching a video');
@@ -106,7 +106,7 @@ async function checkOpeningEffects() {
       const setup = mount(word);
       const rehearsalCleanup = setup(); rehearsalCleanup();
       const cleanup = setup(); await tick();
-      assert.deepEqual(played, [[`build-intro-${word}`, 'build-tap', `sound-${word[0]}`]], 'Entry speaks the introduction and first tap exactly once under Strict Mode');
+      assert.deepEqual(played, [['build-tap', `sound-${word[0]}`]], 'Entry gives one action and its real sound once, without an extra introduction');
       cleanup();
     }
     played.length = 0;
@@ -123,7 +123,7 @@ async function checkOpeningEffects() {
     assert.equal(played.length, 0, 'A background activity waits until visible');
     global.document.hidden = false;
     [...listeners].forEach(fn => fn()); await tick();
-    assert.deepEqual(played, [['build-intro-at', 'build-tap', 'sound-a']]);
+    assert.deepEqual(played, [['build-tap', 'sound-a']]);
     background(); assert.equal(listeners.size, 0);
     blocked = true; progress = emptyProgress();
     const blockedHtml = render('sat');

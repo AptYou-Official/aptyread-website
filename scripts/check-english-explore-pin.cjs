@@ -14,27 +14,29 @@ const { emptyProgress, englishAccess, completeEnglishActivity, readEnglishProgre
 const { englishNarration } = require('../lib/english-narration.ts');
 const guides = require('../lib/english-tracing.json');
 const render = (component, props) => renderToStaticMarkup(React.createElement(component, props));
-let progress = { ...emptyProgress(), completed: englishLessons.slice(0, 5).flatMap(l => l.activities.map(a => a.id)), lastLesson: 'more-words' };
+let progress = { ...emptyProgress(), completed: englishLessons.filter(l => ['first-words', 'more-words'].includes(l.id)).flatMap(l => l.activities.map(a => a.id)), lastLesson: 'more-words' };
 require('../components/english/EnglishProvider.tsx').useEnglish = () => ({ progress, ready: true, offline: false, storageAvailable: true });
 const Topics = require('../components/english/LessonTopics.tsx').default;
 const Dashboard = require('../components/english/Dashboard.tsx').default;
 const Video = require('../components/english/LessonVideo.tsx').default;
 const Trace = require('../components/english/TracePad.tsx').default;
-assert.equal(progress.completed.length, 42);
+assert.equal(progress.completed.length, 29);
 progress = readEnglishProgress(JSON.stringify(progress));
-assert.equal(englishAccess(progress).next.activity.id, 'meet-p-cases', 'Completing the first 42 topics opens Explore P');
-assert.equal(enterEnglishActivity(progress, 'explore-i'), progress, 'Direct links cannot skip P');
+assert.equal(englishAccess(progress).next.activity.id, 'first-book-story', 'Reading continues to the tiny book');
+assert.equal(enterEnglishActivity(progress, 'explore-i').lastLesson, 'explore-i', 'Known-letter formation is supplementary and can be selected directly');
 const publicHome = render(Dashboard);
-assert.ok(publicHome.includes('Play again') && !publicHome.includes('/english/learn/explore-p'), 'Home offers revision while unpublished lessons stay out of the public path');
+assert.ok(publicHome.includes('Play again'), 'Home retains revision alongside the next reading lesson');
 const expected = ['explore-p', 'explore-i', 'explore-n'];
-assert.deepEqual(englishLessons.slice(5).map(l => l.id), expected);
-for (const lesson of englishLessons.slice(5)) {
+const exploreLessons = englishLessons.filter(l => expected.includes(l.id));
+assert.deepEqual(exploreLessons.map(l => l.id), expected);
+for (const lesson of exploreLessons) {
   assert.equal(lesson.activities.length, 6);
   const topics = render(Topics, { lesson });
   assert.ok(topics.includes(`href="/english/learn/${lesson.id}?activity=${lesson.activities[0].id}"`));
-  assert.equal((topics.match(/aria-disabled="true"/g) || []).length, 5);
+  assert.equal((topics.match(/aria-disabled="true"/g) || []).length, 0, 'All known-letter side topics are available');
   for (const activity of lesson.activities) {
-    assert.equal(englishAccess(progress).next.activity.id, activity.id);
+    assert.equal(englishAccess(progress).next.activity.id, 'first-book-story', 'Optional writing never diverts the reading frontier');
+    assert.ok(englishAccess(progress).activities.has(activity.id));
     if (activity.kind === 'video') {
       assert.equal(englishVideos[activity.id], undefined);
       assert.equal(activity.practicePreview, true);
@@ -49,15 +51,15 @@ for (const lesson of englishLessons.slice(5)) {
     assert.deepEqual(completeEnglishActivity(progress, activity.id), progress, 'Replaying does not duplicate completion');
   }
 }
-assert.equal(progress.completed.length, 60);
+assert.equal(progress.completed.length, 47);
 assert.equal(progress.practicePreviews.length, 9);
-assert.equal(englishAccess(progress).next, null);
+assert.equal(englishAccess(progress).next.activity.id, 'first-book-story');
 assert.equal(progress.audioIntroductions, undefined, 'Preview completion is distinct from recorded-sound introductions');
 const polluted = readEnglishProgress(JSON.stringify({ ...progress, practicePreviews: [...progress.practicePreviews, 'meet-s', 'unknown', 'meet-p-cases'] }));
 assert.deepEqual(polluted.practicePreviews, progress.practicePreviews);
 const beforeReplay = progress.practicePreviews.slice();
 englishVideos['meet-p-cases'] = { portrait: 'future-portrait', landscape: 'future-landscape' };
-const actual = render(Video, { activity: englishLessons[5].activities[0], onComplete() {} });
+const actual = render(Video, { activity: exploreLessons[0].activities[0], onComplete() {} });
 assert.ok(actual.includes('en-video-loading') && !actual.includes('I watched and tried'), 'Approved IDs automatically use the automatic player');
 assert.deepEqual(readEnglishProgress(JSON.stringify(progress)).practicePreviews, beforeReplay, 'Adding real media preserves the honest earlier record');
 delete englishVideos['meet-p-cases'];
@@ -72,4 +74,4 @@ for (const letter of 'PpIiNn') {
 assert.ok(guides.p.descender > guides.p.baseline && guides.p.baseline > guides.p.midline, 'Lowercase p has a visible descender zone');
 assert.ok(guides.N.path.indexOf('M 75 10 L 75 90') < guides.N.path.indexOf('M 25 10 L 75 90'), 'N follows the clip: left stem, right stem, diagonal');
 assert.ok(guides.i.path.endsWith('L 50 20.01'), 'Lowercase i ends with a dot rather than a drawn ring');
-console.log('Passed: 42-to-60 topic migration, sequential Explore P/I/N access, honest preview provenance and replacement, playable navigation, six writing assets and letter-specific guides.');
+console.log('Passed: 29 core topics plus optional Explore P/I/N, honest preview provenance and replacement, independent side-practice access, six writing assets and letter-specific guides.');

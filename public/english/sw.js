@@ -1,14 +1,15 @@
 /* Only the English learning app is controlled by this worker. Marketing,
    admin pages, APIs and third-party media are deliberately never cached. */
-const CACHE = 'apty-english-v40-first-lesson-journey';
+const CACHE = 'apty-english-v48-clear-activities-fit';
 const PREFIX = 'apty-english-';
-const PAGES = ['/english/dashboard', '/english/lesson/first-words', '/english/lesson/explore-s', '/english/lesson/explore-a', '/english/lesson/explore-t', '/english/lesson/more-words', '/english/lesson/explore-p', '/english/lesson/explore-i', '/english/lesson/explore-n', '/english/learn/first-words', '/english/learn/explore-s', '/english/learn/explore-a', '/english/learn/explore-t', '/english/learn/more-words', '/english/learn/explore-p', '/english/learn/explore-i', '/english/learn/explore-n'];
+const LESSON_IDS = ["first-words","more-words","first-book","cat-mat-pen","hat-rat-pig","sad-kid-dog","log-fan-bag","sun-jug-wet","van-yam-zip","level-one-bridge","explore-s","explore-a","explore-t","explore-p","explore-i","explore-n","explore-c","explore-m","explore-e","explore-h","explore-r","explore-g","explore-d","explore-k","explore-o","explore-l","explore-f","explore-b","explore-u","explore-j","explore-w","explore-v","explore-y","explore-z"];
+const PAGES = ['/english/dashboard', ...LESSON_IDS.flatMap(id => ['/english/lesson/' + id, '/english/learn/' + id])];
 const ASSETS = ['/english/media/write-big-p-v1.webp', '/english/media/write-small-p-v1.webp', '/english/media/write-big-i-v1.webp', '/english/media/write-small-i-v1.webp', '/english/media/write-big-n-v1.webp', '/english/media/write-small-n-v1.webp', '/english/media/p-sound.mp3', '/english/media/i-sound.mp3', '/english/media/n-sound.mp3', '/english/media/p-practice-v1.webp', '/english/media/i-practice-v1.webp', '/english/media/n-practice-v1.webp', '/english/offline.html', '/english/manifest.webmanifest', '/images/apty-mascot.png', '/english/media/s-practice-v1.webp', '/english/media/a-practice-v1.webp', '/english/media/t-practice-v1.webp', '/english/media/write-big-s-v1.webp', '/english/media/write-small-s-v1.webp', '/english/media/write-big-a-v1.webp', '/english/media/write-small-a-v1.webp', '/english/media/write-big-t-v1.webp', '/english/media/write-small-t-v1.webp', '/english/media/s-sound.mp3', '/english/media/a-sound.mp3', '/english/media/t-sound.mp3', '/english/icons/icon-192.png', '/english/icons/icon-512.png', '/english/icons/apple-touch-icon.png', '/english/icons/icon-maskable-512.png', '/english/fonts/Andika-OFL.txt'];
 
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE);
-    await cache.addAll(ASSETS);
+    await cache.addAll([...new Set([...ASSETS, ...[...'satpincmehrgdkolfbujwvyz'].map(letter => '/english/media/' + letter + '-sound.mp3')])]);
     // Save complete documents and their versioned Next assets together. Never
     // mix a Next server-component response with a document at the same URL.
     const assets = new Set();

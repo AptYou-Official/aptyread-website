@@ -5,9 +5,10 @@ const ts = require('typescript');
 require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileModule(fs.readFileSync(filename, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 } }).outputText, filename);
 const { createEnglishAudioPlayer } = require('../lib/english-audio-player.ts');
 const { chooseEnglishVoice } = require('../lib/english-voice.ts');
-const { narrationCue, englishNarration } = require('../lib/english-narration.ts');
+const { narrationCue, englishNarration, revisedNarrationIds } = require('../lib/english-narration.ts');
 const { readEnglishProgress, emptyProgress } = require('../lib/english-progress.ts');
-const { englishMedia } = require('../lib/english-curriculum.ts');
+const { englishMedia, englishSoundPracticeVideos, englishPaperWritingVideos, mediaFor } = require('../lib/english-curriculum.ts');
+const { programmeMedia } = require('../lib/english-programme-media.ts');
 const flush = () => new Promise(resolve => setImmediate(resolve));
 
 async function main() {
@@ -33,7 +34,7 @@ async function main() {
   const player = createEnglishAudioPlayer(id => urls[id], state => states.push(state));
   const cues = [];
   let result = player.sequence([narrationCue('build-find'), { id: 'sound-s' }, narrationCue('build-next'), { id: 'sound-a' }], index => cues.push(index));
-  assert.equal(spoken.at(-1).text, 'Find this sound.');
+  assert.equal(spoken.at(-1).text, englishNarration['build-find']);
   assert.equal(spoken.at(-1).voice, zira, 'Installed US female voice takes precedence over the system default');
   assert.equal(spoken.at(-1).lang, 'en-US');
   assert.equal(spoken.at(-1).pitch, 1, 'Keep natural pitch; do not simulate a younger speaker');
@@ -41,7 +42,7 @@ async function main() {
   spoken.at(-1).onend(); await flush();
   assert.equal(recordings.at(-1).src, '/s.mp3');
   recordings.at(-1).onended(); await flush();
-  assert.equal(spoken.at(-1).text, 'Now find this sound.');
+  assert.equal(spoken.at(-1).text, englishNarration['build-next']);
   spoken.at(-1).onend(); await flush();
   assert.equal(recordings.at(-1).src, '/a.mp3');
   recordings.at(-1).onended(); assert.equal(await result, true);
@@ -51,16 +52,16 @@ async function main() {
   const opening = [narrationCue('build-intro-sat'), narrationCue('build-tap'), { id: 'sound-s' }];
   const beforeOpeningSounds = recordings.length;
   result = player.sequence(opening);
-  assert.equal(spoken.at(-1).text, 'Let’s make a word together.');
+  assert.equal(spoken.at(-1).text, englishNarration['build-intro-sat']);
   spoken.at(-1).onerror({ error: 'not-allowed' });
   assert.equal(await result, false);
   assert.equal(states.at(-1).blocked, true);
   assert.equal(recordings.length, beforeOpeningSounds, 'Autoplay blocking must not skip the opening and play only /s/');
   result = player.sequence(opening);
   assert.equal(states.at(-1).blocked, false, 'A user retry clears the blocked state');
-  assert.equal(spoken.at(-1).text, 'Let’s make a word together.');
+  assert.equal(spoken.at(-1).text, englishNarration['build-intro-sat']);
   spoken.at(-1).onend(); await flush();
-  assert.equal(spoken.at(-1).text, 'Now tap');
+  assert.equal(spoken.at(-1).text, englishNarration['build-tap']);
   spoken.at(-1).onend(); await flush();
   assert.equal(recordings.at(-1).src, '/s.mp3');
   recordings.at(-1).onended(); assert.equal(await result, true);
@@ -125,6 +126,22 @@ async function main() {
   assert.equal(states.at(-1).playing, false);
 
   for (const id of Object.keys(englishNarration)) assert.ok(Object.hasOwn(englishMedia, id), `Recording slot for ${id}`);
+  for (const id of revisedNarrationIds) {
+    assert.equal(mediaFor(id), programmeMedia[id] ?? englishMedia[id], `${id}: revised directions cannot silently resolve to the stale v1 narration`);
+  }
+  const revisedId = revisedNarrationIds[0];
+  const previousOverride = programmeMedia[revisedId];
+  try {
+    programmeMedia[revisedId] = '/test-only-revised-direction.mp3';
+    assert.equal(mediaFor(revisedId), programmeMedia[revisedId], 'An explicitly approved replacement still overrides revised TTS');
+  } finally {
+    if (previousOverride === undefined) delete programmeMedia[revisedId]; else programmeMedia[revisedId] = previousOverride;
+  }
+  for (const letter of 'satpincmehrgdkolfbujwvyz') assert.equal(mediaFor(`sound-${letter}`), `/english/media/${letter}-sound.mp3`, 'Shortening directions preserves real phoneme recordings');
+  for (const letter of 'satpin') {
+    assert.ok(englishSoundPracticeVideos[letter]?.src, 'The mouth model remains registered');
+    assert.ok(englishPaperWritingVideos[letter]?.src && englishPaperWritingVideos[letter.toUpperCase()]?.src, 'Both writing models remain registered');
+  }
   for (const mode of ['guided', 'independent']) {
     const saved = { stage: 0, built: 's', reads: 0, answers: {}, started: true, mode };
     const restored = readEnglishProgress(JSON.stringify({ ...emptyProgress(), words: { sat: saved } }));

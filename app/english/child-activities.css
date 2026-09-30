@@ -1,7 +1,7 @@
 /* Ages 4–7: generous targets, one visible action and a separate adult space.
    Sizes are product choices above the 44px enhanced accessibility baseline. */
 .en-player { background: #fffaf2; }
-.en-guided-player { background: radial-gradient(ellipse at 50% 40%, #edf8f5 0, transparent 68%), #fffaf2; }
+.en-guided-player { background: radial-gradient(ellipse at 8% 30%, #e2f1de 0, transparent 42%), radial-gradient(ellipse at 94% 70%, #e3f1f7 0, transparent 40%), #fffaf2; }
 .en-player .en-player-header { gap: 14px; align-items: center; }
 .en-player .en-player-title { min-width: 0; }
 .en-player .en-player-title strong { display: block; }
@@ -52,6 +52,45 @@
 .en-guided-word .en-companion-bubble { border-color: #cddfe6; }
 .en-player button:focus-visible, .en-player a:focus-visible { outline: 3px solid #173a8a; outline-offset: 4px; }
 
+/* Cream paper, mint task trays and blue audio. Every answer in a choice set
+   uses the same treatment; colour never supplies the correct answer. */
+.en-player .en-player-progress { background: #dce9da; }
+.en-player .en-player-progress > span { background: #468e6d; border-radius: 0 6px 6px 0; }
+.en-player .en-player-header .en-icon-button { border-color: #bbd4c8; box-shadow: 0 3px 0 #dce9df; color: #285a61; }
+.en-player .en-step-menu { border-color: #c5d9d0; background: #fffefa; }
+.en-guided-word .en-companion-halo { background: #d6ebc6; border: 1px solid #c5dfb5; }
+.en-guided-word .en-companion-bubble { background: #fffef7; border-color: #b9d4c4; box-shadow: 0 5px 0 #d5e6d8; }
+.en-guided-word .en-companion-spark { color: #ba8124; }
+.en-guided-word .en-build-card { background: linear-gradient(160deg, #fffef8, #f1f8e9); border-color: #b6cfae; box-shadow: 0 7px 0 #d0dfc4, 0 16px 30px #2b5a3d0a; }
+.en-guided-word .en-build-card::before { border-color: #e0eacc; }
+.en-guided-word .en-letter-bank .en-letter-tile:not(.is-hint):not(.is-used) { color: #203e55; background: #fff; border-color: #b9d1c8; box-shadow: 0 6px 0 #bfd7cc, 0 9px 12px #244d3b08; }
+.en-guided-word .en-reading-studio { background: linear-gradient(145deg, #e4f1ed, #f7f7df); border-color: #c1d8c8; }
+.en-guided-word .en-big-word { border-color: #b2cfc6; box-shadow: 0 7px 0 #c0d8cc, 0 16px 30px #284b3c0a; }
+.en-guided-word .en-meaning-studio { background: #fffef7; border-color: #bdd5c4; box-shadow: 0 7px 0 #d4e4cd, 0 18px 38px #284b3c08; }
+.en-guided-word .en-picture-choices button:not(.is-correct) { border-color: #bfd4c5; box-shadow: 0 6px 0 #cbddcc, 0 12px 25px #28513d09; }
+.en-player .en-link-choice:not(.is-sounding):not(.is-matched), .en-player .en-link-single:not(.is-sounding) { background: #fffefa; border-color: #b8d2c2; box-shadow: 0 7px 0 #c3d9c8, 0 15px 26px #28513d0a; }
+.en-player .en-link-speaker:not(.is-playing) { background: #e4f3fa; border-color: #85b5cc; color: #15597a; box-shadow: 0 4px 0 #b2d2e0, 0 0 0 9px #e1f0f4, 0 0 0 18px #edf6f5; }
+.en-player .en-sound-circle { border-color: #ceb971; background: linear-gradient(145deg, #fff3c8, #f0e9b9); box-shadow: 0 7px 0 #ded6a5, 0 18px 38px #5c65310d; }
+.en-player .en-sound-circle-inner { background: #e3f2f7; }
+.en-player .en-sentence-card:not(.is-current):not(.is-found) { background: #fffef7; border-color: #cfdfc9; box-shadow: 0 4px 0 #dbe6d2; }
+.en-player .en-sentence-card.is-current { background: #f1f8ed; border-color: #6d9f81; box-shadow: 0 5px 0 #c2d9bc, 0 14px 26px #29563b0a; }
+.en-player .en-sentence-word:not(.is-found) { background: #fff; border-color: #c0d6cf; box-shadow: 0 3px 0 #cfe1d9; }
+.en-player .en-video-frame { border-color: #b5d1c5; box-shadow: 0 6px 0 #c4dace, 0 18px 36px #28513d0c; }
+.en-player .en-dock-audio { background: #e5f2f8; color: #155d7c; border-color: #9dbfd0; box-shadow: 0 3px 0 #c0d9e4; }
+
+/* Icons communicate the current action without adding another text block. */
+.en-action-prompt { display: inline-flex; align-items: center; justify-content: center; gap: 10px; max-width: 100%; vertical-align: middle; }
+.en-action-symbol { display: inline-grid; place-items: center; flex-shrink: 0; width: 42px; height: 42px; border-radius: 14px; color: #215f70; background: #dff0f1; }
+.en-action-symbol > svg { width: 25px; height: 25px; }
+.en-action-prompt > span:last-child { min-width: 0; }
+.en-word-dock > .en-action-prompt { flex: 1; min-height: 60px; margin: 0; color: #28564e; font-size: 19px; font-weight: 700; line-height: 1.3; }
+.en-guided-word[data-action="make"] .en-action-symbol, .en-guided-word[data-action="find"] .en-action-symbol { color: #356246; background: #dfedce; }
+.en-player .en-word-read-cta > span:not(.en-word-read-dots) { font-size: 19px; font-weight: 700; }
+
+/* The invitation ends after a few repeats; the task stays still while a child thinks. */
+.en-player .en-link-action-cue svg, .en-player .en-sentence-action-cue:not(.is-listening) svg,
+.en-player .en-sound-practice.is-holding .en-sound-circle, .en-player .en-sound-turn-pulse { animation-iteration-count: 3; }
+
 @keyframes en-child-tile-cue { 50% { outline-color: #e8b13b; outline-offset: 7px; } }
 @keyframes en-child-hand-cue { 0%,100% { transform: translateY(0) rotate(-12deg); } 50% { transform: translateY(-7px) rotate(-12deg); } }
 
@@ -77,6 +116,9 @@
   .en-player .en-sentence-word { font-size: 27px; min-height: 56px; padding: 8px 10px; }
   .en-guided-word .en-picture-choices { gap: 12px; }
   .en-writing-practice.is-trace .en-companion-bubble { padding: 14px; }
+  .en-action-prompt { gap: 8px; }
+  .en-action-symbol { width: 34px; height: 34px; border-radius: 11px; }
+  .en-action-symbol > svg { width: 22px; height: 22px; }
 }
 @media (max-width: 360px) {
   .en-player .en-player-main { padding-left: 12px; padding-right: 12px; }

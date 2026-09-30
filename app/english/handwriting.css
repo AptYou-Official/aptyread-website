@@ -1,0 +1,40 @@
+/* Warm paper colours frame the existing guide without covering the drawing area. */
+.en-handwriting{--en-task-tint:#f7f2df;--en-task-edge:#d8cba7;--en-task-base:#e6ddc0}
+.en-handwriting .en-trace-pad{background:#fffef9;border-color:#c8b98e;box-shadow:0 5px 0 #e4dac0}
+.en-handwriting .en-trace-demo-button{background:#edf5fb;border-color:#a0c3d3;color:#195e7e}
+.en-handwriting-heading{text-align:center;margin:0 0 18px}.en-handwriting-heading h1{font-size:clamp(24px,5vw,34px);line-height:1.3;margin:8px 0;color:var(--en-ink)}.en-handwriting-heading-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}.en-handwriting-skip{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:10px 15px;border:1px solid #aecfc4;border-radius:16px;background:#fff;color:#245b66;font-size:16px;font-weight:700}
+.en-handwriting-cases{display:flex;justify-content:center;gap:14px;margin:0 auto 16px}.en-handwriting-cases button{position:relative;display:flex;align-items:center;gap:12px;min-width:132px;min-height:76px;padding:8px 20px;border:2px solid #c9dedc;border-radius:20px;background:#fff;color:#30505d}.en-handwriting-cases button[aria-pressed=true]{background:#e6f5ed;border-color:#5aab97;box-shadow:0 4px 0 #9fcfbc}.en-handwriting-cases strong{font:700 43px/1.2 var(--font-andika),sans-serif}.en-handwriting-cases span{font-weight:700}.en-handwriting-cases button>svg{position:absolute;right:5px;top:5px;color:#34744e}
+.en-handwriting-modes{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin:20px 0}.en-handwriting-modes button{display:flex;align-items:center;justify-content:center;gap:7px;min-height:50px;padding:10px 15px;border:1px solid #c7dcd9;border-radius:16px;background:#fff;color:#325762;font-size:15px;font-weight:700}.en-handwriting-modes button[aria-pressed=true]{background:#e4f1f8;border-color:#6cacc3;color:#175c7a}
+.en-handwriting-cue{min-height:28px;max-width:520px;margin:8px auto 12px;text-align:center;color:#386c65;font-size:18px;font-weight:700;line-height:1.5}.en-handwriting-stroke,.en-handwriting-moving-dot{pointer-events:none}.en-handwriting-start text{font-family:var(--font-andika),sans-serif}
+.en-handwriting-steps{max-width:540px;margin:15px auto;color:#3b5e67;font-size:15px}.en-handwriting-steps summary{min-height:48px;padding:10px 12px;cursor:pointer;font-weight:700}.en-handwriting-steps ol{margin:5px 0;padding-left:37px}.en-handwriting-steps li{padding:5px 4px;line-height:1.5}.en-handwriting-step-audio{display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;width:48px;height:48px;margin-left:9px;border:1px solid #c6dcdb;border-radius:50%;background:#f2f8f4;color:#22637b}
+.en-handwriting-paper{display:flex;align-items:center;flex-direction:column;gap:14px;text-align:center}.en-handwriting-paper>p{font-size:18px;line-height:1.5;margin:0}.en-handwriting-video{position:relative;width:min(100%,450px);aspect-ratio:1;background:#f3f8f0;border:2px solid #d4e4dc;border-radius:24px;overflow:hidden}.en-handwriting-video video{width:100%;height:100%;object-fit:contain;background:#f3f8f0}.en-handwriting-video-cover{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;border:0;background:#f2f8ed;color:#264b61}.en-handwriting-video-cover strong{font:700 clamp(110px,23vw,180px)/1.1 var(--font-andika),sans-serif}.en-handwriting-video-cover span{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:700;background:#ffdf84;border-radius:20px;padding:12px 20px;box-shadow:0 4px 0 #dbbd69}.en-handwriting-paper-dock{width:min(100%,460px)}.en-handwriting-exit{display:flex;justify-content:center;margin:16px auto 4px}.en-handwriting-exit button{min-height:52px;font-size:18px;font-weight:700;padding:10px 24px;background:#fff;border:1px solid #c4ddd6;border-radius:17px}
+.en-handwriting button:disabled{opacity:.55}.en-handwriting button:focus-visible,.en-handwriting-steps summary:focus-visible{outline:3px solid #e7a728;outline-offset:4px}
+@media(max-width:520px){
+  .en-handwriting .en-programme-stage{padding:10px 10px 16px;min-height:0}
+  .en-handwriting-heading{margin-bottom:8px}.en-handwriting-heading h1{font-size:24px;line-height:1.2;margin:7px 0 9px}
+  .en-handwriting-heading-row{flex-wrap:nowrap;gap:6px}.en-handwriting-heading-row>.en-hub-kicker{flex:1;min-width:0;font-size:8px;line-height:1.4;letter-spacing:.7px;text-align:left;white-space:normal}
+  .en-handwriting-skip{flex-shrink:0;min-height:48px;padding:8px 11px;font-size:15px;gap:6px}
+  .en-handwriting-cases{gap:10px;margin-bottom:8px}.en-handwriting-cases button{min-width:112px;min-height:64px;padding:5px 13px;gap:10px}.en-handwriting-cases strong{font-size:36px}
+  .en-handwriting-modes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:10px 0}
+  .en-handwriting-modes button{min-width:0;min-height:48px;font-size:14px;padding:8px 5px;gap:5px}.en-handwriting-modes button>svg{flex-shrink:0;width:18px;height:18px}
+  .en-handwriting .en-trace-toolbar{position:static;display:flex;flex-wrap:nowrap;justify-content:center;width:auto;min-height:48px;margin:0 0 4px;gap:6px;font-size:12px}
+  .en-handwriting .en-trace-toolbar>span{flex:1;min-width:0;text-align:center;line-height:1.35}.en-handwriting .en-trace-listen{flex-shrink:0;width:48px;height:48px;min-height:48px}
+  .en-handwriting .en-trace-demo-button{flex-shrink:0;min-height:48px;padding:8px;font-size:13px;gap:5px}
+  .en-handwriting-cue{min-height:39px;margin:3px auto 5px;font-size:15px;line-height:1.3}
+  .en-handwriting .en-trace-pad{display:block;width:100%;min-height:200px;margin:0 auto}
+  .en-handwriting-steps{margin:9px auto}.en-handwriting-paper{gap:10px}.en-handwriting-paper>p{font-size:16px;line-height:1.35}.en-handwriting-video{max-width:320px}
+}
+@media(max-width:520px) and (orientation:portrait){
+  .en-player .en-handwriting .en-word-dock{position:static;left:auto;right:auto;bottom:auto;transform:none;width:100%;max-width:460px;margin:12px auto 0;padding:10px;border:1px solid #d9e7eb;border-radius:20px}
+}
+@media(max-height:500px) and (orientation:landscape){
+  .en-handwriting .en-programme-stage{min-height:0;padding:10px 14px 14px}.en-handwriting-heading{margin-bottom:8px}.en-handwriting-heading h1{font-size:24px;margin:5px 0 8px}
+  .en-handwriting-cases{margin-bottom:8px}.en-handwriting-cases button{min-height:64px;padding:5px 16px}.en-handwriting-cases strong{font-size:36px}
+  .en-handwriting-modes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:400px;margin:9px auto;gap:8px}.en-handwriting-modes button{min-height:48px;padding:8px}
+  .en-handwriting .en-trace-toolbar{position:static;display:flex;grid-template-columns:none;flex-wrap:nowrap;justify-content:center;width:auto;max-width:430px;margin:0 auto 4px;min-height:48px;gap:8px}
+  .en-handwriting .en-trace-toolbar>span{flex:1;min-width:0}.en-handwriting .en-trace-toolbar button{min-height:48px}.en-handwriting .en-trace-listen{width:48px;height:48px}
+  .en-handwriting-cue{min-height:24px;margin:4px auto 6px;font-size:16px}.en-handwriting .en-trace-pad{display:block;width:min(100%,430px);height:min(200px,55dvh);min-height:0;max-height:200px;margin:auto}
+  .en-handwriting-video{width:min(100%,260px,55dvh);max-height:260px}.en-handwriting-video-cover{gap:8px}.en-handwriting-video-cover strong{font-size:clamp(60px,20dvh,100px)}.en-handwriting-video-cover span{font-size:15px;padding:8px 12px;gap:6px}
+  .en-player .en-handwriting .en-word-dock{position:static;left:auto;right:auto;bottom:auto;transform:none;width:100%;max-width:460px;margin:12px auto 0;padding:10px;border:1px solid #d9e7eb;border-radius:20px}
+}
+@media(prefers-reduced-motion:reduce){.en-handwriting-moving-dot{display:none}.en-handwriting-stroke{stroke-dashoffset:0!important}.en-handwriting *{animation:none!important;scroll-behavior:auto!important}}

@@ -1,5 +1,9 @@
 # AptyRead English — project handover
 
+**Current implementation (30 September 2026):** the complete Level 1 prototype is described in [LEVEL_ONE_PROGRAMME.md](LEVEL_ONE_PROGRAMME.md). It has 10 core lessons / 65 activities, 24 optional letter routes, an isolated grown-up preview, and a [replaceable media registry and recording plan](media/README.md). The [opening journey refinement](OPENING_JOURNEY_REFINEMENT.md) embeds optional formation invitations after new sounds, connects all 48 completed handwriting clips and distinguishes guided practice from My turn. These contracts supersede the scope, ordering and publication boundaries in the historical snapshot below. The original activity/media IDs and saved participation remain supported.
+
+**Activity refinement:** directions now give the current action in short phrases; guided tile placement avoids repeating a full instruction queue after each tap. Programme screens use one primary Listen control and update the prompt after the model. Book preparation is paced across 3–6 small cards with saved position, relevant visual models and a read-together fallback. Twenty revised legacy cues use current TTS instead of stale v1 wording until exact replacements are explicitly registered. Stories, taught phonemes and independent first attempts retain their learning purpose. Activity surfaces use the established mint/cream palette, clearer letter contrast and restrained cues. See the [verification record](LEVEL_ONE_VERIFICATION.md) and recording plan for current checks and scripts.
+
 Updated 28 September 2026, after adding Lesson 5 Topic 13. This preserves the important decisions from the long development conversation. Verify the current code and working tree before making changes; later user instructions supersede this snapshot.
 
 ## Purpose and audience
