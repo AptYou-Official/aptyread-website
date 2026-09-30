@@ -88,7 +88,9 @@ async function main() {
   }
   assert.ok(orders.size > 1, 'Choices are not permanently tied to one position');
 
-  const React = require('react'), { renderToStaticMarkup } = require('react-dom/server');
+  const React = require('react'), { renderToStaticMarkup: renderMarkup } = require('react-dom/server');
+  const EnglishProvider = require('../components/english/EnglishProvider.tsx').default;
+  const renderToStaticMarkup = element => renderMarkup(React.createElement(EnglishProvider, null, element));
   const LetterCases = require('../components/english/LetterCases.tsx').default;
   for (const letter of ['s', 'a', 't', 'p', 'i', 'n']) {
     const html = renderToStaticMarkup(React.createElement(LetterCases, { letter, onComplete() {} }));
@@ -98,6 +100,10 @@ async function main() {
     assert.ok(!html.includes('Choose the letter for the sound'), 'Sound is not the task');
     assert.ok(html.includes('0 of 2 practice stars earned'));
     assert.ok(html.includes('Your next action'));
+    const choices = [...html.matchAll(/<button\b[^>]*aria-label="Choose (?:big|small) [^"]+"[^>]*>/g)].map(match => match[0]);
+    assert.equal(choices.length, 3);
+    assert.ok(choices.every(choice => !/is-hint|is-sounding|is-matched|aria-current|disabled=/.test(choice)), 'Visual recognition choices do not reveal the matching letter');
+    assert.ok(!html.includes('en-tap-demonstration'));
   }
   console.log('Passed: visual big/small rounds, optional sound reinforcement, retry clarity, two-star progress, recovery and uncluttered rendering.');
 }

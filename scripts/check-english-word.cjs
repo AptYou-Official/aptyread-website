@@ -48,11 +48,22 @@ for (const word of ['at', 'sat', 'pin', 'sit']) {
   assert.ok(!html.includes('Build on my own') && !html.includes('Let’s start'), 'No opening or mode-selection screen');
   assert.deepEqual([...html.matchAll(/aria-label="Add (\w)"/g)].map(m => m[1]), [...word], 'Tiles follow the word order');
   assert.equal((html.match(/<button[^>]*aria-current="step"/g) || []).length, 1, 'Only the current letter is active');
+  assert.equal((html.match(/class="en-tap-demonstration"/g) || []).length, 1, 'Guided construction demonstrates exactly one intended tap');
+  assert.match(html, /<dialog[^>]*aria-labelledby=/, 'Grown-up help has a named, initially closed dialog');
+  assert.ok(!/<dialog[^>]*\bopen(?:[\s=>])/.test(html), 'Adult guidance does not open over the child on entry');
   assert.match(html, /class="en-word-dock"/, 'Main action uses the mobile dock');
   assert.ok(!html.includes('Watch and say'), 'No empty video placeholder');
+  for (let built = 1; built <= word.length; built++) {
+    progress.words[word] = { ...freshGuidedWord(), built: word.slice(0, built) };
+    const tiles = [...render(word).matchAll(/<button\b[^>]*data-letter-tile="([^"]+)"[^>]*>[\s\S]*?<\/button>/g)];
+    const hinted = tiles.filter(tile => tile[0].includes('en-tap-demonstration'));
+    assert.deepEqual(hinted.map(tile => tile[1]), built < word.length ? [word[built]] : [], 'The guided cue moves to the next letter and disappears when the word is built');
+    assert.ok(hinted.every(tile => !tile[0].includes('disabled=""')), 'The demonstrated letter is actually tappable');
+  }
   englishPronunciationVideos[word] = { kind: 'file', src: '/test-only-model.mp4' };
   progress.words[word] = { ...freshGuidedWord(), stage: 1, built: word };
   assert.ok(!render(word).includes('en-word-model-open'), 'The child gets the first reading try before the video model');
+  assert.ok(!render(word).includes('en-tap-demonstration'), 'Reading turns do not inherit the guided letter cue');
   progress.words[word].reads = 1;
   html = render(word);
   assert.ok(html.includes('Watch and say') && html.includes('Tap to read again'));
@@ -60,6 +71,13 @@ for (const word of ['at', 'sat', 'pin', 'sit']) {
   progress.words[word].reads = 2;
   assert.ok(render(word).includes('Next'), 'Two tries can proceed without watching a video');
   englishPronunciationVideos[word] = originalVideo;
+}
+for (const stage of [3, 4]) {
+  progress = { ...emptyProgress(), words: { sat: { ...freshGuidedWord(), built: 'sat', reads: 2, stage } } };
+  const choices = [...render('sat').matchAll(/<button\b[^>]*aria-label="Picture [^"]+"[^>]*>/g)].map(match => match[0]);
+  assert.equal(choices.length, 2, 'Both meaning alternatives remain available');
+  assert.ok(choices.every(choice => !/is-hint|is-correct|is-sounding|aria-current|disabled=/.test(choice)), 'Unaided meaning choices never inherit an answer cue');
+  assert.ok(!render('sat').includes('en-tap-demonstration'));
 }
 // Run the component's real mount effects with isolated media and document stubs.
 // This catches a missing entry trigger, which a pure cue-order test cannot find.
@@ -73,7 +91,7 @@ async function checkOpeningEffects() {
   let blocked = false;
   const sequence = async cues => { played.push(cues.map(cue => cue.id)); return true; };
   audioModule.default = () => ({ sequence, play() {}, stop() {}, playing: false, blocked, notice: blocked ? 'Tap the speaker to listen.' : '' });
-  global.document = { hidden: false, addEventListener: (_, fn) => listeners.add(fn), removeEventListener: (_, fn) => listeners.delete(fn) };
+  global.document = { hidden: false, getElementById: () => null, addEventListener: (_, fn) => listeners.add(fn), removeEventListener: (_, fn) => listeners.delete(fn) };
   const mount = (word, saved) => {
     progress = { ...emptyProgress(), words: saved ? { [word]: saved } : {} };
     effects = [];
@@ -108,8 +126,10 @@ async function checkOpeningEffects() {
     assert.deepEqual(played, [['build-intro-at', 'build-tap', 'sound-a']]);
     background(); assert.equal(listeners.size, 0);
     blocked = true; progress = emptyProgress();
-    assert.match(render('sat'), /Tap to listen/, 'Autoplay rejection offers a same-screen replay button');
-    console.log('Passed: guided builds, real phonemes, resume, reading/video gates, opening on entry once, Strict Mode cleanup, hidden-page deferral and autoplay fallback.');
+    const blockedHtml = render('sat');
+    assert.match(blockedHtml, /<button class="en-dock-audio[^>]*aria-label="Hear the instructions"[^>]*>[\s\S]*?<small>Listen<\/small><\/button>/, 'Autoplay rejection retains a labeled same-screen replay button');
+    assert.match(blockedHtml, /data-letter-tile="s"[^>]*aria-current="step"/, 'The visual first action remains available when sound is blocked');
+    console.log('Passed: guided cue progression without answer leakage, real phonemes, resume, reading/video gates, opening on entry once, Strict Mode cleanup, hidden-page deferral and autoplay fallback.');
   } finally {
     React.useEffect = originalEffect; audioModule.default = originalAudio; global.document = originalDocument;
   }

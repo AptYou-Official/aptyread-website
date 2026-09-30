@@ -5,12 +5,13 @@ import { englishLessons, englishVideos, EnglishLesson } from '@/lib/english-curr
 import { englishAccess } from '@/lib/english-progress';
 import { useEnglish } from './EnglishProvider';
 import Icon from './Icons';
-import LessonTopics from './LessonTopics';
+import LessonTopics, { TopicPicture } from './LessonTopics';
+import LessonJourney from './LessonJourney';
 
 export default function LessonOverview({ lesson }: { lesson: EnglishLesson }) {
   const { progress, ready, offline } = useEnglish();
   const access = englishAccess(progress);
-  const lessonNumber = englishLessons.indexOf(lesson) + 1;
+  const lessonNumber = englishLessons.findIndex(item => item.id === lesson.id) + 1;
   const completed = lesson.activities.filter(activity => access.completed.has(activity.id)).length;
   const done = completed === lesson.activities.length;
   const unlocked = ready && access.lessons.has(lesson.id);
@@ -22,13 +23,13 @@ export default function LessonOverview({ lesson }: { lesson: EnglishLesson }) {
   return <div className="en-lesson-overview">
     <a className="en-skip" href="#lesson-overview-main">Skip to topics</a>
     <header className="en-overview-header">
-      <Link className="en-overview-back" href="/english/dashboard" aria-label="Back to learning path"><Icon name="back" size={19} /><span>Learning path</span></Link>
+      <Link className="en-overview-back" href="/english/dashboard" aria-label="Back to learning home"><Icon name="home" size={26} /><span>Home</span></Link>
       <div className="en-overview-heading">
         <span className="en-hub-kicker">LEVEL 1 · LESSON {lessonNumber}</span>
         <h1>{title}</h1>
         <div className="en-overview-progress" aria-label={`${completed} of ${lesson.activities.length} topics completed`}>
           <span><i style={{ width: `${100 * completed / lesson.activities.length}%` }} /></span>
-          <small>{completed} of {lesson.activities.length} complete</small>
+          <small>{completed} / {lesson.activities.length}</small>
         </div>
       </div>
       <span className="en-hub-language"><i /> English</span>
@@ -36,16 +37,17 @@ export default function LessonOverview({ lesson }: { lesson: EnglishLesson }) {
     <main id="lesson-overview-main" className="en-overview-main" tabIndex={-1}>
       {offline && <p role="status" className="en-notice">You’re offline. Saved activities and letter sounds are available.</p>}
       <section className={`en-overview-continue ${done ? 'is-done' : unavailable ? 'is-waiting' : !unlocked ? 'is-locked' : ''}`} aria-labelledby="continue-title">
-        <div>
-          <span className="en-hub-kicker">{done ? 'LESSON COMPLETE' : unavailable ? 'KEEP GOING' : !unlocked ? 'LOCKED' : next ? 'CONTINUE HERE' : 'START HERE'}</span>
-          <h2 id="continue-title">{done ? 'Look how far you’ve come.' : unavailable ? next.title : !unlocked ? `Finish Lesson ${lessonNumber - 1} first.` : next ? next.title : 'Choose a topic to practise.'}</h2>
-          <p>{done ? 'Every topic is ready to revisit whenever you like.' : unavailable ? 'Your place is saved.' : !unlocked ? 'This lesson will open when the earlier lessons are complete.' : next ? 'One small step is waiting for you.' : 'Pick any finished topic and try it again.'}</p>
+        <div className="en-overview-next-copy">
+          {next && unlocked && <TopicPicture activity={next} />}
+          <div><span className="en-hub-kicker">{!ready ? 'WELCOME' : done ? 'YOU DID IT!' : unavailable ? 'KEEP PLAYING' : !unlocked ? 'COMING UP' : next ? 'UP NEXT' : 'PLAY AGAIN'}</span>
+          <h2 id="continue-title">{!ready ? 'Getting ready…' : done ? 'Let’s play again!' : unavailable ? next.title : !unlocked ? `First, play Lesson ${Math.max(1, lessonNumber - 1)}.` : next ? next.title : 'Choose an activity.'}</h2>
+          <p>{!ready ? 'Your activities will be ready in a moment.' : done ? 'Pick a favourite below.' : unavailable ? 'Your place is saved.' : !unlocked ? 'Then this lesson will be ready for you.' : next ? 'Ready when you are.' : 'You can try it again.'}</p></div>
         </div>
-        {unlocked && next && !unavailable ? <Link className="en-hub-cta" href={continueHref}>{completed ? 'Continue' : 'Let’s begin'}<span><Icon name="arrow" size={24} /></span></Link> : done ? <Link className="en-overview-secondary" href={`/english/learn/${lesson.id}`}>Practise again <Icon name="redo" size={18} /></Link> : <span className="en-overview-state"><Icon name="lock" size={18} />{unavailable ? 'Locked' : `After Lesson ${lessonNumber - 1}`}</span>}
+        {unlocked && next && !unavailable ? <Link className="en-hub-cta" href={continueHref}>{completed ? 'Play next' : 'Let’s play'}<span><Icon name="play" size={28} /></span></Link> : ready && done ? <Link className="en-hub-cta" href={`/english/learn/${lesson.id}`}>Play again <span><Icon name="redo" size={26} /></span></Link> : ready ? <span className="en-overview-state"><Icon name="lock" size={20} />{unavailable ? 'Coming later' : `After Lesson ${Math.max(1, lessonNumber - 1)}`}</span> : null}
       </section>
       <section className="en-overview-topics" aria-labelledby="topics-title">
-        <div className="en-overview-section-heading"><div><span className="en-hub-kicker">ONE STEP AT A TIME</span><h2 id="topics-title">Topics in this lesson</h2></div><span>{completed} / {lesson.activities.length}</span></div>
-        <LessonTopics lesson={lesson} />
+        <div className="en-overview-section-heading"><div><h2 id="topics-title">{lesson.id === 'first-words' ? 'My little journey' : 'Let’s explore'}</h2></div>{lesson.id !== 'first-words' && <span>{lesson.activities.length} activities</span>}</div>
+        {lesson.id === 'first-words' ? <LessonJourney lesson={lesson} /> : <LessonTopics lesson={lesson} />}
       </section>
     </main>
   </div>;

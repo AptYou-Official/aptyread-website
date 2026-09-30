@@ -17,6 +17,7 @@ const oldReview = { stage: 6, heard: ['at', 'sat'], matched: ['at', 'sat'], read
 async function main() {
   assert.equal(lesson.id, 'more-words');
   assert.equal(lesson.activities.length, 13);
+  assert.equal(prior.length, 29, 'The first four lessons contain 29 topics after duplicate find-s removal');
   assert.equal(englishAccess(opening).next.activity.id, 'meet-p');
   assert.equal(englishAccess({ ...opening, completed: prior.slice(0, -1) }).lessons.has(lesson.id), false);
   let progress = opening;
@@ -84,8 +85,8 @@ async function main() {
     act({ type: 'choose', word: 'sit' }); act({ type: 'next' });
     const first = reviewReadingWord(p.moreWords, 'more');
     act({ type: 'read' }); assert.notEqual(reviewReadingWord(p.moreWords, 'more'), first);
-    assert.equal(p.completed.length, 41);
-    act({ type: 'read' }); assert.equal(p.completed.length, 42);
+    assert.equal(p.completed.length, 40);
+    act({ type: 'read' }); assert.equal(p.completed.length, 41);
     assert.equal(englishAccess(p).next.activity.id, 'more-words-with-apty');
     assert.equal(readFirstWords(p.moreWords), undefined, 'Review pairs cannot be substituted');
     const replay = enterEnglishActivity(p, lesson.id, 'more-little-words');
@@ -93,6 +94,6 @@ async function main() {
     assert.deepEqual(replay.completed, p.completed);
   }
   for (const id of ['review-read', 'review-read-next']) assert.doesNotMatch(englishNarration[id], /\b(pin|sit)\b/i);
-  console.log('Passed: Lesson 5 sequence, explicit audio-introduction provenance, six real sound assets, three-choice taught-only rounds/retries, pin/sit builds and reload, independent review storage/gates/orders/replay, 42 completed topics unlock new-word application.');
+  console.log('Passed: Lesson 5 sequence, explicit audio-introduction provenance, six real sound assets, three-choice taught-only rounds/retries, pin/sit builds and reload, independent review storage/gates/orders/replay, 41 completed topics unlock new-word application.');
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });

@@ -12,7 +12,7 @@ const { englishLessons, englishPronunciationVideos } = require('../lib/english-c
 const { emptyProgress, updateApplication, completeEnglishActivity, enterEnglishActivity, englishAccess, readEnglishProgress } = require('../lib/english-progress.ts');
 const { englishNarration } = require('../lib/english-narration.ts');
 let progress = { ...emptyProgress(), completed: englishLessons.slice(0, 5).flatMap(l => l.activities.map(a => a.id)).filter(id => id !== APPLICATION_ID) };
-assert.equal(progress.completed.length, 42);
+assert.equal(progress.completed.length, 41);
 assert.equal(englishAccess(progress).next.activity.id, APPLICATION_ID);
 const locked = emptyProgress(); assert.equal(updateApplication(locked, { type: 'tried' }), locked);
 assert.equal(completeEnglishActivity(progress, APPLICATION_ID), progress);
@@ -40,7 +40,7 @@ for (const word of ['pan', 'tap']) {
   assert.ok(!progress.completed.includes(APPLICATION_ID), 'Building alone cannot complete a reading activity');
   act({ type: 'read-back' });
 }
-assert.equal(progress.completed.length, 43); assert.equal(englishAccess(progress).next.activity.id, 'meet-p-cases');
+assert.equal(progress.completed.length, 42); assert.equal(englishAccess(progress).next.activity.id, 'meet-p-cases');
 assert.equal(progress.application.words.pan.readingHelp, false);
 assert.equal(progress.application.words.tap.readingHelp, true);
 assert.equal(progress.application.words.tap.spellingHelp, true);
@@ -83,7 +83,7 @@ async function checkOpening() {
   const played = [];
   let effects;
   audioModule.default = () => ({ sequence: async cues => { played.push(cues.map(c => c.id)); return true; }, stop() {}, playing: false, notice: '', blocked: false });
-  global.document = { hidden: false, addEventListener() {}, removeEventListener() {} };
+  global.document = { hidden: false, getElementById: () => null, addEventListener() {}, removeEventListener() {} };
   global.window = { location: { href: 'http://localhost:3100/english/learn/more-words' }, scrollTo() {}, addEventListener() {}, removeEventListener() {} };
   const mount = step => {
     progress = snapshots.find(p => p.application.step === step);
@@ -108,4 +108,4 @@ async function checkOpening() {
     global.document = originalDocument; global.window = originalWindow;
   }
 }
-checkOpening().then(() => console.log('Passed: 43-topic progression, reading and spelling gates, recovery/undo/reload, separate help records, state validation, replay preservation, picture/answer hiding, optional clip timing, Strict Mode entry and leave cancellation.')).catch(error => { console.error(error); process.exitCode = 1; });
+checkOpening().then(() => console.log('Passed: 42-topic progression, reading and spelling gates, recovery/undo/reload, separate help records, state validation, replay preservation, picture/answer hiding, optional clip timing, Strict Mode entry and leave cancellation.')).catch(error => { console.error(error); process.exitCode = 1; });

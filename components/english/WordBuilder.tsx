@@ -25,6 +25,7 @@ export default function WordBuilder({ word, onComplete, nextTopic }: { word: Rea
   const [blendIndex, setBlendIndex] = useState(-1);
   const [storyRun, setStoryRun] = useState(0);
   const [videoOpen, setVideoOpen] = useState(false);
+  const [hintRun, setHintRun] = useState(0);
   const [flight, setFlight] = useState<{ letter: string; index: number; serial: number; style: CSSProperties } | null>(null);
   const board = useRef<HTMLDivElement>(null);
   const flightSerial = useRef(0);
@@ -88,6 +89,7 @@ export default function WordBuilder({ word, onComplete, nextTopic }: { word: Rea
   }
   function directions() {
     stop();
+    setHintRun(value => value + 1);
     if (phase === 0) void audio.sequence(guidedWordPrompt(word, saved.built, !saved.built));
     else if (phase === 1) void audio.play(readingPrompt);
     else if (phase === 2) playStory();
@@ -162,7 +164,7 @@ export default function WordBuilder({ word, onComplete, nextTopic }: { word: Rea
       <div ref={board} className={`en-build-card ${saved.built === word ? 'is-built' : ''}`}>
         <div className="en-word-slots" aria-label={`Word built: ${saved.built || 'empty'}`}>{word.split('').map((letter, i) => <span key={i} data-letter-slot={i} className={i < saved.built.length ? 'is-filled' : i === saved.built.length ? 'is-next' : ''}>{i < saved.built.length ? <span className={`en-placed-letter ${flight?.index === i ? 'is-arriving' : ''}`}>{letter}</span> : i === saved.built.length ? <span className="en-letter-guide">{letter}</span> : <span className="en-empty-slot" aria-hidden="true" />}</span>)}</div>
         <div className="en-build-bridge" aria-hidden="true">{word.split('').map((letter, index) => <span key={letter} className={index < saved.built.length ? 'is-placed' : letter === nextLetter ? 'is-next' : ''}><Icon name={index < saved.built.length ? 'check' : 'arrow'} size={16} /></span>)}</div>
-        <div className="en-letter-bank" aria-label="Build from left to right">{word.split('').map((letter, index) => <button data-letter-tile={letter} className={`en-letter-tile ${letter === nextLetter ? 'is-hint' : ''} ${index < saved.built.length ? 'is-used' : ''}`} key={letter} onClick={() => tile(letter)} disabled={letter !== nextLetter} aria-label={`Add ${letter}`} aria-current={letter === nextLetter ? 'step' : undefined}>{letter}{index < saved.built.length ? <Icon name="check" size={18} /> : letter === nextLetter ? <Icon name="hand" size={16} /> : null}</button>)}</div>
+        <div className="en-letter-bank" aria-label="Build from left to right">{word.split('').map((letter, index) => <button data-letter-tile={letter} className={`en-letter-tile ${letter === nextLetter ? 'is-hint' : ''} ${index < saved.built.length ? 'is-used' : ''}`} key={letter} onClick={() => tile(letter)} disabled={letter !== nextLetter} aria-label={`Add ${letter}`} aria-current={letter === nextLetter ? 'step' : undefined}>{letter}{index < saved.built.length ? <Icon name="check" size={22} /> : letter === nextLetter ? <span key={hintRun} className="en-tap-demonstration" aria-hidden="true"><Icon name="hand" size={32} /></span> : null}</button>)}</div>
         {flight && <span key={flight.serial} className="en-travelling-letter" style={flight.style} aria-hidden="true" onAnimationEnd={() => setFlight(current => current?.serial === flight.serial ? null : current)}>{flight.letter}</span>}
       </div>
     </> : phase === 1 ? <>
@@ -188,14 +190,14 @@ export default function WordBuilder({ word, onComplete, nextTopic }: { word: Rea
     </section>
     {audio.notice && !(audio.blocked && phase === 0) && <p className="en-audio-note" role="status">{audio.notice}</p>}
     <div className="en-word-dock" aria-label="Your next action">
-      <button className={`en-dock-audio ${audio.playing ? 'is-playing' : ''}`} aria-label={audio.playing ? 'Stop listening' : phase === 2 ? 'Play the story again' : 'Hear the instructions'} onClick={audio.playing ? stop : directions}><Icon name={audio.playing ? 'close' : 'sound'} size={23} /></button>
-      {phase === 0 ? audio.blocked ? <button className="en-button" onClick={directions}><Icon name="sound" size={20} /> Tap to listen</button> : <button className="en-button en-word-build-cta" disabled={saved.built !== word || audio.playing} onClick={() => void blend()} aria-label={`Hear ${word} together`}><Icon name="sound" size={25} /><strong>{word}</strong><Icon name="arrow" size={20} /></button> :
+      <button className={`en-dock-audio ${audio.playing ? 'is-playing' : ''}`} aria-label={audio.playing ? 'Stop listening' : phase === 2 ? 'Play the story again' : 'Hear the instructions'} onClick={audio.playing ? stop : directions}><Icon name={audio.playing ? 'pause' : 'sound'} size={26} /><small>{audio.playing ? 'Stop' : 'Listen'}</small></button>
+      {phase === 0 ? nextLetter ? <div className="en-build-next-action" role="status"><Icon name="hand" size={26} /><span>Tap <strong>{nextLetter}</strong></span></div> : <button className="en-button en-word-build-cta" disabled={audio.playing} onClick={() => void blend()} aria-label={`Hear ${word} together`}><Icon name="sound" size={25} /><strong>{word}</strong><Icon name="arrow" size={20} /></button> :
         phase === 1 ? <>{saved.reads < 2 ? <button className="en-button en-word-read-cta" disabled={blending || audio.playing} onClick={read} aria-label={`${saved.reads === 0 ? 'Tap to read' : 'Tap to read again'} ${word}`}><Icon name="hand" size={27} /><strong>{word}</strong><span className="en-word-read-dots" aria-hidden="true">{saved.reads === 0 ? '○ ○' : '● ○'}</span></button> : <button className="en-button" onClick={next}>Next <Icon name="arrow" size={20} /></button>}</> :
         phase === 2 ? <button className="en-button" onClick={next}>{word !== 'sat' ? 'Next' : 'Let’s find a picture'} <Icon name="arrow" size={20} /></button> :
         phase < finishStage ? rightAnswer ? <button className="en-button" onClick={next}>{phase === 3 ? 'One more picture' : 'I did it!'} <Icon name="arrow" size={20} /></button> : <p>Tap the picture. Take your time.</p> :
         <button className="en-button en-next-topic" onClick={() => { stop(); onComplete(); }}><span className="en-next-topic-copy"><small>Next topic</small><strong>{nextTopic || 'Keep going'}</strong></span><span className="en-cta-arrow"><Icon name="arrow" size={23} /></span></button>}
     </div>
-    <ParentHelp kind="word">
+    <ParentHelp kind="word" onOpen={stop}>
       {phase === 0 && <button className="en-text-button" disabled={!saved.built.length} onClick={undo}><Icon name="back" size={17} /> Undo</button>}
     </ParentHelp>
   </div>;

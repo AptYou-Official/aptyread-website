@@ -3,6 +3,9 @@ import localFont from 'next/font/local';
 import EnglishProvider from '@/components/english/EnglishProvider';
 import './english.css';
 import './hub.css';
+import './child-hub.css';
+import './lesson-journey.css';
+import './child-activities.css';
 
 const andika = localFont({
   src: [

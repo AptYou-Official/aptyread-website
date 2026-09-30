@@ -58,7 +58,7 @@ export default function WritingPractice({ activity, suspended = false, onComplet
         {mode === 'invite' && <p>Or try with a pencil.</p>}
       </div>}
     </div>
-    {mode === 'trace' && <ParentHelp kind="trace" className="en-writing-parent" />}
+    {mode === 'trace' && <ParentHelp kind="trace" className="en-writing-parent" onOpen={quiet} />}
     {mode !== 'choose' && <button className="en-text-button en-writing-back" onClick={() => changeMode('choose')}><Icon name="back" size={17} /> Practice choices</button>}
     {mode !== 'trace' && <div className="en-word-dock en-writing-choice-dock" aria-label="Your next action">{mode === 'invite'
       ? <button className="en-button en-next-topic" onClick={() => { quiet(); onComplete(); }}>Next topic <span className="en-cta-arrow"><Icon name="arrow" size={23} /></span></button>

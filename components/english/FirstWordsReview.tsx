@@ -114,6 +114,6 @@ export default function FirstWordsReview({ pair = 'first', finishLabel = 'Finish
       <button className={`en-dock-audio ${audio.playing ? 'is-playing' : ''}`} aria-label={audio.playing ? 'Stop listening' : 'Hear the instructions'} onClick={audio.playing ? stop : directions}><Icon name={audio.playing ? 'close' : 'sound'} size={23} /></button>
       {stage <= 1 ? audio.blocked ? <button className="en-button" onClick={directions}><Icon name="sound" size={20} /> Tap to listen</button> : <button className="en-button" disabled={saved.heard.length !== 2} onClick={next}>{saved.heard.length === 2 ? 'Let’s explore' : 'Listen to both words'} <Icon name={saved.heard.length === 2 ? 'arrow' : 'sound'} size={21} /></button> : stage <= 3 ? matched ? <button className="en-button" onClick={next}>{stage === 2 ? 'One more' : 'My turn to read'} <Icon name="arrow" size={21} /></button> : <p>Tap the matching word.</p> : stage <= 5 ? <button className="en-button" onClick={triedReading}>I tried it <Icon name="check" size={21} /></button> : <button className="en-button en-next-topic" onClick={() => { stop(); onComplete(); }}>{finishLabel} <span className="en-cta-arrow"><Icon name="arrow" size={23} /></span></button>}
     </div>
-    <ParentHelp kind="review" promptText={englishNarration[promptId]} />
+    <ParentHelp kind="review" promptText={englishNarration[promptId]} onOpen={stop} />
   </div>;
 }

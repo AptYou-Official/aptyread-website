@@ -55,7 +55,9 @@ async function main() {
   const opening = stale.session.watch(); stale.session.pause(); stale.pending.shift()(true); await opening;
   assert.ok(!stale.events.includes('video'), 'A paused narration cannot restart the model'); stale.session.dispose();
 
-  const React = require('react'), { renderToStaticMarkup } = require('react-dom/server');
+  const React = require('react'), { renderToStaticMarkup: renderMarkup } = require('react-dom/server');
+  const EnglishProvider = require('../components/english/EnglishProvider.tsx').default;
+  const renderToStaticMarkup = element => renderMarkup(React.createElement(EnglishProvider, null, element));
   const WritingPractice = require('../components/english/WritingPractice.tsx').default;
   const PaperWriting = require('../components/english/PaperWriting.tsx').default;
   const WritingCelebration = require('../components/english/WritingCelebration.tsx').default;

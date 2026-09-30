@@ -123,6 +123,6 @@ export default function SentenceReview({ finishLabel = 'Finish lesson', onComple
     <div className="en-word-dock" aria-label="Your next action">
       {step === 0 ? <button className="en-button" onClick={start}><Icon name="sound" size={20} /> Listen <Icon name="arrow" size={20} /></button> : step < 3 ? audio.playing ? <div className="en-sentence-action-cue is-listening" role="status"><Icon name="sound" size={23} /><span>Listen…</span></div> : <div className="en-sentence-action-cue" role="status"><Icon name="hand" size={23} /><span>Tap one</span></div> : <button className="en-button en-next-topic" onClick={() => { stop(); onComplete(); }}>{finishLabel} <span className="en-cta-arrow"><Icon name="arrow" size={23} /></span></button>}
     </div>
-    <ParentHelp kind="sentence" promptText={englishNarration[promptId]} />
+    <ParentHelp kind="sentence" promptText={englishNarration[promptId]} onOpen={stop} />
   </div>;
 }

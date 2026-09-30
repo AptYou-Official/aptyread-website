@@ -122,7 +122,10 @@ async function main() {
   assert.ok(orders.size > 1, 'Answers are not permanently tied to a screen position');
 
   const React = require('react');
-  const { renderToStaticMarkup } = require('react-dom/server');
+  const { renderToStaticMarkup: renderMarkup } = require('react-dom/server');
+  const EnglishProvider = require('../components/english/EnglishProvider.tsx').default;
+  // Use the real context for nested parent guidance; SSR never reads learner storage.
+  const renderToStaticMarkup = element => renderMarkup(React.createElement(EnglishProvider, null, element));
   const LetterSoundLink = require('../components/english/LetterSoundLink.tsx').default;
   for (const letter of ['s', 'a', 't']) {
     const html = renderToStaticMarkup(React.createElement(LetterSoundLink, { letter, onComplete() {} }));
@@ -134,6 +137,21 @@ async function main() {
     assert.ok(html.includes(`0 of ${total} practice stars earned`));
     assert.equal((html.match(/class="is-waiting"/g) || []).length, total);
   }
+  const linkModule = require('../lib/english-letter-link.ts');
+  const originalInitial = linkModule.initialLetterLink;
+  try {
+    for (const letter of ['a', 't']) {
+      const sample = setup(letter);
+      await sample.session.start();
+      linkModule.initialLetterLink = () => sample.session.snapshot();
+      const html = renderToStaticMarkup(React.createElement(LetterSoundLink, { letter, onComplete() {} }));
+      const choices = [...html.matchAll(/<button\b[^>]*aria-label="Choose [sat]"[^>]*>/g)].map(match => match[0]);
+      assert.equal(choices.length, linkLetters[letter].length);
+      assert.ok(choices.every(choice => !/is-hint|is-sounding|is-matched|aria-current|disabled=/.test(choice)), 'After hearing the sound, all unaided choices are equally available without revealing the answer');
+      assert.ok(!html.includes('en-tap-demonstration'), 'A guided word-building hand never leaks into listening choices');
+      sample.session.dispose();
+    }
+  } finally { linkModule.initialLetterLink = originalInitial; }
   const AchievementStars = require('../components/english/AchievementStars.tsx').default;
   for (const count of [2, 3, 4]) {
     const partial = renderToStaticMarkup(React.createElement(AchievementStars, { count, earned: 1, variant: 'progress' }));

@@ -22,10 +22,10 @@ const Video = require('../components/english/LessonVideo.tsx').default;
 const Trace = require('../components/english/TracePad.tsx').default;
 assert.equal(progress.completed.length, 42);
 progress = readEnglishProgress(JSON.stringify(progress));
-assert.equal(englishAccess(progress).next.activity.id, 'meet-p-cases', 'Old 43-topic completion opens Explore P');
+assert.equal(englishAccess(progress).next.activity.id, 'meet-p-cases', 'Completing the first 42 topics opens Explore P');
 assert.equal(enterEnglishActivity(progress, 'explore-i'), progress, 'Direct links cannot skip P');
 const publicHome = render(Dashboard);
-assert.ok(publicHome.includes('Practise again') && !publicHome.includes('/english/learn/explore-p'), 'Home offers revision while unpublished lessons stay out of the public path');
+assert.ok(publicHome.includes('Play again') && !publicHome.includes('/english/learn/explore-p'), 'Home offers revision while unpublished lessons stay out of the public path');
 const expected = ['explore-p', 'explore-i', 'explore-n'];
 assert.deepEqual(englishLessons.slice(5).map(l => l.id), expected);
 for (const lesson of englishLessons.slice(5)) {
