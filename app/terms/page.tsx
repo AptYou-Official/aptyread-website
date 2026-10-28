@@ -29,7 +29,7 @@ export default function TermsPage() {
               Terms of Service
             </h1>
             <p className="text-apty-gray mb-10">
-              Effective 1 January 2026. Last updated 31 August 2026.
+              Effective 1 January 2026. Last updated 28 October 2026.
             </p>
 
             <section className="mb-14 pb-12 border-b border-apty-border">
@@ -42,18 +42,19 @@ export default function TermsPage() {
                   app with them.
                 </p>
                 <p>
-                  The site and app let a child start Lesson 1 with no account.
-                  A parent account is needed to save a profile and to buy a
-                  level.
+                  Start learning without an account. In the family app, a
+                  parent registers after Lesson 4, or earlier if they choose.
+                  A parent account is needed to buy a level and back up readers.
                 </p>
                 <p>
-                  Buy a level once. No subscription. The App Store or Google
-                  Play shows the price. Access lasts for the period shown when
-                  you buy.
+                  A purchased family level is yours to keep, for up to three
+                  readers on the same account. No subscription. Each reader
+                  follows their own learning order.
                 </p>
                 <p>
-                  Refunds go through the store where you paid. Apple or Google
-                  decide.
+                  The store shows your local price before payment. Restore
+                  purchases with the same AptyRead and store accounts.
+                  Refunds follow the store&apos;s rules and your legal rights.
                 </p>
                 <p>
                   Using AptyRead means you accept these terms and our{" "}
@@ -86,10 +87,12 @@ export default function TermsPage() {
                   separate product and are not fully described here.
                 </p>
                 <p className="mb-4">
-                  We serve families in India, the United States, and the Gulf
-                  with the same practices in these Terms. We are an Indian
-                  company. We do not specifically market this app to the EU. If
-                  someone in the EU uses it, these same Terms apply.
+                  The family-app descriptions below apply to version 16.3.0
+                  and later, as that update becomes available. Some features
+                  differ in older versions. School and classroom services and
+                  website learning previews do not automatically include an
+                  app purchase. Mandatory consumer rights where you live still
+                  apply.
                 </p>
                 <p className="mb-4">
                   By using the Services you agree to these Terms and to our{" "}
@@ -116,9 +119,12 @@ export default function TermsPage() {
                   that you meet that requirement.
                 </p>
                 <p className="mb-4">
-                  Lesson 1 can start with no account. A parent account is
-                  needed to save a child profile and to buy a level. Children
-                  use the app under that parent account.
+                  Guest learning is stored on that device. A parent account
+                  is required to continue after Lesson 4 and to purchase a
+                  level. Registered families can complete the free Level 1
+                  sequence through Lesson 9 before buying the rest of Level 1.
+                  Parents may also buy Level 1 earlier. Children use the app
+                  under the parent&apos;s supervision.
                 </p>
                 <p className="mb-4">
                   Before registration we ask a parent to complete a short gate
@@ -130,11 +136,13 @@ export default function TermsPage() {
                   <a href="mailto:support@aptyread.ai">support@aptyread.ai</a>.
                 </p>
                 <p className="mb-4">
-                  A child profile uses a first name (any name) and an age. One
-                  parent account may have more than one child profile. Progress
-                  is tracked per child. Accounts and purchases are for personal
-                  use in your household. Do not share, transfer, or resell
-                  them.
+                  A family account can have up to three readers. Choose a
+                  nickname and one of the app&apos;s avatars for each reader;
+                  a legal name or age is not required by the new family profile
+                  form. Progress is separate for each reader. The parent gives
+                  a country and accepts the account agreement. Accounts and
+                  purchases are for personal use within your household, and
+                  cannot be sold or transferred to another account.
                 </p>
                 <p className="mb-4">
                   Keep the parent sign-in to yourself. You are responsible for
@@ -146,48 +154,85 @@ export default function TermsPage() {
                   2.2 Delete the account
                 </h3>
                 <p className="mb-4">
-                  You may delete the account in the app (Settings, or Help
-                  &amp; Support, then Delete Account), at{" "}
+                  In the family app, open Grown-ups → Account &amp; settings →
+                  Delete family account. Complete the parent check and confirm.
+                  You can also request help at{" "}
                   <a href="/delete-account">www.aptyread.ai/delete-account</a>,
                   or by writing to{" "}
                   <a href="mailto:support@aptyread.ai">support@aptyread.ai</a>.
                 </p>
                 <p className="mb-4">
-                  Deletion is permanent. Child profiles and progress are
-                  removed. Access to purchased levels ends. No refund after
-                  deletion, except as the law requires.
+                  Family-account deletion removes that account and its readers&apos;
+                  learning data and ends access through that account. It is
+                  different from signing out or removing one reader. It does not automatically refund a store purchase
+                  or move it to a new account. Contact support before deleting
+                  if you need help with a purchase or a copy of your data. Your
+                  store and statutory refund rights are not removed by deletion.
+                </p>
+                <p className="mb-4">
+                  Removing one reader deletes that reader&apos;s progress and
+                  frees a place. Purchased family levels and the other readers
+                  stay. See the Privacy Policy for the limited purchase,
+                  security and deletion records retained after deletion.
                 </p>
               </section>
 
               <section className="mb-8">
                 <h2>3. The program</h2>
                 <p className="mb-4">
-                  AptyRead is an English reading program for children. Five
-                  levels. One sequential path. No skipping. Lesson videos
-                  stream. A connection is required to take a lesson. Lessons
-                  cannot be downloaded for offline use.
+                  AptyRead is a structured English reading program for children
+                  aged 4–10. The family release offers Levels 1 and 2. Later
+                  levels may be shown as coming soon; they are not included in
+                  a purchase of another level. A preview of lesson names does
+                  not unlock those lessons or their activities.
                 </p>
                 <p className="mb-4">
-                  First lessons, including Lesson 1, are free and can start
-                  with no account. We may change what is free for new users.
-                  What you already started stays as shown when you began.
+                  Required activities, lessons and levels unlock in order for each
+                  reader. At least one reader must complete the previous level
+                  before a parent can buy the next level for the family. Buying
+                  it does not mark anyone&apos;s lessons complete: each reader
+                  must finish their own previous level before starting it.
+                  Completed material can be revisited while access remains valid.
                 </p>
                 <p className="mb-4">
-                  Each purchased level has a validity period shown in the app
-                  before you buy. We honor the period shown at purchase. When
-                  it ends, access to that level stops until you buy it again.
-                  Content updates do not extend the period.
+                  Family-level purchases in the new course have no scheduled
+                  access expiry or recurring charge. &quot;Yours to keep&quot;
+                  means continuing access on that family account, subject to
+                  valid store ownership, these Terms and service availability;
+                  it is not a promise that a cloud service will run forever.
+                  New levels are separate purchases.
                 </p>
                 <p className="mb-4">
-                  A parent sets a daily limit of 1 or 2 new lessons. Completed
-                  lessons can be reviewed without that limit, while the level
-                  is valid. Limits reset at 6:00 AM in the device timezone.
-                  Speech practice uses Google Speech-to-Text and may have
-                  usage limits so the service can keep running.
+                  The family course has no one-or-two-new-lessons daily cap.
+                  Sound and reading practice invite participation; they do not
+                  record a child&apos;s voice or assess pronunciation. Parents
+                  can support younger children and choose suitable breaks.
                 </p>
                 <p className="mb-4">
-                  Same account, more than one device, one device at a time.
-                  Progress syncs when you are online.
+                  Sign in to the same parent account to recover backed-up readers
+                  on another device. The current account limit is three registered
+                  devices and two learning sessions at once; the same reader
+                  cannot learn on two devices simultaneously. New progress
+                  backs up when connected. Unsynced guest or local progress can
+                  be lost if you uninstall the app or clear its storage.
+                </p>
+                <p className="mb-4">
+                  Some lessons and media already stored on the device work
+                  offline. Cached files may be removed by the device, and not
+                  every activity is available offline. Streamed video, uncached
+                  media, account recovery, purchase confirmation and backup need
+                  a connection. Paid access may need an online store or account
+                  check; cached access does not override a confirmed revocation.
+                </p>
+                <p className="mb-4">
+                  Older versions may still show a timed Level 1 purchase,
+                  different lesson IDs, daily limits or speech-feedback features.
+                  After updating, verified previous Level 1 buyers receive Level 1
+                  in the new course without a scheduled expiry, including buyers
+                  whose old access period ended, unless the purchase was revoked.
+                  Sign in with the original account and use Restore purchases
+                  if needed. Old records are preserved separately; old lesson
+                  completion does not automatically complete the redesigned course.
                 </p>
                 <p className="mb-4">
                   We may update lessons and the app. We do not guarantee
@@ -201,8 +246,11 @@ export default function TermsPage() {
                 <p className="mb-4">
                   Levels are one-time purchases, not subscriptions. No
                   recurring charge. No cancellation to remember. Price and
-                  currency are set by the Apple App Store or Google Play. We
-                  do not take or store card numbers.
+                  currency come from the Apple App Store or Google Play for
+                  the product and store region. The country chosen during
+                  registration does not set the store price. The payment sheet
+                  shows the final charge and any applicable taxes. We do not
+                  take or store payment-card numbers.
                 </p>
                 <p className="mb-4">
                   Store terms apply to the purchase. If those terms conflict
@@ -210,14 +258,22 @@ export default function TermsPage() {
                   terms control for that purchase.
                 </p>
                 <p className="mb-4">
-                  Refunds go through Apple or Google, where you paid. We do
-                  not refund store purchases ourselves. Their rules, timing,
-                  and decisions apply. If a refund is granted, access to that
-                  level ends.
+                  Request a refund through the store where you paid, or contact
+                  support for help. The store&apos;s rules, timing and decisions,
+                  together with applicable consumer law, apply. A refund and
+                  removal of access are not always the same action. Access is
+                  removed when the store confirms the entitlement was revoked;
+                  a refund that retains the entitlement does not by itself
+                  remove it. Reader progress and other valid purchases are
+                  preserved when access to one level is revoked.
                 </p>
                 <p className="mb-4">
-                  No refund after the validity period has ended, or after you
-                  delete the account, except as the law requires.
+                  If payment is pending or its confirmation is interrupted,
+                  do not pay again to resolve it. Use Check payment or Restore
+                  purchases and the same AptyRead and store accounts. A purchase
+                  already linked to another family cannot be moved by restoring
+                  it into a different account. Contact support if you cannot
+                  recover the original account.
                 </p>
               </section>
 
@@ -242,8 +298,7 @@ export default function TermsPage() {
                 </ul>
                 <p className="mb-4">
                   We may suspend or close an account if you break these Terms,
-                  if there is fraud, if the account sits unused for a long
-                  time, or if we reasonably believe there is a risk to us or
+                  if there is fraud, or if we reasonably believe there is a risk to us or
                   to others. Access to purchased content then ends. No refund
                   except as the law requires.
                 </p>
@@ -276,10 +331,11 @@ export default function TermsPage() {
                 <p className="mb-4">
                   How we collect and use data is in the{" "}
                   <a href="/privacy">Privacy Policy</a>. That policy is part
-                  of these Terms. We do not repeat it here. We do not claim
-                  COPPA verifiable parental consent, GDPR compliance, or
-                  compliance with Gulf data-protection statutes in these
-                  Terms.
+                  of these Terms. A parent gate is a usability safeguard;
+                  it does not verify an adult&apos;s identity or replace any
+                  parental permission required by applicable law. Nothing in
+                  these Terms removes privacy or consumer rights that cannot
+                  be waived where you live.
                 </p>
               </section>
 
@@ -405,7 +461,7 @@ export default function TermsPage() {
             </div>
 
             <p className="mt-16 text-sm text-apty-gray">
-              Last updated 31 August 2026.
+              Last updated 28 October 2026.
             </p>
           </div>
         </article>
