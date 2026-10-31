@@ -10,12 +10,12 @@ export default function MinimalFooter() {
             <p className="text-xs">© {new Date().getFullYear()} AptyRead. All rights reserved.</p>
           </div>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            <Link href="/privacy" className="hover:text-apty-cyan transition-colors">
+            <a href="/privacy" className="hover:text-apty-cyan transition-colors">
               Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-apty-cyan transition-colors">
+            </a>
+            <a href="/terms" className="hover:text-apty-cyan transition-colors">
               Terms
-            </Link>
+            </a>
             <Link href="/contact" className="hover:text-apty-cyan transition-colors">
               Contact
             </Link>

@@ -11,9 +11,11 @@ export default function SiteMeasurement() {
   // Programme entry links use a full document navigation so previously loaded
   // marketing scripts cannot remain active inside the learning preview.
   if (!pathname || /^\/(english|malayalam|hindi)(\/|$)/.test(pathname)) return null;
+  // These pages are also opened from the app. Keep advertising tags off them.
+  const isAppPolicyPage = /^\/(privacy|terms|delete-account)(\.html)?\/?$/.test(pathname);
 
   return <>
-    {GOOGLE_ADS_ID && <>
+    {GOOGLE_ADS_ID && !isAppPolicyPage && <>
       <Script src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`} strategy="afterInteractive" />
       <Script id="google-ads-gtag" strategy="afterInteractive">{`
         window.dataLayer = window.dataLayer || [];
