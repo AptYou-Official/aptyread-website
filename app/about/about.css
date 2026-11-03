@@ -1,0 +1,157 @@
+@font-face {
+  font-family: AptyAboutNunito;
+  src: url('/homepage/NunitoSans-Variable.ttf') format('truetype');
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+html:has(.apty-about) { scroll-behavior: smooth; scroll-padding-top: 110px; }
+.apty-about, .apty-about *, .apty-about *::before, .apty-about *::after { box-sizing: border-box; }
+.apty-about {
+  --about-ink: #173a8a;
+  --about-teal: #007a90;
+  --about-paper: #fafaf7;
+  --about-body: #5b6b7c;
+  --about-line: #dce5e7;
+  background: var(--about-paper);
+  color: var(--about-ink);
+  font-family: AptyAboutNunito, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.apty-about h1, .apty-about h2, .apty-about p, .apty-about figure { margin: 0; }
+.apty-about h1, .apty-about h2 { color: var(--about-ink); font-weight: 750; letter-spacing: -.045em; line-height: 1.1; text-wrap: balance; }
+.apty-about h2 { font-size: clamp(36px, 4.3vw, 52px); }
+.apty-about p { color: var(--about-body); line-height: 1.8; }
+.apty-about a { text-decoration: none; }
+.apty-about a:focus-visible { outline: 3px solid var(--about-teal); outline-offset: 5px; border-radius: 4px; }
+.apty-about .about-wrap { width: calc(100% - 80px); max-width: 1120px; margin-inline: auto; }
+.apty-about .about-eyebrow { color: var(--about-teal); font-size: 13px; font-weight: 750; letter-spacing: .08em; margin-bottom: 22px; }
+.apty-about .about-skip { position: fixed; top: 12px; left: 16px; z-index: 100; padding: 12px 20px; background: white; color: var(--about-ink); transform: translateY(-160%); }
+.apty-about .about-skip:focus { transform: translateY(0); }
+
+.apty-about .about-header { position: sticky; top: 0; z-index: 30; background: #fafaf7f5; border-bottom: 1px solid #e8ece9; backdrop-filter: blur(12px); }
+.apty-about .about-nav { width: calc(100% - 80px); max-width: 1280px; height: 88px; margin: auto; display: flex; gap: 40px; align-items: center; }
+.apty-about .about-wordmark { display: inline-flex; color: var(--about-ink); font-size: 32px; font-weight: 800; letter-spacing: -.045em; line-height: 1.2; white-space: nowrap; font-feature-settings: 'ss01' 1; }
+.apty-about .about-wordmark span:last-child { color: #00b8d9; }
+.apty-about .about-nav nav { display: flex; align-items: center; gap: 32px; margin-left: auto; font-size: 14px; font-weight: 700; }
+.apty-about .about-nav nav a { color: var(--about-body); }
+.apty-about .about-nav nav a:hover, .apty-about .about-nav nav a[aria-current='page'] { color: var(--about-teal); }
+.apty-about .about-button { display: inline-flex; align-items: center; justify-content: center; padding: 12px 23px; min-height: 44px; border-radius: 999px; color: white; background: var(--about-teal); font-size: 14px; font-weight: 750; white-space: nowrap; transition: background .2s; }
+.apty-about .about-button:hover { background: #006b7e; }
+
+.apty-about .about-hero { padding-block: 94px 78px; text-align: center; }
+.apty-about .about-hero h1 { font-size: clamp(56px, 7.1vw, 88px); }
+.apty-about .about-hero h1 span { color: var(--about-teal); }
+.apty-about .about-hero .about-hero-lead { max-width: 580px; margin: 28px auto 0; font-size: 24px; line-height: 1.55; }
+.apty-about .about-hero .about-hero-note { margin-top: 26px; font-size: 13px; }
+.apty-about .about-origin { display: grid; grid-template-columns: .85fr 1.15fr; gap: 90px; border-top: 1px solid var(--about-line); padding-block: 76px 86px; }
+.apty-about .about-origin-copy { padding-top: 3px; }
+.apty-about .about-origin-copy p { font-size: 18px; }
+.apty-about .about-origin-copy p + p { margin-top: 24px; }
+.apty-about .about-origin-copy .about-signature { color: var(--about-ink); font-size: 14px; font-weight: 750; }
+
+.apty-about .about-meaning { background: linear-gradient(to bottom, var(--about-paper), #edf5f7 80px, #edf5f7 calc(100% - 80px), var(--about-paper)); padding-block: 90px 100px; }
+.apty-about .about-meaning-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; align-items: center; }
+.apty-about .about-story { background: #e0eeef; border-radius: 38px; padding: 38px 24px 30px; text-align: center; }
+.apty-about .about-story-frame { width: 246px; max-width: 100%; padding: 10px; margin: auto; border-radius: 34px; background: white; box-shadow: 0 22px 48px #173a8a14; }
+.apty-about .about-story-frame img { display: block; width: 100%; height: auto; border-radius: 24px; }
+.apty-about .about-story figcaption { margin-top: 26px; font-size: 13px; font-weight: 700; color: var(--about-ink); }
+.apty-about .about-story figcaption span { display: block; margin-top: 4px; color: var(--about-body); font-size: 11px; font-weight: 400; }
+.apty-about .about-meaning-copy h2 { margin-bottom: 28px; }
+.apty-about .about-meaning-copy h2 span { color: var(--about-teal); }
+.apty-about .about-meaning-copy > p:not(.about-eyebrow) { font-size: 17px; }
+.apty-about .about-meaning-copy > p + p { margin-top: 20px; }
+.apty-about .about-reading-path { display: flex; gap: 18px; align-items: center; margin: 28px 0; color: var(--about-teal); font-size: 17px; font-weight: 750; }
+.apty-about .about-reading-path svg { flex: 0 0 22px; opacity: .6; }
+.apty-about .about-text-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 28px; min-height: 44px; color: var(--about-teal); font-size: 15px; font-weight: 750; }
+.apty-about .about-text-link:hover { text-decoration: underline; text-underline-offset: 5px; }
+
+.apty-about .about-start { padding-top: 34px; }
+.apty-about .about-start-card { position: relative; border: 1px solid #dce9e6; background: #f0f5ee; border-radius: 36px; padding: 52px 36px 44px; text-align: center; }
+.apty-about .about-mascot { display: block; width: 100px; height: 100px; margin: 0 auto 22px; object-fit: contain; }
+.apty-about .about-start-card h2 { font-size: 48px; }
+.apty-about .about-start-card .about-start-copy { margin: 24px auto 0; font-size: 17px; }
+.apty-about .about-start-card .about-platforms { margin-top: 24px; font-size: 13px; }
+.apty-about .about-store-links { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 14px; margin-top: 12px; }
+.apty-about .about-store-links a { display: inline-flex; min-height: 44px; align-items: center; }
+.apty-about .about-store-links img { display: block; width: auto; height: 48px; }
+.apty-about .about-start-card .about-free-offer { max-width: 550px; margin: 24px auto 0; font-size: 14px; line-height: 1.6; font-weight: 750; color: var(--about-ink); }
+.apty-about .about-start-card .about-access { margin-top: 8px; font-size: 12px; }
+.apty-about .about-start-card .about-reassurance { margin-top: 4px; font-size: 12px; }
+.apty-about .about-company { text-align: center; font-size: 12px; margin-block: 30px 54px; }
+.apty-about .about-company a { display: inline-block; margin-top: 6px; color: var(--about-teal); }
+.apty-about .about-company a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.apty-about .about-footer { display: flex; justify-content: space-between; gap: 40px; border-top: 1px solid var(--about-line); padding-block: 36px 30px; }
+.apty-about .about-footer .about-wordmark { font-size: 27px; }
+.apty-about .about-footer p { font-size: 11px; margin-top: 10px; }
+.apty-about .about-footer-right { max-width: 600px; text-align: right; }
+.apty-about .about-footer nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px 24px; font-size: 12px; color: var(--about-ink); }
+.apty-about .about-footer nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.apty-about .about-footer .about-trademarks { font-size: 10px; line-height: 1.6; }
+
+@media (max-width: 900px) {
+  .apty-about .about-nav { gap: 24px; }
+  .apty-about .about-nav nav { gap: 20px; }
+  .apty-about .about-origin, .apty-about .about-meaning-grid { gap: 40px; }
+  .apty-about .about-origin-copy p { font-size: 17px; }
+  .apty-about .about-meaning-copy > p:not(.about-eyebrow) { font-size: 16px; }
+  .apty-about .about-reading-path { gap: 10px; font-size: 15px; }
+}
+
+@media (max-width: 700px) {
+  html:has(.apty-about) { scroll-padding-top: 88px; }
+  .apty-about .about-wrap { width: calc(100% - 40px); }
+  .apty-about .about-nav { width: calc(100% - 40px); height: 72px; gap: 16px; justify-content: space-between; }
+  .apty-about .about-nav nav { display: none; }
+  .apty-about .about-nav .about-wordmark { font-size: 28px; }
+  .apty-about .about-nav .about-button { padding: 10px 16px; font-size: 12px; }
+  .apty-about .about-hero { padding-block: 62px 52px; }
+  .apty-about .about-eyebrow { font-size: 11px; margin-bottom: 20px; }
+  .apty-about .about-hero h1 { font-size: clamp(48px, 12vw, 66px); max-width: 460px; margin: auto; }
+  .apty-about .about-hero h1 span { display: block; }
+  .apty-about .about-hero .about-hero-lead { font-size: 20px; margin-top: 24px; }
+  .apty-about .about-hero .about-hero-note { max-width: 270px; margin: 22px auto 0; font-size: 12px; }
+  .apty-about .about-origin { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-block: 48px 54px; }
+  .apty-about h2 { font-size: 40px; }
+  .apty-about .about-origin-copy p { font-size: 16px; }
+  .apty-about .about-origin-copy p + p { margin-top: 22px; }
+  .apty-about .about-meaning { padding-block: 58px 62px; background: linear-gradient(to bottom, var(--about-paper), #edf5f7 44px, #edf5f7 calc(100% - 44px), var(--about-paper)); }
+  .apty-about .about-meaning-grid { grid-template-columns: minmax(0, 1fr); gap: 34px; }
+  .apty-about .about-meaning-copy { grid-row: 1; }
+  .apty-about .about-meaning-copy h2 { margin-bottom: 24px; }
+  .apty-about .about-reading-path { gap: 14px; margin-block: 24px; font-size: 16px; }
+  .apty-about .about-text-link { margin-top: 20px; font-size: 14px; }
+  .apty-about .about-story { width: 100%; max-width: 430px; margin: auto; padding: 28px 20px; border-radius: 28px; }
+  .apty-about .about-story-frame { width: 226px; }
+  .apty-about .about-start { padding-top: 16px; }
+  .apty-about .about-start-card { padding: 32px 22px; border-radius: 28px; }
+  .apty-about .about-mascot { width: 90px; height: 90px; }
+  .apty-about .about-start-card .about-eyebrow { max-width: 220px; margin-inline: auto; }
+  .apty-about .about-start-card h2 { font-size: 38px; }
+  .apty-about .about-start-card .about-start-copy { font-size: 15px; margin-top: 20px; }
+  .apty-about .about-desktop-break { display: none; }
+  .apty-about .about-store-links { gap: 10px; }
+  .apty-about .about-store-links img { height: 41px; }
+  .apty-about .about-start-card .about-free-offer { margin-top: 22px; }
+  .apty-about .about-start-card .about-access { font-size: 12px; }
+  .apty-about .about-company { margin-block: 26px 38px; }
+  .apty-about .about-footer { flex-direction: column; gap: 28px; padding-block: 30px; }
+  .apty-about .about-footer-right { max-width: none; text-align: left; }
+  .apty-about .about-footer nav { justify-content: flex-start; gap: 12px 20px; }
+}
+
+@media (max-width: 360px) {
+  .apty-about .about-nav { gap: 12px; }
+  .apty-about .about-nav .about-wordmark { font-size: 25px; }
+  .apty-about .about-nav .about-button { padding-inline: 12px; font-size: 11px; }
+  .apty-about .about-hero h1 { font-size: 44px; }
+  .apty-about h2 { font-size: 36px; }
+  .apty-about .about-reading-path { gap: 10px; font-size: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.apty-about) { scroll-behavior: auto; }
+  .apty-about * { transition: none !important; }
+}

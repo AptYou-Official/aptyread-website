@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
+import PolicyLayout, { PolicyContents } from "@/components/public/PolicyLayout";
 import Link from "next/link";
-import Header from "@/components/public/Header";
-import Footer from "@/components/public/Footer";
-import BrandWordmark from "@/components/public/BrandWordmark";
 
 export const metadata: Metadata = {
   title: "Delete your account | AptyRead",
@@ -13,32 +11,41 @@ export const metadata: Metadata = {
   },
 };
 
+const contents = [
+  {
+    "id": "delete-your-family-account",
+    "label": "Delete your family account"
+  },
+  {
+    "id": "what-happens",
+    "label": "What happens"
+  },
+  {
+    "id": "remove-one-reader-instead",
+    "label": "Remove one reader instead"
+  }
+];
+
 export default function DeleteAccountPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
+    <PolicyLayout currentPage="delete-account" contents={contents}>
 
-      <main>
-        <article className="px-4 py-14 md:py-20">
-          <div className="container mx-auto max-w-2xl">
-            <BrandWordmark
-              as="p"
-              size="sm"
-              className="tracking-wide font-semibold mb-4"
-            />
-            <h1 className="text-3xl md:text-5xl font-bold text-apty-dark mb-3 leading-tight">
+        <article className="legal-article">
+          <div className="legal-document">
+            <h1 id="delete-account-title">
               Delete your account.
             </h1>
-            <p className="text-lg md:text-xl text-apty-gray mb-14">
+            <p className="legal-lead">
               Delete a family account, or remove just one reader.
             </p>
+            <PolicyContents items={contents} />
 
-            <div className="space-y-12 text-base md:text-lg text-apty-dark leading-relaxed">
-              <section>
-                <h2 className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
+            <div className="legal-prose legal-actions">
+              <section id="delete-your-family-account" tabIndex={-1}>
+                <h2>
                   Delete your family account
                 </h2>
-                <ol className="list-decimal pl-5 space-y-3">
+                <ol>
                   <li>Open AptyRead. Sign in with Google, Apple, or email.</li>
                   <li>
                     Go to <strong>Grown-ups → Account &amp; settings</strong>.
@@ -49,7 +56,7 @@ export default function DeleteAccountPage() {
                     asked, then confirm deletion.
                   </li>
                 </ol>
-                <p className="mt-5 text-apty-gray">
+                <p>
                   These steps apply to the family app, version 16.3.0 and later.
                   Older versions may show Delete Account in Settings or Help
                   &amp; Support. A connection is required. If deletion is pending,
@@ -59,23 +66,23 @@ export default function DeleteAccountPage() {
                 </p>
               </section>
 
-              <section>
-                <h2 className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
+              <section id="what-happens" tabIndex={-1}>
+                <h2>
                   What happens
                 </h2>
-                <p className="mb-4">
+                <p>
                   Family-account deletion removes the sign-in account, reader
                   profiles and their learning progress from our active family
                   records. You lose access through that account. It cannot be
                   used as a way to move purchases to another account. Ask for a
                   copy of your data or help with a purchase before confirming.
                 </p>
-                <p className="mb-4">
+                <p>
                   Deletion does not automatically refund a purchase. Your
                   store&apos;s refund process and any rights under applicable
                   law still apply.
                 </p>
-                <p className="text-apty-gray">
+                <p>
                   Limited store transaction and ownership records remain for
                   purchase verification, refunds, fraud prevention and legal
                   obligations. These may remain linked to an account identifier.
@@ -89,27 +96,26 @@ export default function DeleteAccountPage() {
                 </p>
               </section>
 
-              <section>
-                <h2 className="text-sm font-semibold tracking-wide text-apty-cyan mb-4">
+              <section id="remove-one-reader-instead" tabIndex={-1}>
+                <h2>
                   Remove one reader instead
                 </h2>
-                <p className="mb-4">
+                <p>
                   Open Grown-ups → Account &amp; settings → Your readers.
                   Choose the reader&apos;s edit button, then Remove reader.
                   Complete the parent check and confirm the named reader.
                 </p>
-                <p className="mb-4 text-apty-gray">
+                <p>
                   Only that reader&apos;s profile and progress are removed.
                   Purchased family levels and the other readers stay. You can
                   add another reader in the free place, up to three in total.
                   Removing a reader cannot be undone. Signing out is another
                   option if you only want to stop using the account on a device.
                 </p>
-                <p className="text-apty-gray">
+                <p className="legal-email-request">
                   To request account deletion without the app, write to{" "}
                   <a
                     href="mailto:support@aptyread.ai"
-                    className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
                   >
                     support@aptyread.ai
                   </a>
@@ -121,31 +127,26 @@ export default function DeleteAccountPage() {
                 </p>
               </section>
 
-              <p className="text-apty-gray">
+              <p>
                 <Link
                   href="/privacy"
-                  className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
                 >
                   Privacy Policy
                 </Link>
                 {" · "}
                 <Link
                   href="/terms"
-                  className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
                 >
                   Terms of Service
                 </Link>
               </p>
             </div>
 
-            <p className="mt-16 text-sm text-apty-gray">
+            <p className="legal-last-updated">
               Last updated 28 October 2026.
             </p>
           </div>
         </article>
-      </main>
-
-      <Footer />
-    </div>
+    </PolicyLayout>
   );
 }

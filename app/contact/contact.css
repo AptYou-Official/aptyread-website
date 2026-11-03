@@ -1,0 +1,90 @@
+.apty-support .contact-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  align-items: center;
+  gap: 72px;
+  padding-block: 78px 62px;
+}
+.apty-support .contact-hero h1 {
+  margin: 0;
+  color: #173a8a;
+  font-size: clamp(46px, 5.3vw, 68px);
+  font-weight: 750;
+  line-height: 1.08;
+  letter-spacing: -.045em;
+  text-wrap: balance;
+}
+.apty-support .contact-hero h1 span { color: #007a90; }
+.apty-support .contact-intro { max-width: 520px; margin: 26px 0 0; color: #5b6b7c; font-size: 18px; line-height: 1.75; }
+.apty-support .contact-hero-visual { display: grid; place-items: center; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, #e6f3f1, #fafaf7 72%); }
+.apty-support .contact-hero-visual img { width: 150px; height: 150px; object-fit: contain; transform: rotate(5deg); }
+
+.apty-support .contact-routes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
+.apty-support .contact-route { padding: 36px 38px 32px; border-radius: 28px; }
+.apty-support .contact-route-support { background: #e6f2f2; border: 1px solid #d9e9e8; }
+.apty-support .contact-route-general { background: #f5f6f1; border: 1px solid #e4e8df; }
+.apty-support .contact-mail-icon { display: inline-flex; margin-bottom: 24px; color: #007a90; }
+.apty-support .contact-route .contact-route-label { margin: 0 0 10px; color: #007a90; font-size: 12px; font-weight: 750; letter-spacing: .045em; }
+.apty-support .contact-route h2 { margin: 0 0 14px; color: #173a8a; font-size: 29px; font-weight: 750; line-height: 1.2; letter-spacing: -.035em; }
+.apty-support .contact-route > p:not(.contact-route-label) { color: #5b6b7c; font-size: 16px; line-height: 1.65; margin: 0; }
+.apty-support .contact-email { display: inline-flex; align-items: center; gap: 16px; max-width: 100%; min-height: 44px; margin-top: 23px; color: #007a90; font-size: clamp(20px, 2vw, 25px); font-weight: 750; line-height: 1.5; letter-spacing: -.025em; text-decoration: none; }
+.apty-support .contact-email span { min-width: 0; overflow-wrap: anywhere; }
+.apty-support .contact-email svg { flex: 0 0 20px; width: 20px; height: 20px; }
+.apty-support .contact-email:hover span { text-decoration: underline; text-underline-offset: 5px; }
+
+.apty-support .contact-details { display: grid; grid-template-columns: .85fr 1.15fr; gap: 72px; padding-block: 34px 46px; }
+.apty-support .contact-details h2 { margin: 0; color: #173a8a; font-size: 17px; font-weight: 750; line-height: 1.7; letter-spacing: -.015em; }
+.apty-support .contact-details p { margin: 0; color: #5b6b7c; font-size: 14px; line-height: 1.8; }
+
+.apty-support .contact-links { display: grid; grid-template-columns: .85fr 1.15fr; gap: 72px; padding-block: 52px; border-top: 1px solid #dce5e7; }
+.apty-support .contact-links h2 { margin: 0; color: #173a8a; font-size: 36px; line-height: 1.15; font-weight: 750; letter-spacing: -.04em; text-wrap: balance; }
+.apty-support .contact-link-list a { display: flex; gap: 24px; align-items: center; justify-content: space-between; padding: 22px 0; color: #173a8a; border-bottom: 1px solid #dce5e7; text-decoration: none; }
+.apty-support .contact-link-list a:first-child { padding-top: 0; }
+.apty-support .contact-link-list strong { display: block; font-size: 18px; font-weight: 750; line-height: 1.4; }
+.apty-support .contact-link-list a > span > span { display: block; margin-top: 7px; color: #5b6b7c; font-size: 14px; line-height: 1.7; }
+.apty-support .contact-link-list svg { color: #007a90; flex: 0 0 22px; }
+.apty-support .contact-link-list a:hover strong { color: #007a90; text-decoration: underline; text-underline-offset: 4px; }
+.apty-support .contact-social { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 0 54px; }
+.apty-support .contact-social p { margin: 0; color: #5b6b7c; font-size: 13px; }
+.apty-support .contact-social > div { display: flex; flex-wrap: wrap; gap: 24px; }
+.apty-support .contact-social a { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; color: #007a90; font-size: 13px; font-weight: 750; text-decoration: none; }
+.apty-support .contact-social a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.apty-support .contact-social svg { width: 16px; height: 16px; }
+
+@media (max-width: 900px) {
+  .apty-support .contact-hero { grid-template-columns: minmax(0, 1fr) 160px; gap: 30px; }
+  .apty-support .contact-hero-visual { width: 160px; height: 180px; }
+  .apty-support .contact-hero-visual img { width: 125px; height: 125px; }
+  .apty-support .contact-routes { gap: 20px; }
+  .apty-support .contact-route { padding: 30px 26px; }
+  .apty-support .contact-route h2 { font-size: 26px; }
+  .apty-support .contact-details, .apty-support .contact-links { gap: 40px; }
+}
+
+@media (max-width: 700px) {
+  .apty-support .contact-hero { display: block; position: relative; padding-block: 50px 36px; }
+  .apty-support .contact-hero h1 { max-width: 400px; font-size: clamp(39px, 10.4vw, 54px); }
+  .apty-support .contact-hero .support-eyebrow { padding-right: 80px; }
+  .apty-support .contact-intro { max-width: 420px; margin-top: 22px; font-size: 16px; }
+  .apty-support .contact-hero-visual { position: absolute; right: 0; top: 23px; width: 68px; height: 68px; background: none; }
+  .apty-support .contact-hero-visual img { width: 62px; height: 62px; }
+  .apty-support .contact-routes { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .apty-support .contact-route { padding: 26px; border-radius: 24px; }
+  .apty-support .contact-mail-icon { margin-bottom: 18px; }
+  .apty-support .contact-route h2 { font-size: 27px; }
+  .apty-support .contact-route > p:not(.contact-route-label) { font-size: 15px; }
+  .apty-support .contact-email { font-size: 22px; gap: 12px; margin-top: 18px; }
+  .apty-support .contact-details { grid-template-columns: minmax(0, 1fr); gap: 10px; padding-block: 28px 36px; }
+  .apty-support .contact-details p { font-size: 14px; }
+  .apty-support .contact-links { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-block: 36px; }
+  .apty-support .contact-links h2 { font-size: 32px; }
+  .apty-support .contact-link-list strong { font-size: 17px; }
+  .apty-support .contact-link-list a { gap: 18px; padding-block: 20px; }
+  .apty-support .contact-social { align-items: flex-start; gap: 8px; flex-direction: column; padding-bottom: 32px; }
+}
+
+@media (max-width: 360px) {
+  .apty-support .contact-route { padding-inline: 22px; }
+  .apty-support .contact-email { font-size: 19px; gap: 8px; }
+  .apty-support .contact-email svg { flex-basis: 17px; width: 17px; height: 17px; }
+}

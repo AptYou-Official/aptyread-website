@@ -4,177 +4,165 @@ export type FaqItem = {
   link?: { href: string; label: string };
 };
 
-export const startItems: FaqItem[] = [
+export type ParentFaqItem = FaqItem & { id: string };
+
+export type FaqGroup = {
+  id: string;
+  title: string;
+  description: string;
+  items: ParentFaqItem[];
+};
+
+export const faqGroups: FaqGroup[] = [
   {
-    question: "How do I start?",
-    answer:
-      "Download AptyRead. Open the app. Start Lesson 1. No account. First lessons are free. If it is right for your child, you can buy Level 1.",
+    id: "getting-started",
+    title: "Getting started",
+    description: "A place to begin, with room to explore.",
+    items: [
+      {
+        id: "free-lessons",
+        question: "Which lessons are free?",
+        answer: "Lessons 1–9 are free. The first 4 need no account. A free parent account lets you continue through Lesson 9, including Pat and Pip, your child’s first AptyRead story. Lessons open in order. Continuing from Lesson 10 requires a Level 1 purchase.",
+      },
+      {
+        id: "who-is-it-for",
+        question: "Is AptyRead right for my child?",
+        answer: "AptyRead is designed for children aged 4–10 who are beginning to read English or need practice putting sounds together into words. It connects word reading with vocabulary and meaning. Explore the free lessons together to see how your child responds.",
+      },
+      {
+        id: "knows-letters",
+        question: "My child knows the alphabet. Where should we start?",
+        answer: "Begin with Lesson 1. Knowing letter names is a useful starting point, and AptyRead helps children use letter sounds to build and read words. Every reader follows the same sequence, with opportunities to revisit and practise along the way.",
+      },
+      {
+        id: "additional-language",
+        question: "We speak another language at home. Can we use AptyRead?",
+        answer: "Yes. AptyRead is also for children learning English as an additional language. Talk about pictures and meanings in a language your child knows, then listen to the English words together. Grown-up tips are available in English, Hindi and Malayalam. Reading activities are in English.",
+      },
+      {
+        id: "download",
+        question: "How do we get the app?",
+        answer: "Download AptyRead from Google Play for Android or the App Store for iPhone and iPad. Open the app and begin with Lesson 1. You can explore the first 4 lessons before creating a parent account.",
+        link: { href: "/#get-the-app", label: "Get AptyRead" },
+      },
+    ],
   },
   {
-    question: "Do I need an account to try?",
-    answer:
-      "No. Start Lesson 1 with no account. A parent account comes later, if you enroll. Your child's name and age. That is all.",
+    id: "learning-together",
+    title: "Learning together",
+    description: "Sounds, words and meaning. One step at a time.",
+    items: [
+      {
+        id: "interactive-learning",
+        question: "What will my child do in a lesson?",
+        answer: "Children listen, choose, practise sounds, build words and explore what they mean. From Lesson 1, they blend the sounds they have learned into words. Activities, illustrations and stories give them ways to use their learning. Level 1 also includes short videos introducing letters, how to make each sound and letter writing.",
+      },
+      {
+        id: "learning-order",
+        question: "Why do lessons open in order?",
+        answer: "AptyRead is a structured journey across five progressive levels, building word reading, vocabulary and understanding. Each lesson draws on earlier learning. Completing the required activities opens the next lesson. Buying a level keeps this sequence; it does not skip ahead.",
+        link: { href: "/#learning-journey", label: "Explore the five-level journey" },
+      },
+      {
+        id: "parent-help",
+        question: "How much help will my child need?",
+        answer: "Stay nearby for younger children, listen together and give them time to respond. Older children can practise more independently when they are ready. Guidance within activities explains how you can help. In Grown-ups, open Account & settings to choose English, Hindi or Malayalam for grown-up tips.",
+      },
+      {
+        id: "writing",
+        question: "Does AptyRead include writing practice?",
+        answer: "Yes. In Level 1, children can trace letters on screen or watch a writing video and practise with pen and paper. Writing is optional, so your child can continue the reading lessons without completing it. Handwriting is not graded by the app.",
+      },
+      {
+        id: "learning-pace",
+        question: "How much time should we spend?",
+        answer: "Try around 10 minutes together to begin. Your child may prefer shorter or longer sessions. It is fine to pause, repeat or come back another day. There is no daily lesson cap or set deadline for completing the course.",
+      },
+      {
+        id: "repeat-practice",
+        question: "Can we go back to lessons and stories?",
+        answer: "Yes. Reopen completed lessons for more practice. Collected words and earned books stay in My library, ready to enjoy again. Returning to a familiar word or story is part of the journey.",
+      },
+      {
+        id: "reading-progress",
+        question: "What does my child’s progress tell me?",
+        answer: "In Grown-ups, you can see the selected reader’s place in the course and completed activities. This records participation, not a reading test or a measure of fluency. AptyRead gives children time to practise aloud, but it does not record their voice or assess spoken pronunciation and reading accuracy.",
+      },
+    ],
   },
   {
-    question: "Why does every child start at Level 1?",
-    answer:
-      "AptyRead is one path. Level 1 is Sound Foundations. Reading is cumulative. Everyone starts there so nothing important is missing. Children who already know some skills often move through the early lessons quickly.",
-    link: {
-      href: "/reading-guide/the-aptyread-path",
-      label: "See the Five-Level Path",
-    },
+    id: "purchases",
+    title: "Purchases",
+    description: "Clear choices when your family is ready to continue.",
+    items: [
+      {
+        id: "price",
+        question: "How do we continue after the free lessons?",
+        answer: "Purchase Level 1 within the app through Google Play or the App Store to continue from Lesson 10. The store shows your local price before you buy. Levels are purchased separately with a one-time payment, no expiry and no recurring subscription.",
+      },
+      {
+        id: "family-sharing",
+        question: "Can my children share a purchased level?",
+        answer: "Yes. Create up to three reader profiles under one parent account, using a nickname and a preset avatar for each child. Each purchased level is shared by those readers. Every child keeps their own progress and place in the course.",
+      },
+      {
+        id: "next-level",
+        question: "When can we move to the next level?",
+        answer: "Once one reader completes a level, you can buy the next available level for your family. Each reader must complete their own previous level before starting it. A sibling’s progress does not move another reader ahead.",
+      },
+      {
+        id: "taking-a-break",
+        question: "What if we take a break?",
+        answer: "Your purchased level has no expiry or recurring charge, so there is no subscription to cancel. Return when your family is ready. Before changing devices or removing the app, check the backup for your child’s progress in Grown-ups, under Account & settings.",
+      },
+      {
+        id: "restore-purchases",
+        question: "How do I restore a purchase?",
+        answer: "In Grown-ups, find Your access and choose Restore purchases. Sign in with the same AptyRead parent account and the App Store or Google Play account used for the purchase. If a payment is pending or access is missing, use Check payment or Restore purchases instead of paying again. Contact us if you need help.",
+        link: { href: "/contact", label: "Get help with a purchase" },
+      },
+      {
+        id: "refunds",
+        question: "How can I request a refund?",
+        answer: "Request a refund through the App Store or Google Play, depending on where you paid. The store’s rules and your applicable consumer rights apply. You can also contact our support team for help.",
+        link: { href: "/terms#purchases-and-refunds", label: "Read the purchase and refund terms" },
+      },
+    ],
   },
   {
-    question: "What age is this for?",
-    answer:
-      "Ages 4 to 10. The path starts with letter sounds and ends with reading books alone.",
-  },
-  {
-    question: "Is this only English?",
-    answer: "Yes. AptyRead is an English reading program.",
+    id: "family-and-support",
+    title: "Family & support",
+    description: "Practical help for learning at home.",
+    items: [
+      {
+        id: "another-device",
+        question: "Can we use another device?",
+        answer: "Yes. On your current device, open Grown-ups, then Account & settings. Check the backup status and use Back up now if needed. On the other device, sign in to the same parent account and choose the same reader. A family can register up to three devices, with up to two learning sessions at once. The same reader can learn on only one device at a time.",
+      },
+      {
+        id: "internet",
+        question: "Do we need an internet connection?",
+        answer: "Use an internet connection for the full experience. Some content already stored on your device may be available offline, but not every activity will work. Videos and media that have not loaded, signing in, purchase checks and progress backups need a connection.",
+      },
+      {
+        id: "privacy",
+        question: "Are there advertisements? How is our information handled?",
+        answer: "AptyRead contains no advertisements. A parent manages the account, and each reader has a nickname, a preset avatar and their own progress. Speaking practice is not recorded. Our Privacy Policy explains what information is used, why it is needed and the choices available to parents.",
+        link: { href: "/privacy", label: "Read the Privacy Policy" },
+      },
+      {
+        id: "account-removal",
+        question: "Can I remove a reader or delete our account?",
+        answer: "Yes. You can remove an individual reader or delete the family account in Grown-ups. Removing one reader deletes their progress while keeping the other readers and family purchases. Deleting the family account removes its readers and learning data and ends access through that account. Read the steps before confirming.",
+        link: { href: "/delete-account", label: "See account and reader removal steps" },
+      },
+    ],
   },
 ];
 
-export const childItems: FaqItem[] = [
-  {
-    question: "My child already knows the alphabet. Which level should they start at?",
-    answer:
-      "Level 1. Knowing A, B, C is not the same as reading. Reading needs sounds — /a/ not A, /b/ not B. Most children who know their ABCs still start at Sound Foundations. It goes quickly when the skill is firm. And it makes sure nothing is missing.",
-    link: {
-      href: "/reading-guide/reading-problems/child-knows-alphabet-but-cant-read",
-      label: "Read: alphabet but can't read",
-    },
-  },
-  {
-    question: "What if my child already knows some skills in Level 1?",
-    answer:
-      "They still start at Level 1. The early lessons confirm the foundation. If a skill is already solid, they move through it faster. The path does not ask you to pick a later level as an entry point.",
-  },
-  {
-    question: "My child speaks English well at home. Will this still help?",
-    answer:
-      "Yes. Speaking and reading are different skills. A child can be fluent in spoken English and still need to be taught how to read it. Speaking is learned from listening. Reading has to be taught step by step.",
-  },
-  {
-    question: "My child is a slow learner. Will they be left behind?",
-    answer:
-      "No. Each lesson must be passed before the next one unlocks. A child can repeat a lesson as many times as they need. No judgement. No clock. Slow and steady is fine.",
-  },
-  {
-    question: "My child is 9. Is it too late to start?",
-    answer:
-      "It is never too late. Reading can be learned at any age with the right teaching. Older children often progress faster because their language understanding is stronger. The only wrong moment to start is not starting.",
-  },
-  {
-    question: "How is this different from other reading apps?",
-    answer:
-      "Most reading apps are collections of activities. Fun, but not one journey. AptyRead is an English reading program. Five levels. One path. Every lesson builds on the last. Clear start. Clear path. Clear goal: your child reading books on their own.",
-  },
-];
+export const allFaqItems: ParentFaqItem[] = faqGroups.flatMap((group) => group.items);
 
-export const lessonItems: FaqItem[] = [
-  {
-    question: "How long is a sitting?",
-    answer:
-      "About fifteen minutes. You set a daily limit of 1 or 2 new lessons. Then they are done.",
-  },
-  {
-    question: "Can they do more than one new lesson a day?",
-    answer:
-      "You set 1 or 2 new lessons a day. Completed lessons can be reviewed as often as they like. Review does not count against the daily limit.",
-  },
-  {
-    question: "What if a lesson is hard?",
-    answer:
-      "They try again. The next lesson unlocks when they are ready. No clock. No judgement.",
-  },
-  {
-    question: "Can they skip a level?",
-    answer:
-      "No. The program is cumulative. Each level builds on the previous one. They finish a level before the next one opens. Skipping creates gaps.",
-  },
-  {
-    question: "How do I know when my child is ready for the next level?",
-    answer:
-      "When they finish the current level. Lessons unlock in order. You do not choose the next level. The path opens it when the work is done.",
-  },
-  {
-    question: "How long does the whole program take?",
-    answer:
-      "Fifteen minutes a day. Pace is theirs. They move only when ready.",
-  },
-];
-
-export const costItems: FaqItem[] = [
-  {
-    question: "How much does it cost?",
-    answer:
-      "No subscription. Buy one level at a time when your child is ready to continue. The app shows the price and validity for your country before you buy.",
-  },
-  {
-    question: "Can I try before I pay?",
-    answer: "Yes. Start Lesson 1. No card. No account.",
-  },
-  {
-    question: "What if we stop?",
-    answer:
-      "Nothing to cancel. If you do not buy a level, there is no charge.",
-  },
-  {
-    question: "What is the refund policy?",
-    answer:
-      "Refunds go through the App Store or Google Play, where you paid.",
-    link: { href: "/terms", label: "See Terms of Service" },
-  },
-];
-
-export const homeItems: FaqItem[] = [
-  {
-    question: "What devices does it work on?",
-    answer: "iPhone, iPad, and Android phones and tablets.",
-  },
-  {
-    question: "Does it work offline?",
-    answer:
-      "No. Lessons stream. You need a connection to watch and listen. Progress saves when you are online.",
-  },
-  {
-    question: "Can more than one child use it?",
-    answer: "Yes. One parent account. Each child has their own path.",
-  },
-  {
-    question: "Can we use more than one device?",
-    answer:
-      "Yes. Same account. One device at a time. Progress syncs when you are online. Keep the parent sign-in to yourself. Do not share it.",
-  },
-  {
-    question: "Is it safe?",
-    answer:
-      "No ads. No social. No chat. No links out of the lesson. We keep only what the app needs to work.",
-    link: { href: "/privacy", label: "See Privacy Policy" },
-  },
-  {
-    question: "Why a daily limit?",
-    answer:
-      "So the sound can stick. So the rest of the day is theirs. AptyRead is not trying to keep them in the app.",
-  },
-];
-
-export const faqGroups: { title: string; items: FaqItem[] }[] = [
-  { title: "Starting", items: startItems },
-  { title: "Your child", items: childItems },
-  { title: "Lessons", items: lessonItems },
-  { title: "Cost", items: costItems },
-  { title: "At home", items: homeItems },
-];
-
-export const allFaqItems: FaqItem[] = faqGroups.flatMap((group) => group.items);
-
-export const homepageFaqItems: FaqItem[] = [
-  childItems[0],
-  startItems[2],
-  childItems[2],
-  childItems[3],
-  childItems[5],
-  lessonItems[3],
-];
+// Retained for the shared FAQ component used by older page layouts.
+export const homepageFaqItems = allFaqItems.filter((item) =>
+  ["free-lessons", "knows-letters", "parent-help", "price", "reading-progress", "repeat-practice"].includes(item.id),
+);

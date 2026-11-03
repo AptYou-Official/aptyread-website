@@ -149,6 +149,26 @@ type ScreenButtonProps = EnlargedImage & {
   onEnlarge: (image: EnlargedImage, trigger: HTMLButtonElement) => void;
 };
 
+function ArrowIcon({ direction = "up-right" }: { direction?: "up-right" | "right" }) {
+  return (
+    <svg
+      className="arrow-icon"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d={direction === "right" ? "M5 12h14m-6-6 6 6-6 6" : "M6 18 18 6M6 6h12v12"} />
+    </svg>
+  );
+}
+
 function ScreenButton({
   filename,
   title,
@@ -178,7 +198,7 @@ function ScreenButton({
         height={height}
         loading="lazy"
       />
-      <span className="enlarge-icon" aria-hidden="true">↗</span>
+      <span className="enlarge-icon" aria-hidden="true"><ArrowIcon /></span>
     </button>
   );
 }
@@ -332,7 +352,7 @@ export default function Homepage() {
             <h1>Help your child read.<br /><span>And understand.</span></h1>
             <p className="hero-description">Your child builds words and discovers what they mean, right from Lesson&nbsp;1.</p>
             <div className="hero-actions"><a className="button" href="#get-the-app">Start learning free</a></div>
-            <p className="fine-print">9 free lessons. First 4 without an account.</p>
+            <p className="fine-print">Download for Android and iPhone.<br />9 free lessons. First 4 without an account.</p>
           </div>
           <div className="hero-art" aria-label="Real AptyRead screens showing word building and a first story">
             <div className="hero-orbit" />
@@ -392,11 +412,11 @@ export default function Homepage() {
                   >
                     <span className="step-number">0{index + 1}</span>
                     <span><strong>{item.title}</strong><span className="step-copy">{item.description}</span></span>
-                    <span className="step-arrow" aria-hidden="true">↗</span>
+                    <span className="step-arrow" aria-hidden="true"><ArrowIcon /></span>
                   </button>
                 ))}
               </div>
-              <a className="text-link steps-link" href="#get-the-app">Discover it together <span aria-hidden="true">→</span></a>
+              <a className="text-link steps-link" href="#get-the-app">Discover it together <ArrowIcon direction="right" /></a>
             </div>
           </div>
         </section>
@@ -436,7 +456,7 @@ export default function Homepage() {
                   >
                     <span className="level-no">0{index + 1}</span>
                     <span><strong>{item.title}</strong><small>{item.subtitle}</small></span>
-                    <span className="level-symbol" aria-hidden="true">↗</span>
+                    <span className="level-symbol" aria-hidden="true"><ArrowIcon /></span>
                   </button>
                 ))}
               </div>
@@ -530,14 +550,14 @@ export default function Homepage() {
             <p className="eyebrow">Made for your family</p><h2>One family.<br />Three little journeys.</h2>
             <p>Up to three reader profiles. One parent account. Each child keeps their own progress and place in the course.</p>
             <p>Buy a level once and share it with all three readers. Each child follows the learning journey at their own pace.</p>
-            <a className="text-link" href="#get-the-app">Make a start together <span aria-hidden="true">→</span></a>
+            <a className="text-link" href="#get-the-app">Make a start together <ArrowIcon direction="right" /></a>
           </div>
         </section>
 
         <section className="faq-section section-wrap section-space" id="questions">
           <div className="faq-heading">
             <p className="eyebrow">A few things you might wonder</p><h2>Let’s make<br />starting simple.</h2>
-            <p>More questions?<br /><a className="text-link" href="mailto:support@aptyread.ai">We’re here to help <span aria-hidden="true">↗</span></a></p>
+            <p>More questions?<br /><a className="text-link" href="/faq">Browse all answers <ArrowIcon direction="right" /></a></p>
           </div>
           <div className="faq-list">
             {questions.map((item) => (
@@ -563,7 +583,10 @@ export default function Homepage() {
                 <img src={asset("store-apple.svg")} alt="Download on the App Store" width={168} height={56} loading="lazy" />
               </PlayStoreLink>
             </div>
-            <p className="download-small">9 free lessons. First 4 without an account.<br />No advertisements. No recurring subscription.</p>
+            <p className="download-small">
+              <span className="download-offer">9 free lessons, including your child’s first AptyRead story.</span>
+              First 4 without an account.<br />No advertisements. No recurring subscription.
+            </p>
           </div>
         </section>
       </main>
@@ -572,7 +595,7 @@ export default function Homepage() {
         <div><Wordmark /><p>Every Child Reads.</p></div>
         <div className="footer-right">
           <nav aria-label="Footer navigation">
-            <a href="#questions">Questions</a>
+            <a href="/faq">FAQs</a>
             <a href="/contact">Contact</a>
             <a href="/privacy">Privacy</a>
             <a href="/terms">Terms</a>

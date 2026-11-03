@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
-import Header from "@/components/public/Header";
-import Footer from "@/components/public/Footer";
-import CTA from "@/components/public/CTA";
-import BrandWordmark from "@/components/public/BrandWordmark";
+import Image from "next/image";
+import PlayStoreLink from "@/components/public/PlayStoreLink";
 import { socialImage, socialImageUrl } from "@/lib/site-metadata";
+import "./about.css";
+
+const title = "About AptyRead | Every Child Reads";
+const description =
+  "Why we created AptyRead: a structured English literacy journey for children aged 4 to 10, with reading, meaning and support for the grown-ups beside them.";
 
 export const metadata: Metadata = {
-  title: "A Letter to Parents | AptyRead",
-  description:
-    "Why we built AptyRead. An English reading program for children aged 4 to 10. Five levels. One path. Every child reads.",
-  alternates: {
-    canonical: "https://www.aptyread.ai/about",
-  },
+  title,
+  description,
+  alternates: { canonical: "https://www.aptyread.ai/about" },
   openGraph: {
-    title: "A Letter to Parents | AptyRead",
-    description:
-      "Why we built AptyRead. An English reading program for children aged 4 to 10. Five levels. One path. Every child reads.",
+    title,
+    description,
     url: "https://www.aptyread.ai/about",
     siteName: "AptyRead",
     type: "website",
@@ -23,88 +22,133 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "A Letter to Parents | AptyRead",
-    description:
-      "Why we built AptyRead, an English reading program for children aged 4 to 10.",
+    title,
+    description,
     images: [socialImageUrl],
   },
 };
 
+function Wordmark() {
+  return (
+    <a className="about-wordmark" href="/" aria-label="AptyRead home">
+      <span>Apty</span><span>Read</span>
+    </a>
+  );
+}
+
+function ReadingArrow() {
+  return (
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+      <path d="M4 12h16m-6-6 6 6-6 6" />
+    </svg>
+  );
+}
+
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-apty-cream">
-      <Header />
+    <div className="apty-about">
+      <a className="about-skip" href="#about-main">Skip to content</a>
+      <header className="about-header">
+        <div className="about-nav">
+          <Wordmark />
+          <nav aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a href="/#how-it-works">How it works</a>
+            <a href="/about" aria-current="page">About us</a>
+          </nav>
+          <a className="about-button" href="#about-get-the-app">Start learning free</a>
+        </div>
+      </header>
 
-      <main>
-        <article className="px-4 py-14 md:py-20">
-          <div className="container mx-auto max-w-2xl">
-            <BrandWordmark
-              as="p"
-              size="sm"
-              className="tracking-wide font-semibold mb-4"
-            />
-            <h1 className="text-3xl md:text-5xl font-bold text-apty-dark mb-3 leading-tight">
-              A Letter to Parents
-            </h1>
-            <p className="text-lg md:text-xl text-apty-gray mb-12">
-              Why we built this.
-            </p>
+      <main id="about-main">
+        <section className="about-hero about-wrap" aria-labelledby="about-title">
+          <p className="about-eyebrow">About AptyRead · Our mission</p>
+          <h1 id="about-title">Every Child <span>Reads.</span></h1>
+          <p className="about-hero-lead">Helping children read English.<br />And understand what they read.</p>
+          <p className="about-hero-note">For children aged 4 to 10. For the grown-ups beside them.</p>
+        </section>
 
-            <div className="space-y-6 text-base md:text-lg text-apty-dark leading-relaxed">
-              <p>
-                In 2020, parents came to us with children who struggled to read
-                English. We watched. We listened. We understood one thing.
-              </p>
-
-              <p className="text-xl md:text-2xl font-semibold text-apty-dark leading-snug border-l-4 border-apty-cyan pl-5 py-1">
-                What the child gets should not depend on who happens to teach
-                them that day.
-              </p>
-
-              <p>
-                That was not good enough. Every child deserves a structured,
-                consistent, always available foundation.
-              </p>
-
-              <p className="font-semibold">So we built AptyRead.</p>
-
-              <p className="font-semibold">Our mission: Every child reads.</p>
-
-              <p>
-                An English reading program for ages 4 to 10. Five levels. One
-                path. Built on the Science of Reading.
-              </p>
-
-              <p>
-                Reading is a skill. They move to the next lesson only when they
-                are ready. No skipping. No gaps. Confidence from finishing, not
-                from being pushed.
-              </p>
-
-              <p>
-                We are parents too. You set a daily limit: 1 or 2 new lessons.
-                About fifteen minutes. Then they are done. The rest of the day
-                is theirs.
-              </p>
-
-              <p>
-                No ads. No subscription. Open the app and start Lesson 1. Buy a
-                level once, when you are ready.
-              </p>
-
-              <p>Thank you for trusting us with this.</p>
-            </div>
-
-            <p className="mt-12 text-apty-dark font-semibold">
-              The AptyRead Team
-            </p>
+        <section className="about-origin about-wrap" aria-labelledby="about-origin-title">
+          <div>
+            <p className="about-eyebrow">Why we began</p>
+            <h2 id="about-origin-title">It began<br />with listening.</h2>
           </div>
-        </article>
+          <div className="about-origin-copy">
+            <p>AptyRead began by listening to families whose children needed support learning to read English. Those conversations shaped a simple purpose: to make a clear, structured reading journey easier for families to access.</p>
+            <p>Parents and teachers bring care, encouragement and understanding to a child’s learning. AptyRead supports that shared effort with interactive practice for children and guidance for the grown-ups beside them.</p>
+            <p className="about-signature">The AptyRead team</p>
+          </div>
+        </section>
 
-        <CTA />
+        <section className="about-meaning" aria-labelledby="about-meaning-title">
+          <div className="about-wrap about-meaning-grid">
+            <figure className="about-story">
+              <div className="about-story-frame">
+                <Image
+                  src="/homepage/app-first-story.webp"
+                  alt="Pat sat. An illustrated page from Pat and Pip, the first AptyRead story."
+                  width={660}
+                  height={1434}
+                  sizes="(max-width: 600px) 206px, 226px"
+                  unoptimized
+                />
+              </div>
+              <figcaption>Little words. A story to understand.<span>An actual screen from AptyRead</span></figcaption>
+            </figure>
+            <div className="about-meaning-copy">
+              <p className="about-eyebrow">Why understanding matters</p>
+              <h2 id="about-meaning-title">Reading brings<br /><span>meaning.</span></h2>
+              <p>A story to enjoy. Instructions to follow. A new idea to explore. Reading with understanding helps children make sense of the words around them.</p>
+              <p>From Lesson 1, children use the sounds they learn to build words and explore what those words mean.</p>
+              <div className="about-reading-path" role="group" aria-label="Sounds, words and meaning grow together">
+                <span>Sounds</span><ReadingArrow /><span>Words</span><ReadingArrow /><span>Meaning</span>
+              </div>
+              <p>Five progressive levels give the journey its structure. Each lesson builds on earlier learning, with opportunities to practise and return to familiar words and stories.</p>
+              <a className="about-text-link" href="/#learning-journey">Explore the learning journey <ReadingArrow /></a>
+            </div>
+          </div>
+        </section>
+
+        <section className="about-start about-wrap" id="about-get-the-app" aria-labelledby="about-start-title">
+          <div className="about-start-card">
+            <Image className="about-mascot" src="/homepage/apty-mascot.webp" alt="Apty, your reading companion" width={120} height={120} unoptimized />
+            <p className="about-eyebrow">A little time together. A place to begin.</p>
+            <h2 id="about-start-title">Make a start together.</h2>
+            <p className="about-start-copy">Explore a lesson with your child. Listen, build a word<br className="about-desktop-break" /> and enjoy the little discoveries together.</p>
+            <p className="about-platforms">Download for Android and iPhone.</p>
+            <div className="about-store-links">
+              <PlayStoreLink platform="android" aria-label="Get AptyRead on Google Play">
+                <Image src="/homepage/store-google.png" alt="Get it on Google Play" width={188} height={56} unoptimized />
+              </PlayStoreLink>
+              <PlayStoreLink platform="ios" aria-label="Download AptyRead on the App Store">
+                <Image src="/homepage/store-apple.svg" alt="Download on the App Store" width={168} height={56} unoptimized />
+              </PlayStoreLink>
+            </div>
+            <p className="about-free-offer">9 free lessons, including your child’s first AptyRead story.</p>
+            <p className="about-access">First 4 without an account. A free parent account lets you continue through Lesson 9.</p>
+            <p className="about-reassurance">No advertisements. No recurring subscription.</p>
+          </div>
+          <p className="about-company">Created by AptYou Services Pvt Ltd.<br /><a href="mailto:support@aptyread.ai">A question about your child’s first steps? We’re here to help.</a></p>
+        </section>
       </main>
 
-      <Footer />
+      <footer className="about-footer about-wrap">
+        <div><Wordmark /><p>Every Child Reads.</p></div>
+        <div className="about-footer-right">
+          <nav aria-label="Footer navigation">
+            <a href="/">Home</a>
+            <a href="/contact">Contact</a>
+            <a href="/faq">FAQs</a>
+            <a href="/reading-guide">Reading guide</a>
+            <a href="/schools">For schools</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
+            <a href="/delete-account">Delete account</a>
+          </nav>
+          <p>© 2026 AptYou Services Pvt Ltd.</p>
+          <p className="about-trademarks">Apple and the Apple logo are trademarks of Apple Inc. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.</p>
+        </div>
+      </footer>
     </div>
   );
 }

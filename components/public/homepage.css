@@ -27,6 +27,13 @@
 .apty-homepage main{overflow-x:clip}
 @media(max-width:580px){.apty-homepage .phone-story{right:14px}}
 
+/* Draw arrows consistently without relying on a font's symbol coverage. */
+.apty-homepage .arrow-icon{display:block;width:1em;height:1em;flex-shrink:0}
+
+/* Keep the free story visible alongside its account-access details. */
+.apty-homepage .download-inner p.download-small{font-size:12px}
+.apty-homepage .download-offer{display:block;max-width:520px;margin:0 auto 4px;font-size:14px;font-weight:700;line-height:1.6;color:var(--ink)}
+
 /* A quieter first screen, with one invitation and readable access details. */
 .apty-homepage .hero .fine-print{font-size:13px;line-height:1.6;margin-top:14px}
 .apty-homepage .hero-actions .button{padding-inline:30px}
