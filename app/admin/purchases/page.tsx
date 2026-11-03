@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { requireAdminPage } from '@/lib/auth';
 import { getPurchasesWithFilters, type PurchaseFilters } from '@/lib/queries/payments';
 import PurchasesTable from '@/components/admin/PurchasesTable';
 import PurchasesFilters from '@/components/admin/PurchasesFilters';
@@ -10,6 +11,7 @@ export default async function AdminPurchasesPage({
 }: {
   searchParams: Promise<{ userId?: string; orderId?: string; status?: string; startDate?: string; endDate?: string }>;
 }) {
+  await requireAdminPage();
   const params = await searchParams;
   const filters: PurchaseFilters = {};
   if (params.userId) filters.userId = params.userId;

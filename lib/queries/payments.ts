@@ -1,4 +1,5 @@
 import { getDb } from '@/lib/firebase-admin';
+import { requireAdmin } from '@/lib/auth';
 
 /** Convert Firestore Timestamp and other non-JSON values so data is safe for server→client serialization */
 function serializePurchase(doc: any): Purchase {
@@ -45,6 +46,7 @@ export interface PurchaseFilters {
 }
 
 export async function getPurchases(limitCount: number = 100): Promise<Purchase[]> {
+  await requireAdmin();
   try {
     const db = await getDb();
     if (!db) {
@@ -66,6 +68,7 @@ export async function getPurchases(limitCount: number = 100): Promise<Purchase[]
 }
 
 export async function getPurchasesByUserId(userId: string): Promise<Purchase[]> {
+  await requireAdmin();
   try {
     const db = await getDb();
     if (!db) return [];
@@ -82,6 +85,7 @@ export async function getPurchasesByUserId(userId: string): Promise<Purchase[]> 
 }
 
 export async function getPurchasesWithFilters(filters: PurchaseFilters, limitCount: number = 200): Promise<Purchase[]> {
+  await requireAdmin();
   try {
     const db = await getDb();
     if (!db) return [];
@@ -106,6 +110,7 @@ export async function getPurchasesWithFilters(filters: PurchaseFilters, limitCou
 }
 
 export async function getRevenueStats(startDate?: Date, endDate?: Date) {
+  await requireAdmin();
   try {
     const db = await getDb();
     if (!db) {

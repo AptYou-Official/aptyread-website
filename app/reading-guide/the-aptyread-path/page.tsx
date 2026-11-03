@@ -1,182 +1,184 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import Header from "@/components/public/Header";
-import Footer from "@/components/public/Footer";
-import GuideBreadcrumb from "@/components/public/GuideBreadcrumb";
-import GuideCta from "@/components/public/GuideCta";
-import { PATH_LEVELS } from "@/lib/reading-path";
-import { socialImage, socialImageUrl } from "@/lib/site-metadata";
+import SupportShell from "@/components/public/SupportShell";
+import {
+  GuideArrow,
+  GuideBreadcrumb,
+  GuideByline,
+  GuideCta,
+  GuideSchema,
+} from "@/components/public/ReadingGuideShared";
+import { ALPHABET_ARTICLE_URL, PATH_LEVELS } from "@/lib/reading-path";
+import { socialImageFor } from "@/lib/site-metadata";
+import "@/app/reading-guide/reading-guide.css";
+
+const pageUrl = "https://www.aptyread.ai/reading-guide/the-aptyread-path";
+const pathImage = socialImageFor("the-aptyread-path", "From first sounds. To reading with meaning. AptyRead's five-level journey.");
+const description =
+  "Explore AptyRead's five-level English literacy journey for ages 4 to 10. Sounds, word building and meaning begin in Lesson 1, with stories from Level 1.";
 
 export const metadata: Metadata = {
-  title: "The AptyRead Five-Level Path | AptyRead",
-  description:
-    "One structured English reading path for ages 4 to 10. Five levels. One path. Every child starts at Level 1 with Sound Foundations.",
-  alternates: {
-    canonical: "https://www.aptyread.ai/reading-guide/the-aptyread-path",
-  },
+  title: "The AptyRead Five-Level Reading Path | AptyRead",
+  description,
+  alternates: { canonical: pageUrl },
   openGraph: {
-    title: "The AptyRead Five-Level Path",
-    description:
-      "Five levels. One path. Every child starts with Sound Foundations, then moves forward when ready.",
-    url: "https://www.aptyread.ai/reading-guide/the-aptyread-path",
+    title: "The AptyRead Five-Level Reading Path",
+    description,
+    url: pageUrl,
     siteName: "AptyRead",
     type: "website",
-    images: [socialImage],
+    images: [pathImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "The AptyRead Five-Level Path",
-    description:
-      "Five levels. One structured English reading path for children aged 4 to 10.",
-    images: [socialImageUrl],
+    title: "The AptyRead Five-Level Reading Path",
+    description,
+    images: [pathImage.url],
   },
 };
 
 export default function AptyReadPathPage() {
   return (
-    <div className="min-h-screen bg-apty-cream">
-      <Header />
-      <main>
-        <article className="px-4 py-14 md:py-20">
-          <div className="container mx-auto max-w-3xl">
-            <GuideBreadcrumb
-              items={[
-                { href: "/", label: "Home" },
-                { href: "/reading-guide", label: "Reading Guide" },
-                { label: "Five-Level Path" },
-              ]}
-            />
+    <SupportShell currentPage="reading-guide" className="reading-guide-page">
+      <GuideSchema
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": `${pageUrl}#webpage`,
+          url: pageUrl,
+          name: "The AptyRead Five-Level Reading Path",
+          description,
+          inLanguage: "en",
+          dateModified: "2026-11-03",
+          publisher: {
+            "@type": "Organization",
+            name: "AptYou Services Pvt Ltd",
+            url: "https://www.aptyread.ai",
+          },
+        }}
+      />
+      <article className="support-wrap">
+        <GuideBreadcrumb
+          items={[
+            { href: "/", label: "Home" },
+            { href: "/reading-guide", label: "Reading Guide" },
+            { label: "The AptyRead path" },
+          ]}
+        />
 
-            <p className="text-sm font-semibold tracking-wide text-apty-dark mb-4">
-              Five levels. One path.
+        <header className="guide-page-header">
+          <p className="support-eyebrow">Five levels. One connected journey.</p>
+          <h1>From first sounds.<br />To reading with meaning.</h1>
+          <p className="guide-intro">
+            AptyRead brings sounds, words and understanding together from the
+            beginning. Each step gives your child something to use in the next.
+          </p>
+          <GuideByline minutes={3} />
+        </header>
+
+        <section className="guide-path-intro" aria-labelledby="reading-begins-heading">
+          <div className="guide-section-heading">
+            <p className="support-eyebrow">Reading begins in Lesson 1</p>
+            <h2 id="reading-begins-heading">A few sounds.<br />Their first words.</h2>
+            <p>
+              Your child does not need to learn every letter before reading a
+              word. In Lesson 1, they meet <strong>s, a and t</strong>, then build
+              and read <strong>at</strong> and <strong>sat</strong> with the
+              app&apos;s help.
             </p>
-            <h1 className="text-3xl md:text-5xl font-extrabold text-apty-dark mb-5 leading-tight tracking-tight">
-              The AptyRead Five-Level Path
-            </h1>
-            <p className="text-lg md:text-xl text-apty-gray mb-10 leading-relaxed">
-              One structured path to English reading. Every child starts at
-              Level 1. They move forward when ready. Five levels. One path.
+            <p>
+              The words have meaning, too. Children listen, choose, build and
+              explore what happens. By Lesson 9, those early sounds lead to
+              <em> Pat and Pip</em>, their first little story.
             </p>
-
-            <section className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-4 tracking-tight">
-                Why reading is built step by step
-              </h2>
-              <div className="space-y-4 text-base md:text-lg text-apty-dark leading-relaxed">
-                <p>
-                  Reading English is a skill. Sounds come before words. Words
-                  come before sentences. Sentences come before books. Each level
-                  builds on the one before it.
-                </p>
-                <p>
-                  AptyRead is not five separate courses. It is one path. Every
-                  child starts at Level 1.
-                </p>
-              </div>
-            </section>
-
-            <section className="mb-12" aria-labelledby="path-levels-heading">
-              <h2
-                id="path-levels-heading"
-                className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-6 tracking-tight"
-              >
-                The five levels
-              </h2>
-              <ol className="relative space-y-4">
-                <div
-                  aria-hidden="true"
-                  className="absolute left-5 top-3 bottom-3 w-0.5 bg-apty-cyan/30 md:left-6"
-                />
-                {PATH_LEVELS.map((level) => (
-                  <li key={level.id} className="relative flex gap-4 md:gap-5">
-                    <div className="relative z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-apty-cyan text-sm font-bold text-white shadow-sm md:h-12 md:w-12 md:text-base">
-                      {level.id}
-                    </div>
-                    <div className="min-w-0 flex-1 rounded-2xl border border-apty-cyan/15 bg-white p-4 md:p-5">
-                      <p className="text-sm font-semibold text-apty-cyan mb-1">
-                        Level {level.number}
-                      </p>
-                      <h3 className="text-xl md:text-2xl font-bold text-apty-dark mb-1 tracking-tight">
-                        {level.name}
-                      </h3>
-                      <p className="text-sm md:text-base text-apty-gray mb-2 leading-relaxed">
-                        &ldquo;{level.parentProblem}&rdquo;
-                      </p>
-                      <p className="text-apty-dark/80 leading-relaxed">
-                        {level.outcome}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </section>
-
-            <section className="mb-12 space-y-4 text-base md:text-lg text-apty-dark leading-relaxed">
-              <h2 className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-4 tracking-tight">
-                Why children do not skip levels
-              </h2>
-              <p>
-                Skipping looks faster. It leaves gaps. A child who jumps ahead
-                often guesses, stalls on longer words, or loses confidence later.
-                The path is sequential on purpose.
-              </p>
-            </section>
-
-            <section className="mb-12 space-y-4 text-base md:text-lg text-apty-dark leading-relaxed">
-              <h2 className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-4 tracking-tight">
-                What if my child already knows some of these skills?
-              </h2>
-              <p>
-                They still start at Level 1. Knowing letter names is not the same
-                as reading sounds into words. Level 1 confirms the foundations.
-                Many children move through the early lessons quickly when a skill
-                is already firm. The goal is not to slow them down. The goal is
-                to leave nothing missing.
-              </p>
-            </section>
-
-            <section className="mb-12 space-y-4 text-base md:text-lg text-apty-dark leading-relaxed">
-              <h2 className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-4 tracking-tight">
-                How progress works
-              </h2>
-              <p>
-                They move to the next lesson when ready. You set a daily limit of
-                1 or 2 new lessons. About fifteen minutes. Then they stop.
-                Finished lessons can be reviewed any time. Review does not count
-                against the daily limit.
-              </p>
-            </section>
-
-            <section className="mb-4 space-y-4 text-base md:text-lg text-apty-dark leading-relaxed">
-              <h2 className="text-2xl md:text-3xl font-extrabold text-apty-dark mb-4 tracking-tight">
-                What a typical sitting looks like
-              </h2>
-              <p>
-                Watch the sound. Say it. Try it. Write it. You sit with them.
-                Then they read. Not the phone alone.
-              </p>
-              <p>
-                If your child knows the alphabet but still cannot read words,{" "}
-                <Link
-                  href="/reading-guide/reading-problems/child-knows-alphabet-but-cant-read"
-                  className="text-apty-cyan font-semibold hover:text-apty-dark transition-colors"
-                >
-                  read this next
-                </Link>
-                .
-              </p>
-            </section>
-
-            <GuideCta
-              primary="lesson"
-              showSecondary={false}
-              heading="Start at Level 1"
-              body="First lessons are free. No account. Every child begins with Sound Foundations."
-            />
+            <p>
+              This is the pattern throughout the journey: learn something,
+              put it into practice, and return to it in a new context.
+            </p>
           </div>
-        </article>
-      </main>
-      <Footer />
-    </div>
+          <figure className="guide-path-screen">
+            <Image
+              src="/homepage/app-first-story.webp"
+              alt="Pat sat. An illustrated page from Pat and Pip, the first AptyRead story."
+              width={660}
+              height={1434}
+              sizes="(max-width: 700px) 240px, 270px"
+            />
+            <figcaption>Pat and Pip. The first story, in Lesson 9.</figcaption>
+          </figure>
+        </section>
+
+        <section className="guide-path-levels" aria-labelledby="path-levels-heading">
+          <div className="guide-section-heading">
+            <p className="support-eyebrow">The five-level path</p>
+            <h2 id="path-levels-heading">More to read.<br />More to understand.</h2>
+            <p>
+              These are the teaching focuses of the five levels. Reading,
+              vocabulary and meaning grow together throughout.
+            </p>
+          </div>
+          {PATH_LEVELS.map((level) => (
+            <article className="guide-level" key={level.id}>
+              <span className="guide-level-number" aria-label={`Level ${level.number}`}>
+                {level.id}
+              </span>
+              <div className="guide-level-copy">
+                <h3>{level.name}</h3>
+                <p>{level.outcome}</p>
+              </div>
+            </article>
+          ))}
+        </section>
+
+        <aside className="guide-parent-note">
+          <h2>A clear route, at your child&apos;s pace.</h2>
+          <p>
+            Every reader begins at Level 1. Lessons open in order as required
+            activities are completed. Finished lessons, collected words and
+            earned books are there to enjoy again.
+          </p>
+          <p>
+            Completing an activity records participation. It does not mean every
+            word is fluent yet. A little replay, a clearer model or another
+            reading together can be part of moving forward.
+          </p>
+        </aside>
+
+        <section aria-labelledby="alongside-heading">
+          <div className="guide-section-heading">
+            <p className="support-eyebrow">Your part in the journey</p>
+            <h2 id="alongside-heading">Be close. Be curious.</h2>
+          </div>
+          <div className="guide-path-practice">
+            <div>
+              <h3>Let them have a turn.</h3>
+              <p>
+                Give your child time to look, listen and respond. Replay the
+                model when helpful, without turning practice into a test.
+              </p>
+            </div>
+            <div>
+              <h3>Talk about the meaning.</h3>
+              <p>
+                Ask what happened, act out a word, or find something similar
+                nearby. You can talk in the language your family knows best.
+              </p>
+            </div>
+            <div>
+              <h3>Keep it comfortable.</h3>
+              <p>
+                Pause when your child needs a break. Writing is optional, and
+                grown-up guidance is available in English, Hindi and Malayalam.
+              </p>
+            </div>
+          </div>
+          <Link className="guide-text-link" href={ALPHABET_ARTICLE_URL}>
+            Knows the alphabet, but not yet reading? <GuideArrow />
+          </Link>
+        </section>
+      </article>
+      <GuideCta />
+    </SupportShell>
   );
 }

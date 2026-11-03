@@ -1,19 +1,29 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { signOut } from 'firebase/auth';
 import { auth } from '@/lib/firebase-client';
-import { useRouter } from 'next/navigation';
 import BrandWordmark from '@/components/public/BrandWordmark';
 
 export default function Sidebar() {
   const pathname = usePathname();
-  const router = useRouter();
+  const [signingOut, setSigningOut] = useState(false);
+  const [signOutError, setSignOutError] = useState('');
 
   const handleSignOut = async () => {
-    await signOut(auth);
-    router.push('/admin/login');
+    setSigningOut(true);
+    setSignOutError('');
+    try {
+      const response = await fetch('/api/admin/session', { method: 'DELETE', credentials: 'same-origin' });
+      if (!response.ok) throw new Error('Unable to sign out. Please try again.');
+      if (auth) await signOut(auth).catch(() => {});
+      window.location.replace('/admin/login');
+    } catch {
+      setSignOutError('Unable to sign out. Please try again.');
+      setSigningOut(false);
+    }
   };
 
   const navItems = [
@@ -53,10 +63,12 @@ export default function Sidebar() {
       <div className="p-4 border-t border-apty-coral-accent">
         <button
           onClick={handleSignOut}
+          disabled={signingOut}
           className="w-full px-4 py-3 rounded-lg bg-apty-warm text-apty-dark hover:bg-apty-coral-accent transition-colors"
         >
-          Sign Out
+          {signingOut ? 'Signing out...' : 'Sign Out'}
         </button>
+        {signOutError && <p role="alert" className="text-sm text-red-700 mt-3">{signOutError}</p>}
       </div>
     </aside>
   );

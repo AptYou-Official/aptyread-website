@@ -15,10 +15,11 @@ function PathSpark({ className }: { className?: string }) {
 
 type PathJourneyCueProps = {
   className?: string;
+  levels?: readonly { number: number; name: string }[];
 };
 
 /** Shared curved 01–05 journey cue for consumer and school pages. */
-export default function PathJourneyCue({ className = "" }: PathJourneyCueProps) {
+export default function PathJourneyCue({ className = "", levels = PATH_LEVELS }: PathJourneyCueProps) {
   return (
     <div className={`relative max-w-3xl mx-auto px-1 sm:px-2 ${className}`.trim()}>
       <svg
@@ -57,7 +58,7 @@ export default function PathJourneyCue({ className = "" }: PathJourneyCueProps) 
       <PathSpark className="pointer-events-none absolute right-[14%] top-1 hidden h-2.5 w-2.5 text-apty-cyan/40 sm:block" />
 
       <ol className="relative z-10 flex items-start justify-between gap-1 sm:gap-2">
-        {PATH_LEVELS.map((level) => (
+        {levels.map((level) => (
           <li
             key={level.number}
             className="flex flex-1 flex-col items-center text-center min-w-0"

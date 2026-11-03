@@ -1,4 +1,5 @@
 import { getDb } from '@/lib/firebase-admin';
+import { requireAdmin } from '@/lib/auth';
 
 export interface User {
   id: string;
@@ -32,6 +33,7 @@ function serializeDoc(doc: any): User {
 }
 
 export async function getUsers(limitCount: number = 100): Promise<User[]> {
+  await requireAdmin();
   try {
     const db = await getDb();
     if (!db) {
@@ -61,6 +63,7 @@ export async function getUsers(limitCount: number = 100): Promise<User[]> {
 }
 
 export async function getUserById(userId: string): Promise<User | null> {
+  await requireAdmin();
   try {
     const db = await getDb();
     if (!db) {
@@ -79,6 +82,7 @@ export async function getUserById(userId: string): Promise<User | null> {
 }
 
 export async function getUserIdByEmail(email: string): Promise<string | null> {
+  await requireAdmin();
   try {
     const auth = await import('@/lib/firebase-admin').then((m) => m.getAuth());
     if (!auth) return null;

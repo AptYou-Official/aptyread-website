@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
 import PolicyLayout, { PolicyContents } from "@/components/public/PolicyLayout";
 import Link from "next/link";
+import { socialImage } from "@/lib/site-metadata";
+
+const title = "Delete your account | AptyRead";
+const description = "Remove one reader or delete your AptyRead family account. Clear steps, what is deleted, and the limited records retained.";
+const pageUrl = "https://www.aptyread.ai/delete-account";
 
 export const metadata: Metadata = {
-  title: "Delete your account | AptyRead",
-  description:
-    "Remove one reader or delete your AptyRead family account. Clear steps, what is deleted, and the limited records retained.",
-  alternates: {
-    canonical: "https://www.aptyread.ai/delete-account",
-  },
+  title,
+  description,
+  alternates: { canonical: pageUrl },
+  openGraph: { title, description, url: pageUrl, siteName: "AptyRead", type: "website", images: [socialImage] },
+  twitter: { card: "summary_large_image", title, description, images: [socialImage] },
 };
 
 const contents = [

@@ -1,0 +1,57 @@
+@font-face {
+  font-family: AptySiteFooterNunito;
+  src: url('/homepage/NunitoSans-Variable.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+/* Explicit shared styles keep each page's typography out of the footer. */
+.apty-site-footer.apty-site-footer {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fafaf7;
+  color: #173a8a;
+  font-family: AptySiteFooterNunito, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: normal;
+  -webkit-font-smoothing: antialiased;
+}
+.apty-site-footer.apty-site-footer,
+.apty-site-footer.apty-site-footer * { box-sizing: border-box; }
+.apty-site-footer.apty-site-footer .apty-site-footer-inner { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 42px; width: calc(100% - 80px); max-width: 1120px; margin: 0 auto; border-top: 1px solid #dce5e7; padding: 30px 0; }
+.apty-site-footer.apty-site-footer .apty-site-footer-wordmark { display: inline-flex; color: #173a8a; font-family: inherit; font-size: 28px; font-weight: 800; line-height: 1.2; letter-spacing: -.045em; font-feature-settings: 'ss01' 1; text-decoration: none; white-space: nowrap; }
+.apty-site-footer.apty-site-footer .apty-site-footer-wordmark span:last-child { color: #00b8d9; }
+.apty-site-footer.apty-site-footer .apty-site-footer-mission { margin: 10px 0 0; padding: 0; color: #5b6b7c; font-size: 12px; font-weight: 400; line-height: 1.6; letter-spacing: normal; }
+.apty-site-footer.apty-site-footer .apty-site-footer-download { display: inline-flex; align-items: center; min-height: 36px; margin-top: 8px; color: #007a90; font-family: inherit; font-size: 13px; font-weight: 650; line-height: 1.5; text-decoration: none; }
+.apty-site-footer.apty-site-footer .apty-site-footer-details { min-width: 0; text-align: right; }
+.apty-site-footer.apty-site-footer .apty-site-footer-links,
+.apty-site-footer.apty-site-footer .apty-site-footer-classroom { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 2px 22px; margin: -8px 0 0; padding: 0; }
+.apty-site-footer.apty-site-footer .apty-site-footer-links a,
+.apty-site-footer.apty-site-footer .apty-site-footer-classroom a { display: inline-flex; align-items: center; min-height: 36px; padding: 8px 0; color: #173a8a; font-family: inherit; font-size: 13px; font-weight: 650; line-height: 1.5; letter-spacing: normal; text-decoration: none; white-space: nowrap; }
+.apty-site-footer.apty-site-footer .apty-site-footer-classroom { margin-top: 8px; }
+.apty-site-footer.apty-site-footer .apty-site-footer-classroom a { color: #007a90; }
+.apty-site-footer.apty-site-footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.apty-site-footer.apty-site-footer a:focus-visible { outline: 3px solid #007a90; outline-offset: 5px; border-radius: 3px; }
+.apty-site-footer.apty-site-footer .apty-site-footer-copyright { margin: 14px 0 0; padding: 0; color: #5b6b7c; font-size: 11px; font-weight: 400; line-height: 1.6; letter-spacing: normal; }
+.apty-site-footer.apty-site-footer .apty-site-footer-trademarks { max-width: 700px; margin: 10px 0 0 auto; padding: 0; color: #657684; font-size: 10px; font-weight: 400; line-height: 1.65; letter-spacing: normal; }
+@media (max-width: 800px) {
+  .apty-site-footer.apty-site-footer .apty-site-footer-inner { grid-template-columns: 150px minmax(0, 1fr); gap: 28px; }
+  .apty-site-footer.apty-site-footer .apty-site-footer-links,
+  .apty-site-footer.apty-site-footer .apty-site-footer-classroom { column-gap: 18px; }
+}
+@media (max-width: 600px) {
+  .apty-site-footer.apty-site-footer .apty-site-footer-inner { display: block; width: calc(100% - 40px); padding: 28px 0; }
+  .apty-site-footer.apty-site-footer .apty-site-footer-wordmark { font-size: 27px; }
+  .apty-site-footer.apty-site-footer .apty-site-footer-details { margin-top: 25px; text-align: left; }
+  .apty-site-footer.apty-site-footer .apty-site-footer-links,
+  .apty-site-footer.apty-site-footer .apty-site-footer-classroom { justify-content: flex-start; gap: 2px 20px; }
+  .apty-site-footer.apty-site-footer .apty-site-footer-links a,
+  .apty-site-footer.apty-site-footer .apty-site-footer-classroom a { font-size: 12px; font-weight: 650; }
+  .apty-site-footer.apty-site-footer .apty-site-footer-trademarks { max-width: none; margin-left: 0; }
+}
+@media print { .apty-site-footer.apty-site-footer { display: none; } }

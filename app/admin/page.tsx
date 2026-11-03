@@ -1,4 +1,5 @@
 import StatsCard from '@/components/admin/StatsCard';
+import { requireAdminPage } from '@/lib/auth';
 import { getUsers } from '@/lib/queries/users';
 import { getRevenueStats } from '@/lib/queries/payments';
 
@@ -6,18 +7,16 @@ import { getRevenueStats } from '@/lib/queries/payments';
 export const dynamic = 'force-dynamic';
 
 export default async function AdminDashboard() {
+  await requireAdminPage();
   let totalUsers = 0;
-  let totalRevenue = 0;
   let totalPurchases = 0;
   try {
     const [users, revenueStats] = await Promise.all([getUsers(100), getRevenueStats()]);
     totalUsers = users?.length ?? 0;
-    totalRevenue = revenueStats?.totalRevenue ?? 0;
     totalPurchases = revenueStats?.purchaseCount ?? 0;
   } catch (e) {
     console.error('Dashboard data error:', e);
   }
-  const activeUsers = Math.floor(totalUsers * 0.6);
 
   return (
     <div className="space-y-8">
@@ -28,34 +27,30 @@ export default async function AdminDashboard() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatsCard
-          title="Total Users"
+          title="Recent user records"
           value={totalUsers.toLocaleString()}
-          change="+12%"
           icon="👥"
         />
         <StatsCard
-          title="Total Revenue"
-          value={`$${totalRevenue.toLocaleString()}`}
-          change="+8%"
+          title="Revenue by currency"
+          value="Not connected"
           icon="💰"
         />
         <StatsCard
-          title="Active Users"
-          value={activeUsers.toLocaleString()}
-          change="+5%"
+          title="Active readers"
+          value="Not measured"
           icon="📊"
         />
         <StatsCard
-          title="Total Purchases"
+          title="Recorded purchases"
           value={totalPurchases.toLocaleString()}
-          change="+15%"
           icon="🛒"
         />
       </div>
 
       <div className="bg-white p-6 rounded-lg border border-apty-sky shadow-sm">
-        <h2 className="text-2xl font-bold text-apty-dark mb-4">Recent Activity</h2>
-        <p className="text-apty-gray">Dashboard analytics and charts will be displayed here.</p>
+        <h2 className="text-2xl font-bold text-apty-dark mb-4">About these figures</h2>
+        <p className="text-apty-gray">The user count covers up to 100 recent records. The purchase count covers records marked active or completed. App activity, lesson completion, growth comparisons and revenue reporting by currency are not connected to this dashboard yet.</p>
       </div>
     </div>
   );

@@ -1,10 +1,12 @@
 'use server';
 
 import { getDb } from '@/lib/firebase-admin';
+import { requireAdmin } from '@/lib/auth';
 import { getUserIdByEmail } from '@/lib/queries/users';
 
 export async function resolveEmailToUid(email: string): Promise<{ uid: string | null; error?: string }> {
   try {
+    await requireAdmin();
     if (!email?.trim()) return { uid: null, error: 'Email required' };
     const uid = await getUserIdByEmail(email.trim());
     return { uid };
@@ -15,6 +17,7 @@ export async function resolveEmailToUid(email: string): Promise<{ uid: string | 
 
 export async function markPurchaseRefunded(purchaseId: string): Promise<{ ok: boolean; error?: string }> {
   try {
+    await requireAdmin();
     const db = await getDb();
     if (!db) return { ok: false, error: 'Database not available' };
     const ref = db.collection('purchases').doc(purchaseId);
@@ -43,6 +46,7 @@ export interface AddPurchaseInput {
 
 export async function addPurchase(data: AddPurchaseInput): Promise<{ ok: boolean; error?: string }> {
   try {
+    await requireAdmin();
     const db = await getDb();
     if (!db) return { ok: false, error: 'Database not available' };
     if (!data.userId?.trim() || !data.orderId?.trim() || !data.purchaseToken?.trim() || !data.levelId?.trim()) {

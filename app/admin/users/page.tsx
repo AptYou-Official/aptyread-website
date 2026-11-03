@@ -1,10 +1,12 @@
 import UserTable from '@/components/admin/UserTable';
+import { requireAdminPage } from '@/lib/auth';
 import { getUsers } from '@/lib/queries/users';
 
 // Force dynamic rendering to prevent build-time execution
 export const dynamic = 'force-dynamic';
 
 export default async function UsersPage() {
+  await requireAdminPage();
   let users: Awaited<ReturnType<typeof getUsers>> = [];
   try {
     users = await getUsers(1000);

@@ -2,20 +2,24 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.aptyread.ai'
-  const contentUpdated = new Date('2026-09-16T00:00:00.000Z')
-  const guideUpdated = new Date('2026-09-16T00:00:00.000Z')
-  const legalUpdated = new Date('2026-09-10T00:00:00.000Z')
+  const parentPagesUpdated = new Date('2026-11-03T00:00:00.000Z')
+  const downloadUpdated = new Date('2026-11-03T00:00:00.000Z')
+  const guideUpdated = new Date('2026-11-03T00:00:00.000Z')
+  const schoolsUpdated = new Date('2026-09-16T00:00:00.000Z')
+  const privacyUpdated = new Date('2026-11-03T00:00:00.000Z')
+  // Terms and deletion guidance retain their 28 October content revision.
+  const legalUpdated = new Date('2026-10-28T00:00:00.000Z')
   
   return [
     {
       url: baseUrl,
-      lastModified: contentUpdated,
+      lastModified: parentPagesUpdated,
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${baseUrl}/download`,
-      lastModified: contentUpdated,
+      lastModified: downloadUpdated,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
@@ -69,31 +73,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/faq`,
-      lastModified: contentUpdated,
+      lastModified: parentPagesUpdated,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: contentUpdated,
+      lastModified: parentPagesUpdated,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/schools`,
-      lastModified: contentUpdated,
+      lastModified: schoolsUpdated,
       changeFrequency: 'monthly',
       priority: 0.75,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: contentUpdated,
+      lastModified: parentPagesUpdated,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified: legalUpdated,
+      lastModified: privacyUpdated,
       changeFrequency: 'yearly',
       priority: 0.5,
     },

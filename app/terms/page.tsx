@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import PolicyLayout, { PolicyContents } from "@/components/public/PolicyLayout";
+import { socialImage } from "@/lib/site-metadata";
+
+const title = "Terms of Service | AptyRead";
+const description = "AptyRead terms. A parent account. Buy a level once. No subscription. Refunds through the App Store or Google Play.";
+const pageUrl = "https://www.aptyread.ai/terms";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | AptyRead",
-  description:
-    "AptyRead terms. A parent account. Buy a level once. No subscription. Refunds through the App Store or Google Play.",
-  alternates: {
-    canonical: "https://www.aptyread.ai/terms",
-  },
+  title,
+  description,
+  alternates: { canonical: pageUrl },
+  openGraph: { title, description, url: pageUrl, siteName: "AptyRead", type: "website", images: [socialImage] },
+  twitter: { card: "summary_large_image", title, description, images: [socialImage] },
 };
 
 const contents = [

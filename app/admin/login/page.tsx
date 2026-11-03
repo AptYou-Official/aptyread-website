@@ -1,17 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { Suspense, useState, useEffect } from 'react';
+import { inMemoryPersistence, setPersistence, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from '@/lib/firebase-client';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 
-export default function AdminLogin() {
+function AdminLoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [configMissing, setConfigMissing] = useState(false);
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -20,18 +19,10 @@ export default function AdminLogin() {
 
   useEffect(() => {
     const msg = searchParams.get('message');
-    const uid = searchParams.get('uid');
-    const debug = searchParams.get('debug');
     if (msg === 'access_denied') {
-      if (debug === 'firebase_admin_not_initialized') {
-        setError('Server could not connect to Firebase. Check Vercel env vars: FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY (and redeploy).');
-      } else if (debug === 'verify_failed') {
-        setError('Server failed to verify your token. Check Vercel logs and Firebase project matches.');
-      } else if (uid) {
-        setError(`Access denied. Add this UID as a document ID in Firestore → admin_users: ${uid}`);
-      } else {
-        setError('Access denied. You are not an admin.');
-      }
+      setError('This account does not have admin access.');
+    } else if (msg === 'session_expired') {
+      setError('Please sign in to start a new admin session.');
     }
   }, [searchParams]);
 
@@ -41,11 +32,26 @@ export default function AdminLogin() {
     setLoading(true);
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      router.push('/admin');
+      await setPersistence(auth, inMemoryPersistence);
+      const credential = await signInWithEmailAndPassword(auth, email, password);
+      const idToken = await credential.user.getIdToken();
+      const response = await fetch('/api/admin/session', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ idToken }),
+      });
+      if (!response.ok) {
+        const result = await response.json();
+        throw new Error(result.error || 'Unable to start an admin session.');
+      }
+      await signOut(auth).catch(() => {});
+      // Start a fresh document after the HttpOnly cookie has been set.
+      window.location.replace('/admin');
     } catch (err: any) {
       setError(err.message || 'Failed to sign in');
     } finally {
+      if (auth) await signOut(auth).catch(() => {});
       setLoading(false);
     }
   };
@@ -117,6 +123,12 @@ export default function AdminLogin() {
       </div>
     </div>
   );
+}
+
+export default function AdminLogin() {
+  return <Suspense fallback={<div className="min-h-screen bg-apty-warm flex items-center justify-center text-apty-dark">Loading sign-in...</div>}>
+    <AdminLoginForm />
+  </Suspense>;
 }
 
 

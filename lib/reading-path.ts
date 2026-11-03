@@ -4,37 +4,42 @@ export const PATH_LEVELS = [
   {
     number: 1,
     id: "01",
-    name: "Sound Foundations",
-    parentProblem: "My child knows the alphabet but can't read yet.",
-    outcome: "Every letter sound, before any word.",
+    name: "Sounds into first words",
+    parentProblem: "How can my child begin reading words?",
+    outcome:
+      "Connect letters and sounds, blend and build first words, and explore their meanings through activities and little stories. Capitals and optional letter writing sit alongside reading.",
   },
   {
     number: 2,
     id: "02",
-    name: "First Reading",
-    parentProblem: "My child knows the sounds but can't put them together.",
-    outcome: "First words. First sentences. First stories.",
+    name: "First reading with meaning",
+    parentProblem: "How do words work together to express an idea?",
+    outcome:
+      "Build varied short words. Read phrases, sentences and short books. Explore who does what, where things are, and how a question or a small word changes a message.",
   },
   {
     number: 3,
     id: "03",
-    name: "Confident Reading",
-    parentProblem: "My child reads simple words but longer words are hard.",
-    outcome: "Letter teams. Blends. Short passages, alone.",
+    name: "Letter teams and longer words",
+    parentProblem: "What comes after simple words?",
+    outcome:
+      "Explore letters that work together, longer sound sequences and word endings. Follow a character's problem, action and result while checking that the words make sense.",
   },
   {
     number: 4,
     id: "04",
-    name: "Building Fluency",
-    parentProblem: "My child can read, but not smoothly yet.",
-    outcome: "Paragraphs that get smoother over time.",
+    name: "Vowel patterns and longer reading",
+    parentProblem: "How can my child follow a longer piece of reading?",
+    outcome:
+      "Explore more vowel spellings and longer stories and factual passages. Follow connected ideas, notice feelings and find details. Practise phrasing and reread to check meaning.",
   },
   {
     number: 5,
     id: "05",
-    name: "Independent Reading",
-    parentProblem: "I want them to pick up a real book alone.",
-    outcome: "Three real books, cover to cover.",
+    name: "Independent reading and vocabulary",
+    parentProblem: "How can my child use these skills in new books?",
+    outcome:
+      "Bring word reading and understanding together in suitable new books. Explore longer words and meaningful word parts, explain ideas using the text, and choose what to read next.",
   },
 ] as const;
 

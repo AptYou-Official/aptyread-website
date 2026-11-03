@@ -1,4 +1,4 @@
-import PaymentChart from '@/components/admin/PaymentChart';
+import { requireAdminPage } from '@/lib/auth';
 import { getPurchases, getRevenueStats } from '@/lib/queries/payments';
 import StatsCard from '@/components/admin/StatsCard';
 
@@ -6,17 +6,9 @@ import StatsCard from '@/components/admin/StatsCard';
 export const dynamic = 'force-dynamic';
 
 export default async function PaymentsPage() {
+  await requireAdminPage();
   const purchases = await getPurchases(100);
   const revenueStats = await getRevenueStats();
-
-  // Format data for chart
-  const chartData = Object.entries(revenueStats.dailyRevenue)
-    .map(([date, revenue]) => ({ date, revenue }))
-    .sort((a, b) => a.date.localeCompare(b.date))
-    .slice(-30); // Last 30 days
-
-  // Calculate revenue by level
-  const revenueByLevel = revenueStats.revenueByLevel;
 
   return (
     <div className="space-y-8">
@@ -27,34 +19,25 @@ export default async function PaymentsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <StatsCard
-          title="Total Revenue"
-          value={`$${revenueStats.totalRevenue.toLocaleString()}`}
+          title="Revenue by currency"
+          value="Not connected"
           icon="💰"
         />
         <StatsCard
-          title="Total Purchases"
+          title="Recorded purchases"
           value={revenueStats.purchaseCount.toLocaleString()}
           icon="🛒"
         />
         <StatsCard
           title="Average Purchase"
-          value={`$${revenueStats.purchaseCount > 0 ? Math.round(revenueStats.totalRevenue / revenueStats.purchaseCount) : 0}`}
+          value="Not connected"
           icon="📊"
         />
       </div>
 
-      <PaymentChart data={chartData} />
-
       <div className="bg-white p-6 rounded-lg border border-apty-sky shadow-sm">
-        <h2 className="text-2xl font-bold text-apty-dark mb-4">Revenue by Level</h2>
-        <div className="space-y-2">
-          {Object.entries(revenueByLevel).map(([level, revenue]) => (
-            <div key={level} className="flex justify-between items-center py-2 border-b border-apty-sky">
-              <span className="text-apty-dark font-medium">Level {level}</span>
-              <span className="text-apty-cyan font-semibold">${revenue.toLocaleString()}</span>
-            </div>
-          ))}
-        </div>
+        <h2 className="text-2xl font-bold text-apty-dark mb-4">About these figures</h2>
+        <p className="text-apty-gray">The purchase count covers records marked active or completed. Amounts below show each purchase&apos;s recorded currency. Combined revenue, averages and charts are withheld until reporting can separate currencies.</p>
       </div>
 
       <div className="bg-white p-6 rounded-lg border border-apty-sky shadow-sm">
@@ -77,7 +60,10 @@ export default async function PaymentsPage() {
                     {purchase.userId.substring(0, 8)}...
                   </td>
                   <td className="px-6 py-4 text-sm text-apty-gray">Level {purchase.level}</td>
-                  <td className="px-6 py-4 text-sm text-apty-gray">${purchase.amount}</td>
+                  <td className="px-6 py-4 text-sm text-apty-gray">
+                    {(purchase.amount ?? purchase.price)?.toLocaleString() ?? 'Amount not recorded'}{' '}
+                    {purchase.currency || '(currency not recorded)'}
+                  </td>
                   <td className="px-6 py-4 text-sm">
                     <span className={`px-2 py-1 rounded ${
                       purchase.status === 'completed' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'

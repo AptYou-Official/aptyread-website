@@ -32,7 +32,7 @@ export default function PolicyLayout({
   contents,
 }: {
   children: ReactNode;
-  currentPage: Exclude<SupportPage, "contact" | "faq">;
+  currentPage: Extract<SupportPage, "privacy" | "terms" | "delete-account">;
   contents: PolicySection[];
 }) {
   return (

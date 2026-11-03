@@ -1,12 +1,14 @@
 'use client';
 
 import Script from 'next/script';
-import { Analytics } from '@vercel/analytics/react';
+import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { marketingMeasurementEnabled } from '@/lib/marketing-measurement';
 
 const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || 'AW-17901074775';
+const EXCLUDED_ROUTES = /^\/(admin|english|malayalam|hindi)(\/|$)/;
+const Analytics = dynamic(() => import('@vercel/analytics/react').then(module => module.Analytics), { ssr: false });
 
 export default function SiteMeasurement() {
   const pathname = usePathname();
@@ -16,9 +18,9 @@ export default function SiteMeasurement() {
     setMeasurementEnabled(marketingMeasurementEnabled());
   }, []);
 
-  // Programme entry links use a full document navigation so previously loaded
-  // marketing scripts cannot remain active inside the learning preview.
-  if (!measurementEnabled || !pathname || /^\/(english|malayalam|hindi)(\/|$)/.test(pathname)) return null;
+  // Keep private admin URLs and learning routes out of marketing measurement.
+  // Analytics is loaded only when the allowed-route branch below renders it.
+  if (!measurementEnabled || !pathname || EXCLUDED_ROUTES.test(pathname)) return null;
 
   // These pages are also opened from the app. Keep advertising tags off them.
   const isAppPolicyPage = /^\/(privacy|terms|delete-account)(\.html)?\/?$/.test(pathname);
@@ -33,6 +35,14 @@ export default function SiteMeasurement() {
         gtag('config', '${GOOGLE_ADS_ID}');
       `}</Script>
     </>}
-    <Analytics />
+    <Analytics beforeSend={event => {
+      // The SDK can remain loaded after client navigation away from a public page.
+      // Reject private/learning URLs at the final send boundary too.
+      try {
+        return EXCLUDED_ROUTES.test(new URL(event.url).pathname) ? null : event;
+      } catch {
+        return null;
+      }
+    }} />
   </>;
 }

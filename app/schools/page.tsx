@@ -5,7 +5,7 @@ import Footer from "@/components/public/Footer";
 import BrandWordmark from "@/components/public/BrandWordmark";
 import PathJourneyCue from "@/components/public/PathJourneyCue";
 import FaqAccordion from "@/components/public/FaqAccordion";
-import { PATH_LEVELS } from "@/lib/reading-path";
+import { CLASSROOM_PATH_LEVELS } from "@/lib/classroom-reading-path";
 
 const CLASSROOM_URL = "https://classroom.aptyread.ai";
 const CLASSROOM_LOGIN_URL = "https://classroom.aptyread.ai/#/login";
@@ -220,10 +220,10 @@ export default function SchoolsPage() {
               </p>
             </div>
 
-            <PathJourneyCue className="mb-10 md:mb-14" />
+            <PathJourneyCue levels={CLASSROOM_PATH_LEVELS} className="mb-10 md:mb-14" />
 
             <ol className="max-w-3xl mx-auto space-y-6 md:space-y-7">
-              {PATH_LEVELS.map((level) => (
+              {CLASSROOM_PATH_LEVELS.map((level) => (
                 <li key={level.number} className="flex gap-4 md:gap-5">
                   <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-apty-cyan text-xs font-bold text-white shadow-[0_0_0_5px_rgba(230,246,251,0.9)] md:h-10 md:w-10 md:text-sm">
                     {String(level.number).padStart(2, "0")}

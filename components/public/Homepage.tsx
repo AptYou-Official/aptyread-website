@@ -5,6 +5,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { KeyboardEvent, MouseEvent } from "react";
 import PlayStoreLink from "@/components/public/PlayStoreLink";
+import SiteFooter from "@/components/public/SiteFooter";
 import "./homepage.css";
 
 const asset = (filename: string) => `/homepage/${filename}`;
@@ -382,20 +383,6 @@ export default function Homepage() {
             <p>Every activity gives your child something to try.<br className="desktop-break" /> Listen, choose, build, read, and explore.</p>
           </div>
           <div className="learning-showcase">
-            <div className="showcase-picture" id="learning-panel" role="tabpanel" aria-labelledby={`step-${step.id}`} tabIndex={0}>
-              <span className="screen-note" id="lesson-label">{step.label}</span>
-              <ScreenButton
-                filename={step.screen}
-                title={step.label}
-                alt={step.alt}
-                width={660}
-                height={1434}
-                imageId="learning-screen"
-                label={`Enlarge app screen: ${step.label}`}
-                onEnlarge={openImage}
-              />
-              <span className="screen-footnote">Actual app screens</span>
-            </div>
             <div className="learning-steps">
               <div role="tablist" aria-label="Explore the app" aria-orientation="vertical" onKeyDown={(event) => handleTabKey(event, setLearningIndex)}>
                 {learningSteps.map((item, index) => (
@@ -416,8 +403,22 @@ export default function Homepage() {
                   </button>
                 ))}
               </div>
-              <a className="text-link steps-link" href="#get-the-app">Discover it together <ArrowIcon direction="right" /></a>
             </div>
+            <div className="showcase-picture" id="learning-panel" role="tabpanel" aria-labelledby={`step-${step.id}`} tabIndex={0}>
+              <span className="screen-note" id="lesson-label">{step.label}</span>
+              <ScreenButton
+                filename={step.screen}
+                title={step.label}
+                alt={step.alt}
+                width={660}
+                height={1434}
+                imageId="learning-screen"
+                label={`Enlarge app screen: ${step.label}`}
+                onEnlarge={openImage}
+              />
+              <span className="screen-footnote">Actual app screens</span>
+            </div>
+            <a className="text-link steps-link" href="#get-the-app">Discover it together <ArrowIcon direction="right" /></a>
           </div>
         </section>
 
@@ -428,19 +429,6 @@ export default function Homepage() {
               <p>Five progressive levels designed to grow reading, vocabulary, and understanding. Lessons open in order, so your child always has a next step.</p>
             </div>
             <div className="journey-layout">
-              <div className="journey-visual" id="journey-panel" role="tabpanel" aria-labelledby={`level-${levelIndex + 1}`} tabIndex={0}>
-                <div className="journey-visual-top"><span className="small-label">THE LEARNING JOURNEY</span><span className="journey-count">0{levelIndex + 1} <span>/ 05</span></span></div>
-                <div className="journey-letter-art" aria-hidden="true">
-                  {level.letters.map((letter, index) => (
-                    <span key={index} style={{ fontSize: letter.length > 2 ? "24px" : letter.length > 1 ? "32px" : undefined }}>{letter}</span>
-                  ))}
-                  <svg viewBox="0 0 200 50"><path d="M5 14 Q90 63 185 14 M174 10l13 3-4 13" /></svg>
-                </div>
-                <h3 id="journey-title">{level.title}</h3>
-                <p id="journey-description">{level.description}</p>
-                <p className="journey-status" id="journey-status">{level.status}</p>
-                <img className="journey-mascot" src={asset("apty-mascot.webp")} alt="" width={108} height={108} loading="lazy" />
-              </div>
               <div className="level-list" role="tablist" aria-label="The five levels" aria-orientation="vertical" onKeyDown={(event) => handleTabKey(event, setLevelIndex)}>
                 {levels.map((item, index) => (
                   <button
@@ -459,6 +447,19 @@ export default function Homepage() {
                     <span className="level-symbol" aria-hidden="true"><ArrowIcon /></span>
                   </button>
                 ))}
+              </div>
+              <div className="journey-visual" id="journey-panel" role="tabpanel" aria-labelledby={`level-${levelIndex + 1}`} tabIndex={0}>
+                <div className="journey-visual-top"><span className="small-label">THE LEARNING JOURNEY</span><span className="journey-count">0{levelIndex + 1} <span>/ 05</span></span></div>
+                <div className="journey-letter-art" aria-hidden="true">
+                  {level.letters.map((letter, index) => (
+                    <span key={index} style={{ fontSize: letter.length > 2 ? "24px" : letter.length > 1 ? "32px" : undefined }}>{letter}</span>
+                  ))}
+                  <svg viewBox="0 0 200 50"><path d="M5 14 Q90 63 185 14 M174 10l13 3-4 13" /></svg>
+                </div>
+                <h3 id="journey-title">{level.title}</h3>
+                <p id="journey-description">{level.description}</p>
+                <p className="journey-status" id="journey-status">{level.status}</p>
+                <img className="journey-mascot" src={asset("apty-mascot.webp")} alt="" width={108} height={108} loading="lazy" />
               </div>
             </div>
           </div>
@@ -591,23 +592,7 @@ export default function Homepage() {
         </section>
       </main>
 
-      <footer className="site-footer section-wrap">
-        <div><Wordmark /><p>Every Child Reads.</p></div>
-        <div className="footer-right">
-          <nav aria-label="Footer navigation">
-            <a href="/faq">FAQs</a>
-            <a href="/contact">Contact</a>
-            <a href="/privacy">Privacy</a>
-            <a href="/terms">Terms</a>
-            <a href="/delete-account">Delete account</a>
-            <a href="/reading-guide">Reading guide</a>
-            <a href="/schools">For schools</a>
-            <a href="/about">About us</a>
-          </nav>
-          <p>© 2026 AptYou Services Pvt Ltd.</p>
-          <p className="footer-trademarks">Apple and the Apple logo are trademarks of Apple Inc. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.</p>
-        </div>
-      </footer>
+      <SiteFooter currentPage="home" />
 
       <dialog
         ref={dialogRef}

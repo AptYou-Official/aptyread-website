@@ -4,7 +4,7 @@ const SITE_URL = "https://www.aptyread.ai";
 const LOGO_URL = `${SITE_URL}/images/apty_with_book.png`;
 
 const APP_DESCRIPTION =
-  "Structured English reading program for children aged 4 to 10. Five sequential levels. Every child starts at Level 1 and builds toward independent reading. First lessons are free. No account needed.";
+  "A structured, interactive English literacy app for children aged 4 to 10. Practise sounds, build words and explore meaning from Lesson 1. Lessons 1 to 9 are free; the first 4 need no account. Levels are one-time purchases with no recurring subscription.";
 
 const storeLinks = [APP_STORE_URL, PLAY_STORE_URL] as const;
 
@@ -52,7 +52,7 @@ export function softwareApplicationJsonLd(pageUrl: string = SITE_URL) {
       price: "0",
       priceCurrency: "USD",
       description:
-        "Free to download. Lesson 1 with no account. Levels are one-time purchases in the App Store or Google Play.",
+        "Free to download. Lessons 1 to 9 are free; lessons 1 to 4 need no account. Continuing from Lesson 10 requires a one-time level purchase in the App Store or Google Play. No recurring subscription.",
     },
     author: {
       "@type": "Organization",

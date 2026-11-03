@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import PolicyLayout, { PolicyContents } from "@/components/public/PolicyLayout";
+import { socialImage } from "@/lib/site-metadata";
+
+const title = "Privacy Policy | AptyRead";
+const description = "How AptyRead handles parent accounts, readers, progress and purchases. No ads in the app. No selling data. Parents stay in control.";
+const pageUrl = "https://www.aptyread.ai/privacy";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | AptyRead",
-  description:
-    "How AptyRead handles parent accounts, readers, progress and purchases. No ads in the app. No selling data. Parents stay in control.",
-  alternates: {
-    canonical: "https://www.aptyread.ai/privacy",
-  },
+  title,
+  description,
+  alternates: { canonical: pageUrl },
+  openGraph: { title, description, url: pageUrl, siteName: "AptyRead", type: "website", images: [socialImage] },
+  twitter: { card: "summary_large_image", title, description, images: [socialImage] },
 };
 
 const contents = [
@@ -79,7 +83,7 @@ export default function PrivacyPage() {
               Privacy Policy
             </h1>
             <p className="legal-updated">
-              Last updated 28 October 2026.
+              Last updated 3 November 2026.
             </p>
             <PolicyContents items={contents} />
 
@@ -404,13 +408,10 @@ export default function PrivacyPage() {
                 <h2>6. The website</h2>
                 <p>
                   www.aptyread.ai is hosted on Vercel and uses Vercel Analytics.
-                  The homepage lesson video uses a YouTube embed
-                  (youtube-nocookie). Playing it may send data to YouTube and
-                  Google.
                 </p>
                 <p>
-                  The marketing website also loads a Google Ads tag to measure
-                  whether someone who saw an ad later visits or installs. The
+                  The marketing website also uses a Google Ads tag to measure
+                  website visits and clicks on app-store links. The
                   tag is on the website, not inside the child&apos;s learning
                   activities. Website cookies, advertising measurement, and
                   analytics are separate from the app&apos;s learning programme.
@@ -563,7 +564,7 @@ export default function PrivacyPage() {
             </div>
 
             <p className="legal-last-updated">
-              Last updated 28 October 2026.
+              Last updated 3 November 2026.
             </p>
           </div>
         </article>

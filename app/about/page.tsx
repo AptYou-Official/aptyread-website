@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import PlayStoreLink from "@/components/public/PlayStoreLink";
+import SiteFooter from "@/components/public/SiteFooter";
 import { socialImage, socialImageUrl } from "@/lib/site-metadata";
 import "./about.css";
 
@@ -132,23 +133,7 @@ export default function AboutPage() {
         </section>
       </main>
 
-      <footer className="about-footer about-wrap">
-        <div><Wordmark /><p>Every Child Reads.</p></div>
-        <div className="about-footer-right">
-          <nav aria-label="Footer navigation">
-            <a href="/">Home</a>
-            <a href="/contact">Contact</a>
-            <a href="/faq">FAQs</a>
-            <a href="/reading-guide">Reading guide</a>
-            <a href="/schools">For schools</a>
-            <a href="/privacy">Privacy</a>
-            <a href="/terms">Terms</a>
-            <a href="/delete-account">Delete account</a>
-          </nav>
-          <p>© 2026 AptYou Services Pvt Ltd.</p>
-          <p className="about-trademarks">Apple and the Apple logo are trademarks of Apple Inc. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.</p>
-        </div>
-      </footer>
+      <SiteFooter currentPage="about" />
     </div>
   );
 }

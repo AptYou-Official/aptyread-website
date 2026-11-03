@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { requireAdminPage } from '@/lib/auth';
 import { notFound } from 'next/navigation';
 import { getUserById } from '@/lib/queries/users';
 import { getPurchasesByUserId } from '@/lib/queries/payments';
@@ -6,6 +7,7 @@ import { getPurchasesByUserId } from '@/lib/queries/payments';
 export const dynamic = 'force-dynamic';
 
 export default async function AdminUserDetailPage({ params }: { params: Promise<{ uid: string }> }) {
+  await requireAdminPage();
   const { uid } = await params;
   const user = await getUserById(uid);
   const purchases = await getPurchasesByUserId(uid);

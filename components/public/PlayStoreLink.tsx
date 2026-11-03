@@ -6,8 +6,8 @@ import { marketingMeasurementEnabled } from "@/lib/marketing-measurement";
 import {
   APP_STORE_URL,
   PLAY_STORE_URL,
-  reportAppStoreConversionThen,
-  reportPlayStoreConversionThen,
+  reportAppStoreConversion,
+  reportPlayStoreConversion,
 } from "@/lib/play-store-conversion";
 
 type Props = Omit<
@@ -52,31 +52,33 @@ export default function PlayStoreLink({
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) {
       return;
     }
-    e.preventDefault();
 
     const trackInstallClick = (destination: string, store: "ios" | "android") => {
       if (!marketingMeasurementEnabled()) return;
-      track("install_click", {
-        store,
-        destination,
-        path: window.location.pathname,
-      });
+      try {
+        track("install_click", {
+          store,
+          destination,
+          path: window.location.pathname,
+        });
+      } catch {
+        // Measurement is optional. A blocked tracker must never block a link.
+      }
     };
 
     if (platform === "auto") {
+      e.preventDefault();
       const autoDestination = getAutoDestination();
       if (autoDestination === PLAY_STORE_URL) {
         trackInstallClick(autoDestination, "android");
-        reportPlayStoreConversionThen(() => {
-          window.location.href = autoDestination;
-        });
+        reportPlayStoreConversion();
+        window.location.href = autoDestination;
         return;
       }
       if (autoDestination === APP_STORE_URL) {
         trackInstallClick(autoDestination, "ios");
-        reportAppStoreConversionThen(() => {
-          window.location.href = autoDestination;
-        });
+        reportAppStoreConversion();
+        window.location.href = autoDestination;
         return;
       }
       window.location.href = autoDestination;
@@ -85,21 +87,17 @@ export default function PlayStoreLink({
 
     if (platform === "android") {
       trackInstallClick(targetHref, "android");
-      reportPlayStoreConversionThen(() => {
-        window.open(targetHref, "_blank", "noopener,noreferrer");
-      });
+      // Keep the native link action within the user's tap. Waiting for an
+      // analytics callback before window.open can trigger popup blocking.
+      reportPlayStoreConversion();
       return;
     }
 
     if (platform === "ios") {
       trackInstallClick(targetHref, "ios");
-      reportAppStoreConversionThen(() => {
-        window.open(targetHref, "_blank", "noopener,noreferrer");
-      });
+      reportAppStoreConversion();
       return;
     }
-
-    window.open(targetHref, "_blank", "noopener,noreferrer");
   }
 
   return (

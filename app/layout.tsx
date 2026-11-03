@@ -14,8 +14,8 @@ const nunitoSans = Nunito_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.aptyread.ai'),
   title: "AptyRead. Every Child Reads.",
-  description: "English reading program for children aged 4 to 10. Built on the Science of Reading. Five levels. One path. Start Lesson 1. No account needed.",
-  keywords: "English reading, learn to read English, English reading app, literacy platform, phonics, children education, ESL reading, structured literacy, mastery-based learning, English reading course, reading app for kids, AptyRead, aptyread.ai",
+  description: "Structured, interactive English reading for ages 4 to 10. Explore sounds, words and meaning. 9 lessons free. First 4 need no account.",
+  keywords: "English reading, learn to read English, English reading app, literacy platform, phonics, children education, ESL reading, structured reading, interactive reading, English reading course, reading app for kids, AptyRead, aptyread.ai",
   authors: [{ name: "APTYOU SERVICES PRIVATE LIMITED" }],
   creator: "APTYOU SERVICES PRIVATE LIMITED",
   publisher: "APTYOU SERVICES PRIVATE LIMITED",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "AptyRead. Every Child Reads.",
-    description: "English reading program for children aged 4 to 10. Built on the Science of Reading. Five levels. One path. Start Lesson 1. No account needed.",
+    description: "Structured, interactive English reading for ages 4 to 10. Explore sounds, words and meaning. 9 lessons free. First 4 need no account.",
     url: "https://www.aptyread.ai",
     siteName: "AptyRead",
     type: "website",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "AptyRead. Every Child Reads.",
-    description: "English reading program for children aged 4 to 10. Built on the Science of Reading. Five levels. One path. Start Lesson 1. No account needed.",
+    description: "Structured, interactive English reading for ages 4 to 10. Explore sounds, words and meaning. 9 lessons free. First 4 need no account.",
     images: [socialImageUrl],
   },
   alternates: {

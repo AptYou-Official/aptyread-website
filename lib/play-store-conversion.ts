@@ -25,49 +25,31 @@ declare global {
 }
 
 /**
- * Fires a Google Ads conversion, then `navigate`. Reused for Play vs App store labels.
- * If `sendTo` is empty, navigates only (for optional App Store label before env is set).
+ * Records a store-link click without owning or delaying navigation.
+ * A missing or blocked tracker leaves the native link action untouched.
  */
-function reportAdsConversionThen(sendTo: string, navigate: () => void): void {
-  if (!marketingMeasurementEnabled()) {
-    navigate();
-    return;
-  }
-
-  let done = false;
-  const run = () => {
-    if (done) return;
-    done = true;
-    navigate();
-  };
-
-  if (!sendTo) {
-    run();
-    return;
-  }
-
-  if (typeof window.gtag === "function") {
-    window.gtag("event", "conversion", {
-      send_to: sendTo,
-      event_callback: run,
-    });
-    window.setTimeout(run, 2000);
-  } else {
-    run();
+function reportAdsConversion(sendTo: string): void {
+  if (!sendTo || !marketingMeasurementEnabled()) return;
+  try {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "conversion", { send_to: sendTo });
+    }
+  } catch {
+    // Browser privacy tools may block measurement. Downloading still works.
   }
 }
 
 /**
- * Fires the Play Store Ads conversion, then `navigate`.
+ * Records the Play Store link-click conversion when measurement is available.
  */
-export function reportPlayStoreConversionThen(navigate: () => void): void {
-  reportAdsConversionThen(GOOGLE_ADS_PLAY_STORE_SEND_TO, navigate);
+export function reportPlayStoreConversion(): void {
+  reportAdsConversion(GOOGLE_ADS_PLAY_STORE_SEND_TO);
 }
 
 /**
- * Fires the App Store Ads conversion, then `navigate`.
+ * Records the App Store link-click conversion when measurement is available.
  * Requires NEXT_PUBLIC_GOOGLE_ADS_APP_STORE_SEND_TO in production to count in Ads.
  */
-export function reportAppStoreConversionThen(navigate: () => void): void {
-  reportAdsConversionThen(GOOGLE_ADS_APP_STORE_SEND_TO, navigate);
+export function reportAppStoreConversion(): void {
+  reportAdsConversion(GOOGLE_ADS_APP_STORE_SEND_TO);
 }

@@ -1,9 +1,11 @@
 import Link from 'next/link';
+import { requireAdminPage } from '@/lib/auth';
 import AddPurchaseForm from '@/components/admin/AddPurchaseForm';
 
 export const dynamic = 'force-dynamic';
 
-export default function AdminAddPurchasePage() {
+export default async function AdminAddPurchasePage() {
+  await requireAdminPage();
   return (
     <div className="space-y-8">
       <div className="flex items-center gap-4">

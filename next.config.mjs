@@ -6,6 +6,15 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Keep old campaign links useful while their retired copy is replaced by
+      // the current parent homepage. Query parameters pass through unchanged.
+      { source: '/in', destination: '/', permanent: false },
+      { source: '/gcc', destination: '/', permanent: false },
+      { source: '/us', destination: '/', permanent: false },
+      // The former web-learning experiment now directs families to the app.
+      // Keep the worker URL reachable so previously installed previews can retire.
+      { source: '/english', destination: '/download', permanent: false },
+      { source: '/english/:path((?!sw\\.js$).*)', destination: '/download', permanent: false },
       // Legacy .html
       { source: '/privacy.html', destination: '/privacy', permanent: true },
       { source: '/delete-account.html', destination: '/delete-account', permanent: true },
