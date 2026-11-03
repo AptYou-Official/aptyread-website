@@ -2,6 +2,7 @@
 
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 import { track } from "@vercel/analytics/react";
+import { marketingMeasurementEnabled } from "@/lib/marketing-measurement";
 import {
   APP_STORE_URL,
   PLAY_STORE_URL,
@@ -54,6 +55,7 @@ export default function PlayStoreLink({
     e.preventDefault();
 
     const trackInstallClick = (destination: string, store: "ios" | "android") => {
+      if (!marketingMeasurementEnabled()) return;
       track("install_click", {
         store,
         destination,

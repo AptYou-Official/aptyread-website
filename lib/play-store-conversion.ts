@@ -1,3 +1,5 @@
+import { marketingMeasurementEnabled } from "@/lib/marketing-measurement";
+
 /** Google Ads conversion label for “Play Store button click” (from Ads → Conversions). */
 export const GOOGLE_ADS_PLAY_STORE_SEND_TO =
   process.env.NEXT_PUBLIC_GOOGLE_ADS_PLAY_SEND_TO ||
@@ -27,7 +29,7 @@ declare global {
  * If `sendTo` is empty, navigates only (for optional App Store label before env is set).
  */
 function reportAdsConversionThen(sendTo: string, navigate: () => void): void {
-  if (typeof window === "undefined") {
+  if (!marketingMeasurementEnabled()) {
     navigate();
     return;
   }
