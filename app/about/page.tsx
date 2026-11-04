@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import PlayStoreLink from "@/components/public/PlayStoreLink";
 import SiteFooter from "@/components/public/SiteFooter";
 import { socialImage, socialImageUrl } from "@/lib/site-metadata";
@@ -31,9 +32,9 @@ export const metadata: Metadata = {
 
 function Wordmark() {
   return (
-    <a className="about-wordmark" href="/" aria-label="AptyRead home">
+    <Link className="about-wordmark" href="/" prefetch={false} aria-label="AptyRead home">
       <span>Apty</span><span>Read</span>
-    </a>
+    </Link>
   );
 }
 
@@ -53,8 +54,8 @@ export default function AboutPage() {
         <div className="about-nav">
           <Wordmark />
           <nav aria-label="Main navigation">
-            <a href="/">Home</a>
-            <a href="/#how-it-works">How it works</a>
+            <Link href="/" prefetch={false}>Home</Link>
+            <Link href="/#how-it-works" prefetch={false}>How it works</Link>
             <a href="/about" aria-current="page">About us</a>
           </nav>
           <a className="about-button" href="#about-get-the-app">Start learning free</a>
@@ -105,7 +106,7 @@ export default function AboutPage() {
                 <span>Sounds</span><ReadingArrow /><span>Words</span><ReadingArrow /><span>Meaning</span>
               </div>
               <p>Five progressive levels give the journey its structure. Each lesson builds on earlier learning, with opportunities to practise and return to familiar words and stories.</p>
-              <a className="about-text-link" href="/#learning-journey">Explore the learning journey <ReadingArrow /></a>
+              <Link className="about-text-link" href="/#learning-journey" prefetch={false}>Explore the learning journey <ReadingArrow /></Link>
             </div>
           </div>
         </section>

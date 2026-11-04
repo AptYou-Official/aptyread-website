@@ -2,34 +2,45 @@
   "name": "aptyread-business",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint app components lib",
     "optimize:screenshots": "node scripts/optimize-app-screenshots.mjs"
   },
   "dependencies": {
     "@opentelemetry/api": "^1.9.0",
     "@tanstack/react-query": "^5.28.0",
     "@vercel/analytics": "^2.0.1",
-    "firebase": "^10.12.0",
-    "firebase-admin": "^12.0.0",
-    "next": "^14.2.0",
-    "react": "^18.3.0",
-    "react-dom": "^18.3.0",
+    "firebase": "^13.2.0",
+    "firebase-admin": "^14.5.0",
+    "next": "16.4.5",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
     "recharts": "^2.12.0"
   },
   "devDependencies": {
-    "@types/node": "^20.14.0",
-    "@types/react": "^18.3.0",
-    "@types/react-dom": "^18.3.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.0",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.0",
-    "postcss": "^8.4.0",
-    "sharp": "^0.34.5",
+    "eslint": "^10.0.0",
+    "eslint-config-next": "16.4.5",
+    "postcss": "^8.5.23",
+    "sharp": "^0.35.5",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.5.0"
+  },
+  "overrides": {
+    "@firebase/firestore": {
+      "@grpc/grpc-js": "1.14.7"
+    },
+    "@google-cloud/firestore-api": {
+      "rimraf": "6.1.4"
+    }
   }
 }

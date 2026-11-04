@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./site-footer.css";
 
 type Props = {
@@ -22,7 +23,7 @@ export default function SiteFooter({ currentPage, schoolsPage = false }: Props) 
     <footer className="apty-site-footer">
       <div className="apty-site-footer-inner">
         <div className="apty-site-footer-brand">
-          <a className="apty-site-footer-wordmark" href="/" aria-label="AptyRead home"><span>Apty</span><span>Read</span></a>
+          <Link className="apty-site-footer-wordmark" href="/" prefetch={false} aria-label="AptyRead home"><span>Apty</span><span>Read</span></Link>
           <p className="apty-site-footer-mission">Every Child Reads.</p>
           <a className="apty-site-footer-download" href="/download" aria-current={currentPage === "download" ? "page" : undefined}>Download app</a>
         </div>

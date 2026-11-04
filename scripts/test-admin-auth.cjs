@@ -46,7 +46,7 @@ function fixture(overrides = {}) {
     function mockRequire(name) {
       if (name === 'server-only') return {};
       if (name === '@/lib/firebase-admin') return { getAuth: async () => state.available ? auth : null, getDb: async () => state.available ? db : null };
-      if (name === 'next/headers') return { cookies: () => ({ get: () => state.cookie ? { value: state.cookie } : undefined }) };
+      if (name === 'next/headers') return { cookies: async () => ({ get: () => state.cookie ? { value: state.cookie } : undefined }) };
       if (name === 'next/navigation') return { redirect: location => { const error = new Error('REDIRECT'); error.location = location; throw error; }, notFound: () => { throw new Error('NOT_FOUND'); } };
       if (name.startsWith('@/components/') || name === 'next/link') return { __esModule: true, default: () => null };
       if (name.startsWith('@/')) return load(name.slice(2) + '.ts');

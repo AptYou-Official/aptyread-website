@@ -117,6 +117,6 @@ export default function ParentProgramme({ onShowLevels }: { onShowLevels: () => 
 
     <div className="en-parent-grid"><article><Icon name="home" size={28} /><h2>Saved on this device</h2><p>One learning record is saved in this browser. Clearing browser data clears it. It is not a separate profile for each child.</p></article><article><Icon name="leaf" size={28} /><h2>Keep it comfortable</h2><p>Pause whenever your child is ready. Listening, reading and pencil control can develop at different rates. Talk in your home language and use the replay or help options when useful.</p></article></div>
     <div className="en-parent-install"><div><h2>Ready on your home screen</h2><p>Add AptyRead for easy access.</p></div><PwaInstall /></div>
-    <div className="en-parent-links"><a href="/privacy">Privacy</a><a href="/contact">Contact</a><a href="/malayalam">Malayalam <Icon name="arrow" size={16} /></a><a href="/">AptyRead home <Icon name="home" size={16} /></a></div>
+    <div className="en-parent-links"><a href="/privacy">Privacy</a><a href="/contact">Contact</a><a href="/malayalam">Malayalam <Icon name="arrow" size={16} /></a><Link href="/">AptyRead home <Icon name="home" size={16} /></Link></div>
   </section>;
 }

@@ -6,8 +6,9 @@ export function generateStaticParams() {
   return englishLessons.map(lesson => ({ lessonId: lesson.id }));
 }
 
-export default function EnglishLessonOverviewPage({ params }: { params: { lessonId: string } }) {
-  const lesson = englishLessons.find(item => item.id === params.lessonId);
+export default async function EnglishLessonOverviewPage({ params }: { params: Promise<{ lessonId: string }> }) {
+  const { lessonId } = await params;
+  const lesson = englishLessons.find(item => item.id === lessonId);
   if (!lesson) notFound();
   return <LessonOverview key={lesson.id} lesson={lesson} />;
 }

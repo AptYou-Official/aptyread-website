@@ -3,7 +3,7 @@ import ActivitySticker from './ActivitySticker';
 import Icon from './Icons';
 
 export default function WordCelebration({ word, headingRef, onReplay }: {
-  word: 'at' | 'sat' | 'pin' | 'sit' | 'first-words' | 'more-words' | 'discovery-words'; headingRef: RefObject<HTMLHeadingElement>; onReplay: () => void;
+  word: 'at' | 'sat' | 'pin' | 'sit' | 'first-words' | 'more-words' | 'discovery-words'; headingRef: RefObject<HTMLHeadingElement | null>; onReplay: () => void;
 }) {
   const review = word === 'first-words' || word === 'more-words' || word === 'discovery-words';
   const words = word === 'discovery-words' ? ['pan', 'tap'] : word === 'more-words' ? ['pin', 'sit'] : ['at', 'sat'];

@@ -8,7 +8,7 @@ type ActivityStickerProps = {
   title: string;
   detail: string;
   sticker: string;
-  headingRef?: RefObject<HTMLHeadingElement>;
+  headingRef?: RefObject<HTMLHeadingElement | null>;
   compact?: boolean;
 };
 

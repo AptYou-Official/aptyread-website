@@ -1,30 +1,20 @@
 'use client';
 
-import { Suspense, useState, useEffect } from 'react';
+import { Suspense, useState } from 'react';
 import { inMemoryPersistence, setPersistence, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { auth } from '@/lib/firebase-client';
+import { auth, hasClientConfig } from '@/lib/firebase-client';
 import { useSearchParams } from 'next/navigation';
 
 function AdminLoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [formError, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [configMissing, setConfigMissing] = useState(false);
   const searchParams = useSearchParams();
-
-  useEffect(() => {
-    if (!auth) setConfigMissing(true);
-  }, []);
-
-  useEffect(() => {
-    const msg = searchParams.get('message');
-    if (msg === 'access_denied') {
-      setError('This account does not have admin access.');
-    } else if (msg === 'session_expired') {
-      setError('Please sign in to start a new admin session.');
-    }
-  }, [searchParams]);
+  const message = searchParams.get('message');
+  const signInHint = message === 'access_denied' ? 'This account does not have admin access.'
+    : message === 'session_expired' ? 'Please sign in to start a new admin session.' : '';
+  const error = formError ?? signInHint;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,7 +46,7 @@ function AdminLoginForm() {
     }
   };
 
-  if (configMissing) {
+  if (!hasClientConfig) {
     return (
       <div className="min-h-screen bg-apty-warm flex items-center justify-center px-4">
         <div className="bg-white p-8 rounded-lg border border-apty-sky shadow-lg max-w-md w-full text-apty-dark">

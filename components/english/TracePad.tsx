@@ -40,13 +40,13 @@ export default function TracePad({ letter, onComplete, onListen, speaking = fals
   const demonstrationPaths = useRef<(SVGPathElement | null)[]>([]);
   const movingDot = useRef<SVGCircleElement>(null);
   const cancelDemonstration = useRef<() => void>(() => {});
-  const autoDemoTimer = useRef<ReturnType<typeof setTimeout>>();
+  const autoDemoTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const seenPauseToken = useRef(pauseToken);
   const demoCallbacks = useRef({ onStrokeCue, onDemoStop });
   demoCallbacks.current = { onStrokeCue, onDemoStop };
   const activePointer = useRef<number | null>(null);
   const startedNearDot = useRef(false);
-  const guidanceTimer = useRef<ReturnType<typeof setTimeout>>();
+  const guidanceTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const scratchContext = useRef<AudioContext | null>(null);
   const guide: TraceGuide | undefined = tracing[letter as keyof typeof tracing];
   const metrics = useMemo(() => guideMetrics(guide), [guide]);

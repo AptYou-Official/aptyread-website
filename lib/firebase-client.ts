@@ -11,7 +11,7 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-const hasClientConfig = !!(
+export const hasClientConfig = !!(
   firebaseConfig.apiKey &&
   firebaseConfig.projectId &&
   firebaseConfig.authDomain

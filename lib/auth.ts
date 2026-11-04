@@ -57,7 +57,8 @@ export async function verifyAdminSession(session: string | undefined): Promise<{
 
 /** Call before every privileged query or mutation, including direct server-action calls. */
 export async function requireAdmin(): Promise<{ uid: string }> {
-  return verifyAdminSession(cookies().get(ADMIN_SESSION_COOKIE)?.value);
+  const cookieStore = await cookies();
+  return verifyAdminSession(cookieStore.get(ADMIN_SESSION_COOKIE)?.value);
 }
 
 /** Server pages must redirect before rendering or fetching any private data. */

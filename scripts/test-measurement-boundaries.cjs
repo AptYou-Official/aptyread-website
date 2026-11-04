@@ -21,7 +21,7 @@ function load(file, mocks) {
 function renderMeasurement(pathname, enabled = true) {
   const calls = [];
   const component = load('components/SiteMeasurement.tsx', {
-    react: {...React, useEffect() {}, useState: () => [enabled, () => {}]},
+    react: {...React, useSyncExternalStore: (_subscribe, getSnapshot) => getSnapshot()},
     'next/navigation': {usePathname: () => pathname},
     '@/lib/marketing-measurement': {marketingMeasurementEnabled: () => enabled},
     'next/script': {__esModule:true, default: props => { calls.push({kind:'advertising', id:props.id || props.src}); return null; }},

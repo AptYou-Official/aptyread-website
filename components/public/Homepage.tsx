@@ -4,6 +4,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { KeyboardEvent, MouseEvent } from "react";
+import Link from "next/link";
 import PlayStoreLink from "@/components/public/PlayStoreLink";
 import SiteFooter from "@/components/public/SiteFooter";
 import "./homepage.css";
@@ -206,9 +207,9 @@ function ScreenButton({
 
 function Wordmark() {
   return (
-    <a className="wordmark" href="/" aria-label="AptyRead home">
+    <Link className="wordmark" href="/" prefetch={false} aria-label="AptyRead home">
       <span>Apty</span><span>Read</span>
-    </a>
+    </Link>
   );
 }
 

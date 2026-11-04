@@ -64,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={nunitoSans.variable}>
+    <html lang="en" className={nunitoSans.variable} data-scroll-behavior="smooth">
       <body className={`${nunitoSans.className} antialiased`}>
         {children}
         <SiteMeasurement />

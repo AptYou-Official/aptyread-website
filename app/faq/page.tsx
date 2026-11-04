@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import SupportShell from "@/components/public/SupportShell";
 import FaqPageContent from "@/components/public/FaqPageContent";
 import PlayStoreLink from "@/components/public/PlayStoreLink";
@@ -42,7 +43,7 @@ export default function FAQPage() {
         </div>
         <div className="faq-page-hero-copy">
           <p>From your child’s first lesson to sharing AptyRead as a family. Find the details that help you feel ready.</p>
-          <a className="support-text-link" href="/#get-the-app">Ready to begin? Get the app <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6" /></svg></a>
+          <Link className="support-text-link" href="/#get-the-app" prefetch={false}>Ready to begin? Get the app <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16m-6-6 6 6-6 6" /></svg></Link>
         </div>
       </section>
       <FaqPageContent />

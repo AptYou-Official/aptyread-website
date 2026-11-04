@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import SiteFooter from "./SiteFooter";
 import "./support.css";
 
@@ -12,9 +13,9 @@ type Props = {
 
 function Wordmark() {
   return (
-    <a className="support-wordmark" href="/" aria-label="AptyRead home">
+    <Link className="support-wordmark" href="/" prefetch={false} aria-label="AptyRead home">
       <span>Apty</span><span>Read</span>
-    </a>
+    </Link>
   );
 }
 
@@ -26,7 +27,7 @@ export default function SupportShell({ children, currentPage, className = "" }: 
         <div className="support-nav">
           <Wordmark />
           <nav aria-label="Main navigation">
-            <a className="support-nav-home" href="/">Home</a>
+            <Link className="support-nav-home" href="/" prefetch={false}>Home</Link>
             <a href="/about">About us</a>
             <a href="/contact" aria-current={currentPage === "contact" ? "page" : undefined}>Contact</a>
           </nav>

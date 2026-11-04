@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { HillScene, Icon, MalayalamBrand } from '@/components/malayalam/Shared';
 import InstallApp from '@/components/malayalam/InstallApp';
 import { malayalamSocialImage } from '@/lib/malayalam-metadata';
@@ -84,6 +85,6 @@ export default function MalayalamHome() {
       <section className="ml-last-cta ml-container"><div><span className="ml-eyebrow">LET CURIOSITY TAKE THE FIRST STEP</span><h2>A little word.<br />A whole new world.</h2><p>Come and see the beginning of AptyMalayalam.</p><a className="ml-btn ml-btn-large" href="/malayalam/dashboard">Try the learning preview <Icon name="arrow" /></a><small>No sign-up. No download. Just a first look.</small></div><Image src="/images/apty-mascot.png" width={240} height={240} alt="Apty welcomes you to explore" /></section>
     </main>
     <div className="ml-install-section ml-container"><InstallApp /></div>
-    <footer className="ml-footer ml-container"><MalayalamBrand /><p>A little closer to the language they call home.</p><nav aria-label="Footer"><a href="/">AptyRead</a><a href="/privacy">Privacy</a><a href="/contact">Contact</a></nav></footer>
+    <footer className="ml-footer ml-container"><MalayalamBrand /><p>A little closer to the language they call home.</p><nav aria-label="Footer"><Link href="/" prefetch={false}>AptyRead</Link><a href="/privacy">Privacy</a><a href="/contact">Contact</a></nav></footer>
   </>;
 }

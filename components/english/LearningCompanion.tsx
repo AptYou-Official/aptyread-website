@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { RefObject } from 'react';
 
 export default function LearningCompanion({ title, speaking = false, headingRef, reaction }: {
-  title: string; speaking?: boolean; headingRef?: RefObject<HTMLHeadingElement>; reaction?: string;
+  title: string; speaking?: boolean; headingRef?: RefObject<HTMLHeadingElement | null>; reaction?: string;
 }) {
   return <div className={`en-word-companion ${speaking ? 'is-speaking' : ''}`}>
     <div key={reaction} className={`en-companion-portrait ${reaction ? 'has-reacted' : ''}`} aria-hidden="true">
