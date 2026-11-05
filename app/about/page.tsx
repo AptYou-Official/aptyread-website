@@ -58,7 +58,7 @@ export default function AboutPage() {
             <Link href="/#how-it-works" prefetch={false}>How it works</Link>
             <a href="/about" aria-current="page">About us</a>
           </nav>
-          <a className="about-button" href="#about-get-the-app">Start learning free</a>
+          <PlayStoreLink platform="auto" className="about-button" href="#about-get-the-app">Start learning free</PlayStoreLink>
         </div>
       </header>
 

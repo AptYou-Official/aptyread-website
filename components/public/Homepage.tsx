@@ -11,6 +11,19 @@ import "./homepage.css";
 
 const asset = (filename: string) => `/homepage/${filename}`;
 
+// Use the same candidate in the hero and the learning panel so a parent only downloads it once.
+function screenPreview(filename: string) {
+  if (filename !== "app-words.webp" && filename !== "app-first-story.webp") {
+    return { src: asset(filename) };
+  }
+  const base = asset(filename).replace(/\.webp$/, "");
+  return {
+    src: `${base}-360.webp`,
+    srcSet: [240, 360, 480, 660].map((width) => `${base}-${width}.webp ${width}w`).join(", "),
+    sizes: "(max-width: 580px) 170px, (max-width: 800px) 183px, (max-width: 1100px) 192px, (min-width: 1450px) 216px, 201px",
+  };
+}
+
 const learningSteps = [
   {
     id: "build",
@@ -194,7 +207,7 @@ function ScreenButton({
     >
       <img
         id={imageId}
-        src={asset(filename)}
+        {...screenPreview(filename)}
         alt={alt}
         width={width}
         height={height}
@@ -307,7 +320,7 @@ export default function Homepage() {
             <a href="#learning-journey">Our learning journey</a>
             <a href="#for-parents">For parents</a>
           </nav>
-          <a className="button button-small header-cta" href="#get-the-app">Start learning free</a>
+          <PlayStoreLink platform="auto" className="button button-small header-cta" href="#get-the-app">Start learning free</PlayStoreLink>
           <button
             ref={menuButtonRef}
             type="button"
@@ -343,7 +356,7 @@ export default function Homepage() {
           <a href="#learning-journey">Our learning journey</a>
           <a href="#for-parents">For parents</a>
           <a href="#questions">Questions</a>
-          <a className="mobile-start" href="#get-the-app">Start learning free</a>
+          <PlayStoreLink platform="auto" className="mobile-start" href="#get-the-app">Start learning free</PlayStoreLink>
         </nav>
       </header>
 
@@ -353,7 +366,7 @@ export default function Homepage() {
             <p className="eyebrow">English literacy for ages 4 to 10</p>
             <h1>Help your child read.<br /><span>And understand.</span></h1>
             <p className="hero-description">Your child builds words and discovers what they mean, right from Lesson&nbsp;1.</p>
-            <div className="hero-actions"><a className="button" href="#get-the-app">Start learning free</a></div>
+            <div className="hero-actions"><PlayStoreLink platform="auto" className="button" href="#get-the-app">Start learning free</PlayStoreLink></div>
             <p className="fine-print">Download for Android and iPhone.<br />9 free lessons. First 4 without an account.</p>
           </div>
           <div className="hero-art" aria-label="Real AptyRead screens showing word building and a first story">
@@ -361,11 +374,11 @@ export default function Homepage() {
             <span className="star star-one" aria-hidden="true">✦</span>
             <span className="star star-two" aria-hidden="true">✧</span>
             <figure className="phone phone-words">
-              <img src={asset("app-words.webp")} alt="In AptyRead, children blend the letters s, a and t into sat" width={660} height={1434} loading="eager" />
+              <img {...screenPreview("app-words.webp")} alt="In AptyRead, children blend the letters s, a and t into sat" width={660} height={1434} loading="eager" />
               <figcaption>First sounds. First words.</figcaption>
             </figure>
             <figure className="phone phone-story">
-              <img src={asset("app-first-story.webp")} alt="Pat sat. A page from the first AptyRead story, Pat and Pip" width={660} height={1434} loading="eager" />
+              <img {...screenPreview("app-first-story.webp")} alt="Pat sat. A page from the first AptyRead story, Pat and Pip" width={660} height={1434} loading="eager" fetchPriority="high" />
               <figcaption>Then a story of their own.</figcaption>
             </figure>
             <img className="hero-mascot" src={asset("apty-mascot.webp")} alt="Apty, the blue reading companion" width={180} height={180} />
@@ -487,13 +500,17 @@ export default function Homepage() {
                 >{item.label}</button>
               ))}
             </div>
-            <p className="parent-note">Stay close, let them try, and enjoy the little discoveries together.</p>
+            <p>
+              <Link className="text-link" href="/reading-guide" prefetch={false}>
+                Explore the Reading Guide for parents <ArrowIcon direction="right" />
+              </Link>
+            </p>
           </div>
           <div className="parent-visual" id="parent-panel" role="tabpanel" aria-labelledby={`language-${language.code}`} tabIndex={0}>
             <span className="guidance-sticker"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm8-1a3 3 0 1 0 0-6M1 21v-3c0-5 14-5 14 0v3m2-7c3 0 6 1 6 4v3" /></svg>Help at every step</span>
             <ScreenButton
               className="help-screen"
-              filename={`help-${language.code}.png`}
+              filename={`help-${language.code}.webp`}
               title="Activity guidance for grown-ups"
               alt={`${language.name} grown-up guidance for a learning activity`}
               width={390}

@@ -83,7 +83,7 @@ export default function PrivacyPage() {
               Privacy Policy
             </h1>
             <p className="legal-updated">
-              Last updated 3 November 2026.
+              Last updated 5 November 2026.
             </p>
             <PolicyContents items={contents} />
 
@@ -132,12 +132,10 @@ export default function PrivacyPage() {
                   <a href="https://www.aptyread.ai">www.aptyread.ai</a>.
                 </p>
                 <p>
-                  The new family experience described here is being prepared for
-                  release as version 16.3.0. It applies when you install that
-                  release or a later version with these features. Updating this
-                  policy does not change an older app on your device. Section 2.5
-                  explains the earlier registration and speech features that
-                  remain relevant until you update.
+                  The family app features described here apply to AptyRead
+                  version 16.3.0 and later. If you use an older version,
+                  section 2.5 explains how that version handles registration
+                  and speech practice.
                 </p>
                 <p>
                   School and classroom accounts at classroom.aptyread.ai are a
@@ -564,7 +562,7 @@ export default function PrivacyPage() {
             </div>
 
             <p className="legal-last-updated">
-              Last updated 3 November 2026.
+              Last updated 5 November 2026.
             </p>
           </div>
         </article>

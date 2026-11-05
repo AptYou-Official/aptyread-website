@@ -6,14 +6,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const downloadUpdated = new Date('2026-11-03T00:00:00.000Z')
   const guideUpdated = new Date('2026-11-03T00:00:00.000Z')
   const schoolsUpdated = new Date('2026-09-16T00:00:00.000Z')
-  const privacyUpdated = new Date('2026-11-03T00:00:00.000Z')
-  // Terms and deletion guidance retain their 28 October content revision.
-  const legalUpdated = new Date('2026-10-28T00:00:00.000Z')
+  const releaseCopyUpdated = new Date('2026-11-05T00:00:00.000Z')
+  const deleteAccountUpdated = new Date('2026-10-28T00:00:00.000Z')
   
   return [
     {
       url: baseUrl,
-      lastModified: parentPagesUpdated,
+      lastModified: releaseCopyUpdated,
       changeFrequency: 'weekly',
       priority: 1,
     },
@@ -97,19 +96,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified: privacyUpdated,
+      lastModified: releaseCopyUpdated,
       changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified: legalUpdated,
+      lastModified: releaseCopyUpdated,
       changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/delete-account`,
-      lastModified: legalUpdated,
+      lastModified: deleteAccountUpdated,
       changeFrequency: 'yearly',
       priority: 0.3,
     },

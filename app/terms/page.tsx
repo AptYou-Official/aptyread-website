@@ -79,7 +79,7 @@ export default function TermsPage() {
               Terms of Service
             </h1>
             <p className="legal-updated">
-              Effective 1 January 2026. Last updated 28 October 2026.
+              Effective 1 January 2026. Last updated 5 November 2026.
             </p>
             <PolicyContents items={contents} />
 
@@ -138,7 +138,7 @@ export default function TermsPage() {
                 </p>
                 <p>
                   The family-app descriptions below apply to version 16.3.0
-                  and later, as that update becomes available. Some features
+                  and later. Some features
                   differ in older versions. School and classroom services and
                   website learning previews do not automatically include an
                   app purchase. Mandatory consumer rights where you live still
@@ -511,7 +511,7 @@ export default function TermsPage() {
             </div>
 
             <p className="legal-last-updated">
-              Last updated 28 October 2026.
+              Last updated 5 November 2026.
             </p>
           </div>
         </article>
