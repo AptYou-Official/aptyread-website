@@ -83,7 +83,7 @@ export default function PrivacyPage() {
               Privacy Policy
             </h1>
             <p className="legal-updated">
-              Last updated 5 November 2026.
+              Last updated 6 November 2026.
             </p>
             <PolicyContents items={contents} />
 
@@ -414,6 +414,23 @@ export default function PrivacyPage() {
                   activities. Website cookies, advertising measurement, and
                   analytics are separate from the app&apos;s learning programme.
                 </p>
+                <p>
+                  With your permission, we also use Google Analytics on the
+                  public marketing website to measure page visits and app-store
+                  button taps. It uses cookies and limited campaign labels to
+                  help us compare our website messages. A store-button tap does
+                  not tell us whether you installed the app or completed a lesson.
+                  We do not send reader profiles, account details, or learning
+                  activity through this website measurement.
+                </p>
+                <p>
+                  You can allow or decline Google Analytics and change your
+                  choice through Analytics preferences in the footer. Declining
+                  stops this optional Google Analytics measurement; the Vercel
+                  Analytics and Google Ads measurement described above are separate.
+                  This Google Analytics setup does not measure learning, admin,
+                  account recovery, or app-policy pages.
+                </p>
               </section>
 
               <section id="security" tabIndex={-1}>
@@ -562,7 +579,7 @@ export default function PrivacyPage() {
             </div>
 
             <p className="legal-last-updated">
-              Last updated 5 November 2026.
+              Last updated 6 November 2026.
             </p>
           </div>
         </article>

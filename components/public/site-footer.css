@@ -55,3 +55,6 @@
   .apty-site-footer.apty-site-footer .apty-site-footer-trademarks { max-width: none; margin-left: 0; }
 }
 @media print { .apty-site-footer.apty-site-footer { display: none; } }
+.apty-site-footer.apty-site-footer .apty-analytics-preferences{display:inline-flex;align-items:center;min-height:36px;padding:8px 0;border:0;background:none;color:#173a8a;font:inherit;font-size:13px;font-weight:650;line-height:1.5;cursor:pointer;}
+.apty-site-footer.apty-site-footer .apty-analytics-preferences:hover{text-decoration:underline;text-underline-offset:4px;}
+.apty-site-footer.apty-site-footer .apty-analytics-preferences:focus-visible{outline:3px solid #007a90;outline-offset:5px;border-radius:3px;}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AnalyticsPreferences from "./AnalyticsPreferences";
 import "./site-footer.css";
 
 type Props = {
@@ -30,6 +31,7 @@ export default function SiteFooter({ currentPage, schoolsPage = false }: Props) 
         <div className="apty-site-footer-details">
           <nav className="apty-site-footer-links" aria-label="Footer navigation">
             {footerLinks.map(({ page, href, label }) => <a href={href} key={page} aria-current={currentPage === page ? "page" : undefined}>{label}</a>)}
+            <AnalyticsPreferences />
           </nav>
           {schoolsPage && <nav className="apty-site-footer-classroom" aria-label="Classroom links"><a href="https://classroom.aptyread.ai">Open Classroom</a><a href="https://classroom.aptyread.ai/#/login">School login</a></nav>}
           <p className="apty-site-footer-copyright">© 2026 AptYou Services Pvt Ltd.</p>

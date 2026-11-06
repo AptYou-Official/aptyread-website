@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SiteMeasurement from "@/components/SiteMeasurement";
+import WebsiteAnalytics from "@/components/WebsiteAnalytics";
 import { Nunito_Sans } from "next/font/google";
 import { socialImage, socialImageUrl } from "@/lib/site-metadata";
 import "./globals.css";
@@ -68,6 +69,7 @@ export default function RootLayout({
       <body className={`${nunitoSans.className} antialiased`}>
         {children}
         <SiteMeasurement />
+        <WebsiteAnalytics />
       </body>
     </html>
   );

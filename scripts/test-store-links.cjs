@@ -12,13 +12,15 @@ const urls = {
 };
 
 function fixture({ tracker = 'queued', ua = 'Desktop', devicePlatform = '', maxTouchPoints = 0,
-  hostname = 'www.aptyread.ai', server = false } = {}) {
+  hostname = 'www.aptyread.ai', server = false, ga4 = false } = {}) {
   const calls = [];
   const navigations = [];
-  const location = { hostname, pathname: '/download', set href(value) { navigations.push(value); } };
+  const location = { hostname, pathname: '/download', search: '', set href(value) { navigations.push(value); } };
   const navigator = { userAgent: ua, platform: devicePlatform, maxTouchPoints };
   const window = {
     location, navigator,
+    localStorage: { getItem() { return ga4 ? 'granted' : null; } },
+    sessionStorage: { getItem() { return null; }, setItem() {} },
     open() { throw new Error('Store links must not use script-created popups'); },
     setTimeout() { throw new Error('Store navigation must not wait for a timer'); },
     ...(tracker === 'missing' ? {} : { gtag(...args) {
@@ -51,7 +53,8 @@ function fixture({ tracker = 'queued', ua = 'Desktop', devicePlatform = '', maxT
     };
     vm.runInNewContext(code, {
       module, exports: module.exports, require: requireFixture,
-      process: { env: { NODE_ENV: 'production', NEXT_PUBLIC_GOOGLE_ADS_PLAY_SEND_TO: 'fixture-android', NEXT_PUBLIC_GOOGLE_ADS_APP_STORE_SEND_TO: 'fixture-ios' } },
+      URL, URLSearchParams,
+      process: { env: { NODE_ENV: 'production', NEXT_PUBLIC_GOOGLE_ADS_PLAY_SEND_TO: 'fixture-android', NEXT_PUBLIC_GOOGLE_ADS_APP_STORE_SEND_TO: 'fixture-ios', NEXT_PUBLIC_GA4_MEASUREMENT_ID: ga4 ? 'G-TEST12345' : '' } },
       ...(server ? {} : { window, navigator }),
     }, { filename });
     return module.exports;
@@ -170,3 +173,22 @@ test('local previews never send store measurement', () => {
   assert.equal(f.calls.length, 0);
   assert.equal(f.navigations.length, 0);
 });
+
+for (const platform of ['android', 'ios']) for (const tracker of ['queued', 'missing', 'throwing']) {
+  test(`${platform}: consented GA4 ${tracker} tracking preserves the native store navigation`, () => {
+    const f = fixture({ga4:true, tracker, ua:platform === 'ios' ? 'iPhone' : 'Android'});
+    const event = tap();
+    const link = f.link({platform:'auto', href:'#get-the-app'});
+    assert.equal(link.props.href, urls[platform]);
+    assert.doesNotThrow(() => link.props.onClick(event));
+    assert.equal(event.prevented, false);
+    assert.equal(f.navigations.length, 0);
+    if (tracker === 'queued') {
+      const ga4Events = f.calls.filter(c => c[0] === 'gtag' && c[2] === 'store_click');
+      assert.equal(ga4Events.length, 1);
+      assert.equal(ga4Events[0][3].store, platform);
+      assert.equal(ga4Events[0][3].send_to, 'G-TEST12345');
+      assert.equal(ga4Events[0][3].event_callback, undefined);
+    }
+  });
+}

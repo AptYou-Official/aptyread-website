@@ -3,6 +3,7 @@
 import { useSyncExternalStore, type AnchorHTMLAttributes, type ReactNode } from "react";
 import { track } from "@vercel/analytics/react";
 import { marketingMeasurementEnabled } from "@/lib/marketing-measurement";
+import { reportWebsiteStoreClick } from "@/lib/website-analytics";
 import {
   APP_STORE_URL,
   PLAY_STORE_URL,
@@ -60,6 +61,7 @@ export default function PlayStoreLink({
     }
     if (store === "android") reportPlayStoreConversion();
     else reportAppStoreConversion();
+    reportWebsiteStoreClick(store);
   }
 
   return (
