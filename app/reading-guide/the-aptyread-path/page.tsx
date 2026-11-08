@@ -16,7 +16,7 @@ import "@/app/reading-guide/reading-guide.css";
 const pageUrl = "https://www.aptyread.ai/reading-guide/the-aptyread-path";
 const pathImage = socialImageFor("the-aptyread-path", "From first sounds. To reading with meaning. AptyRead's five-level journey.");
 const description =
-  "Explore AptyRead's five-level English literacy journey for ages 4 to 10. Sounds, word building and meaning begin in Lesson 1, with stories from Level 1.";
+  "Explore the AptyRead English Reading Program for ages 4–10. Five progressive levels in the app, from first letters and sounds to reading with understanding.";
 
 export const metadata: Metadata = {
   title: "The AptyRead Five-Level Reading Path | AptyRead",
@@ -50,7 +50,7 @@ export default function AptyReadPathPage() {
           name: "The AptyRead Five-Level Reading Path",
           description,
           inLanguage: "en",
-          dateModified: "2026-11-03",
+          dateModified: "2026-11-08",
           publisher: {
             "@type": "Organization",
             name: "AptYou Services Pvt Ltd",
@@ -71,10 +71,10 @@ export default function AptyReadPathPage() {
           <p className="support-eyebrow">Five levels. One connected journey.</p>
           <h1>From first sounds.<br />To reading with meaning.</h1>
           <p className="guide-intro">
-            AptyRead brings sounds, words and understanding together from the
-            beginning. Each step gives your child something to use in the next.
+            The AptyRead English Reading Program brings letters, sounds, words
+            and understanding together. Five progressive levels, in the AptyRead app.
           </p>
-          <GuideByline minutes={3} />
+          <GuideByline minutes={3} updated={{ date: "2026-11-08", label: "8 November 2026" }} />
         </header>
 
         <section className="guide-path-intro" aria-labelledby="reading-begins-heading">
@@ -83,9 +83,9 @@ export default function AptyReadPathPage() {
             <h2 id="reading-begins-heading">A few sounds.<br />Their first words.</h2>
             <p>
               Your child does not need to learn every letter before reading a
-              word. In Lesson 1, they meet <strong>s, a and t</strong>, then build
-              and read <strong>at</strong> and <strong>sat</strong> with the
-              app&apos;s help.
+              word. In Lesson 1, they learn the letters <strong>s, a and t</strong>
+              {" "}and practise their sounds, then build and read <strong>at</strong>
+              {" "}and <strong>sat</strong> with the app&apos;s help.
             </p>
             <p>
               The words have meaning, too. Children listen, choose, build and

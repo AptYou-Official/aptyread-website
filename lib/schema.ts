@@ -4,7 +4,7 @@ const SITE_URL = "https://www.aptyread.ai";
 const LOGO_URL = `${SITE_URL}/images/apty_with_book.png`;
 
 const APP_DESCRIPTION =
-  "A structured, interactive English literacy app for children aged 4 to 10. Practise sounds, build words and explore meaning from Lesson 1. Lessons 1 to 9 are free; the first 4 need no account. Levels are one-time purchases with no recurring subscription.";
+  "A structured, interactive English reading program for ages 4 to 10, delivered through the AptyRead app. Begin with letter names, shapes and sounds. Build words and explore meaning from Lesson 1, across five progressive levels. Lessons 1 to 9 are free; the first 4 need no account. Levels are one-time purchases with no recurring subscription.";
 
 const storeLinks = [APP_STORE_URL, PLAY_STORE_URL] as const;
 

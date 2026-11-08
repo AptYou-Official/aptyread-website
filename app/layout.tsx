@@ -15,8 +15,8 @@ const nunitoSans = Nunito_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.aptyread.ai'),
   title: "AptyRead. Every Child Reads.",
-  description: "Structured, interactive English reading for ages 4 to 10. Explore sounds, words and meaning. 9 lessons free. First 4 need no account.",
-  keywords: "English reading, learn to read English, English reading app, literacy platform, phonics, children education, ESL reading, structured reading, interactive reading, English reading course, reading app for kids, AptyRead, aptyread.ai",
+  description: "An interactive English reading program for ages 4–10, in the AptyRead app. Begin with letters and sounds. Explore 9 free lessons. First 4 need no account.",
+  keywords: "English reading, learn to read English, English reading app, literacy platform, phonics, children education, ESL reading, structured reading, interactive reading, English reading program, reading app for kids, AptyRead, aptyread.ai",
   authors: [{ name: "APTYOU SERVICES PRIVATE LIMITED" }],
   creator: "APTYOU SERVICES PRIVATE LIMITED",
   publisher: "APTYOU SERVICES PRIVATE LIMITED",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "AptyRead. Every Child Reads.",
-    description: "Structured, interactive English reading for ages 4 to 10. Explore sounds, words and meaning. 9 lessons free. First 4 need no account.",
+    description: "An interactive English reading program for ages 4–10, in the AptyRead app. Begin with letters and sounds. Explore 9 free lessons. First 4 need no account.",
     url: "https://www.aptyread.ai",
     siteName: "AptyRead",
     type: "website",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "AptyRead. Every Child Reads.",
-    description: "Structured, interactive English reading for ages 4 to 10. Explore sounds, words and meaning. 9 lessons free. First 4 need no account.",
+    description: "An interactive English reading program for ages 4–10, in the AptyRead app. Begin with letters and sounds. Explore 9 free lessons. First 4 need no account.",
     images: [socialImageUrl],
   },
   alternates: {

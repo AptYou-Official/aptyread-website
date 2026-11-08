@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- Reuse the approved local app assets and store badges. */
 import PlayStoreLink from "./PlayStoreLink";
-import { GUIDE_ORIGIN, GUIDE_UPDATED_LABEL } from "@/lib/reading-guide";
+import { GUIDE_ORIGIN, GUIDE_UPDATED, GUIDE_UPDATED_LABEL } from "@/lib/reading-guide";
 import type { GuideArticle } from "@/lib/reading-guide-types";
 
 export function GuideSchema({ data }: { data: Record<string, unknown> }) {
@@ -18,8 +18,14 @@ export function GuideBreadcrumb({ items }: { items: { label: string; href?: stri
   </>;
 }
 
-export function GuideByline({ minutes }: { minutes?: number }) {
-  return <p className="guide-byline"><span>By the <a href="/about">AptyRead team</a></span><span>Updated <time dateTime="2026-11-03">{GUIDE_UPDATED_LABEL}</time></span>{minutes && <span>{minutes} min read</span>}</p>;
+export function GuideByline({
+  minutes,
+  updated = { date: GUIDE_UPDATED, label: GUIDE_UPDATED_LABEL },
+}: {
+  minutes?: number;
+  updated?: { date: string; label: string };
+}) {
+  return <p className="guide-byline"><span>By the <a href="/about">AptyRead team</a></span><span>Updated <time dateTime={updated.date}>{updated.label}</time></span>{minutes && <span>{minutes} min read</span>}</p>;
 }
 
 export function GuideWordExample({ example }: { example: GuideArticle["example"] }) {

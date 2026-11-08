@@ -29,7 +29,7 @@ const learningSteps = [
     id: "build",
     title: "Build a word.",
     description:
-      "Meet s, a, and t. Choose letters, join the sounds, and have a turn reading at and sat.",
+      "Meet the letters s, a and t, and practise their sounds. Build and read your first simple words: at and sat.",
     screen: "app-words.webp",
     label: "Inside Lesson 1",
     alt: "Children build and blend sat in Lesson 1",
@@ -59,13 +59,13 @@ const levels = [
     title: "Sounds into first words",
     subtitle: "Letters, words, and first stories",
     description:
-      "Connect sounds and letters. Build words and discover their meanings through activities and little stories.",
+      "Learn letter names, shapes and sounds. Build words and explore their meanings. Discover capital and small letters, with optional writing practice.",
     status: "Level 1 · Begin here",
     letters: ["s", "a", "t"],
   },
   {
-    title: "First reading with meaning",
-    subtitle: "More words. Connected ideas.",
+    title: "More words, richer sentences",
+    subtitle: "Build sentences. Explore ideas.",
     description:
       "Build more words, read sentences and short books, and explore how words work together to express an idea.",
     status: "Level 2 · Continue your journey",
@@ -123,9 +123,9 @@ const questions = [
       "Lessons 1 to 4 need no account. A free parent account lets you continue through Lesson 9, including the first story, Pat and Pip. Continuing from Lesson 10 requires a Level 1 purchase in the app.",
   },
   {
-    question: "My child knows letters. Is this a good place to start?",
+    question: "Does my child need to know the alphabet first?",
     answer:
-      "Yes. The first lesson helps children use letter sounds to build and read words. Every child begins at Lesson 1 and follows the sequence, with opportunities to revisit and practise.",
+      "No. Your child can begin before knowing the alphabet. AptyRead introduces letters and their sounds, then helps children use the sounds they have learned to build and read simple words. Start with Lesson 1 and explore it together.",
   },
   {
     question: "How much help will my child need?",
@@ -140,7 +140,7 @@ const questions = [
   {
     question: "What does the progress information show?",
     answer:
-      "It shows your child’s place in the course and completed activities. AptyRead gives children opportunities to practise aloud, but it does not assess spoken pronunciation or reading fluency.",
+      "It shows your child’s place in the program and completed activities. AptyRead gives children opportunities to practise aloud, but it does not assess spoken pronunciation or reading fluency.",
   },
   {
     question: "Can we repeat lessons and stories?",
@@ -363,9 +363,9 @@ export default function Homepage() {
       <main id="main">
         <section className="hero section-wrap">
           <div className="hero-copy">
-            <p className="eyebrow">English literacy for ages 4 to 10</p>
+            <p className="eyebrow">AptyRead English Reading Program</p>
             <h1>Help your child read.<br /><span>And understand.</span></h1>
-            <p className="hero-description">Your child builds words and discovers what they mean, right from Lesson&nbsp;1.</p>
+            <p className="hero-description">Step-by-step learning for ages 4–10, in the AptyRead app. Begin with letters and sounds, and build simple words from Lesson&nbsp;1.</p>
             <div className="hero-actions"><PlayStoreLink platform="auto" className="button" href="#get-the-app">Start learning free</PlayStoreLink></div>
             <p className="fine-print">Download for Android and iPhone.<br />9 free lessons. First 4 without an account.</p>
           </div>
@@ -567,7 +567,7 @@ export default function Homepage() {
           </div>
           <div className="family-copy">
             <p className="eyebrow">Made for your family</p><h2>One family.<br />Three little journeys.</h2>
-            <p>Up to three reader profiles. One parent account. Each child keeps their own progress and place in the course.</p>
+            <p>Up to three reader profiles. One parent account. Each child keeps their own progress and place in the program.</p>
             <p>Buy a level once and share it with all three readers. Each child follows the learning journey at their own pace.</p>
             <a className="text-link" href="#get-the-app">Make a start together <ArrowIcon direction="right" /></a>
           </div>

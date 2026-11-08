@@ -8,7 +8,7 @@ import "./about.css";
 
 const title = "About AptyRead | Every Child Reads";
 const description =
-  "Why we created AptyRead: a structured English literacy journey for children aged 4 to 10, with reading, meaning and support for the grown-ups beside them.";
+  "Why we created the AptyRead English Reading Program: step-by-step learning for ages 4–10, with reading, meaning and support for the grown-ups beside them.";
 
 export const metadata: Metadata = {
   title,
@@ -67,7 +67,7 @@ export default function AboutPage() {
           <p className="about-eyebrow">About AptyRead · Our mission</p>
           <h1 id="about-title">Every Child <span>Reads.</span></h1>
           <p className="about-hero-lead">Helping children read English.<br />And understand what they read.</p>
-          <p className="about-hero-note">For children aged 4 to 10. For the grown-ups beside them.</p>
+          <p className="about-hero-note">An interactive English reading program for ages 4–10, in the AptyRead app.</p>
         </section>
 
         <section className="about-origin about-wrap" aria-labelledby="about-origin-title">
@@ -101,7 +101,7 @@ export default function AboutPage() {
               <p className="about-eyebrow">Why understanding matters</p>
               <h2 id="about-meaning-title">Reading brings<br /><span>meaning.</span></h2>
               <p>A story to enjoy. Instructions to follow. A new idea to explore. Reading with understanding helps children make sense of the words around them.</p>
-              <p>From Lesson 1, children use the sounds they learn to build words and explore what those words mean.</p>
+              <p>Children begin with letters and sounds, then use what they learn to build words and explore meaning from Lesson 1.</p>
               <div className="about-reading-path" role="group" aria-label="Sounds, words and meaning grow together">
                 <span>Sounds</span><ReadingArrow /><span>Words</span><ReadingArrow /><span>Meaning</span>
               </div>

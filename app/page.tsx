@@ -3,9 +3,9 @@ import Homepage from "@/components/public/Homepage";
 import { organizationJsonLd, softwareApplicationJsonLd } from "@/lib/schema";
 import { socialImage, socialImageUrl } from "@/lib/site-metadata";
 
-const title = "AptyRead | Learn to read English with understanding";
+const title = "AptyRead | English Reading Program for Ages 4–10";
 const description =
-  "Help your child read English and understand what they read. Interactive, sequential lessons for ages 4 to 10. Start with 9 free lessons. No ads or recurring subscription.";
+  "An interactive English reading program for ages 4–10, in the AptyRead app. Learn letters and sounds, build words and explore meaning. Start with 9 free lessons.";
 const accessDescription =
   "Free to download. Lessons 1 to 9 are available without a purchase. Lessons 1 to 4 need no account; a parent account is required to continue through Lesson 9. Continuing from Lesson 10 requires a Level 1 purchase. Levels are purchased separately with a one-time payment through the App Store or Google Play, with no expiry or recurring subscription.";
 
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description,
   keywords: [
     "AptyRead",
+    "English reading program",
     "English literacy",
     "learn to read English",
     "phonics",

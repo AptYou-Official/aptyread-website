@@ -27,7 +27,12 @@ export const faqGroups: FaqGroup[] = [
       {
         id: "who-is-it-for",
         question: "Is AptyRead right for my child?",
-        answer: "AptyRead is designed for children aged 4–10 who are beginning to read English or need practice putting sounds together into words. It connects word reading with vocabulary and meaning. Explore the free lessons together to see how your child responds.",
+        answer: "AptyRead is an interactive English reading program for children aged 4–10, available through the AptyRead app. It is for children beginning with letters and sounds, and those who need help putting sounds together into words. Explore the free lessons together to see how your child responds.",
+      },
+      {
+        id: "beginning-with-letters",
+        question: "Does my child need to know the alphabet first?",
+        answer: "No. Your child can begin before knowing the alphabet. AptyRead introduces letters and their sounds, then helps children use the sounds they have learned to build and read simple words. Start with Lesson 1 and explore it together.",
       },
       {
         id: "knows-letters",
@@ -55,12 +60,12 @@ export const faqGroups: FaqGroup[] = [
       {
         id: "interactive-learning",
         question: "What will my child do in a lesson?",
-        answer: "Children listen, choose, practise sounds, build words and explore what they mean. From Lesson 1, they blend the sounds they have learned into words. Activities, illustrations and stories give them ways to use their learning. Level 1 also includes short videos introducing letters, how to make each sound and letter writing.",
+        answer: "Children listen, choose, practise sounds, build words and explore what they mean. From Lesson 1, they blend the sounds they have learned into words. Activities, illustrations and stories give them ways to use their learning. In Level 1, children explore letter names, shapes and sounds, capital and small letters, and optional writing. Short videos introduce letters, how to make each sound and letter formation.",
       },
       {
         id: "learning-order",
         question: "Why do lessons open in order?",
-        answer: "AptyRead is a structured journey across five progressive levels, building word reading, vocabulary and understanding. Each lesson draws on earlier learning. Completing the required activities opens the next lesson. Buying a level keeps this sequence; it does not skip ahead.",
+        answer: "The program has five progressive levels, building word reading, vocabulary and understanding. Each lesson draws on earlier learning. Completing the required activities opens the next lesson. Buying a level keeps this sequence; it does not skip ahead.",
         link: { href: "/#learning-journey", label: "Explore the five-level journey" },
       },
       {
@@ -76,7 +81,7 @@ export const faqGroups: FaqGroup[] = [
       {
         id: "learning-pace",
         question: "How much time should we spend?",
-        answer: "Try around 10 minutes together to begin. Your child may prefer shorter or longer sessions. It is fine to pause, repeat or come back another day. There is no daily lesson cap or set deadline for completing the course.",
+        answer: "Try around 10 minutes together to begin. Your child may prefer shorter or longer sessions. It is fine to pause, repeat or come back another day. There is no daily lesson cap or set deadline for completing the program.",
       },
       {
         id: "repeat-practice",
@@ -86,7 +91,7 @@ export const faqGroups: FaqGroup[] = [
       {
         id: "reading-progress",
         question: "What does my child’s progress tell me?",
-        answer: "In Grown-ups, you can see the selected reader’s place in the course and completed activities. This records participation, not a reading test or a measure of fluency. AptyRead gives children time to practise aloud, but it does not record their voice or assess spoken pronunciation and reading accuracy.",
+        answer: "In Grown-ups, you can see the selected reader’s place in the program and completed activities. This records participation, not a reading test or a measure of fluency. AptyRead gives children time to practise aloud, but it does not record their voice or assess spoken pronunciation and reading accuracy.",
       },
     ],
   },
@@ -103,7 +108,7 @@ export const faqGroups: FaqGroup[] = [
       {
         id: "family-sharing",
         question: "Can my children share a purchased level?",
-        answer: "Yes. Create up to three reader profiles under one parent account, using a nickname and a preset avatar for each child. Each purchased level is shared by those readers. Every child keeps their own progress and place in the course.",
+        answer: "Yes. Create up to three reader profiles under one parent account, using a nickname and a preset avatar for each child. Each purchased level is shared by those readers. Every child keeps their own progress and place in the program.",
       },
       {
         id: "next-level",

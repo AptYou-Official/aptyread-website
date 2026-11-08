@@ -9,7 +9,7 @@ import { downloadCopy, downloadLanguage, downloadLanguageHref } from "./download
 import "./download.css";
 
 const title = "Download AptyRead | 9 Free Reading Lessons";
-const description = "Download AptyRead for Android and iPhone. Interactive English reading for ages 4–10, with 9 free lessons and a first story. First 4 lessons need no account.";
+const description = "Start the AptyRead English Reading Program on Android or iPhone. For ages 4–10, with 9 free lessons and a first story. First 4 lessons need no account.";
 const pageUrl = "https://www.aptyread.ai/download";
 
 export const metadata: Metadata = {

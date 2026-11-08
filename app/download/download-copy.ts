@@ -2,10 +2,10 @@ export type DownloadLanguage = "en" | "ml";
 
 export const downloadCopy = {
   en: {
-    eyebrow: "English reading for ages 4–10",
+    eyebrow: "AptyRead English Reading Program",
     title: "Build an English word.",
     titleAccent: "From Lesson 1.",
-    intro: "Listen to the sounds. Build the word. Explore its meaning.",
+    intro: "Interactive learning for ages 4–10, in the AptyRead app. Begin with letters and sounds. Build words and explore their meaning.",
     offer: "9 lessons free.",
     noAccount: "First 4 without an account.",
     noAds: "No advertisements",
@@ -26,10 +26,10 @@ export const downloadCopy = {
     languageLabel: "Read in Malayalam",
   },
   ml: {
-    eyebrow: "4–10 വയസ്സുള്ള കുട്ടികൾക്ക്",
+    eyebrow: "AptyRead English Reading Program",
     title: "ആദ്യ പാഠം മുതൽ",
     titleAccent: "ഇംഗ്ലീഷ് വായിച്ചു തുടങ്ങാം.",
-    intro: "ശബ്ദങ്ങൾ കേൾക്കാം. ചേർത്ത് വാക്കുകൾ വായിക്കാം. അർത്ഥവും മനസ്സിലാക്കാം.",
+    intro: "4–10 വയസ്സുള്ള കുട്ടികൾക്ക് AptyRead ആപ്പിലൂടെ ഇംഗ്ലീഷ് വായന പഠിക്കാം. അക്ഷരങ്ങളും ശബ്ദങ്ങളും പരിചയപ്പെടാം. വാക്കുകൾ വായിക്കാം, അർത്ഥവും മനസ്സിലാക്കാം.",
     offer: "ആദ്യ 9 പാഠങ്ങൾ സൗജന്യം.",
     noAccount: "ആദ്യ 4 പാഠങ്ങൾക്ക് അക്കൗണ്ട് വേണ്ട.",
     noAds: "പരസ്യങ്ങളില്ല",

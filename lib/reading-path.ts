@@ -7,12 +7,12 @@ export const PATH_LEVELS = [
     name: "Sounds into first words",
     parentProblem: "How can my child begin reading words?",
     outcome:
-      "Connect letters and sounds, blend and build first words, and explore their meanings through activities and little stories. Capitals and optional letter writing sit alongside reading.",
+      "Learn letter names, shapes and sounds. Build words and explore their meanings through activities and little stories. Discover capital and small letters, with optional writing practice.",
   },
   {
     number: 2,
     id: "02",
-    name: "First reading with meaning",
+    name: "More words, richer sentences",
     parentProblem: "How do words work together to express an idea?",
     outcome:
       "Build varied short words. Read phrases, sentences and short books. Explore who does what, where things are, and how a question or a small word changes a message.",

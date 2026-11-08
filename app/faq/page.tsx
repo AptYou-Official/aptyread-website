@@ -9,7 +9,7 @@ import { socialImage, socialImageUrl } from "@/lib/site-metadata";
 import "./faq.css";
 
 const title = "Questions parents ask | AptyRead";
-const description = "Answers about AptyRead for ages 4–10: 9 free lessons, learning together, one-time level purchases and up to three readers. First 4 lessons need no account.";
+const description = "Questions about the AptyRead English Reading Program: starting with letters and sounds, 9 free lessons, parent guidance and one-time level purchases.";
 
 export const metadata: Metadata = {
   title,
