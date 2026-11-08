@@ -1,7 +1,8 @@
 "use client";
 
-import { useSyncExternalStore, type AnchorHTMLAttributes, type ReactNode } from "react";
+import { type AnchorHTMLAttributes, type ReactNode } from "react";
 import { track } from "@vercel/analytics/react";
+import { useDeviceStore } from "@/lib/device-store";
 import { marketingMeasurementEnabled } from "@/lib/marketing-measurement";
 import { reportWebsiteStoreClick } from "@/lib/website-analytics";
 import {
@@ -20,21 +21,7 @@ type Props = Omit<
   children: ReactNode;
 };
 
-type Store = "ios" | "android";
 const storeUrls = { android: PLAY_STORE_URL, ios: APP_STORE_URL };
-
-// The device does not change during a visit. Use the fallback in static HTML
-// and on the first hydration render, then expose the store as a native href.
-const subscribe = () => () => {};
-const unknownDevice = () => null;
-function deviceStore(): Store | null {
-  const { userAgent, platform, maxTouchPoints } = window.navigator;
-  if (/Android/i.test(userAgent)) return "android";
-  if (/iPad|iPhone|iPod/i.test(userAgent)) return "ios";
-  // iPadOS can request desktop pages and identify itself as a Mac.
-  if (platform === "MacIntel" && maxTouchPoints > 1) return "ios";
-  return null;
-}
 
 export default function PlayStoreLink({
   href,
@@ -44,7 +31,7 @@ export default function PlayStoreLink({
   ...rest
 }: Props) {
   const auto = platform === "auto";
-  const detectedStore = useSyncExternalStore(subscribe, auto ? deviceStore : unknownDevice, unknownDevice);
+  const detectedStore = useDeviceStore(auto);
   const store = auto ? detectedStore : platform;
   const targetHref = auto && detectedStore ? storeUrls[detectedStore] : href ?? (store ? storeUrls[store] : "/download");
 

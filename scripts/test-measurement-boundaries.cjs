@@ -40,6 +40,14 @@ test('learning routes and disabled measurement remain excluded', () => {
   assert.deepEqual(renderMeasurement('/reading-guide', false), []);
 });
 
+test('interactive previews never render advertising or visitor analytics', () => {
+  for (const route of ['/try', '/try/', '/try/sat', '/try/sat/']) {
+    assert.deepEqual(renderMeasurement(route), [], route);
+  }
+  // Exclude a route segment, not unrelated marketing paths with the same prefix.
+  assert(renderMeasurement('/trying').some(call => call.kind === 'analytics'));
+});
+
 test('public marketing keeps existing measurement and app policies still exclude advertising', () => {
   const publicCalls = renderMeasurement('/reading-guide');
   assert(publicCalls.some(call => call.kind === 'analytics'));
@@ -53,7 +61,7 @@ test('public marketing keeps existing measurement and app policies still exclude
 
 test('an already loaded Analytics SDK rejects later private/learning pageviews', () => {
   const {beforeSend} = renderMeasurement('/reading-guide').find(call => call.kind === 'analytics');
-  for (const pathname of ['/admin','/admin/users/fixture-user','/admin/purchases?orderId=fixture','/english/lesson']) {
+  for (const pathname of ['/admin','/admin/users/fixture-user','/admin/purchases?orderId=fixture','/english/lesson','/try','/try/','/try/sat','/try/sat?lang=ml']) {
     assert.equal(beforeSend({type:'pageview',url:`https://www.aptyread.ai${pathname}`}), null, pathname);
   }
   const publicEvent = {type:'pageview',url:'https://www.aptyread.ai/reading-guide?utm_source=fixture'};

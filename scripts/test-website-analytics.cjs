@@ -155,8 +155,8 @@ test('cross-tab withdrawal applies without waiting for a page navigation', () =>
   unsubscribe();
 });
 
-test('admin, auth, learning, unknown and app-policy routes remain excluded after public navigation', () => {
-  for (const route of ['/admin','/admin/users/fixture','/__/auth/action','/english','/malayalam/dashboard','/hindi/lesson','/privacy','/terms','/delete-account','/privacy.html','/something-private','/reading-guide/unknown']) {
+test('admin, auth, learning, previews, unknown and app-policy routes remain excluded after public navigation', () => {
+  for (const route of ['/admin','/admin/users/fixture','/__/auth/action','/english','/malayalam/dashboard','/hindi/lesson','/try','/try/','/try/sat','/try/sat/','/privacy','/terms','/delete-account','/privacy.html','/something-private','/reading-guide/unknown']) {
     const f = fixture({choice:'granted'});
     f.api.syncWebsiteAnalytics();
     const before = f.calls.length;
@@ -170,6 +170,20 @@ test('admin, auth, learning, unknown and app-policy routes remain excluded after
     f.window.location.search = '';
     f.api.syncWebsiteAnalytics();
     assert.equal(f.events('page_view').length, 2, route);
+  }
+});
+
+test('direct interactive previews stay outside GA4 even with prior permission', () => {
+  for (const pathname of ['/try', '/try/', '/try/sat', '/try/sat/']) {
+    for (const choice of [undefined, 'denied', 'granted']) {
+      const f = fixture({pathname, choice, search:campaign('poster')});
+      f.api.syncWebsiteAnalytics();
+      f.api.reportWebsiteStoreClick('android');
+      f.api.reportWebsiteStoreClick('ios');
+      assert.equal(f.calls.length, 0, `${pathname}: ${choice}`);
+      assert.equal(f.window[`ga-disable-${id}`], true);
+      assert.equal(f.session.size, 0);
+    }
   }
 });
 
@@ -216,4 +230,67 @@ test('events can queue before the existing Google tag finishes loading', () => {
   assert.equal(queued[0][0], 'config');
   assert.equal(queued[1][1], 'store_click');
   assert.equal(queued[1][2].store, 'ios');
+});
+
+// Render the consent decision states without a browser or analytics network calls.
+function consentMarkup({filename = 'components/WebsiteAnalytics.tsx', pathname = '/download',
+  choice = null, preferencesOpen = false, props = {}} = {}) {
+  const React = require('react');
+  const {renderToStaticMarkup} = require('react-dom/server');
+  const module = {exports:{}};
+  const sourcePath = path.join(root, 'components/WebsiteAnalytics.tsx');
+  const code = ts.transpileModule(fs.readFileSync(sourcePath, 'utf8'), {
+    compilerOptions: {target:ts.ScriptTarget.ES2020, module:ts.ModuleKind.CommonJS, jsx:ts.JsxEmit.ReactJSX},
+  }).outputText;
+  const analytics = {
+    GA4_MEASUREMENT_ID:id,
+    ANALYTICS_PREFERENCES_EVENT:'preferences',
+    analyticsPagePath(route) { return ['/download', '/download/', '/download.html', '/', '/about', '/reading-guide'].includes(route) ? route : null; },
+    getAnalyticsChoice() { return choice; },
+    subscribeAnalyticsChoice() { return () => {}; },
+  };
+  vm.runInNewContext(code, {
+    module, exports:module.exports,
+    require(name) {
+      if (name === 'react') return {...React,
+        useSyncExternalStore(_subscribe, snapshot) { return snapshot(); },
+        useState() { return [preferencesOpen, () => {}]; },
+        useRef() { return {current:null}; },
+        useEffect() {},
+      };
+      if (name === 'react/jsx-runtime') return require(name);
+      if (name === 'next/navigation') return {usePathname:() => pathname};
+      if (name === '@/lib/website-analytics') return analytics;
+      if (name.endsWith('.css')) return {};
+      throw Error(name);
+    },
+  }, {filename:sourcePath});
+  return renderToStaticMarkup(React.createElement(module.exports.default));
+}
+
+test('public and policy pages never ask for analytics automatically', () => {
+  const routes = ['/', '/download', '/download/', '/download.html', '/about', '/reading-guide', '/privacy', '/terms', '/delete-account'];
+  for (const pathname of routes) for (const choice of [null, 'granted', 'denied']) {
+    assert.equal(consentMarkup({pathname, choice}), '', `${pathname} / ${choice}`);
+  }
+});
+
+test('explicit footer preferences allow acceptance, refusal and closing for every saved choice', () => {
+  for (const pathname of ['/', '/download', '/about', '/reading-guide', '/privacy', '/terms', '/delete-account']) {
+    for (const choice of [null, 'granted', 'denied']) {
+      const html = consentMarkup({pathname, choice, preferencesOpen:true});
+      assert.match(html, /Allow analytics/, `${pathname} / ${choice}`);
+      assert.match(html, /No thanks/, `${pathname} / ${choice}`);
+      assert.match(html, />Close<\/button>/, `${pathname} / ${choice}`);
+      assert.match(html, /href="\/privacy#the-website"/, `${pathname} / ${choice}`);
+    }
+  }
+});
+
+test('excluded admin, authentication, learning and preview routes never show analytics preferences', () => {
+  for (const pathname of ['/admin', '/admin/users/fixture', '/__/auth/action', '/english', '/malayalam/dashboard', '/try', '/try/sat', '/something-private']) {
+    for (const preferencesOpen of [false, true]) {
+      assert.equal(consentMarkup({pathname, preferencesOpen}), '', pathname);
+    }
+  }
 });

@@ -1,0 +1,15 @@
+.make-sat-launcher{margin-top:10px;}
+.make-sat-launch-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 19px;border:1.5px solid #007a90;border-radius:999px;background:transparent;color:#007a90;font-family:inherit;font-size:14px;font-weight:800;line-height:1.5;cursor:pointer;}
+.make-sat-launch-button:hover{background:#e4f3f3;}
+.make-sat-launch-note{margin:5px 0 0!important;color:#647687;font-size:12px!important;line-height:1.6!important;}
+.make-sat-launch-button:focus-visible,.make-sat-dialog-close:focus-visible{outline:3px solid #173a8a;outline-offset:3px;}
+.make-sat-dialog{box-sizing:border-box;position:fixed;inset:0;width:min(520px,calc(100vw - 32px));height:min(820px,calc(100dvh - 32px));max-width:none;max-height:none;margin:auto;padding:0;border:1px solid #dce5e7;border-radius:24px;background:#fafaf6;color:#173a8a;box-shadow:0 24px 100px #102b4e40;overflow:hidden;overscroll-behavior:contain;}
+.make-sat-dialog[open]{display:flex;flex-direction:column;}
+.make-sat-dialog::backdrop{background:#102b4e8c;}
+.make-sat-dialog-header{display:flex;align-items:center;justify-content:space-between;gap:8px;flex:0 0 auto;min-height:48px;padding:4px 8px 4px 18px;border-bottom:1px solid #dfebe8;background:#fafaf6;}
+.make-sat-dialog-header p{margin:0!important;font-family:var(--font-nunito-sans),sans-serif;font-size:12px!important;font-weight:700;line-height:1.5!important;color:#50677c;}
+.make-sat-dialog-close{display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;min-height:44px;border:0;border-radius:50%;background:transparent;color:#173a8a;cursor:pointer;}
+.make-sat-dialog-close:hover{background:#e4f3f3;}
+.make-sat-frame{display:block;flex:1 1 auto;min-height:0;width:100%;border:0;background:#fafaf6;}
+@media(max-width:700px){.make-sat-launch-button{width:100%;}.make-sat-launch-note{text-align:center;}.make-sat-dialog{width:100vw;height:100dvh;height:100svh;max-height:100dvh;margin:0;border:0;border-radius:0;}.make-sat-dialog-header{padding-top:max(4px,env(safe-area-inset-top));}.make-sat-dialog-header p{font-size:11px!important;}}
+@media(prefers-reduced-motion:reduce){.make-sat-dialog,.make-sat-launch-button{scroll-behavior:auto;}}

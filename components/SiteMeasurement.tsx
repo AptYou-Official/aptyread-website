@@ -7,7 +7,7 @@ import { useSyncExternalStore } from 'react';
 import { marketingMeasurementEnabled } from '@/lib/marketing-measurement';
 
 const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || 'AW-17901074775';
-const EXCLUDED_ROUTES = /^\/(admin|english|malayalam|hindi)(\/|$)/;
+const EXCLUDED_ROUTES = /^\/(admin|english|malayalam|hindi|try)(\/|$)/;
 const Analytics = dynamic(() => import('@vercel/analytics/react').then(module => module.Analytics), { ssr: false });
 // Measurement depends on the document's hostname, which is stable for its lifetime.
 const subscribeToHostname = () => () => {};
@@ -17,7 +17,7 @@ export default function SiteMeasurement() {
   const pathname = usePathname();
   const measurementEnabled = useSyncExternalStore(subscribeToHostname, marketingMeasurementEnabled, serverMeasurementEnabled);
 
-  // Keep private admin URLs and learning routes out of marketing measurement.
+  // Keep private admin URLs, learning routes and interactive previews out of measurement.
   // Analytics is loaded only when the allowed-route branch below renders it.
   if (!measurementEnabled || !pathname || EXCLUDED_ROUTES.test(pathname)) return null;
 

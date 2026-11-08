@@ -1,0 +1,19 @@
+{
+  "purpose": "Local website preview adapted from the AptyRead family app. No app source was modified.",
+  "reference": ["lib/level_one/word_build_activity.dart", "lib/level_one/sat_meaning_stage.dart"],
+  "assets": {
+    "s.mp3": "aptyread_new/assets/audio/shared/phonemes/s-sound.mp3",
+    "a.mp3": "aptyread_new/assets/audio/shared/phonemes/a-sound.mp3",
+    "t.mp3": "aptyread_new/assets/audio/shared/phonemes/t-sound.mp3",
+    "word-sat.mp3": "https://aptyread-cdn.b-cdn.net/english/level1/audio/lesson1/word-sat-v1.mp3",
+    "story-sat.mp3": "https://aptyread-cdn.b-cdn.net/english/level1/audio/lesson1/story-sat-v1.mp3",
+    "find-sat.mp3": "https://aptyread-cdn.b-cdn.net/english/level1/audio/lesson1/sentence-find-sat-v1.mp3",
+    "blend.mp3": "https://aptyread-cdn.b-cdn.net/english/level1/audio/shared/put-the-sounds-together-v1.mp3",
+    "your-turn.mp3": "https://aptyread-cdn.b-cdn.net/english/level1/audio/shared/now-you-try-v1.mp3",
+    "sam-standing.webp": "aptyread_new/assets/images/sam-standing-v1.png",
+    "sam-sat.webp": "aptyread_new/assets/images/sam-sat-v1.png"
+  },
+  "imageConversion": "600 × 600 WebP, quality 88; original illustration and composition preserved",
+  "reusedWebsiteAssets": ["/homepage/apty-mascot.webp", "/homepage/Andika-Regular.ttf", "/homepage/Andika-OFL.txt"],
+  "learningDesign": "Guided sounds, then recorded blend and word; self-paced reading turn; Sam sits before the spoken past-tense context; picture choice. No pronunciation assessment or saved results."
+}

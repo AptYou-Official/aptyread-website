@@ -20,6 +20,7 @@ export default function WebsiteAnalytics() {
   const hydrated = useSyncExternalStore(subscribeToBrowser, browserReady, serverNotReady);
   const [preferencesOpen, setPreferencesOpen] = useState(false);
   const heading = useRef<HTMLHeadingElement>(null);
+  const preferencesTrigger = useRef<HTMLElement | null>(null);
   const publicPage = analyticsPagePath(pathname) !== null;
   const policyPage = /^\/(privacy|terms|delete-account)(\.html)?\/?$/.test(pathname);
 
@@ -31,7 +32,10 @@ export default function WebsiteAnalytics() {
   }, [pathname, choice]);
 
   useEffect(() => {
-    const open = () => setPreferencesOpen(true);
+    const open = () => {
+      preferencesTrigger.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      setPreferencesOpen(true);
+    };
     window.addEventListener(ANALYTICS_PREFERENCES_EVENT, open);
     return () => window.removeEventListener(ANALYTICS_PREFERENCES_EVENT, open);
   }, []);
@@ -40,12 +44,17 @@ export default function WebsiteAnalytics() {
     if (preferencesOpen) heading.current?.focus();
   }, [preferencesOpen]);
 
-  if (!GA4_MEASUREMENT_ID || !hydrated || (!publicPage && !policyPage)) return null;
-  if (!preferencesOpen && (!publicPage || choice !== null)) return null;
+  if (!GA4_MEASUREMENT_ID || !hydrated || !preferencesOpen || (!publicPage && !policyPage)) return null;
+  // Only an explicit click on Analytics preferences in the footer opens this panel.
+
+  function closePreferences() {
+    setPreferencesOpen(false);
+    if (preferencesOpen && preferencesTrigger.current?.isConnected) preferencesTrigger.current.focus();
+  }
 
   function choose(allow: boolean) {
     setAnalyticsChoice(allow ? "granted" : "denied");
-    setPreferencesOpen(false);
+    closePreferences();
   }
 
   return <section className="website-analytics-choice" aria-labelledby="website-analytics-title">
@@ -55,7 +64,7 @@ export default function WebsiteAnalytics() {
     <div className="website-analytics-actions">
       <button type="button" onClick={() => choose(true)}>Allow analytics</button>
       <button type="button" onClick={() => choose(false)}>No thanks</button>
-      {preferencesOpen && choice !== null && <button type="button" className="website-analytics-close" onClick={() => setPreferencesOpen(false)}>Close</button>}
+      {preferencesOpen && <button type="button" className="website-analytics-close" onClick={closePreferences}>Close</button>}
     </div>
   </section>;
 }

@@ -1,80 +1,97 @@
-.apty-download-page .download-page-hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: 75px; align-items: center; padding-block: 88px 92px; }
+.apty-download-page .download-page-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 76px; align-items: center; padding-block: 50px 60px; }
 .apty-download-page .download-page-copy { min-width: 0; }
-.apty-download-page .download-page-copy h1 { font-size: clamp(44px, 4.8vw, 62px); line-height: 1.1; letter-spacing: -.045em; }
+.apty-download-page .download-page-topline { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 24px; margin-bottom: 24px; }
+.apty-download-page .download-page-topline .support-eyebrow { margin: 0; font-size: 12px; letter-spacing: .045em; }
+.apty-download-page .download-language { display: inline-flex; align-items: center; min-height: 32px; color: #647687; font-size: 11px; text-decoration: underline; text-underline-offset: 3px; }
+.apty-download-page .download-page-copy h1 { font-size: clamp(40px, 4.4vw, 59px); line-height: 1.1; letter-spacing: -.045em; text-wrap: initial; }
 .apty-download-page .download-page-copy h1 span { color: var(--support-teal); }
-.apty-download-page .download-page-intro { max-width: 490px; margin-top: 27px; font-size: 18px; line-height: 1.8; }
-.apty-download-page .download-page-offer { margin-top: 27px; max-width: 450px; color: var(--support-ink); font-size: 16px; font-weight: 750; line-height: 1.65; }
-.apty-download-page .download-page-stores { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 23px; }
-.apty-download-page .download-page-stores a { display: inline-flex; min-height: 48px; align-items: center; border-radius: 7px; }
-.apty-download-page .download-page-stores img { display: block; width: auto; height: 52px; }
-.apty-download-page .download-page-access { margin-top: 19px; max-width: 410px; font-size: 12px; line-height: 1.8; }
-.apty-download-page .download-page-reassurance { display: flex; flex-wrap: wrap; gap: 9px 20px; margin-top: 24px; color: #627486; font-size: 11px; font-weight: 650; }
-.apty-download-page .download-page-reassurance span { display: inline-flex; align-items: center; gap: 7px; }
+.apty-download-page .download-page-intro { max-width: 445px; margin-top: 22px; font-size: 18px; line-height: 1.65; }
+.apty-download-page .download-page-offer { display: flex; flex-direction: column; gap: 5px; margin-top: 26px; }
+.apty-download-page .download-page-offer strong { color: var(--support-ink); font-size: 21px; font-weight: 800; }
+.apty-download-page .download-page-offer span { color: var(--support-body); font-size: 14px; line-height: 1.6; }
+.apty-download-page .download-actions { margin-top: 19px; }
+.apty-download-page .download-action-primary { display: inline-flex; justify-content: center; align-items: center; min-height: 56px; max-width: 100%; padding: 16px 25px; border-radius: 999px; background: var(--support-teal); color: #fff; font-size: 16px; font-weight: 800; line-height: 1.45; text-align: center; }
+.apty-download-page .download-action-primary:hover { background: #006579; }
+.apty-download-page .download-action-hint { font-size: 12px; margin-bottom: 10px; }
+.apty-download-page .download-action-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.apty-download-page .download-action-badges a { display: inline-flex; min-height: 48px; align-items: center; border-radius: 7px; }
+.apty-download-page .download-action-badges img { display: block; height: 49px; width: auto; max-width: 100%; }
+.apty-download-page .download-action-alternatives { margin-top: 4px; }
+.apty-download-page .download-action-alternatives summary { width: fit-content; min-height: 44px; padding: 12px 4px; cursor: pointer; color: #5b6b7c; font-size: 12px; line-height: 1.6; }
+.apty-download-page .download-action-alternatives[open] summary { margin-bottom: 6px; }
+.apty-download-page .download-page-reassurance { display: flex; flex-wrap: wrap; gap: 9px 19px; margin-top: 18px; color: #627486; font-size: 11px; font-weight: 650; }
+.apty-download-page .download-page-reassurance span { display: inline-flex; align-items: center; gap: 5px; }
 .apty-download-page .download-page-reassurance svg { color: var(--support-teal); flex-shrink: 0; }
-.apty-download-page .download-page-preview { min-width: 0; margin: 0; padding: 38px 28px 25px; border-radius: 36px; background: #e8f2ef; }
-.apty-download-page .download-page-screens { display: flex; align-items: flex-start; gap: 18px; padding-bottom: 24px; }
-.apty-download-page .download-page-screens img { display: block; width: calc((100% - 18px) / 2); height: auto; border: 5px solid white; border-radius: 23px; box-shadow: 0 18px 32px #173a8a14; }
-.apty-download-page .download-page-word-screen { margin-top: 36px; }
-.apty-download-page .download-page-preview figcaption { color: #627888; font-size: 11px; line-height: 1.6; text-align: center; }
-.apty-download-page .download-page-learning { padding-block: 94px 100px; background: linear-gradient(to bottom, #fafaf7, #edf5f7 70px, #edf5f7 calc(100% - 70px), #fafaf7); }
-.apty-download-page .download-page-section-heading h2 { font-size: clamp(34px, 3.7vw, 46px); line-height: 1.18; }
-.apty-download-page .download-page-features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 45px; margin-top: 46px; }
-.apty-download-page .download-page-features > div { border-top: 1px solid #d3e1e6; padding-top: 24px; }
-.apty-download-page .download-page-features > div > span { color: var(--support-teal); font-size: 12px; font-weight: 750; }
-.apty-download-page .download-page-features h3 { font-size: 24px; line-height: 1.3; margin: 17px 0 15px; }
-.apty-download-page .download-page-features p { font-size: 16px; }
-.apty-download-page .download-page-next { display: grid; grid-template-columns: 120px minmax(0, 1fr); align-items: center; gap: 45px; border: 1px solid #e0e9df; border-radius: 30px; background: #edf4ef; padding: 38px 48px; margin-block: 25px 75px; }
-.apty-download-page .download-page-next > img { display: block; width: 115px; height: auto; }
-.apty-download-page .download-page-next h2 { font-size: 29px; line-height: 1.25; margin-bottom: 18px; }
-.apty-download-page .download-page-next p { max-width: 750px; font-size: 15px; }
-.apty-download-page .download-page-help { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: var(--support-teal); font-size: 14px; font-weight: 750; margin-top: 17px; }
-.apty-download-page .download-page-help svg { flex-shrink: 0; }
-.apty-download-page .download-page-help:hover { text-decoration: underline; text-underline-offset: 4px; }
-@media (max-width: 1000px) {
-  .apty-download-page .download-page-hero { gap: 40px; padding-block: 70px; }
-  .apty-download-page .download-page-copy h1 { font-size: 48px; }
-  .apty-download-page .download-page-preview { padding: 30px 20px 23px; }
-  .apty-download-page .download-page-screens { gap: 12px; }
-  .apty-download-page .download-page-screens img { width: calc((100% - 12px) / 2); border-width: 4px; border-radius: 19px; }
-  .apty-download-page .download-page-features { gap: 28px; }
+.apty-download-page .download-page-preview { position: relative; margin: 0; padding: 22px 25px 18px; border-radius: 32px; background: #e6f2ef; text-align: center; }
+.apty-download-page .download-preview-label { font-size: 12px; font-weight: 750; color: var(--support-teal); margin-bottom: 16px; }
+.apty-download-page .download-page-word-screen { display: block; width: 224px; max-width: 100%; height: auto; margin-inline: auto; border: 5px solid #fff; border-radius: 23px; box-shadow: 0 16px 30px #173a8a12; }
+.apty-download-page .download-page-preview figcaption { color: #627888; font-size: 10px; line-height: 1.6; margin-top: 14px; }
+.apty-download-page .download-page-story { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 58px; align-items: center; padding: 35px 50px; border-radius: 28px; background: #edf5f7; }
+.apty-download-page .download-story-image img { display: block; width: 158px; height: auto; margin-inline: auto; border: 4px solid white; border-radius: 18px; box-shadow: 0 12px 24px #173a8a0c; }
+.apty-download-page .download-story-copy { max-width: 635px; }
+.apty-download-page .download-story-copy .support-eyebrow { margin-bottom: 14px; font-size: 11px; }
+.apty-download-page .download-story-copy h2 { font-size: 33px; line-height: 1.2; margin-bottom: 17px; }
+.apty-download-page .download-story-copy p { font-size: 16px; line-height: 1.7; }
+.apty-download-page .download-story-copy .download-account-detail { font-size: 12px; margin-top: 12px; }
+.apty-download-page .download-sequence { border-top: 1px solid #d6e4e8; margin-top: 23px; padding-top: 21px; }
+.apty-download-page .download-sequence h3 { font-size: 19px; margin-bottom: 9px; }
+.apty-download-page .download-sequence p { font-size: 14px; }
+.apty-download-page .download-page-next { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, .75fr); align-items: center; gap: 50px; margin-block: 50px 60px; }
+.apty-download-page .download-page-next h2 { font-size: 27px; margin-bottom: 14px; }
+.apty-download-page .download-page-next p { font-size: 14px; line-height: 1.8; max-width: 550px; }
+.apty-download-page .download-page-next .download-actions { margin-top: 0; }
+.apty-download-page .download-page-help { display: inline-flex; align-items: center; min-height: 44px; color: var(--support-teal); font-size: 13px; font-weight: 750; margin-top: 7px; text-decoration: underline; text-underline-offset: 4px; }
+.apty-download-page .download-content-ml { font-family: "Noto Sans Malayalam", "Malayalam Sangam MN", "Nirmala UI", sans-serif; }
+.apty-download-page .download-content-ml h1, .apty-download-page .download-content-ml h2, .apty-download-page .download-content-ml h3 { letter-spacing: 0; text-wrap: initial; }
+.apty-download-page .download-content-ml .download-page-copy h1 { font-size: clamp(31px, 3.1vw, 43px); line-height: 1.5; }
+.apty-download-page .download-content-ml .download-page-topline .support-eyebrow { letter-spacing: 0; }
+.apty-download-page .download-content-ml .download-page-intro { font-size: 16px; line-height: 1.9; margin-top: 14px; }
+.apty-download-page .download-content-ml .download-page-offer strong { font-size: 18px; line-height: 1.6; }
+.apty-download-page .download-content-ml .download-page-offer span { font-size: 12px; line-height: 1.9; }
+.apty-download-page .download-content-ml .download-action-primary { font-size: 14px; }
+.apty-download-page .download-content-ml .download-page-reassurance { font-size: 10px; line-height: 1.9; gap: 7px 13px; }
+.apty-download-page .download-content-ml .download-story-copy h2 { font-size: 28px; line-height: 1.6; }
+.apty-download-page .download-content-ml .download-story-copy p { font-size: 14px; line-height: 1.9; }
+.apty-download-page .download-content-ml .download-sequence h3 { font-size: 17px; line-height: 1.8; }
+.apty-download-page .download-content-ml .download-page-next h2 { font-size: 24px; line-height: 1.7; }
+.apty-download-page .download-content-ml .download-page-next p { font-size: 13px; line-height: 2; }
+@media (max-width: 900px) {
+  .apty-download-page .download-page-hero { gap: 35px; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); }
+  .apty-download-page .download-page-copy h1 { font-size: 43px; }
+  .apty-download-page .download-page-preview { padding-inline: 20px; }
+  .apty-download-page .download-page-story { gap: 30px; grid-template-columns: 160px minmax(0, 1fr); padding: 30px; }
 }
-@media (max-width: 800px) {
-  .apty-download-page .download-page-hero { grid-template-columns: 1fr; gap: 42px; max-width: 620px; }
-  .apty-download-page .download-page-copy h1 { font-size: 52px; }
-  .apty-download-page .download-page-preview { padding: 32px 35px 26px; }
-  .apty-download-page .download-page-screens { max-width: 390px; margin-inline: auto; gap: 20px; }
-  .apty-download-page .download-page-screens img { width: calc((100% - 20px) / 2); border-width: 5px; border-radius: 24px; }
-  .apty-download-page .download-page-features h3 { font-size: 22px; }
-  .apty-download-page .download-page-features p { font-size: 15px; }
-  .apty-download-page .download-page-next { gap: 28px; grid-template-columns: 100px minmax(0, 1fr); padding: 32px; }
-  .apty-download-page .download-page-next > img { width: 100px; }
-  .apty-download-page .download-page-next h2 { font-size: 27px; }
+@media (max-width: 700px) {
+  .apty-download-page .support-nav { height: 64px; }
+  .apty-download-page .download-page-hero { grid-template-columns: 1fr; max-width: 540px; gap: 30px; padding-block: 25px 30px; }
+  .apty-download-page .download-page-topline { gap: 4px 15px; margin-bottom: 17px; }
+  .apty-download-page .download-page-topline .support-eyebrow { font-size: 11px; }
+  .apty-download-page .download-language { font-size: 10px; }
+  .apty-download-page .download-page-copy h1 { font-size: clamp(34px, 9.3vw, 44px); line-height: 1.12; }
+  .apty-download-page .download-page-intro { margin-top: 17px; font-size: 16px; line-height: 1.65; }
+  .apty-download-page .download-page-offer { margin-top: 20px; gap: 2px; }
+  .apty-download-page .download-page-offer strong { font-size: 19px; }
+  .apty-download-page .download-page-offer span { font-size: 13px; }
+  .apty-download-page .download-actions { margin-top: 15px; }
+  .apty-download-page .download-action-primary { width: 100%; min-height: 54px; font-size: 15px; padding: 14px 18px; }
+  .apty-download-page .download-action-badges { gap: 10px; }
+  .apty-download-page .download-action-badges img { height: 45px; }
+  .apty-download-page .download-page-reassurance { font-size: 11px; gap: 8px 12px; margin-top: 12px; }
+  .apty-download-page .download-page-preview { padding: 18px 24px 16px; border-radius: 25px; }
+  .apty-download-page .download-page-word-screen { width: 186px; border-width: 4px; border-radius: 19px; }
+  .apty-download-page .download-preview-label { font-size: 11px; margin-bottom: 12px; }
+  .apty-download-page .download-page-story { display: flex; flex-direction: column-reverse; gap: 25px; padding: 26px 23px; border-radius: 24px; }
+  .apty-download-page .download-story-copy h2 { font-size: 29px; }
+  .apty-download-page .download-story-copy p { font-size: 15px; }
+  .apty-download-page .download-story-image img { width: 142px; }
+  .apty-download-page .download-page-next { display: block; margin-block: 35px 38px; }
+  .apty-download-page .download-page-next .download-actions { margin-top: 15px; }
+  .apty-download-page .download-page-next h2 { font-size: 25px; }
+  .apty-download-page .download-content-ml .download-page-copy h1 { font-size: clamp(26px, 7.2vw, 34px); line-height: 1.6; }
+  .apty-download-page .download-content-ml .download-page-intro { font-size: 14px; line-height: 1.95; margin-top: 12px; }
+  .apty-download-page .download-content-ml .download-page-offer { margin-top: 16px; }
+  .apty-download-page .download-content-ml .download-page-offer strong { font-size: 17px; }
+  .apty-download-page .download-content-ml .download-action-primary { font-size: 13px; }
+  .apty-download-page .download-content-ml .download-story-copy h2 { font-size: 24px; }
 }
-@media (max-width: 600px) {
-  .apty-download-page .download-page-hero { padding-block: 48px 42px; gap: 35px; }
-  .apty-download-page .download-page-copy h1 { font-size: clamp(36px, 10.5vw, 47px); line-height: 1.12; }
-  .apty-download-page .download-page-intro { font-size: 17px; margin-top: 24px; }
-  .apty-download-page .download-page-offer { font-size: 15px; margin-top: 24px; }
-  .apty-download-page .download-page-stores { gap: 12px; margin-top: 20px; }
-  .apty-download-page .download-page-stores img { height: 44px; }
-  .apty-download-page .download-page-access { margin-top: 15px; font-size: 12px; }
-  .apty-download-page .download-page-reassurance { margin-top: 20px; gap: 7px 15px; font-size: 12px; }
-  .apty-download-page .download-page-reassurance span { gap: 5px; }
-  .apty-download-page .download-page-reassurance svg { width: 15px; height: 15px; }
-  .apty-download-page .download-page-preview { padding: 27px 20px 23px; border-radius: 28px; }
-  .apty-download-page .download-page-screens { gap: 12px; padding-bottom: 23px; }
-  .apty-download-page .download-page-screens img { width: calc((100% - 12px) / 2); border-width: 4px; border-radius: 20px; }
-  .apty-download-page .download-page-word-screen { margin-top: 24px; }
-  .apty-download-page .download-page-preview figcaption { font-size: 10px; }
-  .apty-download-page .download-page-learning { padding-block: 74px; }
-  .apty-download-page .download-page-section-heading h2 { font-size: 34px; }
-  .apty-download-page .download-page-features { display: block; margin-top: 34px; }
-  .apty-download-page .download-page-features > div { padding-block: 24px 28px; }
-  .apty-download-page .download-page-features > div:last-child { padding-bottom: 0; }
-  .apty-download-page .download-page-features h3 { font-size: 24px; margin-top: 12px; }
-  .apty-download-page .download-page-features p { font-size: 16px; }
-  .apty-download-page .download-page-next { display: block; padding: 28px 23px; margin-block: 10px 48px; border-radius: 25px; }
-  .apty-download-page .download-page-next > img { width: 88px; margin-bottom: 24px; }
-  .apty-download-page .download-page-next h2 { font-size: 27px; }
-  .apty-download-page .download-page-next p { font-size: 15px; }
-}
+@media (prefers-reduced-motion: reduce) { html:has(.apty-download-page) { scroll-behavior: auto; } }
