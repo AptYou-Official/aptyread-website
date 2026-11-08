@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type SyntheticEvent } from "react";
 import { useDeviceStore } from "@/lib/device-store";
 import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/play-store-conversion";
 import { PreviewAudio, type PreviewClip, type PreviewAudioState } from "@/lib/preview-audio";
@@ -19,6 +19,39 @@ type SoundRequest = {
   onSuccess?: () => void;
   onPrepare?: () => void;
 };
+
+// These two small pictures stay mounted from the start of the activity.
+// A tap only switches visibility, so narration never races a new image request.
+function useSamPicture(pose: "standing" | "sat") {
+  const [load, setLoad] = useState<{ attempt: number; status: "loading" | "ready" | "error" }>({ attempt: 0, status: "loading" });
+  const attempt = load.attempt;
+  useEffect(() => {
+    const timeout = window.setTimeout(() => {
+      setLoad(current => current.attempt === attempt && current.status === "loading" ? { ...current, status: "error" } : current);
+    }, 8000);
+    return () => window.clearTimeout(timeout);
+  }, [attempt]);
+
+  function settle(status: "ready" | "error") {
+    setLoad(current => current.attempt === attempt ? { ...current, status } : current);
+  }
+
+  return {
+    ...load,
+    src: `/try-assets/sat/sam-${pose}.webp${attempt ? `?retry=${attempt}` : ""}`,
+    onLoad: async (event: SyntheticEvent<HTMLImageElement>) => {
+      const image = event.currentTarget;
+      try {
+        await image.decode();
+        if (image.isConnected) settle(image.naturalWidth > 0 ? "ready" : "error");
+      } catch {
+        if (image.isConnected) settle("error");
+      }
+    },
+    onError: () => settle("error"),
+    retry: () => setLoad(current => current.status === "error" ? { attempt: current.attempt + 1, status: "loading" } : current),
+  };
+}
 
 function SoundIcon() {
   return <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m11 5-6 4H2v6h3l6 4V5Z" /><path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" /></svg>;
@@ -39,6 +72,10 @@ function PreviewDownloads() {
 }
 
 export default function SatPreview({ embedded = false }: { embedded?: boolean }) {
+  const standingPicture = useSamPicture("standing");
+  const sittingPicture = useSamPicture("sat");
+  const picturesReady = standingPicture.status === "ready" && sittingPicture.status === "ready";
+  const pictureError = standingPicture.status === "error" || sittingPicture.status === "error";
   const [stage, setStage] = useState<Stage>("build");
   const [placed, setPlaced] = useState(0);
   const [busy, setBusy] = useState(false);
@@ -179,19 +216,19 @@ export default function SatPreview({ embedded = false }: { embedded?: boolean })
   }
 
   function showMeaning() {
-    if (busyNow.current) return;
+    if (busyNow.current || !picturesReady) return;
     setSitting(true); // Show the completed action before its past-tense narration.
     void listen({ clips: [clip("story-sat")], onSuccess: () => setMeaningHeard(true) });
   }
 
   function findMeaning() {
-    if (busyNow.current) return;
+    if (busyNow.current || !picturesReady) return;
     setStage("choose"); setHint("");
     void listen({ clips: [clip("find-sat")] });
   }
 
   function choose(isSitting: boolean) {
-    if (busyNow.current || correct) return;
+    if (busyNow.current || correct || !picturesReady) return;
     setCorrect(isSitting);
     setHint(isSitting ? "Yes. Sam sat." : "Look again. Who sat down?");
     void listen({ clips: [clip("word-sat")] });
@@ -230,24 +267,39 @@ export default function SatPreview({ embedded = false }: { embedded?: boolean })
           <button className="sat-listen" disabled={busy} onClick={() => void blend()}><SoundIcon />{audioState === "loading" ? "Loading sound…" : busy ? "Listening…" : "Listen again"}</button>
           {stage === "read" && <button className="sat-action" onClick={() => goTo("meaning")} disabled={busy}>What does it mean?</button>}
         </>}
-        {stage === "meaning" && <>
-          <p className="sat-instruction">{sitting ? "Sam sat on the mat." : "Tap Sam and watch what happens."}</p>
-          <button className={`sat-scene ${sitting ? "has-sat" : ""}`} onClick={() => void showMeaning()} disabled={busy} aria-label={sitting ? "Hear Sam sat on the mat again" : "Tap Sam to see sat"}>
-            <Image src={`/try-assets/sat/sam-${sitting ? "sat" : "standing"}.webp`} width={600} height={600} alt={sitting ? "Sam sitting on the mat" : "Sam standing on the mat"} unoptimized />
-            <span className="sat-scene-label"><SoundIcon />{sitting ? "Listen again" : "Tap Sam"}</span>
-          </button>
-          {meaningHeard && <button className="sat-action" onClick={() => void findMeaning()} disabled={busy}>Find sat</button>}
-        </>}
-        {stage === "choose" && <>
-          <p className="sat-instruction">Which picture shows <span className="sat-reading">sat</span>?</p>
-          <button className="sat-listen sat-question-audio" onClick={() => void listen({ clips: [clip("find-sat")] })} disabled={busy}><SoundIcon />Listen</button>
-          <div className="sat-pictures">{[false, true].map(isSitting => <button key={String(isSitting)} className={`sat-picture ${correct && isSitting ? "is-correct" : ""}`} onClick={() => void choose(isSitting)} disabled={busy || correct} aria-label={isSitting ? "Sam sitting on the mat" : "Sam standing on the mat"}>
-            <Image src={`/try-assets/sat/sam-${isSitting ? "sat" : "standing"}.webp`} width={600} height={600} alt="" unoptimized />
-            {correct && isSitting && <span className="sat-correct" aria-hidden="true">✓</span>}
-          </button>)}</div>
-          <p className="sat-status" role="status">{hint}</p>
-          {correct && <button className="sat-action" onClick={() => goTo("done")} disabled={busy}>Continue</button>}
-        </>}
+        <div hidden={stage !== "meaning" && stage !== "choose"}>
+          {stage === "meaning" && <p className="sat-instruction">{picturesReady ? sitting ? "Sam sat on the mat." : "Tap Sam and watch what happens." : "Let’s see what sat means."}</p>}
+          {stage === "choose" && <>
+            <p className="sat-instruction">Which picture shows <span className="sat-reading">sat</span>?</p>
+            <button className="sat-listen sat-question-audio" onClick={() => void listen({ clips: [clip("find-sat")] })} disabled={busy || !picturesReady}><SoundIcon />Listen</button>
+          </>}
+          {!picturesReady && <div className="sat-picture-loading" aria-busy={!pictureError}>
+            <p role="status">{pictureError ? "The pictures couldn’t load. Try again from here." : "Loading pictures…"}</p>
+            {pictureError && <button className="sat-listen" onClick={() => { standingPicture.retry(); sittingPicture.retry(); }}>Retry pictures</button>}
+          </div>}
+          <div className={stage === "choose" ? "sat-pictures" : "sat-scene-wrap"} hidden={!picturesReady}>
+            {[false, true].map(isSitting => {
+              const picture = isSitting ? sittingPicture : standingPicture;
+              return <button
+                key={String(isSitting)}
+                className={stage === "choose" ? `sat-picture ${correct && isSitting ? "is-correct" : ""}` : `sat-scene ${isSitting ? "has-sat" : ""}`}
+                hidden={stage !== "choose" && sitting !== isSitting}
+                onClick={() => stage === "choose" ? choose(isSitting) : showMeaning()}
+                disabled={busy || !picturesReady || (stage === "choose" && correct)}
+                aria-label={stage === "choose" ? isSitting ? "Sam sitting on the mat" : "Sam standing on the mat" : isSitting ? "Hear Sam sat on the mat again" : "Tap Sam to see sat"}
+              >
+                <Image key={picture.attempt} src={picture.src} width={600} height={600} alt="" loading="eager" onLoad={picture.onLoad} onError={picture.onError} unoptimized />
+                {stage === "meaning" && <span className="sat-scene-label"><SoundIcon />{isSitting ? "Listen again" : "Tap Sam"}</span>}
+                {stage === "choose" && correct && isSitting && <span className="sat-correct" aria-hidden="true">✓</span>}
+              </button>;
+            })}
+          </div>
+          {stage === "meaning" && meaningHeard && <button className="sat-action" onClick={() => void findMeaning()} disabled={busy || !picturesReady}>Find sat</button>}
+          {stage === "choose" && <>
+            <p className="sat-status" role="status">{hint}</p>
+            {correct && <button className="sat-action" onClick={() => goTo("done")} disabled={busy || !picturesReady}>Continue</button>}
+          </>}
+        </div>
         {stage === "done" && <>
           <Image className="sat-finish-mascot" src="/homepage/apty-mascot.webp" width={140} height={140} alt="Apty holding a storybook" unoptimized />
           <p className="sat-finish-copy">Build words. Read them.<br />Discover what they mean.</p>

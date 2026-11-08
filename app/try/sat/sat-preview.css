@@ -69,3 +69,11 @@
 @media(max-height:660px){.sat-header{padding-top:7px;}.sat-progress{padding-bottom:7px;}.sat-main{padding-top:12px;padding-bottom:16px;}.sat-instruction{margin-bottom:16px;}.sat-slots{margin:18px 0 23px;}.sat-slot{height:72px;width:66px;font-size:48px;}.sat-letter{width:66px;min-height:66px;font-size:40px;}.sat-scene{width:185px;}.sat-blend{margin:20px 0;font-size:65px;}.sat-finish-mascot{width:85px;height:85px;}.sat-finish-copy{margin:10px 0;font-size:17px;}.sat-status{margin-top:14px;}}
 @media(max-width:350px){.sat-main{padding-inline:16px;}.sat-header{padding-inline:12px;}.sat-brand p{font-size:13px;}.sat-slot{width:65px;}.sat-letter{width:65px;}.sat-store-badges img{height:34px;}.sat-stage h1{font-size:24px;}}
 @media(prefers-reduced-motion:reduce){.sat-preview *{transition:none!important;animation:none!important;scroll-behavior:auto!important;}}
+
+/* Hidden picture nodes still load eagerly, then stay ready for both steps. */
+.sat-preview [hidden]{display:none!important;}
+.sat-scene-wrap{min-height:240px;}
+.sat-picture-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;width:min(240px,100%);min-height:240px;margin:0 auto;background:#edf5f3;border:2px solid #c2dfe1;border-radius:25px;padding:20px;font-size:14px;line-height:1.6;color:#526b80;}
+.sat-picture-loading p{margin:0;}
+.sat-picture-loading .sat-listen{background:#fff;min-height:44px;padding:9px 16px;font-size:14px;}
+@media(max-height:660px){.sat-scene-wrap{min-height:185px;}.sat-picture-loading{width:185px;min-height:185px;}}
