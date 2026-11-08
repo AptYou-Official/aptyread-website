@@ -55,7 +55,10 @@
 .sat-finish-copy{font-size:19px;line-height:1.55;margin:12px 0 22px;}
 .sat-finish-offer{font-size:15px;line-height:1.65;color:var(--sat-ink);}
 .sat-finish-note{font-size:12px;line-height:1.7;color:#637688;margin:13px 0 18px;}
-.sat-audio-error{font-size:12px;line-height:1.6;color:#775d27;background:#fff5df;border-radius:12px;padding:12px;margin-top:18px;}
+.sat-audio-error{font-size:13px;line-height:1.6;color:#775d27;background:#fff5df;border-radius:14px;padding:12px;margin:0 0 16px;}
+.sat-audio-error p{margin:0 0 9px;}
+.sat-audio-error .sat-listen{min-height:44px;padding:9px 16px;font-size:14px;background:#fff;}
+.sat-loading{font-size:13px;line-height:1.5;color:var(--sat-teal);margin:0 0 12px;}
 .sat-downloads{flex-shrink:0;background:#fff;border-top:1px solid #dfebe8;padding:11px 20px max(14px,env(safe-area-inset-bottom));text-align:center;}
 .sat-downloads p{font-size:11px;color:#647687;margin:0 0 8px;line-height:1.4;}
 .sat-downloads p span{margin:0 4px;}

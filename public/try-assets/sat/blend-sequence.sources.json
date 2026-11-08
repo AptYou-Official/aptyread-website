@@ -1,0 +1,77 @@
+{
+  "purpose": "Continuous blend playback for the download-page activity; existing app recordings and pauses preserved.",
+  "generator": "scripts/build-sat-blend-audio.cjs",
+  "encoding": {
+    "codec": "MP3/libmp3lame",
+    "bitrateKbps": 160,
+    "sampleRate": 48000,
+    "channels": 2,
+    "gaplessMetadata": true
+  },
+  "sources": [
+    {
+      "kind": "instruction",
+      "file": "blend.mp3",
+      "pauseBeforeMs": 0,
+      "sha256": "8f6d9b7443bbb349478d64a19da22fcdfaf915830521d822b89745430a4ff871",
+      "decodedSampleFrames": 77184,
+      "pauseBeforeSamples": 0
+    },
+    {
+      "kind": "s",
+      "file": "s.mp3",
+      "pauseBeforeMs": 0,
+      "sha256": "c080cdde1a0843857182da71375aa5768d8880420d7b443249afb5af29f67b87",
+      "decodedSampleFrames": 43097,
+      "pauseBeforeSamples": 0
+    },
+    {
+      "kind": "a",
+      "file": "a.mp3",
+      "pauseBeforeMs": 0,
+      "sha256": "411e6ef3ec54ca190378ff7362a0aa4126312dbf5399790e4eead392e45c7949",
+      "decodedSampleFrames": 16972,
+      "pauseBeforeSamples": 0
+    },
+    {
+      "kind": "t",
+      "file": "t.mp3",
+      "pauseBeforeMs": 0,
+      "sha256": "9f8e327d0319809863f0e3c0a82351a7da9421b1539cce6d1dd2e0722970170e",
+      "decodedSampleFrames": 6523,
+      "pauseBeforeSamples": 0
+    },
+    {
+      "kind": "word",
+      "file": "word-sat.mp3",
+      "pauseBeforeMs": 600,
+      "sha256": "5299413bf450fbff5cbdb1c705eb262f02748ec2bc211fd348036208da9ced80",
+      "decodedSampleFrames": 50688,
+      "pauseBeforeSamples": 28800
+    },
+    {
+      "kind": "turn",
+      "file": "your-turn.mp3",
+      "pauseBeforeMs": 350,
+      "sha256": "c188d42430003ca027bb4aba70238ba09055178c1c99a0e29886d1d8b151b725",
+      "decodedSampleFrames": 58752,
+      "pauseBeforeSamples": 16800
+    }
+  ],
+  "output": {
+    "file": "blend-sequence.mp3",
+    "sha256": "22c61151784421e89529c68fde20bd92e890ac95834ff6e7b81f5011ed81a1c2",
+    "bytes": 125804,
+    "sampleFrames": 298816,
+    "durationSeconds": 6.225333333333333
+  },
+  "cueFile": "lib/sat-blend-cues.json",
+  "verification": {
+    "fullDecodePassed": true,
+    "decodedSampleCountMatches": true,
+    "originalHashesUnchanged": true,
+    "sourcePeak": 0.5075640082359314,
+    "outputPeak": 0.479177325963974
+  },
+  "edits": "Concatenation only, with exactly 600 ms before the whole word and 350 ms before the turn prompt. No new voice, background music, time stretching or normalization."
+}
