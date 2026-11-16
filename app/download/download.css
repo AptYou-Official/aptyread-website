@@ -2,10 +2,10 @@
 .apty-download-page .download-page-copy { min-width: 0; }
 .apty-download-page .download-page-topline { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 24px; margin-bottom: 24px; }
 .apty-download-page .download-page-topline .support-eyebrow { margin: 0; font-size: 12px; letter-spacing: .045em; }
-.apty-download-page .download-language { display: inline-flex; align-items: center; min-height: 32px; color: #647687; font-size: 11px; text-decoration: underline; text-underline-offset: 3px; }
 .apty-download-page .download-page-copy h1 { font-size: clamp(40px, 4.4vw, 59px); line-height: 1.1; letter-spacing: -.045em; text-wrap: initial; }
 .apty-download-page .download-page-copy h1 span { color: var(--support-teal); }
 .apty-download-page .download-page-intro { max-width: 445px; margin-top: 22px; font-size: 18px; line-height: 1.65; }
+.apty-download-page .download-page-routine { max-width: 445px; margin-top: 12px; font-size: 14px; line-height: 1.65; color: var(--support-body); }
 .apty-download-page .download-page-offer { display: flex; flex-direction: column; gap: 5px; margin-top: 26px; }
 .apty-download-page .download-page-offer strong { color: var(--support-ink); font-size: 21px; font-weight: 800; }
 .apty-download-page .download-page-offer span { color: var(--support-body); font-size: 14px; line-height: 1.6; }
@@ -41,20 +41,6 @@
 .apty-download-page .download-page-next p { font-size: 14px; line-height: 1.8; max-width: 550px; }
 .apty-download-page .download-page-next .download-actions { margin-top: 0; }
 .apty-download-page .download-page-help { display: inline-flex; align-items: center; min-height: 44px; color: var(--support-teal); font-size: 13px; font-weight: 750; margin-top: 7px; text-decoration: underline; text-underline-offset: 4px; }
-.apty-download-page .download-content-ml { font-family: "Noto Sans Malayalam", "Malayalam Sangam MN", "Nirmala UI", sans-serif; }
-.apty-download-page .download-content-ml h1, .apty-download-page .download-content-ml h2, .apty-download-page .download-content-ml h3 { letter-spacing: 0; text-wrap: initial; }
-.apty-download-page .download-content-ml .download-page-copy h1 { font-size: clamp(31px, 3.1vw, 43px); line-height: 1.5; }
-.apty-download-page .download-content-ml .download-page-topline .support-eyebrow { letter-spacing: 0; }
-.apty-download-page .download-content-ml .download-page-intro { font-size: 16px; line-height: 1.9; margin-top: 14px; }
-.apty-download-page .download-content-ml .download-page-offer strong { font-size: 18px; line-height: 1.6; }
-.apty-download-page .download-content-ml .download-page-offer span { font-size: 12px; line-height: 1.9; }
-.apty-download-page .download-content-ml .download-action-primary { font-size: 14px; }
-.apty-download-page .download-content-ml .download-page-reassurance { font-size: 10px; line-height: 1.9; gap: 7px 13px; }
-.apty-download-page .download-content-ml .download-story-copy h2 { font-size: 28px; line-height: 1.6; }
-.apty-download-page .download-content-ml .download-story-copy p { font-size: 14px; line-height: 1.9; }
-.apty-download-page .download-content-ml .download-sequence h3 { font-size: 17px; line-height: 1.8; }
-.apty-download-page .download-content-ml .download-page-next h2 { font-size: 24px; line-height: 1.7; }
-.apty-download-page .download-content-ml .download-page-next p { font-size: 13px; line-height: 2; }
 @media (max-width: 900px) {
   .apty-download-page .download-page-hero { gap: 35px; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); }
   .apty-download-page .download-page-copy h1 { font-size: 43px; }
@@ -66,7 +52,6 @@
   .apty-download-page .download-page-hero { grid-template-columns: 1fr; max-width: 540px; gap: 30px; padding-block: 25px 30px; }
   .apty-download-page .download-page-topline { gap: 4px 15px; margin-bottom: 17px; }
   .apty-download-page .download-page-topline .support-eyebrow { font-size: 11px; }
-  .apty-download-page .download-language { font-size: 10px; }
   .apty-download-page .download-page-copy h1 { font-size: clamp(34px, 9.3vw, 44px); line-height: 1.12; }
   .apty-download-page .download-page-intro { margin-top: 17px; font-size: 16px; line-height: 1.65; }
   .apty-download-page .download-page-offer { margin-top: 20px; gap: 2px; }
@@ -87,11 +72,5 @@
   .apty-download-page .download-page-next { display: block; margin-block: 35px 38px; }
   .apty-download-page .download-page-next .download-actions { margin-top: 15px; }
   .apty-download-page .download-page-next h2 { font-size: 25px; }
-  .apty-download-page .download-content-ml .download-page-copy h1 { font-size: clamp(26px, 7.2vw, 34px); line-height: 1.6; }
-  .apty-download-page .download-content-ml .download-page-intro { font-size: 14px; line-height: 1.95; margin-top: 12px; }
-  .apty-download-page .download-content-ml .download-page-offer { margin-top: 16px; }
-  .apty-download-page .download-content-ml .download-page-offer strong { font-size: 17px; }
-  .apty-download-page .download-content-ml .download-action-primary { font-size: 13px; }
-  .apty-download-page .download-content-ml .download-story-copy h2 { font-size: 24px; }
 }
 @media (prefers-reduced-motion: reduce) { html:has(.apty-download-page) { scroll-behavior: auto; } }

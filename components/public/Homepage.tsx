@@ -26,13 +26,24 @@ function screenPreview(filename: string) {
 
 const learningSteps = [
   {
-    id: "build",
-    title: "Build a word.",
+    id: "meet",
+    title: "Meet a letter and its sound.",
     description:
-      "Meet the letters s, a and t, and practise their sounds. Build and read your first simple words: at and sat.",
+      "In Meet S, your child listens, taps to discover a snake, then learns the letter’s name and practises its sound.",
+    screen: "app-meet-s.webp",
+    label: "Lesson 1 · Meet S",
+    alt: "Meet S activity showing the letter s, a snake and Apty",
+    height: 1428,
+  },
+  {
+    id: "build",
+    title: "Build and read a word.",
+    description:
+      "Use the sounds learned in Lesson 1 to build and read the first simple words: at and sat.",
     screen: "app-words.webp",
     label: "Inside Lesson 1",
     alt: "Children build and blend sat in Lesson 1",
+    height: 1434,
   },
   {
     id: "story",
@@ -42,6 +53,7 @@ const learningSteps = [
     screen: "app-first-story.webp",
     label: "Your first story · Lesson 9",
     alt: "Pat sat, a page from the Pat and Pip story",
+    height: 1434,
   },
   {
     id: "library",
@@ -51,6 +63,7 @@ const learningSteps = [
     screen: "app-library.webp",
     label: "A growing collection · My library",
     alt: "My library holds collected sounds, words and books",
+    height: 1434,
   },
 ];
 
@@ -392,9 +405,9 @@ export default function Homepage() {
 
         <section className="learning-section section-wrap section-space" id="how-it-works">
           <div className="section-heading">
-            <p className="eyebrow">Little steps. Meaningful learning.</p>
-            <h2>A word they make.<br />A meaning they discover.</h2>
-            <p>Every activity gives your child something to try.<br className="desktop-break" /> Listen, choose, build, read, and explore.</p>
+            <p className="eyebrow">From letters to reading</p>
+            <h2>Active learning.<br />A clear path.</h2>
+            <p>Guided activities connect each new letter and sound<br className="desktop-break" /> to words, stories and meaning.</p>
           </div>
           <div className="learning-showcase">
             <div className="learning-steps">
@@ -425,7 +438,7 @@ export default function Homepage() {
                 title={step.label}
                 alt={step.alt}
                 width={660}
-                height={1434}
+                height={step.height}
                 imageId="learning-screen"
                 label={`Enlarge app screen: ${step.label}`}
                 onEnlarge={openImage}

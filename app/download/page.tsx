@@ -5,7 +5,7 @@ import DownloadStoreActions from "@/components/public/DownloadStoreActions";
 import MakeSatLauncher from "@/components/public/MakeSatLauncher";
 import { softwareApplicationJsonLd } from "@/lib/schema";
 import { socialImage, socialImageUrl } from "@/lib/site-metadata";
-import { downloadCopy, downloadLanguage, downloadLanguageHref } from "./download-copy";
+import { downloadCopy } from "./download-copy";
 import "./download.css";
 
 const title = "Download AptyRead | 9 Free Reading Lessons";
@@ -24,29 +24,24 @@ function Check() {
   return <svg viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><path d="m4 10 4 4 8-8" /></svg>;
 }
 
-type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
-
-export default async function DownloadPage({ searchParams }: Props) {
-  const query = await searchParams;
-  const language = downloadLanguage(query);
-  const copy = downloadCopy[language];
-  const otherLanguage = language === "ml" ? "en" : "ml";
+export default function DownloadPage() {
+  const copy = downloadCopy;
 
   return (
     <SupportShell currentPage="download" className="apty-download-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationJsonLd(pageUrl)).replace(/</g, "\\u003c") }} />
-      <div className={`download-content download-content-${language}`} lang={language}>
+      <div className="download-content" lang="en">
         <section className="download-page-hero support-wrap" aria-labelledby="download-page-title">
           <div className="download-page-copy">
             <div className="download-page-topline">
               <p className="support-eyebrow">{copy.eyebrow}</p>
-              <a className="download-language" lang="en" href={downloadLanguageHref(query, otherLanguage)} hrefLang={otherLanguage}>{copy.languageLabel}</a>
             </div>
             <h1 id="download-page-title">{copy.title}<br /><span>{copy.titleAccent}</span></h1>
             <p className="download-page-intro">{copy.intro}</p>
+            <p className="download-page-routine">{copy.routine}</p>
             <div className="download-page-offer"><strong>{copy.offer}</strong><span>{copy.noAccount}</span></div>
-            <DownloadStoreActions language={language} />
-            <MakeSatLauncher language={language} />
+            <DownloadStoreActions />
+            <MakeSatLauncher />
             <div className="download-page-reassurance"><span><Check />{copy.noAds}</span><span><Check />{copy.noSubscription}</span></div>
           </div>
           <figure className="download-page-preview">
@@ -73,7 +68,7 @@ export default async function DownloadPage({ searchParams }: Props) {
             <p>{copy.purchaseBody}</p>
             <a className="download-page-help" href="/faq">{copy.help}</a>
           </div>
-          <DownloadStoreActions language={language} />
+          <DownloadStoreActions />
         </aside>
       </div>
     </SupportShell>
