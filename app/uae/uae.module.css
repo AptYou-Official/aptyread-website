@@ -1,0 +1,284 @@
+@font-face {
+  font-family: AptyUAELetters;
+  src: url('/homepage/apty-teaching-letters.woff2') format('woff2');
+  font-display: swap;
+}
+
+.page { --ink: #173a8a; --teal: #007a90; --muted: #566879; --line: #dbe5e6; background: #fafaf7; color: var(--ink); font-size: 17px; line-height: 1.65; }
+.page, .page *, .page *::before, .page *::after { box-sizing: border-box; }
+.page h1, .page h2, .page h3, .page p, .page figure, .page ul, .page ol, .page dl, .page dd { margin: 0; }
+.page h1, .page h2, .page h3 { color: var(--ink); font-weight: 800; letter-spacing: -.045em; }
+.page h1 { font-size: clamp(44px, 4.4vw, 66px); line-height: 1.07; }
+.page h2 { font-size: clamp(34px, 3.45vw, 48px); line-height: 1.13; }
+.page p { color: var(--muted); }
+.page a { text-decoration: none; }
+.page a:focus-visible, .page summary:focus-visible { outline: 3px solid #00b8d9; outline-offset: 5px; }
+.page img { display: block; max-width: 100%; height: auto; }
+.page section[id] { scroll-margin-top: 106px; }
+.wrap { width: min(1152px, calc(100% - 80px)); margin-inline: auto; }
+.skipLink { position: fixed; top: -100px; left: 16px; z-index: 100; padding: 12px 18px; background: var(--ink); color: white; }
+.skipLink:focus { top: 12px; }
+.header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid #173a8a0d; background: #fafaf7f5; backdrop-filter: blur(14px); }
+.nav { width: min(1248px, calc(100% - 80px)); min-height: 84px; margin-inline: auto; display: flex; align-items: center; gap: 30px; }
+.wordmark { display: inline-flex; font-weight: 800; font-size: 30px; letter-spacing: -.04em; line-height: 1; color: var(--ink); }
+.wordmark span:last-child { color: #00a9c7; }
+.navLinks { display: flex; gap: 28px; margin-left: auto; }
+.navLinks a { color: #4f6175; font-size: 13px; font-weight: 700; }
+.navLinks a:hover { color: var(--teal); }
+.navAction { display: inline-flex; align-items: center; gap: 12px; color: var(--teal); padding: 9px 0; border-bottom: 1px solid #9dc9cf; font-size: 13px; font-weight: 800; white-space: nowrap; }
+.navAction svg { width: 17px; }
+.eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .055em; color: var(--teal) !important; }
+.dot { display: inline-block; vertical-align: 1px; height: 6px; width: 6px; margin-right: 7px; background: #00a9c7; border-radius: 50%; }
+.hero { display: grid; grid-template-columns: 1.04fr 1fr; align-items: center; gap: 42px; padding-block: 66px 62px; }
+.heroCopy { min-width: 0; }
+.hero h1 { margin-top: 25px; }
+.hero h1 span, .offer h2 span { color: var(--teal); }
+.heroIntro { margin-top: 23px !important; max-width: 440px; font-size: 20px; line-height: 1.55; color: #344e6e !important; }
+.heroDetail { max-width: 455px; margin-top: 14px !important; font-size: 15px; line-height: 1.7; }
+.heroActions { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; margin-top: 28px; }
+.primaryButton { display: inline-flex; align-items: center; justify-content: center; gap: 24px; min-height: 52px; border-radius: 100px; padding: 14px 25px; color: white; background: var(--teal); font-size: 15px; font-weight: 800; transition: background .2s; }
+.primaryButton:hover { background: #00677a; }
+.textLink { display: inline-flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 800; color: var(--teal); }
+.textLink:hover { text-decoration: underline; text-underline-offset: 4px; }
+.textLink svg { width: 17px; flex-shrink: 0; }
+.heroFreeDetail { font-size: 12px; margin-top: 11px !important; }
+.heroPrice { margin-top: 27px; border-top: 1px solid var(--line); padding-top: 17px; max-width: 430px; }
+.heroPriceLabel { font-size: 12px; color: #526579; }
+.heroPrice p { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 12px; margin-top: 3px; }
+.heroPrice strong { color: var(--ink); font-weight: 800; font-size: 24px; letter-spacing: -.035em; }
+.heroPrice p span { font-size: 12px; color: #526579; }
+.appleNote { display: block; margin-top: 4px; font-size: 11px; line-height: 1.6; color: #637383; }
+.heroVisual { position: relative; min-height: 555px; isolation: isolate; padding: 48px 15px 34px; display: flex; justify-content: center; align-items: flex-start; gap: 23px; }
+.visualBackdrop { position: absolute; z-index: -1; inset: 0 0 23px; background: #e7f1f0; border-radius: 210px 210px 34px 34px; }
+.screenOne, .screenTwo { width: 43%; position: relative; }
+.screenOne { margin-top: 30px; transform: rotate(-5deg); }
+.screenTwo { transform: rotate(5deg); }
+.screenOne img, .screenTwo img { border: 5px solid white; border-radius: 21px; width: 100%; box-shadow: 0 17px 35px -19px #163c6b45, 0 0 0 1px #cededc; }
+.screenLabel { display: block; margin: 0 0 11px 8px; font-size: 10px; font-weight: 800; letter-spacing: .13em; color: #4b7679; }
+.screenOne p, .screenTwo p { margin-top: 15px; font-size: 12px; font-weight: 800; color: var(--teal); text-align: center; }
+.betweenScreens { position: absolute; z-index: 3; top: 47%; left: calc(50% - 20px); display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #d1e0dc; border-radius: 50%; background: #fffdf7; color: var(--teal); }
+.heroVisual figcaption { position: absolute; bottom: -3px; left: 0; width: 100%; text-align: center; font-size: 10px; color: #72817f; }
+.assurance { border-block: 1px solid var(--line); }
+.assurance .wrap { display: flex; justify-content: space-between; gap: 20px; padding-block: 20px; max-width: 860px; }
+.assurance span { display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: 13px; color: #506678; }
+.assurance svg { color: var(--teal); flex-shrink: 0; }
+.learning { padding-block: 90px; }
+.learningHeading { display: grid; grid-template-columns: 1.1fr 1fr; align-items: end; gap: 90px; }
+.learningHeading h2 { margin-top: 17px; }
+.learningHeading > p { max-width: 375px; padding-bottom: 4px; font-size: 16px; }
+.learningSteps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; padding: 0; gap: 44px; margin-top: 47px !important; }
+.learningSteps li { border-top: 1px solid #c8dbde; padding-top: 20px; }
+.stepTop { display: flex; min-height: 75px; align-items: center; justify-content: space-between; }
+.stepTop > span:first-child { color: #72909b; align-self: flex-start; font-weight: 800; font-size: 12px; }
+.letterTiles { display: flex; gap: 5px; padding-right: 10px; }
+.letterTiles i { font: normal 35px/1 AptyUAELetters, sans-serif; display: grid; place-items: center; width: 43px; height: 48px; border: 1px solid #add4dc; background: #eef8f8; border-radius: 9px; color: var(--ink); }
+.letterTiles i:first-child { transform: rotate(-7deg); }
+.letterTiles i:last-child { transform: rotate(7deg); }
+.blendWord { display: flex; flex-direction: column; align-items: center; font: 49px/1 AptyUAELetters, sans-serif; color: var(--teal); min-width: 132px; padding-right: 10px; }
+.blendWord svg { width: 100px; height: 16px; stroke: #7eacb3; stroke-width: 1.6; margin-top: 5px; }
+.meaningWord { font: 43px/1 AptyUAELetters, sans-serif; color: var(--teal); text-align: center; padding-right: 10px; }
+.meaningWord span { display: block; font: 700 10px/1.5 var(--font-nunito-sans), sans-serif; color: #7b8474; margin-top: 7px; }
+.learningSteps h3 { font-size: 25px; margin-top: 20px; }
+.learningSteps p { font-size: 15px; margin-top: 12px; }
+.learningSteps em { font-style: normal; font-weight: 700; color: #2d5270; }
+.demoInvitation { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 24px 30px; margin-top: 36px; border-radius: 18px; background: #edf4f1; }
+.demoInvitation > div:first-child p { font-size: 17px; font-weight: 800; color: var(--ink); }
+.demoInvitation > div:first-child span { display: block; margin-top: 4px; font-size: 13px; color: #61766f; }
+.demoInvitation :global(.make-sat-launcher) { margin-top: 0; flex-shrink: 0; }
+.demoInvitation :global(.make-sat-launch-note) { text-align: center; }
+.offer { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 85px; padding-bottom: 85px; }
+.offerCopy { padding-top: 20px; }
+.offer h2 { margin-top: 18px; }
+.offerCopy > p:not(.eyebrow) { max-width: 430px; margin-top: 23px; font-size: 16px; }
+.courseFacts { display: flex; flex-direction: column; margin-top: 28px !important; }
+.courseFacts > div { display: flex; align-items: center; gap: 23px; border-top: 1px solid var(--line); padding-block: 15px; }
+.courseFacts dt { font-size: 38px; line-height: 1.2; font-weight: 700; letter-spacing: -.04em; color: var(--teal); width: 60px; flex-shrink: 0; }
+.courseFacts dd { font-size: 15px; font-weight: 800; line-height: 1.5; }
+.courseFacts dd span { font-weight: 400; font-size: 12px; color: #687c87; }
+.offerCopy .offerSmall { font-size: 13px !important; margin-top: 10px !important; }
+.pricePanel { padding: 34px; border: 1px solid #b7d8dc; border-radius: 25px; background: #edf7f7; box-shadow: 0 12px 40px -28px #1c50663b; }
+.pricePanelTop { display: flex; align-items: center; justify-content: space-between; gap: 15px; color: var(--teal); font-size: 11px; letter-spacing: .07em; font-weight: 800; }
+.storeRegion { padding: 4px 10px; border: 1px solid #b7d8dc; border-radius: 999px; font-size: 10px; }
+.pricePanel .price { margin-top: 21px; font-size: clamp(48px, 4.6vw, 64px); line-height: 1.15; font-weight: 800; letter-spacing: -.05em; color: var(--ink); }
+.price > span { font-size: 20px; letter-spacing: -.02em; }
+.pricePlatform { margin-top: 7px !important; font-size: 13px; color: #3e6577 !important; }
+.priceBenefits { list-style: none; padding: 22px 0; display: flex; flex-direction: column; gap: 10px; }
+.priceBenefits li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: #3b5d71; }
+.priceBenefits svg { flex-shrink: 0; color: var(--teal); margin-top: 2px; }
+.applePrice { font-size: 12px; line-height: 1.7; padding-block: 15px; border-block: 1px solid #c9e0e2; }
+.applePrice strong { display: block; font-weight: 800; color: #38586f; margin-bottom: 3px; }
+.freeStart { margin-top: 25px; }
+.freeStart h3 { font-size: 23px; }
+.freeStart p { margin-top: 11px; font-size: 13px; }
+.storeActions { margin-top: 22px; }
+.storeActions a { flex-shrink: 0; }
+.storeActions img { max-width: 100%; height: auto; }
+.paymentNote { margin-top: 13px !important; font-size: 10px; line-height: 1.75; }
+.parentSupport { display: grid; grid-template-columns: 100px 1fr; align-items: center; gap: 0 26px; padding: 30px 38px; border-block: 1px solid #e3decf; background: #f8f2e5; border-radius: 22px; }
+.parentSupport > img { grid-row: 1 / 3; width: 100px; }
+.parentSupport h2 { font-size: 26px; letter-spacing: -.025em; margin-top: 8px; }
+.parentSupport p:not(.eyebrow) { font-size: 14px; max-width: 720px; margin-top: 11px; }
+.parentSupport .textLink { grid-column: 2; margin-top: 14px; }
+.faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 75px; padding-block: 85px 55px; }
+.faq h2 { margin-top: 17px; font-size: 39px; }
+.faqHeading > p:not(.eyebrow) { margin-top: 25px; font-size: 13px; }
+.faqHeading .textLink { margin-top: 7px; }
+.questions details { border-bottom: 1px solid var(--line); }
+.questions details:first-child { border-top: 1px solid var(--line); }
+.questions summary { display: flex; align-items: center; justify-content: space-between; gap: 24px; list-style: none; padding-block: 19px; font-size: 15px; line-height: 1.6; font-weight: 800; cursor: pointer; }
+.questions summary::-webkit-details-marker { display: none; }
+.questions summary > span { color: var(--teal); font-size: 24px; font-weight: 400; line-height: 1; flex-shrink: 0; }
+.questions details[open] summary > span { transform: rotate(45deg); }
+.questions details p { font-size: 14px; padding: 0 25px 23px 0; }
+.closing { display: flex; align-items: center; justify-content: space-between; gap: 30px; border-top: 1px solid var(--line); padding-block: 30px 65px; }
+.closing p { font-size: 23px; font-weight: 700; color: var(--ink); letter-spacing: -.025em; }
+
+@media (max-width: 1050px) {
+  .wrap { width: calc(100% - 56px); }
+  .nav { width: calc(100% - 56px); }
+  .hero { gap: 25px; padding-top: 45px; }
+  .heroVisual { min-height: 475px; padding-inline: 13px; gap: 18px; }
+  .heroIntro { font-size: 18px; }
+  .heroDetail { font-size: 14px; }
+  .learningHeading { gap: 40px; }
+  .learningSteps { gap: 28px; }
+  .offer { gap: 40px; }
+  .pricePanel { padding: 28px; }
+}
+
+@media (max-width: 780px) {
+  .nav { min-height: 72px; }
+  .navLinks { display: none; }
+  .navAction { margin-left: auto; }
+  .hero { grid-template-columns: 1fr; max-width: 570px; padding-block: 42px 42px; gap: 35px; }
+  .page h1 { font-size: 49px; }
+  .heroIntro { font-size: 19px; max-width: 480px; }
+  .heroDetail { max-width: 475px; }
+  .heroPrice { max-width: 100%; }
+  .heroVisual { min-height: 540px; width: 100%; max-width: 480px; margin-inline: auto !important; padding-inline: 23px; }
+  .assurance .wrap { justify-content: center; flex-wrap: wrap; gap: 8px 24px; padding-block: 17px; }
+  .assurance span { font-size: 12px; }
+  .learning { padding-block: 62px; }
+  .learningHeading { grid-template-columns: 1fr; gap: 19px; }
+  .learningHeading > p { max-width: 480px; font-size: 15px; }
+  .learningSteps { gap: 23px; margin-top: 32px !important; }
+  .learningSteps p { font-size: 13px; }
+  .letterTiles { gap: 3px; padding-right: 0; }
+  .letterTiles i { width: 29px; height: 35px; font-size: 27px; border-radius: 6px; }
+  .blendWord { min-width: 90px; padding-right: 0; font-size: 37px; }
+  .blendWord svg { width: 80px; }
+  .meaningWord { font-size: 34px; padding-right: 0; }
+  .meaningWord span { font-size: 8px; }
+  .stepTop { min-height: 62px; }
+  .demoInvitation { padding: 22px; gap: 22px; }
+  .demoInvitation > div:first-child p { font-size: 15px; }
+  .demoInvitation > div:first-child span { font-size: 12px; }
+  .offer { grid-template-columns: 1fr; gap: 28px; padding-bottom: 55px; }
+  .offerCopy { padding-top: 0; }
+  .offer h2 span { display: block; }
+  .offerCopy > p:not(.eyebrow) { max-width: 570px; }
+  .courseFacts { flex-direction: row; gap: 22px; }
+  .courseFacts > div { flex: 1; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .courseFacts dd { font-size: 13px; }
+  .courseFacts dd span { font-size: 10px; }
+  .pricePanel { padding: 30px; }
+  .pricePanel .price { font-size: 58px; }
+  .priceBenefits li { font-size: 14px; }
+  .freeStart p { max-width: 440px; }
+  .parentSupport { grid-template-columns: 75px 1fr; padding: 25px; gap: 0 20px; }
+  .parentSupport > img { width: 75px; }
+  .parentSupport h2 { font-size: 24px; }
+  .parentSupport p:not(.eyebrow) { font-size: 13px; }
+  .faq { gap: 35px; grid-template-columns: 1fr; padding-top: 60px; padding-bottom: 40px; }
+  .faqHeading > p:not(.eyebrow) { display: inline; margin-right: 7px; }
+  .faqHeading .textLink { margin-top: 17px; }
+  .closing { padding-bottom: 45px; }
+  .closing p { font-size: 19px; max-width: 250px; }
+}
+
+@media (max-width: 520px) {
+  .wrap, .nav { width: calc(100% - 40px); }
+  .nav { min-height: 68px; gap: 14px; }
+  .wordmark { font-size: 26px; }
+  .navAction { font-size: 11px; gap: 8px; }
+  .navAction svg { width: 15px; }
+  .eyebrow { font-size: 10px; letter-spacing: .035em; }
+  .hero { padding-top: 34px; gap: 31px; }
+  .hero h1 { font-size: clamp(35px, 10.3vw, 49px); margin-top: 19px; }
+  .heroIntro { font-size: 17px; margin-top: 19px !important; }
+  .heroDetail { font-size: 13px; margin-top: 12px !important; }
+  .heroActions { margin-top: 23px; gap: 13px; }
+  .primaryButton { font-size: 14px; min-height: 50px; padding-inline: 23px; gap: 21px; }
+  .heroActions .textLink { font-size: 12px; }
+  .heroFreeDetail { font-size: 11px; }
+  .heroPrice { margin-top: 22px; padding-top: 14px; }
+  .heroPrice strong { font-size: 22px; }
+  .heroPrice p span { font-size: 11px; }
+  .heroPriceLabel { font-size: 11px; }
+  .appleNote { font-size: 10px; }
+  .heroVisual { padding: 37px 15px 28px; min-height: 0; padding-bottom: 40px; gap: 20px; }
+  .screenOne, .screenTwo { width: calc(50% - 15px); }
+  .screenOne { margin-top: 26px; }
+  .screenLabel { font-size: 8px; margin-left: 5px; margin-bottom: 8px; }
+  .screenOne img, .screenTwo img { border-width: 4px; border-radius: 16px; }
+  .screenOne p, .screenTwo p { font-size: 10px; margin-top: 11px; }
+  .visualBackdrop { inset: 0 0 23px; border-radius: 150px 150px 26px 26px; }
+  .betweenScreens { width: 32px; height: 32px; left: calc(50% - 16px); top: 43%; }
+  .betweenScreens svg { width: 17px; }
+  .heroVisual figcaption { font-size: 9px; }
+  .assurance .wrap { gap: 8px 18px; }
+  .assurance span { font-size: 10px; gap: 5px; }
+  .assurance svg { width: 14px; height: 14px; }
+  .learning { padding-block: 47px; }
+  .page h2 { font-size: 32px; }
+  .learningHeading h2 { margin-top: 14px; }
+  .learningHeading > p { font-size: 14px; }
+  .learningSteps { grid-template-columns: 1fr; gap: 0; margin-top: 27px !important; }
+  .learningSteps li { display: grid; grid-template-columns: 104px 1fr; gap: 3px 20px; padding-block: 20px; }
+  .stepTop { grid-row: 1 / 3; flex-direction: column; align-items: flex-end; justify-content: flex-start; gap: 13px; min-height: 0; }
+  .stepTop > span:first-child { font-size: 10px; }
+  .learningSteps h3 { margin-top: 0; font-size: 23px; }
+  .learningSteps p { font-size: 13px; margin-top: 4px; }
+  .letterTiles { margin-top: 4px; padding-right: 4px; }
+  .blendWord { align-self: center; }
+  .meaningWord { align-self: center; }
+  .demoInvitation { margin-top: 6px; flex-direction: column; align-items: stretch; gap: 18px; padding: 21px; }
+  .demoInvitation :global(.make-sat-launch-button) { width: 100%; }
+  .demoInvitation > div:first-child p { font-size: 16px; }
+  .offer { gap: 27px; padding-bottom: 40px; }
+  .offerCopy > p:not(.eyebrow) { font-size: 14px; margin-top: 18px; }
+  .courseFacts { margin-top: 20px !important; gap: 16px; }
+  .courseFacts dt { font-size: 34px; }
+  .courseFacts dd { font-size: 12px; }
+  .courseFacts dd span { font-size: 10px; }
+  .offerCopy .offerSmall { font-size: 12px !important; margin-top: 8px !important; }
+  .pricePanel { padding: 25px 22px; border-radius: 22px; }
+  .pricePanelTop { font-size: 10px; }
+  .pricePanel .price { font-size: clamp(46px, 13vw, 58px); }
+  .price > span { font-size: 18px; }
+  .pricePlatform { font-size: 12px; }
+  .priceBenefits li { font-size: 12px; gap: 8px; }
+  .priceBenefits { padding-block: 20px; }
+  .applePrice { font-size: 11px; }
+  .freeStart { margin-top: 22px; }
+  .freeStart h3 { font-size: 22px; }
+  .freeStart p { font-size: 12px; }
+  .paymentNote { font-size: 10px; }
+  .parentSupport { grid-template-columns: 1fr; position: relative; padding: 24px; }
+  .parentSupport > img { position: absolute; top: 19px; right: 16px; width: 60px; }
+  .parentSupport .eyebrow { max-width: 195px; }
+  .parentSupport h2 { font-size: 25px; padding-right: 48px; margin-top: 14px; }
+  .parentSupport p:not(.eyebrow) { margin-top: 16px; font-size: 13px; }
+  .parentSupport .textLink { grid-column: 1; font-size: 12px; }
+  .faq { padding-top: 48px; gap: 25px; }
+  .faq h2 { font-size: 32px; }
+  .faqHeading > p:not(.eyebrow), .faqHeading .textLink { font-size: 12px; }
+  .questions summary { font-size: 14px; padding-block: 18px; gap: 17px; }
+  .questions details p { font-size: 13px; padding-right: 8px; }
+  .closing { align-items: flex-start; flex-direction: column; padding-top: 25px; gap: 19px; }
+  .closing p { max-width: 100%; font-size: 21px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page *, .page *::before, .page *::after { scroll-behavior: auto !important; transition: none !important; }
+}

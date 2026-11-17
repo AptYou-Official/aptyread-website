@@ -9,14 +9,14 @@ const ATTRIBUTION_TTL = 30 * 60 * 1000;
 const CONSENT_EVENT = "aptyread:analytics-choice";
 
 type Choice = "granted" | "denied" | null;
-type Variant = "poster" | "video" | "other";
-type Campaign = "kerala_ml_launch_202611" | "tracking_check" | "other";
+type Variant = "poster" | "video" | "phonics" | "reading" | "other";
+type Campaign = "kerala_ml_launch_202611" | "uae_search_level1_202611" | "tracking_check" | "other";
 type Attribution = { campaign: Campaign; ad_variant: Variant; capturedAt: number };
 
 // Only these public pages may enter the website stream. In particular, auth,
 // admin, learning and app-policy routes must never be sent, even after SPA navigation.
 const PUBLIC_PAGES = new Set([
-  "/", "/about", "/contact", "/download", "/faq", "/schools", "/in", "/gcc", "/us",
+  "/", "/about", "/contact", "/download", "/faq", "/schools", "/in", "/gcc", "/us", "/uae",
   "/reading-guide", "/reading-guide/the-aptyread-path",
   ...[
     "knows-letter-sounds-but-cant-read-words", "child-knows-alphabet-but-cant-read",
@@ -97,8 +97,10 @@ function clearAttribution(): void {
 function validAttribution(value: unknown): value is Attribution {
   if (!value || typeof value !== "object") return false;
   const item = value as Attribution;
-  const validCampaign = ["kerala_ml_launch_202611", "tracking_check", "other"].includes(item.campaign);
-  const validVariant = ["poster", "video", "other"].includes(item.ad_variant);
+  const validCampaign = ["kerala_ml_launch_202611", "uae_search_level1_202611", "tracking_check", "other"].includes(item.campaign);
+  const validVariant = item.campaign === "uae_search_level1_202611"
+    ? ["phonics", "reading"].includes(item.ad_variant)
+    : ["poster", "video", "other"].includes(item.ad_variant);
   return validCampaign && validVariant && typeof item.capturedAt === "number"
     && Number.isFinite(item.capturedAt) && item.capturedAt <= Date.now()
     && Date.now() - item.capturedAt < ATTRIBUTION_TTL
@@ -119,6 +121,9 @@ function campaignAttribution(): Attribution {
       if (params.get("utm_source") === "qa" && params.get("utm_medium") === "test"
         && params.get("utm_campaign") === "tracking_check") campaign = "tracking_check";
     }
+    if (singleValues && (variant === "phonics" || variant === "reading")
+      && params.get("utm_source") === "google" && params.get("utm_medium") === "cpc"
+      && params.get("utm_campaign") === "uae_search_level1_202611") campaign = "uae_search_level1_202611";
     const adVariant: Variant = campaign === "other" ? "other" : variant as Variant;
     const context = `${campaign}:${adVariant}`;
     if (taggedContext !== context) {
@@ -156,8 +161,10 @@ function allowedPath(): string | null {
 function cleanPageLocation(path: string, details: Attribution): string {
   const url = new URL(path, "https://www.aptyread.ai");
   if (details.campaign !== "other") {
-    url.searchParams.set("utm_source", details.campaign === "tracking_check" ? "qa" : "instagram");
-    url.searchParams.set("utm_medium", details.campaign === "tracking_check" ? "test" : "paid_social");
+    url.searchParams.set("utm_source", details.campaign === "tracking_check" ? "qa"
+      : details.campaign === "uae_search_level1_202611" ? "google" : "instagram");
+    url.searchParams.set("utm_medium", details.campaign === "tracking_check" ? "test"
+      : details.campaign === "uae_search_level1_202611" ? "cpc" : "paid_social");
     url.searchParams.set("utm_campaign", details.campaign);
     url.searchParams.set("utm_content", details.ad_variant);
   }

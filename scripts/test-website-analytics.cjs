@@ -11,6 +11,28 @@ const consentKey = 'aptyread.google-analytics.v1';
 const attributionKey = 'aptyread.website-campaign.v1';
 const campaign = variant => `?utm_source=instagram&utm_medium=paid_social&utm_campaign=kerala_ml_launch_202611&utm_content=${variant}`;
 
+for (const variant of ['phonics', 'reading']) {
+  test(`UAE ${variant} visit and store tap retain safe campaign labels without reporting a conversion`, () => {
+    const search = `?utm_source=google&utm_medium=cpc&utm_campaign=uae_search_level1_202611&utm_content=${variant}&email=private@example.test&gclid=private-click`;
+    const f = fixture({pathname:'/uae', search, choice:'granted'});
+    f.api.syncWebsiteAnalytics();
+    f.api.reportWebsiteStoreClick('android');
+    assert.equal(f.events('page_view').length, 1);
+    const event = f.events('store_click')[0];
+    assert.equal(event.campaign, 'uae_search_level1_202611');
+    assert.equal(event.ad_variant, variant);
+    assert.equal(event.page_path, '/uae');
+    assert.match(event.page_location, /utm_source=google/);
+    assert.match(event.page_location, /utm_medium=cpc/);
+    assert(!JSON.stringify(f.calls).includes('private'));
+    assert.equal(f.events('conversion').length, 0);
+    assert.equal(f.events('purchase').length, 0);
+    f.api.setAnalyticsChoice('denied');
+    f.api.reportWebsiteStoreClick('ios');
+    assert.equal(f.events('store_click').length, 1);
+  });
+}
+
 function fixture({ measurementId = id, hostname = 'www.aptyread.ai', pathname = '/download', search = '',
   choice, blockedStorage = false, tracker = 'available', savedAttribution, enabled = true } = {}) {
   const calls = [], local = new Map(), session = new Map(), listeners = new Map();

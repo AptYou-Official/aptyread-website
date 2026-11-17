@@ -1,0 +1,4 @@
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.actions a { display: inline-flex; border-radius: 9px; flex: 0 0 auto; }
+.actions img { display: block; height: 52px; width: auto; max-width: 100%; }
+.actions a:focus-visible { outline: 3px solid #007c78; outline-offset: 5px; }

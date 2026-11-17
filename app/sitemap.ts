@@ -23,6 +23,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/uae`,
+      lastModified: new Date('2026-11-17T00:00:00.000Z'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/reading-guide`,
       lastModified: programPagesUpdated,
       changeFrequency: 'weekly',
